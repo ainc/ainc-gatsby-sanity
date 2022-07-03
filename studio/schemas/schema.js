@@ -9,6 +9,7 @@ import category from './documents/category'
 import person from './documents/person'
 import sampleProject from './documents/sampleProject'
 import siteSettings from './documents/siteSettings'
+import bootcampAlumni from './documents/bootcampAlumni'
 
 // Object types
 import bioPortableText from './objects/bioPortableText'
@@ -20,7 +21,7 @@ import simplePortableText from './objects/simplePortableText'
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
-  name: 'portfolio',
+  name: 'ainc',
   // Then proceed to concatenate our our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
@@ -36,6 +37,7 @@ export default createSchema({
     category,
     person,
     sampleProject,
-    siteSettings
+    siteSettings,
+    bootcampAlumni,
   ])
 })
