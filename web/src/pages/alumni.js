@@ -40,12 +40,12 @@ const IndexPage = props => {
     <Layout>
       <Container>
         <React.Fragment>
-          {data.map((node) => (
+          {/* {data.map((node) => (
             <React.Fragment>
               <p>node.name</p>
               <p>node.class</p>
             </React.Fragment>
-          ))}
+          ))} */}
         </React.Fragment>
       </Container>
     </Layout>
