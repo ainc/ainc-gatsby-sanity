@@ -1,0 +1,61 @@
+.container {
+  padding-top: 50px;
+}
+
+.icon {
+  max-width: 50%;
+}
+
+.header {
+  padding: 20px 0;
+  font-weight: 900;
+  font-size: 25px;
+}
+
+.info {
+  font-size: 13px;
+  padding: 5px 0;
+}
+
+.price {
+  margin-top: 25px;
+  border: #a21b22;
+  max-width: 200px;
+  font-size: 13px;
+  line-height: 150%;
+}
+
+.price:hover{
+  color: #000;
+  background-color: #C12029;
+  transition: 0.5s;
+}
+
+.price:focus {
+  color: rgb(53, 53, 53);
+  background-color: #c12029;
+  transition: 0.5s;
+  border: #c12029;
+  outline: none;
+  box-shadow: none;
+}
+
+
+
+@media (max-width: 992px) {
+  .icon {
+    max-width: 100%;
+  }
+  
+  .price {
+    margin-bottom: 60px;
+  }
+}
+@media (max-width: 769px) {
+  .icon {
+    max-width: 50%;
+  }
+  .price {
+    margin-bottom: 60px;
+  }
+}

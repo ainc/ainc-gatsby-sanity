@@ -1,0 +1,259 @@
+/* The current font import for Open Sans doesn't support font-weight of 900 for heading-workspace so I imported this to enable the weight */
+
+/* The SeeTheSpace component in workspace page, relies on some of these classes. seeTheSpace, container, spaceSection, lgxVideoArea, videoThumbnail, videoArrow, videoFilter, playIcon, tourBtn, & tourIcon. If any of these classes are renamed, just be aware that they will need to be renamed as well in the component. */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic);
+
+body {
+  color: #323333;
+}
+
+.header-workspace {
+  font-family: "Open Sans", sans-serif;
+  background-image: url(../../images/ainc-workspace-header-3.png);
+  background-size: cover;
+  background-position-y: 110%;
+  background-position-x: center;
+  margin: auto;
+  height: 90vh;
+  background-repeat: no-repeat;
+  color: #323333;
+}
+
+
+section .header-workspace {
+  background-position-x: 75%;
+  height: 75vh;
+}
+
+.lgx-heading-area {
+  margin-top: 20vh;
+}
+
+.lgx-heading {
+  text-align: center;
+  margin-bottom: 6.3rem;
+}
+
+.heading-title {
+  font-size: 39px;
+  line-height: 5.85rem;
+  font-weight: 900;
+  margin-top: 0;
+  margin-bottom: -10px;
+  text-transform: uppercase;
+}
+
+.extra-bold {
+  font-weight: 900;
+}
+
+.heading-subtitle {
+  font-size: 17px;
+  line-height: 25.5px;
+  font-weight: 400;
+  font-style: italic;
+  color: #fff;
+}
+
+.see-the-space {
+  font-size: 32px;
+  text-transform: uppercase;
+  /* float: right; */
+  font-weight: 900;
+  color: #323333;
+  line-height: 48px;
+  margin-top: 0px;
+}
+
+.spotlight-adult {
+  position: relative;
+  padding-top: 20px;
+  text-align: center;
+  padding-bottom: 100px;
+}
+
+.spotlight-adult .lgx-inner {
+  padding-top: 0;
+  padding-bottom: 42px;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.space-section {
+  width: 33.33333%;
+}
+
+.lgx-video-area {
+  padding: 0;
+}
+
+.video-thumbnail {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  /* margin: auto */
+}
+
+.video-filter {
+  filter: opacity(0.5);
+  max-width: 100%;
+  height: auto;
+  /* margin: auto; */
+}
+
+.play-icon {
+  cursor: pointer;
+  position: absolute;
+  text-align: center;
+  background: #323232;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  font-size: 42px;
+  line-height: 100px;
+  padding-left: 10px;
+  color: white;
+  z-index: 99;
+  -moz-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.video-arrow {
+  position: absolute;
+  width: 60%;
+  top: 25%;
+  left: -50%;
+}
+
+.tour-btn {
+  position: absolute;
+  width: 40%;
+  top: -50%;
+  right: -45%;
+  -webkit-filter: invert(100);
+  filter: invert(100);
+  margin: 30px;
+}
+
+.play-icon:hover {
+  background-color: #a21b22;
+}
+
+.tour-icon {
+  max-width: 100%;
+}
+
+.member {
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #d1d2d4;
+  padding-top: 30px;
+  padding-bottom: 40px;
+}
+
+.lock-icon {
+  width: 27%;
+}
+
+.amenities {
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.line-height {
+  line-height: 3rem;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.btn-custom {
+  margin-top: 25px;
+  border: #a21b22;
+  max-width: 100%;
+}
+
+.btn-custom:hover {
+  color: #000;
+  background-color: #c12029;
+  transition: 0.5s;
+  border: #c12029;
+}
+.btn-custom:focus {
+  color: rgb(53, 53, 53);
+  background-color: #c12029;
+  transition: 0.5s;
+  border: #c12029;
+  outline: none;
+  box-shadow: none;
+}
+
+
+@media (max-width: 768px) {
+  .video-arrow {
+    width: 50%;
+    top: 60%;
+    left: -30%;
+  }
+
+  .tour-btn {
+    width: 60%;
+    top: -90%;
+    right: -70%;
+  }
+
+  .lgx-video-area {
+    width: 25vh;
+  }
+}
+
+@media (min-width: 769px) {
+  .video-arrow {
+    width: 60%;
+    top: 20%;
+    left: -50%;
+  }
+}
+
+@media (max-width: 576px) {
+  .video-arrow {
+    width: 40%;
+    top: 60%;
+    left: -30%;
+  }
+
+  .tour-btn {
+    width: 40%;
+    top: -75%;
+    right: -45%;
+  }
+
+  .lgx-video-area {
+    width: 25vh;
+  }
+  .lock-icon {
+    width: 35%;
+  }
+  .see-the-space {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 992px) {
+  .lock-icon {
+    width: 40%;
+  }
+}

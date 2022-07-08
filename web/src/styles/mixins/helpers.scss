@@ -1,0 +1,19 @@
+@mixin transition-duration($duration: 0.2s) {
+  -moz-transition-duration: $duration;
+  -webkit-transition-duration: $duration;
+  -o-transition-duration: $duration;
+  transition-duration: $duration;
+}
+@mixin transform($arguments...) {
+  -webkit-transform: $arguments;
+  -moz-transform: $arguments;
+  -o-transform: $arguments;
+  -ms-transform: $arguments;
+  transform: $arguments;
+}
+@mixin rotation($deg:5deg) {
+  @include transform(rotate($deg));
+}
+@mixin scale($ratio:1.5) {
+  @include transform(scale($ratio));
+}

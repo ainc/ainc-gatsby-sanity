@@ -1,0 +1,45 @@
+// -----------------------------------------------------------------------------
+@import "variables";
+@import "mixins"; 
+// -----------------------------------------------------------------------------
+
+body {
+  background: $body-bg;
+  font-family:$base-font;
+  @include font-size($font-size-base);
+  padding: 0;
+  margin: 0;
+  color: #323232;
+}
+
+p {
+  @include font-size($font-size-text);
+}
+
+.btn-primary {
+  font-family: $heading-font;
+  font-weight: 600;
+  letter-spacing: 3px;
+  background: $brand-color;
+  padding: 0.5rem 2rem;
+  color: $white-color;
+  overflow: hidden;
+  display: inline-block;
+  text-transform: uppercase;
+  @include font-size(12);
+  border: 2px solid $brand-color;
+  border-radius: 4px;
+  position: relative;
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+  }
+  &:hover {
+    color: $brand-color2;
+  }
+}
+
+a {
+  font-weight: 400;
+}

@@ -1,0 +1,7 @@
+.header-background-align-right {
+  margin-right: 0;
+  background-image: url('../../images/oreo-trail.png');
+  background-position: right 25%;
+  background-size: 42%;
+  background-repeat: no-repeat;
+}
