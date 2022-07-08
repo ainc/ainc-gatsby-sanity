@@ -1,15 +1,21 @@
 import { MdPerson } from "react-icons/md";
 
 export default {
-  name: 'person',
+  name: 'teamMember',
   type: 'document',
-  title: 'Person',
+  title: 'Team Members',
   icon: MdPerson,
   fields: [
     {
       name: 'name',
       type: 'string',
-      title: 'Name'
+      title: 'Full Name'
+      
+    },
+    {
+      name: 'picture',
+      type: 'image',
+      title: 'Picture'
     },
     {
       name: 'slug',
@@ -22,14 +28,9 @@ export default {
       }
     },
     {
-      name: 'image',
-      title: 'Image',
-      type: 'figure'
-    },
-    {
-      name: 'bio',
-      title: 'Bio',
-      type: 'bioPortableText'
+      name: 'teamInfo',
+      title: 'Team Member Info',
+      type: 'internalTeamMember'
     }
   ],
   preview: {

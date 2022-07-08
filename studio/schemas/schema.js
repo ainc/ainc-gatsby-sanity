@@ -4,19 +4,25 @@ import createSchema from 'part:@sanity/base/schema-creator'
 // Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
-// Document types
-import category from './documents/category'
-import person from './documents/person'
-import sampleProject from './documents/sampleProject'
-import siteSettings from './documents/siteSettings'
-import bootcampAlumni from './documents/bootcampAlumni'
-
 // Object types
 import bioPortableText from './objects/bioPortableText'
 import figure from './objects/figure'
 import projectMember from './objects/projectMember'
 import projectPortableText from './objects/projectPortableText'
 import simplePortableText from './objects/simplePortableText'
+import internalTeamMember from './objects/internalTeamMember'
+import imageLink from './objects/imageLink'
+import link from './objects/link'
+
+// Document types
+import category from './documents/category'
+import teamMember from './documents/teamMember'
+import sampleProject from './documents/sampleProject'
+import siteSettings from './documents/siteSettings'
+import bootcampAlumni from './documents/bootcampAlumni'
+import accomplishments from './documents/accomplishments'
+import footer from './documents/footer'
+
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -32,12 +38,17 @@ export default createSchema({
     projectMember,
     projectPortableText,
     simplePortableText,
+    internalTeamMember,
+    imageLink,
+    link,
     // The following are document types which will appear
     // in the studio.
     category,
-    person,
+    teamMember,
     sampleProject,
     siteSettings,
     bootcampAlumni,
+    accomplishments,
+    footer,
   ])
 })

@@ -1,28 +1,27 @@
 export default {
   type: 'object',
-  name: 'projectMember',
-  title: 'Project Member',
+  name: 'internalTeamMember',
+  title: 'Ainc Internal Team Member',
   fields: [
     {
-      title: 'Person',
-      name: 'teamMember',
-      type: 'reference',
-      to: {type: 'teamMember'}
-    },
-    {
-      title: 'Roles',
-      name: 'roles',
+      title: 'Team',
       type: 'array',
+      name: 'teams',
       of: [{type: 'string'}],
       options: {
-        layout: 'radio',
+        layout: 'checkbox',
         list: [
-          {title: 'Designer', value: 'designer'},
-          {title: 'Developer', value: 'developer'},
-          {title: 'Editor', value: 'editor'},
-          {title: 'Manager', value: 'manager'}
+          {title: 'Design', value: 'design'},
+          {title: 'Development', value: 'development'},
+          {title: 'Video', value: 'video'},
+          {title: 'Marketing', value: 'marketing'}
         ]
       }
+    },
+    {
+      title: 'Job Title',
+      name: 'title',
+      type: 'string'
     }
   ],
   preview: {
