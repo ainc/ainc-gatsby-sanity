@@ -46,7 +46,7 @@ const IndexPage = props => {
     <Layout>
       <SEO title="" description="" keywords="" />
       <Container>
-        <h1 hidden>Welcome to Awesome Inc</h1>
+        <h1 hidden>Welcome to Awesome Inc U</h1>
         
       </Container>
     </Layout>
