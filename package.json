@@ -15,5 +15,8 @@
   },
   "devDependencies": {
     "lerna": "^4.0.0"
+  },
+  "dependencies": {
+    "svgo": "^2.8.0"
   }
 }
