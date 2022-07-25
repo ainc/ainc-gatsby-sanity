@@ -13,6 +13,7 @@ import simplePortableText from './objects/simplePortableText'
 import internalTeamMember from './objects/internalTeamMember'
 import imageLink from './objects/imageLink'
 import link from './objects/link'
+import sliderImage from './objects/sliderImage'
 
 // Document types
 import category from './documents/category'
@@ -22,6 +23,7 @@ import siteSettings from './documents/siteSettings'
 import bootcampAlumni from './documents/bootcampAlumni'
 import accomplishments from './documents/accomplishments'
 import footer from './documents/footer'
+import imageSlider from './documents/imageSlider'
 
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -41,6 +43,7 @@ export default createSchema({
     internalTeamMember,
     imageLink,
     link,
+    sliderImage,
     // The following are document types which will appear
     // in the studio.
     category,
@@ -50,5 +53,6 @@ export default createSchema({
     bootcampAlumni,
     accomplishments,
     footer,
+    imageSlider
   ])
 })

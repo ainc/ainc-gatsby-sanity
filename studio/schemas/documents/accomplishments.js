@@ -2,7 +2,20 @@ export default {
   name: 'accomplishments',
   type: 'document',
   title: 'Accomplishments',
+  __experimental_actions: [
+    'create',
+    'update',
+    // 'delete',
+    'publish'
+  ],
   fields: [
+    {
+      name: 'title',
+      type: 'string',
+      title: 'Title',
+      initialValue: 'Accomplishments Header',
+      hidden: true
+    },
     {
       name: 'header',
       type: 'string',

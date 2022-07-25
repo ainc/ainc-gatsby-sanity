@@ -7,9 +7,12 @@ import {
 } from "../lib/helpers";
 import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
-import ProjectPreviewGrid from "../components/project-preview-grid";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
+import HomepageSlider from '../components/HomepageSlider/HomepageSlider'
+import BrandButton from '../components/UI/BrandButton/BrandButton'
+import Title from "../components/UI/Title/Title";
+import Subtitle from "../components/UI/Subtitle/Subtitle";
 
 export const query = graphql`
 query IndexPageQuery {
@@ -45,10 +48,20 @@ const IndexPage = props => {
   return (
     <Layout>
       <SEO title="" description="" keywords="" />
-      <Container>
-        <h1 hidden>Welcome to Awesome Inc U</h1>
-        
-      </Container>
+      <HomepageSlider />
+
+      {/* CORE VALUES */}
+      <section id="core-values">
+        <div id="lgx-core-values" class="lgx-video-background">
+          <Container>
+            <Title class="text-uppercase">Our Core Values</Title>
+            <div class="lgx-video-banner-info">
+              <p class="text">Here at Awesome Inc we not only work by our core values, but live by them too.</p>
+            </div>
+          </Container>
+                
+        </div>
+      </section>
     </Layout>
   );
 };
