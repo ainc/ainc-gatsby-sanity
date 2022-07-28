@@ -34,3 +34,33 @@
     border-left: 2px $brand-color solid;
   }
 }
+
+.parallax {
+  background-attachment: fixed;
+}
+
+.bg-filter-mute {
+  overflow: auto;
+  position: relative;
+  &:before {
+    content: "";
+    position: fixed;
+    top: -5%;
+    right: -5%;
+    left: -5%;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+  }
+}
+// .bg-filter-mute::before{
+//   content: "";
+//   background: rgba(147, 147, 147, 0.65)
+// }

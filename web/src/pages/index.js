@@ -5,7 +5,7 @@ import {
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
 } from "../lib/helpers";
-import Container from "../components/container";
+import { Container, Row, Col, Image } from "react-bootstrap";
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
@@ -13,6 +13,10 @@ import HomepageSlider from '../components/HomepageSlider/HomepageSlider'
 import BrandButton from '../components/UI/BrandButton/BrandButton'
 import Title from "../components/UI/Title/Title";
 import Subtitle from "../components/UI/Subtitle/Subtitle";
+
+// Images
+import core_values from "../images/core-values.png";
+import workspace_hero from "../images/ainc-workspace-hero.jpeg";
 
 export const query = graphql`
 query IndexPageQuery {
@@ -52,14 +56,21 @@ const IndexPage = props => {
 
       {/* CORE VALUES */}
       <section id="core-values">
-        <div id="lgx-core-values" class="lgx-video-background">
-          <Container>
-            <Title class="text-uppercase">Our Core Values</Title>
-            <div class="lgx-video-banner-info">
-              <p class="text">Here at Awesome Inc we not only work by our core values, but live by them too.</p>
-            </div>
-          </Container>
-                
+        <div 
+          class="parallax bg-filter-mute" 
+          style={{ backgroundImage: `url(${workspace_hero})`, backgroundPosition: `0 50%`, minHeight: `500px` }}>
+          <div id="lgx-core-values" class="lgx-video-background">
+            <Container>
+              
+                <Title class="text-uppercase white">Our Core Values</Title>
+                <p class="text-white">
+                  Here at Awesome Inc we not only work by our core values, but live by them too.
+                </p>
+              
+              
+            </Container>
+                  
+          </div>
         </div>
       </section>
     </Layout>
