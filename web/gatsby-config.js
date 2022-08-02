@@ -32,9 +32,19 @@ module.exports = {
         path: `${__dirname}/src/images`,
       }
     },
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://anchor.fm/s/81dfae4/podcast/rss`,
+        name: `AnchorPodcast`,
+        // Optional
+        // Read parser document: https://github.com/bobby-brennan/rss-parser#readme
+      }
+    },
   ],
   siteMetadata: {
     title: "Awesome Inc",
-    description: "Awesome Inc website"
+    description: "Awesome Inc website",
+    siteUrl: "https://awesomeinc.org",
   }
 }
