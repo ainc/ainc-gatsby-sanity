@@ -4,44 +4,16 @@ const {isFuture,parseISO} = require('date-fns')
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
-async function createProjectPages (graphql, actions) {
-  const {createPage} = actions
-  const result = await graphql(`
-    {
-      allSanitySampleProject(filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}) {
-        edges {
-          node {
-            id
-            publishedAt
-            slug {
-              current
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  if (result.errors) throw result.errors
-
-  // const projectEdges = (result.data.allSanitySampleProject || {}).edges || []
-
-  // projectEdges
-  //   .filter(edge => !isFuture(parseISO(edge.node.publishedAt)))
-  //   .forEach(edge => {
-  //     const id = edge.node.id
-  //     const slug = edge.node.slug.current
-  //     const path = `/project/${slug}/`
-
-  //     createPage({
-  //       path,
-  //       component: require.resolve('./src/templates/project.js'),
-  //       context: {id}
-  //     })
-  //   })
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = createFilePath({ node, getNode })
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    })
+  }
 }
-
-// exports.createPages = async ({graphql, actions}) => {
-//   await createProjectPages(graphql, actions)
-// }
