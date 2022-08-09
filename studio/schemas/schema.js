@@ -21,10 +21,11 @@ import teamMember from './documents/teamMember'
 import sampleProject from './documents/sampleProject'
 import siteSettings from './documents/siteSettings'
 import bootcampAlumni from './documents/bootcampAlumni'
+import events from './documents/events'
 import accomplishments from './documents/accomplishments'
 import footer from './documents/footer'
 import imageSlider from './documents/imageSlider'
-
+import blog from './documents/blog'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -50,8 +51,10 @@ export default createSchema({
     teamMember,
     sampleProject,
     siteSettings,
+    blog,
     bootcampAlumni,
     accomplishments,
+    events,
     footer,
     imageSlider
   ])

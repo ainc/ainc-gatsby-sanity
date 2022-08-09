@@ -20,7 +20,7 @@
     "svgo": "^2.8.0"
   },
   "workspaces": [
-    "web", 
+    "web",
     "studio"
   ]
 }
