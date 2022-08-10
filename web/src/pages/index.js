@@ -58,7 +58,7 @@ const IndexPage = props => {
       <section id="core-values">
         <div 
           class="parallax bg-filter-mute" 
-          style={{ backgroundImage: `url(${workspace_hero})`, backgroundPosition: `0 50%`, minHeight: `500px` }}>
+          style={{ backgroundPosition: `0 50%`, minHeight: `500px` }}>
           <div id="lgx-core-values" class="lgx-video-background">
             <Container>
               

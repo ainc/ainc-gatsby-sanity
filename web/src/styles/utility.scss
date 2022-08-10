@@ -39,25 +39,25 @@
   background-attachment: fixed;
 }
 
+$bg-filter-blur: blur(2px) grayscale(0.3);
 .bg-filter-mute {
+  background-image: url('/static/ainc-workspace-hero-dee943c5bfd8067ac48fc51ad5d8a893.jpeg');
+  background-size: cover;
   overflow: auto;
   position: relative;
+  z-index: -2;
   &:before {
     content: "";
-    position: fixed;
-    top: -5%;
-    right: -5%;
-    left: -5%;
-    z-index: -1;
-    width: 100%;
+    position: absolute;
+    width : 100%;
     height: 100%;
-
-    display: block;
-    -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
-    filter: blur(5px);
+    background: inherit;
+    z-index: -1;
+    
+    filter        : $bg-filter-blur;
+    -moz-filter   : $bg-filter-blur;
+    -webkit-filter: $bg-filter-blur;
+    -o-filter     : $bg-filter-blur;
   }
 }
 // .bg-filter-mute::before{
