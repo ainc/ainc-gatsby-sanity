@@ -4,6 +4,7 @@
     "name": "Ainc Sanity Gatsby"
   },
   "api": {
+    "projectId": "y716vocf",
     "dataset": "production"
   },
   "plugins": [
