@@ -13,6 +13,7 @@ import HomepageSlider from '../components/HomepageSlider/HomepageSlider'
 import BrandButton from '../components/UI/BrandButton/BrandButton'
 import Title from "../components/UI/Title/Title";
 import Subtitle from "../components/UI/Subtitle/Subtitle";
+import BackgroundCard from "../components/BackgroundCard/BackgroundCard";
 
 // Images
 import core_values from "../images/core-values.png";
@@ -54,19 +55,67 @@ const IndexPage = props => {
       <SEO title="" description="" keywords="" />
       <HomepageSlider />
 
+      {/* FOUR INITIATIVES */}
+      <section id="initiatives">
+        <Container className="my-5">
+          <Row>
+            <Col xs={12} sm={{ span: 10, offset: 1}} >
+              <Row>
+                <Col md={3}>
+                  <BackgroundCard 
+                    title="Learn to Code"
+                    text="Everybody can and should learn to code, start today."
+                    backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
+                    imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
+                    link="/learn"
+                  />
+                </Col>
+                <Col md={3}>
+                  <BackgroundCard 
+                    title="Rent Workspace"
+                    text="Rent a desk or space for events, meetings, and more."
+                    backgroundImage="https://www.awesomeinc.org/images/awesome-inc-space-panel.jpg"
+                    imgSrc="https://d33wubrfki0l68.cloudfront.net/13acb6f3560e894a9e0eecc194c96f778fba858f/f6fb2/images/icons/rent-workspace.png"
+                    link="/workspace"
+                  />
+                </Col>
+                <Col md={3}>
+                  <BackgroundCard 
+                    title="Accelerate your startup"
+                    text="We will help grow your business with a mentor-driven, accelerator program."
+                    backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
+                    imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
+                    link="/learn"
+                  />
+                </Col>
+                <Col md={3}>
+                  <BackgroundCard 
+                    title="Software Development"
+                    text="Let us create custom software for your business."
+                    backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
+                    imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
+                    link="/learn"
+                  />
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+          <Title></Title>
+        </Container>
+      </section>
+
       {/* CORE VALUES */}
       <section id="core-values">
         <div 
           class="parallax bg-filter-mute" 
           style={{ backgroundPosition: `0 50%`, minHeight: `500px` }}>
           <div id="lgx-core-values" class="lgx-video-background">
-            <Container>
+            <Container className="mt-5">
               
-                <Title class="text-uppercase white">Our Core Values</Title>
-                <p class="text-white">
+                <Title className="text-uppercase white">Our Core Values</Title>
+                <p className="text-white">
                   Here at Awesome Inc we not only work by our core values, but live by them too.
                 </p>
-              
               
             </Container>
                   
