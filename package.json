@@ -17,10 +17,11 @@
     "lerna": "^4.0.0"
   },
   "dependencies": {
+    "gatsby-source-rss-feed": "^1.2.2",
     "svgo": "^2.8.0"
   },
   "workspaces": [
-    "web", 
+    "web",
     "studio"
   ]
 }
