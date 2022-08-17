@@ -14,6 +14,7 @@ import BrandButton from '../components/UI/BrandButton/BrandButton'
 import Title from "../components/UI/Title/Title";
 import Subtitle from "../components/UI/Subtitle/Subtitle";
 import BackgroundCard from "../components/BackgroundCard/BackgroundCard";
+import CoreValue from "../components/CustomCode/CoreValue/CoreValue"
 
 // Images
 import core_values from "../images/core-values.png";
@@ -111,14 +112,16 @@ const IndexPage = props => {
           style={{ backgroundPosition: `0 50%`, minHeight: `500px` }}>
           <div id="lgx-core-values" class="lgx-video-background">
             <Container className="mt-5">
-              
+              <Row>
                 <Title className="text-uppercase white">Our Core Values</Title>
                 <p className="text-white">
                   Here at Awesome Inc we not only work by our core values, but live by them too.
                 </p>
-              
+              </Row>
+              <Row>
+                <CoreValue />
+              </Row>
             </Container>
-                  
           </div>
         </div>
       </section>
