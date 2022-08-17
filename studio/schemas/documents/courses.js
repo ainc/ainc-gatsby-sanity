@@ -21,9 +21,9 @@ export default {
             validation: Rule => Rule.required()
         },
         {
-            name: 'courseImage',
+            name: 'picture',
             type: 'image',
-            title: 'Course'
+            title: 'Course Picture'
         },
         {
             name: 'courseLink',

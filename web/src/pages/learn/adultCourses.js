@@ -6,14 +6,15 @@ import Layout from '../../components/Layout/Layout'
 import * as styles from "./courses.module.css";
 import Title from '../../components/UI/Title/Title'
 import { Container, Row, Col } from 'react-bootstrap'
+import { GatsbyImage } from "gatsby-plugin-image";
 
 export const query = graphql` 
 query CoursesPageQuery {
     allSanityCourses {
       nodes {
-        courseImage {
+        picture {
           asset {
-            gatsbyImageData(width: 1, aspectRatio: 1)
+            gatsbyImageData(layout: CONSTRAINED, width: 100, aspectRatio: 1)
           }
         }
         id
@@ -54,14 +55,14 @@ query CoursesPageQuery {
         </Container>
         <Container className={`${styles.flexContainer}`}>
             {adultCoursesNodes.map((node) => (
-                    <div className={styles.flexItem}>
+                    <div className={styles.flexItem} key={node.id}>
                         <Courses
                             startDate={node.startDate}
                             endDate={node.endDate}
                             schedule={node.schedule}
                             title={node.courseTitle}
                             courseSeason={node.courseSeason}
-                            image={node.courseImage.asset.gatsbyImageData}
+                            image={node.picture.asset.gatsbyImageData}
                             link={node.courseLink}
                             summary={node.topics}
                             technologies={node.technologies}
