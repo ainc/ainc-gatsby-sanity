@@ -14,7 +14,8 @@ import BrandButton from '../components/UI/BrandButton/BrandButton'
 import Title from "../components/UI/Title/Title";
 import Subtitle from "../components/UI/Subtitle/Subtitle";
 import BackgroundCard from "../components/BackgroundCard/BackgroundCard";
-import CoreValue from "../components/CustomCode/CoreValue/CoreValue"
+import CoreValue from "../components/CustomCode/CoreValue/CoreValue";
+import Event from "../components/Event/Event";
 
 // Images
 import core_values from "../images/core-values.png";
@@ -27,6 +28,22 @@ query IndexPageQuery {
     description
     keywords
   }
+  allSanityEvents(limit:4) {
+    edges {
+      node {
+        eventName
+        date(formatString: "MMMM D, YYYY")
+        linkToEvent
+        host
+        location
+        picture {
+          asset {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+  }
 }
 `;
 
@@ -34,6 +51,8 @@ const IndexPage = props => {
 
   
   const { data, errors } = props;
+
+  const events = (data.allSanityEvents.edges || {})
 
   if (errors) {
     return (
@@ -125,8 +144,72 @@ const IndexPage = props => {
           </div>
         </div>
       </section>
+      {/* EVENTS */}
+      <section id="events">
+        <Title className="my-5 text-uppercase text-center">Upcoming Events</Title>
+        <Container>
+          <Row>
+            {data.allSanityEvents.edges.map((edge) => (
+              <Col>
+                <Event
+                image={
+                  edge.node.picture.asset.gatsbyImageData
+                }
+                date={edge.node.date}
+                host={edge.node.host}
+                location={edge.node.location}
+                link={edge.node.linkToEvent}
+                name={edge.node.eventName}
+                />
+              </Col>
+            ))}
+            
+          </Row>
+          <Row>
+            <Col className="d-flex justify-content-center my-5">
+              <a href="#">
+                <BrandButton href="/events">View Events</BrandButton>
+              </a>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* COURSES */}
+      <section id="courses" style={{backgroundColor: "#323232"}}>
+        <Title className="pt-5 mb-3 text-uppercase text-center white">Coding Courses</Title>
+        <p className="mb-5 text-uppercase text-center text-white">Made for any level</p>
+        <Container>
+          <Row>
+            {data.allSanityEvents.edges.map((edge) => (
+              <Col>
+                <Event
+                image={
+                  edge.node.picture.asset.gatsbyImageData
+                }
+                date={edge.node.date}
+                host={edge.node.host}
+                location={edge.node.location}
+                link={edge.node.linkToEvent}
+                name={edge.node.eventName}
+                />
+              </Col>
+            ))}
+            
+          </Row>
+          <Row>
+            <Col className="d-flex justify-content-center my-5">
+              <a href="#">
+                <BrandButton href="/events">View Events</BrandButton>
+              </a>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
     </Layout>
   );
 };
+
 
 export default IndexPage;
