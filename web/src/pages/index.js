@@ -5,7 +5,7 @@ import {
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
 } from "../lib/helpers";
-import { Container, Row, Col, Image } from "react-bootstrap";
+import { Container, Row, Col, Image, Badge, Card } from "react-bootstrap";
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
@@ -16,10 +16,19 @@ import Subtitle from "../components/UI/Subtitle/Subtitle";
 import BackgroundCard from "../components/BackgroundCard/BackgroundCard";
 import CoreValue from "../components/CustomCode/CoreValue/CoreValue";
 import Event from "../components/Event/Event";
+import NewsletterSection from "../components/Layout/Newsletter/Newsletter";
+import PodcastSection from "../components/Layout/Podcast/Podcast";
 
 // Images
 import core_values from "../images/core-values.png";
 import workspace_hero from "../images/ainc-workspace-hero.jpeg";
+import pitch_your_idea from "../images/startups-pitch.png";
+import accelerate_your_startup from "../images/accelerate-your-startup.png";
+import showcase_ky_entrep from "../images/startups-showcase.png";
+import desk_background from "../images/workspace-desk-bg-red.png";
+import mobile_apps_icon from "../images/development-apps-websites.png"
+import software_consulting_icon from "../images/development-consulting.png"
+import graphic_design_icon from "../images/development-design.png"
 
 export const query = graphql`
 query IndexPageQuery {
@@ -120,7 +129,15 @@ const IndexPage = props => {
               </Row>
             </Col>
           </Row>
-          <Title></Title>
+          <Row>
+            <Col xs={12} sm={{span: 8, offset: 2}}>
+              <Title className="mt-5 text-center text-uppercase">Welcome to Awesome Inc</Title>
+              <p className="mt-3 mb-5 text-center">Pursue your Definition of Awesome</p>
+              <p className="mt-3 text-center">We exist to create and grow high tech startups. We do this by hosting community events, leading technology education courses, and offering a shared workspace environment. Click one of our initiatives above to learn more about Awesome Inc.</p>
+              <a href="#"><BrandButton className="secondary d-block mx-auto">Learn More</BrandButton></a>
+            </Col>
+          </Row>
+          
         </Container>
       </section>
 
@@ -200,12 +217,115 @@ const IndexPage = props => {
           <Row>
             <Col className="d-flex justify-content-center my-5">
               <a href="#">
-                <BrandButton href="/events">View Events</BrandButton>
+                <BrandButton href="/events">View Courses</BrandButton>
               </a>
             </Col>
           </Row>
         </Container>
       </section>
+
+      {/* STARTUPS */}
+      <section id="startups">
+        <Title className="pt-5 mb-3 text-uppercase text-center">Startups</Title>
+        <Subtitle className="mb-5 text-uppercase text-center">Join Our Program</Subtitle>
+        <Container>
+          <Row>
+            <Col>
+              <div className="h-100 my-5">
+                <img className="d-block mx-auto" src={pitch_your_idea} alt="Pitch your idea icon" />
+                <Subtitle className="text-center brand fw-bold">Pitch Your Idea</Subtitle>
+                <p className="text-center">We offer outlets for your idea to be heard. Share your idea with us or learn more about events that promote entrepreneurship.</p>
+              </div>
+              
+            </Col>
+            <Col>
+              <div className="h-100 my-5">
+                <img className="d-block mx-auto" src={accelerate_your_startup} alt="accelerate your startup icon" />
+                <Subtitle className="text-center brand fw-bold">Accelerate Your Startup</Subtitle>
+                <p className="text-center">Our Fellowship Program is mentor-driven, designed to accelerate your high-tech startup. Learn about the Fellowship Program as well as our other programs designed to foster your startup's growth.</p>
+              </div>
+            </Col>
+            <Col>
+              <div className="h-100 my-5">
+                <img className="d-block mx-auto" src={showcase_ky_entrep} alt="showcasing kentucky entrepreneurs icon" />
+                <Subtitle className="text-center brand fw-bold">Showcasing Kentucky Entrepreneurs</Subtitle>
+                <p className="text-center">Discover the impact that Entrepreneurship has made in the Commonwealth.</p>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* WORKSPACE */}
+      <section id="workspace" style={{backgroundColor: `#D1D1D1`}}>
+        <Title className="pt-5 mb-3 text-uppercase text-center">Workspace</Title>
+        <Subtitle className="mb-5 text-uppercase text-center">Join Our Workspace</Subtitle>
+        <Container>
+          <div style={{backgroundImage: `url(${desk_background})`, backgroundRepeat: `no-repeat`, backgroundSize: `35%`, backgroundPosition: `50% 50%`, padding: `5rem 0`}}>
+            <Row>
+              <Col xs={12} sm={6}>
+                <div className="d-flex justify-content-center">
+                  <a href="#">
+                    <Card className="card--equal-width bg--dark-grey p-4 mb-5">
+                      <Subtitle className="fw-bold text-center text-white">Functional Workspace</Subtitle>
+                      <p className="text-center text-white fw-bolder">An awesome space to work or host your next meeting.</p>
+                    </Card>
+                  </a>
+                </div>
+              </Col>
+              <Col xs={12} sm={6}>
+                <div className="d-flex justify-content-center mt-5 pt-5">
+                  <a href="#">
+                    <Card className="card--equal-width bg--dark-grey p-4">
+                      <Subtitle className="fw-bold text-center text-white">Membership Benefits</Subtitle>
+                      <p className="text-center text-white fw-bolder">Flexible membership options and features to support your business operations.</p>
+                    </Card>
+                  </a>
+                </div>    
+              </Col>
+            </Row>
+          </div>
+        </Container>
+      </section>
+
+
+      {/* SOFTWARE DEVELOPMENT */}
+      {/* TODO: Fix icons to be 1:1 */}
+      <section id="software">
+        <Title className="pt-5 mb-3 text-uppercase text-center">Software Development</Title>
+        <Subtitle className="mb-5 text-uppercase text-center fw-bolder">Let us create custom software for your business</Subtitle>
+        <Container>
+          <Row>
+            <Col>
+              <div className="h-100 my-5">
+                <img className="d-block mx-auto w-50" src={mobile_apps_icon} alt="Mobile apps and websites" />
+                <Subtitle className="text-center fw-bolder mt-5 mb-3">Mobile Apps + Websites</Subtitle>
+                <p className="text-center">Our expert team of web developers build websites and mobile applications that are fast, secure, and easy to maintain.</p>
+              </div>
+            </Col>
+            <Col>
+              <div className="h-100 my-5">
+                <img className="d-block mx-auto w-50" src={software_consulting_icon} alt="accelerate your startup icon" />
+                <Subtitle className="text-center fw-bolder mt-5 mb-3">Software Consulting</Subtitle>
+                <p className="text-center">We make clients part of our streamlined process by facilitating reviews and planning sessions during all parts of the development cycle.</p>
+              </div>
+            </Col>
+            <Col>
+              <div className="h-100 my-5">
+                <img className="d-block mx-auto w-50" src={graphic_design_icon} alt="showcasing kentucky entrepreneurs icon" />
+                <Subtitle className="text-center fw-bolder mt-5 mb-3">Graphic Design</Subtitle>
+                <p className="text-center">Our UI/UX design services transform your project, increasing user satisfaction, reducing development costs, and delivering a high ROI.</p>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* NEWSLETTER */}
+      <NewsletterSection />
+
+      {/* PODCAST */}
+      <PodcastSection />
 
     </Layout>
   );
