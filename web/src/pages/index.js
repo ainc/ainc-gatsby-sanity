@@ -21,6 +21,9 @@ import PodcastSection from "../components/Layout/Podcast/Podcast";
 import FeatureCard from "../components/FeatureCard/FeatureCard";
 import HorizontalCard from "../components/HorizontalCard/HorizontalCard";
 
+// Custom functions
+import { getCurrentDate } from "../../utilities";
+
 // Images
 import core_values from "../images/core-values.png";
 import workspace_hero from "../images/ainc-workspace-hero.jpeg";
@@ -33,26 +36,35 @@ import software_consulting_icon from "../images/development-consulting.png"
 import graphic_design_icon from "../images/development-design.png"
 
 export const query = graphql`
-query IndexPageQuery {
-  site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-    title
-    description
-    keywords
+query IndexPageQuery($currentDate: Date!) {
+  sanityEvents(featured: {eq: true}, date: {gte: $currentDate}) {
+    id
+    featured
+    eventName
+    date
+    picture {
+      asset {
+        gatsbyImageData(width: 550, aspectRatio: 1.1)
+      }
+    }
+    location
+    linkToEvent
+    host
   }
-  allSanityEvents(limit:4) {
-    edges {
-      node {
-        eventName
-        date(formatString: "MMMM D, YYYY")
-        linkToEvent
-        host
-        location
-        picture {
-          asset {
-            gatsbyImageData
-          }
+  allSanityEvents(limit: 3, filter: {date: {gte: $currentDate}}) {
+    nodes {
+      id
+      featured
+      eventName
+      date
+      picture {
+        asset {
+          gatsbyImageData(width: 550, aspectRatio: 1.0)
         }
       }
+      location
+      linkToEvent
+      host
     }
   }
 }
@@ -60,24 +72,17 @@ query IndexPageQuery {
 
 const IndexPage = props => {
 
-  
   const { data, errors } = props;
 
-  const events = (data.allSanityEvents.edges || {})
+  const events = (data.allSanityEvents.nodes || {})
+
+  const feature_event = (data.sanityEvents || {})
 
   if (errors) {
     return (
       <Layout>
         <GraphQLErrorList errors={errors} />
       </Layout>
-    );
-  }
-
-  const site = (data || {}).site;
-
-  if (!site) {
-    throw new Error(
-      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
     );
   }
 
@@ -166,35 +171,31 @@ const IndexPage = props => {
       {/* EVENTS */}
       <section id="events">
         <Title className="my-5 text-uppercase text-center">Upcoming Events</Title>
-        <Container>
-          <Row>
-            <Col className="h-100">
+        <Container >
+          <Row className="card__featured_mosaic">
+            <Col className="card__featured">
               <FeatureCard 
-                title="Some event"
+                title={feature_event.eventName}
+                date={feature_event.date}
+                image={feature_event.picture.asset.gatsbyImageData}
+                host={feature_event.host}
+                location={feature_event.location}
+                link={feature_event.linkToEvent}
               />
             </Col>
-            <Col className="h-100">
-              <HorizontalCard 
-                title="Some other event"
-              />
-            </Col>
-          </Row>
-          <Row>
-            {data.allSanityEvents.edges.map((edge) => (
-              <Col>
-                <Event
-                image={
-                  edge.node.picture.asset.gatsbyImageData
-                }
-                date={edge.node.date}
-                host={edge.node.host}
-                location={edge.node.location}
-                link={edge.node.linkToEvent}
-                name={edge.node.eventName}
+            <Col className="card__secondary">
+              {events.map((node) => (
+                <HorizontalCard 
+                  className="mb-3"
+                  title={node.eventName}
+                  date={node.date}
+                  image={node.picture.asset.gatsbyImageData}
+                  host={node.host}
+                  location={node.location}
+                  link={node.linkToEvent}
                 />
-              </Col>
-            ))}
-            
+              ))}
+            </Col>
           </Row>
           <Row>
             <Col className="d-flex justify-content-center my-5">
@@ -212,20 +213,7 @@ const IndexPage = props => {
         <p className="mb-5 text-uppercase text-center text-white">Made for any level</p>
         <Container>
           <Row>
-            {data.allSanityEvents.edges.map((edge) => (
-              <Col>
-                <Event
-                image={
-                  edge.node.picture.asset.gatsbyImageData
-                }
-                date={edge.node.date}
-                host={edge.node.host}
-                location={edge.node.location}
-                link={edge.node.linkToEvent}
-                name={edge.node.eventName}
-                />
-              </Col>
-            ))}
+            
             
           </Row>
           <Row>

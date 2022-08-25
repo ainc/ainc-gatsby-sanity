@@ -36,6 +36,7 @@
     "gatsby-source-sanity": "^7.4.2",
     "hero-slider": "^2.0.3",
     "keen-slider": "^6.7.0",
+    "moment": "^2.29.4",
     "postcss": "^8.4.5",
     "react": "^17.0.2",
     "react-bootstrap": "^2.4.0",

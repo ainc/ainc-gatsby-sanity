@@ -46,3 +46,24 @@
   background: -moz-linear-gradient(bottom, rgba(255,0,0,0), #141823);
   background: linear-gradient(to bottom, rgba(255,0,0,0), #141823);
 }
+
+.card__featured_mosaic {
+  .card--gradient-bg, 
+  .card__img--overlay,
+  .card__featured > .card 
+  {
+    height: 100%;
+  }
+  .card__featured {
+    height: 600px;
+    @include screen-md {
+      height: 500px;
+    }
+  }
+  .card__secondary { 
+    .card-img {
+      height: 155px;
+      width: 155px;
+    }
+  }
+}
