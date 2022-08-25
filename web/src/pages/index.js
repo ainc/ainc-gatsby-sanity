@@ -18,6 +18,8 @@ import CoreValue from "../components/CustomCode/CoreValue/CoreValue";
 import Event from "../components/Event/Event";
 import NewsletterSection from "../components/Layout/Newsletter/Newsletter";
 import PodcastSection from "../components/Layout/Podcast/Podcast";
+import FeatureCard from "../components/FeatureCard/FeatureCard";
+import HorizontalCard from "../components/HorizontalCard/HorizontalCard";
 
 // Images
 import core_values from "../images/core-values.png";
@@ -165,6 +167,18 @@ const IndexPage = props => {
       <section id="events">
         <Title className="my-5 text-uppercase text-center">Upcoming Events</Title>
         <Container>
+          <Row>
+            <Col>
+              <FeatureCard 
+                title="Some event"
+              />
+            </Col>
+            <Col>
+              <HorizontalCard 
+                title="Some other event"
+              />
+            </Col>
+          </Row>
           <Row>
             {data.allSanityEvents.edges.map((edge) => (
               <Col>
