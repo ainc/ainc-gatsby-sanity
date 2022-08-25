@@ -11,7 +11,7 @@ import DateSquare from "../../components/DateSquare/DateSquare";
 const FeatureCard = (props) => {
   return (
     
-    <Card className="h-100">
+    <Card>
       <figure className={`card--gradient-bg position-relative m-0`}>
         <Card.Img src="https://via.placeholder.com/150x150" alt={props.title} className="p-4 card__img--overlay" />
         <a href="#">

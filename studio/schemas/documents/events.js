@@ -61,6 +61,13 @@ export default {
         //Closes menu after tag selected (defaults to true)
         closeMenuOnSelect: false
       }
+    },
+    {
+      title: 'Featured',
+      name: 'featured',
+      type: 'boolean',
+      description: 'Featured events will be displayed first',
+      initialValue: false
     }
   ],
   // (DONE)TODO: change the preview of date to MMMM D, YYYY | h:mma

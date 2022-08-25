@@ -168,12 +168,12 @@ const IndexPage = props => {
         <Title className="my-5 text-uppercase text-center">Upcoming Events</Title>
         <Container>
           <Row>
-            <Col>
+            <Col className="h-100">
               <FeatureCard 
                 title="Some event"
               />
             </Col>
-            <Col>
+            <Col className="h-100">
               <HorizontalCard 
                 title="Some other event"
               />
