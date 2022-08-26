@@ -66,8 +66,8 @@ const HomepageSlider = props => {
         height: "100vh"
       }}
     >
-      {slides.map((slide) => (
-        <OverlayContainer>
+      {slides.map((slide,i) => (
+        <OverlayContainer key={i}>
           <Slide
             background={{
               backgroundImage: slide.image.asset.url,

@@ -37,7 +37,7 @@ const FellowshipCompanyCard = (props) => {
 
                 <div className="text-end px-3 ">
                     <a href={props.url}>
-                        <i class={`link--bright-red text--red bi bi-arrow-right-square-fill fs-3`}></i>
+                        <i className={`link--bright-red text--red bi bi-arrow-right-square-fill fs-3`}></i>
                     </a>
                 </div>
             </Container>
