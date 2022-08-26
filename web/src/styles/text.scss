@@ -10,6 +10,17 @@
   color: white;
 }
 
+.text--red {
+  color: $brand-color;
+}
+
+.link--red:hover {
+  color: $brand-color;
+}
+
+.link--bright-red:hover {
+  color: $brand-red-bright
+
 .text--brand {
   color: $brand-color;
 }

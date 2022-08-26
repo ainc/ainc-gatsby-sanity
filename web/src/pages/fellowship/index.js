@@ -1,7 +1,8 @@
 import * as React from 'react'
 import Layout from '../../components/Layout/Layout'
+import { graphql, Link, Img } from 'gatsby'
 import { Container, Row, Col } from 'react-bootstrap'
-import { StaticImage } from 'gatsby-plugin-image'
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import PerksIcon from '/src/assets/svg/perks.svg'
 import PortfolioIcon from '/src/assets/svg/portfolio.svg'
 import MentorsIcon from '/src/assets/svg/mentors.svg'
@@ -9,7 +10,8 @@ import Title from '../../components/UI/Title/Title'
 import Subtitle from '../../components/UI/Subtitle/Subtitle'
 import BrandButton from "../../components/UI/BrandButton/BrandButton"
 import "../../styles/main.scss"
-
+import * as styles from './fellowship.module.scss'
+import * as footerStyles from '../../components/Footer/Footer.module.scss'
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
 
@@ -19,6 +21,8 @@ import { useKeenSlider } from 'keen-slider/react'
  */
 
 const FellowshipPage = ({ data }) => {
+
+  const FellowshipSponsers = (data.allSanityFellowshipSponsers.nodes || {})
 
   const [refCallback] = useKeenSlider(
     {
@@ -97,7 +101,9 @@ const FellowshipPage = ({ data }) => {
                 <Title className='text-center fs-3 mt-3'>Perks</Title>
               </Col>
               <Col xs={4} className='px-5'>
-                <PortfolioIcon />
+                <Link to="/fellowship/portfolio">
+                  <PortfolioIcon />
+                </Link>
                 <Title className='text-center fs-3 mt-3'>Portfolio</Title>
               </Col>
               <Col xs={4} className='px-5'>
@@ -165,9 +171,84 @@ const FellowshipPage = ({ data }) => {
           </Col>
         </Row>
       </Container>
-
+      
+      {/* Our Approach (What we provide) */}
+      <Container className="my-5">
+        <Row>
+          <Col className='col-md-auto mr-5'>
+            <Title className='text-center mb-4'>Our Approach</Title>
+            <StaticImage className={styles.img} src='../../images/approach.png'/>
+          </Col>
+          <Col className="d-flex align-items-center mx-5">
+            <Container>
+              <Row className='my-4'>
+                  <Title className="fs-5" style={{"letter-spacing": "0rem"}}>Our Fellowship program provides:</Title>
+              </Row>
+              <Row>
+                <Subtitle className="fs-6" style={{"letter-spacing": "0rem"}}>
+                <ul>
+                  <li className="my-2">Access to our network of over 85 mentors</li>
+                  <li className="my-2">Web development, video, and graphic design services</li>
+                  <li className="my-2">24/7 Access to Awesome Inc co-working space</li>
+                  <li className="my-2">Access to pro bono legal and accounting services</li>
+                </ul>
+                </Subtitle>
+              </Row>
+            </Container>
+          </Col>
+        </Row>
+        <Row className="mt-5">
+          <Col className="d-flex justify-content-center">
+            <BrandButton>Apply Now</BrandButton>
+          </Col>
+        </Row>
+      </Container>
+      
+      {/* Sponsors */}
+      <div className={`${footerStyles.footerBackground} text-center pt-5 pb-1`}>
+        <Col className="col-md-auto">
+        <Title className="text-center text--white mb-5">FELLOWSHIP SPONSORS</Title>
+          <Row className={`mx-auto col-sm-6`} style={{"letter-spacing": "0rem"}}> {/*Change the "col-sm-6" higher or lower to change total column width*/}
+            {FellowshipSponsers.map((node) => {
+              if ((node._rawSponserLogo) == null){
+                return(
+                  <Col xs="5" sm="3" className={`${styles.sponsor} text-center`}>
+                    <a href={node.sponserWebsite}>
+                      <div className='m-2'>
+                        <h4>{node.sponser}</h4>
+                      </div>
+                    </a>
+                  </Col>
+                )
+              }else{
+                return (
+                  <Col xs="5" sm="3" className={`${styles.sponsor} text-center`}>
+                    <a href={node.sponserWebsite}>
+                      <div className=''>
+                        <img src={node._rawSponserLogo.asset.url} className="img-fluid"/>
+                      </div>
+                    </a>
+                  </Col> 
+                ) 
+              }
+              })}
+          </Row>
+          </Col>
+      </div>
     </Layout>
   )
 }
+
+export const query_sponsers = graphql`
+query {
+  allSanityFellowshipSponsers {
+    nodes {
+      sponser
+      sponserWebsite
+      _rawSponserLogo(resolveReferences: {maxDepth: 10})
+    }
+  }
+}
+`
 
 export default FellowshipPage;
