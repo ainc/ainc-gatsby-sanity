@@ -23,7 +23,7 @@ const Title = styled.h1`
 
 const title = (props) => {
   return (
-    <Title {...props} > 
+    <Title {...props} >
       {props.children}
     </Title>
   )

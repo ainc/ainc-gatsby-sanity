@@ -1,3 +1,7 @@
+// -----------------------------------------------------------------------------
+@import "variables";
+@import "mixins"; 
+// -----------------------------------------------------------------------------
 
 .text-normal {
   text-transform: none !important;
@@ -39,7 +43,7 @@
   background-attachment: fixed;
 }
 
-$bg-filter-blur: blur(2px) grayscale(0.3);
+$bg-filter-blur: blur(2px) grayscale(0.8);
 .bg-filter-mute {
   background-image: url('/static/ainc-workspace-hero-dee943c5bfd8067ac48fc51ad5d8a893.jpeg');
   background-size: cover;
@@ -53,6 +57,7 @@ $bg-filter-blur: blur(2px) grayscale(0.3);
     height: 100%;
     background: inherit;
     z-index: -1;
+    background: rgba(150, 150, 150, 0.45);
     
     filter        : $bg-filter-blur;
     -moz-filter   : $bg-filter-blur;
@@ -60,7 +65,7 @@ $bg-filter-blur: blur(2px) grayscale(0.3);
     -o-filter     : $bg-filter-blur;
   }
 }
-// .bg-filter-mute::before{
-//   content: "";
-//   background: rgba(147, 147, 147, 0.65)
-// }
+
+.bg--dark-grey {
+  background-color: $brand-color2;
+}
