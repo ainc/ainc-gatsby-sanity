@@ -26,6 +26,7 @@ import accomplishments from './documents/accomplishments'
 import footer from './documents/footer'
 import imageSlider from './documents/imageSlider'
 import blog from './documents/blog'
+import courses from './documents/courses'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -56,6 +57,7 @@ export default createSchema({
     accomplishments,
     events,
     footer,
-    imageSlider
+    imageSlider,
+    courses,
   ])
 })

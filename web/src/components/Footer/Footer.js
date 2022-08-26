@@ -38,7 +38,7 @@ const Footer = props => {
         }
       }
     }
-  `);
+  `);  
 
   const footerData = (query.sanityFooter || {})
 

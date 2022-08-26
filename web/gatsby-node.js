@@ -49,47 +49,44 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
-async function createProjectPages (graphql, actions) {
-  const {createPage} = actions
-  const result = await graphql(`
-    {
-      allSanitySampleProject(filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}) {
-        edges {
-          node {
-            id
-            publishedAt
-            slug {
-              current
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  if (result.errors) throw result.errors
-
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = createFilePath({ node, getNode })
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    })
+  }
 }
-  
 
-  // const projectEdges = (result.data.allSanitySampleProject || {}).edges || []
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage, deletePage } = actions
+  deletePage(page)
+  createPage({
+    ...page,
+    context: {
+      ...page.context,
+      currentDate: getCurrentDate(),
+    },
+  })
+}
 
-  // projectEdges
-  //   .filter(edge => !isFuture(parseISO(edge.node.publishedAt)))
-  //   .forEach(edge => {
-  //     const id = edge.node.id
-  //     const slug = edge.node.slug.current
-  //     const path = `/project/${slug}/`
-
-  //     createPage({
-  //       path,
-  //       component: require.resolve('./src/templates/project.js'),
-  //       context: {id}
-  //     })
-  //   })
-
-
-// exports.createPages = async ({graphql, actions}) => {
-//   await createProjectPages(graphql, actions)
-// }
+/**
+ * Returns the current date in YYYY-MM-DD format
+ */
+function getCurrentDate() {
+  const d = new Date();
+  let month = (d.getMonth() + 1).toString();
+  if (month.length < 2) {
+    month = `0${month}`;
+  }
+  let day = d.getDate().toString();
+  if (day.length < 2) {
+    day = `0${day}`;
+  }
+  return `${d.getFullYear()}-${month}-${day}`;
+}
