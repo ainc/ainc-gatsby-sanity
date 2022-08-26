@@ -28,9 +28,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Create blog-list pages
   const posts = result.data.allFeedAnchorPodcast.nodes
   const postsPerPage = 10
-  // console.log(posts)
   const numPages = Math.ceil(posts.length / postsPerPage)
-  // console.log(numPages)
+  
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
       path: i === 0 ? `/podcast` : `/podcast/${i + 1}`,
@@ -49,7 +48,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
-const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions

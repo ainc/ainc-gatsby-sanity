@@ -5,7 +5,6 @@ import { Container, Row, Col } from 'react-bootstrap'
 import Title from '../../../components/UI/Title/Title'
 import BrandButton from "../../../components/UI/BrandButton/BrandButton"
 import "../../../styles/main.scss"
-import * as styles from "../portfolio/portfolio.module.scss";
 import FellowshipCompanyCard from '../../../components/FellowshipCompanyCard/FellowshipCompanyCard'
 
 const PortfolioPage = ({ data }) => {
