@@ -1,0 +1,335 @@
+// -----------------------------------------------------------------------------
+@import "../../../styles/variables";
+@import "../../../styles/mixins"; 
+// -----------------------------------------------------------------------------
+
+#home {
+  #lgx-main-slider {
+    .owl-item img {
+      height: 100vh;
+      -webkit-filter: brightness(80%) grayscale(20%);
+      filter: brightness(80%) grayscale(20%);
+    }
+  }
+}
+
+// Two sections with white bg had too much space between them.
+#lgx-about {
+  .lgx-inner {
+    padding-top: 0;
+  }
+  .lgx-about-content {
+    text-align: center;
+    margin-bottom: 3.9rem;
+    .subtitle {
+      @include font-size(15);
+      font-weight: 400;
+      color: $black-color;
+    }
+    .lgx-btn {
+      margin-top: 2.4rem;
+    }
+  }
+}
+
+.video-icon figure {
+  z-index: 2;
+}
+
+#lgx-core-values {
+  @include screen-tablet-max {
+    background-size: 250%;
+  }
+  .lgx-inner {
+    @include screen-tablet-max {
+      padding: 4rem 0;
+    }
+    // FIXME: use font mixin for h2 and p
+    .lgx-heading-video-banner {
+      h2 {
+        font-size: 3.3rem;
+      }
+    }
+    .lgx-video-banner-info {
+      p {
+        font-size: 1.3rem;
+        @include screen-tablet-max {
+          text-align: center;
+        }
+      }
+    }
+    .col-md-7 {
+      .lgx-video-area {
+        @include screen-xs {
+          padding: 0;
+        }
+        .lgx-vertical {
+          text-align: left;
+          @include screen-tablet-max {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+          }
+          a {
+            img {
+              height: 175px;
+              @include screen-xs {
+                height: 100px;
+              }
+            }
+          }
+          #video-btn {
+            margin-right: 40px;
+          }
+        }
+      }
+    }
+    .col-md-5 {
+      margin-top: 130px;
+      @include screen-xs {
+        margin-top: 150px;
+      }
+      img {
+        max-height: 500px;
+        @include screen-xs {
+          max-height: 260px;
+        }
+      }
+    }
+  }
+}
+
+#lgx-events {
+  .lgx-featured-event {
+    img {
+      object-fit: cover;
+      @include screen-laptop-min {
+        height: 450px;
+      }
+      @include screen-tablet-max {
+        
+      }
+    }
+  }
+  .lgx-single-event {
+    .title {
+      @include screen-lg {
+        @include font-size(19);
+      }
+    }
+    img {
+      object-fit: cover;
+      height: 118px;
+      width: 118px;
+    }
+  }
+}
+
+.lgx-button-wrapper {
+  text-align: center;
+  a {
+    margin-top: 12px;
+  }
+}
+
+#three-initiatives {
+  svg.shape {
+    fill: $brand-grey;
+    height: 15rem;
+    width: 100%;
+    position: absolute;
+    &#top-triangle {
+      bottom: 0;
+    }
+    &#bottom-triangle {
+      bottom: -15rem;
+    }
+  }
+  svg.vert-line {
+    left: 50%;
+    width: 15rem;
+    height: 15rem;
+    @include screen-md {
+      display: none;
+    }
+    @include screen-sm {
+      display: none;
+    }
+    @include screen-xs {
+      display: none;
+    }
+    &#top-line {
+      bottom: -5rem;
+    }
+    &#bottom-line {
+      bottom: -15rem;
+    }
+    line {
+      stroke: $brand-red-bright;
+      stroke-width: 5px;
+      stroke-linecap: round;
+      stroke-dasharray: 0, 21;
+      stroke-dashoffset: 1;
+    }
+
+    &.border {
+      height: 35rem;
+      width: 35rem;
+      left: 100%;
+      z-index: -1; // So that links can be clicked
+      line {
+        stroke-width: 2px;
+        stroke-dasharray: 0, 13;
+      }
+    }
+  }
+  .pinned-button {
+    position: absolute;
+    top: 2rem;
+    right: 4.5rem;
+    @include screen-xs {
+      top: 80%;
+      left: 37%;
+    }
+    img {
+      width: 100px;
+      @include screen-xs {
+        width: 120px;
+      }
+    }
+  }
+}
+
+#lgx-software {
+  .lgx-inner {
+    padding-top: 15rem;
+  }
+  h3 {
+    text-transform: uppercase;
+    margin-top: 0;
+    @include screen-xs {
+      text-transform: none;
+      font-weight: 600;
+    }
+  }
+  h4 {
+    font-weight: 600;
+    @include font-size(22);
+    text-transform: none;
+    margin-top: 20px;
+  }
+  .thin-column {
+    border-right-color: $black-color;
+  }
+  img {
+    max-width: 200px;
+    max-height: 140px;
+    margin: 20px 0 10px 0;
+  }
+}
+
+#lgx-startups {
+  position: relative;
+	.lgx-heading {
+		margin-bottom: 3.3rem;
+	}
+	h4 {
+		font-weight: 600;
+		@include font-size(22);
+  }
+  td h4 {
+    color: $brand-color2;
+  }
+  .lgx-inner {
+    padding-bottom: 9rem;
+  }
+}
+
+#lgx-workspace {
+  position: relative;
+  background-size: 100%;
+  background-position: 50%;
+  background-color: $brand-grey;
+  .lgx-inner {
+    background-image: url('./workspace-border.png');
+    background-position: center 80%;
+    background-size: 85% 85%;
+    background-repeat: no-repeat;
+    padding-bottom: 0;
+    @include screen-tablet-max {
+      background-image: none;
+    }
+    .container {
+      @include screen-xs {
+        padding-bottom: 125px;
+      }
+    }
+  }
+  h4 {
+    @include font-size(22);
+  }
+  #desk-bg {
+    background-image: url("./workspace-desk-bg-red.png");
+    @include screen-xs {
+      background-image: none;
+    }
+    background-position: 50% 30%;
+    background-size: 33%;
+    background-repeat: no-repeat;
+    margin-bottom: 6rem;
+    padding-bottom: 3rem;
+    @include screen-md {
+      background-size: 45%;
+    }
+  }
+
+  line {
+    stroke: white;
+  }
+
+  svg.border {
+    position: absolute;
+    fill: none;
+    &#right-border {
+      width: 2rem;
+      height: 90%;
+      left: 95%;
+      top: 12%;
+    }
+    &#left-border {
+      width: 2rem;
+      height: 90%;
+      right: 95%;
+      top: 12%;
+    }
+    &#bottom-border {
+      height: 2rem;
+      width: 92.3%;
+      bottom: 0;
+    }
+  }
+
+  .card {
+    margin: auto;
+    &.push-down {
+      margin-top: 20%;
+    }
+  }
+}
+
+#lgx-podcast{
+  h2{
+    @include font-size(46);
+    font-weight: 600
+  }
+  h3{
+    margin-top:5rem;
+    @include font-size(30);
+    font-weight: 600
+  }
+  h4{
+    color: #337ab7;
+    @include font-size(30);
+    font-weight: 600
+  }
+}
