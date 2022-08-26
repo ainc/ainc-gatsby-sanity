@@ -3662,10 +3662,10 @@
     get-random-values "^1.2.2"
     lodash "^4.17.15"
 
-"@sanity/cli@^2.30.2":
-  version "2.30.3"
-  resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-2.30.3.tgz#8273c801393e2ae4863f91d6022fdee3974b13e4"
-  integrity sha512-DcZ4Y2419jjUtf9bTY+jqxPrBKhw9nk/B2eApwXpdy62UiHNnXSE+2x26OZce1EMazKZ6DVBL3eBHo+2ZXz3Tg==
+"@sanity/cli@^2.30.6":
+  version "2.30.6"
+  resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-2.30.6.tgz#04393fd17f8f77a68e78322b85825d5ba0d7d864"
+  integrity sha512-YkVWTXF3FlIZMhs5bzwqppC+MlRtr3n3WW96LAgQxrvTNO1/9PFIN1zb8jL40PtxGEDDMTdin+eJaHuilZjCGQ==
 
 "@sanity/client@^2.0.1", "@sanity/client@^2.21.3":
   version "2.23.2"
