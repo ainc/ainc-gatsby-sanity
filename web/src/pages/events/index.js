@@ -38,9 +38,10 @@ const EventsPage = ({ data }) => {
 
                 {/* Events */}
                 <section>
-                  <Container className={styles.flexContainer}>
+                  <Container>
+                    <Row>
                         {events.map((edge) => (
-                          <div className={styles.flexItem}>
+                          <Col>
                             <Event
                               image={
                                 edge.node.picture.asset.gatsbyImageData
@@ -51,8 +52,9 @@ const EventsPage = ({ data }) => {
                               link={edge.node.linkToEvent}
                               name={edge.node.eventName}
                               />
-                          </div>
+                          </Col>
                         ))}
+                      </Row>
                   </Container>
                 </section>
             </main>
