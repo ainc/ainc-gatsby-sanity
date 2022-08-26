@@ -1,4 +1,49 @@
 const {isFuture,parseISO} = require('date-fns')
+const path = require("path")
+const { createFilePath } = require("gatsby-source-filesystem")
+
+
+
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  const { createPage } = actions
+  const result = await graphql(
+    `
+      {
+        allFeedAnchorPodcast (
+            sort: { fields: [isoDate], order: DESC }
+          ) {
+            totalCount
+            nodes {
+              title
+          }
+        }
+      }
+    `
+  )
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
+  // ...
+  // Create blog-list pages
+  const posts = result.data.allFeedAnchorPodcast.nodes
+  const postsPerPage = 10
+  // console.log(posts)
+  const numPages = Math.ceil(posts.length / postsPerPage)
+  // console.log(numPages)
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/podcast` : `/podcast/${i + 1}`,
+      component: path.resolve("./src/templates/podcast/podcast-list-template.js"),
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
+    })
+  })
+}
 /**
  * Implement Gatsby's Node APIs in this file.
  *
