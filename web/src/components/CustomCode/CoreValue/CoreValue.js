@@ -18,8 +18,8 @@ const CoreValue = (props) => {
   return (
     <figure>
       <figcaption>
-        <div class="video-icon">
-          <div class="lgx-vertical">
+        <div className="video-icon">
+          <div className="lgx-vertical">
             <a id="video-btn" href="#" data-toggle="modal" data-target="#lgx-modal">
               <img src={videoButtonImage} alt="Core values video" />
             </a>

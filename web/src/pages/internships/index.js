@@ -27,7 +27,7 @@ const InternshipsPage = ({ data }) => {
             <Col md={7}>
               <Title className="text-uppercase mt-5">Looking for an Internship?</Title>
               <p>
-                If you’re looking to build your skillset with real projects while building the tech & startup community in Lexington, we’d love to chat. Did we mention we eat a *lot* of Oreos.
+                If you’re looking to build your skillset with real projects while building the tech and startup community in Lexington, we’d love to chat. Did we mention we eat a *lot* of Oreos.
               </p>
               <BrandButton className='my-4'>Apply Now</BrandButton>
             </Col>

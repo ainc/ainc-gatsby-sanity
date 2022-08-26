@@ -20,7 +20,7 @@ const FeatureCard = (props) => {
         <Card.Img src={props.image.images.fallback.src} alt={props.title} className="p-4 card__img--overlay" />
         <a href="#">
           <Card.ImgOverlay className="m-4">
-            <div class="card__gradient-bg">
+            <div className="card__gradient-bg">
               <Row>
                 <div className="position-absolute bottom-0">
                   <Col xs={3} className="position-absolute bottom-0 start-0 mb-5 ms-5">

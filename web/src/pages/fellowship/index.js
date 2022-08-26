@@ -73,7 +73,7 @@ const FellowshipPage = ({ data }) => {
             <BrandButton className="my-3">Apply Now</BrandButton>
           </Col>
           <Col className="" xs={12} sm={8}>
-            <StaticImage src="../../images/brainstorming.jpg" width='375px' className='position-relative' alt="people brainstorming"/>
+            <StaticImage src="../../images/brainstorming.jpg" width={375} className='position-relative' alt="people brainstorming"/>
             
           </Col>
         </Row>
@@ -142,7 +142,7 @@ const FellowshipPage = ({ data }) => {
           <Col xs={12} className="m-auto">
             <Container className="double-border--brand my-5">
               <div ref={refCallback} className="keen-slider d-flex align-items-center">
-                <div class="keen-slider__slide">
+                <div className="keen-slider__slide">
                   <p className="text-center text--white mb-1 mt-3">
                     Our company took advantage of all of the services. They were incredibly helpful and well-timed for us.
                   </p>
@@ -150,7 +150,7 @@ const FellowshipPage = ({ data }) => {
                     Kirsten Moorefield
                   </p>
                 </div>
-                <div class="keen-slider__slide">
+                <div className="keen-slider__slide">
                   <p className="text-center text--white mb-1 mt-3">
                     The Fellowship Program has been an incredible resource in Kentucky as WeatherCheck grows. Our team utilized many of the resources offered while we were in the program.
                   </p>
@@ -158,7 +158,7 @@ const FellowshipPage = ({ data }) => {
                     Demetrius Gray
                   </p>
                 </div>
-                <div class="keen-slider__slide">
+                <div className="keen-slider__slide">
                   <p className='text-center text--white mb-1 mt-3'>
                     The network I've developed through the Fellowship program includes some of my most trusted advisors as well as my lead investors.
                   </p>
@@ -177,22 +177,22 @@ const FellowshipPage = ({ data }) => {
         <Row>
           <Col className='col-md-auto mr-5'>
             <Title className='text-center mb-4'>Our Approach</Title>
-            <StaticImage className={styles.img} src='../../images/approach.png'/>
+            <StaticImage className={styles.img} src='../../images/approach.png' alt="Fellowship approach diagram" />
           </Col>
           <Col className="d-flex align-items-center mx-5">
             <Container>
               <Row className='my-4'>
-                  <Title className="fs-5" style={{"letter-spacing": "0rem"}}>Our Fellowship program provides:</Title>
+                  <Title className="fs-5" style={{"letterSpacing": "0rem"}}>Our Fellowship program provides:</Title>
               </Row>
               <Row>
-                <Subtitle className="fs-6" style={{"letter-spacing": "0rem"}}>
-                <ul>
-                  <li className="my-2">Access to our network of over 85 mentors</li>
-                  <li className="my-2">Web development, video, and graphic design services</li>
-                  <li className="my-2">24/7 Access to Awesome Inc co-working space</li>
-                  <li className="my-2">Access to pro bono legal and accounting services</li>
-                </ul>
-                </Subtitle>
+                <div className="fs-6" style={{"letterSpacing": "0rem"}}>
+                  <ul>
+                    <li className="my-2">Access to our network of over 85 mentors</li>
+                    <li className="my-2">Web development, video, and graphic design services</li>
+                    <li className="my-2">24/7 Access to Awesome Inc co-working space</li>
+                    <li className="my-2">Access to pro bono legal and accounting services</li>
+                  </ul>
+                </div>
               </Row>
             </Container>
           </Col>
@@ -208,11 +208,11 @@ const FellowshipPage = ({ data }) => {
       <div className={`${footerStyles.footerBackground} text-center pt-5 pb-1`}>
         <Col className="col-md-auto">
         <Title className="text-center text--white mb-5">FELLOWSHIP SPONSORS</Title>
-          <Row className={`mx-auto col-sm-6`} style={{"letter-spacing": "0rem"}}> {/*Change the "col-sm-6" higher or lower to change total column width*/}
-            {FellowshipSponsers.map((node) => {
+          <Row className={`mx-auto col-sm-6`} style={{"letterSpacing": "0rem"}}> {/*Change the "col-sm-6" higher or lower to change total column width*/}
+            {FellowshipSponsers.map((node,i) => {
               if ((node._rawSponserLogo) == null){
                 return(
-                  <Col xs="5" sm="3" className={`${styles.sponsor} text-center`}>
+                  <Col xs="5" sm="3" className={`${styles.sponsor} text-center`} key={i}>
                     <a href={node.sponserWebsite}>
                       <div className='m-2'>
                         <h4>{node.sponser}</h4>
@@ -222,7 +222,7 @@ const FellowshipPage = ({ data }) => {
                 )
               }else{
                 return (
-                  <Col xs="5" sm="3" className={`${styles.sponsor} text-center`}>
+                  <Col xs="5" sm="3" className={`${styles.sponsor} text-center`} key={i}>
                     <a href={node.sponserWebsite}>
                       <div className=''>
                         <img src={node._rawSponserLogo.asset.url} className="img-fluid"/>

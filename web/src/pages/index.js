@@ -18,19 +18,18 @@ import CoreValue from "../components/CustomCode/CoreValue/CoreValue";
 import Event from "../components/Event/Event";
 import NewsletterSection from "../components/Layout/Newsletter/Newsletter";
 import PodcastSection from "../components/Layout/Podcast/Podcast";
+import StartupsSection from "../components/Layout/Startups/Startups";
 import FeatureCard from "../components/FeatureCard/FeatureCard";
 import HorizontalCard from "../components/HorizontalCard/HorizontalCard";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 // Images
 import core_values from "../images/core-values.png";
 import workspace_hero from "../images/ainc-workspace-hero.jpeg";
-import pitch_your_idea from "../images/startups-pitch.png";
-import accelerate_your_startup from "../images/accelerate-your-startup.png";
-import showcase_ky_entrep from "../images/startups-showcase.png";
 import desk_background from "../images/workspace-desk-bg-red.png";
-import mobile_apps_icon from "../images/development-apps-websites.png"
-import software_consulting_icon from "../images/development-consulting.png"
-import graphic_design_icon from "../images/development-design.png"
+import DevicesIcon from "../assets/svg/devices.svg";
+import StackIcon from "../assets/svg/stack.svg";
+import ToolsIcon from "../assets/svg/tools.svg";
 
 export const query = graphql`
 query IndexPageQuery($currentDate: Date!) {
@@ -64,6 +63,26 @@ query IndexPageQuery($currentDate: Date!) {
       host
     }
   }
+  allSanityCourses(
+    limit: 3,
+    filter: {featured: {eq: true}}
+  ) {
+    nodes {
+      id
+      courseTitle
+      courseLink
+      courseType
+      learnMore
+      description
+      designedFor
+      picture {
+        asset {
+          gatsbyImageData(height: 300)
+          url
+        }
+      }
+    }
+  }
 }
 `;
 
@@ -74,6 +93,8 @@ const IndexPage = props => {
   const events = (data.allSanityEvents.nodes || {})
 
   const feature_event = (data.sanityEvents || {})
+
+  const courses = (data.allSanityCourses.nodes || {})
 
   if (errors) {
     return (
@@ -148,9 +169,9 @@ const IndexPage = props => {
       {/* CORE VALUES */}
       <section id="core-values">
         <div 
-          class="parallax bg-filter-mute" 
+          className="parallax bg-filter-mute" 
           style={{ backgroundPosition: `0 50%`, minHeight: `500px` }}>
-          <div id="lgx-core-values" class="lgx-video-background">
+          <div id="lgx-core-values" className="lgx-video-background">
             <Container className="mt-5">
               <Row>
                 <Title className="text-uppercase white">Our Core Values</Title>
@@ -181,7 +202,7 @@ const IndexPage = props => {
               />
             </Col>
             <Col className="card__secondary">
-              {events.map((node) => (
+              {events.map((node,i) => (
                 <HorizontalCard 
                   className="mb-3"
                   title={node.eventName}
@@ -190,6 +211,7 @@ const IndexPage = props => {
                   host={node.host}
                   location={node.location}
                   link={node.linkToEvent}
+                  key={i}
                 />
               ))}
             </Col>
@@ -210,10 +232,34 @@ const IndexPage = props => {
         <p className="mb-5 text-uppercase text-center text-white">Made for any level</p>
         <Container>
           <Row>
-            <Col>
-              <Card>
-              </Card>
-            </Col>
+            {courses.map((node,i) => (
+              <Col key={i}>
+                <Card className='h-100'>
+                  {/* <Card.Img src={node.picture.asset.url} alt={node.courseTitle} className="m-3" /> */}
+                  <GatsbyImage 
+                    image={node.picture.asset.gatsbyImageData} 
+                    alt={node.courseTitle} 
+                    className="m-2" 
+                    objectFit="scale-down" 
+                    style={{maxHeight: `280px`}}
+                  />
+
+                  <Card.Body className="d-flex flex-column my-3 mx-3">
+                    <p className="text--grey mx-auto mt-2 text--italic text-uppercase">
+                      {node.designedFor}
+                    </p>
+                    <p className="my-2">
+                      {node.description}
+                    </p>
+                    <a href={node.learnMore}>
+                      <BrandButton className="d-block mx-auto my-4 secondary">Learn More</BrandButton>
+                    </a>
+                    
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+            
           </Row>
           <Row>
             <Col className="d-flex justify-content-center my-5">
@@ -226,36 +272,7 @@ const IndexPage = props => {
       </section>
 
       {/* STARTUPS */}
-      <section id="startups">
-        <Title className="pt-5 mb-3 text-uppercase text-center">Startups</Title>
-        <Subtitle className="mb-5 text-uppercase text-center">Join Our Program</Subtitle>
-        <Container>
-          <Row>
-            <Col>
-              <div className="h-100 my-5">
-                <img className="d-block mx-auto" src={pitch_your_idea} alt="Pitch your idea icon" />
-                <Subtitle className="text-center brand fw-bold">Pitch Your Idea</Subtitle>
-                <p className="text-center">We offer outlets for your idea to be heard. Share your idea with us or learn more about events that promote entrepreneurship.</p>
-              </div>
-              
-            </Col>
-            <Col>
-              <div className="h-100 my-5">
-                <img className="d-block mx-auto" src={accelerate_your_startup} alt="accelerate your startup icon" />
-                <Subtitle className="text-center brand fw-bold">Accelerate Your Startup</Subtitle>
-                <p className="text-center">Our Fellowship Program is mentor-driven, designed to accelerate your high-tech startup. Learn about the Fellowship Program as well as our other programs designed to foster your startup's growth.</p>
-              </div>
-            </Col>
-            <Col>
-              <div className="h-100 my-5">
-                <img className="d-block mx-auto" src={showcase_ky_entrep} alt="showcasing kentucky entrepreneurs icon" />
-                <Subtitle className="text-center brand fw-bold">Showcasing Kentucky Entrepreneurs</Subtitle>
-                <p className="text-center">Discover the impact that Entrepreneurship has made in the Commonwealth.</p>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </section>
+      <StartupsSection />
 
       {/* WORKSPACE */}
       <section id="workspace" style={{backgroundColor: `#D1D1D1`}}>
@@ -299,21 +316,21 @@ const IndexPage = props => {
           <Row>
             <Col>
               <div className="h-100 my-5">
-                <img className="d-block mx-auto w-50" src={mobile_apps_icon} alt="Mobile apps and websites" />
+                <DevicesIcon className="d-block mx-auto my-3 w-50" />
                 <Subtitle className="text-center fw-bolder mt-5 mb-3">Mobile Apps + Websites</Subtitle>
                 <p className="text-center">Our expert team of web developers build websites and mobile applications that are fast, secure, and easy to maintain.</p>
               </div>
             </Col>
             <Col>
               <div className="h-100 my-5">
-                <img className="d-block mx-auto w-50" src={software_consulting_icon} alt="accelerate your startup icon" />
+                <StackIcon className="d-block mx-auto my-3 w-50" />
                 <Subtitle className="text-center fw-bolder mt-5 mb-3">Software Consulting</Subtitle>
                 <p className="text-center">We make clients part of our streamlined process by facilitating reviews and planning sessions during all parts of the development cycle.</p>
               </div>
             </Col>
             <Col>
               <div className="h-100 my-5">
-                <img className="d-block mx-auto w-50" src={graphic_design_icon} alt="showcasing kentucky entrepreneurs icon" />
+                <ToolsIcon className="d-block mx-auto my-3 w-50" />
                 <Subtitle className="text-center fw-bolder mt-5 mb-3">Graphic Design</Subtitle>
                 <p className="text-center">Our UI/UX design services transform your project, increasing user satisfaction, reducing development costs, and delivering a high ROI.</p>
               </div>

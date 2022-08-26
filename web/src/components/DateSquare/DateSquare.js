@@ -10,8 +10,6 @@ const DateSquare = (props) => {
   const month = Moment(props.date).format('MMM')
   const day = Moment(props.date).format('D')
 
-  console.log("date: " + props.date);
-
   return (
     <Card className="card--square-size">
       <Card.Body className="m-1">
