@@ -21,9 +21,6 @@ import PodcastSection from "../components/Layout/Podcast/Podcast";
 import FeatureCard from "../components/FeatureCard/FeatureCard";
 import HorizontalCard from "../components/HorizontalCard/HorizontalCard";
 
-// Custom functions
-import { getCurrentDate } from "../../utilities";
-
 // Images
 import core_values from "../images/core-values.png";
 import workspace_hero from "../images/ainc-workspace-hero.jpeg";
@@ -209,12 +206,14 @@ const IndexPage = props => {
 
       {/* COURSES */}
       <section id="courses" style={{backgroundColor: "#323232"}}>
-        <Title className="pt-5 mb-3 text-uppercase text-center white">Coding Courses</Title>
+        <Title className="pt-5 mb-3 text-uppercase text-center white">Educational Courses</Title>
         <p className="mb-5 text-uppercase text-center text-white">Made for any level</p>
         <Container>
           <Row>
-            
-            
+            <Col>
+              <Card>
+              </Card>
+            </Col>
           </Row>
           <Row>
             <Col className="d-flex justify-content-center my-5">
