@@ -10,9 +10,6 @@ import BrandButton from "../../components/UI/BrandButton/BrandButton";
 
 const BootcampPage = ({ data }) => {
 
-  const teamMembers = (data.allSanityTeamMember.nodes || {})
-  const accomplishments = (data.sanityAccomplishments || {})
-
   return (
     <Layout>
     </Layout>
