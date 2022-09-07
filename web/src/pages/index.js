@@ -22,7 +22,7 @@ import FeatureCard from "../components/FeatureCard/FeatureCard";
 import HorizontalCard from "../components/HorizontalCard/HorizontalCard";
 
 // Custom functions
-import { getCurrentDate } from "../../utilities";
+// import { getCurrentDate } from "../../utilities";
 
 // Images
 import core_values from "../images/core-values.png";
