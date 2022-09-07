@@ -1,9 +1,9 @@
 import React from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import { Card } from "react-bootstrap";
-import Moment from 'Moment';
+import Moment from 'moment';
 
 const DateSquare = (props) => {
 

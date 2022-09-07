@@ -1,8 +1,8 @@
 import React from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
-import * as styles from "./HorizontalCard.module.scss";
-import styled from "styled-components";
-import Title from "../../components/UI/Title/Title";
+// import { GatsbyImage } from "gatsby-plugin-image";
+// import * as styles from "./HorizontalCard.module.scss";
+// import styled from "styled-components";
+// import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import { Container, Col, Row, Image, Card } from "react-bootstrap";
 import Moment from 'moment';
