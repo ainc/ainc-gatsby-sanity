@@ -83,6 +83,18 @@ export default {
             type: 'string',
             title: "Learn More"
         },
+        {
+            title: 'Featured',
+            name: 'featured',
+            type: 'boolean',
+            description: 'This determines if this course will show up on the homepage. Note: there are only three that can be displayed on the homepage.'
+        },
+        {
+            title: 'Description',
+            name: 'description',
+            type: 'text',
+            description: 'Please keep this 2-3 sentences.'
+        }
     ]
 
 }

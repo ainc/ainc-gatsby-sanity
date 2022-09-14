@@ -1,0 +1,20 @@
+.img {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    height: auto;
+}
+
+
+.dimScreen {
+background: rgba(0, 0, 0, 0.5);
+display: table-cell;
+vertical-align: middle;
+text-align: center;
+}
+
+.sponsor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

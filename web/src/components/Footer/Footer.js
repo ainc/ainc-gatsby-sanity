@@ -30,6 +30,7 @@ const Footer = props => {
         }
         sponsors {
           link
+          alt
           image {
             asset {
               gatsbyImageData
@@ -83,9 +84,9 @@ const Footer = props => {
             <h2 className={styles.infoListTitle}>Quicklinks</h2>
             <ul className={styles.infoList}>
               {
-                footerData.quicklinks.map((node) => (
-                  <li>
-                    <a href={node.url} target={node.behavior ? '_blank' : '_self'}>
+                footerData.quicklinks.map((node,i) => (
+                  <li key={i}>
+                    <a href={node.url} target={node.behavior ? '_blank' : '_self'} key={i}>
                       {node.title}
                     </a>
                   </li>
@@ -99,9 +100,9 @@ const Footer = props => {
             <h2 className={styles.infoListTitle}>Courses</h2>
             <ul className={styles.infoList}>
               {
-                footerData.courses.map((node) => (
-                  <li>
-                    <a href={node.url} target={node.behavior ? '_blank' : '_self'}>
+                footerData.courses.map((node,i) => (
+                  <li key={i}>
+                    <a href={node.url} target={node.behavior ? '_blank' : '_self'} key={i}>
                       {node.title}
                     </a>
                   </li>
@@ -115,12 +116,13 @@ const Footer = props => {
             <h2 className={styles.infoListTitle}>Sponsors</h2>
             <Row className={styles.sponsorsRow}>
               {
-                footerData.sponsors.map((node) => (
-                  <Col xs={6}>
-                    <Link href={node.link}>
+                footerData.sponsors.map((node,i) => (
+                  <Col xs={6} key={i}>
+                    <Link href={node.link} key={i}>
                       <GatsbyImage className='my-2'
                         image={getImage(node.image.asset.gatsbyImageData)}
-                        alt={node.image.asset.altText}
+                        alt={node.alt}
+                        key={i}
                       />
                     </Link>
                   </Col>

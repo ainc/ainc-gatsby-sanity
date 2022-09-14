@@ -15,7 +15,6 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
-    'gatsby-plugin-react-svg',
     {
       resolve: 'gatsby-source-sanity',
       options: {
@@ -39,6 +38,14 @@ module.exports = {
         name: `AnchorPodcast`,
         // Optional
         // Read parser document: https://github.com/bobby-brennan/rss-parser#readme
+      }
+    },
+    {
+      resolve: `gatsby-plugin-react-svg`,
+      options: {
+        rule: {
+          include: `${__dirname}/src/assets/svg`
+        }
       }
     },
   ],

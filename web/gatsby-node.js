@@ -36,27 +36,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     component: path.resolve("./src/templates/podcast/podcast-list-template.js")
   })
 
-  // --Native gatsbyJS pagination
-  // Array.from({ length: numPages }).forEach((_, i) => {
-  //   createPage({
-  //     path: i === 0 ? `/podcast` : `/podcast/${i + 1}`,
-  //     component: path.resolve("./src/templates/podcast/podcast-list-template.js"),
-  //     context: {
-  //       limit: postsPerPage,
-  //       skip: i * postsPerPage,
-  //       numPages,
-  //       currentPage: i + 1,
-  //     },
-  //   })
-  // })
-}
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
-// const { createFilePath } = require(`gatsby-source-filesystem`)
-
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
