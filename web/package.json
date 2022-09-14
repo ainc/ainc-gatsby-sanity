@@ -13,6 +13,7 @@
     "svgrscript": "svgr -d /src/assets/svg/ /src/assets/icons/"
   },
   "dependencies": {
+    "@ardatan/aggregate-error": "^0.0.6",
     "@fontsource/exo": "^4.5.8",
     "@fontsource/exo-2": "^4.5.8",
     "@fontsource/open-sans": "^4.5.10",
