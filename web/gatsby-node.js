@@ -35,6 +35,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     pathPrefix: '/podcast',
     component: path.resolve("./src/templates/podcast/podcast-list-template.js")
   })
+}
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
