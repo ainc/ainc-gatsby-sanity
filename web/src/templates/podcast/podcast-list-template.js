@@ -1,17 +1,16 @@
 import * as React from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../../components/Layout/Layout'
-import Diagonal from '../../components/Layout/Diagonal/Diagonal'
-import ButtonAndImage from '../../components/ButtonAndImage/ButtonAndImage'
-import ImageOutline from '../../components/ImageOutline/ImageOutline'
+// import Diagonal from '../../components/Layout/Diagonal/Diagonal'
+// import ButtonAndImage from '../../components/ButtonAndImage/ButtonAndImage'
+// import ImageOutline from '../../components/ImageOutline/ImageOutline'
 import { Container, Row, Col } from 'react-bootstrap'
-import { StaticImage } from 'gatsby-plugin-image'
+// import { StaticImage } from 'gatsby-plugin-image'
 import Title from '../../components/UI/Title/Title'
-import Subtitle from "/src/components/UI/Subtitle/Subtitle";
+// import Subtitle from "/src/components/UI/Subtitle/Subtitle";
 import * as styles from "./podcast.module.scss";
 import '../../styles/main.scss'
 import Podcast from "../../components/Podcast/Podcast";
-
 
 const PodcastPage = ({pageContext, data }) => {
     const {currentPage, numPages} = pageContext
@@ -29,7 +28,6 @@ const PodcastPage = ({pageContext, data }) => {
             <Container className={styles.container}>
                 <Col>
                     <Title className={styles.headingText}>Podcasts</Title>
-                    {/* <Title>{nextPage}, {prevPage}</Title> */}
                     {/* <h6 className="text-center mt-1 mb-5">{totalPodcastCount} Total Podcasts</h6> */}
                 </Col>
             </Container>
