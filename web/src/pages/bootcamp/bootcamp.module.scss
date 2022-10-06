@@ -1,0 +1,59 @@
+.header {
+    background-image: url(../../images/bootcamp/hero-bg.jpg);
+
+    .row {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+}
+
+.twoButtonsRow {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    Title {
+        color: white;
+    }
+}
+
+.answerHonestly {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    .shieldRow {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .img {
+        max-width: 70%;
+    }
+    .yesRow {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+.motivationalQuote {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.whyAwesomeIncHeader {
+    padding-top: 30px;
+    .img {
+        max-height: 80%;
+    }
+}
+
+.job {
+    background-image: url(../../images/bootcamp/job-bg.jpg);
+
+    .jobRow {
+        padding-top: 60px;
+        padding-bottom: 30px;
+    }
+
+    .textRow {
+        padding-top: 20px;
+        padding-bottom: 30px;
+        max-width: 65%;
+    }
+}
