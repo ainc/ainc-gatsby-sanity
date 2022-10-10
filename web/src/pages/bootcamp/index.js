@@ -32,18 +32,49 @@ const BootcampPage = ({ data }) => {0.251
       {/* Two Buttons Section */}
       <Container fluid className="background--grey">
         <Row className={styles.twoButtonsRow}>
-          <Col>
+          <Col className="justify-content-center text-center">
             <faQuestionCircle />
             <Title className="text-center text-white fs-4 mt-4">Have a few questions?</Title>
-            <BrandButton className="d-flex justify-content-center">Download Program Guide</BrandButton>
+            <BrandButton className="justify-content-center">Download Program Guide</BrandButton>
           </Col>
-          <Col className="justify-content-center">
+          <Col className="justify-content-center text-center">
             <faMoneyCircle />
             <Title className="text-center text-white fs-4 mt-4">Pay nothing until you land a job!</Title>
-            <BrandButton className="d-flex justify-content-center">See How Here</BrandButton>
+            <BrandButton className="justify-content-center">See How Here</BrandButton>
           </Col>
         </Row>
       </Container>
+
+      {/* TEST */}
+      {/* Two Buttons Section */}
+      {/* <Container fluid className="background--grey">
+        <Row className={styles.twoButtonsRow}>
+          <Row>
+            <Col>
+              <faQuestionCircle />
+            </Col>
+            <Col>
+              <faMoneyCircle />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Title className="text-center text-white fs-4 mt-4">Have a few questions?</Title>
+            </Col>
+            <Col>
+              <Title className="text-center text-white fs-4 mt-4">Pay nothing until you land a job!</Title>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <BrandButton className="d-flex justify-content-center">Download Program Guide</BrandButton>
+            </Col>
+            <Col>
+              <BrandButton className="d-flex justify-content-center">See How Here</BrandButton>
+            </Col>
+          </Row>
+        </Row>
+      </Container> */}
 
       {/* Answer Honestly */}
       <Container className={styles.answerHonestly}>
@@ -105,9 +136,9 @@ const BootcampPage = ({ data }) => {0.251
       </Container>
 
       {/* Why Awesome Inc Header */}
-      <Container fluid className={styles.whyAwesomeIncHeader}>
-        <Row>
-          <StaticImage src='../../images/bootcamp/awesome-inc-bg.jpg' alt='why awesome inc header' className="center-block img"/>
+      <Container fluid >
+        <Row className={styles.whyAwesomeIncHeader}>
+          <StaticImage src='../../images/bootcamp/awesome-inc-bg.jpg' alt='Why Awesome Inc Header Image' className="center-block img"/>
         </Row>
       </Container>
 
@@ -121,25 +152,48 @@ const BootcampPage = ({ data }) => {0.251
       </Container>
 
       {/* Job Guarantee */}
-      <Container fluid className={styles.job}>
-        <Row className={styles.jobRow}>
+      <Container fluid className={styles.jobGuarantee}>
+        <Row className={styles.imgRow}>
           <Col className="d-flex justify-content-center">
             <StaticImage src='../../images/bootcamp/job-guaranteed.png' alt='job guaranteed' className=""></StaticImage>
           </Col>
         </Row>
-        <Row className={styles.textRow}>
-          <Col className="justify-content-center">
+        <Row>
+          <Col>
           <Subtitle className="text-white text-center fs-6">We only succeed when you succeed. We quarantee that all students who complete the 16-week Bootcamp program and uphold the job search requirements will receive a job offer within six months of their graduation date, or we'll refund your tuition. See our Student Agreement for details.</Subtitle>
           </Col>
         </Row>
       </Container>
 
       {/* Stats */}
-      <Container>
-        <Row>
+      <Container fluid className="background--red">
+        <Row className="">
           <Col>
-          
+            <Row className="text-center">
+              <Title>90%</Title>
+              <Subtitle>Graduation Rate</Subtitle>
+              <Subtitle className="fst-italic fw-lighter fs-5">2016-2020</Subtitle>
+            </Row>
           </Col>
+          <Col>
+            <Row className="text-center">
+              <Title>86%</Title>
+              <Subtitle>Job Placement Rate</Subtitle>
+              <Subtitle className="fst-italic fw-lighter fs-5">Within 180 Days</Subtitle>
+            </Row>
+          </Col>
+          <Col>
+            <Row className="text-center">
+              <Title>$45K</Title>
+              <Subtitle>Starting Salary</Subtitle>
+              <Subtitle className="fst-italic fw-lighter fs-5">Average</Subtitle>
+            </Row>
+          </Col>
+          <Row>
+            <Col className="d-flex justify-content-center">
+              <BrandButton>Download Program Guide</BrandButton>
+            </Col>
+          </Row>
         </Row>
       </Container>
 
@@ -147,7 +201,43 @@ const BootcampPage = ({ data }) => {0.251
       <Container>
         <Row>
           <Col>
-          
+            <Row>
+              <Title className="text-uppercase text-center">Companies who have hired our graduates</Title>
+            </Row>
+            <Row>
+              <Col>
+              
+              </Col>
+              <Col>
+              
+              </Col>
+              <Col>
+              
+              </Col>
+              <Col>
+              
+              </Col>
+              <Col>
+              
+              </Col>
+            </Row>
+            <Row>
+            <Col>
+              
+              </Col>
+              <Col>
+              
+              </Col>
+              <Col>
+              
+              </Col>
+              <Col>
+              
+              </Col>
+              <Col>
+              
+              </Col>
+            </Row>
           </Col>
         </Row>
       </Container>
@@ -183,7 +273,42 @@ const BootcampPage = ({ data }) => {0.251
       <Container>
         <Row>
           <Col>
-          
+            <Row>
+              <Title className="brand fs-1 text-center">The Cost</Title>
+            </Row>
+            <Row>
+              <Col>
+                <Row>
+
+                </Row>
+                <Row>
+                  <Title className="text-center fs-2">Income Share Agreement</Title>
+                </Row>
+                <Row>
+                <Subtitle className="text-justify fs-5s">
+                    Fund your future with an Income Share Agreement. We're 
+                    partnered with industry-leading ISA provider Meratas to 
+                    allow students to enroll in our full-time program with no 
+                    up front tuition costs. ISA recipients only pay when they've 
+                    landed a job making $40,000/year or more. Want to know 
+                    more? Schedule a call today!
+                  </Subtitle>
+                </Row>
+              </Col>
+              <Col>
+                <Row>
+
+                </Row>
+                <Row>
+                  <Title className="text-center fs-2">Up-Front Payment</Title>
+                </Row>
+                <Row>
+                  <Subtitle className="text-justify fs-5">
+                    Students who choose to pay tuition up front are offered a discounted tuition rate of $13,500.
+                  </Subtitle>
+                </Row>
+              </Col>
+            </Row>
           </Col>
         </Row>
       </Container>

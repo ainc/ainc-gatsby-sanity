@@ -10,9 +10,12 @@
 .twoButtonsRow {
     padding-top: 50px;
     padding-bottom: 50px;
-    Title {
+    .text-white {
         color: white;
+        margin-bottom: 50px;
+        margin-top: 50px;
     }
+
 }
 
 .answerHonestly {
@@ -37,23 +40,30 @@
 }
 
 .whyAwesomeIncHeader {
-    padding-top: 30px;
+    padding-top: 0px;
     .img {
-        max-height: 80%;
+        max-height: 250px;
     }
 }
 
-.job {
+.jobGuarantee {
     background-image: url(../../images/bootcamp/job-bg.jpg);
-
-    .jobRow {
+    padding-bottom: 30px;
+    .imgRow {
         padding-top: 60px;
         padding-bottom: 30px;
     }
 
-    .textRow {
+    .text-white {
         padding-top: 20px;
         padding-bottom: 30px;
         max-width: 65%;
     }
+
+    .jobGuaranteeText {
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-bottom: 40px;
+    }
 }
+
