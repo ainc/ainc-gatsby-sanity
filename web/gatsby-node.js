@@ -28,12 +28,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const numPages = Math.ceil(posts.length / postsPerPage)
 
   //pagination with import
-  paginate({
-    createPage,
-    items: posts,
-    itemsPerPage: numPages,
-    pathPrefix: '/podcast',
-    component: path.resolve("./src/templates/podcast/podcast-list-template.js")
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/podcast` : `/podcast/${i + 1}`,
+      component: path.resolve("./src/templates/podcast/podcast-list-template.js"),
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
+    })
   })
 }
 
