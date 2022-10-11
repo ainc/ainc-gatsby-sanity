@@ -28,8 +28,7 @@ const PodcastPage = ({pageContext, data }) => {
             <Container className={styles.container}>
                 <Row>
                     <Col>
-                        <Title className={styles.headingText}>PODCAST EPISODES</Title>
-                        {/* <h6 className="text-center mt-1 mb-5">{totalPodcastCount} Total Podcasts</h6> */}
+                        <Title className={`${styles.headingText} text-uppercase`}>Podcase Episodes</Title>
                         
                     </Col>
                 </Row>
