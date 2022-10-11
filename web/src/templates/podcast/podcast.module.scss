@@ -47,10 +47,16 @@
     @include screen-xs {
         font-size: 5vw;
     }
-
 }
 
-.page-number {
+.page-number-single {
+    display: none;
+    @include screen-xs {
+        display: flex;
+    }
+}
+
+.page-number-all {
     @include screen-xs {
         display: none;
     }
