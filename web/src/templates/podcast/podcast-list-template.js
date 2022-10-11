@@ -26,10 +26,13 @@ const PodcastPage = ({pageContext, data }) => {
     return (
         <Layout>
             <Container className={styles.container}>
-                <Col>
-                    <Title className={styles.headingText}>Podcasts</Title>
-                    {/* <h6 className="text-center mt-1 mb-5">{totalPodcastCount} Total Podcasts</h6> */}
-                </Col>
+                <Row>
+                    <Col>
+                        <Title className={styles.headingText}>PODCAST EPISODES</Title>
+                        {/* <h6 className="text-center mt-1 mb-5">{totalPodcastCount} Total Podcasts</h6> */}
+                        
+                    </Col>
+                </Row>
             </Container>
             <Title className="h4"></Title>
             <Container className={`${styles.flexContainer}`}>
@@ -48,27 +51,36 @@ const PodcastPage = ({pageContext, data }) => {
                 </Container>
             
             <h5 className='text-center mb-5 mt-5'>
-            
+                <Row>
+                    <Col fluid>
                 {!isFirst && (
-                    <Link className={styles.pageNumber} to={`${prevPage == 1 ? "" : `/podcast/${prevPage}`}`} rel="prev">
+                    <Link className={styles.page} to={`${prevPage == 1 ? "" : `/podcast/${prevPage}`}`} rel="prev">
                     ← Previous Page 
                     </Link>
                 )}
-
-                {Array.from({ length: numPages }, (_, i) => (
-                    <Link className={styles.pageNumber} key={`pagination-number${i + 1}`} to={`/podcast/${i === 0 ? "" : i + 1}`} style={{
-                        textDecoration: 'none',
-                        color: i + 1 === currentPage ? '#323333' : '',
-                      }}>
-                    {i + 1}
-                    </Link>
-                    ))}
+                </Col>
+                <Col className={styles.pageNumber}>
+                {/* <div > */}
+                    {Array.from({ length: numPages }, (_, i) => (
+                        <Link className={styles.page} key={`pagination-number${i + 1}`} to={`/podcast/${i === 0 ? "" : i + 1}`} style={{
+                            textDecoration: 'none',
+                            color: i + 1 === currentPage ? '#323333' : '',
+                        }}>
+                        {i + 1}
+                        </Link>
+                        ))}
+                {/* </div> */}
+                </Col>
+                <Col fluid>
 
                 {!isLast && (
-                    <Link className={styles.pageNumber} to={`/podcast/${nextPage}`} rel="next">
+                    <Link className={styles.page} to={`/podcast/${nextPage}`} rel="next">
                     Next Page →
                     </Link>
                 )}
+                </Col>
+
+                </Row>
             </h5>
         </Layout>
     )
