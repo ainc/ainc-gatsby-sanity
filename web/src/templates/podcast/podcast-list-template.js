@@ -51,36 +51,53 @@ const PodcastPage = ({pageContext, data }) => {
                 </Container>
             
             <h5 className='text-center mb-5 mt-5'>
-                <Row>
-                    <Col fluid>
-                {!isFirst && (
-                    <Link className={styles.page} to={`${prevPage == 1 ? "" : `/podcast/${prevPage}`}`} rel="prev">
-                    ← Previous Page 
-                    </Link>
-                )}
-                </Col>
-                <Col className={styles.pageNumber}>
-                {/* <div > */}
-                    {Array.from({ length: numPages }, (_, i) => (
-                        <Link className={styles.page} key={`pagination-number${i + 1}`} to={`/podcast/${i === 0 ? "" : i + 1}`} style={{
-                            textDecoration: 'none',
-                            color: i + 1 === currentPage ? '#323333' : '',
-                        }}>
-                        {i + 1}
-                        </Link>
-                        ))}
-                {/* </div> */}
-                </Col>
-                <Col fluid>
-
-                {!isLast && (
-                    <Link className={styles.page} to={`/podcast/${nextPage}`} rel="next">
-                    Next Page →
-                    </Link>
-                )}
-                </Col>
-
+                <Row className={`${styles.pageNumberAll} g-0`}>
+                    <Col>
+                        {!isFirst && (
+                            <Link className={styles.page} to={`${prevPage == 1 ? "" : `/podcast/${prevPage}`}`} rel="prev">
+                            ← Previous Page 
+                            </Link>
+                        )}
+                    </Col>
+                    <Col>
+                        {Array.from({ length: numPages }, (_, i) => (
+                            <Link className={styles.page} key={`pagination-number${i + 1}`} to={`/podcast/${i === 0 ? "" : i + 1}`} style={{
+                                textDecoration: 'none',
+                                color: i + 1 === currentPage ? '#323333' : '',
+                            }}>
+                            {i + 1}
+                            </Link>
+                            ))}
+                    </Col>
+                    <Col>
+                        {!isLast && (
+                            <Link className={styles.page} to={`/podcast/${nextPage}`} rel="next">
+                            Next Page →
+                            </Link>
+                        )}
+                    </Col>
                 </Row>
+            </h5>
+            <h5 className='text-center mb-5 mt-5'>
+                <Row className={`g-0 ${styles.pageNumberSingle}`}>
+                        <Col className='d-flex align-content-center justify-content-center'>
+                            {!isFirst && (
+                                <Link className={styles.page} to={`${prevPage == 1 ? "" : `/podcast/${prevPage}`}`} rel="prev">
+                                ← Prev
+                                </Link>
+                            )}
+                        </Col>
+                        <Col className={styles.page}>
+                            {currentPage}/<Link className={`mx-0 ${styles.page}`} to={`/podcast/${numPages}`}>{numPages}</Link>
+                        </Col>
+                        <Col className='d-flex align-content-center justify-content-center'>
+                            {!isLast && (
+                                <Link className={styles.page} to={`/podcast/${nextPage}`} rel="next">
+                                 Next →
+                                </Link>
+                            )}
+                        </Col>
+                    </Row>
             </h5>
         </Layout>
     )
