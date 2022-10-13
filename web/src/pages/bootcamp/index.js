@@ -40,14 +40,14 @@ const BootcampPage = ({ data }) => {
               <div>
                 <img style={{maxWidth: "80px"}} src={require('/src/images/bootcamp/QuestionCircle.svg').default} alt="Question Circle" />
               </div>
-              <Title style={{paddingTop: "20px", paddingBottom: "20px"}} className="text-center text-white fs-4 mt-4">Have a few questions?</Title>
+              <Title className="text-center text-white fs-4 my-5">Have a few questions?</Title>
               <BrandButton className="justify-content-center">Download Program Guide</BrandButton>
             </Col>
             <Col className="justify-content-center text-center" style={{marginRight: "50px"}}>
               <div>
                 <img style={{maxWidth: "80px"}} src={require('/src/images/bootcamp/MoneyCircle.svg').default} alt="Money Circle" />
               </div>
-              <Title style={{paddingTop: "20px", paddingBottom: "20px"}} className="text-center text-white fs-4 mt-4">Pay nothing until you land a job!</Title>
+              <Title className="text-center text-white fs-4 my-5 ">Pay nothing until you land a job!</Title>
               <BrandButton className="justify-content-center">See How Here</BrandButton>
             </Col>
           </Row>
@@ -156,7 +156,7 @@ const BootcampPage = ({ data }) => {
       </section>
 
       {/* Stats */}
-      <section id="stats" style={{backgroundColor: "#C41E3A", paddingTop: "50px", paddingBottom: "50px"}}>
+      <section id="stats" className="background--brand p1.y-5">
         <Container fluid>
           <Row>
             <Col>
@@ -383,7 +383,7 @@ const BootcampPage = ({ data }) => {
           <Row>
             <Col>
               <Row>
-                <Title className="brand text-center">The Cost</Title>
+                <Title className="brand text-center text--huge">The Cost</Title>
               </Row>
               <Row>
                 <Col>
@@ -432,7 +432,14 @@ const BootcampPage = ({ data }) => {
         <Container>
           <Row>
             <Col>
-            
+              <Row>
+                <Title className="text-center">Still have questions?</Title>
+              </Row>
+              <Row style={{paddingTop: "40px"}}>
+                <Col className="text-center">
+                  <BrandButton>See our Faqs</BrandButton>
+                </Col>
+              </Row>
             </Col>
           </Row>
         </Container>

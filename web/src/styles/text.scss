@@ -1,3 +1,8 @@
+// -----------------------------------------------------------------------------
+@import "variables";
+@import "mixins"; 
+// -----------------------------------------------------------------------------
+
 .text-normal {
   text-transform: none !important;
 }
@@ -28,4 +33,8 @@
 
 .text--italic {
   font-style: italic;
+}
+
+.text--huge {
+  @include font-size(40)
 }
