@@ -130,10 +130,31 @@ const BootcampPage = ({ data }) => {
 
       {/* Why Awesome Inc */}
       <section id="why-awesome-inc">
-        <Container>
+        <Container className="py-5">
           <Row>
+            <Col className="pl-3">
+              <Title className="text-uppercase py-3">Why Awesome Inc?</Title>
+              <p className="text-justify pb-3 w-75">At Awesome Inc, everything we do starts with out Core Values. 
+                We care about people, and making a difference in our community. 
+                That's why we want to help everyone we can learn the life changing skill of coding. 
+                And while doing that, we've seen that the best way to learn a new skill is to get 
+                the right help on your journey. It's so easy to waste time trying to learn something 
+                by yourself, constantly running into problems, and getting frustrated along the way, 
+                but we're here to help! With coaching from Senior Developers and a curriculum built 
+                for you, we're ready to meet you where you're at, even if you're at step 0.
+              </p>
+              <BrandButton>Schedule Call</BrandButton>
+            </Col>
             <Col>
-            
+              <img />
+              <div>
+                <p>Sometimes it's just easier to talk to a person, right? 
+                  That's where Stephen comes in!<br /><br />
+                  He's happy to answer any and all questions you've got about Awesome Inc, 
+                  our programs, coding in general, or even just the best place to grab 
+                  coffee and donuts nearby.
+                </p>
+              </div>
             </Col>
           </Row>
         </Container>
@@ -158,13 +179,13 @@ const BootcampPage = ({ data }) => {
       {/* Stats */}
       <section id="stats" className="background--brand p1.y-5">
         <Container fluid>
-          <Row>
+          <Row className="py-5">
             <Col>
               <Row className="text-center">
                 <div>
                   <StaticImage src="../../images/bootcamp/graduation.png" alt="Graduation" style={{maxWidth: "150px"}}/>
                 </div>
-                <Title className="text-white" style={{paddingTop: "30px"}}>90%</Title>
+                <Title className="text-white py-3">90%</Title>
                 <Subtitle className="text-white">Graduation Rate</Subtitle>
                 <Subtitle className="fst-italic fw-lighter fs-5 text-white">2016-2020</Subtitle>
               </Row>
@@ -174,7 +195,7 @@ const BootcampPage = ({ data }) => {
                 <div>
                   <StaticImage src="../../images/bootcamp/job-placement.png" alt="Job Placement" style={{maxWidth: "150px"}}/>
                 </div>
-                <Title className="text-white" style={{paddingTop: "30px"}}>86%</Title>
+                <Title className="text-white py-3">86%</Title>
                 <Subtitle className="text-white">Job Placement Rate</Subtitle>
                 <Subtitle className="fst-italic fw-lighter fs-5 text-white">Within 180 Days</Subtitle>
               </Row>
@@ -184,14 +205,14 @@ const BootcampPage = ({ data }) => {
                 <div>
                   <StaticImage src="../../images/bootcamp/salary.png" alt="Salary" style={{maxWidth: "65px"}}/>
                 </div>
-                <Title className="text-white" style={{paddingTop: "30px"}}>$45K</Title>
+                <Title className="text-white py-3">$45K</Title>
                 <Subtitle className="text-white">Starting Salary</Subtitle>
                 <Subtitle className="fst-italic fw-lighter fs-5 text-white">Average</Subtitle>
               </Row>
             </Col>
             <Row>
               <Col className="d-flex justify-content-center">
-                <BrandButton style={{backgroundColor: "grey", marginTop: "30px"}} className={styles.button}>Download Program Guide</BrandButton>
+                <BrandButton className="background--grey mt-3">Download Program Guide</BrandButton>
               </Col>
             </Row>
           </Row>
@@ -199,7 +220,7 @@ const BootcampPage = ({ data }) => {
       </section>
 
       {/* Employers */}
-      <section id="employers" style={{paddingTop: "40px", paddingBottom: "40px"}}>
+      <section id="employers" className="py-4">
         <Container>
           <Row>
             <Col>
@@ -247,13 +268,13 @@ const BootcampPage = ({ data }) => {
 
       {/* Languages */}
       <section id="languages">
-        <Container style={{backgroundImage: "../../images/bootcamp/languages-bg.jpg"}}>
-          <Row>
+        <Container fluid className={styles.languages}>
+          <Row className="py-5">
             <Col>
               <Row>
-                <Subtitle className="text-center fs-5"><b>With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using</b></Subtitle>
+                <Subtitle className="text-center fs-5 pb-3"><b>With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using</b></Subtitle>
               </Row>
-              <Row style={{paddingTop: "40px", paddingBottom: "40px"}}>
+              <Row className="py-4 text-center">
                 <Col>
                   <div>
                     <StaticImage src="../../images/bootcamp/languages/html.png" alt="HTML" style={{maxWidth: "150px"}}/>
@@ -342,15 +363,15 @@ const BootcampPage = ({ data }) => {
               <Row>
                 <p>This process helps us to find top-quality applicants for the Bootcamp. We continue to be surprised and inspired by the variety of different educational and professional backgrounds rfom which our students come to Bootcamp. Contrary to stereotypes about software developers, there's not just on archetype that's a good fit for this career. Our goal throughout the application process is to find people who, in their own unique way, are ready to dive into a software development career through the accelerated learning environment we provide. For more on this, check out our blog post What We Look For In A Bootcamp Student.</p>
               </Row>
-              <Row>
-                <Col>
-                
+              <Row className="pt-4">
+                <Col className="text-center col-4">
+                  <BrandButton>Apply Now</BrandButton>
                 </Col>
-                <Col>
-                
+                <Col className="text-center col-4">
+                  <BrandButton>Schedule Call or Visit</BrandButton>
                 </Col>
-                <Col>
-                
+                <Col className="text-center col-4">
+                  <BrandButton>Download Program Guide</BrandButton>
                 </Col>
               </Row>
             </Col>
@@ -359,18 +380,18 @@ const BootcampPage = ({ data }) => {
       </section>
 
       {/* Timeline */}
-      <section id="timeline" style={{backgroundColor: "lightgray"}}>
+      <section id="timeline" style={{backgroundColor: "lightgray"}} className="py-5">
         <Container>
           <Row>
-            <Col>
-            
+            <Col className="col-2">
+              <Title className="text-center text--huge brand">Timeline</Title>
             </Col>
-            <Col>
+            <Col className="col-10">
               <Row>
-                <Subtitle>This is a realistic timeline of what a Web Developer Bootcamp student can expect from applying to the program to becoming a proud alumni.</Subtitle>
+                <p className="text-center fs-6 pb-3">This is a realistic timeline of what a Web Developer Bootcamp student can expect from applying to the program to becoming a proud alumni.</p>
               </Row>
               <Row>
-                <StaticImage src="../../images/bootcamp/timeline.png"/>
+                <img className="text-center pl-2" src={require('/src/images/bootcamp/timeline.png').default}/>
               </Row>
             </Col>
           </Row>
@@ -378,7 +399,7 @@ const BootcampPage = ({ data }) => {
       </section>
 
       {/* Cost */}
-      <section id="cost" style={{paddingTop: "40px", paddingBottom: "40px"}}>
+      <section id="cost" className="py-4">
         <Container>
           <Row>
             <Col>
@@ -428,16 +449,16 @@ const BootcampPage = ({ data }) => {
       </section>
 
       {/* Still Unsure */}
-      <section id="still-unsure">
-        <Container>
-          <Row>
+      <section id="still-unsure" className="pt-5">
+        <Container fluid className={styles.stillUnsure}>
+          <Row className="py-5">
             <Col>
-              <Row>
-                <Title className="text-center">Still have questions?</Title>
+              <Row className="col-12">
+                  <Title className="text-center pt-5 pb-3">Still unsure? Here's everyone else who took this same leap and haven't looked back!</Title>
               </Row>
-              <Row style={{paddingTop: "40px"}}>
+              <Row className="pt-3">
                 <Col className="text-center">
-                  <BrandButton>See our Faqs</BrandButton>
+                  <BrandButton className="pb-3">Meet Alumni</BrandButton>
                 </Col>
               </Row>
             </Col>
@@ -445,12 +466,19 @@ const BootcampPage = ({ data }) => {
         </Container>
       </section>
 
-      {/* Questions */}
-      <section id="questions">
-        <Container>
-          <Row>
+       {/* Questions */}
+       <section id="questions">
+        <Container fluid className={styles.questions}>
+          <Row className="pt-5 text-center">
             <Col>
-            
+              <Row>
+                <Title className="text-center text-white pt-3 mt-5">Still have questions?</Title>
+              </Row>
+              <Row className="pt-4">
+                <Col className="text-center">
+                  <BrandButton>See our Faqs</BrandButton>
+                </Col>
+              </Row>
             </Col>
           </Row>
         </Container>
