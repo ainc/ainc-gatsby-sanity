@@ -98,12 +98,20 @@ const BootcampPage = ({ data }) => {
       </section>
 
       {/* Alumni Testimonials */}
-      <section id="alumni">
-        <Container>
-          <Row>
-            <Col>
-            
-            </Col>
+      <section id="testimonials">
+        <Container fluid className={styles.testimonials}>
+          <Row className="py-3">
+            <Row className="py-3">
+              <Title className="text-center text-white text-uppercase">Hear From Our Alumni</Title>
+            </Row>
+            <Row>
+
+            </Row>
+            <Row className="py-3">
+              <Col className="text-center">
+                <BrandButton className="text-center brand">More Alumni</BrandButton>
+              </Col>
+            </Row>
           </Row>
         </Container>
       </section>
@@ -111,7 +119,7 @@ const BootcampPage = ({ data }) => {
       {/* Motivational Quote */}
       <section id="motivational">
         <Container className={styles.motivationalQuote}>
-          <Row>
+          <Row className="py-4">
             <Col>
               <Title className="text-center brand fs-5">"You don't have to feel trapped. Earn your freedom, work when & where you want. Earn a living in just 40 hours a week."</Title>
             </Col>
@@ -212,7 +220,7 @@ const BootcampPage = ({ data }) => {
             </Col>
             <Row>
               <Col className="d-flex justify-content-center">
-                <BrandButton className="background--grey mt-3">Download Program Guide</BrandButton>
+                <BrandButton className="button background--gray mt-3">Download Program Guide</BrandButton>
               </Col>
             </Row>
           </Row>
@@ -224,42 +232,44 @@ const BootcampPage = ({ data }) => {
         <Container>
           <Row>
             <Col>
-              <Row>
+              <Row className="mt-4">
                 <Title className="text-uppercase text-center">Companies who have hired our graduates</Title>
               </Row>
-              <Row>
-                <Col>
-                
-                </Col>
-                <Col>
-                
-                </Col>
-                <Col>
-                
-                </Col>
-                <Col>
-                
-                </Col>
-                <Col>
-                
-                </Col>
-              </Row>
-              <Row>
-              <Col>
-                
-                </Col>
-                <Col>
-                
-                </Col>
-                <Col>
-                
-                </Col>
-                <Col>
-                
-                </Col>
-                <Col>
-                
-                </Col>
+              <Row className="my-5">
+                <Row className="pt-4 pb-3">
+                  <Col>
+                    <StaticImage src="../../images/bootcamp/company-logos/apaxsoftware-logo.png" alt="Apax Software"></StaticImage>
+                  </Col>
+                  <Col>
+                    <StaticImage src="../../images/bootcamp/company-logos/ableengine-logo.png" alt="Able Engine"></StaticImage>
+                  </Col>
+                  <Col>
+                    <StaticImage src="../../images/bootcamp/company-logos/cabemtechnologies-logo.png" alt="Cabem Technologies"></StaticImage>
+                  </Col>
+                  <Col>
+                    <StaticImage src="../../images/bootcamp/company-logos/infosys-logo.png" alt="Infosys"></StaticImage>
+                  </Col>
+                  <Col>
+                    <StaticImage src="../../images/bootcamp/company-logos/ireportsource-logo.png" alt="iReportSource"></StaticImage>
+                  </Col>
+                </Row>
+                <Row className="pb-3">
+                  <Col>
+                    <StaticImage src="../../images/bootcamp/company-logos/medmyne-logo.png" alt="MedMyne"></StaticImage>
+                  </Col>
+                  <Col>
+                    <StaticImage src="../../images/bootcamp/company-logos/nymblsystems-logo.png" alt="nymbl.systems"></StaticImage>
+                  </Col>
+                  <Col>
+                    <StaticImage src="../../images/bootcamp/company-logos/prospecttrax-logo.png" alt="ProspectTrax"></StaticImage>
+                  </Col>
+                  <Col>
+                    <StaticImage src="../../images/bootcamp/company-logos/scheduleit-logo.png" alt="Schedule It"></StaticImage>
+                  </Col>
+                  <Col>
+                    <StaticImage src="../../images/bootcamp/company-logos/vetdata-logo.png" alt="vetdata"></StaticImage>
+                  </Col>
+                </Row>
               </Row>
             </Col>
           </Row>
@@ -301,11 +311,13 @@ const BootcampPage = ({ data }) => {
                   </div>
                 </Col>
               </Row>
-              <Row>
-                <p>With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using HTML, CSS, JavaScript, web frameworks, GitHub, Agile, and more.</p>
-              </Row>
-              <Row>
-                <p>Students begin with a part-time Prework phase, with 4 weeks of remote lessons covering the basics of web development. After that, we kick it into high gear for 12 weeks of full-time, in-person training. We've designed Bootcamp to feel less like school, and more like you first 3 months on the job. By the conclusion of the combined 16-week program, our alumni are ready to interview with regional and national employers for the opportunity to earn a full-time position at a competitive junior developer's salary.</p>
+              <Row className="text-center mx-3 mt-3">
+                <Row>
+                  <p>With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using HTML, CSS, JavaScript, web frameworks, GitHub, Agile, and more.</p>
+                </Row>
+                <Row>
+                  <p>Students begin with a part-time Prework phase, with 4 weeks of remote lessons covering the basics of web development. After that, we kick it into high gear for 12 weeks of full-time, in-person training. We've designed Bootcamp to feel less like school, and more like you first 3 months on the job. By the conclusion of the combined 16-week program, our alumni are ready to interview with regional and national employers for the opportunity to earn a full-time position at a competitive junior developer's salary.</p>
+                </Row>
               </Row>
             </Col>
           </Row>
@@ -314,7 +326,7 @@ const BootcampPage = ({ data }) => {
 
       {/* Apply */}
       <section id="apply">
-        <Container style={{paddingTop: "50px", paddingBottom: "50px"}}>
+        <Container className="py-5">
           <Row>
             <Col>
               <Row>
@@ -323,7 +335,7 @@ const BootcampPage = ({ data }) => {
               <Row>
                 <Subtitle className="text-center fs-6">There is a four-step, competitive application process for the Bootcamp program:</Subtitle>
               </Row>
-              <Row style={{paddingTop: "40px", paddingBottom: "40px"}}>
+              <Row className="py-5 mx-5">
                 <Col>
                   <div>
                     <StaticImage src="../../images/bootcamp/online-application.png" className="text-center"/>
@@ -331,7 +343,7 @@ const BootcampPage = ({ data }) => {
                 </Col>
                 <Col>
                   <div>
-                    <StaticImage src="../../images/bootcamp/arrow-steps.png" className="text-center"/>
+                    <StaticImage src="../../images/bootcamp/arrow-steps.png" className="text-center mt-5 mx-5"/>
                   </div>
                 </Col>
                 <Col>
@@ -341,7 +353,7 @@ const BootcampPage = ({ data }) => {
                 </Col>
                 <Col>
                   <div>
-                    <StaticImage src="../../images/bootcamp/arrow-steps.png" className="text-center" />
+                    <StaticImage src="../../images/bootcamp/arrow-steps.png" className="text-center mt-5 mx-5" />
                   </div>
                 </Col>
                 <Col>
@@ -351,7 +363,7 @@ const BootcampPage = ({ data }) => {
                 </Col>
                 <Col>
                   <div>
-                    <StaticImage src="../../images/bootcamp/arrow-steps.png" className="text-center"/>
+                    <StaticImage src="../../images/bootcamp/arrow-steps.png" className="text-center mt-5 mx-5"/>
                   </div>
                 </Col>
                 <Col>
