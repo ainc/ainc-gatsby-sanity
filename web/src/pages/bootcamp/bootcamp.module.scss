@@ -1,5 +1,9 @@
 .header {
     background-image: url(../../images/bootcamp/hero-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    padding-top: 40px;
+    height: 92vh;
 
     .row {
         padding-top: 70px;
@@ -21,36 +25,8 @@
     max-width: 50px;
 }
 
-.answerHonestly {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    .shieldRow {
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-    .img {
-        max-width: 70%;
-    }
-    .yesRow {
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-}
-
 .testimonials {
     background-image: url(../../images/bootcamp/testimonials-bg.jpg);
-}
-
-.motivationalQuote {
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-
-.whyAwesomeIncHeader {
-    padding-top: 0px;
-    .img {
-        max-height: 250px;
-    }
 }
 
 .jobGuarantee {
@@ -116,10 +92,11 @@
 
 .stillUnsure {
     background-image: url(../../images/bootcamp/alumni-bg.png);
+    height: 50vh;
 }
 
 .questions {
     background-image: url(../../images/bootcamp/faq-bg.jpg);
-    height: 350px;
+    height: 50vh;
 }
 

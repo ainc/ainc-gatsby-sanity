@@ -1,0 +1,17 @@
+.shieldPanel {
+    background-image: url(../../images/bootcamp/shield.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 200px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+
+    .shieldText {
+        text-align: center;
+        justify-self: center;
+        align-self: center;
+        padding: 2rem 3.25rem 3rem 3.25rem;
+    }
+}
