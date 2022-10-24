@@ -38,3 +38,16 @@
 .text--huge {
   @include font-size(40)
 }
+
+.text--extra-huge {
+  @include font-size(55)
+}
+
+.text--micro {
+  @include font-size(8)
+}
+
+.text--aside {
+  margin-top: 400px;
+  transform: rotate(270deg);
+}

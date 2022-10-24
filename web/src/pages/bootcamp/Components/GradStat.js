@@ -1,6 +1,6 @@
 import React from 'react'
-import Title from "../../components/UI/Title/Title";
-import Subtitle from "../../components/UI/Subtitle/Subtitle";
+import Title from "../../../components/UI/Title/Title";
+import Subtitle from "../../../components/UI/Subtitle/Subtitle";
 import { StaticImage } from "gatsby-plugin-image";
 
 function GradStat(props) {

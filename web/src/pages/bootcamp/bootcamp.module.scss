@@ -31,7 +31,9 @@
 
 .jobGuarantee {
     background-image: url(../../images/bootcamp/job-bg.jpg);
-    padding-bottom: 30px;
+    padding-bottom: 60px;
+    padding-top: 20px;
+
     .imgRow {
         padding-top: 60px;
         padding-bottom: 30px;
@@ -62,11 +64,13 @@
 
 
 .languages {
-    background-image: url(../../images/bootcamp/languages-bg.jpg)
+    background-image: url(../../images/bootcamp/languages-bg.jpg);
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 #timeline {
-    Title {
+    .timelineTitle {
         position: absolute; 
         top: 80%;
         left: 0;
