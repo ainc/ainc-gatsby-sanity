@@ -16,6 +16,8 @@ import Testimonial from "./Components/Testimonial";
 import "../../styles/main.scss"
 import * as styles from './bootcamp.module.scss'
 import * as footerStyles from '../../components/Footer/Footer.module.scss'
+import ShieldsRow from "./Components/ShieldsRow";
+import CompanyGrid from "./Components/CompanyGrid";
 
 const BootcampPage = ({ data }) => {
 
@@ -68,21 +70,13 @@ const BootcampPage = ({ data }) => {
             </Col>
           </Row>
           <Row className="py-5 ps-3 mx-5 text-center" style={{maxWidth: "90%"}}>
-            <Col>
-              <Shield text="Do you ever think of changing careers?" />
-            </Col>
-            <Col>
-              <Shield text="Are you looking for a more meaningful career?" />
-            </Col>
-            <Col>
-              <Shield text="Do you enjoy learning new ideas and solving problems?" />
-            </Col>
-            <Col>
-              <Shield text="Do you want to gain a skill set that will set you up for success no matter your location?" />   
-            </Col>
-            <Col>
-              <Shield text="Are you looking to explore a different life path?" />
-            </Col>
+            <ShieldsRow
+              text1="Do you ever think of changing careers?"
+              text2="Are you looking for a more meaningful career?"
+              text3="Do you enjoy learning new ideas and solving problems?"
+              text4="Do you want to gain a skill set that will set you up for success no matter your location?"
+              text5="Are you looking to explore a different life path?"
+            />
           </Row>
           <Row className={styles.yesRow}>
             <Subtitle className="text-center brand fs-3">yes!</Subtitle>
@@ -285,6 +279,28 @@ const BootcampPage = ({ data }) => {
                     <StaticImage src="../../images/bootcamp/company-logos/vetdata-logo.png" alt="vetdata"></StaticImage>
                   </Col>
                 </Row>
+                {/* <CompanyGrid
+                  src1="../../images/bootcamp/company-logos/apaxsoftware-logo.png"
+                  alt1="Apax Software"
+                  src2="../../images/bootcamp/company-logos/ableengine-logo.png"
+                  alt2="Able Engine"
+                  src3="../../images/bootcamp/company-logos/cabemtechnologies-logo.png"
+                  alt3="Cabem Technologies"
+                  src4="../../images/bootcamp/company-logos/infosys-logo.png"
+                  alt4="Infosys"
+                  src5="../../images/bootcamp/company-logos/ireportsource-logo.png"
+                  alt5="iReportSource"
+                  src6="../../images/bootcamp/company-logos/medmyne-logo.png"
+                  alt6="MedMyne"
+                  src7="../../images/bootcamp/company-logos/nymblsystems-logo.png"
+                  alt7="nymbl.systems"
+                  src8="../../images/bootcamp/company-logos/prospecttrax-logo.png"
+                  alt8="ProspectTrax"
+                  src9="../../images/bootcamp/company-logos/scheduleit-logo.png"
+                  alt9="Schedule It"
+                  src10="../../images/bootcamp/company-logos/vetdata-logo.png"
+                  alt10="vetdata"
+                ></CompanyGrid> */}
               </Row>
             </Col>
           </Row>
