@@ -18,6 +18,7 @@ import * as styles from './bootcamp.module.scss'
 import * as footerStyles from '../../components/Footer/Footer.module.scss'
 import ShieldsRow from "./Components/ShieldsRow";
 import CompanyGrid from "./Components/CompanyGrid";
+import VerticalTitle from "../../components/VerticalTitle/VerticalTitle";
 
 const BootcampPage = ({ data }) => {
 
@@ -78,7 +79,7 @@ const BootcampPage = ({ data }) => {
               text5="Are you looking to explore a different life path?"
             />
           </Row>
-          <Row className={styles.yesRow}>
+          <Row>
             <Subtitle className="text-center brand fs-3">yes!</Subtitle>
             <br />
             <br />
@@ -99,7 +100,7 @@ const BootcampPage = ({ data }) => {
       <section id="testimonials">
         <Container fluid className={styles.testimonials}>
           <Row className="py-3">
-            <Row className="py-3">
+            <Row className="py-5">
               <Title className="text-center text-white text-uppercase">Hear From Our Alumni</Title>
             </Row>
             <Row className="text-center mx-5">
@@ -115,7 +116,7 @@ const BootcampPage = ({ data }) => {
               testimonial3='Brett made the switch from factory worker to software developer. "I worked in lots of different types of factories for years and my body was just getting run down at such a young age. I knew I needed something else. There is no way I could have afforded time or money for a four-year degree."'
               />
             </Row>
-            <Row className="py-3">
+            <Row className="pt-4 pb-5">
               <Col className="text-center">
                 <BrandButton className="text-center brand">More Alumni</BrandButton>
               </Col>
@@ -128,7 +129,7 @@ const BootcampPage = ({ data }) => {
       <section id="motivational">
         <Container className="py-4">
           <Row className="py-4">
-            <Col>
+            <Col className="mx-5 py-2">
               <Title className="text-center brand fs-5">"You don't have to feel trapped. Earn your freedom, work when & where you want. Earn a living in just 40 hours a week."</Title>
             </Col>
           </Row>
@@ -427,13 +428,15 @@ const BootcampPage = ({ data }) => {
         <Container className="pt-5 pb-3 pe-3 mx-5">
           <Row className="mx-5 pe-3">
             <Col className="col-2">
-              <Title className="text-center text--extra-huge text--aside brand mx-5">Timeline</Title>
+              <div>
+                <VerticalTitle title="The Timeline" className="text--extra-huge" />
+              </div>
             </Col>
             <Col className="col-10 pe-5">
-              <Row className="mb-4">
+              <Row className="mt-4 mb-5">
                 <p className="text-justify fs-5 pb-3">This is a realistic timeline of what a Web Developer Bootcamp student can expect from applying to the program to becoming a proud alumni.</p>
               </Row>
-              <Row>
+              <Row className="mb-3">
                 <img className="text-center pl-2" src={require('/src/images/bootcamp/timeline.png').default}/>
               </Row>
             </Col>
