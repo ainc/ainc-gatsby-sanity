@@ -180,7 +180,7 @@ const BootcampPage = ({ data }) => {
         <Container fluid className={styles.jobGuarantee}>
           <Row className={styles.imgRow}>
             <Col className="d-flex justify-content-center">
-              <StaticImage src='../../images/bootcamp/job-guaranteed.png' alt='job guaranteed'></StaticImage>
+              <StaticImage src='../../images/bootcamp/job-guaranteed.png' alt='job guaranteed' style={{maxWidth: "300px"}}></StaticImage>
             </Col>
           </Row>
           <Row className="mx-5">
@@ -428,9 +428,7 @@ const BootcampPage = ({ data }) => {
         <Container className="pt-5 pb-3 pe-3 mx-5">
           <Row className="mx-5 pe-3">
             <Col className="col-2">
-              <div>
-                <VerticalTitle title="The Timeline" className="text--extra-huge" />
-              </div>
+              <VerticalTitle title="Timeline" />
             </Col>
             <Col className="col-10 pe-5">
               <Row className="mt-4 mb-5">
