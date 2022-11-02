@@ -19,52 +19,46 @@ const EventsPage = ({ data }) => {
 
     return (
         <Layout>
-            <main>
-                {/* Heading */}
-                <section>
-                    <div className={styles.centerHeading}>
-                        <Row>
-                            <Title className={styles.headingTitle}>
-                                Upcoming Events
-                            </Title>
-                        </Row>
-                        <Row>
-                            <Subtitle className={styles.headingSubtitle}> 
-                                Join us and be a part of the startup community!
-                            </Subtitle>
-                        </Row>
-                    </div>
-                </section>
+          {/* Heading */}
+            <Container className="text-center my-5">
+                <Row>
+                    <Title className="text-uppercase">
+                        Upcoming Events
+                    </Title>
+                </Row>
+                <Row>
+                    <Subtitle className="fs-5"> 
+                        Join us and be a part of the startup community!
+                    </Subtitle>
+                </Row>
+            </Container>
 
-                {/* Events */}
-                <section>
-                  <Container>
-                    <Row>
-                        {events.map((edge) => (
-                          <Col>
-                            <Event
-                              image={
-                                edge.node.picture.asset.gatsbyImageData
-                              }
-                              date={edge.node.date}
-                              host={edge.node.host}
-                              location={edge.node.location}
-                              link={edge.node.linkToEvent}
-                              name={edge.node.eventName}
-                              />
-                          </Col>
-                        ))}
-                      </Row>
-                  </Container>
-                </section>
-            </main>
+          {/* Events */}
+            <Container className="">
+              <Row className="mx-5 mb-5 px-5">
+                  {events.map((edge) => (
+                    <Col sm="6" className="my-1">
+                      <Event
+                        image={
+                          edge.node.picture.asset.gatsbyImageData
+                        }
+                        date={edge.node.date}
+                        host={edge.node.host}
+                        location={edge.node.location}
+                        link={edge.node.linkToEvent}
+                        name={edge.node.eventName}
+                        />
+                    </Col>
+                  ))}
+                </Row>
+            </Container>
         </Layout>
     )
 }
 
 export const query_events = graphql`
-  query {
-    allSanityEvents {
+  query($currentDate: Date!) {
+    allSanityEvents(sort: {fields: date, order: DESC}, filter: {date: {gte: $currentDate}}) {
       edges {
         node {
           eventName
@@ -74,7 +68,7 @@ export const query_events = graphql`
           location
           picture {
             asset {
-              gatsbyImageData
+              gatsbyImageData(aspectRatio: 1.05)
             }
           }
         }
