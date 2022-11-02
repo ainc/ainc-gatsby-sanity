@@ -68,6 +68,12 @@ export default {
       type: 'boolean',
       description: 'Featured events will be displayed first',
       initialValue: false
+    },
+    {
+      title: 'Event Type',
+      name: 'reference',
+      type: 'reference',
+      to: [{type: 'eventTypes'}]
     }
   ],
   // (DONE)TODO: change the preview of date to MMMM D, YYYY | h:mma
