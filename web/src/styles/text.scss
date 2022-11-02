@@ -35,16 +35,20 @@
   font-style: italic;
 }
 
+.text--tiny {
+  @include font-size(9)
+}
+
+.text--micro {
+  @include font-size(8)
+}
+
 .text--huge {
   @include font-size(40)
 }
 
 .text--extra-huge {
   @include font-size(55)
-}
-
-.text--micro {
-  @include font-size(8)
 }
 
 .text--aside {

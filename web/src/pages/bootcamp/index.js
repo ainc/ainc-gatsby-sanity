@@ -19,6 +19,7 @@ import * as footerStyles from '../../components/Footer/Footer.module.scss'
 import ShieldsRow from "./Components/ShieldsRow";
 import CompanyGrid from "./Components/CompanyGrid";
 import VerticalTitle from "../../components/VerticalTitle/VerticalTitle";
+import SideNav from "./Components/SideNav"
 
 const BootcampPage = ({ data }) => {
 
@@ -30,10 +31,13 @@ const BootcampPage = ({ data }) => {
       <section id="header">
         <Container fluid className={styles.header}>
           <Row className="py-5 mt-5 mx-5">
-            <Col className="py-5 mt-5 mx-5">
+            <Col className="py-5 mt-5 mx-5 col-9">
               <Title className="text-left fs-4 mt-3 w-50"><b>A 16 week, Full-time, Job-Guaranteed Program designed for individuals looking to make a career change.</b></Title>
               <Subtitle className="fst-italic fw-lighter fs-5 my-3 w-75">Start your application in less than 30 seconds</Subtitle>
               <BrandButton className="my-3">Get Started</BrandButton>
+            </Col>
+            <Col class="col-2">
+              <SideNav />
             </Col>
           </Row>
         </Container>
@@ -448,7 +452,7 @@ const BootcampPage = ({ data }) => {
           <Row>
             <Col>
               <Row className="mt-2 mb-5">
-                <Title className="brand text-center text--huge">The Cost</Title>
+                <Title className="text--huge brand text-center">The Cost</Title>
               </Row>
               <Row>
                 <Col className="text-center border-right--brand">
