@@ -4,35 +4,26 @@
     font-family: "Open Sans", sans-serif;
 }
 
-.center-heading {
-    text-align: center;
-    margin-top: 3rem;
-}
-
-.heading-title {
-    text-transform: uppercase;
-    letter-spacing: -.1px;
-}
-
 .heading-subtitle {
     font-family: "Open Sans",sans-serif;
     font-size: 17px;
-    letter-spacing: -.1px;
-    margin-bottom: 3rem;
+    /* letter-  spacing: -.1px; */
+    /* margin-bottom: 3rem; */
     margin-top: .5rem;
 }
 
 .flex-container {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    /* flex-direction: row; */
     /* border: 1px solid #eee; */
     /* border-radius: 2px; */
-    margin: 10px 10px 50px 160px
+    /* margin: 10px 10px 50px 160px */
+    margin: auto
 }
 
 .flex-item {
-    width: 500px;
-    margin: 0px 15px 0px 40px;
+    /* width: 500px; */
+    /* margin: 0px 15px 0px 40px; */
     color: white;
 }

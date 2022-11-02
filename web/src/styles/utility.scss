@@ -69,3 +69,11 @@ $bg-filter-blur: blur(2px) grayscale(0.8);
 .bg--dark-grey {
   background-color: $brand-color2;
 }
+
+.border-right--white {
+  border-right: 2px solid #fff;
+}
+
+.border-right--brand {
+  border-right: 2px solid $brand-color;
+}

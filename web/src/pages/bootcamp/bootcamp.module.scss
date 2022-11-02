@@ -1,0 +1,106 @@
+.header {
+    background-image: url(../../images/bootcamp/hero-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    padding-top: 40px;
+    height: 92vh;
+
+    .row {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+}
+
+.twoButtonsRow {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    .text-white {
+        color: white;
+        margin-bottom: 50px;
+        margin-top: 50px;
+    }
+}
+
+.twoButtonsIcons {
+    max-width: 50px;
+}
+
+.testimonials {
+    background-image: url(../../images/bootcamp/testimonials-bg.jpg);
+}
+
+.jobGuarantee {
+    background-image: url(../../images/bootcamp/job-bg.jpg);
+    padding-bottom: 60px;
+    padding-top: 20px;
+
+    .imgRow {
+        padding-top: 60px;
+        padding-bottom: 30px;
+    }
+
+    .text-white {
+        padding-top: 20px;
+        padding-bottom: 30px;
+        max-width: 65%;
+    }
+
+    .jobGuaranteeText {
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-bottom: 40px;
+    }
+}
+
+#stats {
+    .statsRow {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .button {
+        background-color: grey;
+    }
+}
+
+
+.languages {
+    background-image: url(../../images/bootcamp/languages-bg.jpg);
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+#timeline {
+    .timelineTitle {
+        position: absolute; 
+        top: 80%;
+        left: 0;
+        margin-left: -30px;
+        color: red;
+        font-size: 70;
+        letter-spacing: 4px;
+        text-transform: none;
+        
+        transform: rotate(270deg);
+        transform-origin: (0 0);
+
+        // @include screen-xs {
+        //   position: relative;
+        //   @include font-size(34);
+        //   @include transform(rotate(0));
+        //   top: 80%;
+        //   left: 10px;
+        //   letter-spacing: 4px;
+        // }
+    }
+}
+
+.stillUnsure {
+    background-image: url(../../images/bootcamp/alumni-bg.png);
+    height: 50vh;
+}
+
+.questions {
+    background-image: url(../../images/bootcamp/faq-bg.jpg);
+    height: 50vh;
+}
+
