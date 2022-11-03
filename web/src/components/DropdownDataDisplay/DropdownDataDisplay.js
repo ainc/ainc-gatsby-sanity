@@ -5,7 +5,31 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import FiveAcrossWinnersCard from "../FiveAcrossWinnersCard/FiveAcrossWinnersCard";
 import * as styles from './DropdownDataDisplay.module.scss'
+import styled from 'styled-components'
+import * as variables from '../../styles/Variables'
 
+const BrandDropdownButton = styled(DropdownButton)`
+    button {
+        font-family: ${variables.styles.fonts.baseFont};
+        font-weight: 600;
+        letter-spacing: 3px;
+        background: ${variables.styles.colors.brand};
+        padding: 0.5rem 2rem;
+        color: white;
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: ${variables.styles.sizes.text};
+        border: 2px solid ${variables.styles.colors.brand};
+        border-radius: 4px;
+        position: relative;
+
+        @media only screen and (max-width: ${variables.styles.screens.mobile}) {
+            font-size: ${variables.styles.sizes.text_tiny};
+            padding: 0.3rem 1rem;
+        }
+    }
+    
+`
 
 
 const DropdownDataDisplay = (props) => {
@@ -33,11 +57,11 @@ const DropdownDataDisplay = (props) => {
         {/* <Container fluid> */}
             <Row>
                 <Col>
-                    <DropdownButton variant="danger" title={selectedItem ? selectedItem : currentYear}>
+                    <BrandDropdownButton className="" variant="danger" title={selectedItem ? selectedItem : currentYear}>
                         {items.map((item) => 
                             <Dropdown.Item eventKey={item} onClick={() => setSelectedItem(item)}>{item}</Dropdown.Item>
                         )}
-                    </DropdownButton>
+                    </BrandDropdownButton>
                 </Col>
             </Row>
         {/* </Container> */}
