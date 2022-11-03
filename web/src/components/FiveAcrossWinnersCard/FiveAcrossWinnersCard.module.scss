@@ -1,0 +1,36 @@
+@import "../../styles/main.scss";
+
+.header-border {
+  width: 100%;
+  // margin-bottom: 30px;
+  border: $brand-red-bright solid 1px;
+  // font-weight: 300;
+  
+  .video-button {
+    margin-bottom: -30px;
+  }
+
+  .body-text {
+    font-weight: 300;
+  }
+  
+
+  .heading, .heading-subtitle {
+    text-align: center;
+    margin-top: -20px;
+    font-weight: 300;
+    color: $brand-red-bright;
+    
+  }
+
+  
+  .heading > span, .heading-subtitle > span {
+    background-color: white;
+    box-shadow: white 11px 0px 0px,
+                white -13px 0px 0px;
+  }
+  
+}
+
+
+
