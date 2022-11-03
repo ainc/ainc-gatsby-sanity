@@ -1,5 +1,5 @@
 import React from 'react'
-import Title from '../../components/UI/Title/Title'
+import Title from '../Title/Title'
 
 import * as styles from './VerticalTitle.module.scss'
 

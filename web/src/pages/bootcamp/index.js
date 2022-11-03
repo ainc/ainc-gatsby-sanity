@@ -18,10 +18,12 @@ import * as styles from './bootcamp.module.scss'
 import * as footerStyles from '../../components/Footer/Footer.module.scss'
 import ShieldsRow from "./Components/ShieldsRow";
 import CompanyGrid from "./Components/CompanyGrid";
-import VerticalTitle from "../../components/VerticalTitle/VerticalTitle";
+import VerticalTitle from "../../components/UI/VerticalTitle/VerticalTitle";
 import SideNav from "./Components/SideNav"
 
 const BootcampPage = ({ data }) => {
+
+  const testimonials = (data.allSanityBootcampTestimonial.nodes || {})
 
   return (
     <Layout pageTitle="Bootcamp">
@@ -30,9 +32,9 @@ const BootcampPage = ({ data }) => {
       {/* Header section */}
       <section id="header">
         <Container fluid className={styles.header}>
-          <Row className="py-5 mt-5 mx-5">
-            <Col className="py-5 mt-5 mx-5 col-9">
-              <Title className="text-left fs-4 mt-3 w-50"><b>A 16 week, Full-time, Job-Guaranteed Program designed for individuals looking to make a career change.</b></Title>
+          <Row className="py-5 mt-5 ms-5">
+            <Col className="py-5 mt-5 mx-5 w-75 col-9 ps-5">
+              <Title className="text-left fs-4 mt-3 w-75 lh-lg"><b>A 16 week, Full-time, Job-Guaranteed Program designed for individuals looking to make a career change.</b></Title>
               <Subtitle className="fst-italic fw-lighter fs-5 my-3 w-75">Start your application in less than 30 seconds</Subtitle>
               <BrandButton className="my-3">Get Started</BrandButton>
             </Col>
@@ -129,11 +131,34 @@ const BootcampPage = ({ data }) => {
         </Container>
       </section>
 
+      {/* Alumni Testimonials */}
+      <section id="testimonials">
+        <Container fluid className={styles.testimonials}>
+          <Row className="py-3">
+            <Row className="py-5">
+              <Title className="text-center text-white text-uppercase">Hear From Our Alumni</Title>
+            </Row>
+            <Row className="text-center mx-5">
+              <Testimonial 
+                name1={testimonials.name}
+                testimonial1={testimonials.testimonial}
+                src1={testimonials._rawPicture}
+              />
+            </Row>
+            <Row className="pt-4 pb-5">
+              <Col className="text-center">
+                <BrandButton className="text-center brand">More Alumni</BrandButton>
+              </Col>
+            </Row>
+          </Row>
+        </Container>
+      </section>
+
       {/* Motivational Quote */}
       <section id="motivational">
         <Container className="py-4">
-          <Row className="py-4">
-            <Col className="mx-5 py-2">
+          <Row className="py-4 mx-5 px-5">
+            <Col className="mx-5 py-2 col-">
               <Title className="text-center brand fs-5">"You don't have to feel trapped. Earn your freedom, work when & where you want. Earn a living in just 40 hours a week."</Title>
             </Col>
           </Row>
@@ -143,11 +168,18 @@ const BootcampPage = ({ data }) => {
       {/* Why Awesome Inc Header */}
       <section id="why-awesome-inc-header">
         <Container fluid className="h-50">
-          <Row className="h-75">
-            <StaticImage src='../../images/bootcamp/awesome-inc-bg.jpg' alt='Why Awesome Inc Header Image' className="center-block h-50" style={{maxHeight: "30vh", paddingBottom: "-5vh"}}/>
+          <Row className="h-50">
+            <StaticImage src='../../images/bootcamp/awesome-inc-bg.jpg' alt='Why Awesome Inc Header Image' className="center-block h-50" style={{maxHeight: "30vh", paddingBottom: "-10vh"}}/>
           </Row>
         </Container>
       </section>
+
+      {/* Why Awesome Inc Header
+      <section id="why-awesome-inc-header">
+        <Container fluid className={styles.whyAwesomeIncHeader}>
+          <Row className="h-75"></Row>
+        </Container>
+      </section> */}
 
       {/* Why Awesome Inc */}
       <section id="why-awesome-inc">
@@ -196,46 +228,50 @@ const BootcampPage = ({ data }) => {
       </section>
 
       {/* Stats */}
-      <section id="stats" className="background--brand p1.y-5">
+      <section id="stats" className="background--brand pe-3">
         <Container fluid className="py-4 mx-5">
-          <Row className="justify-content-center py-5 pe-5 me-5">
-            <Col className="mt-2">
-              <Row className="text-center">
-                <GradStat
-                src={require("../../images/bootcamp/graduation.png").default}
-                alt="Graduation Rate"
-                stat="90%"
-                subtitle="Graduation Rate"
-                subtext="2016-2020"
-                ></GradStat>
+          <Row className="justify-content-center py-5 px-5 mx-5">
+            <Row className="justify-content-center px-5 mx-5">
+              <Row className="justify-content-center px-5 mx-5">
+                <Col className="mt-2">
+                  <Row className="text-center">
+                    <GradStat
+                    src={require("../../images/bootcamp/graduation.png").default}
+                    alt="Graduation Rate"
+                    stat="90%"
+                    subtitle="Graduation Rate"
+                    subtext="2016-2020"
+                    ></GradStat>
+                  </Row>
+                </Col>
+                <Col className="mt-2">
+                  <Row className="text-center">
+                    <GradStat
+                    src={require("../../images/bootcamp/job-placement.png").default}
+                    alt="Job Placement Rate"
+                    stat="86%"
+                    subtitle="Job Placement Rate"
+                    subtext="Within 180 Days"
+                    ></GradStat>
+                  </Row>
+                </Col>
+                <Col>
+                  <Row className="text-center">
+                    <GradStat
+                    src={require("../../images/bootcamp/salary.png").default}
+                    alt="Salary"
+                    stat="$45k"
+                    subtitle="Starting Salary"
+                    subtext="Average"
+                    ></GradStat>
+                  </Row>
+                </Col>
+                <Row className="mt-4">
+                  <Col className="d-flex justify-content-center">
+                    <BrandButton className="button secondary mt-3">Download Program Guide</BrandButton>
+                  </Col>
+                </Row>
               </Row>
-            </Col>
-            <Col className="mt-2">
-              <Row className="text-center">
-                <GradStat
-                src={require("../../images/bootcamp/job-placement.png").default}
-                alt="Job Placement Rate"
-                stat="86%"
-                subtitle="Job Placement Rate"
-                subtext="Within 180 Days"
-                ></GradStat>
-              </Row>
-            </Col>
-            <Col>
-              <Row className="text-center">
-                <GradStat
-                src={require("../../images/bootcamp/salary.png").default}
-                alt="Salary"
-                stat="$45k"
-                subtitle="Starting Salary"
-                subtext="Average"
-                ></GradStat>
-              </Row>
-            </Col>
-            <Row className="mt-5">
-              <Col className="d-flex justify-content-center">
-                <BrandButton className="button background--gray mt-3">Download Program Guide</BrandButton>
-              </Col>
             </Row>
           </Row>
         </Container>
@@ -430,7 +466,7 @@ const BootcampPage = ({ data }) => {
       {/* Timeline */}
       <section id="timeline" style={{backgroundColor: "lightgray"}} className="py-5 pe-5">
         <Container className="pt-5 pb-3 pe-3 mx-5">
-          <Row className="mx-5 pe-3">
+          <Row className="mx-5 pe-5">
             <Col className="col-2">
               <VerticalTitle title="Timeline" />
             </Col>
@@ -535,5 +571,17 @@ const BootcampPage = ({ data }) => {
     </Layout>
   );
 };
+
+export const query_testimonials = graphql`
+query {
+  allSanityBootcampTestimonial {
+    nodes {
+      name
+      testimonial
+      _rawPicture(resolveReferences: {maxDepth: 10})
+    }
+  }
+}
+`
 
 export default BootcampPage;
