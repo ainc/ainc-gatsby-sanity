@@ -35,10 +35,6 @@
   font-style: italic;
 }
 
-.text--tiny {
-  @include font-size(9)
-}
-
 .text--micro {
   @include font-size(8)
 }

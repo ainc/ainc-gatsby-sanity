@@ -15,12 +15,14 @@ const Title = styled.h1`
   &.white {
     color: white;
   }
+  &.text--huge {
+    font-size: 80px;
+  }
   letter-spacing: 2px;
   @media only screen and (max-width: ${styles.styles.screens.mobile}) {
     font-size: ${styles.styles.sizes.subtitle};
   }
 `
-
 
 const title = (props) => {
   return (

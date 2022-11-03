@@ -5,7 +5,7 @@ import Shield from './Shield'
 function ShieldsRow(props) {
     return (
         <div>
-            <Row>
+            <Row className="mx-5">
                 <Col>
                     <Shield text={props.text1}></Shield>
                 </Col>

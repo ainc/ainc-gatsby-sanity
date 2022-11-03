@@ -7,31 +7,31 @@ function SideNav() {
             <nav>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                      <a href="#testimonials" class="nav-link text-uppercase text-body text--tiny">Hear From Our Alumni</a>
+                      <a href="#testimonials" class="nav-link text-uppercase text-body text--micro">Hear From Our Alumni</a>
                     </li>
                     <li class="nav-item">  
-                        <a href="#why-awesome-inc" class="nav-link text-uppercase text-body text--tiny">Why Awesome Inc?</a>
+                        <a href="#why-awesome-inc-header" class="nav-link text-uppercase text-body text--micro">Why Awesome Inc?</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#job-guarantee" class="nav-link text-uppercase text-body text--tiny">Job Guarantee</a>
+                        <a href="#job-guarantee" class="nav-link text-uppercase text-body text--micro">Job Guarantee</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#employers" class="nav-link text-uppercase text-body text--tiny">Hiring Partners</a>
+                        <a href="#employers" class="nav-link text-uppercase text-body text--micro">Hiring Partners</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#languages" class="nav-link text-uppercase text-body text--tiny">Our Tech Stack</a>
+                        <a href="#languages" class="nav-link text-uppercase text-body text--micro">Our Tech Stack</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#timeline" class="nav-link text-uppercase text-body text--tiny">Application Timeline</a>
+                        <a href="#timeline" class="nav-link text-uppercase text-body text--micro">Application Timeline</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#cost" class="nav-link text-uppercase text-body text--tiny">The Cost</a>
+                        <a href="#cost" class="nav-link text-uppercase text-body text--micro">The Cost</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#still-unsure" class="nav-link text-uppercase text-body text--tiny">FAQs</a>
+                        <a href="#still-unsure" class="nav-link text-uppercase text-body text--micro">FAQs</a>
                     </li>
                     <li class="nav-item">
-                         <a href="/bootcamp/apply" class="nav-link text-uppercase fw-bold text-body text--tiny">Apply Now</a>
+                         <a href="/bootcamp/apply" class="nav-link text-uppercase fw-bold text-body text--micro">Apply Now</a>
                     </li>
                 </ul>
             </nav>
