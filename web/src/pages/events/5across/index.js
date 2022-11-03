@@ -15,6 +15,7 @@ import FiveAcrossBG from '../../../images/5across-hero.png'
 // import Event from "../../../components/Event/Event";
 import DropdownDataDisplay from "../../../components/DropdownDataDisplay/DropdownDataDisplay";
 import { faUniversalAccess } from "@fortawesome/free-solid-svg-icons";
+import HorizontalButtons from './HorizontalButtons';
 
 
 
@@ -68,12 +69,7 @@ const fiveAcrossPage = ({ data }) => {
                                     </Col>
                                 </Row>
                                 <Row className="">
-                                    <Col md="auto" className="mb-1">
-                                        <BrandButton className={`${styles.greyButton}`}>APPLY TO PITCH</BrandButton>
-                                    </Col>
-                                    <Col md="auto" className="">
-                                        <BrandButton className={`${styles.greyButton}`}>REGISTER TO ATTEND</BrandButton>
-                                    </Col>
+                                    <HorizontalButtons />
                                 </Row>
                             </Col>
                         </Row>
@@ -98,18 +94,13 @@ const fiveAcrossPage = ({ data }) => {
                             </Col>
                         </Row>
                         <Row className="my-5 d-flex justify-content-center">
-                            <Col md="auto" className="mb-1 d-flex justify-content-center">
-                                <BrandButton className={`${styles.greyButton}`}>APPLY TO PITCH</BrandButton>
-                            </Col>
-                            <Col md="auto" className="d-flex justify-content-center">
-                                <BrandButton className={`${styles.greyButton}`}>REGISTER TO ATTEND</BrandButton>
-                            </Col>
+                            <HorizontalButtons />
                         </Row>
                     </Container>
                     <Container fluid className={`mt-5 ${styles.pastPitches}`}>
                         <Row className="m-5 justify-content-center">
                             <Col id={styles.largeTextCol} md="10" sm="12">
-                                <Title className={`${styles.largeText} text-white mt-5 mb-3`}>OVER 10 YEARS OF PUTTING THE SPOTLIGHT ON KENTUCKY ENTREPRENEURS</Title>
+                                <Title className={`${styles.largeText} text-white mt-5 mb-3 text-uppercase`}>Over 10 years of putting the spotlight on Kentucky Entrepreneurs</Title>
                             </Col>
                         </Row>
                         <Row>
@@ -123,7 +114,7 @@ const fiveAcrossPage = ({ data }) => {
                 <Container fluid className={`justify-content-center ${styles.upcomingEventCircle}`}>
                     <Row>
                         <Col className="text-center">
-                            <Title className="text-white pt-5 mt-5 fs-2">JOIN US AT THE NEXT 5 ACROSS</Title>
+                            <Title className="text-white pt-5 mt-5 fs-2 text-uppercase">Join us at the next 5 Across</Title>
                         </Col>
                     </Row>
                     <Row className="mt-5 justify-content-center">
@@ -173,7 +164,7 @@ const fiveAcrossPage = ({ data }) => {
                         <Col></Col>
                         <Col></Col>
                         <Col className="d-none d-md-block">
-                            <StaticImage quality="90" src="../../../images/5across-arrow.png"/>
+                            <StaticImage quality="90" src="../../../images/5across-arrow.png" alt="5 across arrow" />
                         </Col>
                         <Col></Col>
                         
@@ -185,7 +176,7 @@ const fiveAcrossPage = ({ data }) => {
                 <Container className="mb-5 pb-5">
                     <Row>
                         <Col className="my-5 text-center">
-                            <Title className={`${styles.largeText}  py-5`}>OUR MOST RECENT WINNER</Title>
+                            <Title className={`${styles.largeText} text-uppercase py-5`}>Our most recent winner</Title>
                         </Col>
                     </Row>
                     <Row className={`${styles.recentWinner} p-5`}>
@@ -207,7 +198,7 @@ const fiveAcrossPage = ({ data }) => {
                 {/* PREVIOUS WINNER SECTION */}
                 <Container className="mt-5">
                     <Row className="mt-5 text-center">
-                        <Title className={styles.largeText}>OR REVISIT A PREVIOUS WINNER</Title>
+                        <Title className={`${styles.largeText} text-uppercase`}>Or Revisit a Previous Winner</Title>
                     </Row>
                     <Row>
                         {/* <Col/> */}
@@ -224,17 +215,17 @@ const fiveAcrossPage = ({ data }) => {
                 {/* BRING THE FUN SECTION */}
                 <Container className="my-5">
                     <Row>
-                        <Col className="my-5 text-center">
-                            <Title>AND DON'T FORGET RULE #17</Title>
+                        <Col className="my-5 text-center text-uppercase">
+                            <Title>And Don't Forget Rule #17</Title>
                         </Col>
                     </Row>
                     <Row className="mb-5">
                         <Col lg="11" className="d-flex m-auto">
                             <div>
                                 <div className={`position-absolute mt-3`}>
-                                    <Title className={styles.bringTheFun}>BRING</Title>
-                                    <Title className={styles.bringTheFun}>THE</Title>
-                                    <Title className={styles.bringTheFun}>FUN</Title>
+                                    <Title className={`${styles.bringTheFun} text-uppercase`}>Bring</Title>
+                                    <Title className={`${styles.bringTheFun} text-uppercase`}>the</Title>
+                                    <Title className={`${styles.bringTheFun} text-uppercase`}>Fun</Title>
                                 </div>
                             </div>
                             <StaticImage className={`${styles.unicornImage}`} quality="100" src="../../../images/dabbing_unicorn.png"/>
@@ -246,7 +237,7 @@ const fiveAcrossPage = ({ data }) => {
                 <Container className={`${styles.sponserSection}`}>
                     <Row>
                         <Col sm="auto" className="mx-auto text-center">
-                            <Title className={`${styles.raiseTitle} px-3`}>THANK YOU TO OUR SPONSORS</Title>
+                            <Title className={`${styles.raiseTitle} text-uppercase px-3`}>Thank you to our sponsors</Title>
                         </Col>
                     </Row>
                     <Row className="text-center my-5">
