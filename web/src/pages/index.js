@@ -92,7 +92,7 @@ const IndexPage = props => {
 
   const events = (data.allSanityEvents.nodes || {})
 
-  const feature_event = (data.sanityEvents || {})
+  let feature_event = (data.sanityEvents ? data.sanityEvents : events[0]) //if there is no featured event, then set the closest event to be featured
 
   let eventsNoFeature = []; {/* Create empty array for events to filter into */}
 
@@ -101,8 +101,8 @@ const IndexPage = props => {
     }
   )
   eventsNoFeature = eventsNoFeature.slice(0, 3); {/* Slice the list to only contain 3 elements max */}
-  
 
+  
   const courses = (data.allSanityCourses.nodes || {})
 
   if (errors) {

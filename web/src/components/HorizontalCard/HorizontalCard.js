@@ -7,7 +7,7 @@ const HorizontalCard = (props) => {
 
   const { data, error } = props;
   
-  const time = Moment(props.date).format('h:mm a')
+  const time = Moment(props.date).format('MMMM DD, YYYY')
 
   return (
     <Card className={props.className}>
