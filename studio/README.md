@@ -7,3 +7,7 @@ How to do get new schemas to show up on gatsby/___graphql
 4.) thne login using the options
 5.) `sanity graphql deploy`
 6.) run `yarn run dev` to boot up sanity and gatsby local
+
+How to kill ports if Ctrl + C
+- `npx kill-port [port number]` 
+- Ex: `npx kill-port 8000`

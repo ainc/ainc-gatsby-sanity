@@ -182,13 +182,15 @@ const IndexPage = props => {
           style={{ backgroundPosition: `0 50%`, minHeight: `500px` }}>
           <div id="lgx-core-values" className="lgx-video-background">
             <Container className="mt-5">
-              <Row>
-                <Title className="text-uppercase white">Our Core Values</Title>
-                <p className="text-white">
-                  Here at Awesome Inc we not only work by our core values, but live by them too.
-                </p>
+              <Row className="w-50">
+                {/* <Col sm="6"> */}
+                  <Title className="text-uppercase white">Our Core Values</Title>
+                  <p className="text-white">
+                    Here at Awesome Inc we not only work by our core values, but live by them too.
+                  </p>
+                {/* </Col> */}
               </Row>
-              <Row>
+              <Row className="mb-5">
                 <CoreValue />
               </Row>
             </Container>
