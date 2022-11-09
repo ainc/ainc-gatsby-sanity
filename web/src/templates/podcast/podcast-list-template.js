@@ -28,7 +28,7 @@ const PodcastPage = ({pageContext, data }) => {
             <Container className={styles.container}>
                 <Row>
                     <Col>
-                        <Title className={`${styles.headingText} text-uppercase`}>Podcase Episodes</Title>
+                        <Title className={`${styles.headingText} text-uppercase`}>Podcast Episodes</Title>
                         
                     </Col>
                 </Row>
