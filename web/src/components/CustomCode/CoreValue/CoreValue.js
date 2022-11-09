@@ -4,15 +4,6 @@ import styled from "styled-components";
 import '../../../styles/main.scss'
 import "./CoreValue.scss";
 import { Container, Row, Col, Image, Badge, Card } from "react-bootstrap";
-// import cultureBookButtonImage from "./culture-book-button.png";
-// import videoButtonImage from "./";
-
-
-/* 
-  TODO: 
-    - Fix images that aren't showing up
-    - Z-index issue that "hides" element
-*/
 
 const CoreValue = (props) => {
   return (
