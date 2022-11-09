@@ -183,12 +183,10 @@ const IndexPage = props => {
           <div id="lgx-core-values" className="lgx-video-background">
             <Container className="mt-5">
               <Row className="w-50">
-                {/* <Col sm="6"> */}
                   <Title className="text-uppercase white">Our Core Values</Title>
                   <p className="text-white">
                     Here at Awesome Inc we not only work by our core values, but live by them too.
                   </p>
-                {/* </Col> */}
               </Row>
               <Row className="mb-5">
                 <CoreValue />
@@ -197,6 +195,7 @@ const IndexPage = props => {
           </div>
         </div>
       </section>
+      
       {/* EVENTS */}
       <section id="events">
         <Title className="my-5 text-uppercase text-center">Upcoming Events</Title>
