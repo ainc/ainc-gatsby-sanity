@@ -2,14 +2,10 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../../components/Layout/Layout";
 import { Container, Col, Row, Image } from "react-bootstrap";
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
-import Banner from "../../components/Banner/Banner";
-import { ReactComponent as QuestionCircleIcon } from '/src/images/bootcamp/QuestionCircle.svg';
-import MoneyCircleIcon from '/src/images/bootcamp/MoneyCircle.svg';
-import Shield from "./Components/Shield"
 import ProfileCard from "./Components/ProfileCard";
 import GradStat from "./Components/GradStat";
 import Testimonial from "./Components/Testimonial";
@@ -17,13 +13,66 @@ import "../../styles/main.scss"
 import * as styles from './bootcamp.module.scss'
 import * as footerStyles from '../../components/Footer/Footer.module.scss'
 import ShieldsRow from "./Components/ShieldsRow";
-import CompanyGrid from "./Components/CompanyGrid";
 import VerticalTitle from "../../components/UI/VerticalTitle/VerticalTitle";
 import SideNav from "./Components/SideNav"
 
-const BootcampPage = ({ data }) => {
+export const query = graphql`
+ query BootcampPageQuery {
+  allSanityBootcampTestimonial {
+    nodes {
+      name
+      testimonial
+      picture {
+        asset {
+          gatsbyImageData
+        }
+      }
+    }
+  }
+  allSanityBootcampGraduationStats {
+    nodes {
+      _key
+      title
+      subtitle
+      stat
+      picture {
+        asset {
+          gatsbyImageData
+        }
+      }
+    }
+  }
+  allSanityBootcampEmployers {
+    nodes {
+      _key
+      company
+      picture {
+        asset {
+          gatsbyImageData
+        }
+      }
+    }
+  }
+}
+`
+
+const BootcampPage = props => {
+
+  const { data, errors } = props;
 
   const testimonials = (data.allSanityBootcampTestimonial.nodes || {})
+
+  const gradStats = (data.allSanityBootcampGraduationStats.nodes || {})
+
+  const employers = (data.allSanityBootcampEmployers.nodes || {})
+
+  if (errors) {
+    return (
+      <Layout>
+        <GraphQLErrorList errors={errors} />
+      </Layout>
+    );
+  }
 
   return (
     <Layout pageTitle="Bootcamp">
@@ -140,9 +189,7 @@ const BootcampPage = ({ data }) => {
             </Row>
             <Row className="text-center mx-5">
               <Testimonial 
-                name1={testimonials.name}
-                testimonial1={testimonials.testimonial}
-                src1={testimonials._rawPicture}
+              name1={testimonials.name}
               />
             </Row>
             <Row className="pt-4 pb-5">
@@ -166,10 +213,10 @@ const BootcampPage = ({ data }) => {
       </section>
 
       {/* Why Awesome Inc Header */}
-      <section id="why-awesome-inc-header">
+      <section id="why-awesome-inc-header" className="h-75">
         <Container fluid className="h-50">
           <Row className="h-50">
-            <StaticImage src='../../images/bootcamp/awesome-inc-bg.jpg' alt='Why Awesome Inc Header Image' className="center-block h-50" style={{maxHeight: "30vh", paddingBottom: "-10vh"}}/>
+            <StaticImage src='../../images/bootcamp/awesome-inc-bg.jpg' alt='Why Awesome Inc Header Image' className="center-block h-50" style={{maxHeight: "25vh"}}/>
           </Row>
         </Container>
       </section>
@@ -233,43 +280,25 @@ const BootcampPage = ({ data }) => {
           <Row className="justify-content-center py-5 px-5 mx-5">
             <Row className="justify-content-center px-5 mx-5">
               <Row className="justify-content-center px-5 mx-5">
-                <Col className="mt-2">
-                  <Row className="text-center">
-                    <GradStat
-                    src={require("../../images/bootcamp/graduation.png").default}
-                    alt="Graduation Rate"
-                    stat="90%"
-                    subtitle="Graduation Rate"
-                    subtext="2016-2020"
-                    ></GradStat>
+                <Row className="pe-5">
+                  {gradStats.map((node,i) => (
+                    <Col className="mt-2">
+                      <Row className="text-center">
+                        <GradStat
+                        image={node.picture.asset.gatsbyImageData}
+                        alt={node.title}
+                        stat={node.stat}
+                        subtitle={node.title}
+                        subtext={node.subtitle}
+                        ></GradStat>
+                      </Row>
+                    </Col>
+                  ))}
+                  <Row className="mt-4">
+                    <Col className="d-flex justify-content-center">
+                      <BrandButton className="button secondary mt-3">Download Program Guide</BrandButton>
+                    </Col>
                   </Row>
-                </Col>
-                <Col className="mt-2">
-                  <Row className="text-center">
-                    <GradStat
-                    src={require("../../images/bootcamp/job-placement.png").default}
-                    alt="Job Placement Rate"
-                    stat="86%"
-                    subtitle="Job Placement Rate"
-                    subtext="Within 180 Days"
-                    ></GradStat>
-                  </Row>
-                </Col>
-                <Col>
-                  <Row className="text-center">
-                    <GradStat
-                    src={require("../../images/bootcamp/salary.png").default}
-                    alt="Salary"
-                    stat="$45k"
-                    subtitle="Starting Salary"
-                    subtext="Average"
-                    ></GradStat>
-                  </Row>
-                </Col>
-                <Row className="mt-4">
-                  <Col className="d-flex justify-content-center">
-                    <BrandButton className="button secondary mt-3">Download Program Guide</BrandButton>
-                  </Col>
                 </Row>
               </Row>
             </Row>
@@ -285,63 +314,22 @@ const BootcampPage = ({ data }) => {
               <Row className="mt-4">
                 <Title className="text-uppercase text-center">Companies who have hired our graduates</Title>
               </Row>
-              <Row className="my-5 mx-5">
-                <Row className="pt-4 pb-3">
-                  <Col>
-                    <StaticImage src="../../images/bootcamp/company-logos/apaxsoftware-logo.png" alt="Apax Software"></StaticImage>
-                  </Col>
-                  <Col>
-                    <StaticImage src="../../images/bootcamp/company-logos/ableengine-logo.png" alt="Able Engine"></StaticImage>
-                  </Col>
-                  <Col>
-                    <StaticImage src="../../images/bootcamp/company-logos/cabemtechnologies-logo.png" alt="Cabem Technologies"></StaticImage>
-                  </Col>
-                  <Col>
-                    <StaticImage src="../../images/bootcamp/company-logos/infosys-logo.png" alt="Infosys"></StaticImage>
-                  </Col>
-                  <Col>
-                    <StaticImage src="../../images/bootcamp/company-logos/ireportsource-logo.png" alt="iReportSource"></StaticImage>
-                  </Col>
-                </Row>
-                <Row className="pb-3 pt-3">
-                  <Col>
-                    <StaticImage src="../../images/bootcamp/company-logos/medmyne-logo.png" alt="MedMyne"></StaticImage>
-                  </Col>
-                  <Col>
-                    <StaticImage src="../../images/bootcamp/company-logos/nymblsystems-logo.png" alt="nymbl.systems"></StaticImage>
-                  </Col>
-                  <Col>
-                    <StaticImage src="../../images/bootcamp/company-logos/prospecttrax-logo.png" alt="ProspectTrax"></StaticImage>
-                  </Col>
-                  <Col>
-                    <StaticImage src="../../images/bootcamp/company-logos/scheduleit-logo.png" alt="Schedule It"></StaticImage>
-                  </Col>
-                  <Col>
-                    <StaticImage src="../../images/bootcamp/company-logos/vetdata-logo.png" alt="vetdata"></StaticImage>
-                  </Col>
-                </Row>
-                {/* <CompanyGrid
-                  src1="../../images/bootcamp/company-logos/apaxsoftware-logo.png"
-                  alt1="Apax Software"
-                  src2="../../images/bootcamp/company-logos/ableengine-logo.png"
-                  alt2="Able Engine"
-                  src3="../../images/bootcamp/company-logos/cabemtechnologies-logo.png"
-                  alt3="Cabem Technologies"
-                  src4="../../images/bootcamp/company-logos/infosys-logo.png"
-                  alt4="Infosys"
-                  src5="../../images/bootcamp/company-logos/ireportsource-logo.png"
-                  alt5="iReportSource"
-                  src6="../../images/bootcamp/company-logos/medmyne-logo.png"
-                  alt6="MedMyne"
-                  src7="../../images/bootcamp/company-logos/nymblsystems-logo.png"
-                  alt7="nymbl.systems"
-                  src8="../../images/bootcamp/company-logos/prospecttrax-logo.png"
-                  alt8="ProspectTrax"
-                  src9="../../images/bootcamp/company-logos/scheduleit-logo.png"
-                  alt9="Schedule It"
-                  src10="../../images/bootcamp/company-logos/vetdata-logo.png"
-                  alt10="vetdata"
-                ></CompanyGrid> */}
+              <Row className="row-cols-5 my-5 mx-5">
+                {employers.map((node,i) => (
+                  <div class="text-center">
+                    <GatsbyImage
+                    style={{
+                      maxWidth: "180px",
+                      marginTop: "10px",
+                      marginLeft: "10px",
+                      marginRight: "10px",
+                      marginBottom: "10px",
+                    }}
+                    image={node.picture.asset.gatsbyImageData}
+                    alt={node.company}
+                    />
+                  </div>
+                ))}
               </Row>
             </Col>
           </Row>
@@ -571,17 +559,5 @@ const BootcampPage = ({ data }) => {
     </Layout>
   );
 };
-
-export const query_testimonials = graphql`
-query {
-  allSanityBootcampTestimonial {
-    nodes {
-      name
-      testimonial
-      _rawPicture(resolveReferences: {maxDepth: 10})
-    }
-  }
-}
-`
 
 export default BootcampPage;
