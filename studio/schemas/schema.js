@@ -30,6 +30,8 @@ import fellowshipPortfolio from './documents/fellowshipPortfolio'
 import fellowshipSponsers from './documents/fellowshipSponsers'
 import courses from './documents/courses'
 import bootcampTestimonials from './documents/bootcampTestimonial'
+import bootcampGraduationStats from './documents/bootcampGraduationStats'
+import bootcampEmployers from './documents/bootcampEmployers'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -65,5 +67,7 @@ export default createSchema({
     imageSlider,
     courses,
     bootcampTestimonials,
+    bootcampGraduationStats,
+    bootcampEmployers
   ])
 })
