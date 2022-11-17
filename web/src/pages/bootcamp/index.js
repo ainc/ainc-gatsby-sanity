@@ -2,24 +2,25 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../../components/Layout/Layout";
 import { Container, Col, Row, Image } from "react-bootstrap";
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
-import ProfileCard from "./Components/ProfileCard";
-import GradStat from "./Components/GradStat";
-import Testimonial from "./Components/Testimonial";
+import ProfileCard from "./components/ProfileCard/ProfileCard";
+import GradStat from "./components/GradStat/GradStat";
+import Testimonial from "./components/Testimonial/Testimonial";
 import "../../styles/main.scss"
 import * as styles from './bootcamp.module.scss'
 import * as footerStyles from '../../components/Footer/Footer.module.scss'
-import ShieldsRow from "./Components/ShieldsRow";
+import ShieldsRow from "./components/ShieldsRow/ShieldsRow";
 import VerticalTitle from "../../components/UI/VerticalTitle/VerticalTitle";
-import SideNav from "./Components/SideNav"
+import SideNav from "./components/SideNav/SideNav"
 
 export const query = graphql`
  query BootcampPageQuery {
   allSanityBootcampTestimonial {
     nodes {
+      _key
       name
       testimonial
       picture {
@@ -189,7 +190,7 @@ const BootcampPage = props => {
             </Row>
             <Row className="text-center mx-5">
               <Testimonial 
-              name1={testimonials.name}
+                
               />
             </Row>
             <Row className="pt-4 pb-5">

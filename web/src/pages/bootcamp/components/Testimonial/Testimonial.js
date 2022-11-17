@@ -1,7 +1,7 @@
 import React from 'react'
-import { graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import { Row, Col } from 'react-bootstrap'
-import Subtitle from '../../../components/UI/Subtitle/Subtitle'
+import Subtitle from '../../../../components/UI/Subtitle/Subtitle';
 import { GatsbyImage } from 'gatsby-plugin-image'
 import * as styles from './Testimonial.module.scss'
 
@@ -17,6 +17,24 @@ const TestimonialContent = (props) => {
 
 function Testimonial(props) {
 
+    // const sanityData = useStaticQuery(graphql`
+    //     query TestimonialQuery {
+    //         allSanityBootcampTestimonial {
+    //             nodes {
+    //                 name
+    //                 testimonial
+    //                 picture {
+    //                     asset {
+    //                         gatsbyImageData
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // `)
+
+    // const testimonials = (sanityData.allSanityBootcampTestimonial.nodes || {})
+
     const [data, setData] = React.useState({
         author: "",
         content: ""
@@ -31,8 +49,6 @@ function Testimonial(props) {
         setData({...data, ['author']: author, ['content']: content})
     }
 
-    const testimonials = props.testimonials;
-
     return (
         <div className={styles.testimonial}>
             <Row>
@@ -40,7 +56,7 @@ function Testimonial(props) {
                     <div className={styles.bootcampGradImages}>
                         <Row className="my-4">
                             <div onClick={(e) => handleTestimonialClick(e, props.name1, props.testimonial1)}>
-                                <img 
+                                <img
                                 src={props.src1} 
                                 alt="Bootcamp Graduate 1"
                                 />
@@ -66,16 +82,16 @@ function Testimonial(props) {
                 </Col>
                 {/* <Col className="col-2">
                     <div className={styles.bootcampGradImages}>
-                        <Row className="my-4">
-                            { testimonials.map((node,i) => (
+                        { testimonials.map((node,i) => (
+                            <Row className="my-4">
                                 <div onClick={(e) => handleTestimonialClick(e, node.name, node.testimonial)}>
                                     <GatsbyImage 
                                         image={node.picture.asset.gatsbyImageData} 
                                         alt="Bootcamp Graduate"
                                     />
                                 </div>
-                            ))}
-                        </Row>
+                            </Row>
+                        ))}
                     </div>
                 </Col> */}
                 <Col className="col-8">
