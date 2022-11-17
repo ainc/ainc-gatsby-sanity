@@ -1,8 +1,8 @@
 import React from 'react'
-import Title from "../../../components/UI/Title/Title";
-import Subtitle from "../../../components/UI/Subtitle/Subtitle";
+import Title from '../../../../components/UI/Title/Title';
+import Subtitle from '../../../../components/UI/Subtitle/Subtitle';
 import { GatsbyImage } from "gatsby-plugin-image";
-import * as styles from "./GradStat.module.scss"
+import * as styles from "./GradStat.module.scss";
 
 function GradStat(props) {
     return (

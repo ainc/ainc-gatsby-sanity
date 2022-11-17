@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Subtitle from '../../../components/UI/Subtitle/Subtitle'
+import Subtitle from '../../../../components/UI/Subtitle/Subtitle'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 const ProfileCard = (props) => {
     
