@@ -29,7 +29,7 @@ import blog from './documents/blog'
 import fellowshipPortfolio from './documents/fellowshipPortfolio'
 import fellowshipSponsers from './documents/fellowshipSponsers'
 import courses from './documents/courses'
-import bootcampTestimonials from './documents/bootcampTestimonial'
+import bootcampTestimonial from './documents/bootcampTestimonial'
 import bootcampGraduationStats from './documents/bootcampGraduationStats'
 import bootcampEmployers from './documents/bootcampEmployers'
 
@@ -66,7 +66,7 @@ export default createSchema({
     footer,
     imageSlider,
     courses,
-    bootcampTestimonials,
+    bootcampTestimonial,
     bootcampGraduationStats,
     bootcampEmployers
   ])
