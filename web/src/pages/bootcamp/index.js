@@ -18,7 +18,7 @@ import SideNav from "./components/SideNav/SideNav"
 
 export const query = graphql`
  query BootcampPageQuery {
-  allSanityBootcampTestimonial {
+  allSanityBootcampTestimonials(limit: 3) {
     nodes {
       _key
       name
@@ -54,6 +54,17 @@ export const query = graphql`
       }
     }
   }
+  sanityBootcampProfileCard {
+    _key
+    name
+    picture {
+      asset {
+        gatsbyImageData
+      }
+    }
+    text1
+    text2
+  }
 }
 `
 
@@ -61,7 +72,13 @@ const BootcampPage = props => {
 
   const { data, errors } = props;
 
-  const testimonials = (data.allSanityBootcampTestimonial.nodes || {})
+  const testimonials = (data.allSanityBootcampTestimonials.nodes || {})
+
+  const testimonial1 = testimonials[0]
+  const testimonial2 = testimonials[1]
+  const testimonial3 = testimonials[2]
+
+  const profCard = (data.sanityBootcampProfileCard || {})
 
   const gradStats = (data.allSanityBootcampGraduationStats.nodes || {})
 
@@ -160,37 +177,18 @@ const BootcampPage = props => {
               <Title className="text-center text-white text-uppercase">Hear From Our Alumni</Title>
             </Row>
             <Row className="text-center mx-5">
-              <Testimonial
-              src1={require('/src/images/bootcamp/david.jpg').default} 
-              src2={require('/src/images/bootcamp/melo.jpg').default} 
-              src3={require('/src/images/bootcamp/brett.jpg').default} 
-              name1="David Vanderhaar"
-              testimonial1="David worked part-time at Starbucks, and applied for the Bootcamp on a whim (and with a little encouragement from his wife). In addition to working full-time as a software developer, he also teaches classes helping kids learn to code."
-              name2="Melanie Stoeckle"
-              testimonial2="Melanie came to Bootcamp with previous experience in graphic design. She landed a job as a developer within a week of graduating from the program. Eventually, she earned the freedom through her employer to work remotely, and now travels the world - her office is wherever there's a wifi connection."
-              name3="Brett Fraley"
-              testimonial3='Brett made the switch from factory worker to software developer. "I worked in lots of different types of factories for years and my body was just getting run down at such a young age. I knew I needed something else. There is no way I could have afforded time or money for a four-year degree."'
-              />
-            </Row>
-            <Row className="pt-4 pb-5">
-              <Col className="text-center">
-                <BrandButton className="text-center brand">More Alumni</BrandButton>
-              </Col>
-            </Row>
-          </Row>
-        </Container>
-      </section>
-
-      {/* Alumni Testimonials */}
-      <section id="testimonials">
-        <Container fluid className={styles.testimonials}>
-          <Row className="py-3">
-            <Row className="py-5">
-              <Title className="text-center text-white text-uppercase">Hear From Our Alumni</Title>
-            </Row>
-            <Row className="text-center mx-5">
               <Testimonial 
-                
+                name1={testimonial1.name}
+                image1={testimonial1.picture.asset.gatsbyImageData}
+                testimonial1={testimonial1.testimonial}
+
+                name2={testimonial2.name}
+                image2={testimonial2.picture.asset.gatsbyImageData}
+                testimonial2={testimonial2.testimonial}
+
+                name3={testimonial3.name}
+                image3={testimonial3.picture.asset.gatsbyImageData}
+                testimonial3={testimonial3.testimonial}
               />
             </Row>
             <Row className="pt-4 pb-5">
@@ -217,17 +215,10 @@ const BootcampPage = props => {
       <section id="why-awesome-inc-header" className="h-75">
         <Container fluid className="h-50">
           <Row className="h-50">
-            <StaticImage src='../../images/bootcamp/awesome-inc-bg.jpg' alt='Why Awesome Inc Header Image' className="center-block h-50" style={{maxHeight: "25vh"}}/>
+            <StaticImage src='../../images/bootcamp/awesome-inc-bg.jpg' alt='Why Awesome Inc Header Image' className="center-block h-50" style={{maxHeight: "25vh", }}/>
           </Row>
         </Container>
       </section>
-
-      {/* Why Awesome Inc Header
-      <section id="why-awesome-inc-header">
-        <Container fluid className={styles.whyAwesomeIncHeader}>
-          <Row className="h-75"></Row>
-        </Container>
-      </section> */}
 
       {/* Why Awesome Inc */}
       <section id="why-awesome-inc">
@@ -250,10 +241,11 @@ const BootcampPage = props => {
             </Col>
             <Col>
               <ProfileCard 
-              src={require('/src/images/bootcamp/stephenruh-wall.jpg').default} 
-              name="Stephen" 
-              text1="Sometimes it's just easier to talk to a person, right? That's where Stephen comes in!" 
-              text2="He's happy to answer any and all questions you've got about Awesome Inc, our programs, coding in general, or even just the best place to grab coffee and donuts nearby." />
+              image={profCard.picture.asset.gatsbyImageData} 
+              name={profCard.name}
+              text1={profCard.text1} 
+              text2={profCard.text2} 
+              />
             </Col>
           </Row>
         </Container>

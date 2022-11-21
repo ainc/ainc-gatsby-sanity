@@ -17,24 +17,6 @@ const TestimonialContent = (props) => {
 
 function Testimonial(props) {
 
-    // const sanityData = useStaticQuery(graphql`
-    //     query TestimonialQuery {
-    //         allSanityBootcampTestimonial {
-    //             nodes {
-    //                 name
-    //                 testimonial
-    //                 picture {
-    //                     asset {
-    //                         gatsbyImageData
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-    // `)
-
-    // const testimonials = (sanityData.allSanityBootcampTestimonial.nodes || {})
-
     const [data, setData] = React.useState({
         author: "",
         content: ""
@@ -56,44 +38,30 @@ function Testimonial(props) {
                     <div className={styles.bootcampGradImages}>
                         <Row className="my-4">
                             <div onClick={(e) => handleTestimonialClick(e, props.name1, props.testimonial1)}>
-                                <img
-                                src={props.src1} 
+                                <GatsbyImage
+                                image={props.image1} 
                                 alt="Bootcamp Graduate 1"
                                 />
                             </div>
                         </Row>
                         <Row className="my-4">
                             <div onClick={(e) => handleTestimonialClick(e, props.name2, props.testimonial2)}>
-                                <img
-                                src={props.src2} 
+                                <GatsbyImage
+                                image={props.image2} 
                                 alt="Bootcamp Graduate 2" 
                                 />
                             </div>
                         </Row>
                         <Row className="my-4">
                             <div onClick={(e) => handleTestimonialClick(e, props.name3, props.testimonial3)}>
-                                <img
-                                src={props.src3} 
+                                <GatsbyImage
+                                image={props.image3} 
                                 alt="Bootcamp Graduate 3" 
                                 />
                             </div>
                         </Row>
                     </div>
                 </Col>
-                {/* <Col className="col-2">
-                    <div className={styles.bootcampGradImages}>
-                        { testimonials.map((node,i) => (
-                            <Row className="my-4">
-                                <div onClick={(e) => handleTestimonialClick(e, node.name, node.testimonial)}>
-                                    <GatsbyImage 
-                                        image={node.picture.asset.gatsbyImageData} 
-                                        alt="Bootcamp Graduate"
-                                    />
-                                </div>
-                            </Row>
-                        ))}
-                    </div>
-                </Col> */}
                 <Col className="col-8">
                     <Row className="mt-3 mb-5">
                         <div className={styles.testimonialWindow}>
