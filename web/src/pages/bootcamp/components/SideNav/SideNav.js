@@ -31,7 +31,7 @@ function SideNav() {
                         <a href="#still-unsure" class="nav-link text-uppercase text-body text--micro">FAQs</a>
                     </li>
                     <li class="nav-item">
-                         <a href="/bootcamp/apply" class="nav-link text-uppercase fw-bold text-body text--micro">Apply Now</a>
+                         <a href="" class="nav-link text-uppercase fw-bold text-body text--micro">Apply Now</a>
                     </li>
                 </ul>
             </nav>
