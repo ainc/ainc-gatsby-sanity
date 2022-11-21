@@ -212,16 +212,16 @@ const BootcampPage = props => {
       </section>
 
       {/* Why Awesome Inc Header */}
-      <section id="why-awesome-inc-header" className="h-75">
+      <section id="why-awesome-inc-header" className="h-50">
         <Container fluid className="h-50">
-          <Row className="h-50">
-            <StaticImage src='../../images/bootcamp/awesome-inc-bg.jpg' alt='Why Awesome Inc Header Image' className="center-block h-50" style={{maxHeight: "25vh", }}/>
+          <Row className="h-50" >
+            <StaticImage src='../../images/bootcamp/awesome-inc-bg.jpg' alt='Why Awesome Inc Header Image' className="center-block h-50" style={{maxHeight: "25vh"}}/>
           </Row>
         </Container>
       </section>
 
       {/* Why Awesome Inc */}
-      <section id="why-awesome-inc">
+      <section id="why-awesome-inc" className="" >
         <Container className="py-5 pe-5">
           <Row className="py-3 pe-3 mx-5">
             <Col className="ps-5 me-1">
@@ -256,7 +256,7 @@ const BootcampPage = props => {
         <Container fluid className={styles.jobGuarantee}>
           <Row className={styles.imgRow}>
             <Col className="d-flex justify-content-center">
-              <StaticImage src='../../images/bootcamp/job-guaranteed.png' alt='job guaranteed' style={{maxWidth: "300px"}}></StaticImage>
+              <StaticImage src='../../images/bootcamp/job-guaranteed.png' alt='job guaranteed' style={{maxWidth: "275px"}}></StaticImage>
             </Col>
           </Row>
           <Row className="mx-5">
