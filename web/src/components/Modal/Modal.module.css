@@ -7,6 +7,8 @@ body {
 .modal {
   background-color: #323333;
   color: #fff;
+  border-color: #323232;
+  border-width: 10px;
 }
 
 .closeBtn {
