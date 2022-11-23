@@ -143,15 +143,17 @@ const BootcampPage = props => {
               <Subtitle className="text-center brand fst-italic fw-light fs-6">(your answer is safe with us, we promise.)</Subtitle>
             </Col>
           </Row>
-          <Row className="py-5 ps-3 mx-5 text-center" style={{maxWidth: "90%"}}>
-            <ShieldsRow
-              text1="Do you ever think of changing careers?"
-              text2="Are you looking for a more meaningful career?"
-              text3="Do you enjoy learning new ideas and solving problems?"
-              text4="Do you want to gain a skill set that will set you up for success no matter your location?"
-              text5="Are you looking to explore a different life path?"
-            />
-          </Row>
+          <Col>
+            <Row className="py-5 ps-3 mx-5 text-center" style={{maxWidth: "90%"}}>
+              <ShieldsRow
+                text1="Do you ever think of changing careers?"
+                text2="Are you looking for a more meaningful career?"
+                text3="Do you enjoy learning new ideas and solving problems?"
+                text4="Do you want to gain a skill set that will set you up for success no matter your location?"
+                text5="Are you looking to explore a different life path?"
+              />
+            </Row>
+          </Col>
           <Row>
             <Subtitle className="text-center brand fs-3">yes!</Subtitle>
             <br />
@@ -174,7 +176,7 @@ const BootcampPage = props => {
         <Container fluid className={styles.testimonials}>
           <Row className="py-3">
             <Row className="py-5">
-              <Title className="text-center text-white text-uppercase">Hear From Our Alumni</Title>
+              <Title className="text-center text-white text-uppercase mt-5">Hear From Our Alumni</Title>
             </Row>
             <Row className="text-center mx-5">
               <Testimonial 
@@ -305,25 +307,27 @@ const BootcampPage = props => {
           <Row className="mx-5">
             <Col>
               <Row className="mt-4">
-                <Title className="text-uppercase text-center">Companies who have hired our graduates</Title>
+                <Title className="text-uppercase text-center mt-4">Companies who have hired our graduates</Title>
               </Row>
-              <Row className="row-cols-5 my-5 mx-5">
-                {employers.map((node,i) => (
-                  <div class="text-center">
-                    <GatsbyImage
-                    style={{
-                      maxWidth: "180px",
-                      marginTop: "10px",
-                      marginLeft: "10px",
-                      marginRight: "10px",
-                      marginBottom: "10px",
-                    }}
-                    image={node.picture.asset.gatsbyImageData}
-                    alt={node.company}
-                    />
-                  </div>
-                ))}
-              </Row>
+              <Col>
+                <Row className="row-cols-lg-5 my-5 mx-5">
+                  {employers.map((node,i) => (
+                    <div class="text-center" xs={12} >
+                      <GatsbyImage
+                      style={{
+                        maxWidth: "180px",
+                        marginTop: "10px",
+                        marginLeft: "10px",
+                        marginRight: "10px",
+                        marginBottom: "10px",
+                      }}
+                      image={node.picture.asset.gatsbyImageData}
+                      alt={node.company}
+                      />
+                    </div>
+                  ))}
+                </Row>
+              </Col>
             </Col>
           </Row>
         </Container>
@@ -335,7 +339,7 @@ const BootcampPage = props => {
           <Row className="py-5 mx-5">
             <Col className="py-3 mx-5">
               <Row>
-                <Subtitle className="text-center fs-5 pb-3"><b>With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using</b></Subtitle>
+                <Subtitle className="text-center fs-5 pb-3 mt-4"><b>With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using</b></Subtitle>
               </Row>
               <Row className="py-4 text-center">
                 <Col>
@@ -469,7 +473,7 @@ const BootcampPage = props => {
           <Row>
             <Col>
               <Row className="mt-2 mb-5">
-                <Title className="text--huge brand text-center">The Cost</Title>
+                <Title className="text--huge brand text-center mt-4">The Cost</Title>
               </Row>
               <Row>
                 <Col className="text-center border-right--brand">
@@ -514,9 +518,9 @@ const BootcampPage = props => {
       </section>
 
       {/* Still Unsure */}
-      <section id="still-unsure" className="py-5">
+      <section id="still-unsure" className="pt-5">
         <Container fluid className={styles.stillUnsure}>
-          <Row className="py-5 mt-5">
+          <Row className="mt-5">
             <Col className="text-center">
               <Row className="col-10 text-center mx-5 pt-5">
                   <Title className="pt-5 pb-3 mx-5">Still unsure? Here's everyone else who took this same leap and haven't looked back!</Title>
@@ -534,10 +538,10 @@ const BootcampPage = props => {
        {/* Questions */}
        <section id="questions">
         <Container fluid className={styles.questions}>
-          <Row className="pt-5 text-center">
-            <Col className="pt-4">
-              <Row>
-                <Title className="text-center text-white pt-3 mt-5">Still have questions?</Title>
+          <Row className="text-center mt-4">
+            <Col className="text-center mt-4">
+              <Row className="text-center mt-5">
+                <Title className="text-center text-white pt-5 mt-5">Still have questions?</Title>
               </Row>
               <Row className="pt-4">
                 <Col className="text-center">
