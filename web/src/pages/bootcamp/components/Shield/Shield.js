@@ -7,7 +7,7 @@ const Shield = ({text}) => {
         return (
             <div className={styles.shieldPanel}>
                 <div className={styles.shieldText}>
-                    <h6 className="text-white">{text}</h6>
+                    <h6 className="text-white" style={{overflowWrap: "break-word"}}>{text}</h6>
                 </div>
             </div>
         )
