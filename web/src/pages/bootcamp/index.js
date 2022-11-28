@@ -214,12 +214,8 @@ const BootcampPage = props => {
       </section>
 
       {/* Why Awesome Inc Header */}
-      <section id="why-awesome-inc-header" className="h-50">
-        <Container fluid className="h-50">
-          <Row className="h-50" >
-            <StaticImage src='../../images/bootcamp/awesome-inc-bg.jpg' alt='Why Awesome Inc Header Image' className="center-block h-50" style={{maxHeight: "25vh"}}/>
-          </Row>
-        </Container>
+      <section id="why-awesome-inc-header" className={styles.whyAwesomeIncHeader}>
+        <div></div>
       </section>
 
       {/* Why Awesome Inc */}
@@ -523,7 +519,7 @@ const BootcampPage = props => {
           <Row className="mt-5">
             <Col className="text-center">
               <Row className="col-10 text-center mx-5 pt-5">
-                  <Title className="pt-5 pb-3 mx-5">Still unsure? Here's everyone else who took this same leap and haven't looked back!</Title>
+                  <Title className="text-center pt-5 pb-3 mx-5">Still unsure? Here's everyone else who took this same leap and haven't looked back!</Title>
               </Row>
               <Row className="pt-3">
                 <Col className="text-center">
