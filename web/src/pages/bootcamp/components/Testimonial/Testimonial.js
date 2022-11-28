@@ -7,10 +7,17 @@ import * as styles from './Testimonial.module.scss'
 
 const TestimonialContent = (props) => {
     return (
-        <div className={styles.testimonialWindowText}>
-            <Subtitle className="text-uppercase fw-semibold" style={{float: "left"}}>{props.author}</Subtitle>
-            <br></br>
-            <p className="mt-4 lh-lg fs-5">{props.content}</p>
+        <div>
+            <Row>
+                <Col>
+                    <Subtitle className="text-uppercase fw-bold" style={{float: "left"}}>{props.author}</Subtitle>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <p className="text-justify mt-4 lh-lg fs-5">{props.content}</p>
+                </Col>
+            </Row>
         </div>
     )
 }
