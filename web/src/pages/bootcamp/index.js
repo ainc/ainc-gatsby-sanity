@@ -219,13 +219,13 @@ const BootcampPage = props => {
       </section>
 
       {/* Why Awesome Inc */}
-      <section id="why-awesome-inc" className="" >
+      <section id="why-awesome-inc">
         <Container className="py-5 pe-5">
           <Row className="py-3 pe-3 mx-5">
             <Col className="ps-5 me-1">
               <Title className="text-uppercase py-3" style={{marginLeft: "70px"}}>Why Awesome Inc?</Title>
               <Row className="border-right--brand">
-                <p className="text-justify mb-3 w-75 mx-auto">At Awesome Inc, everything we do starts with out Core Values. 
+                <p className="text-justify mb-3 w-75 mx-auto">At Awesome Inc, everything we do starts with our Core Values. 
                   We care about people, and making a difference in our community. 
                   That's why we want to help everyone we can learn the life changing skill of coding. 
                   And while doing that, we've seen that the best way to learn a new skill is to get 
@@ -514,7 +514,7 @@ const BootcampPage = props => {
       </section>
 
       {/* Still Unsure */}
-      <section id="still-unsure" className="pt-5">
+      <section id="still-unsure" className="pt-2">
         <Container fluid className={styles.stillUnsure}>
           <Row className="mt-5">
             <Col className="text-center">
@@ -534,7 +534,7 @@ const BootcampPage = props => {
        {/* Questions */}
        <section id="questions">
         <Container fluid className={styles.questions}>
-          <Row className="text-center mt-4">
+          <Row className="text-center">
             <Col className="text-center mt-4">
               <Row className="text-center mt-5">
                 <Title className="text-center text-white pt-5 mt-5">Still have questions?</Title>

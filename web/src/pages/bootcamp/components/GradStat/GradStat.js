@@ -5,7 +5,6 @@ import { GatsbyImage } from "gatsby-plugin-image";
 
 function GradStat(props) {
     return (
-        
         <div>
             <div>
                 <GatsbyImage image={props.image} alt={props.alt} style={{maxWidth: "160px"}}/>
