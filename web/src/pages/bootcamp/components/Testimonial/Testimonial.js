@@ -10,14 +10,10 @@ const TestimonialContent = (props) => {
         <div>
             <Row>
                 <Col>
-                    <Subtitle className="text-uppercase fw-bold" style={{float: "left"}}>{props.author}</Subtitle>
+                    <Subtitle className="text-uppercase fw-bold mt-5 ms-4" style={{float: "left"}}>{props.author}</Subtitle>
                 </Col>
             </Row>
-            <Row>
-                <Col>
-                    <p className="text-justify mt-4 lh-lg fs-5">{props.content}</p>
-                </Col>
-            </Row>
+            <p className="text-start mt-4 mx-4 lh-lg fs-5">{props.content}</p>
         </div>
     )
 }
