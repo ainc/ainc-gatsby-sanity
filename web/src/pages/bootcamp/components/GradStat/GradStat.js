@@ -2,12 +2,11 @@ import React from 'react'
 import Title from '../../../../components/UI/Title/Title';
 import Subtitle from '../../../../components/UI/Subtitle/Subtitle';
 import { GatsbyImage } from "gatsby-plugin-image";
-import * as styles from "./GradStat.module.scss";
 
 function GradStat(props) {
     return (
         
-        <div className={styles.gradContainer}>
+        <div>
             <div>
                 <GatsbyImage image={props.image} alt={props.alt} style={{maxWidth: "160px"}}/>
             </div>
