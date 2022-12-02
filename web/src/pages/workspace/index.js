@@ -7,8 +7,10 @@ import BorderlessCard from "../../components/BorderlessCard/BorderlessCard";
 import Amenities from "../../components/Amenities/Amenities";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
+import BrandButton from '../../components/UI/BrandButton/BrandButton'
 import SeeTheSpace from "./Components/SeeTheSpace/SeeTheSpace";
 import ModalCustom from "../../components/Modal/ModalCustom";
+
 //Image Links Below
 import Mail from "../../images/virtual-member-mail.png";
 import Desktop from "../../images/Desk.png";
@@ -185,8 +187,22 @@ const WorkspacePage = () => {
                 </Button>
               </Col>
 
-              <ModalCustom lgShow={lgShow} hide={handleClose}>
-              </ModalCustom>
+              <ModalCustom 
+                lgShow={lgShow} 
+                hide={handleClose} 
+                title="Schedule a Tour" 
+                content={
+                  //Pass HTML here
+                  <Container>
+                    <Row>
+                      <Subtitle>this is a test</Subtitle>
+                    </Row>
+                    <Row>
+                      <BrandButton>Hello</BrandButton>
+                    </Row>
+                  </Container>
+                }
+                />
             </Row>
           </Container>
         </Container>
