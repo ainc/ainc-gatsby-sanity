@@ -1,10 +1,10 @@
 .navContainer {
     background-color:whitesmoke;
     position: fixed;
-    float: right;
-    margin-top: -107px;
+    float: right !important;
+    margin-top: -100px;
     margin-right: -50px;
-    margin-left: 35px;
+    margin-left: 117px;
     z-index: 999;
     max-width: 250px;
     border-top-left-radius: 8px;
@@ -14,12 +14,6 @@
         padding-top: 5px;
         padding-bottom: 5px;
         padding-left: 5px;
-        padding-right: 45px;
+        padding-right: 40px;
     }
-
-    // @media only screen and (min-width: 820px) {
-    //     nav {
-    //         display: none;
-    //     }
-    // }
 }
