@@ -99,13 +99,13 @@ const BootcampPage = props => {
       {/* Header section */}
       <section id="header">
         <Container fluid className={styles.header}>
-          <Row className="py-5 mt-5 ms-5">
-            <Col className="py-5 mt-5 mx-5 w-75 col-9 ps-5">
-              <Title className="text-left fs-4 mt-3 w-75 lh-lg"><b>A 16 week, Full-time, Job-Guaranteed Program designed for individuals looking to make a career change.</b></Title>
+          <Row className="mt-5 ms-5">
+            <Col xs={11} sm={9} className={styles.titleCol}>
+              <Title className="text-left fs-4 lh-md"><b>A 16 week, Full-time, Job-Guaranteed Program designed for individuals looking to make a career change.</b></Title>
               <Subtitle className="fst-italic fw-lighter fs-5 my-3 w-75">Start your application in less than 30 seconds</Subtitle>
               <BrandButton className="my-3">Get Started</BrandButton>
             </Col>
-            <Col class="col-2">
+            <Col className="col-2 pt-5 d-none d-sm-block"> {/* Hidden on mobile */}
               <SideNav />
             </Col>
           </Row>
@@ -115,15 +115,15 @@ const BootcampPage = props => {
       {/* Two Buttons Section */}
       <section id="two-buttons">
         <Container fluid className="background--grey py-4">
-          <Row className="text-center py-5 mx-5">
-            <Col className="justify-content-center text-center border-right--white" style={{marginLeft: "150px"}}>
+          <Row className="text-center py-5 mx-auto">
+            <Col  xs={11} sm={5} className={`${styles.leftButtonCol} justify-content-center text-center border-right--white`}>
               <div>
                 <img style={{maxWidth: "80px"}} src={require('/src/images/bootcamp/QuestionCircle.svg').default} alt="Question Circle" />
               </div>
               <Title className="text-center text-white fs-4 my-4 py-3">Have a few questions?</Title>
               <BrandButton className="justify-content-center" style={{marginTop: "5px"}}>Download Program Guide</BrandButton>
             </Col>
-            <Col className="justify-content-center text-center" style={{marginRight: "162px", marginLeft: "-25px", marginTop: "-2px", maxWidth: "70%"}}>
+            <Col xs={11} sm={4} className={`${styles.rightButtonCol} justify-content-center text-center`}>
               <div>
                 <img style={{maxWidth: "80px"}} src={require('/src/images/bootcamp/MoneyCircle.svg').default} alt="Money Circle" />
               </div>
@@ -258,8 +258,8 @@ const BootcampPage = props => {
             </Col>
           </Row>
           <Row className="mx-5">
-            <Col className="mx-5">
-              <Subtitle className="text-white text-center fs-6" style={{marginLeft: "70px", marginRight: "70px", marginTop: "30px"}}>We only succeed when you succeed. We quarantee that all students who complete the 16-week Bootcamp program and uphold the job search requirements will receive a job offer within six months of their graduation date, or we'll refund your tuition. See our Student Agreement for details.</Subtitle>
+            <Col xs={11} className="mx-auto">
+              <Subtitle className={`${styles.jobGuaranteeText} text-white text-center fs-6`}>We only succeed when you succeed. We quarantee that all students who complete the 16-week Bootcamp program and uphold the job search requirements will receive a job offer within six months of their graduation date, or we'll refund your tuition. See our Student Agreement for details.</Subtitle>
             </Col>
           </Row>
         </Container>
