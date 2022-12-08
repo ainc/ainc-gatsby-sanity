@@ -5,6 +5,13 @@
     padding-top: 40px;
     height: 92vh;
 
+    .headerTitle {
+        @media (min-width: 992px) {
+            margin-top: 110px;
+            max-width: 700px;
+        }
+    }
+
     .row {
         padding-top: 70px;
         padding-bottom: 70px;
@@ -57,6 +64,17 @@
     background-size: cover;
 }
 
+#why-awesome-inc {
+    .textCol {
+        @media (min-width: 480px) {
+            .textRow {
+                border-width: 0px;
+            }
+        }
+    }
+}
+
+
 .jobGuarantee {
     background-image: url(../../images/bootcamp/job-bg.jpg);
     background-size: cover;
@@ -74,15 +92,19 @@
         max-width: 65%;
     }
 
+    .textCol {
+        @media (max-width: 481px) {
+            width: max-content;
+        }
+    }
+
     .jobGuaranteeText {
-       @media (min-width: 481px) {
+    @media (min-width: 481px) {
             margin-left: 70px;
             margin-left: 70px;
             margin-top: 30px;
-       }
     }
-
-
+    }
 }
 
 .whyAwesomeIncHeader {

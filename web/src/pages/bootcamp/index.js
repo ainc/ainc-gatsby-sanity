@@ -101,7 +101,7 @@ const BootcampPage = props => {
         <Container fluid className={styles.header}>
           <Row className="mt-5 ms-5">
             <Col xs={11} sm={9} className={styles.titleCol}>
-              <Title className="text-left fs-4 lh-md"><b>A 16 week, Full-time, Job-Guaranteed Program designed for individuals looking to make a career change.</b></Title>
+              <Title className={`${styles.headerTitle} text-left fs-4 lh-md`}><b>A 16 week, Full-time, Job-Guaranteed Program designed for individuals looking to make a career change.</b></Title>
               <Subtitle className="fst-italic fw-lighter fs-5 my-3 w-75">Start your application in less than 30 seconds</Subtitle>
               <BrandButton className="my-3">Get Started</BrandButton>
             </Col>
@@ -206,7 +206,7 @@ const BootcampPage = props => {
       <section id="motivational">
         <Container className="py-4">
           <Row className="py-4 mx-5 px-5">
-            <Col className="mx-5 py-2 col-">
+            <Col className="mx-auto py-2 col-">
               <Title className="text-center brand fs-5">"You don't have to feel trapped. Earn your freedom, work when & where you want. Earn a living in just 40 hours a week."</Title>
             </Col>
           </Row>
@@ -221,10 +221,10 @@ const BootcampPage = props => {
       {/* Why Awesome Inc */}
       <section id="why-awesome-inc">
         <Container className="py-5 pe-5">
-          <Row className="py-3 pe-3 mx-5">
-            <Col className="ps-5 me-1">
+          <Row className="py-3 pe-3 mx-auto">
+            <Col xs={11} sm={6} className={`${styles.textCol} ps-5 me-1`}>
               <Title className="text-uppercase py-3" style={{marginLeft: "70px"}}>Why Awesome Inc?</Title>
-              <Row className="border-right--brand">
+              <Row className={`${styles.textRow} border-right--brand`}>
                 <p className="text-justify mb-3 w-75 mx-auto">At Awesome Inc, everything we do starts with our Core Values. 
                   We care about people, and making a difference in our community. 
                   That's why we want to help everyone we can learn the life changing skill of coding. 
@@ -237,7 +237,7 @@ const BootcampPage = props => {
               </Row>
               <BrandButton className="mt-3" style={{marginLeft: "70px"}}>Schedule Call</BrandButton>
             </Col>
-            <Col>
+            <Col xs={11} sm={5}>
               <ProfileCard 
               image={profCard.picture.asset.gatsbyImageData} 
               name={profCard.name}
@@ -258,7 +258,7 @@ const BootcampPage = props => {
             </Col>
           </Row>
           <Row className="mx-5">
-            <Col xs={11} className="mx-auto">
+            <Col xs={11} className={`${styles.textCol} mx-auto`}>
               <Subtitle className={`${styles.jobGuaranteeText} text-white text-center fs-6`}>We only succeed when you succeed. We quarantee that all students who complete the 16-week Bootcamp program and uphold the job search requirements will receive a job offer within six months of their graduation date, or we'll refund your tuition. See our Student Agreement for details.</Subtitle>
             </Col>
           </Row>

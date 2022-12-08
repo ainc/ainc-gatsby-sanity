@@ -13,7 +13,7 @@ const TestimonialContent = (props) => {
                     <Subtitle className="text-uppercase fw-bold mt-5 ms-4" style={{float: "left"}}>{props.author}</Subtitle>
                 </Col>
             </Row>
-            <p className="text-start mt-4 mx-4 lh-lg fs-5">{props.content}</p>
+            <p className="text-start text-nowrap mt-4 mx-4 lh-lg fs-5">{props.content}</p>
         </div>
     )
 }
