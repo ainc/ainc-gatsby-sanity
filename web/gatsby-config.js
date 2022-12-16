@@ -22,7 +22,7 @@ module.exports = {
         token,
         watchMode: !isProd,
         overlayDrafts: !isProd && token,
-        graphqlTag: 'beta'
+        graphqlTag: 'beta',
       }
     },
     {
@@ -37,8 +37,6 @@ module.exports = {
       options: {
         url: `https://anchor.fm/s/81dfae4/podcast/rss`,
         name: `AnchorPodcast`,
-        // Optional
-        // Read parser document: https://github.com/bobby-brennan/rss-parser#readme
       }
     },
     {
