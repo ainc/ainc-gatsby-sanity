@@ -21,7 +21,8 @@ module.exports = {
         ...clientConfig.sanity,
         token,
         watchMode: !isProd,
-        overlayDrafts: !isProd && token
+        overlayDrafts: !isProd && token,
+        graphqlTag: 'beta'
       }
     },
     {
