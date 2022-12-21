@@ -5,9 +5,22 @@
     padding-top: 40px;
     height: 92vh;
 
+    .headerTitle {
+        @media (min-width: 992px) {
+            margin-top: 110px;
+            max-width: 700px;
+        }
+    }
+
     .row {
         padding-top: 70px;
         padding-bottom: 70px;
+    }
+
+    .titleCol {
+        @media (min-width: 481px) {
+            margin-top: 100px;
+        }
     }
 }
 
@@ -21,16 +34,50 @@
     }
 }
 
+.leftButtonCol {
+    @media (min-width: 481px) {
+        margin-left: 150px;
+    }
+    @media (max-width: 480px) {
+        border-right: 0px;
+    }
+}
+
+.rightButtonCol {
+    @media (min-width: 481px) {
+        margin-right: 162px;
+        margin-left: -25px;
+        margin-top: -2px;
+        max-width: 70%;
+    }
+    @media (max-width: 480px) {
+        margin-top: 40px;
+    }
+}
+
 .twoButtonsIcons {
     max-width: 50px;
 }
 
 .testimonials {
     background-image: url(../../images/bootcamp/testimonials-bg.jpg);
+    background-size: cover;
 }
+
+#why-awesome-inc {
+    .textCol {
+        @media (min-width: 480px) {
+            .textRow {
+                border-width: 0px;
+            }
+        }
+    }
+}
+
 
 .jobGuarantee {
     background-image: url(../../images/bootcamp/job-bg.jpg);
+    background-size: cover;
     padding-bottom: 60px;
     padding-top: 20px;
 
@@ -45,11 +92,27 @@
         max-width: 65%;
     }
 
-    .jobGuaranteeText {
-        margin-left: 50px;
-        margin-right: 50px;
-        margin-bottom: 40px;
+    .textCol {
+        @media (max-width: 481px) {
+            width: max-content;
+        }
     }
+
+    .jobGuaranteeText {
+    @media (min-width: 481px) {
+            margin-left: 70px;
+            margin-left: 70px;
+            margin-top: 30px;
+    }
+    }
+}
+
+.whyAwesomeIncHeader {
+    background-image: url(../../images/bootcamp/awesome-inc-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 10%;
+    height: 24vh;
 }
 
 #stats {
@@ -62,6 +125,9 @@
     }
 }
 
+.employerImg {
+    max-width: 50px;
+}
 
 .languages {
     background-image: url(../../images/bootcamp/languages-bg.jpg);
@@ -96,6 +162,7 @@
 
 .stillUnsure {
     background-image: url(../../images/bootcamp/alumni-bg.png);
+    background-size: cover;
     height: 50vh;
 }
 
