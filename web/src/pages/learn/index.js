@@ -7,11 +7,7 @@ import Title from '../../components/UI/Title/Title'
 import BrandButton from "../../components/UI/BrandButton/BrandButton"
 import "../../styles/main.scss"
 import * as styles from './courses.module.css';
-
-
 const LearnPage = ({ data }) => {
-
-
   return (
     <Layout pageTitle="Awesome Inc U - Learn to Code">
       
@@ -29,9 +25,8 @@ const LearnPage = ({ data }) => {
           </Col>
         </Row>
       </Container>
-
       {/* Calls to action section */}
-      <Container>
+      <Container className={styles.callAction}>
         <Row>
           <Col xs={12} sm={{ offset: 1, span: 5}}>
             <Title className="brand text-align">A Course For Everyone</Title>
@@ -44,22 +39,19 @@ const LearnPage = ({ data }) => {
             <StaticImage src='../../images/student-learn-to-code-shirt.jpg' alt='learn to code'  />
           </Col>
         </Row>
-
         <Row className="mt-5">
           <Col xs={12} sm={{ span: 6}}>
           <StaticImage src='../../images/student-learn-to-code-week-of-code.jpg' alt='learn to code youth classes' />
           </Col>
-          <Col xs={12} sm={{ span: 6}}>
-            
+          <Col xs={12} sm={{ span: 6 }}>
             <Title className="brand text-normal text-center">Youth</Title>
-            <p className="text-black subtitle--small fw-bold text-center">Build apps, games, and websites with friends.</p>
-            <p className="text-center">
+            <p className="text-black subtitle--small fw-bold text-left">Build apps, games, and websites with friends.</p>
+            <p className="text-left">
             Students age 9-16 love making games and apps with us. Turn screen time into career-skill time.
             </p>
-            <BrandButton className="secondary btn--small text-end">Learn More</BrandButton>
+            <BrandButton className="secondary btn--small text-end float-end">Learn More</BrandButton>
           </Col>
         </Row>
-
         <Row className="mt-5">
           <Col xs={12} sm={{ offset: 2, span: 4}}>
             <Title className="brand text-normal text-end">Adult</Title>
@@ -76,9 +68,7 @@ const LearnPage = ({ data }) => {
           </Col>
         </Row>
       </Container>
-
       {/* Proven Success Section */}
-
       <section className={styles.provenContainer}>
         
         <Container fluid>
@@ -137,5 +127,4 @@ const LearnPage = ({ data }) => {
     </Layout>
   )
 }
-
 export default LearnPage;
