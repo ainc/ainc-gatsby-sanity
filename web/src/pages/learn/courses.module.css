@@ -33,4 +33,35 @@
     flex: 49%; /* Changing this to 32% gives you three columns, 100% is one column */
 }
 
+.learn-press {
+    background-color: #fff;
+    padding-top: 20px;
+    padding-bottom: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 20px;
+    text-align: center;
+}
+
+.logos {
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.proven-container {
+    background: url(../../images/learn/phone-booth-abstract.jpeg);
+    filter: opacity(50%) blur(1pt);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 300pt;
+    text-align: left;
+    padding: 10px;
+}
+.carousel {
+    text-align: center;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
 /*  ^^^^^^  */
