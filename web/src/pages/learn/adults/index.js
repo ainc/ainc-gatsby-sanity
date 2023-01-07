@@ -9,21 +9,39 @@ import Subtitle from '../../../components/UI/Subtitle/Subtitle'
 import BrandButton from "../../../components/UI/BrandButton/BrandButton"
 import "../../../styles/main.scss"
 import * as styles from './adults.module.scss'
-import courses from '../../../../../studio/schemas/documents/courses';
-// import "../../../styles/main.scss"
 
 const AdultsPage = ({ data }) => {
 
-    const fullTimeCourses = data.allSanityCourses.edges.filter((course) => course.node.timeRequirement === "full-time")
-    const partialTimeCourses = data.allSanityCourses.edges.filter((course) => course.node.timeRequirement === "part-time" && course.node.courseType === "coding")
-    console.log(partialTimeCourses)
+
+    const [timeFilter, setTimeFilter] = React.useState('');
+    const [selectedFTClass, setSelectedFTClass] = React.useState('');
+    const [selectedPTClass, setSelectedPTClass] = React.useState('');
+    const [selectedAllClass, setSelectedAllClass] = React.useState('');
+
+    const handleRadioChangeTime = (e) => {
+        const value = e.target.value;
+        setTimeFilter(value);
+        setSelectedFTClass(timeFilter === 'full-time' ? '' : styles.selected);
+        setSelectedPTClass(timeFilter === 'part-time' ? '' : styles.selected);
+        setSelectedAllClass(timeFilter === 'part-time' && timeFilter === 'full-time' ? '' : styles.selected);
+      };
+    
+
+    console.log(timeFilter)
+    console.log(selectedFTClass)
+
+    // console.log(option1)
+    const TimeCourses = data.allSanityCourses.edges.filter((course) => course.node.timeRequirement === timeFilter)
+    // const partialTimeCourses = TimeCourses.filter((course) => course.node.timeRequirement === "part-time" && course.node.courseType === "coding")
+    
+    const tableColumns = ["COURSE", "FORMAT", "TOPICS", "TECHNOLOGIES", "SCHEDULE", "DESIGNED FOR", "LEARN MORE"]
 
     return (
         <Layout>
             <Container className=''>
                 <Row className='pt-5 mt-5'>
 
-                    <Col col="5" className={`my-5 ${styles.allPadding}`}>
+                    <Col col="5" className={`my-5 all-padding`}>
                         <Row className={`justify-content-center`}>
                             <Col md="3"/>
                             <Col md="9">
@@ -62,20 +80,55 @@ const AdultsPage = ({ data }) => {
                     </Col>
                 </Row>
                 {/* </Container> */}
+                <Row>
+                    <Col>
+                        <h5 className="my-5">Options: </h5>
+                        <label className={selectedAllClass}>
+                            <input
+                            type="radio"
+                            name="all"
+                            value="all"
+                            checked={timeFilter === 'part-time' || timeFilter === 'full-time'}
+                            onChange={handleRadioChangeTime}
+                            />
+                            All
+                        </label>
+                        <br/>
+                        <label className={selectedFTClass}>
+                            <input
+                            type="radio"
+                            name="full-time"
+                            value="full-time"
+                            checked={timeFilter === 'full-time'}
+                            onChange={handleRadioChangeTime}
+                            
+                            />
+                            Full Time
+                        </label>
+                        <br/>
+                        <label className={selectedPTClass}>
+                            <input
+                            type="radio"
+                            name="part-time"
+                            value="part-time"
+                            checked={timeFilter === 'part-time'}
+                            onChange={handleRadioChangeTime}
+                            />
+                            Part Time
+                        </label>
+                    </Col>
+                </Row>
                 <Row className='mt-5 white-space-auto overflow-auto'>
                     <Col>
                         <table>
                             <tr>
-                                <th className={styles.titleCell}><h5>COURSE</h5></th>
-                                {/* <th className={styles.titleCell}><h5>TIME REQUIREMENT</h5></th> */}
-                                <th className={styles.titleCell}><h5>FORMAT</h5></th>
-                                <th className={styles.titleCell}><h5>TOPICS</h5></th>
-                                <th className={styles.titleCell}><h5>TECHNOLOGIES</h5></th>
-                                <th className={styles.titleCell}><h5>SCHEDULE</h5></th>
-                                <th className={styles.titleCell}><h5>DESIGNED FOR</h5></th>
-                                <th className={styles.titleCell}><h5>LEARN MORE</h5></th>
+                                {tableColumns.map((column) => (
+                                    <th className={styles.titleCell}><h5>{column}</h5></th>
+                                    
+                                ))}
+                                
                             </tr>
-                            {fullTimeCourses.map((course) => (
+                            {TimeCourses.map((course) => (
                                 <tr>
                                     <td className={styles.cell}>
                                         <a href={course.node.courseLink}>
@@ -85,11 +138,6 @@ const AdultsPage = ({ data }) => {
                                         {course.node.courseSeason}
                                     </td>
                                     <td className={styles.cell}><h6>{course.node.timeRequirement}<br/>{course.node.format}</h6></td>                                                                                                                                                                                
-                                    {/* <td className={styles.cell}><h6>{course.node.format}</h6></td> */}
-                                    {/* <td className={styles.cell}><h6>{course.node.topics}</h6></td> */}
-                                    {/* <td className={styles.cell}><h6>{course.node.timeRequirement}
-                                    <br/>4 weeks remote
-                                    <br/>12 weeks in-person</h6></td> */}
                                     <td className={styles.cell}><h6>{course.node.topics}</h6></td>
                                     <td className={styles.cell}><h6>{course.node.technologies}</h6></td>
                                     <td className={styles.cell}><h6>{course.node.startDate} - {course.node.endDate}
@@ -99,24 +147,6 @@ const AdultsPage = ({ data }) => {
                                 </tr>
                             ))}
                             
-                            {/* <tr>
-                                <td className={styles.cell}>
-                                    <a href="https://www.awesomeinc.org/bootcamp">
-                                        <StaticImage alt="Web Developer Bootcamp" src="https://d33wubrfki0l68.cloudfront.net/d1380c389d72856f90c1f8866e37016b16a75997/92da2/images/logos/aincu-bootcamp-logo.png" class="img-responsive"/>
-                                    </a>
-                                    <h6>Spring 2023</h6>
-                                </td>
-                                <td className={styles.cell}><h6>Full-Time
-                                <br/>4 weeks remote
-                                <br/>12 weeks in-person</h6></td>
-                                <td className={styles.cell}><h6>CS and Programming Fundamentals, Full-Stack Web Development, Tech Job Skills</h6></td>
-                                <td className={styles.cell}><h6>HTML, CSS, JavaScript, Python, SQL, Django, React, Git, Agile, Cloud</h6></td>
-                                <td className={styles.cell}><h6>Feb 20 - May 12
-                                <br/>Mon-Fri
-                                <br/>8am - 5pm</h6></td>
-                                <td className={styles.cell}><h6>Career switchers</h6></td>
-                                <td className={`${styles.cell}`}><BrandButton className="p-1">Details & Application</BrandButton></td>
-                            </tr> */}
                         </table>
                     </Col>
                 </Row>
@@ -140,7 +170,7 @@ query {
           endDate(formatString: "MMMM d, YYYY")
           picture {
             asset {
-              gatsbyImageData(layout: CONSTRAINED, width: 100, height: 100, aspectRatio: 0.5)
+              gatsbyImageData(layout: CONSTRAINED, width: 65, height: 65, aspectRatio: 0.5)
             }
           }
           topics
