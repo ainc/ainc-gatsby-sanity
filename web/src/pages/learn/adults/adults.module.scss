@@ -1,4 +1,4 @@
-@import '../../../styles/variables';
+@use '../../../styles/variables' as styles;
 @import '../../../styles/mixins.scss';
 
 .all-padding {
@@ -7,6 +7,13 @@
     }
 }
 
+.input[type="radio"]:checked {
+    background-color: red;
+}
+
+.selected {
+    background-color: #ED3742;
+}
 .cell {
     border: 1px solid #ddd;
     text-align: center;
