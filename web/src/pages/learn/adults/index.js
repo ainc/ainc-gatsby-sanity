@@ -7,6 +7,8 @@ import { graphql } from "gatsby";
 import Title from '../../../components/UI/Title/Title'
 import Subtitle from '../../../components/UI/Subtitle/Subtitle'
 import BrandButton from "../../../components/UI/BrandButton/BrandButton"
+import ToggleButton from 'react-bootstrap/ToggleButton';
+import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import "../../../styles/main.scss"
 import * as styles from './adults.module.scss'
 
@@ -14,24 +16,22 @@ const AdultsPage = ({ data }) => {
 
 
     const [timeFilter, setTimeFilter] = React.useState('');
-    const [selectedFTClass, setSelectedFTClass] = React.useState('');
-    const [selectedPTClass, setSelectedPTClass] = React.useState('');
-    const [selectedAllClass, setSelectedAllClass] = React.useState('');
+    
 
     const handleRadioChangeTime = (e) => {
         const value = e.target.value;
         setTimeFilter(value);
-        setSelectedFTClass(timeFilter === 'full-time' ? '' : styles.selected);
-        setSelectedPTClass(timeFilter === 'part-time' ? '' : styles.selected);
-        setSelectedAllClass(timeFilter === 'part-time' && timeFilter === 'full-time' ? '' : styles.selected);
-      };
+    }
     
 
     console.log(timeFilter)
-    console.log(selectedFTClass)
+    // console.log(selectedFTClass)
 
     // console.log(option1)
-    const TimeCourses = data.allSanityCourses.edges.filter((course) => course.node.timeRequirement === timeFilter)
+    var TimeCourses = data.allSanityCourses.edges.filter((course) => course.node.timeRequirement === timeFilter)
+    if(timeFilter === ''){
+        TimeCourses = data.allSanityCourses.edges
+    }
     // const partialTimeCourses = TimeCourses.filter((course) => course.node.timeRequirement === "part-time" && course.node.courseType === "coding")
     
     const tableColumns = ["COURSE", "FORMAT", "TOPICS", "TECHNOLOGIES", "SCHEDULE", "DESIGNED FOR", "LEARN MORE"]
@@ -81,43 +81,27 @@ const AdultsPage = ({ data }) => {
                 </Row>
                 {/* </Container> */}
                 <Row>
-                    <Col>
-                        <h5 className="my-5">Options: </h5>
-                        <label className={selectedAllClass}>
-                            <input
-                            type="radio"
-                            name="all"
-                            value="all"
-                            checked={timeFilter === 'part-time' || timeFilter === 'full-time'}
-                            onChange={handleRadioChangeTime}
-                            />
-                            All
-                        </label>
-                        <br/>
-                        <label className={selectedFTClass}>
-                            <input
-                            type="radio"
-                            name="full-time"
-                            value="full-time"
-                            checked={timeFilter === 'full-time'}
-                            onChange={handleRadioChangeTime}
-                            
-                            />
-                            Full Time
-                        </label>
-                        <br/>
-                        <label className={selectedPTClass}>
-                            <input
-                            type="radio"
-                            name="part-time"
-                            value="part-time"
-                            checked={timeFilter === 'part-time'}
-                            onChange={handleRadioChangeTime}
-                            />
-                            Part Time
-                        </label>
+                    <Col lg="12" className=''>
+                        <Title className="my-3 fs-3">Course Options: </Title>
                     </Col>
                 </Row>
+                <Row>
+                    <Col>
+                        Format:     
+                         <ToggleButtonGroup type="radio" name="options" defaultValue="" className='btn-custom mx-3'>
+                            <ToggleButton onChange={handleRadioChangeTime} className={`${styles.sortButton} btn-custom`} id="tbg-radio-1" value="">
+                            All
+                            </ToggleButton>
+                            <ToggleButton onChange={handleRadioChangeTime} className={`${styles.sortButton} btn-custom`} id="tbg-radio-2" value="full-time">
+                            Full Time
+                            </ToggleButton>
+                            <ToggleButton onChange={handleRadioChangeTime} className={`${styles.sortButton} btn-custom`} id="tbg-radio-3" value="part-time">
+                            Part Time
+                            </ToggleButton>
+                        </ToggleButtonGroup>
+                    </Col>
+                </Row>
+                
                 <Row className='mt-5 white-space-auto overflow-auto'>
                     <Col>
                         <table>
@@ -137,7 +121,7 @@ const AdultsPage = ({ data }) => {
                                         <br/>
                                         {course.node.courseSeason}
                                     </td>
-                                    <td className={styles.cell}><h6>{course.node.timeRequirement}<br/>{course.node.format}</h6></td>                                                                                                                                                                                
+                                    <td className={styles.cell}><h6>{course.node.format}</h6></td>                                                                                                                                                                                
                                     <td className={styles.cell}><h6>{course.node.topics}</h6></td>
                                     <td className={styles.cell}><h6>{course.node.technologies}</h6></td>
                                     <td className={styles.cell}><h6>{course.node.startDate} - {course.node.endDate}
