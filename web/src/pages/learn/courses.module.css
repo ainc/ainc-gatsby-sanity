@@ -32,29 +32,42 @@
     padding-bottom: auto;
     padding-left: 20px;
     padding-right: 20px;
-    margin: 20px;
     text-align: center;
 }
+
 .call-action{
     margin-bottom: 20px;
+}
+.call-action p{
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
 }
 .logos {
     padding-top: 30px;
     padding-bottom: 50px;
+    margin: 0;
 }
-.proven-container {
-    background: url(../../images/learn/phone-booth-abstract.jpeg);
-    filter: opacity(50%) blur(1pt);
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100vw;
-    height: 300pt;
-    text-align: left;
-    padding: 10px;
-}
+
+
 .carousel {
-    text-align: center;
+    text-align: left;
     padding-left: 20px;
     padding-top: 20px;
+    display: block;
 }
+
+.carousel p{
+    padding-top: 20pt;
+    padding-left: 20pt;
+    padding-bottom: 0;
+    padding-right: 10pt;
+}
+.carousel small{
+    padding-left: 20pt;
+}
+.carousel-item {
+    position: absolute;
+}
+
 /*  ^^^^^^  */
