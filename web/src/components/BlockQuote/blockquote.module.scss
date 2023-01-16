@@ -1,32 +1,26 @@
-.quote {
-    &:after {
-        content: "\f10e";
-        font-family: FontAwesome;
-        right: 7px;
-        position:absolute;
-        bottom: -8px;
-        font-size: 50;
-        color: #c12029;
-        opacity: .5;
-        display: block;
-      }
-      &:before {
-        
-        content: "\f10d";
-        font-family: FontAwesome;
-        position: absolute;
-        left: 0;
-        top: -45px;
-        font-size: 50;
-        color: #c12029;
-        opacity: .5;
-        display: block;
-        padding-top: 37px;
-      }
-}
 .quote small{
   color: #777;
   display: block;
   font-size: 80%;
   line-height: 1.428571429;
 }
+.quoteFirst {
+  position: absolute;
+  left: 0;
+  top: -45px;
+  font-size: 50;
+  color: #c12029;
+  opacity: .5;
+  display: block;
+  padding-top: 37px;
+}
+.quoteLast {
+  right: 7px;
+  position:absolute;
+  bottom: -2px;
+  font-size: 50;
+  color: #c12029;
+  opacity: .5;
+  display: block;
+}
+

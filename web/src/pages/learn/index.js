@@ -106,7 +106,7 @@ const LearnPage = ({ data }) => {
         <Row><Col xs={12}> <Title className="brand test text-center normal text-end">Proven Success</Title></Col></Row>
         <Row>
           <Col xs={12} md={{offset: 4, span: 4}}>
-          <p className="text-left text-">Since 2013, over 1500 people have learned to code with us. Here's what they have to say:</p>
+          <p className="text-center">Since 2013, over 1500 people have learned to code with us. Here's what they have to say:</p>
           </Col></Row>
         <Row>
           <Col xs={12} md={{ offset: 2, span: 8}}>

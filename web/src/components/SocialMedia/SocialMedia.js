@@ -3,13 +3,12 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 import * as styles from "../../pages/about/about.module.css";
 import SocialMediaPhone from "../../images/social-media-phone.gif";
 import {
-  faTwitter,
-  faFacebookF,
-  faLinkedinIn,
-  faYoutube,
-  faInstagram,
-} from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+  FaTwitter,
+  FaFacebookF,
+  FaLinkedinIn,
+  FaYoutube,
+  FaInstagram,
+} from "react-icons/fa";
 import Subtitle from "/src/components/UI/Subtitle/Subtitle";
 
 const SocialMedia = () => {
@@ -39,27 +38,27 @@ const SocialMedia = () => {
                   <ul className={styles.socialLinks}>
                     <li>
                       <a href="https://twitter.com/awesomeinclex">
-                        <FontAwesomeIcon icon={faTwitter} />
+                        <FaTwitter />
                       </a>
                     </li>
                     <li>
                       <a href="https://www.facebook.com/awesomeinclex">
-                        <FontAwesomeIcon icon={faFacebookF} />
+                        <FaFacebookF />
                       </a>
                     </li>
                     <li>
                       <a href="https://www.linkedin.com/school/awesome-inc/">
-                        <FontAwesomeIcon icon={faLinkedinIn} />
+                        <FaLinkedinIn />
                       </a>
                     </li>
                     <li>
                       <a href="https://www.instagram.com/awesomeinclex/">
-                        <FontAwesomeIcon icon={faInstagram} />
+                        <FaInstagram />
                       </a>
                     </li>
                     <li>
                       <a href="https://www.youtube.com/user/AincTelevision/featured">
-                        <FontAwesomeIcon icon={faYoutube} />
+                        <FaYoutube />
                       </a>
                     </li>
                   </ul>
