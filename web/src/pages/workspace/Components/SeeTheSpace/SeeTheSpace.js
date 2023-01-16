@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import * as styles from "../../workspace.module.css";
 import { Container, Row, Col, Image } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { FaPlay } from "react-icons/fa";
 import ModalCustom from "../../../../components/Modal/ModalCustom";
 import TourBtn from "../../../../images/schedule-a-tour-button-white.png";
 import Space from "../../../../images/awesome-inc-space-banner.jpeg";
@@ -34,7 +33,7 @@ const SeeTheSpace = (props) => {
                   alt="Awesome Inc video link img"
                 />
                 <i className={styles.playIcon}>
-                  <FontAwesomeIcon icon={faPlay} />
+                  <FaPlay />
                 </i>
               </a>
               {/* Tour Btn. Provide link to tour modal */}

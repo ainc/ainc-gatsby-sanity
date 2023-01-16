@@ -218,11 +218,6 @@ const AboutPage = ({ data }) => {
   );
 };
 
-// sm={{span: 12, offset: 0}} md={{span: 12, offset: 1}} lg={{ span: 12, offset: 3 }} xl={{span: 8, offset: 4}}
-
-{
-  /* <FontAwesomeIcon className={styles.blogArrow} icon={faArrowRight} /> */
-}
 
 export const query_accomplishments = graphql`
   query {
