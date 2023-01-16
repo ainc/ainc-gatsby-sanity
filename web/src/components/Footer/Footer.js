@@ -8,10 +8,9 @@ import {
 } from "../../lib/helpers";
 import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image'
 import BrandButton from '../UI/BrandButton/BrandButton'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faPhone, faClock } from '@fortawesome/free-solid-svg-icons'
-import { faTwitter, faFacebookF, faLinkedinIn, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons'
+import { FaEnvelope, FaPhone, FaClock, FaTwitter, FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube } from 'react-icons/fa';
 import * as styles from './Footer.module.scss'
+
 
 const Footer = props => {
 
@@ -61,15 +60,15 @@ const Footer = props => {
                   348 E Main St, Lexington, KY
                 </li>
                 <li>
-                  <FontAwesomeIcon className={styles.redIcon} icon={faEnvelope} />
+                  <FaEnvelope className={styles.redIcon} />
                   <Link to='mailto:info@awesomeinc.org'>info@awesomeinc.org</Link>
                 </li>
                 <li>
-                  <FontAwesomeIcon className={styles.redIcon} icon={faPhone} />
+                  <FaPhone className={styles.redIcon} />
                   <Link to='tel:8599604600'>859.960.4600</Link>
                 </li>
                 <li>
-                  <FontAwesomeIcon className={styles.redIcon} icon={faClock} />
+                  <FaClock className={styles.redIcon} />
                   Hours: Mon-Fri, 9am-5pm
                 </li>
               </ul>
@@ -146,11 +145,11 @@ const Footer = props => {
           </Col>
           <Col>
             <ul className={styles.socialsInlineList}>
-              <li><Link to='https://twitter.com/awesomeinclex'><FontAwesomeIcon icon={faTwitter} /></Link></li>
-              <li><Link to='https://www.facebook.com/awesomeinclex'><FontAwesomeIcon icon={faFacebookF} /></Link></li>
-              <li><Link to='https://www.linkedin.com/school/awesome-inc/'><FontAwesomeIcon icon={faLinkedinIn} /></Link></li>
-              <li><Link to='https://www.instagram.com/awesomeinclex/'><FontAwesomeIcon icon={faInstagram} /></Link></li>
-              <li><Link to='https://www.youtube.com/user/AincTelevision/featured'><FontAwesomeIcon icon={faYoutube} /></Link></li>
+              <li><Link to='https://twitter.com/awesomeinclex'><FaTwitter /></Link></li>
+              <li><Link to='https://www.facebook.com/awesomeinclex'><FaFacebookF /></Link></li>
+              <li><Link to='https://www.linkedin.com/school/awesome-inc/'><FaLinkedinIn /></Link></li>
+              <li><Link to='https://www.instagram.com/awesomeinclex/'><FaInstagram /></Link></li>
+              <li><Link to='https://www.youtube.com/user/AincTelevision/featured'><FaYoutube /></Link></li>
             </ul>
           </Col>
         </Row>
