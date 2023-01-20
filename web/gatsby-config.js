@@ -22,7 +22,7 @@ module.exports = {
         token,
         watchMode: !isProd,
         overlayDrafts: !isProd && token,
-        graphqlTag: 'beta',
+        graphqlTag: 'default',
       }
     },
     {

@@ -1,0 +1,44 @@
+@use '../../../styles/variables' as styles;
+// @import '../../../styles/mixins.scss';
+
+// .all-padding {
+//     @include screen-sm {
+//         padding: 0 0 !important;
+//     }
+// }
+
+
+// .input[type="radio"]:checked {
+//     background-color: red;
+// }
+
+.sort-button {
+    background-color: white !important;
+    color: #ED3742 !important;
+    
+}
+.sort-button:hover {
+    background-color: #ED3742 !important;
+    color: white !important;
+    border-color: #ED3742 !important;
+  }
+
+.sort-button:visited {
+    background-color: red !important;
+}
+.cell {
+    border: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+    padding: 1%;
+}
+
+.title-cell {
+    border: 1px solid #ddd;
+    text-align: center;
+    background-color: #ED3742;
+    color: white;
+    font-family: Exo;
+    font-weight: bold;
+    text-transform: uppercase;
+}
