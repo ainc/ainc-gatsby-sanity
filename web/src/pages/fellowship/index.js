@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState } from "react";
 import Layout from '../../components/Layout/Layout'
 import { graphql, Link, Img } from 'gatsby'
 import { Container, Row, Col } from 'react-bootstrap'
@@ -14,6 +14,7 @@ import * as styles from './fellowship.module.scss'
 import * as footerStyles from '../../components/Footer/Footer.module.scss'
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
+import ApplyNowModal from "./Components/ApplyNowModal";
 
 /**
  * TODO:
@@ -21,7 +22,7 @@ import { useKeenSlider } from 'keen-slider/react'
  */
 
 const FellowshipPage = ({ data }) => {
-
+  
   const FellowshipSponsers = (data.allSanityFellowshipSponsers.nodes || {})
 
   const [refCallback] = useKeenSlider(
@@ -59,7 +60,11 @@ const FellowshipPage = ({ data }) => {
         slider.on("updated", nextTimeout)
       },
     ]
+    
   )
+  const [lgShow, setLgShow] = useState(false);
+  const handleClose = () => setLgShow(false);
+  const handleShow = () => setLgShow(true);
 
   return (
     <Layout pageTitle="Fellowship">
@@ -70,12 +75,13 @@ const FellowshipPage = ({ data }) => {
           <Col className="m-auto" xs={12} sm={4}>
             <Title className="brand">Fellowship</Title>
             <Subtitle className="fst-italic fw-lighter fs-4 text-lowercase">A mentor-driven program for Kentucky based startups</Subtitle>
-            <BrandButton className="my-3">Apply Now</BrandButton>
+            <ApplyNowModal/>
+
           </Col>
-          <Col className="" xs={12} sm={8}>
+          <Col className="my-5" xs={12} sm={8}>
             <StaticImage src="../../images/brainstorming.jpg" width={375} className='position-relative' alt="people brainstorming"/>
-            
           </Col>
+
         </Row>
       </Container>
       
@@ -118,8 +124,9 @@ const FellowshipPage = ({ data }) => {
       <Container>
         <Row className="mb-5">
           <Col className="d-flex justify-content-center">
-            <BrandButton>Apply Now</BrandButton>
+          <ApplyNowModal/>
           </Col>
+
         </Row>
       </Container>
 
@@ -199,7 +206,7 @@ const FellowshipPage = ({ data }) => {
         </Row>
         <Row className="mt-5">
           <Col className="d-flex justify-content-center">
-            <BrandButton>Apply Now</BrandButton>
+          <ApplyNowModal/>
           </Col>
         </Row>
       </Container>
