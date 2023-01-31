@@ -27,7 +27,7 @@ const AboutPage = ({ data }) => {
         <section className={styles.aboutHeader}>
           <Container>
             <Row>
-              <Col className="col-9 col-sm-7">
+              <Col className="col-9 col-sm-7 mt-3">
                 <div className={styles.heading}>
                   <Title className={`text-normal mt-5`}>
                     We exist to help people pursue their definition of awesome.
@@ -176,7 +176,7 @@ const AboutPage = ({ data }) => {
           <Container>
             <Row>
               <h2 className={`text-uppercase text-center ${styles.headingTitle}`}>Meet The Team</h2>
-              <Col md={{ span: 10, offset: 2 }} lg={{span:10, offset: 1}} >
+              <Col md={{ span: 10, offset: 2 }} lg={{span: 10, offset: 1}} >
                 <Row>
                   {teamMembers.map((node) => (
                     <Col
