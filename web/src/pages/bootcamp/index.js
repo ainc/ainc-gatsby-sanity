@@ -6,15 +6,15 @@ import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
-import ProfileCard from "./components/ProfileCard/ProfileCard";
-import GradStat from "./components/GradStat/GradStat";
-import Testimonial from "./components/Testimonial/Testimonial";
+import ProfileCard from "./components/ProfileCard/_ProfileCard";
+import GradStat from "./components/GradStat/_GradStat";
+import Testimonial from "./components/Testimonial/_Testimonial";
 import "../../styles/main.scss"
 import * as styles from './bootcamp.module.scss'
 import * as footerStyles from '../../components/Footer/Footer.module.scss'
-import ShieldsRow from "./components/ShieldsRow/ShieldsRow";
+import ShieldsRow from "./components/ShieldsRow/_ShieldsRow";
 import VerticalTitle from "../../components/UI/VerticalTitle/VerticalTitle";
-import SideNav from "./components/SideNav/SideNav"
+import SideNav from "./components/SideNav/_SideNav"
 
 export const query = graphql`
  query BootcampPageQuery {
