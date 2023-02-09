@@ -14,7 +14,6 @@ import BrandButton from "../../../components/UI/BrandButton/BrandButton";
 import FiveAcrossBG from '../../../images/5across-hero.png'
 // import Event from "../../../components/Event/Event";
 import DropdownDataDisplay from "../../../components/DropdownDataDisplay/DropdownDataDisplay";
-import { faUniversalAccess } from "@fortawesome/free-solid-svg-icons";
 import HorizontalButtons from './HorizontalButtons';
 
 

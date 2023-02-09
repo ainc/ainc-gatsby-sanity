@@ -1,0 +1,13 @@
+// -----------------------------------------------------------------------------
+@import "variables";
+@import "mixins"; 
+// -----------------------------------------------------------------------------
+.accordion-button:not(.collapsed) {
+    color: $brand-color;
+    background-color: $brand-grey-light;
+    font-weight: bold;
+}
+
+.accordion-button {
+    font-weight: bold;
+}
