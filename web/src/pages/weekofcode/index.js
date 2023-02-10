@@ -4,17 +4,28 @@ import { Container, Row, Col, CarouselItem } from 'react-bootstrap';
 import Title from '../../components/UI/Title/Title';
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
-import weekOfCodeRelay from '/Users/sisaysulito/Desktop/ainc-gatsby-sanity/web/src/pages/weekofcode/images/week-of-code-relay.jpg';
+import weekOfCodeRelayPicture from './images/week-of-code-relay.jpg';
 import Accordion from 'react-bootstrap/Accordion';
-import "/Users/sisaysulito/Desktop/ainc-gatsby-sanity/web/src/pages/weekofcode/weekofcode.module.css";
+import useEventbrite from 'react-eventbrite-popup-checkout';
 
 const Page = ({ data }) => {
+
+  const handleOrderCompleted = React.useCallback(() => {
+    console.log('Order completed successfully');
+  }, []);
+
+  const iframeCheckout = useEventbrite({
+    eventId: '484398708577',
+    modal: false,
+    onOrderComplete: handleOrderCompleted,
+    iFrameHeight: 500, // optional
+    iFrameAutoAdapt: 100, // optional - The widget's viewport percentage (between 75-100)
+  });
+
   return (
     <Layout pageTitle="Week of Code Summer Camp | Awesome Inc">
       <Container>
       <Title className="my-5 text-center">WEEK OF CODE SUMMER CAMP</Title>
-  
-    
 
     <Row className="justify-content-start">
       <Col md={8}>
@@ -26,7 +37,6 @@ const Page = ({ data }) => {
         </section>
       </Col>
     </Row>
-
       
       <h1 className="mb-4">2023 Summer Camps</h1>
       <h4 className="fw-bold mb-4">Ages: 9-16 | Beginner - Intermediate</h4>
@@ -77,7 +87,7 @@ const Page = ({ data }) => {
         logical thinking skills, and brain power. The camp is kept small to ensure everyone gets focused attention.
       </p>
 
-      <img className="mb-4 img-fluid" src={weekOfCodeRelay} alt="Week of Code Relay" />
+      <img className="mb-4 img-fluid" src={weekOfCodeRelayPicture} alt="Week of Code Relay" />
 
       <h4 className="mb-5" className="fw-bold mb-4">In this course, your student will:</h4>
 
@@ -104,6 +114,12 @@ const Page = ({ data }) => {
         </section>
       </Col>
       </Row>
+
+    <Row>
+      {iframeCheckout && (
+        <div id={iframeCheckout.id} />
+      )}
+    </Row>
 
     
     <h1 style={{fontSize: '50px'}} className="fw-bold">FAQs</h1>
