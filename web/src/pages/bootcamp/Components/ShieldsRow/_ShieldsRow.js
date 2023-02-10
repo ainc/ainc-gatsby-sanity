@@ -1,24 +1,24 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
-import Shield from '../Shield/Shield';
+import Shield from '../Shield/_Shield';
 
 function ShieldsRow(props) {
     return (
         <div>
-            <Row className="mx-5">
-                <Col>
+            <Row className="row-cols-lg-5 row-cols-md-5">
+                <Col className="my-2">
                     <Shield text={props.text1}></Shield>
                 </Col>
-                <Col>
+                <Col className="my-2">
                     <Shield text={props.text2}></Shield>
                 </Col>
-                <Col>
+                <Col className="my-2">
                     <Shield text={props.text3}></Shield>
                 </Col>
-                <Col>
+                <Col className="my-2">
                     <Shield text={props.text4}></Shield>
                 </Col>
-                <Col>
+                <Col className="my-2">
                     <Shield text={props.text5}></Shield>
                 </Col>
             </Row>

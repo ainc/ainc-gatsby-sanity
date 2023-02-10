@@ -40,7 +40,10 @@
 }
 
 .text--micro {
-  @include font-size(8)
+  @include font-size(6);
+  @include screen-max {
+    @include font-size(8);
+  }
 }
 
 .text--huge {
