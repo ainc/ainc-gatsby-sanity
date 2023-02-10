@@ -1,3 +1,8 @@
+// -----------------------------------------------------------------------------
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/variables.scss"; 
+// -----------------------------------------------------------------------------
+
 .navContainer {
     background-color:whitesmoke;
     position: fixed;
@@ -15,5 +20,11 @@
         padding-bottom: 5px;
         padding-left: 5px;
         padding-right: 40px;
+    }
+
+    @include screen-md {
+        .nav-item .nav-link.text--micro {
+            @include font-size(6);
+        }
     }
 }

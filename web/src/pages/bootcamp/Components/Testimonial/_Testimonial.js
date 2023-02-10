@@ -10,10 +10,10 @@ const TestimonialContent = (props) => {
         <div>
             <Row>
                 <Col>
-                    <Subtitle className="text-uppercase fw-bold mt-5 ms-4" style={{float: "left"}}>{props.author}</Subtitle>
+                    <Subtitle className="text-uppercase fw-bold mt-5 ms-4" style={{float: "left" }}>{props.author}</Subtitle>
                 </Col>
             </Row>
-            <p className="text-start text-nowrap mt-4 mx-4 lh-lg fs-5">{props.content}</p>
+            <p className="text-start mt-4 mx-4 lh-lg fs-5">{props.content}</p>
         </div>
     )
 }
@@ -35,7 +35,7 @@ function Testimonial(props) {
     }
 
     return (
-        <div className={styles.testimonial}>
+        <div className={`${styles.testimonial} mx-auto`}>
             <Row>
                 <Col className="col-2">
                     <div className={styles.bootcampGradImages}>
@@ -67,7 +67,7 @@ function Testimonial(props) {
                 </Col>
                 <Col className="col-8">
                     <Row className="mt-3 mb-5">
-                        <div className={styles.testimonialWindow}>
+                        <div className={`${styles.testimonialWindow} mx-auto`}>
                             <Row className="">
                                 <TestimonialContent 
                                 author={data.author}
