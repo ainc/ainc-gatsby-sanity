@@ -1,19 +1,15 @@
 import React from "react";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
-import * as styles from "./TeamMember.module.css";
+import * as styles from "./TeamMember.module.scss";
 import styled from "styled-components";
 
-const TeamMemberImg = styled(GatsbyImage)`
-  width: 100px;
-  height: 100px;
-`;
 
 
 const TeamMember = (props) => {
   return (
     <div className={styles.teamMember}>
       <figure className={styles.figure}>
-          <TeamMemberImg
+          <GatsbyImage
             imgStyle={{borderRadius: "50%"}}
             objectFit="scale-down"
             image={props.image}
