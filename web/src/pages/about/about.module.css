@@ -197,6 +197,10 @@
   color: #ed3742;
 }
 
+.teamSection {
+  padding: 1px;
+}
+
 .teamSection .heading-title {
   margin-bottom: 4rem;
   color: #c12029;
