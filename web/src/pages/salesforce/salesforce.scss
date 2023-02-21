@@ -1,0 +1,145 @@
+// -----------------------------------------------------------------------------
+@import "../../styles/variables.scss";
+@import "../../styles/mixins"; 
+// -----------------------------------------------------------------------------
+
+#header {
+    .header-section {
+        background-image: url("https://www.awesomeinc.org/assets/img/aincu/adults/intro-to-web-hero.png");
+        background-repeat: no-repeat;
+        height: 85vh;
+        width: 100vw;
+        background-position: center top;
+        background-size: contain;
+    }
+    
+    .header-text {
+        margin-top: 250px;
+        color: black;
+        text-align: center;
+    }
+    .paragraph{
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 50px;
+    }
+}
+
+#upcoming-program-dates {
+    margin-bottom: 50px;
+    .title {
+        font-weight: bolder;
+        color: white;
+        text-align: center;
+        margin-top: 15px;
+    }
+    .dates {
+        text-align: center;
+        padding-top: 60px;
+        padding-bottom: 50px;
+
+    }
+    .winter-dates {
+        margin-left: 300px;
+        border-right: 2px solid red;
+        color: white;
+    }
+    .spring-dates {
+        margin-right: 300px;
+        color: white;
+    }
+    .button {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+}
+
+
+#why-salesforce {
+    .title, .paragraph {
+        text-align: right;
+        margin-right: 300px;
+    }
+    .arrow-container {
+        width: 150px;
+        height: 90px;
+        margin-left: 640px;
+        margin-top: 20px;
+    }
+
+    .button {
+        margin-right: 300px;
+    }
+}
+
+#what-salesforce {
+    background-image: url("https://www.awesomeinc.org/assets/img/aincu/adults/red-wavy-bg.png");
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+
+    .laptop-image {
+        width: 600px;
+        height: 350px;
+    }
+
+    .title, .paragraph {
+        text-align: center;
+        color: white;
+    }
+}
+
+#course-outcomes {
+    background-image: url("https://www.awesomeinc.org/assets/img/aincu/adults/intro-to-web-hero-square.png");
+    background-size: cover;
+    height: 50vh;
+    width: 100vw;
+
+    .laptop-image {
+        width: 500px; 
+        height: 250px;
+        margin-top: 40px;
+    }
+}
+
+#FAQs {
+    .accordion-item:hover {
+        box-shadow: 1px 1px 5px 1px #c12029;
+    }
+    .accordion-button:hover {
+        background-color: rgb(231, 228, 228);
+        box-shadow: none;
+        transform: translateX(10px);
+    }
+    .accordion-button {
+        box-shadow: none;
+        transition: transform 0.3s ease-out;
+    }
+}
+
+#apply-now-button {
+    background-image: url("https://www.awesomeinc.org/assets/img/aincu/adults/two-arrows.png");
+    background-color: #C12029;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    height: 15vh;
+    width: 100vw;
+
+    .button {
+        margin-top: 35px;
+    }
+
+    .button:hover {
+        color: lightgray;
+    }
+}
+
+#questions {
+    background-image: url("https://www.awesomeinc.org/assets/img/bootcamp/faq-bg.jpg");
+    background-size: cover;
+    height: 50vh;
+    width: 100vw;
+}
