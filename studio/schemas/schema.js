@@ -37,6 +37,7 @@ import bootcampGraduationStats from './documents/bootcampGraduationStats'
 import bootcampEmployers from './documents/bootcampEmployers'
 import bootcampProfileCard from './documents/bootcampProfileCard'
 import press from './documents/press'
+import program from './documents/program'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -78,6 +79,7 @@ export default createSchema({
     bootcampGraduationStats,
     bootcampEmployers,
     bootcampProfileCard,
-    press
+    press,
+    program
   ])
 })
