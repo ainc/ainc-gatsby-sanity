@@ -1,0 +1,9 @@
+.main-heading {
+    background-image: url('../../images/5across-hero.png');
+    background-size: cover;
+    background-position: center;
+    height: 93vh;
+    @include screen-md {
+        height: 110vh;
+    }
+}
