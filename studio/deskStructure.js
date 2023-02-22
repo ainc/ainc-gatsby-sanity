@@ -3,7 +3,7 @@ import { MdSettings } from "react-icons/md";
 import { GiBarefoot } from 'react-icons/gi';
 
 const hiddenDocTypes = listItem =>
-  !['category', 'teamMember', 'sampleProject', 'siteSettings', 'footer', 'accomplishments','fiveAcrossSponsors'].includes(listItem.getId())
+  !['category', 'teamMember', 'sampleProject', 'siteSettings', 'footer', 'accomplishments','fiveAcrossSponsors','program'].includes(listItem.getId())
 
 export default () =>
   S.list()
@@ -34,6 +34,14 @@ export default () =>
               .id('accomplishments')
               .schemaType('accomplishments')
               .documentId('accomplishments')
+          ),
+       S.listItem()
+          .title('5A Program Guide')
+          .child(
+            S.editor()
+              .id('program')
+              .schemaType('program')
+              .documentId('program')
           ),
       S.listItem()
         .title('Sample projects')
