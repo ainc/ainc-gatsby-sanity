@@ -11,7 +11,7 @@ import BrandButton from '../../components/UI/BrandButton/BrandButton';
 
 
 const ProgramPage = ({ data }) => {
-  const allProgram = (data.allSanityProgram.nodes || {});
+  const allProgram = (data.sanityProgram || {});
   const allSanityFiveAcrossSponsors = (data.allSanityFiveAcrossSponsors.nodes || {});
   const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].titleSponsorName || {});
   const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].titleSponsorLink || {});
@@ -22,7 +22,7 @@ const ProgramPage = ({ data }) => {
   const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSponsorImage.asset.gatsbyImageData || {});
 
   const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors || {});
-  
+  const teams = (data.sanityProgram.teams || {});
 
   return (
     <Layout>
@@ -38,11 +38,7 @@ const ProgramPage = ({ data }) => {
           </Row>
           <Row>
             <ul>
-              {allProgram.map((node) => (
-
-                <Subtitle className='text-center'>    {node.date} </Subtitle>
-
-              ))}
+                <Subtitle className='text-center'>    {allProgram.date} </Subtitle>
             </ul>
           </Row>
           <Row>
@@ -84,29 +80,19 @@ const ProgramPage = ({ data }) => {
       <Container className={styles.tonightsTeams}>
         <Subtitle className='text-center text-uppercase'>Tonight's Teams</Subtitle>
         <Col>
-          <Row>
-            <ul>
-              {/* {allProgram.map((judges) => (
-                <GatsbyImage image={judges.image.asset.gatsbyImageData}></GatsbyImage>
-              ))} */}
-            </ul>
-          </Row><hr></hr>
-          <Row>
-            {/* <GatsbyImage image={}></GatsbyImage> */}
-          </Row><hr></hr>
-          <Row>
-
-          </Row><hr></hr>
-          <Row>
-
-          </Row><hr></hr>
-          <Row>
-
-          </Row><hr></hr>
+          {teams.map((team) => (
+            <Row>
+              <ul>
+                <GatsbyImage image={team.image.asset.gatsbyImageData} alt={team.alt} />
+                <h1>{team.title}</h1>
+              </ul>
+            </Row>
+          ))}
         </Col>
       </Container>
       <Container className={styles.tonightsJudges}>
         <Subtitle className='text-center text-uppercase text-white my-5'>Tonight's Judges</Subtitle>
+        {/* TODO: Create this section similarly to how we did the team's section */}
         <Col xs={6}>
 
         </Col>
@@ -160,26 +146,24 @@ const ProgramPage = ({ data }) => {
 
 export const query_program = graphql`
 query query_program {
-  allSanityProgram {
-    nodes {
-      date(formatString: "MMMM D, YYYY")
-      teams {
-        title
-        image {
-          asset {
-            gatsbyImageData(layout: CONSTRAINED)
-          }
+  sanityProgram {
+    date(formatString: "MMMM D, YYYY")
+    teams {
+      title
+      image {
+        asset {
+          gatsbyImageData(layout: CONSTRAINED)
         }
       }
-      judges {
-        image {
-          asset {
-            gatsbyImageData(layout: CONSTRAINED)
-          }
+    }
+    judges {
+      image {
+        asset {
+          gatsbyImageData(layout: CONSTRAINED)
         }
-        title
-        alt
       }
+      title
+      alt
     }
   }
   allSanityFiveAcrossSponsors {
