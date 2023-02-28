@@ -12,7 +12,7 @@ const PerksPage = ({ data }) => {
     return(
         <Layout pageTitle="Fellowship Perks | Awesome Inc">
             <Container>
-                <Title className="mt-5 text-center">FELLOWSHIP PERKS</Title>
+                <Title className="mt-5 text-center text-uppercase">Fellowship Perks</Title>
                 <section id="images">
                     <Row className="first-row-images">
                         <Col sm={4} className="d-flex flex-column align-items-center justify-content-center">
@@ -21,11 +21,11 @@ const PerksPage = ({ data }) => {
                         </Col>
                         <Col sm={4} className="d-flex flex-column align-items-center justify-content-center">
                             <img className="investors-img mb-4" src="https://d33wubrfki0l68.cloudfront.net/a01f35476ca25e846ad6b36cc3f77dc5b42292ee/2978f/images/icons/investors.png"/>
-                            <h2 className="mb-5">Visibility to investors</h2>
+                            <h2 className="mb-5">Visibility to Investors</h2>
                         </Col>
                         <Col sm={4} className="d-flex flex-column align-items-center justify-content-center">
                             <img className="workspace-img mb-4" src="https://d33wubrfki0l68.cloudfront.net/313bbc5bdcb555b038f8cda561a4e847a68ea632/6b9de/images/icons/workspace.png"/>
-                            <h2 className="text-center mb-5">Access to Awesome Inc <br/> workspace</h2>
+                            <h2 className="text-center mb-5">Access to Awesome Inc <br/> Workspace</h2>
                         </Col>
                     </Row>
                     <Row className="second-row-images">
