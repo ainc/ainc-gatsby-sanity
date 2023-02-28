@@ -3,7 +3,16 @@
     background-size: cover;
     background-position: center;
     height: 93vh;
-    @include screen-md {
-        height: 110vh;
-    }
+    
+}
+
+.details {
+    display: flex;
+}
+
+.tonights-judges {
+    background-color: #323232;
+}
+.support-sponsors {
+    display: grid;
 }
