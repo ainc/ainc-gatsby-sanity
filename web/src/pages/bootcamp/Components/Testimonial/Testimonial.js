@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { Row, Col } from 'react-bootstrap'
 import Subtitle from '../../../../components/UI/Subtitle/Subtitle';
 import { GatsbyImage } from 'gatsby-plugin-image'
-import * as styles from './Testimonial.module.scss'
+import * as styles from './testimonial.module.scss'
 
 const TestimonialContent = (props) => {
     return (

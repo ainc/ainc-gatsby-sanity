@@ -1,5 +1,5 @@
 import React from 'react'
-import * as styles from "./SideNav.module.scss"
+import * as styles from "./sideNav.module.scss"
 
 function SideNav() {
     return (
