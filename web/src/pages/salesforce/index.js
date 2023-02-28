@@ -229,7 +229,7 @@ const SalesforcePage = ({ data }) => {
             <section id="apply-now-button">
                 <Container>
                     <Row> 
-                        <div className="d-flex justify-content-center">
+                        <div className="d-flex align-items-center my-5 justify-content-center">
                         <BrandButton className="button bg-dark">APPLY NOW</BrandButton>
                         </div>    
                     </Row>
