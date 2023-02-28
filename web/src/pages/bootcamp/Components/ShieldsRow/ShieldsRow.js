@@ -1,6 +1,6 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
-import Shield from '../Shield/_Shield';
+import Shield from '../Shield/Shield';
 
 function ShieldsRow(props) {
     return (
