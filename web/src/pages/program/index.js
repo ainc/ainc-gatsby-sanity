@@ -23,6 +23,7 @@ const ProgramPage = ({ data }) => {
 
   const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors || {});
   const teams = (data.sanityProgram.teams || {});
+  const judges = (data.sanityProgram.judges || {});
 
   return (
     <Layout>
@@ -54,37 +55,40 @@ const ProgramPage = ({ data }) => {
       <Container className={styles.details}>
         <Col>
           <Row>
-            <Subtitle className='text-uppercase mt-3'>Tonight's Details</Subtitle>
+            <Subtitle className='text-uppercase text-black mt-4 mb-4'>Tonight's Details</Subtitle>
           </Row>
           <Row>
             <Col xs={6} className=''>
-              <BrandButton xs={6} className="secondary my-1 w-100">VOTE ON RAADZ</BrandButton>
-              <BrandButton xs={6} className="secondary w-100">JUDGES</BrandButton>
-              <BrandButton xs={6} className="secondary my-1 w-100">PODCASTS</BrandButton>
-              <BrandButton xs={6} className="secondary w-100 text-uppercase mb-2">free ticket for next 5 across</BrandButton>
+              <BrandButton xs={6} className={`secondary mb-2 w-100 text-uppercase0 text-uppercase ${styles.buttons}`}>Vote on raadz</BrandButton>
+              <BrandButton xs={6} className={`secondary mb-2 w-100 text-uppercase ${styles.buttons}`}>Judges</BrandButton>
+              <BrandButton xs={6} className={`secondary mb-1 w-100 text-uppercase ${styles.buttons}`}>Podcasts</BrandButton>
+              <BrandButton xs={6} className={`secondary w-100 text-uppercase ${styles.buttons}`}>Free ticket for next 5 across</BrandButton>
             </Col>
             <Col xs={6} className=''>
-              <BrandButton xs={6} className="secondary my-1 w-100">TEAMS</BrandButton>
-              <BrandButton xs={6} className="secondary w-100">SPONSORS</BrandButton>
-              <BrandButton xs={6} className="secondary my-1 w-100">BECOME A MENTOR</BrandButton>
-              <BrandButton xs={6} className="secondary w-100 text-uppercase">startup pipeline</BrandButton>
+              <BrandButton xs={6} className={`secondary mb-2 w-100 text-uppercase ${styles.buttons}`}>Teams</BrandButton>
+              <BrandButton xs={6} className={`secondary mb-1 w-100 text-uppercase ${styles.buttons}`}>Sponsors</BrandButton>
+              <BrandButton xs={6} className={`secondary mb-1 w-100 text-uppercase ${styles.buttons}`}>Become a mentor</BrandButton>
+              <BrandButton xs={6} className={`secondary w-100 text-uppercase ${styles.buttons}`}>Startup pipeline</BrandButton>
             </Col>
           </Row>
-          <Row xs={12}>
+          <Row xs={12} className='mb-4'>
             <Col xs={{ offset: 0, span: 12 }}>
-              <BrandButton className="secondary mb-1 w-100">MORE ABOUT AWESOME INC</BrandButton>
+              <BrandButton className={`secondary my-2 w-100 text-uppercase ${styles.buttons}`}>More about awesome inc</BrandButton>
             </Col>
           </Row>
         </Col>
       </Container>
       <Container className={styles.tonightsTeams}>
-        <Subtitle className='text-center text-uppercase'>Tonight's Teams</Subtitle>
-        <Col>
+        <Subtitle className='text-center my-5 text-black text-uppercase'>Tonight's Teams</Subtitle>
+        <Col xs={12}>
           {teams.map((team) => (
             <Row>
               <ul>
-                <GatsbyImage image={team.image.asset.gatsbyImageData} alt={team.alt} />
-                <h1>{team.title}</h1>
+                <GatsbyImage className={styles.teamImage}
+                objectFit='scale-down'
+                image={team.image.asset.gatsbyImageData} alt={team.alt} />
+                <p className="text-center mt-4">{team.title}</p>
+                <hr></hr>
               </ul>
             </Row>
           ))}
@@ -93,16 +97,27 @@ const ProgramPage = ({ data }) => {
       <Container className={styles.tonightsJudges}>
         <Subtitle className='text-center text-uppercase text-white my-5'>Tonight's Judges</Subtitle>
         {/* TODO: Create this section similarly to how we did the team's section */}
-        <Col xs={6}>
-
-        </Col>
-        <Col xs={6}>
-
-        </Col>
+        <Row>
+          {judges.map((judge) => (
+            
+              <Col xs={6} lg={10}>
+              
+ 
+                <GatsbyImage className={styles.judgeImage}
+                // objectFit="scale-down"
+                image={judge.image.asset.gatsbyImageData} alt={judge.alt}/>
+                <p className='text-center'>{judge.title}</p>
+            
+              
+              </Col>
+          
+          ))}
+        </Row>
+       
       </Container>
       <Container className={styles.sponsors}>
         <Row>
-          <Col xs={{ offset: 2, span: 10 }}>
+          <Col xs={12}>
             <StaticImage className='my-2 mw-100 w-75' src='../../images/5across-banner.png'></StaticImage>
           </Col>
         </Row>
@@ -124,21 +139,45 @@ const ProgramPage = ({ data }) => {
         <Row className={styles.supportSponsors}>
           <Row>
             {suppourtingSponsors.map((sponsor) => (
-              <Row xs={{ offset: 3, span: 5 }} className="my-3">
+              <Col xs={6} lg={10} className="my-3">
                 <a href={sponsor.link}>
                   <GatsbyImage image={sponsor.image.asset.gatsbyImageData} alt={sponsor.alt} />
                 </a>
-              </Row>
+              </Col>
 
             ))}
           </Row>
         </Row>
       </Container>
       <Container className={styles.experienceMore}>
-
+        <Row>
+          <Col xs={12}>
+          <Title className='text-uppercase text-white text-center mt-4'>Experience even more</Title> 
+          </Col>
+        </Row>
+        <Row>
+        <Col xs={{offset: 4, span: 6}}>
+        <StaticImage className='my-4' src='../../images/5across-logo-white.png'></StaticImage>
+          </Col>
+        </Row>
+        <Col xs={{offset: 5, span: 2}}>
+          <a></a>
+        <StaticImage className='my-2 mw-100' src='../../images/ainc_podcast_logo.png'></StaticImage>
+        <p className='mb-2 text-center text-uppercase text-white'>5 minute postgame recap</p>
+        <StaticImage className='my-2 mw-100' src='../../images/middle-tech.png'></StaticImage>
+        <p className='mb-2 text-center text-uppercase text-white'>5 Across deep dive</p>
+        </Col>
       </Container>
       <Container className={styles.becomeMentor}>
-
+        <Col xs={12}>
+          <Subtitle className='fw-bold my-5 brand text-center text-uppercase'>Become a startup mentor</Subtitle>
+          <Row>
+            <Col xs={{offset: 3, span:6 }}>
+            <BrandButton className={`secondary w-100  my-5 text-uppercase ${styles.buttons} `}>Fill out this google form to apply</BrandButton>  
+            </Col>
+          </Row>
+          
+        </Col>
       </Container>
     </Layout>
   )
