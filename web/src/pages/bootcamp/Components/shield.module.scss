@@ -1,10 +1,10 @@
 // -----------------------------------------------------------------------------
-@import "../../../../styles/mixins.scss";
-@import "../../../../styles/variables.scss"; 
+@import "../../../styles/mixins.scss";
+@import "../../../styles/variables.scss"; 
 // -----------------------------------------------------------------------------
 
 .shieldPanel {
-    background-image: url(../../../../images/bootcamp/shield.png);
+    background-image: url(../../../images/bootcamp/shield.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;

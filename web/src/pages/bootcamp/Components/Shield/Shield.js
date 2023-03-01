@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import * as styles from './shield.module.scss'
+import * as styles from '../shield.module.scss'
 
 const Shield = ({text}) => {
 
