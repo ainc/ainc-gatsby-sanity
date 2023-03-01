@@ -36,13 +36,6 @@ export default {
             type: 'array',
             title: 'Judges',
             of: [{type: 'imageLink'}]
-        },
-        {
-            name: 'podcasts',
-            type: 'array',
-            title: 'Podcasts',
-            of: [{type: 'imageLink'}]
         }
-        
     ]
 }
