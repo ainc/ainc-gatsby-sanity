@@ -2,17 +2,68 @@
     background-image: url('../../images/5across-hero.png');
     background-size: cover;
     background-position: center;
-    height: 93vh;
+    min-height: 63vh;
     
 }
 
 .details {
     display: flex;
+    background-color: rgb(223, 228, 233);
+    background-size: cover;
+    min-width: 100vw;
 }
 
 .tonights-judges {
     background-color: #323232;
+    color: white;
+    margin: 0;
+    min-width: 100vw;
 }
 .support-sponsors {
     display: grid;
+    min-width: 100vw;
+}
+
+.judge-image {
+    clip-path: circle(45%);
+    position: relative;
+    object-fit: cover;
+    max-height: 50vh;
+}
+
+.tonights-teams {
+    align-content: center;
+}
+
+.team-image {
+    align-items: center;
+    display: flex;
+    max-height: 15vh;
+}
+
+.experience-more {
+    background-color: #323232;
+    align-content: center;
+    display: grid;
+    min-width: 100vw;
+}
+
+.become-mentor {
+    background: url(../../images/AInc_Stock-33.jpeg);
+    min-height: 40vh;
+    background-size: cover;
+    min-width: 100vw;
+    display: flex;
+    align-content: center;
+}
+
+hr {
+    border: 1px solid black;
+}
+
+.buttons {
+    line-height: .6rem;
+    min-height: 50px;
+    font-size: 11px;
+    letter-spacing: .1rem;
 }
