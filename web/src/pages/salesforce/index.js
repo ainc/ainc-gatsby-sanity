@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "../../components/Layout/Layout";
 import { Container, Col, Row, Image } from "react-bootstrap";
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
@@ -19,17 +20,17 @@ const SalesforcePage = ({ data }) => {
                 <Container fluid>
                     <Row className="header-section">
                         <Col className="header-text">
-                            <Title>SALESFORCE CAREER ACCELERATOR</Title>
+                            <Title className="text-uppercase">Salesforce career accelerator</Title>
                             <BrandButton className="my-3">START YOUR APPLICATION</BrandButton>
                             <p>Get started now in 30 seconds or less</p>
                         </Col>
                     </Row>
-                    <p className="paragraph">
-                        This part time course will put you on the path towards a <br/> <br/>
-                        promising career in the Salesforce ecosystem. Work <br/> <br/>
-                        together with our team and peers to earn your first <br/> <br/>
-                        Salesforce Certification and learn key tech career skills. <br/>
-                    </p>
+                <Col xs={{ span: 5, offset: 3 }} className="text-center fw-bold fs-5 lh-lg mb-5">
+                    This part time course will put you on the path towards a
+                    promising career in the Salesforce ecosystem. Work
+                    together with our team and peers to earn your first
+                    Salesforce Certification and learn key tech career skills.
+                </Col>  
                 </Container>
             </section>
 
@@ -63,7 +64,7 @@ const SalesforcePage = ({ data }) => {
             <section id="why-salesforce">
                 <Container>
                     <Col className="title">                   
-                        <Title>WHY LEARN SALESFORCE?</Title>
+                        <Title className="text-uppercase">Why learn salesforce?</Title>
                     </Col>
                     <Col className="paragraph">
                         <p>
@@ -76,7 +77,7 @@ const SalesforcePage = ({ data }) => {
                     </Col>
                     <Row>
                         <Col>
-                            <img className="arrow-container" src="https://d33wubrfki0l68.cloudfront.net/9b04c2c87b639f305e5ee1125caae183bbd21ef3/16a10/assets/img/aincu/adults/arrow-down-left.png" alt="Arrow Image"/>
+                            <StaticImage quality='100' className="arrow-container" src="./images/arrow-down-left.png" alt="Arrow Image"/>
                         </Col>
                         <Col>
                             <BrandButton>WHAT IS SALESFORCE?</BrandButton>
@@ -92,13 +93,12 @@ const SalesforcePage = ({ data }) => {
                         <Col>
                             <div className="d-flex justify-content-center">
                             <a href="https://www.youtube.com/embed/xx2sK-QiBjw?rel=0&controls=0">
-                                <img className="laptop-image" src="https://d33wubrfki0l68.cloudfront.net/c8c8c5ed8921fae79e0735e350d664993f2d1a1b/0f5b4/assets/img/aincu/adults/laptop-video-salesforce.png" alt="Laptop Image" />
+                                <StaticImage qualtiy='100' className="laptop-image" src="./images/laptop-video-salesforce.png" alt="Laptop Image" />
                             </a>
                             </div>
                         </Col>
-                        
-                        <div className="paragraph">
-                            <Title className="title">WHAT MAKES IT AWESOME?</Title>
+                        <Title className="text-center text-light text-uppercase">What makes it awesome?</Title>
+                        <div className="text-center text-light">
                             <p>
                                 At Awesome Inc, everything we do starts with our Core Values. We care about people, and making a difference in our community. That's why we want to help <br/>
                                 everyone we can to learn the life changing skills they need to pursue their definition of “awesome.” And while doing that, we've seen that the best way to learn a <br/>
@@ -123,7 +123,7 @@ const SalesforcePage = ({ data }) => {
             {/* Curriculum Section*/}
             <section id="curriculum">
                 <Container>
-                    <Title>CURRICULUM</Title>
+                    <Title className="text-uppercase">Curriculum</Title>
                     <p className="fw-light fst-italic">If reading this list makes your eyes glaze over... we get it. Maybe we can talk on the phone to explain the details.</p>
                     <Row className="my-5">
                         <Col>
@@ -137,7 +137,7 @@ const SalesforcePage = ({ data }) => {
                         <BrandButton>LET'S CHAT</BrandButton>
                         </Col>
                         <Col>
-                            <img src="https://d33wubrfki0l68.cloudfront.net/fda8f7e831f3c3668694583ed3680d0e1ae0520c/6e74b/assets/img/aincu/adults/salesforce-logo.png" alt="Salesforce Image" />
+                            <StaticImage qualtiy='100' src="./images/salesforce-logo.png" alt="Salesforce Image" />
                         </Col>
                     </Row> 
                 </Container>
@@ -148,10 +148,10 @@ const SalesforcePage = ({ data }) => {
                 <Container>
                     <Row>
                         <Col>
-                            <img className="laptop-image" src="https://d33wubrfki0l68.cloudfront.net/4f9fc219a695db87f31d4f51a3592d44ab7e373b/b472a/assets/img/aincu/adults/salesforce-projects.png" alt="Laptop Image" />
+                            <StaticImage qualtiy='100' className="laptop-image" src="./images/salesforce-projects.png" alt="Laptop Image" />
                         </Col>
                         <Col>
-                            <Title className="my-5">COURSE OUTCOMES</Title>
+                            <Title className="my-5 text-uppercase">Course outcomes</Title>
                             <ul>
                                 <li>Earn your first Salesforce certification</li>
                                 <li>Gain project experience working in a real Salesforce org </li>
@@ -166,8 +166,8 @@ const SalesforcePage = ({ data }) => {
             {/* Tuition Scholarship Section*/}
             <section id="tuition-scholarship">
                 <Container fluid className="background--grey py-5 text-center text-white">
-                    <img className="cost-img" src="https://www.awesomeinc.org/assets/img/bootcamp/cost.png" alt="Cost Image" />
-                    <Title className="my-4 text-white">TUITION AND SCHOLARSHIPS</Title>
+                    <StaticImage quality='100' className="cost-img" src="./images/cost.png" alt="Cost Image" />
+                    <Title className="my-4 text-white text-uppercase">Tuition and scholarship</Title>
                     <p>
                         Tuition for this program is $3499. For residents of Lexington-Fayette County, Kentucky, a special $2500 scholarship is available. If this <br/>
                         applies to you, fill out this scholarship application. Up to 20 scholarships are available for the July 2022 - June 2023 period.
@@ -218,7 +218,7 @@ const SalesforcePage = ({ data }) => {
                     <Accordion.Item eventKey="4" className="px-3 py-4 mb-1">
                         <Accordion.Header>Where do I park?</Accordion.Header>
                         <Accordion.Body>
-                        See <a className="text-danger" href="https://www.awesomeinc.org/parking">map for parking options.</a>
+                        See <a className="text-danger" href="/parking">map for parking options.</a>
                         </Accordion.Body>
                     </Accordion.Item>
                     </Accordion>
