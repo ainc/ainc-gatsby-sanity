@@ -227,7 +227,7 @@ const TermsPage = ({ data }) => {
             <h2>Assignment</h2>
             <p className="par">Awesome Inc may freely transfer or assign any portion of its rights or delegate its obligations under these Terms (including any applicable Supplemental Terms). You shall not transfer or assign, by operation of law or otherwise, any portion of your 
             rights or delegate your obligations under these Terms (including any applicable Supplemental Terms) without the prior written consent of Awesome Inc. Any attempted transfer or assignment in violation hereof will be null and void.</p>
-            <h2>Entire Agreement/Severability</h2>
+            <h2>Entire Agreement/<br/>Severability</h2>
             <p className="par">These Terms (including any applicable Supplemental Terms) are the entire and exclusive agreement between Awesome Inc and you regarding the Services, and supersede and replace any prior agreements between Awesome Inc and you regarding the Services. 
             No other person or company, with the exception of the Awesome Inc Entities, will be third party beneficiaries to the Terms (including any applicable Supplemental Terms). If any provision of these Terms (including any applicable Supplemental Terms) is found to be unlawful, 
             void, or for any reason unenforceable, then that provision shall be deemed severable from the other provisions, and shall not affect the validity and enforceability of any remaining provisions.</p>
