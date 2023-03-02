@@ -5,7 +5,7 @@
 
 #header {
     .header-section {
-        background-image: url("https://www.awesomeinc.org/assets/img/aincu/adults/intro-to-web-hero.png");
+        background-image: url("./images/intro-to-web-hero.png");
         background-repeat: no-repeat;
         height: 85vh;
         width: 100vw;
@@ -17,12 +17,6 @@
         margin-top: 250px;
         color: black;
         text-align: center;
-    }
-    .paragraph{
-        font-size: 20px;
-        text-align: center;
-        font-weight: bold;
-        margin-bottom: 50px;
     }
 }
 
@@ -64,7 +58,7 @@
     }
     .arrow-container {
         width: 150px;
-        height: 90px;
+        height: 100px;
         margin-left: 640px;
         margin-top: 20px;
     }
@@ -75,7 +69,7 @@
 }
 
 #what-salesforce {
-    background-image: url("https://www.awesomeinc.org/assets/img/aincu/adults/red-wavy-bg.png");
+    background-image: url("./images/red-wavy-bg.png");
     background-size: cover;
     height: 100vh;
     width: 100vw;
@@ -84,22 +78,17 @@
         width: 600px;
         height: 350px;
     }
-
-    .title, .paragraph {
-        text-align: center;
-        color: white;
-    }
 }
 
 #course-outcomes {
-    background-image: url("https://www.awesomeinc.org/assets/img/aincu/adults/intro-to-web-hero-square.png");
+    background-image: url("./images/intro-to-web-hero-square.png");
     background-size: cover;
     height: 50vh;
     width: 100vw;
 
     .laptop-image {
-        width: 500px; 
-        height: 250px;
+        width: 550px; 
+        height: 300px;
         margin-top: 40px;
     }
 }
@@ -120,7 +109,7 @@
 }
 
 #apply-now-button {
-    background-image: url("https://www.awesomeinc.org/assets/img/aincu/adults/two-arrows.png");
+    background-image: url("./images/two-arrows.png");
     background-color: #C12029;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -132,7 +121,7 @@
 }
 
 #questions {
-    background-image: url("https://www.awesomeinc.org/assets/img/bootcamp/faq-bg.jpg");
+    background-image: url("./images/faq-bg.jpeg");
     background-size: cover;
     height: 50vh;
     width: 100vw;
