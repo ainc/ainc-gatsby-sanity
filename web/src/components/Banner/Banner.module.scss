@@ -1,13 +1,23 @@
 .banner {
   text-align: center;
   padding: 5px;
-  
+  background-color: #f2dede;
+  color: #842029;
+
   p {
     margin: 0;
+    font-weight: normal;
   }
   
   a {
-    text-decoration: underline;
+    font-weight: normal;
     color: #842029;
+    text-decoration: underline;
+    transition: color 0.3s;
+  }
+  a:hover {
+    color: #de3640;
+    // animation: color-change;
+
   }
 }
