@@ -17,7 +17,7 @@
     background-color: #323232;
     color: white;
     margin: 0;
-    min-width: 100vw;
+    min-width: 98vw;
 }
 .support-sponsors {
     display: grid;
@@ -29,6 +29,14 @@
     position: relative;
     object-fit: cover;
     max-height: 50vh;
+    display: inline-flex;
+    align-items: center;
+}
+
+.judge-text {
+    line-height: 1rem;
+    font-size: .8rem;
+    
 }
 
 .tonights-teams {
@@ -55,6 +63,12 @@
     min-width: 100vw;
     display: flex;
     align-content: center;
+}
+
+.podcast-text {
+    font-size: .8rem;
+    letter-spacing: 1px;
+    line-height: .8rem;
 }
 
 hr {
