@@ -28,7 +28,7 @@
     clip-path: circle(45%);
     position: relative;
     object-fit: cover;
-    max-height: 50vh;
+    height: 150px;
     display: inline-flex;
     align-items: center;
 }
@@ -36,7 +36,11 @@
 .judge-text {
     line-height: 1rem;
     font-size: .8rem;
-    
+    margin-top: 0.8rem;
+}
+h4.judge-text  {
+    font-size: 0.65rem;
+    line-height: 0.9rem;
 }
 
 .tonights-teams {
