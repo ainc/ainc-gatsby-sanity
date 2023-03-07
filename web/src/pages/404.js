@@ -10,7 +10,7 @@ const NotFoundPage = () => (
   <Layout>
     <SEO title="404: Not found" />
     <Container>
-      <Title className="text-center my-5">NEED SOME DIRECTION?</Title>
+      <Title className="text-center my-5 text-uppercase">Need some direction?</Title>
       <Row className="mb-5">
         <Col xs={12} sm={{ span: 10, offset: 1}} >
           <Row>
