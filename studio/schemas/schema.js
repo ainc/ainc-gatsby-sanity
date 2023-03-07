@@ -14,6 +14,7 @@ import internalTeamMember from './objects/internalTeamMember'
 import imageLink from './objects/imageLink'
 import link from './objects/link'
 import sliderImage from './objects/sliderImage'
+import fiveAcrossJudges from './objects/fiveAcrossJudges'
 
 // Document types
 import category from './documents/category'
@@ -57,6 +58,7 @@ export default createSchema({
     imageLink,
     link,
     sliderImage,
+    fiveAcrossJudges,
     // The following are document types which will appear
     // in the studio.
     category,
