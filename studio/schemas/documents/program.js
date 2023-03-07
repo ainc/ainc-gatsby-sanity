@@ -35,7 +35,13 @@ export default {
             name: 'judges',
             type: 'array',
             title: 'Judges',
-            of: [{type: 'imageLink'}]
+            of: [{type: 'fiveAcrossJudges'}]
         }
-    ]
+    ],
+  preview: {
+    select: {
+      title: 'name',
+      media: 'image'
+    }
+  }
 }

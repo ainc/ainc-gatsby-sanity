@@ -106,11 +106,13 @@ const ProgramPage = ({ data }) => {
                 <GatsbyImage className={styles.judgeImage}
                 // objectFit="scale-down"
                 image={judge.image.asset.gatsbyImageData} alt={judge.alt}/>
-                <p className='text-center'>{judge.title}</p>
+                <p className='text-center fw-bold text-uppercase'>{judge.alt}</p>
+                <p className='text-center text-uppercase'>{judge.title}</p>
+                <p className='text-center text-uppercase'>{judge.accolades}</p>
             
               
               </Col>
-          
+        
           ))}
         </Row>
        
@@ -196,6 +198,7 @@ query query_program {
       }
     }
     judges {
+      title
       image {
         asset {
           gatsbyImageData(layout: CONSTRAINED)
