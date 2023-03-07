@@ -3,7 +3,8 @@
   padding: 5px;
   background-color: #f2dede;
   color: #842029;
-
+  position: relative;
+  z-index: 10;
   p {
     margin: 0;
     font-weight: normal;
@@ -18,6 +19,5 @@
   a:hover {
     color: #de3640;
     // animation: color-change;
-
   }
 }
