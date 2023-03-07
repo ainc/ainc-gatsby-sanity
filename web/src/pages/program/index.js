@@ -43,11 +43,11 @@ const ProgramPage = ({ data }) => {
             </ul>
           </Row>
           <Row>
-            <Col xs={{ offset: 0, span: 8 }}>
+            <Col xs={6}>
               <GatsbyImage image={titleSponsorImage}></GatsbyImage>
             </Col>
-            <Col xs={{ offset: 4, span: 8 }} className=''>
-              <GatsbyImage image={presentingSponsorImage}></GatsbyImage>
+            <Col xs={6}>
+              <GatsbyImage className='mt-3' image={presentingSponsorImage}></GatsbyImage>
             </Col>
           </Row>
         </Col>
@@ -95,20 +95,20 @@ const ProgramPage = ({ data }) => {
         </Col>
       </Container>
       <Container className={styles.tonightsJudges}>
-        <Subtitle className='text-center text-uppercase text-white my-5'>Tonight's Judges</Subtitle>
+        <Subtitle className='text-center text-uppercase text-white pt-4 pb-2 mt-3'>Tonight's Judges</Subtitle>
         {/* TODO: Create this section similarly to how we did the team's section */}
         <Row>
           {judges.map((judge) => (
             
-              <Col xs={6} lg={10}>
+              <Col xs={6} lg={{offset: 3, span: 6}}>
               
  
                 <GatsbyImage className={styles.judgeImage}
                 // objectFit="scale-down"
                 image={judge.image.asset.gatsbyImageData} alt={judge.alt}/>
-                <p className='text-center fw-bold text-uppercase'>{judge.alt}</p>
-                <p className='text-center text-uppercase'>{judge.title}</p>
-                <p className='text-center text-uppercase'>{judge.accolades}</p>
+                <p className={`text-center fw-bold text-uppercase ${styles.judgeText}`}>{judge.names}</p>
+                <p className={`text-center mb-1 text-uppercase ${styles.judgeText}`}>{judge.title}</p>
+                <p className={`text-center text-uppercase ${styles.judgeText}`}>{judge.accolades}</p>
             
               
               </Col>
@@ -119,12 +119,12 @@ const ProgramPage = ({ data }) => {
       </Container>
       <Container className={styles.sponsors}>
         <Row>
-          <Col xs={12}>
-            <StaticImage className='my-2 mw-100 w-75' src='../../images/5across-banner.png'></StaticImage>
+          <Col xs={{offset: 2, span: 10}} md={{offset: 1, span: 12}}>
+            <StaticImage className='my-4 mw-100 w-75' src='../../images/5across-banner.png'></StaticImage>
           </Col>
         </Row>
         <Row>
-          <Subtitle className='text-uppercase text-center'>Thanks it's sponsors</Subtitle>
+          <Subtitle className='text-uppercase fw-bold text-center mb-3'>Thanks its sponsors</Subtitle>
         </Row>
         <Row>
           <Col xs={7} className="my-1">
@@ -153,29 +153,29 @@ const ProgramPage = ({ data }) => {
       </Container>
       <Container className={styles.experienceMore}>
         <Row>
-          <Col xs={12}>
+          <Col xs={12} md={12}>
           <Title className='text-uppercase text-white text-center mt-4'>Experience even more</Title> 
           </Col>
         </Row>
         <Row>
-        <Col xs={{offset: 4, span: 6}}>
+        <Col xs={{offset: 2, span: 8}} md={{offset: 4, span: 12}}>
         <StaticImage className='my-4' src='../../images/5across-logo-white.png'></StaticImage>
           </Col>
         </Row>
-        <Col xs={{offset: 5, span: 2}}>
+        <Col xs={{offset: 2, span: 8}} md={{offset: 4, span: 3}}>
           <a></a>
-        <StaticImage className='my-2 mw-100' src='../../images/ainc_podcast_logo.png'></StaticImage>
-        <p className='mb-2 text-center text-uppercase text-white'>5 minute postgame recap</p>
-        <StaticImage className='my-2 mw-100' src='../../images/middle-tech.png'></StaticImage>
-        <p className='mb-2 text-center text-uppercase text-white'>5 Across deep dive</p>
+        <StaticImage className='my-2 ms-5' src='../../images/ainc_podcast_logo.png'></StaticImage>
+        <p className={`mb-2 ms-3 text-center text-uppercase text-white ${styles.podcastText}`}>5 minute postgame recap</p>
+        <StaticImage className='my-2 ms-5' src='../../images/middle-tech.png'></StaticImage>
+        <p className={`mb-4 ms-3 text-center text-uppercase text-white ${styles.podcastText}`}>5 Across deep dive</p>
         </Col>
       </Container>
       <Container className={styles.becomeMentor}>
         <Col xs={12}>
           <Subtitle className='fw-bold my-5 brand text-center text-uppercase'>Become a startup mentor</Subtitle>
           <Row>
-            <Col xs={{offset: 3, span:6 }}>
-            <BrandButton className={`secondary w-100  my-5 text-uppercase ${styles.buttons} `}>Fill out this google form to apply</BrandButton>  
+            <Col xs={{offset: 2, span: 10}} md={{offset: 4, span: 5}}>
+            <BrandButton className={`secondary my-5 w-75 text-uppercase ${styles.buttons} `}>Fill out this google form to apply</BrandButton>  
             </Col>
           </Row>
           
@@ -206,6 +206,8 @@ query query_program {
       }
       title
       alt
+      accolades
+      names
     }
   }
   allSanityFiveAcrossSponsors {
