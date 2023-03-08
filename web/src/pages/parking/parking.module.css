@@ -1,9 +1,21 @@
 .park {
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 .list {
-    font-size: .8rem;
-    letter-spacing: .01px;
-    line-height: 1.2rem;
+    font-size: 1rem;
+    letter-spacing: .01rem;
+    line-height: 1.4rem;
+    padding-left: inherit;
+    text-indent: -1.4rem;
+}
+
+.button {
+    min-width: 75%;
+    font-weight: bold;
+    filter:opacity(85%);
+}
+.button:hover {
+    filter:none;
+    color: white;
 }

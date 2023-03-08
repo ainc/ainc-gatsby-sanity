@@ -6,32 +6,34 @@ import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle"
 import BrandButton from "../../components/UI/BrandButton/BrandButton"
 import * as styles from './parking.module.css'
+import { FaMapMarkerAlt } from 'react-icons/fa';
 
 const ParkingPage = ({ data }) => {
 
     return (
         <Layout>
             <main>
-             <Container>
-                <Col xs={12} lg={{offset: 3, span: 6}}>
-                <Row>
-                <Title className='text-uppercase text-center text-black mt-3 mb-5'>Parking</Title>
-                <p className='text-center text-black'>After 5pm, free parking spaces are widely available downtown. However, during the day, it helps to be strategic. Here's a map and some general guidelines for parking near Awesome Inc.</p>
-                </Row>
-                <Row>
-                    <Col xs={{offset:3, span: 11}} lg={12}>
-                <BrandButton className='w-50 mb-2'>Parking map</BrandButton>
+             <Container className='ps-3'>
+                <Col xs={{offset:1, span:10}} md={{offset: 1, span:10}} lg={{offset:0, span: 12}} xl={{offset: 3, span: 6}}>
+                
+                <Title className='text-uppercase text-center text-black mt-5 mb-5'>Parking</Title>
+                <p className={`text-black mb-3 ps-3`}>After 5pm, free parking spaces are widely available downtown. However, during the day, it helps to be strategic. Here's a map and some general guidelines for parking near Awesome Inc.</p>
                 </Col>
-                <Col>
+                <Row>
+                <Col xs={{offset: 2, span: 8}} md={{offset: 4, span: 4}} lg={{offset:4}} xl={{offset:4, span: 5}}>
+                <BrandButton className={`mb-4 mt-5 ${styles.button} `}>Parking map<FaMapMarkerAlt className='mb-1 ms-2'></FaMapMarkerAlt></BrandButton>
+                </Col>
+                </Row>
+                <Col xs={{span: 12}} lg={{offset:3, span: 6}} xl={{offset: 3, span: 6}}>
                 <StaticImage className='mb-4' src='../../images/parking-lot.png' alt='awesome inc parking lot'></StaticImage>
                 </Col>
-                </Row>
-                </Col>
+                
+            
              </Container>
-             <Container>
+             <Container className='ps-3'>
         
-                <Col xs={12} lg={{offset: 3, span: 6}}>
-                <Subtitle className={`  ${styles.park}`}>Do Park</Subtitle>
+                <Col xs={{ span: 12}} lg={{offset: 2, span:8}} xl={{offset: 2, span: 6}}>
+                <Subtitle className={` ${styles.park}`}>Do Park</Subtitle>
                 <li className={` ps-3 ${styles.list}`}>Spaces marked for Awesome Inc in the lot East of our building</li>
                 <li className={` ps-3 ${styles.list}`}>Free 2-hour parking spaces along East Vine Street</li>
                 <li className={` ps-3 ${styles.list}`}>Free full-day spaces on Short Street near Thoroughbred Park and Ransom Ave near Second Presbyterian church</li>
@@ -40,7 +42,7 @@ const ParkingPage = ({ data }) => {
                 </Col>
             
             
-                    <Col xs={12} lg={{offset: 3, span: 6}} className='pb-3'>
+                    <Col xs={{ span: 12}} lg={{offset: 2, span:8}} xl={{offset: 2, span: 6}} className='pb-3'>
                     <Subtitle className={` pt-2 ${styles.park}`}>Do Not Park</Subtitle>
                     <li className={` ps-3 ${styles.list}`}>Spaces marked for Carson's Restaurant or PPG Paints (East side of building)</li>
                     <li className={` ps-3 ${styles.list}`}>Spaces marked for Commerce Lexington, Northwestern Mutual, Tate/Hill/Jacobs Architects, or Awesome Inc Directors (West side of building)</li>
