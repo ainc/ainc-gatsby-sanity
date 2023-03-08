@@ -23,7 +23,7 @@
     min-width: 100vw;
 }
 
-.tuitionCredit {
+.tuition-credit {
     background-color: #323232;
     min-width: 100vw;
 }
@@ -36,4 +36,18 @@
     min-width: 100vw;
     padding-top: 20px;
     padding-bottom: 40px;
+}
+
+.course-outcomes {
+    background: url(../../images/intro-to-web-hero-square.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 100vw;
+}
+
+.outcome-list {
+    font-size: 1rem;
+    line-height: 1.6rem;
+    padding-left: inherit;
+    text-indent: -1.4rem;
 }
