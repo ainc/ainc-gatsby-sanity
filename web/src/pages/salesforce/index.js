@@ -63,24 +63,20 @@ const SalesforcePage = ({ data }) => {
             {/* Why Salesforce Section*/}
             <section id="why-salesforce">
                 <Container>
-                    <Col className="title">                   
-                        <Title className="text-uppercase">Why learn salesforce?</Title>
-                    </Col>
-                    <Col className="paragraph">
-                        <p>
-                            Career opportunities in the Salesforce ecosystem are growing rapidly, and offer a low hurdle to entry-level <br />
-                            tech jobs. Salesforce is the world's leading customer relationship management solution, used by <br /> 
-                            organizations from Fortune 500 companies to government agencies and local non-profits. The role of <br />
-                            Salesforce Administrator is a great starting point for a career in the ecosystem, and our Accelerator is a <br />
-                            great place to learn the skills you need to get started.
-                        </p> 
-                    </Col>
                     <Row>
-                        <Col>
-                            <StaticImage quality='100' className="arrow-container" src="./images/arrow-down-left.png" alt="Arrow Image"/>
+                        <Col sm={{span: 8, offset: 2}} xs={12} className="title">                   
+                            <Title className="text-uppercase">Why learn salesforce?</Title>
+                            <div className="paragraph">
+                                <p>
+                                    Career opportunities in the Salesforce ecosystem are growing rapidly, and offer a low hurdle to entry-level tech jobs. Salesforce is the world's leading customer relationship management solution, used by organizations from Fortune 500 companies to government agencies and local non-profits. The role of Salesforce Administrator is a great starting point for a career in the ecosystem, and our Accelerator is a great place to learn the skills you need to get started.
+                                </p> 
+                            </div>
                         </Col>
-                        <Col>
-                            <BrandButton>WHAT IS SALESFORCE?</BrandButton>
+                        <Col sm={{span: 8, offset: 2}} xs={12} className="d-flex justify-content-end">
+                            <StaticImage quality='100' className="arrow-container me-3" src="./images/arrow-down-left.png" alt="Arrow Image"/>
+                            <div>
+                                <BrandButton>What is Salesforce?</BrandButton>                            
+                            </div>
                         </Col>
                     </Row>
                 </Container>
