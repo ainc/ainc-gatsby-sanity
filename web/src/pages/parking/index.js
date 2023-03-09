@@ -21,7 +21,7 @@ const ParkingPage = ({ data }) => {
                 </Col>
                 <Row>
                 <Col xs={{offset: 2, span: 8}} md={{offset: 4, span: 4}} lg={{offset:4}} xl={{offset:4, span: 5}}>
-                <BrandButton className={`mb-4 mt-5 ${styles.button} `}>Parking map<FaMapMarkerAlt className='mb-1 ms-2'></FaMapMarkerAlt></BrandButton>
+                <a target="_blank" href='https://www.google.com/maps/d/u/0/viewer?ll=38.041576999999975%2C-84.49243799999999&hl=en&f=q&hq=parking%20near%20awesome%20inc&source=s_q&spn=0.003333%2C0.004823&t=h&geocode&msa=0&z=18&ie=UTF8&hnear&mid=1tuKBp8oRRCexyub92RobT_smUMI'><BrandButton className={`mb-4 mt-5 ${styles.button} `}>Parking map<FaMapMarkerAlt className='mb-1 ms-2'></FaMapMarkerAlt></BrandButton></a>
                 </Col>
                 </Row>
                 <Col xs={{span: 12}} lg={{offset:3, span: 6}} xl={{offset: 3, span: 6}}>
