@@ -21,7 +21,7 @@ const SalesforcePage = ({ data }) => {
                     <Row className="header-section">
                         <Col className="header-text">
                             <Title className="text-uppercase">Salesforce career accelerator</Title>
-                            <BrandButton className="my-3">START YOUR APPLICATION</BrandButton>
+                            <BrandButton className="my-3">Start your application</BrandButton>
                             <p>Get started now in 30 seconds or less</p>
                         </Col>
                     </Row>
@@ -54,7 +54,7 @@ const SalesforcePage = ({ data }) => {
                             <h4 className="fw-bold">06.15.23</h4>
                         </Col>
                         <div className="button">
-                            <BrandButton>LET'S CHAT</BrandButton>
+                            <BrandButton>Let's chat</BrandButton>
                         </div>
                     </Row>
                 </Container>
@@ -93,26 +93,23 @@ const SalesforcePage = ({ data }) => {
                             </a>
                             </div>
                         </Col>
-                        <Title className="text-center text-light text-uppercase">What makes it awesome?</Title>
-                        <div className="text-center text-light">
-                            <p>
-                                At Awesome Inc, everything we do starts with our Core Values. We care about people, and making a difference in our community. That's why we want to help <br/>
-                                everyone we can to learn the life changing skills they need to pursue their definition of “awesome.” And while doing that, we've seen that the best way to learn a <br/>
-                                new skill is to join a community, and get the right help on your journey. It's so easy to waste time trying to learn something by yourself, constantly running into <br/>
-                                problems with no one to talk to, but we're here to help! With coaching from experienced guides, classmates working alongside you, and a curriculum built by <br/>
-                                Salesforce themselves, we're ready to meet you where you're at, and help you succeed.<br/>
-                            </p>
-                            <p>
-                                The best learning happens not when you're just taught information, but when you connect with others who are learning alongside you. Our Salesforce Career <br/>
-                                Accelerator program is designed to both teach you key technical skills, and to foster real-world connections to the material. It does this while offering flexibility as a <br/>
-                                part-time course with both live and self-paced components. Plus, with guided curriculum, and a wealth of expert-led sessions, you'll never be lost or left behind. <br/>
-                            </p>
-                            <p>
-                                Prior Awesome Inc students have come from a variety of backgrounds, including manufacturing, retail, design, food service, law, healthcare, and more. Whatever <br/>
-                                your background, this course is made for you.
-                            </p>
-                        </div>
                     </Row>
+                    <Title className="text-center text-light text-uppercase">What makes it awesome?</Title>
+                    <Col xs={11} className="mx-auto text-light text-center">
+                        <p>
+                            At Awesome Inc, everything we do starts with our Core Values. We care about people, and making a difference in our community. That's why we want to help everyone we can to learn the life changing skills they need to pursue their definition of “awesome.” And while doing that, we've seen that the best way to learn a new skill is to join a community, and get the right help on your journey. It's so easy to waste time trying to learn something by yourself, constantly running into problems with no one to talk to, but we're here to help! With coaching from experienced guides, classmates working alongside you, and a curriculum built by Salesforce themselves, we're ready to meet you where you're at, and help you succeed.
+                        </p>
+                    </Col>
+                    <Col xs={11} className="mx-auto text-light text-center">
+                        <p>
+                            The best learning happens not when you're just taught information, but when you connect with others who are learning alongside you. Our Salesforce Career Accelerator program is designed to both teach you key technical skills, and to foster real-world connections to the material. It does this while offering flexibility as a part-time course with both live and self-paced components. Plus, with guided curriculum, and a wealth of expert-led sessions, you'll never be lost or left behind.
+                        </p>
+                    </Col>
+                    <Col xs={11} className="mx-auto text-light text-center">
+                        <p>
+                            Prior Awesome Inc students have come from a variety of backgrounds, including manufacturing, retail, design, food service, law, healthcare, and more. Whatever your background, this course is made for you.
+                        </p>
+                    </Col>
                 </Container>
             </section>
 
@@ -130,7 +127,7 @@ const SalesforcePage = ({ data }) => {
                                 <li>Online collaboration tools to thrive in remote or hybrid work environments</li>
                                 <li>Career coaching to connect with employers and stand out in the job application process</li>
                             </ol>
-                        <BrandButton>LET'S CHAT</BrandButton>
+                        <BrandButton>Let's chat</BrandButton>
                         </Col>
                         <Col>
                             <StaticImage qualtiy='100' src="./images/salesforce-logo.png" alt="Salesforce Image" />
@@ -164,16 +161,17 @@ const SalesforcePage = ({ data }) => {
                 <Container fluid className="background--grey py-5 text-center text-white">
                     <StaticImage quality='100' className="cost-img" src="./images/cost.png" alt="Cost Image" />
                     <Title className="my-4 text-white text-uppercase">Tuition and scholarship</Title>
+                    <Col xs={9} className="mx-auto text-light">
                     <p>
-                        Tuition for this program is $3499. For residents of Lexington-Fayette County, Kentucky, a special $2500 scholarship is available. If this <br/>
-                        applies to you, fill out this scholarship application. Up to 20 scholarships are available for the July 2022 - June 2023 period.
+                        Tuition for this program is $3499. For residents of Lexington-Fayette County, Kentucky, a special $2500 scholarship is available. If this applies to you, fill out this scholarship application. Up to 20 scholarships are available for the July 2022 - June 2023 period.
                     </p>
-                    <p>
+                    </Col>
+                    <p className="fst-italic">
                         This program is being supported, in whole or in part, by federal award numbers SLFRP0292/SLFRP3418 awarded to Lexington-Fayette
                     </p>
                 </Container>
                 <div className="my-5 d-flex justify-content-center">
-                    <BrandButton>APPLY NOW</BrandButton>
+                    <BrandButton>Apply now</BrandButton>
                 </div>
             </section>
 
@@ -185,12 +183,15 @@ const SalesforcePage = ({ data }) => {
                     <Accordion.Item eventKey="0" className="px-3 py-4 mb-1">
                         <Accordion.Header>Do I need my own computer?</Accordion.Header>
                         <Accordion.Body>
-                        Yes. Each trainee will need to provide his/her own laptop for the course. 
-                        Microsoft Windows-based PC's or Apple macOS computers will work. We recommend a 
-                        laptop made within the past 3-4 years. Computers should be free from viruses/malware. 
-                        You will also need a webcam and broadband internet connection for video calls and remote learning. <br/> <br/>
-                        A smartphone or tablet is not sufficient for use in this program. <br/><br/>
-                        If this presents a barrier to your participation, please contact us to discuss possible assistance.
+                        <Col>
+                            Yes. Each trainee will need to provide his/her own laptop for the course. Microsoft Windows-based PC's or Apple macOS computers will work. We recommend a laptop made within the past 3-4 years. Computers should be free from viruses/malware. You will also need a webcam and broadband internet connection for video calls and remote learning.
+                        </Col>
+                        <Col className="my-3">
+                            A smartphone or tablet is not sufficient for use in this program.
+                        </Col>
+                        <Col>
+                            If this presents a barrier to your participation, please contact us to discuss possible assistance.
+                        </Col>
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="1" className="px-3 py-4 mb-1">
@@ -226,7 +227,7 @@ const SalesforcePage = ({ data }) => {
                 <Container>
                     <Row> 
                         <div className="d-flex align-items-center my-5 justify-content-center">
-                        <BrandButton className="button bg-dark">APPLY NOW</BrandButton>
+                        <BrandButton className="button bg-dark">Apply now</BrandButton>
                         </div>    
                     </Row>
                 </Container>
@@ -243,7 +244,7 @@ const SalesforcePage = ({ data }) => {
                     </Row>
                     <Row className="pt-4">
                         <Col>
-                        <BrandButton>CONTACT US</BrandButton>
+                        <BrandButton>Contact us</BrandButton>
                         </Col>
                     </Row>
                     </Col>
