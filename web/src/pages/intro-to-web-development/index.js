@@ -5,15 +5,34 @@ import Layout from "../../components/Layout/Layout";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle"
 import BrandButton from "../../components/UI/BrandButton/BrandButton"
-import * as styles from './intro-to-web-development.module.css'
+import * as styles from './intro-to-web-development.module.scss'
 import Accordion from 'react-bootstrap/Accordion';
 import AccordionBody from 'react-bootstrap/esm/AccordionBody';
 import AccordionHeader from 'react-bootstrap/esm/AccordionHeader';
 import AccordionItem from 'react-bootstrap/esm/AccordionItem';
+import Courses from '../../components/Courses/Courses';
+import { graphql } from 'gatsby';
 
+export const query = graphql` 
+query {
+    allSanityCourses(skip: 4) {
+      nodes {
+        startDate(formatString: "MM.D.YYYY")
+        endDate(formatString: "MM.D.YYYY")
+        courseSeason
+        courseTitle
+        courseType
+      }
+      max(field: courseTitle)
+    }
+  }
+  
+  `;
 
 const IntroWebDevPage = ({ data }) => {
-
+    const allSanityCourses = (data.allSanityCourses.nodes || {})
+    
+    
     return (
         <Layout>
             <main>
@@ -22,6 +41,8 @@ const IntroWebDevPage = ({ data }) => {
                     <Col xl={{ offset: 5, span: 6 }}>
                        <a href='https://www.eventbrite.com/e/intro-to-web-development-remote-spring-2023-tickets-479978607937'><BrandButton className='text-uppercase mb-5'>register now</BrandButton></a> 
                     </Col>
+                    </Container>
+                    <Container className={`my-5 ${styles.bottomIntro}`}>
                     <Row>
                         <Col xl={{ span: 4, offset: 4 }}>
                             <p className={`text-center fw-bold ${styles.text}`}>Awesome Inc U's beginner coding course for adults, giving students the core skills and knowledge to start the journey towards professional web development. Your next adventure starts here.</p>
@@ -30,7 +51,19 @@ const IntroWebDevPage = ({ data }) => {
                 </Container>
                 <Container className={` ${styles.upcomingProgram}`}>
                     <Title className='text-white text-uppercase text-center pt-5 pb-5'>upcoming program dates</Title>
-                </Container>
+                    {allSanityCourses.map((node) => (
+                        <div>
+                        <h4 className={`${styles.programText}  pt-3 text-uppercase text-white fw-bold text-center`}>{node.courseSeason}</h4>
+                        <h5 className={`${styles.programText} text-white fw-bold text-center`}>{node.startDate}</h5>
+                        <h5 className='mb-1 text-uppercase text-center text-white'>to</h5>
+                        <h5 className={`${styles.programText} pb-5 text-white fw-bold text-center`}>{node.endDate}</h5>
+                        </div>
+                        // <Subtitle className='text-white fw-bold text-center'></Subtitle>
+                        // <p className='text-white'>{node.courseTitle}</p>
+                    ))}
+                   {/* <Courses>startDate={node.startDate}</Courses> */}
+                    </Container>
+                  
                 <Container className={` ${styles.whyLearn}`}>
                     <Col lg={{ offset: 3, span: 6 }}>
                         <Title className='text-uppercase mt-5 text-end'>why learn from awesome inc u?</Title>
@@ -58,7 +91,7 @@ const IntroWebDevPage = ({ data }) => {
                         <StaticImage className='' src='../../images/laptop-video.png' alt='laptop'></StaticImage>
                     </Col>
                     <Title className='text-uppercase text-center text-white'>what makes it awesome?</Title>
-                    <Col lg={{ offset: 2, span: 8 }}>
+                    <Col lg={{ offset: 1, span: 10 }}>
                         <p className='mt-5 text-center text-white'>The best learning doesn't just happen when you're taught information. It comes when you connect with others who are learning alongside you.
                             Intro to Web is designed to both teach you the skills, and foster connections. Intro also offers more flexibility as a part-time, evening course; It covers most of the introductory topics used in our more
                             intensive Bootcamp program, but at a more manageable pace. It'll help you build a solid foundation in web development using technologies like HTML, CSS, and JavaScript. And if you don't even know what those are...
@@ -69,22 +102,29 @@ const IntroWebDevPage = ({ data }) => {
                         </p>
                     </Col>
                 </Container>
-                <Container className={styles.curriculum}>
-                    <Title className='text-uppercase text-start'>curriculum</Title>
-                    <p className='fw-lighter fst-italic text-start'>If reading this list makes your eyes glaze over... we get it. Maybe we can talk on the phone to explain the details.</p>
-                    <Col>
-                        <ol>
-                            <li>Developer Tools and Environment Setup</li>
-                            <li>HTML and How the Web Works</li>
-                            <li>Styling pages with CSS and Bootstrap</li>
-                            <li>Templates and the DRY Principle</li>
-                            <li>JavaScript (variables,conditionals,loops,arrays,objects,functions) </li>
-                            <li>Interactive JavaScript and the DOM</li>
-                            <li>Getting Data from APIs</li>
-                            <li>Final Project</li>
-                        </ol>
-                        <a href='https://www.awesomeinc.org/'><BrandButton className='text-uppercase w-25 mb-5'>let's chat</BrandButton></a>
+                <Container className={` ${styles.curriculum}`}>
+                <Col lg={{span: 8}}>
+                    <Title className='ms-5 ps-2 mt-5 mb-3 text-uppercase text-start'>curriculum</Title>
+                    <p className='mb-5 ps-2 ms-5 fw-lighter fst-italic text-start'>If reading this list makes your eyes glaze over... we get it. Maybe we can talk on the phone to explain the details.</p>
                     </Col>
+                   <Row>
+                    <Col lg={{ span: 6}}>
+                        <ol>
+                            <li className='mb-2 ms-5 small'>Developer Tools and Environment Setup</li>
+                            <li className='mb-2 ms-5 small'>HTML and How the Web Works</li>
+                            <li className='mb-2 ms-5 small'>Styling pages with CSS and Bootstrap</li>
+                            <li className='mb-2 ms-5 small'>Templates and the DRY Principle</li>
+                            <li className='mb-2 ms-5 small'>JavaScript (variables,conditionals,loops,arrays,objects,functions) </li>
+                            <li className='mb-2 ms-5 small'>Interactive JavaScript and the DOM</li>
+                            <li className='mb-2 ms-5 small'>Getting Data from APIs</li>
+                            <li className='mb-2 ms-5 small'>Final Project</li>
+                        </ol>
+                        <a href='https://www.awesomeinc.org/'><BrandButton className=' ms-5 mt-3 text-uppercase mb-5'>let's chat</BrandButton></a>
+                    </Col>
+                    <Col lg={{span: 5}}>
+                        <StaticImage src='../../images/bootcamp/languages/languages-showcase.png'></StaticImage>
+                        </Col>
+                        </Row>
                 </Container>
                 <Container className={`py-5 ${styles.courseOutcomes}`}>
                     <Row className='pb-5'>
@@ -98,41 +138,43 @@ const IntroWebDevPage = ({ data }) => {
                             <li className={styles.outcomeList}>Make friends and learn how to continue practicing web development beyond this course</li>
                             <li className={styles.outcomeList}>Build a Final Project like these:</li>
                         </Col>
+                        
                     </Row>
                 </Container>
                 <Container className={styles.tuitionCredit}>
                     {/* ask kyle how to do the images/background??? */}
                     <Title className='pt-5 text-uppercase text-white text-center'>tuition credit</Title>
                     <Col lg={{ offset: 2, span: 8 }}>
-                        <p className='text-center text-white pb-5'>100% of this course payment can be used as tuition credit for our Web Developer Bootcamp. Candidates must enroll in the Bootcamp program within
+                        <p className='text-center text-white pb-5'>100% of this course payment can be used as tuition credit for our <a className='text--red' href='https://www.awesomeinc.org/bootcamp'>Web Developer Bootcamp</a>. Candidates must enroll in the Bootcamp program within
                             one year of completing the Intro to Web Development course. Please note that completion of this course does not guarantee admission to the Web Developer Bootcamp – the standard
                             application process still applies.
                         </p>
                     </Col>
+                    
                 </Container>
                 <Container className={styles.faq}>
                     <Title className='text-uppercase text-center mb-5'>faq</Title>
                     <Col>
-                        <Accordion defaultActiveKey="0">
+                        <Accordion className='mb-5' >
                             <AccordionItem eventKey="0">
-                                <Accordion.Header><Badge className='me-2 rounded-circle' bg="danger" >1</Badge>Do I need to bring a computer?</Accordion.Header>
+                                <Accordion.Header><Badge className=' my-3 me-2 rounded-circle' bg="danger" >1</Badge>Do I need to bring a computer?</Accordion.Header>
                                 <AccordionBody>Yes. Each student will need to provide his/her own laptop for the course. Microsoft Windows-based PC's or Apple macOS computers will work. We recommend a laptop made within the past 3-4 years.
                                     Computers should be free from viruses/malware. We have a very limited number of rental laptops available for $25/day, which can be reserved online.</AccordionBody>
                             </AccordionItem>
                             <AccordionItem eventKey="1">
-                                <AccordionHeader><Badge className='me-2 rounded-circle' bg="danger" >2</Badge>Do I need to have prior programming experience?</AccordionHeader>
+                                <AccordionHeader><Badge className='my-3 me-2 rounded-circle' bg="danger" >2</Badge>Do I need to have prior programming experience?</AccordionHeader>
                                 <AccordionBody>No prior programming experience is required, but students should be comfortable typing, navigating a file / folder structure, and using a web browser.</AccordionBody>
                             </AccordionItem>
                             <AccordionItem eventKey="2">
-                                <AccordionHeader><Badge className='me-2 rounded-circle' bg="danger" >3</Badge>How many students will there be in my class?</AccordionHeader>
+                                <AccordionHeader><Badge className='my-3 me-2 rounded-circle' bg="danger" >3</Badge>How many students will there be in my class?</AccordionHeader>
                                 <AccordionBody>This course is capped at 16 students.</AccordionBody>
                             </AccordionItem>
                             <AccordionItem eventKey="3">
-                                <AccordionHeader><Badge className='me-2 rounded-circle' bg="danger" >4</Badge>Are there any age limits for students in the Intro to Web Development course?</AccordionHeader>
+                                <AccordionHeader><Badge className='my-3 me-2 rounded-circle' bg="danger" >4</Badge>Are there any age limits for students in the Intro to Web Development course?</AccordionHeader>
                                 <AccordionBody>The Intro To Web Development is designed for adult learners.</AccordionBody>
                             </AccordionItem>
                             <AccordionItem eventKey="4">
-                                <AccordionHeader><Badge className='me-2 rounded-circle' bg="danger" >5</Badge>Where do I park?</AccordionHeader>
+                                <AccordionHeader><Badge className='my-3 me-2 rounded-circle' bg="danger" >5</Badge>Where do I park?</AccordionHeader>
                                 <AccordionBody>See map for parking options.</AccordionBody>
                             </AccordionItem>
                         </Accordion>
@@ -140,7 +182,8 @@ const IntroWebDevPage = ({ data }) => {
                 </Container>
                 <Container className={styles.register}>
                     <Col lg={{ offset: 5, span: 6 }}>
-                        <a href='https://www.eventbrite.com/e/intro-to-web-development-remote-spring-2023-tickets-479978607937' ><BrandButton className='secondary text-uppercase my-5'>register now</BrandButton></a>
+                        <a href='https://www.eventbrite.com/e/intro-to-web-development-remote-spring-2023-tickets-479978607937' >
+                            <BrandButton className='secondary text-uppercase my-5'>register now</BrandButton></a>
                     </Col>
                 </Container>
                 <Container className={styles.questions}>
