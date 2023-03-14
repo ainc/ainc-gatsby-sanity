@@ -12,6 +12,7 @@ import AccordionHeader from 'react-bootstrap/esm/AccordionHeader';
 import AccordionItem from 'react-bootstrap/esm/AccordionItem';
 import Courses from '../../components/Courses/Courses';
 import { graphql } from 'gatsby';
+import laptopGIF from '../../images/animated-projects.gif'
 
 export const query = graphql` 
 query($currentDate: Date!) {
@@ -128,11 +129,11 @@ const IntroWebDevPage = ({ data }) => {
                 </Container>
                 <Container className={`py-5 ${styles.courseOutcomes}`}>
                     <Row className='pb-5'>
-                        <Col lg={{offset: 1, span:4}}>
-                        <StaticImage src='../../images/animated-projects.gif' alt='monitor and laptop'></StaticImage>
+                        <Col lg={{offset: 1, span:5}}>
+                        <img className='img-fluid' src={laptopGIF} alt='monitor and laptop'></img>
                         </Col>
-                        <Col lg={{offset: 1, span: 4}}>
-                            <Title className='text-uppercase pb-5'>course outcomes</Title>
+                        <Col lg={{ span: 5}}>
+                            <Title className='text-uppercase pb-5 text-center'>course outcomes</Title>
                             <li className={styles.outcomeList}>Write code in languages like HTML, CSS, and JavaScript</li>
                             <li className={styles.outcomeList}>Create interactive websites</li>
                             <li className={styles.outcomeList}>Make friends and learn how to continue practicing web development beyond this course</li>
