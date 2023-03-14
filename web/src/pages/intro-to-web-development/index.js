@@ -14,8 +14,8 @@ import Courses from '../../components/Courses/Courses';
 import { graphql } from 'gatsby';
 
 export const query = graphql` 
-query {
-    allSanityCourses(skip: 4) {
+query($currentDate: Date!) {
+        allSanityCourses(filter: {startDate: {gte: $currentDate}}) {
       nodes {
         startDate(formatString: "MM.D.YYYY")
         endDate(formatString: "MM.D.YYYY")
@@ -26,11 +26,11 @@ query {
       max(field: courseTitle)
     }
   }
-  
   `;
 
 const IntroWebDevPage = ({ data }) => {
     const allSanityCourses = (data.allSanityCourses.nodes || {})
+    
     
     
     return (
@@ -58,10 +58,10 @@ const IntroWebDevPage = ({ data }) => {
                         <h5 className='mb-1 text-uppercase text-center text-white'>to</h5>
                         <h5 className={`${styles.programText} pb-5 text-white fw-bold text-center`}>{node.endDate}</h5>
                         </div>
-                        // <Subtitle className='text-white fw-bold text-center'></Subtitle>
-                        // <p className='text-white'>{node.courseTitle}</p>
+                        
+                        
                     ))}
-                   {/* <Courses>startDate={node.startDate}</Courses> */}
+                   
                     </Container>
                   
                 <Container className={` ${styles.whyLearn}`}>
