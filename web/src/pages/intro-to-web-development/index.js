@@ -193,7 +193,7 @@ const IntroWebDevPage = ({ data }) => {
                 </Container>
                 <Container className={styles.questions}>
                     <Title className='text-white text-center mt-5 pt-5 pb-4'>Still have questions?</Title>
-                    <Col xs={{offset:3}} sm={{offset:3, span: 12}} md={{offset:4, span:4}} lg={{ offset: 5, span: 6 }}>
+                    <Col xs={{offset:3}} sm={{offset:3, span: 6}} md={{offset:4, span:4}} lg={{ offset: 5, span: 6 }}>
                         <BrandButton className='text-uppercase mb-5 fw-bold'>contact us</BrandButton>
                     </Col>
                 </Container>
