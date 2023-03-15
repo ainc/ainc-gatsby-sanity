@@ -10,7 +10,6 @@ import Accordion from 'react-bootstrap/Accordion';
 import AccordionBody from 'react-bootstrap/esm/AccordionBody';
 import AccordionHeader from 'react-bootstrap/esm/AccordionHeader';
 import AccordionItem from 'react-bootstrap/esm/AccordionItem';
-import Courses from '../../components/Courses/Courses';
 import { graphql } from 'gatsby';
 import laptopGIF from '../../images/animated-projects.gif'
 
@@ -38,15 +37,19 @@ const IntroWebDevPage = ({ data }) => {
         <Layout>
             <main>
                 <Container className={`py-5 ${styles.intro}`}>
+                    <Col>
                     <Title className='pt-5 pb-2 text-center text-uppercase'>intro to web development</Title>
-                    <Col xl={{ offset: 5, span: 6 }}>
-                       <a href='https://www.eventbrite.com/e/intro-to-web-development-remote-spring-2023-tickets-479978607937'><BrandButton className='text-uppercase mb-5'>register now</BrandButton></a> 
+                    </Col>
+                    <Col xs={{offset:3}} sm={{offset:3}} md={{offset:4}} lg={{offset: 5}} xl={{ offset: 5, span: 6 }}>
+                       <a href='https://www.eventbrite.com/e/intro-to-web-development-remote-spring-2023-tickets-479978607937'><BrandButton className='px-3 text-uppercase mb-5'>register now</BrandButton></a> 
                     </Col>
                     </Container>
                     <Container className={`my-5 ${styles.bottomIntro}`}>
                     <Row>
-                        <Col xl={{ span: 4, offset: 4 }}>
-                            <p className={`text-center fw-bold ${styles.text}`}>Awesome Inc U's beginner coding course for adults, giving students the core skills and knowledge to start the journey towards professional web development. Your next adventure starts here.</p>
+                        <Col xs={{span:12}} md={{span: 8, offset: 2}} lg={{ span: 6, offset: 3}} xl={{ span: 4, offset: 4 }}>
+                            <p className={`text-center fw-bold ${styles.text}`}>Awesome Inc U's beginner coding course for adults, 
+                            giving students the core skills and knowledge to start the journey towards professional web development. 
+                            Your next adventure starts here.</p>
                         </Col>
                     </Row>
                 </Container>
@@ -66,9 +69,9 @@ const IntroWebDevPage = ({ data }) => {
                     </Container>
                   
                 <Container className={` ${styles.whyLearn}`}>
-                    <Col lg={{ offset: 3, span: 6 }}>
+                    <Col sm={12} md={{offset: 3, span:8}} lg={{ offset: 1, span: 9 }} xl={{ offset: 2, span: 8}}>
                         <Title className='text-uppercase mt-5 text-end'>why learn from awesome inc u?</Title>
-                        <p className='text-end'>
+                        <p className={`${styles.paragraphs} text-end`}>
                             At Awesome Inc, everything we do starts with our Core Values. We care about people, and making a difference in our community.
                             That's why we want to help everyone we can to learn the life changing skill of coding. And while doing that, we've seen that the best way to learn a new skill is to get the right help on your journey.
                             It's so easy to waste time trying to learn something by yourself, constantly running into problems, and getting frustrated along the way, but we're here to help! With coaching from Senior Developers
@@ -76,63 +79,63 @@ const IntroWebDevPage = ({ data }) => {
                         </p>
                     </Col>
                     <Row>
-                        <Col lg={{ offset: 2, span: 4 }}>
+                        <Col xs={4} sm={4} md={{span:6}} lg={{offset:1, span: 5}} xl={{ offset: 2, span: 4 }}>
 
                             <StaticImage className={`mt-5 mb-5 ${styles.arrow}`} src='../../images/arrow.png' alt='arrow'></StaticImage>
                         </Col>
 
-                        <Col lg={{ offset: 0, span: 6 }}>
-                            <a href='https://www.youtube.com/embed/8IryuzzI2DA?rel=0&controls=0'><BrandButton className='text-uppercase w-50 mb-3'>hear from students</BrandButton></a>
+                        <Col xs={8} sm={8} md={{span:6}} lg={{span:6}} xl={{ span: 6 }}>
+                            <a href='https://www.youtube.com/embed/8IryuzzI2DA?rel=0&controls=0'><BrandButton className='text-uppercase mb-3'>hear from students</BrandButton></a>
                         </Col>
 
                     </Row>
                 </Container>
                 <Container className={styles.awesome}>
-                    <Col lg={{ offset: 3, span: 6 }}>
-                        <StaticImage className='' src='../../images/laptop-video.png' alt='laptop'></StaticImage>
+                    <Col xs={{offset:1, span: 10}} sm={{offset:1, span:10}} md={{offset:2, span:8}} lg={{ offset: 3, span: 6 }}>
+                        <a href='https://www.youtube.com/embed/8IryuzzI2DA?rel=0&controls=0' target="_blank"><StaticImage src='../../images/laptop-video.png' alt='laptop'></StaticImage></a>
                     </Col>
                     <Title className='text-uppercase text-center text-white'>what makes it awesome?</Title>
-                    <Col lg={{ offset: 1, span: 10 }}>
-                        <p className='mt-5 text-center text-white'>The best learning doesn't just happen when you're taught information. It comes when you connect with others who are learning alongside you.
+                    <Col sm={12} md={12} lg={12} xl={{ offset: 1, span: 10 }}>
+                        <p className={` ${styles.paragraphs} mt-3 text-center text-white`}>The best learning doesn't just happen when you're taught information. It comes when you connect with others who are learning alongside you.
                             Intro to Web is designed to both teach you the skills, and foster connections. Intro also offers more flexibility as a part-time, evening course; It covers most of the introductory topics used in our more
                             intensive Bootcamp program, but at a more manageable pace. It'll help you build a solid foundation in web development using technologies like HTML, CSS, and JavaScript. And if you don't even know what those are...
                             it's ok!
                         </p>
-                        <p className='mt-4 pb-5 text-center text-white'>Prior Awesome Inc students have come from a variety of backgrounds, including manufacturing, retail, design, food service, law, and healthcare.
+                        <p className={` ${styles.paragraphs} mt-4 pb-5 text-center text-white`}>Prior Awesome Inc students have come from a variety of backgrounds, including manufacturing, retail, design, food service, law, and healthcare.
                             Classes are two nights per week, two hours per night, for nine weeks. In addition to in-class hours, our instructional team is available remotely for Q&A throughout the week via Slack.
                         </p>
                     </Col>
                 </Container>
                 <Container className={` ${styles.curriculum}`}>
-                <Col lg={{span: 8}}>
-                    <Title className='ms-5 ps-2 mt-5 mb-3 text-uppercase text-start'>curriculum</Title>
-                    <p className='mb-5 ps-2 ms-5 fw-lighter fst-italic text-start'>If reading this list makes your eyes glaze over... we get it. Maybe we can talk on the phone to explain the details.</p>
+                <Col md={12} lg={12} xl={{span: 8, offset: 1}}>
+                    <Title className=' ps-2 mt-5 mb-3 text-uppercase text-start'>curriculum</Title>
+                    <p className={` ${styles.curriculumList} mb-5 ps-2 fw-lighter fst-italic text-start`}>If reading this list makes your eyes glaze over... we get it. Maybe we can talk on the phone to explain the details.</p>
                     </Col>
                    <Row>
-                    <Col lg={{ span: 6}}>
+                    <Col sm={12} md={6} lg={6} xl={{ span: 5, offset: 1}}>
                         <ol>
-                            <li className='mb-2 ms-5 small'>Developer Tools and Environment Setup</li>
-                            <li className='mb-2 ms-5 small'>HTML and How the Web Works</li>
-                            <li className='mb-2 ms-5 small'>Styling pages with CSS and Bootstrap</li>
-                            <li className='mb-2 ms-5 small'>Templates and the DRY Principle</li>
-                            <li className='mb-2 ms-5 small'>JavaScript (variables,conditionals,loops,arrays,objects,functions) </li>
-                            <li className='mb-2 ms-5 small'>Interactive JavaScript and the DOM</li>
-                            <li className='mb-2 ms-5 small'>Getting Data from APIs</li>
-                            <li className='mb-2 ms-5 small'>Final Project</li>
+                            <li className={` ${styles.curriculumList} mb-2`}>Developer Tools and Environment Setup</li>
+                            <li className={` ${styles.curriculumList} mb-2`}>HTML and How the Web Works</li>
+                            <li className={` ${styles.curriculumList} mb-2`}>Styling pages with CSS and Bootstrap</li>
+                            <li className={` ${styles.curriculumList} mb-2`}>Templates and the DRY Principle</li>
+                            <li className={` ${styles.curriculumList} mb-2`}>JavaScript (variables, conditionals, loops, arrays, objects, functions) </li>
+                            <li className={` ${styles.curriculumList} mb-2`}>Interactive JavaScript and the DOM</li>
+                            <li className={` ${styles.curriculumList} mb-2`}>Getting Data from APIs</li>
+                            <li className={` ${styles.curriculumList} mb-2`}>Final Project</li>
                         </ol>
-                        <a href='https://www.awesomeinc.org/'><BrandButton className=' ms-5 mt-3 text-uppercase mb-5'>let's chat</BrandButton></a>
+                        <a href='https://www.awesomeinc.org/'><BrandButton className='ms-3 mt-3 text-uppercase mb-5'>let's chat</BrandButton></a>
                     </Col>
-                    <Col lg={{span: 5}}>
-                        <StaticImage src='../../images/bootcamp/languages/languages-showcase.png'></StaticImage>
+                    <Col md={6} lg={{span: 6}} xl={{span: 5}}>
+                        <StaticImage className='mb-3 pe-3' src='../../images/bootcamp/languages/languages-showcase.png'></StaticImage>
                         </Col>
                         </Row>
                 </Container>
-                <Container className={`py-5 ${styles.courseOutcomes}`}>
-                    <Row className='pb-5'>
-                        <Col lg={{offset: 1, span:5}}>
+                <Container className={`py-4 mt-4 ${styles.courseOutcomes}`}>
+                    <Row className='pb-1 pt-4'>
+                        <Col sm={12} md={6} lg={{span:6}} xl={{offset: 1, span:5}}>
                         <img className='img-fluid' src={laptopGIF} alt='monitor and laptop'></img>
                         </Col>
-                        <Col lg={{ span: 5}}>
+                        <Col sm={12} md={6} lg={{span: 6}} xl={{ span: 5}}>
                             <Title className='text-uppercase pb-5 text-center'>course outcomes</Title>
                             <li className={styles.outcomeList}>Write code in languages like HTML, CSS, and JavaScript</li>
                             <li className={styles.outcomeList}>Create interactive websites</li>
@@ -154,9 +157,9 @@ const IntroWebDevPage = ({ data }) => {
                     
                 </Container>
                 <Container className={styles.faq}>
-                    <Title className='text-uppercase text-center mb-5'>faq</Title>
-                    <Col>
-                        <Accordion className='mb-5' >
+                    <Title className='text-uppercase text-center my-5'>faq</Title>
+                    <Col xl={{span: 10, offset: 1}}>
+                        <Accordion className='mb-5 pb-4' >
                             <AccordionItem eventKey="0">
                                 <Accordion.Header><Badge className=' my-3 me-2 rounded-circle' bg="danger" >1</Badge>Do I need to bring a computer?</Accordion.Header>
                                 <AccordionBody>Yes. Each student will need to provide his/her own laptop for the course. Microsoft Windows-based PC's or Apple macOS computers will work. We recommend a laptop made within the past 3-4 years.
@@ -182,14 +185,15 @@ const IntroWebDevPage = ({ data }) => {
                     </Col>
                 </Container>
                 <Container className={styles.register}>
-                    <Col lg={{ offset: 5, span: 6 }}>
+                    <Col  xs={{offset:3, span: 6}} sm={{offset: 3, span: 6}} md={{offset: 4, span: 4}} lg={{offset:4, span: 4}} xl={{ offset: 5, span: 6 }}>
                         <a href='https://www.eventbrite.com/e/intro-to-web-development-remote-spring-2023-tickets-479978607937' >
-                            <BrandButton className='secondary text-uppercase my-5'>register now</BrandButton></a>
+                            <BrandButton className={`${styles.registerButton} secondary text-uppercase my-5`}>register now</BrandButton></a>
+                            {/* still need to fit button between arrows for smaller screen sizes/fix button responsiveness for entire page */}
                     </Col>
                 </Container>
                 <Container className={styles.questions}>
-                    <Title className='text-white text-center py-5'>Still have questions?</Title>
-                    <Col lg={{ offset: 5, span: 6 }}>
+                    <Title className='text-white text-center mt-5 pt-5 pb-4'>Still have questions?</Title>
+                    <Col xs={{offset:3}} sm={{offset:3, span: 12}} md={{offset:4, span:4}} lg={{ offset: 5, span: 6 }}>
                         <BrandButton className='text-uppercase mb-5 fw-bold'>contact us</BrandButton>
                     </Col>
                 </Container>
