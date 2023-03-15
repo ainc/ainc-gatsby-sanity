@@ -40,8 +40,8 @@ const IntroWebDevPage = ({ data }) => {
                     <Col>
                     <Title className='pt-5 pb-2 text-center text-uppercase'>intro to web development</Title>
                     </Col>
-                    <Col xs={{offset:3}} sm={{offset:3}} md={{offset:4}} lg={{offset: 5}} xl={{ offset: 5, span: 6 }}>
-                       <a href='https://www.eventbrite.com/e/intro-to-web-development-remote-spring-2023-tickets-479978607937'><BrandButton className='px-3 text-uppercase mb-5'>register now</BrandButton></a> 
+                    <Col xs={{span:6, offset: 3}} sm={6} md={{offset:3}} lg={{offset: 3}} xl={{ offset: 3, span: 6 }}>
+                       <a className='d-flex justify-content-center' href='https://www.eventbrite.com/e/intro-to-web-development-remote-spring-2023-tickets-479978607937'><BrandButton className='px-3 text-uppercase mb-5'>register now</BrandButton></a> 
                     </Col>
                     </Container>
                     <Container className={`my-5 ${styles.bottomIntro}`}>
@@ -77,16 +77,17 @@ const IntroWebDevPage = ({ data }) => {
                             It's so easy to waste time trying to learn something by yourself, constantly running into problems, and getting frustrated along the way, but we're here to help! With coaching from Senior Developers
                             and a curriculum built for you, we're ready to meet you where you're at, even if you're at step 0.
                         </p>
+                        <Row>
+                        <a className='d-flex justify-content-end' href='https://www.youtube.com/embed/8IryuzzI2DA?rel=0&controls=0'><BrandButton className='px-2 text-uppercase mb-3'>hear from students</BrandButton></a>
+                        </Row>
                     </Col>
                     <Row>
                         <Col xs={4} sm={4} md={{span:6}} lg={{offset:1, span: 5}} xl={{ offset: 2, span: 4 }}>
 
-                            <StaticImage className={`mt-5 mb-5 ${styles.arrow}`} src='../../images/arrow.png' alt='arrow'></StaticImage>
+                            <StaticImage className={`mt-0 mb-5 ${styles.arrow}`} src='../../images/arrow.png' alt='arrow'></StaticImage>
                         </Col>
 
-                        <Col xs={8} sm={8} md={{span:6}} lg={{span:6}} xl={{ span: 6 }}>
-                            <a href='https://www.youtube.com/embed/8IryuzzI2DA?rel=0&controls=0'><BrandButton className='text-uppercase mb-3'>hear from students</BrandButton></a>
-                        </Col>
+                    
 
                     </Row>
                 </Container>
@@ -123,7 +124,7 @@ const IntroWebDevPage = ({ data }) => {
                             <li className={` ${styles.curriculumList} mb-2`}>Getting Data from APIs</li>
                             <li className={` ${styles.curriculumList} mb-2`}>Final Project</li>
                         </ol>
-                        <a href='https://www.awesomeinc.org/'><BrandButton className='ms-3 mt-3 text-uppercase mb-5'>let's chat</BrandButton></a>
+                        <a className='d-flex justify-content-start' href='https://www.awesomeinc.org/'><BrandButton className='ms-3 mt-3 px-3 text-uppercase mb-5'>let's chat</BrandButton></a>
                     </Col>
                     <Col md={6} lg={{span: 6}} xl={{span: 5}}>
                         <StaticImage className='mb-3 pe-3' src='../../images/bootcamp/languages/languages-showcase.png'></StaticImage>
@@ -184,17 +185,17 @@ const IntroWebDevPage = ({ data }) => {
                         </Accordion>
                     </Col>
                 </Container>
-                <Container className={styles.register}>
-                    <Col  xs={{offset:3, span: 6}} sm={{offset: 3, span: 6}} md={{offset: 4, span: 4}} lg={{offset:4, span: 4}} xl={{ offset: 5, span: 6 }}>
-                        <a href='https://www.eventbrite.com/e/intro-to-web-development-remote-spring-2023-tickets-479978607937' >
-                            <BrandButton className={`${styles.registerButton} secondary text-uppercase my-5`}>register now</BrandButton></a>
+                <Container className={`mobile-hide-bg ${styles.register}`}>
+                    <Col  xs={{offset:3, span: 6}} sm={{offset: 3, span: 6}} md={{offset: 4, span: 4}} lg={{offset:4, span: 4}} xl={{ offset: 3, span: 6 }}>
+                        <a  className={` d-flex justify-content-center`} href='https://www.eventbrite.com/e/intro-to-web-development-remote-spring-2023-tickets-479978607937' >
+                            <BrandButton className={` ${styles.registerButton}  secondary text-uppercase px-3 my-5`}>register now</BrandButton></a>
                             {/* still need to fit button between arrows for smaller screen sizes/fix button responsiveness for entire page */}
                     </Col>
                 </Container>
                 <Container className={styles.questions}>
                     <Title className='text-white text-center mt-5 pt-5 pb-4'>Still have questions?</Title>
-                    <Col xs={{offset:3}} sm={{offset:3, span: 6}} md={{offset:4, span:4}} lg={{ offset: 5, span: 6 }}>
-                        <BrandButton className='text-uppercase mb-5 fw-bold'>contact us</BrandButton>
+                    <Col xs={{offset:3, span: 6}} sm={{offset:3, span: 6}} md={{offset:4, span:4}} lg={{ offset: 3, span: 6 }}>
+                        <a className='d-flex justify-content-center' href='https://www.awesomeinc.org/contact'><BrandButton className='text-uppercase px-3 mb-5 fw-bold'>contact us</BrandButton></a>
                     </Col>
                 </Container>
             </main>
