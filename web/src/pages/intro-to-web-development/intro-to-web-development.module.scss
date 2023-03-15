@@ -14,19 +14,19 @@
     background-size: cover;
     background-position:bottom center;
     position:relative;
-    min-width: 100vw;
+    min-width: 100%;
     min-height: 60vh;
 }
 
 .bottom-intro {
     background-color: white;
     background-size: cover;
-    min-width: 100vw;
+    min-width: 100%;
 }
 
 .upcomingProgram {
     background-color: #323232;
-    min-width: 100vw;
+    min-width: 100%;
 }
 
 .program-text {
@@ -45,36 +45,37 @@
     background-size: cover;
     background-position: top center;
     position: relative;
-    min-width: 100vw;
+    min-width: 100%;
 }
 
 .tuition-credit {
     background-color: #323232;
-    min-width: 100vw;
+    min-width: 100%;
 }
 
 .questions {
     background: url(../../images/bootcamp/faq-bg.jpg);
     background-repeat: no-repeat;
     background-size:cover;
-    position: relative;
-    min-width: 100vw;
+    background-position: center;
+    min-width: 100%;
     padding-top: 20px;
     padding-bottom: 40px;
+    min-height: 45vh;
 }
 
 .course-outcomes {
     background: url(../../images/intro-to-web-hero-square.png);
     background-repeat: no-repeat;
     background-size: cover;
-    min-width: 100vw;
+    min-width: 100%;
 }
 
 .outcome-list {
-    font-size: 1rem;
-    line-height: 1.6rem;
-    padding-left: inherit;
-    text-indent: -1.4rem;
+    font-size: .9rem;
+    line-height: 1.3rem;
+    padding-left: 50px;
+    text-indent: -1.3rem;
 }
 .register {
     background-image: url(../../images/two-arrows.png);
@@ -82,7 +83,22 @@
     background-position: center center;
     background-size: 120%;
     background-repeat: no-repeat;
-    min-width: 100vw;
+    min-width: 100%;
+}
+
+.accordion:hover {
+    background-color: blue;
+}
+
+.curriculum-list {
+    font-size: .9rem;
+    line-height: 1.3rem;
+    font-weight: 500;
+}
+
+.paragraphs {
+    font-size: 1rem;
+    line-height: 1.6rem;
 }
 /* .curriculum {
     margin-left: 80px;
