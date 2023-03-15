@@ -84,6 +84,18 @@
     background-size: 120%;
     background-repeat: no-repeat;
     min-width: 100%;
+    @include screen-lg {
+        background-size: 140%;
+    }
+    @include screen-md {
+        background-size: 170%;
+    }
+    @include screen-sm {
+        background-size: 140%;
+    }
+    @include screen-xs {
+        background-size: 140%;
+    }
 }
 
 .accordion:hover {
