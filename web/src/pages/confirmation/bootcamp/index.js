@@ -29,7 +29,7 @@ const Page = ({ data }) => {
             </Col>
         </Row>
         <Col className="mb-5" md={{ span: 9, offset: 2 }}>
-          <p><a className="text-danger" href="../../bootcamp">&lt;&lt;Back to Bootcamp</a></p>
+          <p><a className="text--red link--bright-red" href="../../bootcamp">&lt;&lt;Back to Bootcamp</a></p>
         </Col>
         </Container>
     </Layout>

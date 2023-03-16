@@ -36,7 +36,7 @@ const Page = ({ data }) => {
             <Col md={{ span: 9, offset: 2 }}><p>A member of our team will be in touch shortly with the next steps in your journey to tech career.</p></Col>
         </Row>
         <Col className="mb-5" md={{ span: 9, offset: 2 }}>
-          <p><a className="text-danger" href="../../salesforce">&lt;&lt;Back to Salesforce</a></p>
+          <p><a className="text--red link--bright-red" href="../../salesforce">&lt;&lt;Back to Salesforce</a></p>
         </Col>
         </Container>
     </Layout>
