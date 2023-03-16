@@ -2,6 +2,7 @@ import * as React from 'react';
 import Layout from '../../components/Layout/Layout';
 import { Container, Row, Col, CarouselItem } from 'react-bootstrap';
 import Title from '../../components/UI/Title/Title';
+import Subtitle from '../../components/UI/Subtitle/Subtitle';
 import "./terms.scss";
 
 const TermsPage = ({ data }) => {
@@ -10,7 +11,7 @@ const TermsPage = ({ data }) => {
     <Layout pageTitle="Terms of Service | Awesome Inc">
     <Container>
         <section className="col-sm-offset-2">
-            <h1 className="my-4">Terms of Service</h1>
+            <Title className="my-4">Terms of Service</Title>
             <p className="par">These Awesome Inc Terms of Use (“Terms”) govern the use of Awesome Ventures, LLC’s (“Awesome Inc”) 
             Awesome Inc website, located at http://www.awesomeinc.org, information, text, curricula, apps and software.<br/>
             PLEASE READ THESE TERMS CAREFULLY BEFORE ACCESSING OR USING THE SERVICES. THESE TERMS CONTAIN IMPORTANT INFORMATION 
@@ -32,11 +33,11 @@ const TermsPage = ({ data }) => {
             You must be of legal age to form a binding contract to accept these Terms. A parent or a legal guardian must accept these Terms on behalf of a minor (anyone under 18 years of age).
             These Terms apply to all Users of the Services. For purposes of these Terms, “Users” include anyone who browses the Services, registers with GitHub for an ID and password to use 
             and access the Services, and anyone who visits, accesses and/or uses the Services through any means.</p>
-            <h2>Privacy</h2>
+            <Subtitle>Privacy</Subtitle>
             <p className="par">Your privacy is important to Awesome Inc. By accessing and using the Services, you agree to the collection, use, storage, and disclosure of your personal 
               information as set forth in our Privacy Policy. The Privacy Policy explains how we treat your personal data and is incorporated into these Terms by reference. 
               Please read the Privacy Policy carefully.</p>
-            <h2>Your Account</h2>
+            <Subtitle>Your Account</Subtitle>
             <p className="par">In order to use Awesome Inc, you must have a free GitHub account. GitHub is not affiliated with Awesome Inc and has its own Terms of Service and Privacy Policy. 
             You are required to read the GitHub Terms of Service and Privacy Policy prior to creating an account on their platform. By connecting to Awesome Inc with your GitHub credentials, 
             you give Awesome Inc permission to access and use your information from GitHub, as permitted by GitHub. You are solely responsible for the security of your GitHub account and for 
@@ -93,18 +94,18 @@ const TermsPage = ({ data }) => {
               gratuitous, unsolicited and without restrictions and will not place Awesome Inc under any fiduciary or other obligations, and that Awesome Inc is free to use the Feedback without any compensation to you, and/or to disclose 
               Feedback on a non-confidential basis or otherwise to anyone. You further acknowledge that, by acceptance of your Feedback, Awesome Inc does not waive any rights to use similar or related Feedback previously known to Awesome Inc, 
               or developed by its employees, or obtained from sources other than you.</p>
-            <h2>License to Use the Services</h2>
+            <Subtitle>License to Use the Services</Subtitle>
             <p className="par">Subject to your compliance with these Terms, Awesome Inc hereby grants you a freely revocable, worldwide, non-exclusive, non-transferable, non-sublicensable limited right and license (a) to access, use and 
             display the Services, including the Educational Content (defined in the section below), at your location solely for your personal, noncommercial use and as permitted hereunder, and (b) to download the Educational Content so that you 
             may exercise the rights granted to you under the section entitled “Creative Commons License” below. You must abide by all copyright notices or restrictions contained on the Services or the Educational Content. You may not delete any 
             attributions or legal or proprietary notices on the Services or the Educational Content.</p>
-            <h2>Creative Commons License</h2>
+            <Subtitle>Creative Commons License</Subtitle>
             <p className="par">Awesome Inc hereby grants you a license in and to the Educational Content under the terms of the Creative Commons Attribution-NonCommercial-ShareAlike License (http://creativecommons.org/licenses/by-nc-sa/4.0/) (the “CC License”). 
               As used herein, “Educational Content” means the educational materials made available to you through the Awesome Inc website, including on-line lectures, speeches, video lessons, quizzes, presentation materials, homework assignments, 
               programming assignments, code samples, and other educational materials and tools, but, in any event, specifically excluding any proprietary Awesome Inc materials. The Educational Content may only be used for non-commercial purposes and 
               Users may not sell, profit from, or commercialize Awesome Inc Educational Content or works derived from it. You are free to make derivative works, as long as you give Awesome Inc attribution. If you distribute your derivate works, 
               you must license your works under the same terms as the original Awesome Inc CC License.</p>
-            <h2>Copyright Policy and Digital Millennium Copyright Act</h2>
+            <Subtitle>Copyright Policy and Digital Millennium Copyright Act</Subtitle>
             <p className="par">Awesome Inc respects the intellectual property rights of others, and we expect Users of the Services to do the same. Awesome Inc will respond to notices of alleged copyright infringement that comply with applicable law and are properly 
               provided to Awesome Inc. If you believe that your product or other work has been misrepresented or used in a way that constitutes copyright infringement, or your intellectual property rights have been otherwise violated, please provide 
               Awesome Inc with the following information: (a) an electronic or physical signature of the person authorized to act on behalf of the owner of the product, copyright or other intellectual property interest; (b) a description of the product, 
@@ -122,7 +123,7 @@ const TermsPage = ({ data }) => {
             </div>
             <p className="par">Awesome Inc reserves the right to remove content alleged to be infringing without prior notice, at its sole discretion, and without liability. 
             In appropriate circumstances, Awesome Inc will also terminate a User’s account if the User is determined to be an infringer.</p>
-            <h2>User Content-Management; License Grant; Representations and Warranties</h2>
+            <Subtitle>User Content-Management; License Grant; Representations and Warranties</Subtitle>
             <p className="par">Awesome Inc may now, or in the future, permit and provide you with the ability to upload files, User posts and discussions, profile pages, and other content and media for social 
             interaction, or certain information, text, graphics, notes, questions, comments, images, videos or other communications and materials (collectively, “User Content”). Whether or not such User Content is 
             published, Awesome Inc does not guarantee any confidentiality with respect to any submissions.<br/>
@@ -146,7 +147,7 @@ const TermsPage = ({ data }) => {
             With respect to any submissions of User Content, you agree to comply with all applicable federal, state, local and foreign treaties, laws, codes, regulations and rules including but not limited to such treaties, laws, codes, regulations and rules 
             regarding online conduct and acceptable content. Among other things, you agree to comply with all applicable laws regarding the transmission of technical data exported from the United States or the country in which you reside. Whether you terminate your 
             account, or Awesome Inc removes or deletes your account, the User Content or the third-party links submitted by you may remain on Awesome Inc’s servers, at Awesome Inc’s discretion, and may be used by Awesome Inc or other Users of the Services.</p>
-            <h2>Links</h2>
+            <Subtitle>Links</Subtitle>
             <p className="par">The Services may contain links to third-party websites or resources, and those links may contain content or offer products and/or services for sale. The third-party links do not create or imply any relationship or partnership between 
             Awesome Inc and the operators of such linked websites. Awesome Inc does not author, edit, control, or monitor these links. You acknowledge and agree that Awesome Inc is not responsible or liable for: (a) the availability or accuracy of such websites or 
             resources; (b) the content, products, or services on or available from such websites or resources; or (c) the protection of the privacy of personal information on such websites or resources. Links to such websites or resources do not imply any endorsement 
@@ -157,17 +158,17 @@ const TermsPage = ({ data }) => {
             Awesome Inc is not responsible for the availability or the content of linked websites, including the advertising, products or other material thereon.<br/>
             You may provide links to the Awesome Inc website on your own website, provided that (a) you do not remove or obscure, by framing or otherwise, the copyright, trademark, or service mark notices or other notices on the site, (b) your site does not engage in activities that are illegal, 
             threatening, harassing, pornographic, or in any way discriminatory or disparaging based on race, religion, national origin, gender, age, disability, or any other category protected by applicable law, and (c) you agree that you will discontinue providing links to the site immediately upon request by us.</p>
-            <h2>Services Availability and Limitations</h2>
+            <Subtitle>Services Availability and Limitations</Subtitle>
             <p className="par">You acknowledge and agree that Awesome Inc Services, whether paid or free, are not available at all times, and that certain usage limits may apply. You also acknowledge and agree that Awesome Inc, in its sole discretion, may, permanently or 
             temporarily, limit, suspend, or terminate your access to and use of the Services and/or your user account, with or without prior notice. Awesome Inc may modify or discontinue all or part of the Services at its sole discretion.<br/>
             The Services are controlled and operated from facilities in the United States. Awesome Inc makes no representation that the Services are appropriate or available for Users in other locations. Unless otherwise explicitly stated, all Services are solely directed to individuals, companies, or other entities located in the United States.</p>
-            <h2>User Accounts (And Qualifying Tracks) For Paid Services</h2>
+            <Subtitle>User Accounts (And Qualifying Tracks) For Paid Services</Subtitle>
             <p className="par">Certain paid Services offered by Awesome Inc through the Awesome Inc platform may require you to create a user account and/or to start a free self-driven qualifying track, in order to receive an invitation to apply to the applicable paid Service.<br/>
             All information in your user account must be accurate, current, and complete, and you must maintain and update your information as needed. You understand and agree that if any information provided by you is inaccurate, not current, or incomplete, Awesome Inc has a right 
             to suspend and/or terminate your user account and your enrollment in the paid Service.<br/>
             You are solely responsible for the security of your account and must keep your login credentials and your password safe. You must monitor all activity on your account, including any breach of security or unauthorized use. Awesome Inc is not liable for any loss that may 
             occur as a result of any such account security breach or unauthorized use. If you become aware of any unauthorized use of your account and/or security breach, you must immediately notify Awesome Inc at info@awesomeincu.com</p>
-            <h2>Applications and Admission For Paid Services</h2>
+            <Subtitle>Applications and Admission For Paid Services</Subtitle>
             <p className="par">Certain paid Services offered by Awesome Inc through the Awesome Inc platform may require you to fill out an online application. The application may consist of, among other things: (1) your LinkedIn profile; 
             (2) basic biographical details like phone number and address; (3) your written answer to a long-form question; (4) your video answer to an application question and (5) your program selection.<br/>
             All answers to the questions on any such application must be your original work and must not infringe upon the copyright, trademarks, rights of privacy, or other intellectual property or other rights of any person and must 
@@ -175,7 +176,7 @@ const TermsPage = ({ data }) => {
             Incomplete applications and applications that are submitted in piecemeal fashion will not be considered.<br/>
             Where applicable, Awesome Inc will review and respond to each fully submitted application, typically within 48 hours of submission. You will be notified of your admission or rejection to the applicable paid Service via the e-mail 
             address provided by you in your user account. If admitted to the applicable paid Service, you will have the opportunity to enroll, which will require you to provide payment.</p>
-            <h2>Disclaimer of Warranties</h2>
+            <Subtitle>Disclaimer of Warranties</Subtitle>
             <p className="par">YOU EXPRESSLY ACKNOWLEDGE AND AGREE THAT YOUR ACCESS TO AND USE OF THE SERVICES AND ALL CONTENT ARE AT YOUR SOLE RISK AND RESPONSIBILITY. YOU UNDERSTAND AND AGREE THAT THE SERVICES ARE PROVIDED TO YOU ON AN “AS IS” 
             AND “AS AVAILABLE” BASIS WITH NO REPRESENTATIONS OR WARRANTIES OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. 
             YOU ASSUME TOTAL RESPONSIBILITY AND THE ENTIRE RISK FOR YOUR USE OF THE SERVICES AND CONTENT.<br/>
@@ -187,7 +188,7 @@ const TermsPage = ({ data }) => {
             AWESOME INC DOES NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH AWESOME INC SERVICES OR ANY HYPERLINKED WEBSITE OR SERVICE, AND AWESOME INC WILL 
             NOT BE A PARTY TO OR IN ANY WAY MONITOR ANY TRANSACTION BETWEEN YOU AND THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES.<br/>
             NO ADVICE OR INFORMATION, WHETHER ORAL OR WRITTEN, OBTAINED FROM ANY OF THE AWESOME INC ENTITIES OR THROUGH ITS SERVICES, WILL CREATE ANY WARRANTY NOT EXPRESSLY MADE HEREIN.</p>
-            <h2>Limitation of Liability</h2>
+            <Subtitle>Limitation of Liability</Subtitle>
             <p className="par">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, UNDER NO CIRCUMSTANCES SHALL ANY OF THE AWESOME INC ENTITIES BE LIABLE TO THE USER OR ANY THIRD PARTY WITH RESPECT TO THE SERVICES AND/OR ANY OTHER SUBJECT MATTER 
             ADDRESSED BY THESE TERMS OF USE (INCLUDING ANY SUPPLEMENTAL TERMS) (INCLUDING, WITHOUT LIMITATION, ANY BREACH OF SECURITY OR DATA LOSS) UNDER ANY CONTRACT, NEGLIGENCE, STRICT LIABILITY OR OTHER THEORY FOR ANY INDIRECT, INCIDENTAL, SPECIAL, 
             CONSEQUENTIAL OR PUNITIVE DAMAGES OR LOST PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, LOSS OR INACCURACY OF DATA OR DOCUMENTS OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, EVEN IF ADVISED OF THE 
@@ -199,23 +200,23 @@ const TermsPage = ({ data }) => {
             AWESOME INC’S (AND THE OTHER AWESOME INC ENTITIES’) TOTAL CUMULATIVE LIABILITY ARISING OUT OF OR RELATING TO THE SERVICES AND/OR THESE TERMS OF USE (INCLUDING ANY SUPPLEMENTAL TERMS) WILL NOT EXCEED THE GREATER OF ONE HUNDRED U.S. DOLLARS ($100) 
             OR THE AMOUNT OF FEES RECEIVED BY AWESOME INC FROM THE COMPLAINING USER FOR THE USE OF THE SERVICES. THE EXISTENCE OF MULTIPLE CLAIMS SHALL NOT EXPAND OR INCREASE THE FOREGOING LIMITATION. THE PARTIES ACKNOWLEDGE THAT THIS CLAUSE REFLECTS 
             THE AGREED UPON REASONABLE AND FAIR ALLOCATION OF RISK BETWEEN THE PARTIES AND THAT AWESOME INC WOULD NOT ENTER INTO THESE TERMS OF USE OR MAKE THE SERVICES OR CONTENT AVAILABLE TO USER WITHOUT THESE LIMITATIONS ON LIABILITY.</p>
-            <h2>Indemnification</h2>
+            <Subtitle>Indemnification</Subtitle>
             <p className="par">You agree to indemnify, defend and hold harmless Awesome Inc (and the other Awesome Inc Entities) from any and all claims, causes of action, liabilities, damages, losses and expenses, including reasonable attorneys’ fees 
             and costs, made or incurred by any third party relating to or arising out of (a) your use or attempted use of the Services in violation of these Terms (including any applicable Supplemental Terms), (b) your use or attempted use of any code, 
             program, data, information or any other Content provided through the Services in a manner inconsistent with these Terms (including any applicable Supplemental Terms), (c) your violation of any laws, rules, or regulations, or rights of any third party, 
             (d) information that you post or otherwise make available on the Services, including without limitation any claim of infringement of intellectual property or other proprietary rights, and/or (e) any breach by you of the representations, warranties, 
             and covenants made in these Terms (including any applicable Supplemental Terms).</p>
-            <h2>Termination of Rights</h2>
+            <Subtitle>Termination of Rights</Subtitle>
             <p className="par">You agree that Awesome Inc, in its sole discretion, may deactivate your account or otherwise terminate your use of the Services for any reason, including, without limitation, if Awesome Inc believes that you have: (a) breached 
             these Terms (including any applicable Supplemental Terms); (b) infringed the intellectual property rights of a third party; (c) posted, uploaded or transmitted Unauthorized Content to the Services; and/or (d) violated or acted inconsistently with the 
             letter or spirit of these Terms (including any applicable Supplemental Terms). You agree that any deactivation or termination of your access to the Services may be effected without prior notice to you and that Awesome Inc shall not be liable to 
             you nor any third party for any termination of your account. You also acknowledge that Awesome Inc may retain and store your information on Awesome Inc’s systems notwithstanding any termination of your account. You further acknowledge that Awesome 
             Inc’s rights to deactivate or terminate your use of the Services are not Awesome Inc’s sole remedy and that Awesome Inc may also seek other further relief under law or equity.</p>
-            <h2>Governing Law</h2>
+            <Subtitle>Governing Law</Subtitle>
             <p className="par">These Terms (including any applicable Supplemental Terms) and the interpretation of these Terms (including any applicable Supplemental Terms) shall be governed by and construed in accordance with the laws of the State of Kentucky, 
             County of Fayette, without regard to its conflict of laws rules. Should any part of these Terms (including any applicable Supplemental Terms) be found invalid or not enforceable by a court of law, then the remaining portions shall continue to be 
             valid and in force, to the extent permitted by law.</p>
-            <h2>Agreement to Arbitrate:</h2>
+            <Subtitle>Agreement to Arbitrate:</Subtitle>
             <p className="par">READ THIS SECTION CAREFULLY BECAUSE IT REQUIRES THE PARTIES TO ARBITRATE THEIR DISPUTES AND LIMITS THE MANNER IN WHICH YOU CAN SEEK RELIEF FROM AWESOME INC. THIS SECTION WAIVES YOUR RIGHT TO A TRIAL BY JURY OR TO PARTICIPATE IN A CLASS OR COLLECTIVE ACTION.<br/>
             Awesome Inc and you (collectively the “Parties”) waive all rights to trial before a jury in any action or proceeding arising out of or relating to these Terms (including any applicable Supplemental Terms), the Services, or otherwise arising between the Parties, including, without 
             limitation, any User’s statutorily created or protected rights. With the exception of any action or proceeding brought by Awesome Inc (or by any of the other Awesome Inc Entities) in which injunctive relief is sought, any controversy or claim arising out of or relating to these 
@@ -224,16 +225,16 @@ const TermsPage = ({ data }) => {
             the arbitrator(s) may not consolidate more than one person’s claim. With the exception of any claim by Awesome Inc (or by any of the other Awesome Inc Entities) for indemnification, under no circumstances is an arbitrator authorized to issue an award for, and the Parties 
             hereby waive all rights to claim, punitive damages, liquidated damages, incidental or consequential damages, or attorneys’ fees. The arbitration shall be conducted in the State of Kentucky, County of Fayette, unless the Parties agree otherwise. You hereby acknowledge that 
             you understand the terms of the arbitration clause, and agree to comply with all of its terms and provisions.</p>
-            <h2>Assignment</h2>
+            <Subtitle>Assignment</Subtitle>
             <p className="par">Awesome Inc may freely transfer or assign any portion of its rights or delegate its obligations under these Terms (including any applicable Supplemental Terms). You shall not transfer or assign, by operation of law or otherwise, any portion of your 
             rights or delegate your obligations under these Terms (including any applicable Supplemental Terms) without the prior written consent of Awesome Inc. Any attempted transfer or assignment in violation hereof will be null and void.</p>
-            <h2>Entire Agreement/<br/>Severability</h2>
+            <Subtitle>Entire Agreement/<br/>Severability</Subtitle>
             <p className="par">These Terms (including any applicable Supplemental Terms) are the entire and exclusive agreement between Awesome Inc and you regarding the Services, and supersede and replace any prior agreements between Awesome Inc and you regarding the Services. 
             No other person or company, with the exception of the Awesome Inc Entities, will be third party beneficiaries to the Terms (including any applicable Supplemental Terms). If any provision of these Terms (including any applicable Supplemental Terms) is found to be unlawful, 
             void, or for any reason unenforceable, then that provision shall be deemed severable from the other provisions, and shall not affect the validity and enforceability of any remaining provisions.</p>
-            <h2>No Waiver</h2>
+            <Subtitle>No Waiver</Subtitle>
             <p className="par">Any delay or failure on the part of Awesome Inc to enforce any rights under these Terms (including any applicable Supplemental Terms) to which it may be entitled shall not, in any event, be construed as a waiver of the right and privilege to do so at any subsequent time.</p>
-            <h2>Notifications and Changes to the Terms</h2>
+            <Subtitle>Notifications and Changes to the Terms</Subtitle>
             <p className="par">These Terms (including any applicable Supplemental Terms, such as those relating to payment) are subject to change. If you continue to access and use the Services after these Terms (including any Supplemental Terms) change, you agree to be bound by such changes. Any changes 
             will be effective immediately upon posting. Please check these Terms (including any Supplemental Terms) for changes periodically. Awesome Inc may provide notifications, including changes to these Terms (including any Supplemental Terms), to you via email notice, written or hard copy notice, 
             or through posting of such notice on the Awesome Inc website, as determined by Awesome Inc in its sole discretion. Awesome Inc is not responsible for any automatic filtering you or your network provider may apply to email notifications sent to your email address. You are solely responsible 

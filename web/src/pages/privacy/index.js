@@ -2,6 +2,7 @@ import * as React from 'react';
 import Layout from '../../components/Layout/Layout';
 import { Container, Row, Col, CarouselItem } from 'react-bootstrap';
 import Title from '../../components/UI/Title/Title';
+import Subtitle from '../../components/UI/Subtitle/Subtitle';
 import "./privacy.scss";
 
 const PrivacyPage = ({ data }) => {
@@ -10,7 +11,7 @@ const PrivacyPage = ({ data }) => {
     <Layout pageTitle="Privacy Policy | Awesome Inc">
     <Container>
       <section className="col-sm-offset-2">
-        <h1 className="my-4">Privacy Policy</h1>
+        <Title className="my-4">Privacy Policy</Title>
         <p style={{fontSize: "16px"}}>
             This privacy policy discloses the privacy practices for Awesome Ventures, LLC and its affiliated organizations
             and individuals (which may be collectively referred to herein as, among other things, “we”, “us” and “our”).
@@ -18,7 +19,7 @@ const PrivacyPage = ({ data }) => {
             to you with regard to how your information is collected and utilized. This privacy policy applies solely to the
             information collected by this website (our “Site”).
         </p>
-        <h2>Information We May Collect</h2>
+        <Subtitle>Information We May Collect</Subtitle>
         <div className="list">
           <ul>
             <li>Personal information you provide to us, including, but not limited to, your name, age, date of birth, 
@@ -39,7 +40,7 @@ const PrivacyPage = ({ data }) => {
                you are visiting to learn about that site’s practices regarding the use of your information.</li>
           </ul>
         </div>
-        <h2>How We Use Your Information</h2>
+        <Subtitle>How We Use Your Information</Subtitle>
         <div className="list">
           <ul>
             <li>For the purposes for which you specifically provided the information including, for example, registering for a course.</li>
@@ -54,13 +55,13 @@ const PrivacyPage = ({ data }) => {
                LLC and its affiliates.</li>
           </ul>
         </div>
-        <h2>Google Analytics</h2>
+        <Subtitle>Google Analytics</Subtitle>
         <p style={{fontSize: "16px"}}>We may use a tool called “Google Analytics” to collect information about use of this Site. Google Analytics collects information such as
           how often users visit this Site, what pages they visit when they do so, and what other sites they used prior to coming to this Site. Google
           Analytics collects only the IP address assigned to you on the date you visit this Site, rather than your name or other identifying information.
           The information collected through the use of Google Analytics is not combined with personally identifiable information. To learn more about how 
           Google Analytics collects and processes data and the opt-out options click here.</p>
-        <h2>How We Share Information</h2>
+        <Subtitle>How We Share Information</Subtitle>
         <p style={{fontSize: "16px"}}>We endeavor to safeguard and protect your personal information. We have implemented technical and organizational measures to secure your personal 
           information. Although we take measures to protect against unauthorized disclosures of information, no method of transmission over the Internet, or
            method of electronic storage, is 100 percent secure, and we cannot assure you that personally identifiable information that we collect will never 
@@ -78,7 +79,7 @@ const PrivacyPage = ({ data }) => {
             <li>Major Business Transactions: In the event of a major business transaction, our customer information may be one of the transferred business assets.</li>
           </ul>
         </div>
-        <h2>Other Information</h2>
+        <Subtitle>Other Information</Subtitle>
         <div className="list">
           <ul>
             <li>Links: Our Site may contain links to other sites whose privacy practices may differ from ours. Such third-party sites are not under our control and have separate and independent privacy policies. 
@@ -92,29 +93,29 @@ const PrivacyPage = ({ data }) => {
           used by us for the marketing of additional services and events. If you do not want your personal information used for such purposes, you should not participate in such contests, sweepstakes, special events
           or other offers. Please see the rules of each individual offering and any applicable additional privacy policies for information on the choices you can exercise with respect to the use of your personal information. 
           To the extent there is a conflict between this privacy policy and the rules or policies applicable to a special event, the rules and policies associated with the special event shall govern.</p>
-        <h2>Social Networking</h2>
+        <Subtitle>Social Networking</Subtitle>
         <p style={{fontSize: "16px"}}>Awesome Ventures, LLC is active on social media (Tumblr, Twitter, Facebook, etc.) and shares information, images, and video with the public through external social media sites. The social media sites are not 
           affiliated with us and offer their own individual terms of service and privacy policies. We encourage you to read the policies of each website. Anyone can make comments on social media sites, but please remember 
           that the social media sites are public, which means that anyone can see your posts and your posts may even show up in search engine results. While we will not edit comments, we may delete a comment from our page 
           on a social media site if it does not relate to the posted topic on the social media page or post, promotes or advertises a commercial product or business, uses obscene, threating, or harassing language, or if it 
           is a personal attack or hate speech that targets or disparages any ethnic, racial, age, or religious group, gender, sexual orientation, or disability status, or if it advocates illegal activity or violates copyright laws.</p>
-        <h2>Children’s Privacy Statement</h2>
+        <Subtitle>Children’s Privacy Statement</Subtitle>
         <p style={{fontSize: "16px"}}>Our Site is not directed at children under the age of 13 and we do not knowingly collect or solicit information from anyone under the age of 13. In the event that we learn that we have collected personal information from 
           a child under age 13 without parental consent, we will delete that information as quickly as possible. If you believe that we might have any information collected from a child under 13, please contact us at info@awesomeincu.com.</p>
-        <h2>California Minors Privacy Rights</h2>
+        <Subtitle>California Minors Privacy Rights</Subtitle>
         <p style={{fontSize: "16px"}}>If you are a California resident under 18, and a registered user of our website, California law permits you to request and obtain removal of content or information that you have publicly posted. To make such a request, please 
           send us an email with a detailed description of the specific content or information you want removed to info@awesomeinc.org. Please be aware that such a request does not ensure complete or comprehensive removal of the content 
           or information posted and that there may be circumstances in which the law does not require or allow removal even if requested.</p>
-        <h2>Do-Not-Track Signals and Similar Mechanisms</h2>
+        <Subtitle>Do-Not-Track Signals and Similar Mechanisms</Subtitle>
         <p style={{fontSize: "16px"}}>Some web browsers may transmit “do-not-track” signals to the websites with which the user communicates. We do not honor “do-not-track” signals.</p>
-        <h2>Correct/Update Your Information</h2>
+        <Subtitle>Correct/Update Your Information</Subtitle>
         <p style={{fontSize: "16px"}}>We give our users the options to review, correct and modify their personal information. To exercise any of these options, please contact us at info@awesomeinc.org.</p>
-        <h2>Changes to This Statement</h2>
+        <Subtitle>Changes to This Statement</Subtitle>
         <p style={{fontSize: "16px"}}>We may periodically change, modify or otherwise update this Privacy Policy. We will notify you of any material changes to this Privacy Policy by posting the revised policy 
           on this page. Any changes to this Privacy Policy will become effective when posted on this page. The date of the most recent revision to this Privacy Policy is listed below. 
           We encourage you to review our Privacy Policy on a regular basis. Your continued use of our Site constitutes your agreement to this Privacy Policy and any updates. 
           This statement is not intended to and does not create any contractual or other legal rights in or on behalf of any party.</p>
-        <h2>Opting Out and Contacting Us</h2>
+        <Subtitle>Opting Out and Contacting Us</Subtitle>
         <p style={{fontSize: "16px"}}>You may unsubscribe from our marketing/promotional communications by clicking on the “unsubscribe” link located on the bottom of our e-mails, or by sending us email us at info@awesomeincu.com.
           If you have any questions about this privacy policy or about our treatment of your personal information, contact us by mail at the following address:</p>
         <div className="card mb-4">
