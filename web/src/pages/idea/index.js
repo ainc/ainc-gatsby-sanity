@@ -13,7 +13,7 @@ const IdeaPage = ({ data }) => {
             <Title className="mt-5 text-center text-uppercase">Have an idea?</Title>
             <Row className="justify-content-center" style={{marginTop: "150px", marginBottom: "100px"}}>
                 <Col md={{ span: 4 }}>
-                    <a href='../events/5across'>
+                    <a href='/events/5across'>
                     <StaticImage className="mb-1" quality='100' style={{ maxWidth: "80%" }} src="./images/5-across-logo-black-text.png" />
                     </a>
                     <p>A Pitch Competition for Kentucky Entrepreneurs</p>
