@@ -4,6 +4,13 @@ export default {
   title: 'Careers',
   fields: [
       {
+          name: 'active',
+          type: 'boolean',
+          title: 'Active',
+          description: 'Is this position actively hiring?',
+          initialValue: false
+      },
+      {
           name: 'careerTitle',
           type: 'string',
           title: 'Career title',
@@ -32,8 +39,15 @@ export default {
   ],
   preview: {
       select: {
-          title: 'title',
-          subtitle: 'date',
+          title: 'careerTitle',
+          subtitle: 'active',
       },
+      prepare(selection) {
+          const {title, subtitle} = selection
+          return {
+            title: title,
+            subtitle: subtitle ? 'Active' : 'Inactive',
+          }
+      }
   }
 }
