@@ -113,7 +113,7 @@ const Header = () => {
               <Col className="desktop">
                 <Nav.Link href="/">Be Awesome <AiFillCaretDown size={10}/></Nav.Link>
                 <div className='hover-options'>
-                <NavDropdown.Item><Link to="/about">About</Link></NavDropdown.Item>
+                  <Link to="/about">About</Link>
                   <Link to="/about">Core Values</Link>
                   <Link to="/blog/">Blog</Link>
                   <Link to="/press">Press</Link>
