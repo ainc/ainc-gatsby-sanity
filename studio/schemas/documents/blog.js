@@ -5,11 +5,10 @@ export default {
     fields: [
         {
             name: 'date',
-            type: 'datetime',
+            type: 'date',
             title: 'Date',
             options: {
                 dateFormat: 'MMMM D, YYYY',
-                timeFormat: 'h:mma'
             }
         },
         {
@@ -34,9 +33,28 @@ export default {
         },
         {
             name: 'body',
-            type: 'text',
+            type: 'array',
             title: 'Blog body',
-            description: 'Blog content'
+            description: 'Blog content',
+            of: [
+                {
+                    type: 'block',
+                },
+                {
+                    type: 'image',
+                    fields: [
+                        {
+                            name: 'alt',
+                            type: 'string',
+                            title: 'Alternative text',
+                            description: 'Important for SEO and accessiblity.',
+                            options: {
+                                isHighlighted: true
+                            }
+                        }
+                    ]
+                }
+            ]
         },
         {
             name: 'previewText',
