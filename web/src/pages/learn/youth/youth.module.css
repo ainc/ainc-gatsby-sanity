@@ -1,0 +1,44 @@
+.youth {
+    background-image: url(../../../images/learn/youth-header.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    min-width:100vw;
+    height: 80vh;
+}
+
+.title-text {
+    margin-top: 30vh;
+}
+
+.club-membership {
+    background-image: url(../../../images/learn/Youth_Membership_BG.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    min-width: 100vw;
+}
+
+.questions {
+    background: url(../../../images/bootcamp/faq-bg.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    min-width: 100%;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    min-height: 45vh;
+}
+
+.plans {
+    background-color: white;
+    
+}
+
+.engaged {
+    background-image: url(../../../images/learn/youth-engaged-bg.png);
+    background-repeat: no-repeat;
+    position: center 15%;
+    min-width: 100vw;
+    background-size: 100%;
+}
