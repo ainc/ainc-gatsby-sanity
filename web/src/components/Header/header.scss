@@ -1,6 +1,61 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
+.desktop {
+  display: block;
+  @include screen-tablet-max {
+    display: none;
+  }
+  @include font-size(8);
+  color: white;
+  padding: 0%;
+  white-space: nowrap;
+  text-transform: uppercase;
+  // letter-spacing: 0px;
+  font-weight: 300;
+
+  > a {
+    color: white;
+    &:hover {
+      color: $brand-color;
+    }
+  }
+
+  > .hover-options {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 5% black;
+    width: 180px;
+    padding: 1%;
+    > a {
+      @include font-size(8);
+      color: $brand-grey-dark;
+      font-weight: 300;
+
+      padding-top: 5%;
+      &:hover {
+        color: $brand-color;
+        padding-left: 5px;
+      }
+    }
+  }
+
+  &:hover {
+    > .hover-options {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.mobile {
+  display: none;
+  @include screen-tablet-max {
+    display: block;
+  }
+}
+
 .navbar {
   background-color: $brand-color2;
   opacity: 0.9;
@@ -17,13 +72,33 @@
     }
     
   }
-  >.navbar-collapse > .navbar-nav > .nav-item  {
+  >.navbar-collapse > .navbar-nav > .row > div > .nav-item  {
     color: white;
     &:hover > .nav-link{
       color: $brand-color;
     }
     @include screen-tablet-max {
       border-bottom: 1px solid white;
+    }
+    &.show {
+      > a {
+        padding-bottom: 0;
+      }
+    }
+
+    .dropdown-menu.show {
+      background-color: transparent;
+      border: none;
+      padding-top: 0;
+      > a {
+        color: white;
+        padding: 0px 20px;
+        @include font-size(7);
+        &:hover {
+          color: $brand-color;
+        }  
+      }
+      // color: white;
     }
     
   }
