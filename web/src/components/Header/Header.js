@@ -10,28 +10,26 @@ import {
   Container
 } from 'react-bootstrap'
 
-import { 
-  navbarBrand,
-} from './Header.module.scss'
+import { navbarBrand } from './Header.module.scss'
 
 
 const Header = () => {
   const logo_height = 30;
-  const logo_width = 30;
+  const logo_width = 200;
 
   return (
-    <Navbar className="sticky-top" bg="dark" variant="dark" expand="lg">
+    <Navbar className="sticky-top navbar" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="/" className={`w-100 text-uppercase ${navbarBrand}`}>
+        <Navbar.Brand href="/" className={`text-uppercase ${navbarBrand}`}>
           <StaticImage
-            src="../../images/logo.png"
+            src="../../images/ainc-logo-horizontal-white-text.png"
             width={logo_width}
-            height={logo_height}
-            className="d-inline-block align-top"
+            // height={logo_height}
+            className="img-responsive d-inline-block align-top"
             alt="Awesome Inc Logo"
             loading="eager"
           />
-          Awesome Inc
+          
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

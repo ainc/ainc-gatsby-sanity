@@ -1,5 +1,66 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
 .navbar {
-  background-color: rgba(50, 50, 50, 0.9);
+  background-color: $brand-color2;
+  opacity: 0.9;
+  z-index: 100;
+  // position: relative;
+}
+
+.navbar > .container {
+  > a {
+    @include screen-tablet-max {
+      margin: 0;
+      width: 100%;
+      // border-bottom: 1px solid white;
+    }
+    
+  }
+  >.navbar-collapse > .navbar-nav > .nav-item  {
+    color: white;
+    &:hover > .nav-link{
+      color: $brand-color;
+    }
+    @include screen-tablet-max {
+      border-bottom: 1px solid white;
+    }
+    
+  }
+
+  > button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    // margin: 20px;
+    display: none;
+    @include screen-tablet-max {
+      display: flex;
+    }
+    justify-content: center;
+    align-items: center;
+
+    color: transparent;
+    background-color: transparent;
+
+    padding: 10px;
+    border: 1px solid $brand-color;
+    border-radius: 2px;
+    height: 40px;
+    width: 50px;
+    
+    &:active {
+      background-color: $brand-color;
+      border: 1px solid $brand-color;
+    }
+
+    
+  }
+  .navbar-collapse {
+    @include screen-tablet-max {
+      border-top: 1px solid white;
+    }
+  }
 }
 
 .navbar-dark .navbar-nav .nav-item .nav-link {
