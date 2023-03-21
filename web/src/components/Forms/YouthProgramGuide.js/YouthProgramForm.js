@@ -8,7 +8,7 @@ import Card from 'react-bootstrap/Card'
 
 const YouthProgramGuide = ( props ) => {
     return (
-        <Card className='me-5 mt-5'>
+        <Card className={`${styles.formCard} me-5`}>
 <Form>
     <Container>
         <Card.Header className=''>Download our program guide for more info
