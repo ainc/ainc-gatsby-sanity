@@ -21,7 +21,8 @@ Deployed from [sanity.io/create](https://www.sanity.io/create/?template=sanity-i
 ** Note: You may have better success opening two separate terminals to and running `yarn run dev` in both `/studio` and `/web`
 
 ## Notes
-- Having troucble with `yarn install`? Verified Node versions: 14.xx
+- Having troucble with `yarn install`?
+Verified Node versions: `14.xx`, `17.xx`
 
 ## Workflow to create new documents for production
 <details>
