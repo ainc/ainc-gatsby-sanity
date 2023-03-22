@@ -19,12 +19,12 @@ const YouthPage = ({ data }) => {
                     <Row>
 
 
-                        <Col xs={9} sm={{ span: 9 }} md={{ span: 6, offset: 1 }} lg={{ span: 6, offset: 1 }} xl={{ span: 6, offset: 1 }}>
-                            <Title className={`mb-4 text-start text-uppercase text-white ${styles.titleText}`}>youth</Title>
+                        <Col xs={12} sm={{ span: 9 }} md={{ span: 6, offset: 1 }} lg={{ span: 6, offset: 1 }} xl={{ span: 5, offset: 1 }}>
+                            <Title className={`mb-4 mt-5 text-start text-uppercase text-white ${styles.titleText}`}>youth</Title>
                             <Subtitle className='fst-italic ontext-start text-white'>Coding Courses</Subtitle>
-                            <Subtitle className='fst-italic ontext-start text-white'>Ages 9 - 16</Subtitle>
+                            <Subtitle className='mb-5 fst-italic ontext-start text-white'>Ages 9 - 16</Subtitle>
                             <p className={` ${styles.courseDescription} text-white text-start`}>The coding club offers students an oppurtunity to learn how to code from professional software developers and to do it with like-minded peers.</p>
-                            <p className={` ${styles.otherDescription} mb-2 text-white text-start`}>We inspire kids by introducing them to the awesome power of coding! Our students experience the joy of building their own games and apps
+                            <p className={` ${styles.otherDescription} text-white text-start`}>We inspire kids by introducing them to the awesome power of coding! Our students experience the joy of building their own games and apps
                                 in an engaging and safe space, whether in-person or online. And you'll love it too, knowing your kids are developing a practical skill, building a creative portfolio,
                                 and making great friends along the way.</p>
                         </Col>
@@ -32,7 +32,7 @@ const YouthPage = ({ data }) => {
                             <YouthProgramGuide></YouthProgramGuide>
                         </Col>
                         <Row>
-                         <BrandButton className={`mb-3 ${styles.otherButton}`}>program guide</BrandButton>
+                         <BrandButton className={` ${styles.otherButton}`}>program guide</BrandButton>
                         </Row>
                     </Row>
                 </Container>
@@ -99,7 +99,8 @@ const YouthPage = ({ data }) => {
                             </p>
                             <p><strong>Note:</strong> The Coding Club runs from September - May, taking a break during the summer.
                                 You can still sign up to reserve a spot if you are applying during the summer.</p>
-                            <BrandButton className='mb-3 text-uppercase'>join the club</BrandButton>
+                                <a href='#join'>
+                            <BrandButton className='mb-3 text-uppercase'>join the club</BrandButton></a>
 
                         </Col>
                         <Col md={4} lg={4} xl={4}>
@@ -130,6 +131,7 @@ const YouthPage = ({ data }) => {
                         </Col>
                     </Row>
                 </Container>
+                <section id='join'>
                 <Container fluid='md' className={` ${styles.clubMembership}`}>
                     <Title className='text-center text-uppercase text-white pt-5'>coding club membership</Title>
                     <p className='mb-5 text-white text-center'><strong>Note:</strong> The Coding Club runs from September - May, taking a break in the summer.
@@ -139,10 +141,10 @@ const YouthPage = ({ data }) => {
                         <Card className={`mb-3 ${styles.membershipCards}`}>
                             <Card.Body>
                                 <Card.Title className='mb-5 text-uppercase secondary text-center'>1 month plan</Card.Title>
-                                <StaticImage className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-1-month.png' alt='one-month-icon'></StaticImage>
+                                <StaticImage transformOptions={{fit: 'contain'}} className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-1-month.png' alt='one-month-icon'></StaticImage>
                                     <h3 className='mb-4 text-center fw-bold '>$120</h3>
                                     <h6 className='text-center fw-bold fst-italic'>Billed Monthly</h6>
-                            <BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton>
+                           <a href='https://subscriptions.zoho.com/subscribe/03ecd1f5f1714d3cb3ee018041d15410a7726ba08b65d6ccad482bf477cf719e/coding-club-membership'> <BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton></a>
                             </Card.Body>
                         </Card>
                         </Col>
@@ -150,10 +152,10 @@ const YouthPage = ({ data }) => {
                         <Card className={`mb-3  ${styles.membershipCards}`}>
                             <Card.Body>
                                 <Card.Title className='mb-5 text-uppercase secondary text-center'>3 month plan</Card.Title>
-                                <StaticImage className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-3-month.png' alt='three-month-icon'></StaticImage>
+                                <StaticImage transformOptions={{fit: 'contain'}} className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-3-month.png' alt='three-month-icon'></StaticImage>
                                     <h3 className='mb-4 text-center fw-bold '>$329</h3>
                                     <h6 className='text-center fw-bold fst-italic'>Billed Quarterly</h6>
-                            <BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton>
+                            <a href='https://subscriptions.zoho.com/subscribe/03ecd1f5f1714d3cb3ee018041d15410a7726ba08b65d6ccad482bf477cf719e/3-month'><BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton></a>
                             </Card.Body>
                         </Card>
                         </Col>
@@ -161,10 +163,10 @@ const YouthPage = ({ data }) => {
                         <Card className={`mb-3  ${styles.membershipCards}`}>
                             <Card.Body>
                                 <Card.Title className='mb-5 text-uppercase secondary text-center'>6 month plan</Card.Title>
-                                <StaticImage className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-6-month.png' alt='six-month-icon'></StaticImage>
+                                <StaticImage transformOptions={{fit: 'contain'}} className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-6-month.png' alt='six-month-icon'></StaticImage>
                                     <h3 className='mb-4 text-center fw-bold '>$600</h3>
                                     <h6 className='text-center fw-bold fst-italic'>Billed Bi-Yearly</h6>
-                            <BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton>
+                            <a href='https://subscriptions.zoho.com/subscribe/03ecd1f5f1714d3cb3ee018041d15410a7726ba08b65d6ccad482bf477cf719e/6-month'><BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton></a>
                             <hr></hr>
                             <p className='text-center'>This plan gives you 1 free month</p>
                             </Card.Body>
@@ -174,10 +176,10 @@ const YouthPage = ({ data }) => {
                         <Card className={`mb-3  ${styles.membershipCards}`}>
                             <Card.Body>
                                 <Card.Title className='mb-5 text-uppercase secondary text-center'>12 month plan</Card.Title>
-                                <StaticImage className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-12-month.png' alt='twelve-month-icon'></StaticImage>
+                                <StaticImage transformOptions={{fit: 'contain'}} className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-12-month.png' alt='twelve-month-icon'></StaticImage>
                                     <h3 className='mb-4 text-center fw-bold '>$1080</h3>
                                     <h6 className='text-center fw-bold fst-italic'>Billed every 12 months</h6>
-                            <BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton>
+                            <a href='https://subscriptions.zoho.com/subscribe/03ecd1f5f1714d3cb3ee018041d15410a7726ba08b65d6ccad482bf477cf719e/12-month'><BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton></a>
                             <hr></hr>
                             <p className='text-center'>This plan gives you 3 free months</p>
                             </Card.Body>
@@ -185,6 +187,7 @@ const YouthPage = ({ data }) => {
                         </Col>
                     </Row>
                 </Container>
+                </section>
                 <Container className={styles.questions}>
                     <Title className='text-white text-center mt-5 pt-5 pb-4'>Still have questions?</Title>
                     <Col xs={{ offset: 3, span: 6 }} sm={{ offset: 3, span: 6 }} md={{ offset: 4, span: 4 }} lg={{ offset: 3, span: 6 }}>

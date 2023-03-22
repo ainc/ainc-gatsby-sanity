@@ -12,14 +12,13 @@
     min-width:100vw;
     height: 95%;
     @include screen-sm {
-        font-size: .7rem;
         line-height: 1rem;
         background-position: 50%;
     }
     @include screen-xs {
         font-size: .7rem;
         height: 200vw;
-        background-position: 50%;
+        background-position: 25%;
     }
 }
 
@@ -43,31 +42,31 @@
 }
 
 .course-description {
-    font-size: 1rem;
+    font-size: 1.3rem;
+    margin-top: 15%;
     @include screen-sm {
-        font-size: 1.3rem;
-        line-height: 1.6rem;
-        padding-top:50%;
+        font-size: .9rem;
+        line-height: 1.2rem;
+        padding-top:70%;
         margin-top: 25%;
     }
     @include screen-xs {
-        padding-top:90%;
+        padding-top:25%;
         font-size: .7rem;
-        line-height: 1rem;
+        line-height: .9rem;
+        margin-bottom: 1px;
     }
 }
 
 .other-description {
-    font-size: 1rem;
+    font-size: 1.3rem;
     @include screen-sm {
-        font-size: 1.3rem;
-        line-height: 1.6rem;
+        font-size: .9rem;
+        line-height: 1.2rem;
     }
     @include screen-xs {
         font-size: .7rem;
-        line-height: 1rem;
-        margin-bottom: 0;
-        padding-bottom: 0;
+        line-height: .9rem;
     }
 }
 
@@ -158,8 +157,8 @@
 }
 
 .membership-icons {
-    max-height:100px;
-    max-width: 100px;
+    height:100px;
+    width: 100px;
     margin: auto;
 }
 
@@ -196,6 +195,8 @@
     }
     @include screen-xs {
         margin:auto;
-        width: 50%;
+        width: 75%;
+        padding: 1px;
+        margin-top: 0;
     }
 }
