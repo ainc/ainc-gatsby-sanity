@@ -19,24 +19,21 @@ const YouthPage = ({ data }) => {
                     <Row>
 
 
-                        <Col sm={{ span: 6 }} md={{ span: 6, offset: 1 }} lg={{ span: 6, offset: 1 }} xl={{ span: 6, offset: 1 }}>
+                        <Col xs={9} sm={{ span: 9 }} md={{ span: 6, offset: 1 }} lg={{ span: 6, offset: 1 }} xl={{ span: 6, offset: 1 }}>
                             <Title className={`mb-4 text-start text-uppercase text-white ${styles.titleText}`}>youth</Title>
                             <Subtitle className='fst-italic ontext-start text-white'>Coding Courses</Subtitle>
                             <Subtitle className='fst-italic ontext-start text-white'>Ages 9 - 16</Subtitle>
-                            <p className='text-white text-start'>The coding club offers students an oppurtunity to learn how to code from professional software developers and to do it with like-minded peers.</p>
-                            <p className='mb-5 text-white text-start'>We inspire kids by introducing them to the awesome power of coding! Our students experience the joy of building their own games and apps
+                            <p className={` ${styles.courseDescription} text-white text-start`}>The coding club offers students an oppurtunity to learn how to code from professional software developers and to do it with like-minded peers.</p>
+                            <p className={` ${styles.otherDescription} mb-2 text-white text-start`}>We inspire kids by introducing them to the awesome power of coding! Our students experience the joy of building their own games and apps
                                 in an engaging and safe space, whether in-person or online. And you'll love it too, knowing your kids are developing a practical skill, building a creative portfolio,
                                 and making great friends along the way.</p>
                         </Col>
                         <Col sm={6} md={{ span: 5 }} lg={{ span: 4, offset: 1 }} xl={{ span: 4, offset: 1 }}>
                             <YouthProgramGuide></YouthProgramGuide>
-                            {/* <Card>
-                        <Card.Header as="h5">Download our program guide for more info</Card.Header>
-                        <Card.Body>
-                            <form action="https://forms.zohopublic.com/virtualoffice9155/form/YouthProgramGuide/formperma/R7u651FVYVwtxnDViBIckJawdMEeJeCdnAgddE6o9x0/htmlRecords/submit"></form>
-                        </Card.Body>
-                    </Card> */}
                         </Col>
+                        <Row>
+                         <BrandButton className={`mb-3 ${styles.otherButton}`}>program guide</BrandButton>
+                        </Row>
                     </Row>
                 </Container>
                 <Container>
@@ -110,10 +107,10 @@ const YouthPage = ({ data }) => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col sm={{offset:2, span: 8}} md={{ offset: 2, span: 4 }} lg={{ offset: 3, span: 3 }} xl={{ offset: 3, span: 3 }}>
+                        <Col sm={{offset:2, span: 8}} md={{ offset: 1, span: 4 }} lg={{ offset: 1, span: 4 }} xl={{ offset: 2, span: 3 }}>
                             <StaticImage className='mb-5' src='../../../images/learn/youth_schedule_tuesday.png' alt='tuesday schedule'></StaticImage>
                         </Col>
-                        <Col sm={{span:8, offset:2}} md={4} lg={3} xl={3}>
+                        <Col sm={{span:8, offset:2}} md={4} lg={4} xl={3}>
                             <StaticImage className='mb-5' src='../../../images/learn/youth_schedule_thurssday.png' alt='thursday schedule'></StaticImage>
                         </Col>
                     </Row>
@@ -133,42 +130,58 @@ const YouthPage = ({ data }) => {
                         </Col>
                     </Row>
                 </Container>
-                <Container className={styles.clubMembership}>
+                <Container fluid='md' className={` ${styles.clubMembership}`}>
                     <Title className='text-center text-uppercase text-white pt-5'>coding club membership</Title>
                     <p className='mb-5 text-white text-center'><strong>Note:</strong> The Coding Club runs from September - May, taking a break in the summer.
                         You can still sign up to reserve a spot if you are applying during the summer.</p>
-                    <Row>
-                        <Col className={`me-3 my-3 ${styles.plans}`} sm={{ offset: 2, span: 4 }} md={{ offset: 1, span: 2 }} lg={{ span: 2, offset: 1 }} xl={{ span: 2, offset: 1 }}>
-                            <Subtitle className='mt-5 pb-0 text-center text-uppercase secondary'>1 month plan</Subtitle>
-                            <StaticImage className={styles.membershipIcons} src='../../../images/learn/youth-1-month.png' alt='one-month-icon'></StaticImage>
-                            <h3 className='text-center fw-bold '>$120</h3>
-                            <h6 className='text-center fw-bold fst-italic'>Billed Monthly</h6>
-                            <BrandButton className={`justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton>
+                        <Row>
+                        <Col sm={6} md={3}>
+                        <Card className={`mb-3 ${styles.membershipCards}`}>
+                            <Card.Body>
+                                <Card.Title className='mb-5 text-uppercase secondary text-center'>1 month plan</Card.Title>
+                                <StaticImage className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-1-month.png' alt='one-month-icon'></StaticImage>
+                                    <h3 className='mb-4 text-center fw-bold '>$120</h3>
+                                    <h6 className='text-center fw-bold fst-italic'>Billed Monthly</h6>
+                            <BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton>
+                            </Card.Body>
+                        </Card>
                         </Col>
-                        <Col className={`m-3 ${styles.plans}`} sm={{ span: 4 }} md={2} lg={2} xl={2}>
-                            <Subtitle className='mt-5  text-center text-uppercase secondary'>3 month plan</Subtitle>
-                            <StaticImage className={styles.membershipIcons} src='../../../images/learn/youth-3-month.png' alt='one-month-icon'></StaticImage>
-                            <h3 className='text-center fw-bold '>$329</h3>
-                            <h6 className='text-center fw-bold fst-italic'>Billed Quarterly</h6>
-                            <BrandButton className={`justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton>
+                        <Col sm={6} md={3}>
+                        <Card className={`mb-3  ${styles.membershipCards}`}>
+                            <Card.Body>
+                                <Card.Title className='mb-5 text-uppercase secondary text-center'>3 month plan</Card.Title>
+                                <StaticImage className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-3-month.png' alt='three-month-icon'></StaticImage>
+                                    <h3 className='mb-4 text-center fw-bold '>$329</h3>
+                                    <h6 className='text-center fw-bold fst-italic'>Billed Quarterly</h6>
+                            <BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton>
+                            </Card.Body>
+                        </Card>
                         </Col>
-                        <Col className={`m-3 ${styles.plans}`} sm={{ offset: 3,  span: 4 }} md={2} lg={2} xl={2}>
-                            <Subtitle className='mt-5 text-center text-uppercase secondary'>6 month plan</Subtitle>
-                            <StaticImage className={styles.membershipIcons} src='../../../images/learn/youth-6-month.png' alt='one-month-icon'></StaticImage>
-                            <h3 className='text-center fw-bold '>$600</h3>
-                            <h6 className='text-center fw-bold fst-italic'>Billed Bi-yearly</h6>
-                            <BrandButton className={`justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton>
-                            <hr className=''></hr>
-                            <p>This plan gives you 1 free month</p>
-                        </Col>
-                        <Col className={`m-3 ${styles.plans}`} sm={{  span: 4 }} md={2} lg={2} xl={2}>
-                            <Subtitle className='mt-5 text-center text-uppercase secondary'>12 month plan</Subtitle>
-                            <StaticImage className={styles.membershipIcons} src='../../../images/learn/youth-12-month.png' alt='one-month-icon'></StaticImage>
-                            <h3 className='text-center fw-bold '>$1080</h3>
-                            <h6 className='text-center fw-bold fst-italic'>Billed every 12 months</h6>
-                            <BrandButton className={`justify-content-center ${styles.buttonText} mb-3 text-uppercase `} >join the club</BrandButton>
+                        <Col sm={6} md={3}>
+                        <Card className={`mb-3  ${styles.membershipCards}`}>
+                            <Card.Body>
+                                <Card.Title className='mb-5 text-uppercase secondary text-center'>6 month plan</Card.Title>
+                                <StaticImage className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-6-month.png' alt='six-month-icon'></StaticImage>
+                                    <h3 className='mb-4 text-center fw-bold '>$600</h3>
+                                    <h6 className='text-center fw-bold fst-italic'>Billed Bi-Yearly</h6>
+                            <BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton>
                             <hr></hr>
-                            <p>This plan gives you 3 free months</p>
+                            <p className='text-center'>This plan gives you 1 free month</p>
+                            </Card.Body>
+                        </Card>
+                        </Col>
+                        <Col sm={6} md={3}>
+                        <Card className={`mb-3  ${styles.membershipCards}`}>
+                            <Card.Body>
+                                <Card.Title className='mb-5 text-uppercase secondary text-center'>12 month plan</Card.Title>
+                                <StaticImage className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-12-month.png' alt='twelve-month-icon'></StaticImage>
+                                    <h3 className='mb-4 text-center fw-bold '>$1080</h3>
+                                    <h6 className='text-center fw-bold fst-italic'>Billed every 12 months</h6>
+                            <BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton>
+                            <hr></hr>
+                            <p className='text-center'>This plan gives you 3 free months</p>
+                            </Card.Body>
+                        </Card>
                         </Col>
                     </Row>
                 </Container>

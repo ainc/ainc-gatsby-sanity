@@ -14,6 +14,12 @@
     @include screen-sm {
         font-size: .7rem;
         line-height: 1rem;
+        background-position: 50%;
+    }
+    @include screen-xs {
+        font-size: .7rem;
+        height: 200vw;
+        background-position: 50%;
     }
 }
 
@@ -28,6 +34,41 @@
 }
 .title-text {
     margin-top: 30vh;
+    @include screen-sm {
+        margin-top: 10vh;
+    }
+    @include screen-xs {
+        margin-top: 5vh;
+    }
+}
+
+.course-description {
+    font-size: 1rem;
+    @include screen-sm {
+        font-size: 1.3rem;
+        line-height: 1.6rem;
+        padding-top:50%;
+        margin-top: 25%;
+    }
+    @include screen-xs {
+        padding-top:90%;
+        font-size: .7rem;
+        line-height: 1rem;
+    }
+}
+
+.other-description {
+    font-size: 1rem;
+    @include screen-sm {
+        font-size: 1.3rem;
+        line-height: 1.6rem;
+    }
+    @include screen-xs {
+        font-size: .7rem;
+        line-height: 1rem;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
 }
 
 .club-membership {
@@ -38,7 +79,8 @@
     min-width: 100vw;
     padding-top: 60px;
     @include screen-sm {
-        background-position: center;
+        background-position: bottom;
+        background-size: 100%;
     }
     @include screen-xs {
         background-position: center;
@@ -116,8 +158,16 @@
 }
 
 .membership-icons {
-    min-height: 100px;
-    min-width: 100px;
+    max-height:100px;
+    max-width: 100px;
+    margin: auto;
+}
+
+.membership-cards {
+    margin:auto;
+    @include screen-md {
+        margin-left: 10px;
+    }
 }
 
 .button-text {
@@ -126,4 +176,26 @@
     line-height: 1.2rem;
     width: 90%;
     align-content: center;
+    margin: auto;
+}
+
+
+.other-button {
+    @include screen-md {
+        display: none;
+    }
+    @include screen-lg {
+        display: none;
+    }
+    @include screen-max {
+        display: none;
+    }
+    @include screen-sm {
+        margin: auto;
+        width: 50%;
+    }
+    @include screen-xs {
+        margin:auto;
+        width: 50%;
+    }
 }

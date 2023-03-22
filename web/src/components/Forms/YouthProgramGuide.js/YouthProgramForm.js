@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Container, Col } from "react-bootstrap";
 import BrandButton from '../../../components/UI/BrandButton/BrandButton'
 import Form from 'react-bootstrap/Form'
-import * as styles from './form.module.css'
+import * as styles from './form.module.scss'
 import Card from 'react-bootstrap/Card'
 
 

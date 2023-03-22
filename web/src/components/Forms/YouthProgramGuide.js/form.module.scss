@@ -1,0 +1,23 @@
+// -----------------------------------------------------------------------------
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+// -----------------------------------------------------------------------------
+
+
+.form-container {
+    background-color: #323232;
+    border: inherit;
+}
+
+.form-card {
+    margin-top: 90px;
+    box-shadow: 3px 3px 3px #323232;
+    border: #323232;
+    border-radius: 2%;
+    @include screen-sm {
+        display: none;
+    }
+    @include screen-xs {
+        display: none;
+    }
+}
