@@ -18,8 +18,6 @@ import { navbarBrand } from './Header.module.scss'
 
 
 const Header = () => {
-  const logo_height = 30;
-  const logo_width = 200;
 
   return (
     <Navbar className="sticky-top navbar" variant="dark" expand="lg">
@@ -28,7 +26,7 @@ const Header = () => {
           <Link to="/">
             <StaticImage
               src="../../images/ainc-logo-horizontal-white-text.png"
-              width={logo_width}
+              width={200}
               // height={logo_height}
               className="img-responsive d-inline-block align-top"
               alt="Awesome Inc Logo"
@@ -43,14 +41,13 @@ const Header = () => {
               <Col className="desktop">
                 <Nav.Link href="/">Learn To Code  <AiFillCaretDown size={10}/></Nav.Link>
                 <div className='hover-options'>
-                  <Link to="/learn/youth">Youth Courses</Link>
+                  <Link to="/learn/youth" className='pt-0'>Youth Courses</Link>
                   <Link to="/learn/adults">Adult Courses</Link>
                   <Link to="/learn">Kids Camps</Link>
                   <Link to="/bootcamp">Bootcamp</Link>
                 </div>
               </Col>
             
-            {/* <Nav.Link href="/">Home</Nav.Link> */}
               <Col xs="12" className='mobile'>
                 <NavDropdown title="Learn to Code" id="basic-nav-dropdown">
                   <NavDropdown.Item><Link to="/learn/youth">Youth Courses</Link></NavDropdown.Item>
@@ -59,12 +56,11 @@ const Header = () => {
                   <NavDropdown.Item><Link to="/bootcamp">Bootcamp</Link></NavDropdown.Item>
                 </NavDropdown>
               </Col>
-            {/* </Row>
-            <Row> */}
+
               <Col className="desktop">
                 <Nav.Link href="/">Startups <AiFillCaretDown size={10}/></Nav.Link>
                 <div className='hover-options'>
-                  <Link to="/idea">I Have an Idea</Link>
+                  <Link to="/idea" className='pt-0'>I Have an Idea</Link>
                   <Link to="/fellowship">Startup Accelerator</Link>
                   <Link to="/events/5across">5 Across</Link>
                   <a>Community Yearbook</a> {/*Need to add yearbooks and possibly other assets*/}
@@ -78,12 +74,11 @@ const Header = () => {
                   <NavDropdown.Item>Community Yearbook</NavDropdown.Item> {/*Need to add yearbooks and possibly other assets*/}
                 </NavDropdown>
               </Col>
-            {/* </Row>
-            <Row> */}
+
               <Col className="desktop">
                 <Nav.Link href="/">Workspace <AiFillCaretDown size={10}/></Nav.Link>
                 <div className='hover-options'>
-                  <a href="https://calendly.com/awesometour/30min?month=2023-03" target="_blank">Schedule a Tour</a>
+                  <a href="https://calendly.com/awesometour/30min?month=2023-03" target="_blank" className='pt-0'>Schedule a Tour</a>
                   <Link to="/workspace#become-a-member">Office Space</Link>
                   <Link to="/events">Events</Link>
                 </div>
@@ -95,12 +90,11 @@ const Header = () => {
                   <NavDropdown.Item><Link to="/events">Events</Link></NavDropdown.Item>
                 </NavDropdown>
               </Col>
-            {/* </Row>
-            <Row> */}
+
               <Col className="desktop">
                 <Nav.Link href="/">Web & App Development <AiFillCaretDown size={10}/></Nav.Link>
                 <div className='hover-options'>
-                  <a href="https://apaxsoftware.com/">Web & App Development</a>
+                  <a href="https://apaxsoftware.com/" className='pt-0'>Apax Software</a>
                 </div>
               </Col>
               <Col xs="12" className="mobile">
@@ -108,12 +102,11 @@ const Header = () => {
                   <NavDropdown.Item href="https://apaxsoftware.com/">Web & App Development</NavDropdown.Item>
                 </NavDropdown>
               </Col>
-            {/* </Row>
-            <Row> */}
+
               <Col className="desktop">
                 <Nav.Link href="/">Be Awesome <AiFillCaretDown size={10}/></Nav.Link>
                 <div className='hover-options'>
-                  <Link to="/about">About</Link>
+                  <Link to="/about" className='pt-0'>About</Link>
                   <Link to="/about">Core Values</Link>
                   <Link to="/blog/">Blog</Link>
                   <Link to="/press">Press</Link>

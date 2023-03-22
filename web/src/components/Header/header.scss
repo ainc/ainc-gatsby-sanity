@@ -2,6 +2,7 @@
 @import '../../styles/mixins.scss';
 
 .desktop {
+  
   display: block;
   @include screen-tablet-max {
     display: none;
@@ -32,10 +33,11 @@
     padding: 1%;
     > a {
       @include font-size(8);
-      color: $brand-grey-dark;
+      color: $brand-color2;
       font-weight: 300;
-
+      text-transform: none;
       padding-top: 5%;
+      letter-spacing: 1px;
       &:hover {
         color: $brand-color;
         padding-left: 5px;
@@ -55,54 +57,67 @@
   display: none;
   @include screen-tablet-max {
     display: block;
+    
   }
 }
 
 .navbar {
   background-color: $brand-color2;
   opacity: 0.9;
-  z-index: 100;
+  z-index: 100000;
+  
   // position: relative;
 }
 
 .navbar > .container {
-  > a {
-    @include screen-tablet-max {
-      margin: 0;
-      width: 100%;
-      // border-bottom: 1px solid white;
-    }
-    
+  > span {
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight;
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    animation-duration: 400ms;
+    animation-timing-function: linear;
   }
-  >.navbar-collapse > .navbar-nav > .row > div > .nav-item  {
-    color: white;
-    &:hover > .nav-link{
-      color: $brand-color;
-    }
-    @include screen-tablet-max {
-      border-bottom: 1px solid white;
-    }
-    &.show {
-      > a {
-        padding-bottom: 0;
-      }
-    }
+  >.navbar-collapse > .navbar-nav > .row {
 
-    .dropdown-menu.show {
-      background-color: transparent;
-      border: none;
-      padding-top: 0;
-      > a {
-        color: white;
-        padding: 0px 20px;
-        @include font-size(7);
-        &:hover {
-          color: $brand-color;
-        }  
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight;
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    animation-duration: 400ms;
+    animation-timing-function: linear;
+  
+    > div > .nav-item  {
+      color: white;
+      
+      &:hover > .nav-link{
+        color: $brand-color;
       }
-      // color: white;
+      @include screen-tablet-max {
+        border-bottom: 1px solid white;
+      }
+      &.show {
+        > a {
+          padding-bottom: 0;
+        }
+      }
+
+      .dropdown-menu.show {
+        background-color: transparent;
+        border: none;
+        padding-top: 0;
+        > a {
+          color: white;
+          padding: 0px 20px;
+          @include font-size(7);
+          &:hover {
+            color: $brand-color;
+          }  
+        }
+        // color: white;
+      }
+      
     }
-    
   }
 
   > button {
@@ -145,4 +160,34 @@
   text-transform: uppercase;
   color: #fff;
   letter-spacing: 1px;
+}
+
+
+/*Animation*/
+@-webkit-keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
 }
