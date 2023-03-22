@@ -75,8 +75,8 @@
     animation-name: fadeInRight;
     -webkit-transform-origin: center;
     transform-origin: center;
-    animation-duration: 400ms;
-    animation-timing-function: linear;
+    animation-duration: 600ms;
+    animation-timing-function: ease-in;
   }
   >.navbar-collapse > .navbar-nav > .row {
 
@@ -84,8 +84,8 @@
     animation-name: fadeInRight;
     -webkit-transform-origin: center;
     transform-origin: center;
-    animation-duration: 400ms;
-    animation-timing-function: linear;
+    animation-duration: 600ms;
+    animation-timing-function: ease-in;
   
     > div > .nav-item  {
       color: white;
