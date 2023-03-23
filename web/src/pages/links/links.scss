@@ -1,0 +1,86 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+@media (max-width: 768px) {
+  .brand-button {
+    font-size: 14px;
+    margin-left: 20px;
+    margin-right: 20px;
+    line-height: 1.5;
+  }
+}
+
+.header {
+  background-color: #444444;
+  height: 300px;
+  width: 100%;
+  margin-bottom: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  @include screen-tablet-max {
+    height: 200px;
+  }
+}
+.header::after {
+  content: '';
+  border-top-right-radius: 50% 100%;
+  border-top-left-radius: 50% 100%;
+  position: absolute;
+  bottom: 0;
+  height: 50%;
+  width: 100%;
+  background-color: white;
+  @include screen-tablet-max {
+    border-top-right-radius: 50% 50%;
+    border-top-left-radius: 50% 50%;
+    height: 60%;
+  }
+}
+
+.logo {
+  position: relative;
+  z-index: 2;
+  width: 350px; 
+  height: 350px;
+  @include screen-tablet-max {
+    width: 200px; 
+    height: 200px;
+  }
+}
+
+.links {
+  margin-top: 400px;
+  @include screen-tablet-max {
+    margin-top: 200px;
+  }
+}
+
+.brand-button {
+  width: 1000px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 15px;
+}
+.brand-button:hover {
+  color: black;
+}
+
+.socialsInlineList {
+  justify-content: center;
+  display: flex;
+  margin-top: 50px;
+  margin-right: 40px;
+
+  li {
+    display: inline;
+    padding-left: 10px;
+    padding-right: 5px;
+    font-size: 1.5rem;
+
+    a {
+      color: black;
+    }
+  }
+}
