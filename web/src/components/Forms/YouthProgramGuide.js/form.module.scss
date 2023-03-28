@@ -10,14 +10,27 @@
 }
 
 .form-card {
-    margin-top: 90px;
+    margin-top: 20px;
+    background-size: cover;
     box-shadow: 3px 3px 3px #323232;
     border: #323232;
     border-radius: 2%;
+    font-size: 1rem;
     @include screen-sm {
         display: none;
     }
     @include screen-xs {
         display: none;
+    }
+}
+
+.card-header {
+    background-color: white;
+}
+
+.form-text {
+    font-size: .9rem;
+    @include screen-md {
+        font-size: .6rem;
     }
 }
