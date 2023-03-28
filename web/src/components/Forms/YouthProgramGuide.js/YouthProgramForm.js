@@ -11,27 +11,27 @@ const YouthProgramGuide = ( props ) => {
         <Card className={`${styles.formCard} me-5`}>
 <Form>
     <Container>
-        <Card.Header className=''>Download our program guide for more info
+        <Card.Header className={styles.cardHeader}>Download our program guide for more info
 </Card.Header>
     </Container>
     <Container className={styles.formContainer}>
     <Row>
         <Col>
     <Form.Group className='pt-3 mb-3' constrolId='formFirstName'>
-        <Form.Control type='text' placeholder="First Name"/>
+        <Form.Control className={styles.formText} type='text' placeholder="First Name"/>
     </Form.Group>
     </Col>
     <Col>
     <Form.Group className='pt-3 mb-3' constrolId='formLastName'>
-        <Form.Control type='text' placeholder="Last Name"/>
+        <Form.Control className={styles.formText} type='text' placeholder="Last Name"/>
     </Form.Group>
     </Col>
     </Row>
     <Form.Group className='mb-3' constrolId='formPhoneNumber'>
-        <Form.Control type='text' placeholder="Phone Number"/>
+        <Form.Control className={styles.formText} type='text' placeholder="Phone Number"/>
     </Form.Group>
     <Form.Group className='mb-3' constrolId='formInputEmail'>
-        <Form.Control type='email' placeholder="Email Address"/>
+        <Form.Control className={styles.formText} type='email' placeholder="Email Address"/>
     </Form.Group>
     <BrandButton className='mb-3 text-uppercase'>Download</BrandButton>
     </Container>
