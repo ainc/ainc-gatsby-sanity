@@ -12,7 +12,7 @@ const IndiaHeader = () => {
     return (
         <Navbar className='sticky-top' bg='dark' variant='dark' expand='lg'>
             <Container>
-                <Navbar.Brand href='/' className='w-100 text-uppercase'>
+                <Navbar.Brand href='/india' className='w-100 text-uppercase'>
                     <StaticImage
                     src='../../images/logo.png'
                     width={logo_width}
