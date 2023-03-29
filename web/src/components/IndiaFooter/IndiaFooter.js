@@ -13,7 +13,7 @@ const IndiaFooter = () => {
             <Row>
                 <Col xs md={4}>
                     <Row className='justify-content-center'>
-                    <Link className={styles.aincLogoGap} href='/'>
+                    <Link className={styles.aincLogoGap} href='/india'>
                         <StaticImage src='../../images/ainc-logo-text-triangle-layer-red.png' alt='Awesome Inc Logo' />
                     </Link>
                     </Row>
@@ -34,15 +34,16 @@ const IndiaFooter = () => {
                 <Col xs={6} sm={6} md={2}>
                     <h2 className={styles.infoListTitle}>quicklinks</h2>
                     <ul className={styles.infoList}>
-                        <li>About Us</li>
-                        <li>Core Values</li>
+                        <li><Link to='/india/about'>About Us</Link></li>
+                        <li><Link to='/#core-values'>Core Values</Link></li>
                     </ul>
                 </Col>
                 <Col xs={6} sm={6} md={2}>
                     <h2 className={styles.infoListTitle}>courses</h2>
                     <ul className={styles.infoList}>
-                        <li>Week of Code</li>
-                        <li>Coding Club <small>(Coming Soon)</small></li>
+                        <li><Link href='https://docs.google.com/forms/d/e/1FAIpQLSeXn05oQn5hM3egYp9czGxLd2kPZhcdvUhK0jDrwIc_4Bx5aw/viewform'>
+                            Week of Code</Link></li>
+                        <li><Link to=''>Coding Club <small>(Coming Soon)</small></Link></li>
                     </ul>
                 </Col>
             </Row>
