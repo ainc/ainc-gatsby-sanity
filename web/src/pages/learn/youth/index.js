@@ -84,6 +84,7 @@ const YouthPage = () => {
                                 lgShow={lgShow}
                                 hide={handleClose}
                                 title="Coding Club Program Guide"
+                                bgDark={true}
                                 content={
                                     <Container>
                                         <Form>
