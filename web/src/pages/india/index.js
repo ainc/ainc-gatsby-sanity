@@ -12,7 +12,7 @@ const IndiaPage = () => {
     return (
         <IndiaLayout>
         <Container fluid className={styles.bhopal}>
-        <Col xs={12} sm={12} md={{ span: 7 }} lg={{ span: 6, offset: 1 }} xl={{ span: 3, offset: 1 }}>
+        <Col xs={5} sm={6} md={{ span: 6 }} lg={{ span: 3, offset: 1 }} xl={{ span: 3, offset: 1 }}>
             <Title className={`mb-4 pt-5 text-start text-uppercase text-white`}>bhopal</Title>
             <Subtitle className={`mb-5 text-start text-white`}>In Person Coding Courses for those 9 - 16</Subtitle>
             <Subtitle className={`mt-1 text-start fw-bold`}>Starting Early 2023</Subtitle>            
@@ -20,13 +20,13 @@ const IndiaPage = () => {
             <p className={`text-white mb-5`}>Saturdays: 3-7 PM</p>
             </Col>
             <Row>
-            <Col xs={12} sm={12} md={{ span: 7 }} lg={{ span: 6, offset: 1 }} xl={{ span: 5, offset: 1 }}>
+            <Col xs={12} sm={12} md={{ span: 6 }} lg={{ span: 6, offset: 1 }} xl={{ span: 5, offset: 1 }}>
             <p className={`text-white mb-4 mt-3`}>Our coding school offers students an opportunity to learn how to code from professional 
             software developers, in person, and to do it with like-minded peers. We inspire kids by introducing them to the awesome
              power of coding! Our students experience the joy of building their own games and apps in an engaging and safe space, 
              whether in-person or online. And you'll love it too, knowing your kids are developing a practical skill, building a 
              creative portfolio, and making great friends along the way.</p>
-             <BrandButton className={` ${styles.joinButton}`}>join club now</BrandButton>
+             <a href='https://docs.google.com/forms/d/e/1FAIpQLSeZR3oNFEjkpWVP4Bdmqj1eJFee5O466K7_UAFowuRVPKJzvg/viewform?vc=0&c=0&w=1&flr=0'><BrandButton className={` ${styles.joinButton}`}>join club now</BrandButton></a>
              </Col>
              </Row>
              <Col sm={6} md={{ span: 5 }} lg={{ span: 4, offset: 1 }} xl={{ span: 3, offset: 3 }}>
@@ -99,7 +99,7 @@ const IndiaPage = () => {
                 <Title className={`text-uppercase mb-4 mt-3`}>keep your kids engaged</Title>
                 <p className={` mb-3`}>Your kids will have the support of our instructors - 
                 professional coders just a step, or click away!</p>
-                <a href='https://www.awesomeinc.org/india/about'><BrandButton>about us</BrandButton></a> 
+                <a href='https://www.awesomeinc.org/india/about'><BrandButton className='mb-3'>about us</BrandButton></a> 
                 </Col>
             </Row>
             </Container>
