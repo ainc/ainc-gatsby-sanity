@@ -1,0 +1,76 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.bhopal {
+    background-image: url(../../images/india/youth-header-india.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    background-position: 30% center;
+    width: 100vw;
+    height: 80vh;
+}
+
+.join-button {
+    @include screen-md {
+        display: none;
+    }
+    @include screen-lg {
+        display: none;
+    }
+    @include screen-max {
+        display: none;
+    }
+    @include screen-sm {
+        margin: auto;
+        width: 50%;
+        align-items: start;
+    }
+    @include screen-xs {
+        margin:auto;
+        width: 75%;
+        padding: 1px;
+        margin-top: 0;
+        align-items: start;
+    }
+}
+
+.phone {
+    width: 50%;
+    @include screen-sm {
+        display:none;
+    }
+    @include screen-xs {
+        display: none;
+    }
+}
+
+.cards {
+    background-color: white;
+    padding: 0;
+}
+// .engaged {
+//     background-image: url(../../images/learn/youth-engaged-bg.png);
+// }
+
+.questions {
+    background-image: url(../../images/india/questions.jpeg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center 35%;
+    min-width: 100vw;
+    padding-top: 110px;
+    padding-bottom: 40px;
+    min-height: 50vh;
+    display: fluid;
+}
+
+.faq-button {
+    margin-top: 100px;
+}
+
+.cardHeaders {
+    background-color: white;
+    background-size: cover;
+    margin: 0;
+}
