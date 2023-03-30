@@ -1,0 +1,93 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.header {
+    background-color: #323232;
+    height: 250px;
+    margin-bottom: 50px;
+    width: 100%;
+    @include screen-tablet-max {
+        height: 300px;
+        p {
+            font-size: 17px;
+            margin-left: 30px;
+            margin-right: 30px;
+            line-height: 25px;
+        }
+    }
+}
+
+.open-role-links {
+    font-size: 17px;
+    line-height: 10px;
+    @include screen-tablet-max {
+        font-size: 17px;
+        line-height: 10px;
+    }
+}
+
+.careerTitle {
+    font-size: 25px;
+    @include screen-tablet-max {
+        font-size: 25px;
+    }
+}
+
+.careerBody {
+    font-size: 15px;
+    @include screen-tablet-max {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    p {
+        font-size: 15px;
+        line-height: 30px;
+        @include screen-tablet-max {
+            font-size: 20px;
+            line-height: 30px;
+        }
+    }
+}
+
+.manager_email {
+    font-size: 15px;
+}
+
+.brand-button {
+    color: white;
+    font-weight: bold;
+}
+
+.brand-button:hover {
+    color: black;
+    padding-left: 15px;
+}
+
+.footer {
+    background-color: #D1D2D4;
+    height: 300px;
+    width: 100%;
+    margin-top: 50px;
+    @include screen-tablet-max {
+        height: 450px;
+    }
+    h4 {
+        font-weight: bold;
+        text-align: center;
+        margin-top: 50px;
+        @include screen-tablet-max {
+            font-size: 25px;
+            margin-left: 30px;
+            margin-right: 30px;
+            line-height: 40px;
+        }
+        
+    }
+    p {
+        color: black;
+        text-align: center;
+        @include screen-tablet-max {
+            font-size: 15px;
+        }
+    }
+}
