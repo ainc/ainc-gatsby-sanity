@@ -14,8 +14,11 @@ const IndiaAbout = () => {
                     <Title className='mt-5 mb-4 text-center text-uppercase'>we exist to help people to learn to code.</Title>
                     <p className='text-center mb-5'>Awesome Inc was founded on the basis of the "give-first" mentality. 
                     Awesome Inc started in 2009 and has grown beyond the US to help kids learn to code.</p>
-                    <hr></hr>
+                    
                 </Row>
+                </Container>
+                <hr></hr>
+                <Container>
                 <Row>
                     <Subtitle className='text-center my-4'>Meet the team</Subtitle>
                     <Col sm={6} md={{span:5, offset:2}} lg={{span: 4, offset: 2}}>
