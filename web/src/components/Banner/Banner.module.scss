@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------------
+@import "../../styles/variables";
+@import "../../styles/mixins"; 
+// -----------------------------------------------------------------------------
+
+
 .banner {
   text-align: center;
   padding: 5px;
@@ -6,6 +12,9 @@
   position: relative;
   z-index: 10;
   p {
+    @include screen-tablet-max {
+      font-size: 14px;
+    }
     margin: 0;
     font-weight: normal;
   }
