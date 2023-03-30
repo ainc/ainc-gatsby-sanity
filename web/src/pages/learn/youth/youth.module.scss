@@ -162,12 +162,12 @@
 }
 
 .engaged-title {
-    color: white;
+    color: white !important;
     @include screen-sm {
-        color: $brand-color2;
+        color: $brand-color2 !important;
     }
     @include screen-xs {
-        color: $brand-color2;
+        color: $brand-color2 !important;
     }
 }
 
@@ -219,13 +219,13 @@
 
 .other-button {
     @include screen-md {
-        display: none;
+        display: none !important;
     }
     @include screen-lg {
-        display: none;
+        display: none !important;
     }
     @include screen-max {
-        display: none;
+        display: none !important;
     }
     @include screen-sm {
         margin: auto;
@@ -243,4 +243,9 @@
 
 .modal {
     background-color: $brand-color2;
+}
+
+.modal-container {
+    background-color: $brand-color2;
+    padding: 0;
 }
