@@ -3,3 +3,10 @@
     max-width: 150px;
     max-height: 150px;
 }
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0 !important;
+    border-top: 3px solid #eee !important;
+}
