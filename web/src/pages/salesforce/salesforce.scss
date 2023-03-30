@@ -1,0 +1,125 @@
+// -----------------------------------------------------------------------------
+@import "../../styles/variables.scss";
+@import "../../styles/mixins"; 
+// -----------------------------------------------------------------------------
+
+#header {
+    .header-section {
+        background-image: url("./images/intro-to-web-hero.png");
+        background-repeat: no-repeat;
+        height: 85vh;
+        width: 100vw;
+        background-position: center top;
+        background-size: contain;
+    }
+    
+    .header-text {
+        margin-top: 250px;
+        color: black;
+        text-align: center;
+    }
+}
+
+#upcoming-program-dates {
+    margin-bottom: 50px;
+    .title {
+        font-weight: bolder;
+        color: white;
+        text-align: center;
+        margin-top: 15px;
+    }
+    .dates {
+        text-align: center;
+        padding-top: 60px;
+        padding-bottom: 50px;
+
+    }
+    .winter-dates {
+        margin-left: 300px;
+        border-right: 2px solid red;
+        color: white;
+    }
+    .spring-dates {
+        margin-right: 300px;
+        color: white;
+    }
+    .button {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+}
+
+
+#why-salesforce {
+    .title, .paragraph {
+        text-align: right;
+    }
+    .arrow-container {
+        width: 150px;
+        height: 100px;
+        // margin-left: 640px;
+        margin-top: 20px;
+    }
+}
+
+#what-salesforce {
+    background-image: url("./images/red-wavy-bg.png");
+    background-size: cover;
+    width: 100vw;
+    padding-bottom: 5vh;
+    padding-top: 5vh;
+    margin-bottom: 5vh;
+
+    .laptop-image {
+        width: 600px;
+        height: 350px;
+    }
+}
+
+#course-outcomes {
+    background-image: url("./images/intro-to-web-hero-square.png");
+    background-size: cover;
+    height: 50vh;
+    width: 100vw;
+
+    .laptop-image {
+        width: 550px; 
+        height: 300px;
+        margin-top: 40px;
+    }
+}
+
+#FAQs {
+    .accordion-item:hover {
+        box-shadow: 1px 1px 5px 1px #c12029;
+    }
+    .accordion-button:hover {
+        background-color: rgb(231, 228, 228);
+        box-shadow: none;
+        transform: translateX(10px);
+    }
+    .accordion-button {
+        box-shadow: none;
+        transition: transform 0.3s ease-out;
+    }
+}
+
+#apply-now-button {
+    background-image: url("./images/two-arrows.png");
+    background-color: #C12029;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+
+    .button:hover {
+        color: lightgray;
+    }
+}
+
+#questions {
+    background-image: url("./images/faq-bg.jpeg");
+    background-size: cover;
+    height: 50vh;
+    width: 100vw;
+}

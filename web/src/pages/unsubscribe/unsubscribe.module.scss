@@ -1,0 +1,10 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+
+.message {
+    font-size: medium;
+    @include screen-tablet-max {
+        font-size: small;
+    }
+}
