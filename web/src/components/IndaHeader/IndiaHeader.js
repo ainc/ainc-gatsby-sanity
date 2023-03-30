@@ -23,7 +23,7 @@ const IndiaHeader = () => {
                     />
                     Awesome Inc
                 </Navbar.Brand>
-                <Link to='/about/'>
+                <Link to='/india/about'>
                     About
                 </Link>
             </Container>
