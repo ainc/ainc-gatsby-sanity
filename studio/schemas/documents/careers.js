@@ -36,6 +36,11 @@ export default {
             }
           ]
       },
+      {
+        name: 'linkToForm',
+        type: 'url',
+        title: 'Link To Application Form',
+      },
   ],
   preview: {
       select: {
