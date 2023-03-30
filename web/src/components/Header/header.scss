@@ -1,8 +1,12 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
+.hello {
+  background-color: $brand-color;
+  color: white;
+}
+
 .desktop {
-  
   display: block;
   @include screen-tablet-max {
     display: none;
@@ -86,9 +90,29 @@
     transform-origin: center;
     animation-duration: 600ms;
     animation-timing-function: ease-in;
+
+    .dropdown {
+      display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        width: 50px;
+        >button {
+          border: none;
+        }
+    }
   
-    > div > .nav-item  {
-      color: white;
+    > div {
+      
+
+      div a{
+        // color: white;
+          
+          @include font-size(7);
+          &:hover {
+            padding: 0px 20px;
+            color: $brand-color;
+          }  
+      }
       
       &:hover > .nav-link{
         color: $brand-color;
@@ -103,6 +127,10 @@
       }
 
       .dropdown-menu.show {
+        // position: absolute;
+        position: relative;
+        left: -300px;
+        // right:90px;
         background-color: transparent;
         border: none;
         padding-top: 0;
