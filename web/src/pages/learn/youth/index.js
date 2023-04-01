@@ -86,38 +86,39 @@ const YouthPage = () => {
                             <Title className={` ${styles.engagedTitle} mt-5 text-uppercase text-start`}>keep your kids engaged</Title>
                             <p className='text-start'>Your kids will have the support of our instructors - professional coders just a step, or a click away!</p>
                             <BrandButton onClick={handleShow} className='mb-5 text-uppercase'>meet the team</BrandButton>
-
-                            <ModalCustom
-                                lgShow={lgShow}
-                                hide={handleClose}
-                                title="Coding Club Program Guide"
-                                content={
-                                    <Container>
-                                        <Form>
-                                            <Container className={styles.modal}>
-                                                <Row className=''>
-                                                    <Form.Group className='pt-3 ' constrolId='formFirstName'>
-                                                        <Form.Control type='text' placeholder="First Name" required/>
-                                                    </Form.Group>
-                                                    <Col>
-                                                        <Form.Group className='pt-3 mb-3' constrolId='formLastName'>
-                                                            <Form.Control className='mb-3' type='text' placeholder="Last Name" required/>
+                            <Container className={styles.modalContainer}>
+                                <ModalCustom 
+                                    lgShow={lgShow}
+                                    hide={handleClose}
+                                    title="Coding Club Program Guide"
+                                    bgDark={true}
+                                    content={
+                                        <Container>
+                                            <Form>
+                                                <Container className={styles.modal}>
+                                                    <Row className=''>
+                                                        <Form.Group className='pt-3 ' constrolId='formFirstName'>
+                                                            <Form.Control type='text' placeholder="First Name" required/>
                                                         </Form.Group>
-                                                    </Col>
-                                                </Row>
-                                                <Form.Group className='mb-3' constrolId='formPhoneNumber'>
-                                                    <Form.Control className='mb-3' type='text' placeholder="Phone Number" required/>
-                                                </Form.Group>
-                                                <Form.Group className='mb-3' constrolId='formInputEmail'>
-                                                    <Form.Control className='mb-3' type='email' placeholder="Email Address" required/>
-                                                </Form.Group>
-                                                <BrandButton className='mb-3 text-uppercase'>Download</BrandButton>
-                                            </Container>
-                                        </Form>
-                                    </Container>
-                                }
-                            />
-
+                                                        <Col>
+                                                            <Form.Group className='pt-3 mb-3' constrolId='formLastName'>
+                                                                <Form.Control className='mb-3' type='text' placeholder="Last Name" required/>
+                                                            </Form.Group>
+                                                        </Col>
+                                                    </Row>
+                                                    <Form.Group className='mb-3' constrolId='formPhoneNumber'>
+                                                        <Form.Control className='mb-3' type='text' placeholder="Phone Number" required/>
+                                                    </Form.Group>
+                                                    <Form.Group className='mb-3' constrolId='formInputEmail'>
+                                                        <Form.Control className='mb-3' type='email' placeholder="Email Address" required/>
+                                                    </Form.Group>
+                                                    <BrandButton className='mb-3 text-uppercase'>Download</BrandButton>
+                                                </Container>
+                                            </Form>
+                                        </Container>
+                                    }
+                                />
+                            </Container>
                         </Col>
                     </Row>
                 </Container>

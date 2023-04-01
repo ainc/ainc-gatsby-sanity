@@ -40,7 +40,7 @@ const ModalCustom = (props) => {
           <CloseButton variant="white" className={styles.closeBtn} onClick={props.hide} />
         </Modal.Header>
 
-        <Modal.Body className="">
+        <Modal.Body className={ props.bgDark === true  ? `` : `bg-white`}>
           {props.content}
         </Modal.Body>
       </Modal>
