@@ -21,25 +21,32 @@ const YouthPage = () => {
         <Layout>
             <main>
                 <Container className={` ${styles.youth}`}>
-                    <Row>
-
-
-                        <Col xs={12} sm={12} md={{ span: 7 }} lg={{ span: 6, offset: 1 }} xl={{ span: 5, offset: 1 }}>
+                    <Row className="h-100"> 
+                        <Col xs={12} sm={12} md={{ span: 7 }} lg={{ span: 6, offset: 1 }} xl={{ span: 5, offset: 1 }} className='px-0'>
                             <section className={styles.topSection}>
                                 <Title className={`mb-4 mt-5 text-start text-uppercase text-white ${styles.titleText}`}>youth</Title>
                                 <Subtitle className='fst-italic ontext-start text-white'>Coding Courses</Subtitle>
                                 <Subtitle className='fst-italic ontext-start text-white'>Ages 9 - 16</Subtitle>
                             </section>
-                            <p className={` ${styles.courseDescription} text-start`}>The coding club offers students an oppurtunity to learn how to code from professional software developers and to do it with like-minded peers.</p>
-                            <p className={` ${styles.otherDescription} text-start`}>We inspire kids by introducing them to the awesome power of coding! Our students experience the joy of building their own games and apps
-                                in an engaging and safe space, whether in-person or online. And you'll love it too, knowing your kids are developing a practical skill, building a creative portfolio,
-                                and making great friends along the way.</p>
+                            <Container>
+                                <Row>
+                                    <Col xs={9} md={10} lg={10} xl={10} className='p-0'>
+                                    <p className={` ${styles.courseDescription} text-start`}>The coding club offers students an oppurtunity to learn how to code from professional software developers and to do it with like-minded peers.</p>
+                                    <p className={` ${styles.otherDescription} text-start`}>We inspire kids by introducing them to the awesome power of coding! Our students experience the joy of building their own games and apps
+                                        in an engaging and safe space, whether in-person or online. And you'll love it too, knowing your kids are developing a practical skill, building a creative portfolio,
+                                        and making great friends along the way.</p>
+                                    </Col>
+                                </Row>
+                            </Container>
+                            
                         </Col>
-                        <Col sm={6} md={{ span: 5 }} lg={{ span: 4, offset: 1 }} xl={{ span: 3, offset: 3 }}>
-                            <YouthProgramGuide></YouthProgramGuide>
+                        <Col sm={6} md={{ span: 5 }} lg={{ span: 4, offset: 1 }} xl={{ span: 3, offset: 3 }} className='position-relative'>
+                            <div className={styles.programGuide}>
+                                <YouthProgramGuide/>
+                            </div>
                         </Col>
-                        <Row>
-                            <BrandButton className={` ${styles.otherButton}`}>program guide</BrandButton>
+                        <Row className='px-auto'>
+                            <BrandButton className={`d-block d-md-none ${styles.otherButton}`} onClick={() => lgShow === true ? setLgShow(false) : setLgShow(true)}>program guide</BrandButton>
                         </Row>
                     </Row>
                 </Container>
@@ -48,8 +55,8 @@ const YouthPage = () => {
                         <Col sm={{ span: 4 }} md={{ offset: 0, span: 4 }} lg={{ span: 5, offset: 1 }} xl={{ offset: 1, span: 4 }} >
                             <StaticImage className={styles.phone} src='../../../images/learn/header-phone.png' alt='phone'></StaticImage>
                         </Col>
-                        <Col sm={12} md={8} lg={6} xl={6}>
-                            <Title className='mt-4 text-uppercase text-start'>why should my child learn to code?</Title>
+                        <Col sm={12} md={8} lg={6} xl={6} className='mt-3'>
+                            <Title className={styles.whyLearn}>why should my child learn to code?</Title>
                             <p className='text-start'>Technology is all around us. Whether you are an app developer or an English professor, you will utilize technology in your daily work.
                                 Awesome Inc exists to take your child's screen time and turn it into career-skill time. Our courses increase communication, public speaking, organization,
                                 and social skills in a fun learning environment.</p>
@@ -88,21 +95,21 @@ const YouthPage = () => {
                                     <Container>
                                         <Form>
                                             <Container className={styles.modal}>
-                                                <Row>
+                                                <Row className=''>
                                                     <Form.Group className='pt-3 ' constrolId='formFirstName'>
-                                                        <Form.Control type='text' placeholder="First Name" />
+                                                        <Form.Control type='text' placeholder="First Name" required/>
                                                     </Form.Group>
                                                     <Col>
                                                         <Form.Group className='pt-3 mb-3' constrolId='formLastName'>
-                                                            <Form.Control className='mb-3' type='text' placeholder="Last Name" />
+                                                            <Form.Control className='mb-3' type='text' placeholder="Last Name" required/>
                                                         </Form.Group>
                                                     </Col>
                                                 </Row>
                                                 <Form.Group className='mb-3' constrolId='formPhoneNumber'>
-                                                    <Form.Control className='mb-3' type='text' placeholder="Phone Number" />
+                                                    <Form.Control className='mb-3' type='text' placeholder="Phone Number" required/>
                                                 </Form.Group>
                                                 <Form.Group className='mb-3' constrolId='formInputEmail'>
-                                                    <Form.Control className='mb-3' type='email' placeholder="Email Address" />
+                                                    <Form.Control className='mb-3' type='email' placeholder="Email Address" required/>
                                                 </Form.Group>
                                                 <BrandButton className='mb-3 text-uppercase'>Download</BrandButton>
                                             </Container>

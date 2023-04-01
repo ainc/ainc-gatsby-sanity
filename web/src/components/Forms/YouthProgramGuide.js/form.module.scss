@@ -16,6 +16,7 @@
     border: #323232;
     border-radius: 2%;
     font-size: 1rem;
+    width: fit-content;
     @include screen-sm {
         display: none;
     }
@@ -26,6 +27,7 @@
 
 .card-header {
     background-color: white;
+    white-space: nowrap;
 }
 
 .form-text {
