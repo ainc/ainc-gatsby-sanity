@@ -7,39 +7,53 @@ import * as styles from './india.module.scss'
 import IndiaLayout from '../../components/IndiaLayout/IndiaLayout'
 import BrandButton from '../../components/UI/BrandButton/BrandButton'
 import Card from 'react-bootstrap/Card'
+import YouthProgramGuide from '../../components/Forms/YouthProgramGuide.js/YouthProgramForm.js';
 
 const IndiaPage = () => {
     return (
         <IndiaLayout>
         <Container fluid className={styles.bhopal}>
-        <Col xs={5} sm={6} md={{ span: 6 }} lg={{ span: 3, offset: 1 }} xl={{ span: 3, offset: 1 }}>
-            <Title className={`mb-4 pt-5 text-start text-uppercase text-white`}>bhopal</Title>
-            <Subtitle className={`mb-5 text-start text-white`}>In Person Coding Courses for those 9 - 16</Subtitle>
-            <Subtitle className={`mt-1 text-start fw-bold`}>Starting Early 2023</Subtitle>            
-            <p className={`text-white mt-2 mb-1`}>Wednesdays: 4-7 PM</p>
-            <p className={`text-white mb-5`}>Saturdays: 3-7 PM</p>
+        <section className={styles.topSection}>
+            <Row className='h-100'>
+        <Col xs={9} sm={6} md={{ span: 6 }} lg={{ span: 4, offset: 0 }} xl={{ span: 3, offset: 1 }}>
+            
+            <Title className={`${styles.title} ms-1 mb-5 text-start text-uppercase text-white`}>bhopal</Title>
+            <Subtitle className={`mb-2 text-start ms-1 text-white ${styles.subtitle}`}>In Person Coding Courses for those 9 - 16</Subtitle>
+            <Subtitle className={`mt-1 text-start ms-1 fw-bold ${styles.subtitle}`}>Starting Early 2023</Subtitle>            
+            
+            <p className={`text-white ms-1 mt-3 mb-1`}>Wednesdays: 4-7 PM</p>
+            <p className={`text-white ms-1 mb-0`}>Saturdays: 3-7 PM</p>
+            
             </Col>
             <Row>
-            <Col xs={12} sm={12} md={{ span: 6 }} lg={{ span: 6, offset: 1 }} xl={{ span: 5, offset: 1 }}>
-            <p className={`text-white mb-4 mt-3`}>Our coding school offers students an opportunity to learn how to code from professional 
+            <Col sm={12} md={{ span: 7 }} lg={{ span: 8, offset: 0 }} xl={{ span: 5, offset: 1 }}>
+            <p className={`text-white ms-1 ${styles.description}`}>Our coding school offers students an opportunity to learn how to code from professional 
             software developers, in person, and to do it with like-minded peers. We inspire kids by introducing them to the awesome
              power of coding! Our students experience the joy of building their own games and apps in an engaging and safe space, 
              whether in-person or online. And you'll love it too, knowing your kids are developing a practical skill, building a 
              creative portfolio, and making great friends along the way.</p>
              <a href='https://docs.google.com/forms/d/e/1FAIpQLSeZR3oNFEjkpWVP4Bdmqj1eJFee5O466K7_UAFowuRVPKJzvg/viewform?vc=0&c=0&w=1&flr=0'><BrandButton className={` ${styles.joinButton}`}>join club now</BrandButton></a>
              </Col>
-             </Row>
-             <Col sm={6} md={{ span: 5 }} lg={{ span: 4, offset: 1 }} xl={{ span: 3, offset: 3 }}>
-             {/* program guide will go here */}
+             <Col sm={6} md={{ span: 5 }} lg={{ span: 3, offset: 1 }} xl={{ span: 3, offset: 3 }}>
+             <div className={styles.programGuide}>
+                <YouthProgramGuide/>
+             </div>
              </Col>
+             
+             <Col sm={{ span: 4 }} md={{ offset: 0, span: 4 }} lg={{ span: 5, offset: 1 }} xl={{ offset: 1, span: 4 }} >
+                    <StaticImage className={styles.phone} src='../../../images/learn/header-phone.png' alt='phone'></StaticImage>
+                </Col>
+             </Row>
+             </Row>
+             </section>
         </Container>
         <Container>
             <Row>
-                <Col sm={{ span: 4 }} md={{ offset: 0, span: 4 }} lg={{ span: 5, offset: 1 }} xl={{ offset: 1, span: 4 }} >
+                {/* <Col sm={{ span: 4 }} md={{ offset: 0, span: 4 }} lg={{ span: 5, offset: 1 }} xl={{ offset: 1, span: 4 }} >
                     <StaticImage className={styles.phone} src='../../../images/learn/header-phone.png' alt='phone'></StaticImage>
-                </Col>
-                <Col sm={12} md={8} lg={6} xl={6}>
-                    <Title className='mt-4 text-uppercase text-start'>why should my child learn to code?</Title>
+                </Col> */}
+                <Col sm={12} md={{ offset: 3, span: 9}} lg={{offset:4, span: 8}} xl={6}>
+                    <Title className={` ${styles.whyCode} text-uppercase text-start`}>why should my child learn to code?</Title>
                     <p className='text-start'>Technology is all around us. Whether you are an app developer or an English professor, 
                     you will utilize technology in your daily work. Awesome Inc exists to take your child's screen time and turn it 
                     into career-skill time. Our courses increase communication, public speaking, organization, and social skills in a 
@@ -96,7 +110,7 @@ const IndiaPage = () => {
                 <StaticImage className='mt-3 mb-5' src='../../images/india/youth-computer-india.png' alt='laptop'></StaticImage>
                 </Col>
                 <Col sm={{ offset: 2, span: 8 }} md={{ span: 5 }} lg={{ span: 4, offset: 1 }} xl={{ span: 4, offset: 1 }}>
-                <Title className={`text-uppercase mb-4 mt-3`}>keep your kids engaged</Title>
+                <Title className={`text-uppercase mb-4 mt-5 ${styles.engagedTitle}`}>keep your kids engaged</Title>
                 <p className={` mb-3`}>Your kids will have the support of our instructors - 
                 professional coders just a step, or click away!</p>
                 <a href='https://www.awesomeinc.org/india/about'><BrandButton className='mb-3'>about us</BrandButton></a> 
