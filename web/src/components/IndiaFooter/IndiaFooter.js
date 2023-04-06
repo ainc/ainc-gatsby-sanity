@@ -11,7 +11,7 @@ const IndiaFooter = () => {
         <section className={styles.footerBackground}>
         <Container>
             <Row>
-                <Col xs md={4}>
+                <Col xs md={7} lg={6}>
                     <Row className='justify-content-center'>
                     <Link className={styles.aincLogoGap} href='/india'>
                         <StaticImage src='../../images/ainc-logo-text-triangle-layer-red.png' alt='Awesome Inc Logo' />
