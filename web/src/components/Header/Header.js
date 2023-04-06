@@ -60,7 +60,6 @@ const Header = () => {
             <StaticImage
               src="../../images/ainc-logo-horizontal-white-text.png"
               width={200}
-              // height={logo_height}
               className="img-responsive d-inline-block align-top"
               alt="Awesome Inc Logo"
               loading="eager"
@@ -70,21 +69,19 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" className='text-white shadow-none'/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            {/* <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around"> */}
-              <Col className="desktop">
-                <Nav.Link href="/" className="text--white">Learn To Code  <AiFillCaretDown size={10}/></Nav.Link>
-                <div className='hover-options'>
-                  <Link to="/learn/youth" className='pt-0'>Youth Courses</Link>
-                  <Link to="/learn/adults">Adult Courses</Link>
-                  <Link to="/learn">Kids Camps</Link>
-                  <Link to="/bootcamp">Bootcamp</Link>
-                </div>
-              </Col>
-              {/* </Row> */}
+            <Col className="desktop">
+              <Nav.Link href="/" className="text--white">Learn To Code  <AiFillCaretDown size={10}/></Nav.Link>
+              <div className='hover-options'>
+                <Link to="/learn/youth" className='pt-0'>Youth Courses</Link>
+                <Link to="/learn/adults">Adult Courses</Link>
+                <Link to="/learn">Kids Camps</Link>
+                <Link to="/bootcamp">Bootcamp</Link>
+              </div>
+            </Col>
             
               
-              <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
-                <Navbar className="sticky-top navbar" variant="dark" expand="lg" expanded={active === "Learn To Code" && open === true ? true : false}>
+            <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
+              <Navbar className="sticky-top navbar" variant="dark" expand="lg" expanded={active === "Learn To Code" && open === true ? true : false}>
                 <Container className='border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1'>
                   <Navbar.Brand className={navbarBrand}>
                     <Link to="/learn">
