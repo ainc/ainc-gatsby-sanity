@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import styled from "styled-components"
 import { AiFillCaretDown } from "react-icons/ai";
-
+import { VscClose, VscAdd } from "react-icons/vsc";
 import "./header.scss"
 import "../../styles/main.scss"
 import { 
@@ -67,12 +67,12 @@ const Header = () => {
             />
           </Link>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className='text-white shadow-none'/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
+            {/* <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around"> */}
               <Col className="desktop">
-                <Nav.Link href="/">Learn To Code  <AiFillCaretDown size={10}/></Nav.Link>
+                <Nav.Link href="/" className="text--white">Learn To Code  <AiFillCaretDown size={10}/></Nav.Link>
                 <div className='hover-options'>
                   <Link to="/learn/youth" className='pt-0'>Youth Courses</Link>
                   <Link to="/learn/adults">Adult Courses</Link>
@@ -80,157 +80,170 @@ const Header = () => {
                   <Link to="/bootcamp">Bootcamp</Link>
                 </div>
               </Col>
+              {/* </Row> */}
             
               
-              <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 px-2 px-2'>
-                <Col xs="12" className="d-flex ">
-                  <Col xs="9" className="mobile d-flex align-items-center text-white">
-                    <Link href="/learn">Learn to Code</Link>
-                  </Col>
-                  <Col xs="3" className="d-sm-none d-flex text-white button p-2 justify-content-center">
-                    <button className='w-75 h-100 my-auto bg-transparent border border-1 border-primary rounded-2' onClick={() => handleClick("Learn to Code")}>
-                        +
-                    </button>
-                  </Col>
-                </Col>
-
-                <Col xs={{span: 10, offset: 1}} className={`${active === "Learn to Code" && open === true ? "d-flex flex-column" : "d-none"} pb-2`}>
-                  <Link to="/learn/youth">Youth Courses</Link>
-                  <Link to="/learn/adults">Adult Courses</Link>
-                  <Link to="/learn">Kids Camps</Link>
-                  <Link to="/bootcamp">Bootcamp</Link>
-                </Col>
-              </Row>
-
-
-              <Col className="desktop">
-                <Nav.Link href="/">Startups <AiFillCaretDown size={10}/></Nav.Link>
-                <div className='hover-options'>
-                  <Link to="/idea" className='pt-0'>I Have an Idea</Link>
-                  <Link to="/fellowship">Startup Accelerator</Link>
-                  <Link to="/events/5across">5 Across</Link>
-                  <a>Community Yearbook</a> {/*Need to add yearbooks and possibly other assets*/}
-                </div>
-              </Col>
-
-              <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 px-2'>
-                <Col xs="12" className="d-flex">
-                  <Col xs="9" className="mobile d-flex align-items-center text-white">
-                    <Link href="/about">Startups</Link>
-                  </Col>
-                  <Col xs="3" className="d-sm-none d-flex text-white button p-2 justify-content-center">
-                    <button className='w-75 h-100 my-auto bg-transparent border border-1 border-primary rounded-2' onClick={() => handleClick("Startups")}>
-                        +
-                    </button>
-                  </Col>
-                </Col>
-
-                <Col xs={{span: 10, offset: 1}} className={`${active === "Startups" && open === true ? "d-flex flex-column" : "d-none"} pb-2`}>
-                  <Link to="/idea">I Have an Idea</Link>
-                  <Link to="/fellowship">Startup Accelerator</Link>
-                  <Link to="/events/5across">5 Across</Link>
-                  <Link to="#">Community Yearbook</Link> {/*Need to add yearbooks and possibly other assets*/}
-                </Col>
-              </Row>
-
-              <Col className="desktop">
-                <Nav.Link href="/">Workspace <AiFillCaretDown size={10}/></Nav.Link>
-                <div className='hover-options'>
-                  <a href="https://calendly.com/awesometour/30min?month=2023-03" target="_blank" className='pt-0'>Schedule a Tour</a>
-                  <Link to="/workspace#become-a-member">Office Space</Link>
-                  <Link to="/events">Events</Link>
-                </div>
-              </Col>
-
-              <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 px-2'>
-                <Col xs="12" className="d-flex">
-                  <Col xs="9" className="mobile d-flex align-items-center text-white">
-                    <Link href="/wrokspace">Workspace</Link>
-                  </Col>
-                  <Col xs="3" className="d-sm-none d-flex text-white button p-2 justify-content-center">
-                    <button className='w-75 h-100 my-auto bg-transparent border border-1 border-primary rounded-2' onClick={() => handleClick("Workspace")}>
-                        +
-                    </button>
-                  </Col>
-                </Col>
-
-                <Col xs={{span: 10, offset: 1}} className={`${active === "Workspace" && open === true ? "d-flex flex-column" : "d-none"} pb-2`}>
-                  <a href="/https://calendly.com/awesometour/30min?month=2023-03" target="_blank">Schedule a Tour</a>
-                  <Link to="/workspace#become-a-member">Office Space</Link>
-                  <Link to="/events">Events</Link>
-                  <Link to="#">Community Yearbook</Link> {/*Need to add yearbooks and possibly other assets*/}
-                </Col>
-              </Row>
-
-              {/* <Col xs="12" className="mobile" show={active === "Workspace"} onClick={() => {active === "Workspace" ? setActive("") : setActive("Workspace")}}>
-                <NavDropdown title="Workspace" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="https://calendly.com/awesometour/30min?month=2023-03" target="_blank">Schedule a Tour</NavDropdown.Item>
-                  <NavDropdown.Item><Link to="/workspace#become-a-member">Office Space</Link></NavDropdown.Item>
-                  <NavDropdown.Item><Link to="/events">Events</Link></NavDropdown.Item>
-                </NavDropdown>
-              </Col> */}
-
-              <Col className="desktop">
-                <Nav.Link href="/">Web & App Development <AiFillCaretDown size={10}/></Nav.Link>
-                <div className='hover-options'>
-                  <a href="https://apaxsoftware.com/" className='pt-0'>Apax Software</a>
-                </div>
-              </Col>
-
-              <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 px-2'>
-                <Col xs="12" className="d-flex">
-                  <Col xs="9" className="mobile d-flex align-items-center text-white">
-                    <a href="/https://apaxsoftware.com/" target="_blank">Web & App Development</a>
-                  </Col>
-                  <Col xs="3" className="d-sm-none d-flex text-white button p-2 justify-content-center">
-                    <button className='w-75 h-100 my-auto bg-transparent border border-1 border-primary rounded-2' onClick={() => handleClick("Web & App Development")}>
-                        +
-                    </button>
-                  </Col>
-                </Col>
-
-                <Col xs={{span: 10, offset: 1}} className={`${active === "Web & App Development" && open === true ? "d-flex flex-column" : "d-none"} pb-2`}>
-                  <a href="/https://apaxsoftware.com/" target="_blank">Web & App Development</a>
-                </Col>
-              </Row>
-
-              <Col className="desktop">
-                <Nav.Link href="/">Be Awesome <AiFillCaretDown size={10}/></Nav.Link>
-                <div className='hover-options'>
-                  <Link to="/about" className='pt-0'>About</Link>
-                  <Link to="/about">Core Values</Link>
-                  <Link to="/blog/">Blog</Link>
-                  <Link to="/press">Press</Link>
-                  <Link to="/careers">Careers</Link>
-                  <Link to="/internships">Internships</Link>
-                  <Link to="/events">Events</Link>
-                </div>
-              </Col>
-
-              <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 px-2'>
-                <Col xs="12" className="d-flex">
-                  <Col xs="9" className="mobile d-flex align-items-center text-white">
-                    <Link to="/about">Be Awesome</Link>
-                  </Col>
-                  <Col xs="3" className="d-sm-none d-flex text-white button p-2 justify-content-center">
-                    <button className='w-75 h-100 my-auto bg-transparent border border-1 border-primary rounded-2' onClick={() => handleClick("Be Awesome")}>
-                        +
-                    </button>
-                  </Col>
-                </Col>
-                
-                <Col xs={{span: 10, offset: 1}} className={`${active === "Be Awesome" && open === true ? "d-flex flex-column" : "d-none"} pb-2`}>
-                  <Link to="/about">About</Link>
-                  <Link to="/about">Core Values</Link>
-                  <Link to="/blog/">Blog</Link>
-                  <Link to="/press">Press</Link>
-                  <Link to="/careers">Careers</Link>
-                  <Link to="/internships">Internships</Link>
-                  <Link to="/events">Events</Link>
-                </Col>
-              </Row>
-
+              <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
+                <Navbar className="sticky-top navbar" variant="dark" expand="lg" expanded={active === "Learn To Code" && open === true ? true : false}>
+                <Container className='border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1'>
+                  <Navbar.Brand className={navbarBrand}>
+                    <Link to="/learn">
+                      Learn To Code
+                    </Link>
+                  </Navbar.Brand>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => handleClick("Learn To Code")} className={`${active === "Learn To Code" && open === true ? "" : "collapsed"} text-white shadow-none`}>{active === "Learn To Code" && open === true ? <VscClose size={20}/> : <VscAdd size={18}/>}</Navbar.Toggle>
+                  <Navbar.Collapse id="basic-navbar-nav" className='border-top-0'>
+                    <Nav>
+                      <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
+                        <Col xs={{span: 10}} className={`d-flex flex-column py-2 border-0`}>
+                          <Link to="/learn/youth">Youth Courses</Link>
+                          <Link to="/learn/adults">Adult Courses</Link>
+                          <Link to="/learn">Kids Camps</Link>
+                          <Link to="/bootcamp">Bootcamp</Link>
+                        </Col>
+                      </Row>
+                    </Nav>
+                  </Navbar.Collapse>
+                </Container>
+              </Navbar>
             </Row>
+
+            <Col className="desktop">
+              <Nav.Link href="/" className="text-white">Startups <AiFillCaretDown size={10}/></Nav.Link>
+              <div className={`hover-options`}>
+                <Link to="/idea" className='pt-0'>I Have an Idea</Link>
+                <Link to="/fellowship">Startup Accelerator</Link>
+                <Link to="/events/5across">5 Across</Link>
+                <a>Community Yearbook</a> {/*Need to add yearbooks and possibly other assets*/}
+              </div>
+            </Col>
+
+            <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
+              <Navbar className="sticky-top navbar" variant="dark" expand="lg" expanded={active === "Startups" && open === true ? true : false}>
+                <Container className='border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1'>
+                  <Navbar.Brand className={navbarBrand}>
+                    <Link to="/about">
+                      Startups
+                    </Link>
+                  </Navbar.Brand>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => handleClick("Startups")} className={`${active === "Startups" && open === true ? "" : "collapsed"} text-white shadow-none`}>{active === "Startups" && open === true ? <VscClose size={20}/> : <VscAdd size={18}/>}</Navbar.Toggle>
+                  <Navbar.Collapse id="basic-navbar-nav" className='border-top-0'>
+                    <Nav>
+                      <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
+                        <Col xs={{span: 10}} className={`d-flex flex-column py-2 border-0`}>
+                          <Link to="/idea">I Have an Idea</Link>
+                          <Link to="/fellowship">Startup Accelerator</Link>
+                          <Link to="/events/5across">5 Across</Link>
+                          <Link to="#">Community Yearbook</Link> {/*Need to add yearbooks and possibly other assets*/}
+                        </Col>
+                      </Row>
+                    </Nav>
+                  </Navbar.Collapse>
+                </Container>
+              </Navbar>
+            </Row>
+
+            <Col className="desktop">
+              <Nav.Link href="/workspace" className="text--white">Workspace <AiFillCaretDown size={10}/></Nav.Link>
+              <div className='hover-options'>
+                <a href="https://calendly.com/awesometour/30min?month=2023-03" target="_blank" className='pt-0'>Schedule a Tour</a>
+                <Link to="/workspace#become-a-member">Office Space</Link>
+                <Link to="/events">Events</Link>
+              </div>
+            </Col>
+
+            <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
+              <Navbar className="sticky-top navbar" variant="dark" expand="lg" expanded={active === "Workspace" && open === true ? true : false}>
+                <Container className='border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1'>
+                  <Navbar.Brand className={navbarBrand}>
+                    <Link to="/workspace">
+                      Workspace
+                    </Link>
+                  </Navbar.Brand>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => handleClick("Workspace")} className={`${active === "Workspace" && open === true ? "" : "collapsed"} text-white shadow-none`}>{active === "Workspace" && open === true ? <VscClose size={20}/> : <VscAdd size={18}/>}</Navbar.Toggle>
+                  <Navbar.Collapse id="basic-navbar-nav" className='border-top-0'>
+                    <Nav>
+                      <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
+                        <Col xs={{span: 10}} className={`d-flex flex-column py-2 border-0`}>
+                          <a href="/https://calendly.com/awesometour/30min?month=2023-03" target="_blank">Schedule a Tour</a>
+                          <Link to="/workspace#become-a-member">Office Space</Link>
+                          <Link to="/events">Events</Link>
+                        </Col>
+                      </Row>
+                    </Nav>
+                  </Navbar.Collapse>
+                </Container>
+              </Navbar>
+            </Row>
+
+            <Col className="desktop">
+              <Nav.Link href="https://apaxsoftware.com/" className="text--white">Web & App Development <AiFillCaretDown size={10}/></Nav.Link>
+              <div className='hover-options'>
+                <a href="https://apaxsoftware.com/" className=''>Apax Software</a>
+              </div>
+            </Col>
+
+            <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
+              <Navbar className="sticky-top navbar" variant="dark" expand="lg" expanded={active === "Web & App Development" && open === true ? true : false}>
+                <Container className='border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1'>
+                  <Navbar.Brand className={navbarBrand}>
+                    <a  href="https://apaxsoftware.com/">
+                      Web & App Development
+                    </a>
+                  </Navbar.Brand>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => handleClick("Web & App Development")} className={`${active === "Web & App Development" && open === true ? "" : "collapsed"} text-white shadow-none`}>{active === "Web & App Development" && open === true ? <VscClose size={20}/> : <VscAdd size={18}/>}</Navbar.Toggle>
+                  <Navbar.Collapse id="basic-navbar-nav" className='border-top-0'>
+                    <Nav>
+                      <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
+                        <Col xs={{span: 10}} className={`d-flex flex-column py-2 border-0`}>
+                          <a href="https://apaxsoftware.com/" target="_blank">Web & App Development</a>
+                        </Col>
+                      </Row>
+                    </Nav>
+                  </Navbar.Collapse>
+                </Container>
+              </Navbar>
+            </Row>
+
+            <Col className="desktop">
+              <Nav.Link href="/" className="text--white">Be Awesome <AiFillCaretDown size={10}/></Nav.Link>
+              <div className='hover-options'>
+                <Link to="/about" className='pt-0'>About</Link>
+                <Link to="/about">Core Values</Link>
+                <Link to="/blog/">Blog</Link>
+                <Link to="/press">Press</Link>
+                <Link to="/careers">Careers</Link>
+                <Link to="/internships">Internships</Link>
+                <Link to="/events">Events</Link>
+              </div>
+            </Col>
+
+            <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
+              <Navbar className="sticky-top navbar" variant="dark" expand="lg" expanded={active === "Be Awesome" && open === true ? true : false}>
+                <Container className='border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1'>
+                  <Navbar.Brand className={navbarBrand}>
+                    <Link  to="/about">Be Awesome</Link>
+                  </Navbar.Brand>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => handleClick("Be Awesome")} className={`${active === "Be Awesome" && open === true ? "" : "collapsed"} text-white shadow-none`}>{active === "Be Awesome" && open === true ? <VscClose size={20}/> : <VscAdd size={18}/>}</Navbar.Toggle>
+                  <Navbar.Collapse id="basic-navbar-nav" className='border-top-0'>
+                    <Nav>
+                      <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
+                        <Col xs={{span: 10}} className={`d-flex flex-column py-2 border-0`}>
+                        <Link to="/about">About</Link>
+                        <Link to="/about">Core Values</Link>
+                        <Link to="/blog/">Blog</Link>
+                        <Link to="/press">Press</Link>
+                        <Link to="/careers">Careers</Link>
+                        <Link to="/internships">Internships</Link>
+                        <Link to="/events">Events</Link>
+                        </Col>
+                      </Row>
+                    </Nav>
+                  </Navbar.Collapse>
+                </Container>
+              </Navbar>
+            </Row>
+
           </Nav>
         </Navbar.Collapse>
       </Container>
