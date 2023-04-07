@@ -4,6 +4,8 @@ import { StaticImage } from 'gatsby-plugin-image'
 import styled from "styled-components"
 import { AiFillCaretDown } from "react-icons/ai";
 import { VscClose, VscAdd } from "react-icons/vsc";
+import { ImPlus } from "react-icons/im";
+
 import "./header.scss"
 import "../../styles/main.scss"
 import { 
@@ -66,7 +68,7 @@ const Header = () => {
             />
           </Link>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" className='text-white shadow-none'/>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className='text-white shadow-none border-white'/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
             <Col className="desktop">
@@ -81,14 +83,14 @@ const Header = () => {
             
               
             <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
-              <Navbar className="sticky-top navbar" variant="dark" expand="lg" expanded={active === "Learn To Code" && open === true ? true : false}>
+              <Navbar className="sticky-top sub-navbar" variant="dark" expand="lg" expanded={active === "Learn To Code" && open === true ? true : false}>
                 <Container className='border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1'>
                   <Navbar.Brand className={navbarBrand}>
                     <Link to="/learn">
                       Learn To Code
                     </Link>
                   </Navbar.Brand>
-                  <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => handleClick("Learn To Code")} className={`${active === "Learn To Code" && open === true ? "" : "collapsed"} text-white shadow-none`}>{active === "Learn To Code" && open === true ? <VscClose size={20}/> : <VscAdd size={18}/>}</Navbar.Toggle>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => handleClick("Learn To Code")} className={`${active === "Learn To Code" && open === true ? "" : "collapsed"} bg-none border-2 border-white text-white shadow-none`}>{active === "Learn To Code" && open === true ? <ImPlus size={20} style={{transform: 'rotate(45deg)'}}/> : <ImPlus size={20}/>}</Navbar.Toggle>
                   <Navbar.Collapse id="basic-navbar-nav" className='border-top-0'>
                     <Nav>
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
@@ -116,14 +118,14 @@ const Header = () => {
             </Col>
 
             <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
-              <Navbar className="sticky-top navbar" variant="dark" expand="lg" expanded={active === "Startups" && open === true ? true : false}>
+              <Navbar className="sticky-top sub-navbar" variant="dark" expand="lg" expanded={active === "Startups" && open === true ? true : false}>
                 <Container className='border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1'>
                   <Navbar.Brand className={navbarBrand}>
                     <Link to="/about">
                       Startups
                     </Link>
                   </Navbar.Brand>
-                  <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => handleClick("Startups")} className={`${active === "Startups" && open === true ? "" : "collapsed"} text-white shadow-none`}>{active === "Startups" && open === true ? <VscClose size={20}/> : <VscAdd size={18}/>}</Navbar.Toggle>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => handleClick("Startups")} className={`${active === "Startups" && open === true ? "" : "collapsed"} bg-none border-2 border-white bg-none border-2 border-white text-white shadow-none`}>{active === "Startups" && open === true ? <ImPlus size={20} style={{transform: 'rotate(45deg)'}}/> : <ImPlus size={20}/>}</Navbar.Toggle>
                   <Navbar.Collapse id="basic-navbar-nav" className='border-top-0'>
                     <Nav>
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
@@ -150,14 +152,14 @@ const Header = () => {
             </Col>
 
             <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
-              <Navbar className="sticky-top navbar" variant="dark" expand="lg" expanded={active === "Workspace" && open === true ? true : false}>
+              <Navbar className="sticky-top sub-navbar" variant="dark" expand="lg" expanded={active === "Workspace" && open === true ? true : false}>
                 <Container className='border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1'>
                   <Navbar.Brand className={navbarBrand}>
                     <Link to="/workspace">
                       Workspace
                     </Link>
                   </Navbar.Brand>
-                  <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => handleClick("Workspace")} className={`${active === "Workspace" && open === true ? "" : "collapsed"} text-white shadow-none`}>{active === "Workspace" && open === true ? <VscClose size={20}/> : <VscAdd size={18}/>}</Navbar.Toggle>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => handleClick("Workspace")} className={`${active === "Workspace" && open === true ? "" : "collapsed"} bg-none border-2 border-white bg-none border-2 border-white text-white shadow-none`}>{active === "Workspace" && open === true ? <ImPlus size={20} style={{transform: 'rotate(45deg)'}}/> : <ImPlus size={20}/>}</Navbar.Toggle>
                   <Navbar.Collapse id="basic-navbar-nav" className='border-top-0'>
                     <Nav>
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
@@ -181,14 +183,14 @@ const Header = () => {
             </Col>
 
             <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
-              <Navbar className="sticky-top navbar" variant="dark" expand="lg" expanded={active === "Web & App Development" && open === true ? true : false}>
+              <Navbar className="sticky-top sub-navbar" variant="dark" expand="lg" expanded={active === "Web & App Development" && open === true ? true : false}>
                 <Container className='border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1'>
                   <Navbar.Brand className={navbarBrand}>
                     <a  href="https://apaxsoftware.com/">
                       Web & App Development
                     </a>
                   </Navbar.Brand>
-                  <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => handleClick("Web & App Development")} className={`${active === "Web & App Development" && open === true ? "" : "collapsed"} text-white shadow-none`}>{active === "Web & App Development" && open === true ? <VscClose size={20}/> : <VscAdd size={18}/>}</Navbar.Toggle>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => handleClick("Web & App Development")} className={`${active === "Web & App Development" && open === true ? "" : "collapsed"} bg-none border-2 border-white text-white shadow-none`}>{active === "Web & App Development" && open === true ? <ImPlus size={20} style={{transform: 'rotate(45deg)'}}/> : <ImPlus size={20}/>}</Navbar.Toggle>
                   <Navbar.Collapse id="basic-navbar-nav" className='border-top-0'>
                     <Nav>
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
@@ -215,13 +217,13 @@ const Header = () => {
               </div>
             </Col>
 
-            <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
-              <Navbar className="sticky-top navbar" variant="dark" expand="lg" expanded={active === "Be Awesome" && open === true ? true : false}>
+            <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2 pb-3'>
+              <Navbar className="sticky-top sub-navbar" variant="dark" expand="lg" expanded={active === "Be Awesome" && open === true ? true : false}>
                 <Container className='border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1'>
                   <Navbar.Brand className={navbarBrand}>
                     <Link  to="/about">Be Awesome</Link>
                   </Navbar.Brand>
-                  <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => handleClick("Be Awesome")} className={`${active === "Be Awesome" && open === true ? "" : "collapsed"} text-white shadow-none`}>{active === "Be Awesome" && open === true ? <VscClose size={20}/> : <VscAdd size={18}/>}</Navbar.Toggle>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => handleClick("Be Awesome")} className={`${active === "Be Awesome" && open === true ? "" : "collapsed"} bg-none border-2 border-white text-white shadow-none`}>{active === "Be Awesome" && open === true ? <ImPlus size={20} style={{transform: 'rotate(45deg)'}}/> : <ImPlus size={20}/>}</Navbar.Toggle>
                   <Navbar.Collapse id="basic-navbar-nav" className='border-top-0'>
                     <Nav>
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">

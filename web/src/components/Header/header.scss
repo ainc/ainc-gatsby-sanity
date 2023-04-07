@@ -51,20 +51,17 @@
   }
 }
 
-.mobile {
-  display: none;
-  @include screen-tablet-max {
-    display: block;
-    
-  }
-}
-
 .navbar {
   background-color: $brand-color2;
   opacity: 0.9;
   z-index: 100000;
+  // padding-top: 0%;
+  // padding-bottom: 0%;
   
-  // position: relative;
+  .sub-navbar {
+    padding-top: 2%;
+    padding-bottom: -2%;
+  }
 }
 
 .navbar > .container {
@@ -74,6 +71,8 @@
   transform-origin: center;
   animation-duration: 600ms;
   animation-timing-function: ease-in;
+
+  line-height: 1rem;
 
   >.navbar-collapse > .navbar-nav > .row {
 
@@ -138,9 +137,9 @@
   }
 
   > button {
-    position: absolute;
-    right: 20px;
-    top: 20px;
+    // position: absolute;
+    // right: 20px;
+    // top: 20px;
     // margin: 20px;
     display: none;
     @include screen-tablet-max {
