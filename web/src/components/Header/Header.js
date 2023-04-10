@@ -224,13 +224,13 @@ const Header = () => {
                     <Nav>
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
                         <Col xs={{span: 10}} className={`d-flex flex-column py-2 border-0`}>
-                        <Link to="/about">About</Link>
-                        <Link to="/about">Core Values</Link>
-                        <Link to="/blog/">Blog</Link>
-                        <Link to="/press">Press</Link>
-                        <Link to="/careers">Careers</Link>
-                        <Link to="/internships">Internships</Link>
-                        <Link to="/events">Events</Link>
+                          <Link to="/about">About</Link>
+                          <Link to="/about">Core Values</Link>
+                          <Link to="/blog/">Blog</Link>
+                          <Link to="/press">Press</Link>
+                          <Link to="/careers">Careers</Link>
+                          <Link to="/internships">Internships</Link>
+                          <Link to="/events">Events</Link>
                         </Col>
                       </Row>
                     </Nav>
