@@ -43,22 +43,16 @@
         position: absolute;
         margin-left: -16px;
         padding-left: 18px;
-        height: 95vh;
+        height: 110vh;
     }
 }
 
 .title {
-    margin-top: 40%;
-    @include screen-sm {
-        margin-top: 20%;
-    }
-    @include screen-xs {
-        margin-top: 20%;
-    }
+    margin-top: 20%;
 }
 
 .subtitle {
-    margin-top: 30%;
+    margin-top: 10%;
     @include screen-sm {
         margin-top: 20%;
     }
@@ -86,14 +80,8 @@
 }
 
 .join-button {
-    @include screen-md {
-        display: none;
-    }
-    @include screen-lg {
-        display: none;
-    }
     @include screen-max {
-        display: none;
+        display: block;
     }
     @include screen-sm {
         margin: auto;
