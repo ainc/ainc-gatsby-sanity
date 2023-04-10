@@ -46,7 +46,7 @@ const Header = () => {
 
   React.useEffect(() => {
     window.localStorage.setItem('navbar_selected', JSON.stringify(active));
-    window.localStorage.setItem('ope{n', JSON.stringify(open));
+    window.localStorage.setItem('open', JSON.stringify(open));
   }, [active, open]);
   console.log(active, open)
 
