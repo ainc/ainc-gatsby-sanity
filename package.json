@@ -20,6 +20,7 @@
     "lerna": "^4.0.0"
   },
   "dependencies": {
+    "@sanity/block-content-to-react": "^3.0.0",
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-plugin-react-svg": "^3.1.0",
     "gatsby-source-rss-feed": "^1.2.2",
