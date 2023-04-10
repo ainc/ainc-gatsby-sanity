@@ -2,13 +2,15 @@ import * as React from 'react';
 import Layout from '../../components/Layout/Layout';
 import { Container, Row, Col, CarouselItem } from 'react-bootstrap';
 import Title from '../../components/UI/Title/Title';
+import SEO from '../../components/seo';
 import * as styles from "./coding-club-preview.scss";
 import Table from 'react-bootstrap/Table';
 
 const CodingClubPage = ({ data }) => {
 
   return (
-    <Layout pageTitle="Coding Club Preview | Awesome Inc">
+    <Layout>
+      <SEO title="Coding Club Preview"/>
       <Container>
         <Row>
             <Col sm={7} className="Header my-5 mx-auto text-center">
