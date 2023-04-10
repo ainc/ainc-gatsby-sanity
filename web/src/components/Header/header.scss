@@ -11,7 +11,6 @@
   padding: 0%;
   white-space: nowrap;
   text-transform: uppercase;
-  // letter-spacing: 0px;
   font-weight: 300;
 
   > a {
@@ -55,8 +54,6 @@
   background-color: $brand-color2;
   opacity: 0.9;
   z-index: 100000;
-  // padding-top: 0%;
-  // padding-bottom: 0%;
   
   .sub-navbar {
     padding-top: 2%;
@@ -117,10 +114,8 @@
       }
 
       .dropdown-menu.show {
-        // position: absolute;
         position: relative;
         left: -300px;
-        // right:90px;
         background-color: transparent;
         border: none;
         padding-top: 0;
@@ -137,10 +132,6 @@
   }
 
   > button {
-    // position: absolute;
-    // right: 20px;
-    // top: 20px;
-    // margin: 20px;
     display: none;
     @include screen-tablet-max {
       display: flex;

@@ -1,9 +1,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
-import styled from "styled-components"
 import { AiFillCaretDown } from "react-icons/ai";
-import { VscClose, VscAdd } from "react-icons/vsc";
 import { ImPlus } from "react-icons/im";
 
 import "./header.scss"
@@ -11,8 +9,6 @@ import "../../styles/main.scss"
 import { 
   Navbar,
   Nav,
-  NavDropdown,
-  DropdownButton,
   Container,
   Row,
   Col
@@ -50,7 +46,7 @@ const Header = () => {
 
   React.useEffect(() => {
     window.localStorage.setItem('navbar_selected', JSON.stringify(active));
-    window.localStorage.setItem('open', JSON.stringify(open));
+    window.localStorage.setItem('ope{n', JSON.stringify(open));
   }, [active, open]);
   console.log(active, open)
 
@@ -72,7 +68,7 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
             <Col className="desktop">
-              <Nav.Link href="/" className="text--white">Learn To Code  <AiFillCaretDown size={10}/></Nav.Link>
+              <Nav.Link href="/learn" className="text--white">Learn To Code  <AiFillCaretDown size={10}/></Nav.Link>
               <div className='hover-options'>
                 <Link to="/learn/youth" className='pt-0'>Youth Courses</Link>
                 <Link to="/learn/adults">Adult Courses</Link>
@@ -85,7 +81,7 @@ const Header = () => {
             <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
               <Navbar className="sticky-top sub-navbar" variant="dark" expand="lg" expanded={active === "Learn To Code" && open === true ? true : false}>
                 <Container className='border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1'>
-                  <Navbar.Brand className={navbarBrand}>
+                  <Navbar.Brand>
                     <Link to="/learn">
                       Learn To Code
                     </Link>
@@ -108,7 +104,7 @@ const Header = () => {
             </Row>
 
             <Col className="desktop">
-              <Nav.Link href="/" className="text-white">Startups <AiFillCaretDown size={10}/></Nav.Link>
+              <Nav.Link href="/fellowship" className="text--white">Startups <AiFillCaretDown size={10}/></Nav.Link>
               <div className={`hover-options`}>
                 <Link to="/idea" className='pt-0'>I Have an Idea</Link>
                 <Link to="/fellowship">Startup Accelerator</Link>
@@ -120,8 +116,8 @@ const Header = () => {
             <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
               <Navbar className="sticky-top sub-navbar" variant="dark" expand="lg" expanded={active === "Startups" && open === true ? true : false}>
                 <Container className='border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1'>
-                  <Navbar.Brand className={navbarBrand}>
-                    <Link to="/about">
+                  <Navbar.Brand>
+                    <Link to="/fellowship">
                       Startups
                     </Link>
                   </Navbar.Brand>
@@ -154,7 +150,7 @@ const Header = () => {
             <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
               <Navbar className="sticky-top sub-navbar" variant="dark" expand="lg" expanded={active === "Workspace" && open === true ? true : false}>
                 <Container className='border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1'>
-                  <Navbar.Brand className={navbarBrand}>
+                  <Navbar.Brand>
                     <Link to="/workspace">
                       Workspace
                     </Link>
@@ -185,7 +181,7 @@ const Header = () => {
             <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
               <Navbar className="sticky-top sub-navbar" variant="dark" expand="lg" expanded={active === "Web & App Development" && open === true ? true : false}>
                 <Container className='border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1'>
-                  <Navbar.Brand className={navbarBrand}>
+                  <Navbar.Brand>
                     <a  href="https://apaxsoftware.com/">
                       Web & App Development
                     </a>
@@ -205,7 +201,7 @@ const Header = () => {
             </Row>
 
             <Col className="desktop">
-              <Nav.Link href="/" className="text--white">Be Awesome <AiFillCaretDown size={10}/></Nav.Link>
+              <Nav.Link href="/about" className="text--white">Be Awesome <AiFillCaretDown size={10}/></Nav.Link>
               <div className='hover-options'>
                 <Link to="/about" className='pt-0'>About</Link>
                 <Link to="/about">Core Values</Link>
@@ -220,7 +216,7 @@ const Header = () => {
             <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2 pb-3'>
               <Navbar className="sticky-top sub-navbar" variant="dark" expand="lg" expanded={active === "Be Awesome" && open === true ? true : false}>
                 <Container className='border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1'>
-                  <Navbar.Brand className={navbarBrand}>
+                  <Navbar.Brand>
                     <Link  to="/about">Be Awesome</Link>
                   </Navbar.Brand>
                   <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => handleClick("Be Awesome")} className={`${active === "Be Awesome" && open === true ? "" : "collapsed"} bg-none border-2 border-white text-white shadow-none`}>{active === "Be Awesome" && open === true ? <ImPlus size={20} style={{transform: 'rotate(45deg)'}}/> : <ImPlus size={20}/>}</Navbar.Toggle>
