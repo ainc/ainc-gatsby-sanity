@@ -11,7 +11,7 @@ const DateSquare = (props) => {
   const day = Moment(props.date).format('D')
 
   return (
-    <Card className="card--square-size">
+    <Card className="card--square-size bg-white">
       <Card.Body className="m-1">
         <Card.Title>
           <Title className="brand fw-boldest text-center">
