@@ -13,6 +13,7 @@ const CareersPage = ({ data }) => {
   
   return (
     <Layout>
+      <main>
       <Container fluid>
         <Row>
             <Col className="header text-white text-center">
@@ -42,9 +43,10 @@ const CareersPage = ({ data }) => {
                     <BlockContent className="careerBody" blocks={node._rawBody} />
                     <a className={'link--brand manager_email'} href={`mailto:${node.manager_email}`}>Questions? Email {node.manager} {node.manager_email}</a>
                     <div>
-                      <BrandButton>              
-                          <a className="brand-button" href={node.linkToForm}>Apply here</a>
+                      <a className="brand-button" href={node.linkToForm}>
+                      <BrandButton>Apply here
                       </BrandButton>
+                      </a>
                     </div>
                 </section>  
               ))}
@@ -53,12 +55,14 @@ const CareersPage = ({ data }) => {
         <Row>
           <Col className="footer">
             <Col md={{ span: 6, offset: 3 }}>
-              <h4>We're always looking for passionate, driven people who think they'd be a fit for our company! If you don't see what you're looking for on this page, reach out - we'd love to chat.</h4>
+              <h2>We're always looking for passionate, driven people who think they'd be a fit for our company! If you don't see what you're looking for on this page, reach out - we'd love to chat.</h2>
               <p><a className={'link--brand'} href='mailto: careers@awesomeinc.org'>Email careers@awesomeinc.org</a></p>
+              {/* ask about creating link--brand-red-bright to fix color contrast */}
             </Col>
           </Col>
         </Row>
       </Container>
+      </main>
     </Layout>
   )
 }

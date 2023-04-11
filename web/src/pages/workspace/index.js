@@ -36,6 +36,7 @@ const WorkspacePage = () => {
   return (
     <Layout pageTitle="Workspace">
       {/* Hero */}
+      <main>
       <section>
         <div className={styles.headerWorkspace}>
           <Container>
@@ -67,26 +68,28 @@ const WorkspacePage = () => {
           <Row>
             <Col md={4} sm={12}>
               <BorderlessCard
-                imgModal="#"
+                imgModal="#" 
                 imgSrc={Mail}
                 header="VIRTUAL MEMBER"
                 infoOne="DOWNTOWN MAILING ADDRESS"
                 infoTwo="CONFERENCE ROOM ACCESS"
                 infoThree="MEMBER EXCLUSIVE EVENTS"
                 price="$75/MONTH"
-                imgAlt
+                imgAlt=""
                 id="44"
               />
             </Col>
             <Col md={4} sm={12}>
-              <BorderlessCard
+              <BorderlessCard 
                 imgModal="#"
+                arial-labelledby="open-desk-membership"
                 imgSrc={Desktop}
                 header="OPEN DESK MEMBER"
                 infoOne="24/7 Access to Our Space"
                 infoTwo="Conference Room Access"
                 infoThree="Member Exclusive Events"
                 price="$199/MONTH"
+                imgAlt=""
               />
             </Col>
             {/* The lock image is a lot larger than the other images, so an extra prop was needed to even this out, aka classN. */}
@@ -99,6 +102,7 @@ const WorkspacePage = () => {
                 infoTwo="Conference Room Access"
                 infoThree="Member Exclusive Events"
                 price="REACH OUT FOR PRICING"
+                imgAlt=""
                 classN={styles.lockIcon}
               />
             </Col>
@@ -124,57 +128,57 @@ const WorkspacePage = () => {
                   <Amenities
                     info="Secure Wi-Fi, Gigabit Internet"
                     imgSrc={Wifi}
-                    alt="Wifi Access"
+                    imgAlt="Wifi Access"
                   />
                 </Col>
                 <Col md={6} sm={12}>
                   <Amenities
                     info="Downtown Mailing Address"
                     imgSrc={MailAddress}
-                    alt="Mailing Address"
+                    imgAlt="Mailing Address"
                   />
                 </Col>
                 <Col md={6} sm={12}>
                   <Amenities
                     info="Conference + Meeting Rooms"
                     imgSrc={Chair}
-                    alt="Conference Rooms"
+                    imgAlt="Conference Rooms"
                   />
                 </Col>
                 <Col md={6} sm={12}>
-                  <Amenities info="Networking Events" imgSrc={Events} alt="Networking Events" />
+                  <Amenities info="Networking Events" imgSrc={Events} imgAlt="Networking Events" />
                 </Col>
                 <Col md={6} sm={12}>
-                  <Amenities info="Print + Copy" imgSrc={Printer} alt="Printing and Copying" />
+                  <Amenities info="Print + Copy" imgSrc={Printer} imgAlt="Printing and Copying" />
                 </Col>
                 <Col md={6} sm={12}>
                   <Amenities
                     info="Breakroom + Kitchen"
                     imgSrc={PingPong}
-                    alt="Breakroom and Kitchen"
+                    imgAlt="Breakroom and Kitchen"
                   />
                 </Col>
                 <Col md={6} sm={12}>
-                  <Amenities info="Thinking Room" imgSrc={Bubble} alt="Thinking Room" />
+                  <Amenities info="Thinking Room" imgSrc={Bubble} imgAlt="Thinking Room" />
                 </Col>
                 <Col md={6} sm={12}>
-                  <Amenities info="Mentorship" imgSrc={Mentor} alt="Mentorship Access" />
+                  <Amenities info="Mentorship" imgSrc={Mentor} imgAlt="Mentorship Access" />
                 </Col>
                 <Col md={6} sm={12}>
-                  <Amenities info="Podcasting Room" imgSrc={Podcast} alt="Podcast Room" />
+                  <Amenities info="Podcasting Room" imgSrc={Podcast} imgAlt="Podcast Room" />
                 </Col>
                 <Col md={6} sm={12}>
                   <Amenities
                     info="Indoor/Outdoor space"
                     imgSrc={Lightbulb}
-                    alt="Indoor/Outdoor space"
+                    imgAlt="Indoor/Outdoor space"
                   />
                 </Col>
                 <Col md={6} sm={12}>
-                  <Amenities info="Electric Scooters" imgSrc={Scooter} alt="Electric Scooters" />
+                  <Amenities info="Electric Scooters" imgSrc={Scooter} imgAlt="Electric Scooters" />
                 </Col>
                 <Col md={6} sm={12}>
-                  <Amenities info="3D Printer" imgSrc={ThreeDPrinter} alt="3D Printer" />
+                  <Amenities info="3D Printer" imgSrc={ThreeDPrinter} imgAlt="3D Printer" />
                 </Col>
               </Row>
             </Col>
@@ -207,6 +211,7 @@ const WorkspacePage = () => {
           </Container>
         </Container>
       </section>
+      </main>
     </Layout>
   );
 };
