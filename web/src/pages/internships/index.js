@@ -19,7 +19,7 @@ import marketingTeamImage from '/src/images/intern-events-marketing.jpg'
 const InternshipsPage = ({ data }) => {
   return (
     <Layout pageTitle="Internships">
-      
+      <main>
       {/* Header section */}
       <Container fluid className={`mobile-hide-bg ${headerBackgroundAlignRight}`}>
         <Container className='mb-5'>
@@ -106,9 +106,9 @@ const InternshipsPage = ({ data }) => {
               <Title className='text-danger text-uppercase' style={{writingMode:'vertical-lr', transform:'rotate(180deg)', margin:'0px'}}>Why Join?</Title>
             </Col>
             <Col xs={7} md={5} lg={7} xl={6}>
-              <h5 className='text-white d-flex align-items-center' style={{textAlign:'justify'}}>
+              <h2 className='text-white d-flex align-items-center fs-5' style={{textAlign:'justify'}}>
                 In addition to the free t-shirt, we’ll provide you with an opportunity to improve your skills, portfolio and network. Our goal is to assure you the best experience by helping you achieve your goals whether that is getting into your dream school or working for your favorite company.
-              </h5>
+              </h2>
             </Col>
           </Row>
           <Row className='text-center pt-5'>
@@ -150,7 +150,7 @@ const InternshipsPage = ({ data }) => {
           </Col>
         </Row>
       </Container>
-
+      </main>
     </Layout>
   )
 }
