@@ -12,62 +12,72 @@ export default {
             }
         },
         {
-            name: 'author',
-            type: 'string',
-            title: 'Author'
-        },
-        {
-            name: 'jobTitle',
-            type: 'string',
-            title: 'Job title',
-        },
-        {
-            name: 'authorImage',
-            type: 'image',
-            title: 'Author image'
+            title: 'Author',
+            name: 'reference',
+            type: 'reference',
+            to: [{type: 'blogAuthor'}]
         },
         {
             name: 'title',
             type: 'string',
             title: 'Blog Title',
         },
+        
         {
-            name: 'body',
-            type: 'array',
-            title: 'Blog body',
-            description: 'Blog content',
-            of: [
-                {
-                    type: 'block',
-                },
-                {
-                    type: 'image',
-                    fields: [
-                        {
-                            name: 'alt',
-                            type: 'string',
-                            title: 'Alternative text',
-                            description: 'Important for SEO and accessiblity.',
-                            options: {
-                                isHighlighted: true
-                            }
-                        }
-                    ]
-                }
-            ]
+            name: 'slug',
+            type: 'slug',
+            title: 'Slug',
+            description: 'Some frontend will require a slug to be set to be able to show the person',
+            options: {
+              source: 'title',
+              maxLength: 96
+            }
         },
         {
             name: 'previewText',
             type: 'string',
             title: 'Preview Text',
-            description: 'The text that will show on the main blog page'
+            description: 'The text that will show on the main blog page',
+            validation: Rule => Rule.required().min(0).max(175)
+
         },
         {
             name: 'thumbnail',
             type: 'image',
             title: 'Cover Image',
             description: 'The image that will show on the main blog page'
-        }
+        },
+        {
+            name: 'body',
+            type: 'array',
+            title: 'Blog body',
+            description: 'Blog content',
+            // of: [
+            //     {
+            //       type: 'block'
+            //     }
+            //   ]
+            of: [
+                    {
+                        type: 'block',
+                    },
+                    {
+                        type: 'image',
+                        fields: [
+                            {
+                                name: 'alt',
+                                type: 'string',
+                                title: 'Alternative text',
+                                description: 'Important for SEO and accessiblity.',
+                                options: {
+                                    isHighlighted: true
+                                }
+                            }
+                        ]
+                    }
+                ]
+        },
+        
     ],
     preview: {
         select: {
