@@ -24,13 +24,14 @@ const Page = ({ data }) => {
 
   return (
     <Layout pageTitle="Week of Code Summer Camp | Awesome Inc">
+      <main>
       <Container>
       <Title className="my-5 text-center">WEEK OF CODE SUMMER CAMP</Title>
 
     <Row className="justify-content-start">
       <Col md={8}>
         <section className="mb-5">
-          <h6 className="fw-bold">2023 Dates</h6>
+          <h1 className="fs-6 fw-bold">2023 Dates</h1>
           <BrandButton className="px-4 mb-3" variant="primary">JUNE 12-15 >></BrandButton> 
           <BrandButton className="mx-4 px-4 mb-3" variant="primary">JUNE 19-22 >></BrandButton> 
           <BrandButton className="px-4 mb-3" variant="primary">JULY 10-13 >></BrandButton>
@@ -39,7 +40,7 @@ const Page = ({ data }) => {
     </Row>
       
       <h1 className="mb-4">2023 Summer Camps</h1>
-      <h4 className="fw-bold mb-4">Ages: 9-16 | Beginner - Intermediate</h4>
+      <h2 className="fw-bold fs-4 mb-4">Ages: 9-16 | Beginner - Intermediate</h2>
       <p className="fst-italic mb-4">No experience required</p>
       <p className="mb-4">
         Every parent today wants their kids to learn how to interact with 
@@ -47,7 +48,7 @@ const Page = ({ data }) => {
         21st-century world, including getting into college and finding a 
         job they love and at which they will succeed. Week of Code Summer Camp does all of that.
       </p>
-      <h4 className="fw-bold mb-4">Prepare Your Child For a 21st Century World</h4>
+      <h2 className="fw-bold fs-4 mb-4">Prepare Your Child For a 21st Century World</h2>
       <p className="mb-4">
         At Week of Code, you learn by doing - it’s hands-on, at your pace, and 
         balanced with fun, off-computer activities. You’ll design and develop 
@@ -67,13 +68,13 @@ const Page = ({ data }) => {
       </div>
 
 
-      <h4 className="fw-bold mb-4">Unsure of your summer plans? Make changes with no fees up to 30 days before your start date.</h4>
+      <h3 className="fw-bold mb-4 fs-4">Unsure of your summer plans? Make changes with no fees up to 30 days before your start date.</h3>
       
 
       <Row className="justify-content-start">
       <Col md={8}>
         <section className="mb-5">
-          <h6 className="fw-bold">2023 Dates</h6>
+          <h4 className="fw-bold fs-6">2023 Dates</h4>
           <BrandButton className="px-4 mb-3" variant="primary">JUNE 12-15 >></BrandButton> 
           <BrandButton className="mx-4 px-4 mb-3" variant="primary">JUNE 19-22 >></BrandButton> 
           <BrandButton className="px-4 mb-3" variant="primary">JULY 10-13 >></BrandButton>
@@ -99,7 +100,7 @@ const Page = ({ data }) => {
         <li style={{fontSize: '16px'}}>Develop computational thinking skills</li>
       </ul>
 
-      <h4 className="mb-5" className="fw-bold mb-4">Your student will take home:</h4>
+      <h5 className="mb-5" className="fw-bold mb-4">Your student will take home:</h5>
       <ul>
         <li className="mb-4" style={{fontSize: '16px'}}>Project files and portfolio</li>
       </ul>
@@ -117,12 +118,12 @@ const Page = ({ data }) => {
 
     <Row>
       {iframeCheckout && (
-        <div id={iframeCheckout.id} />
+        <div id={iframeCheckout.id} role="form" title="eventbrite" />
       )}
     </Row>
 
-    
-    <h1 style={{fontSize: '50px'}} className="fw-bold">FAQs</h1>
+
+    <h1 style={{fontSize: '50px'}} role="region" className="fw-bold">FAQs</h1>
 
     <Accordion className="mb-5" defaultActiveKey="0">
       <Accordion.Item eventKey="0">
@@ -151,6 +152,7 @@ const Page = ({ data }) => {
       </Accordion.Item>
     </Accordion>
     </Container>
+    </main>
     </Layout>
 
   )
