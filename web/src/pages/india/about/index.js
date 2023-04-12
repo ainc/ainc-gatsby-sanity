@@ -9,6 +9,7 @@ import * as styles from './about.module.css'
 const IndiaAbout = () => {
     return (
         <IndiaLayout>
+            <main>
             <Container>
                 <Row>
                     <Title className='mt-5 mb-4 text-center text-uppercase'>we exist to help people to learn to code.</Title>
@@ -43,6 +44,7 @@ const IndiaAbout = () => {
                     </Col>
                 </Row>
             </Container>
+            </main>
         </IndiaLayout>
     )
 }

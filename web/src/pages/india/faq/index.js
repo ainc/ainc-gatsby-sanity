@@ -11,11 +11,12 @@ import * as styles from './faq.module.scss'
 const IndiaFAQ = () => {
     return (
         <IndiaLayout>
+            <main>
             <Container>
                 <Col className='mt-5' xl={{span: 10, offset: 1}}>
                     <Accordion className='mb-5 pb-4' >
                         <AccordionItem eventKey="0">
-                            <Accordion.Header><Badge className=' my-3 me-2 rounded-circle' bg="danger" >1</Badge>Do you need a computer?</Accordion.Header>
+                            <Accordion.Header><Badge className=' my-3 me-2 rounded-circle' bg="danger" >1</Badge><h1 className='fs-6 fw-bold'>Do you need a computer?</h1></Accordion.Header>
                             <AccordionBody>
                                 Yes, your child will need to bring a laptop computer to the courses. This will allow them to work on projects at home if they wish to as well.
                             </AccordionBody>
@@ -57,6 +58,7 @@ const IndiaFAQ = () => {
                     </Accordion>
                 </Col>
             </Container>
+            </main>
         </IndiaLayout>
     )
 }
