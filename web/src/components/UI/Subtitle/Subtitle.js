@@ -20,10 +20,6 @@ const Subtitle = styled.h2`
     font-size: ${styles.styles.sizes.subtitle_small};
   }
 
-  &.subtitle--tiny {
-    font-size: ${styles.styles.sizes.subtitle_tiny};
-  }
-
   @media only screen and (max-width: ${styles.styles.screens.mobile}) {
     font-size: ${styles.styles.sizes.subtitle_small};
   }

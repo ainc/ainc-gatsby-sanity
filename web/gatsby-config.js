@@ -1,6 +1,6 @@
 // Load variables from `.env` as soon as possible
 require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV || 'production'}`
+  path: `.env.${process.env.NODE_ENV || 'development'}`
 })
 
 const clientConfig = require('./client-config')
@@ -22,7 +22,7 @@ module.exports = {
         token,
         watchMode: !isProd,
         overlayDrafts: !isProd && token,
-        graphqlTag: 'default',
+        graphqlTag: 'beta',
       }
     },
     {
