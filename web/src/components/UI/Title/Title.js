@@ -22,7 +22,7 @@ const Title = styled.h1`
     font-size: ${styles.styles.sizes.title_small};
   }
 
-  letter-spacing: 0px;
+  letter-spacing: 2px;
   @media only screen and (max-width: ${styles.styles.screens.mobile}) {
     font-size: ${styles.styles.sizes.subtitle};
   }

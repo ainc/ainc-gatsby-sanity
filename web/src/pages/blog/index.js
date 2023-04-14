@@ -1,9 +1,10 @@
-import * as React from 'react'
+import React, {useState} from 'react'
 import { Col, Container, Row } from 'react-bootstrap';
 import Layout from "../../components/Layout/Layout";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
+import ModalCustom from '../../components/Modal/ModalCustom';
 import { graphql, Link } from "gatsby";
 import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image'
 
@@ -14,6 +15,10 @@ import '../../styles/main.scss'
 
 
 const BlogPage = ({ data }) => {
+    const [lgShow, setLgShow] = useState(false);
+    const handleClose = () => setLgShow(false);
+    const handleShow = () => setLgShow(true);
+
     return (
         <Layout>
             <Container>
@@ -22,11 +27,24 @@ const BlogPage = ({ data }) => {
                         <Title className="text-uppercase">Blog</Title>
                     </Col>
                     <Col xs={{ span: 4, offset: 4 }} className='d-flex justify-content-center'>
-                        {/* <div className="lgx-heading"> */}
-                        {/* <p className="center"> */}
-                        <a href="#modal-notify-me" data-toggle="modal" data-target="#modal-notify-me"><FaBell size={40} className='link--brand'/></a>
-                        {/* </p> */}
+                        <a onClick={handleShow}><FaBell size={40} className='link--brand'/></a>
                     </Col>
+                    <ModalCustom 
+                            lgShow={lgShow} 
+                            hide={handleClose} 
+                            title="Subscribe to our blog" 
+                            content={
+                            //Pass HTML here
+                                <Container>
+                                    <Row>
+                                        <Subtitle>Create form here</Subtitle>
+                                    </Row>
+                                    <Row>
+                                        <BrandButton>Hello</BrandButton>
+                                    </Row>
+                                </Container>
+                            }
+                        />
                 </Row>
             </Container>
             <Container className='px-1 pb-3 px-lg-5 pb-lg-5'>
