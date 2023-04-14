@@ -52,11 +52,7 @@ export default {
             type: 'array',
             title: 'Blog body',
             description: 'Blog content',
-            // of: [
-            //     {
-            //       type: 'block'
-            //     }
-            //   ]
+
             of: [
                     {
                         type: 'block',
@@ -74,7 +70,7 @@ export default {
                                 }
                             }
                         ]
-                    }
+                    },
                 ]
         },
         
