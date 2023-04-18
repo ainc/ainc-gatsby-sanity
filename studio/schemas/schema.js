@@ -29,6 +29,7 @@ import accomplishments from './documents/accomplishments'
 import footer from './documents/footer'
 import imageSlider from './documents/imageSlider'
 import blog from './documents/blog'
+import blogAuthors from './documents/blogAuthors'
 import fellowshipPortfolio from './documents/fellowshipPortfolio'
 import fellowshipSponsers from './documents/fellowshipSponsers'
 import courses from './documents/courses'
@@ -67,6 +68,7 @@ export default createSchema({
     sampleProject,
     siteSettings,
     blog,
+    blogAuthors,
     bootcampAlumni,
     accomplishments,
     eventTypes,
