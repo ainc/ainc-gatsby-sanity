@@ -1,0 +1,17 @@
+@import '../../styles/variables.scss';
+@import "../../styles/mixins.scss"; 
+
+
+.author {
+    font-size: 1rem;
+    @include screen-tablet-max {
+        font-size: .8rem;
+    }
+}
+
+.date {
+    font-size: 1rem;
+    @include screen-tablet-max {
+        font-size: .8rem;
+    }
+}

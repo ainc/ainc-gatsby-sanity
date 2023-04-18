@@ -1,17 +1,19 @@
 import React, {useState} from 'react'
-import BlockContent from '@sanity/block-content-to-react';
 import { graphql, Link } from 'gatsby';
+import { Col, Container, Row } from 'react-bootstrap';
 import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image'
 import BrandButton from '../../components/UI/BrandButton/BrandButton';
 import ModalCustom from '../../components/Modal/ModalCustom';
-import { Col, Container, Row } from 'react-bootstrap';
-import Layout from '../../components/Layout/Layout'
-import SocialMediaIcons from '../../components/SocialMediaIcons/SocialMediaIcons';
-import {PortableText} from '@portabletext/react'
-import urlBuilder from '@sanity/image-url'
+import SEO from '../../components/seo';
 import Title from '../../components/UI/Title/Title'
 import Subtitle from '../../components/UI/Subtitle/Subtitle';
+import Markdown from '../../components/MarkDown/MarkDown';
+import Layout from '../../components/Layout/Layout'
+import SocialMediaIcons from '../../components/SocialMediaIcons/SocialMediaIcons';
+
 import '../../styles/main.scss'
+
+import * as styles from './blog-template.module.scss'
 
 const Blog = ({ pageContext }) => {
     const [lgShow, setLgShow] = useState(false);
@@ -20,30 +22,9 @@ const Blog = ({ pageContext }) => {
 
     const blogInfo = pageContext.post
 
-    const urlFor = (source) => {
-        return urlBuilder({projectId: 'y716vocf', dataset: 'production'}).image(source)
-    }
-
-    const serializer = {
-        types: {
-            image: props => (
-                // <pre>{JSON.stringify(props)}</pre>
-                <Row>
-                    <Col xs={{span: 10}} lg={{span: 8}}>
-                        <img 
-                            src={urlFor(props.value.asset)
-                                .auto('format')
-                                .url()} 
-                            alt={props.value.alt} 
-                            style={{maxWidth: "100%"}}/>
-                    </Col>
-                </Row>
-            )
-        },
-    }      
-
     return (
         <Layout>
+            <SEO title={blogInfo.title} description={blogInfo.previewText} />
             <Container>
                 <Row>
                     <Col sm={{span: 8, offset: 2}}>
@@ -53,9 +34,9 @@ const Blog = ({ pageContext }) => {
                                     <Col xs={{ span: 2}} sm={{span:1}} className="d-flex justify-content-center p-0 rounded-circle border border-1 border-dark">
                                         <GatsbyImage objectFit='cover' image={blogInfo.reference.picture.asset.gatsbyImageData} alt={blogInfo.reference.name} className="rounded-circle border border-3 border-white p-1"/>
                                     </Col>
-                                    <Col xs={{ span: 9}} sm={{ span: 10}} className="d-flex justify-content-start align-content-center flex-column mt-0 mt-sm-3 mx-0 mx-sm-1">
-                                        <Title className="fs-6 text--brand  mb-0">{blogInfo.reference.name}, {blogInfo.reference.title}</Title>
-                                        <h6 className='text--grey'>{blogInfo.date}</h6>
+                                    <Col xs={{ span: 10}} sm={{ span: 10}} className="d-flex justify-content-start align-content-center flex-column mt-2 mt-sm-1 mx-0 mx-sm-1">
+                                        <Title className={`${styles.author} text--brand mb-0`}>{blogInfo.reference.name}, {blogInfo.reference.title}</Title>
+                                        <p className={`${styles.date} text--grey`}>{blogInfo.date}</p>
                                     </Col>
                                 </Row>
                         </Container>
@@ -80,7 +61,8 @@ const Blog = ({ pageContext }) => {
 
                         <SocialMediaIcons text={`${blogInfo.title} | Awesome Inc`} link={`https://www.awesomeinc.org/blog/${blogInfo.slug.current}`}/>
                         <Container className="my-5 px-0">
-                            <PortableText value={blogInfo._rawBody} components={serializer}/>
+                            {/* <h1>{blogInfo.body}</h1> */}
+                            <Markdown content={blogInfo.body}/>
                         </Container>
                     </Col>
                 </Row>
