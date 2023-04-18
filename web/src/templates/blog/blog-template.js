@@ -35,7 +35,7 @@ const Blog = ({ pageContext }) => {
                                         <GatsbyImage objectFit='cover' image={blogInfo.reference.picture.asset.gatsbyImageData} alt={blogInfo.reference.name} className="rounded-circle border border-3 border-white p-1"/>
                                     </Col>
                                     <Col xs={{ span: 10}} sm={{ span: 10}} className="d-flex justify-content-start align-content-center flex-column mt-2 mt-sm-1 mx-0 mx-sm-1">
-                                        <Title className={`${styles.author} text--brand mb-0`}>{blogInfo.reference.name}, {blogInfo.reference.title}</Title>
+                                        <Title className={`${styles.author} mb-0`}>{blogInfo.reference.name}, {blogInfo.reference.title}</Title>
                                         <p className={`${styles.date} text--grey`}>{blogInfo.date}</p>
                                     </Col>
                                 </Row>
@@ -61,7 +61,6 @@ const Blog = ({ pageContext }) => {
 
                         <SocialMediaIcons text={`${blogInfo.title} | Awesome Inc`} link={`https://www.awesomeinc.org/blog/${blogInfo.slug.current}`}/>
                         <Container className="my-5 px-0">
-                            {/* <h1>{blogInfo.body}</h1> */}
                             <Markdown content={blogInfo.body}/>
                         </Container>
                     </Col>
