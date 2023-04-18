@@ -56,8 +56,8 @@ const CareersPage = ({ data }) => {
           <Col className="footer">
             <Col md={{ span: 6, offset: 3 }}>
               <h2>We're always looking for passionate, driven people who think they'd be a fit for our company! If you don't see what you're looking for on this page, reach out - we'd love to chat.</h2>
-              <p><a className={'link--brand'} href='mailto: careers@awesomeinc.org'>Email careers@awesomeinc.org</a></p>
-              {/* ask about creating link--brand-red-bright to fix color contrast */}
+              <p><a className={'link--brand-dark'} href='mailto: careers@awesomeinc.org'>Email careers@awesomeinc.org</a></p>
+              {/* ask about creating link--brand-bright to fix color contrast */}
             </Col>
           </Col>
         </Row>

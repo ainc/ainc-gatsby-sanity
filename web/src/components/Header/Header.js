@@ -64,8 +64,8 @@ const Header = () => {
             />
           </Link>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" className='text-white shadow-none border-white'/>
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Toggle aria-controls="learn-to-code-basic-navbar-nav" className='text-white shadow-none border-white'/>
+        <Navbar.Collapse id="learn-to-code-nav-bar">
           <Nav>
             <Col className="desktop">
               <Nav.Link href="/learn" className="text--white">Learn To Code  <AiFillCaretDown size={10}/></Nav.Link>
