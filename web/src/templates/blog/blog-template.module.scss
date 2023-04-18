@@ -3,9 +3,10 @@
 
 
 .author {
-    font-size: 1rem;
+    color: $brand-color !important;
+    font-size: 1rem !important;
     @include screen-tablet-max {
-        font-size: .8rem;
+        font-size: .8rem !important;
     }
 }
 

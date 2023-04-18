@@ -21,8 +21,9 @@
     }
 
     .blog-details {
-        
+
         .author {
+            color: $brand-color !important;
             font-size: .9rem !important;
             @include screen-tablet-max {
                 font-size: 0.7rem !important;
