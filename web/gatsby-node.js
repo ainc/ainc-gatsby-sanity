@@ -15,7 +15,7 @@ async function createBlogPostPages(graphql, actions) {
           }
           title
           previewText
-          _rawBody
+          body
           thumbnail {
             asset {
               url

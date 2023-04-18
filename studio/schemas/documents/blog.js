@@ -38,8 +38,7 @@ export default {
             type: 'string',
             title: 'Preview Text',
             description: 'The text that will show on the main blog page',
-            validation: Rule => Rule.required().min(0).max(175)
-
+            validation: Rule => Rule.required().min(0).max(80)
         },
         {
             name: 'thumbnail',
@@ -49,29 +48,9 @@ export default {
         },
         {
             name: 'body',
-            type: 'array',
+            type: 'markdown',
             title: 'Blog body',
             description: 'Blog content',
-
-            of: [
-                    {
-                        type: 'block',
-                    },
-                    {
-                        type: 'image',
-                        fields: [
-                            {
-                                name: 'alt',
-                                type: 'string',
-                                title: 'Alternative text',
-                                description: 'Important for SEO and accessiblity.',
-                                options: {
-                                    isHighlighted: true
-                                }
-                            }
-                        ]
-                    },
-                ]
         },
         
     ],

@@ -1,17 +1,15 @@
 import React, {useState} from 'react'
+import { graphql, Link } from "gatsby";
+import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Col, Container, Row } from 'react-bootstrap';
 import Layout from "../../components/Layout/Layout";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import ModalCustom from '../../components/Modal/ModalCustom';
-import { graphql, Link } from "gatsby";
-import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image'
-
-import "./blog.scss";
-import BlockContent from '@sanity/block-content-to-react';
 import { FaBell, FaLongArrowAltRight, FaBook } from "react-icons/fa";
 import '../../styles/main.scss'
+import "./blog.scss";
 
 
 const BlogPage = ({ data }) => {
@@ -47,11 +45,11 @@ const BlogPage = ({ data }) => {
                         />
                 </Row>
             </Container>
-            <Container className='px-1 pb-3 px-lg-5 pb-lg-5'>
-                <Row className="mt-2">
+            <Container className='px-1 pb-3 pb-lg-5'>
+                <Row className="mb-5 mx-3">
                     {data.allSanityBlog.edges.map((edge) => {
                         return (
-                            <Col xs={12} md={6} lg={4} className="mt-5">
+                            <Col xs={12} md={6} lg={4} className="mt-4 px-0 px-sm-2">
                                 <Container className='blog-card border border-2 rounded-1' style={{height: "540px"}}>
                                     <Row className='p-3 h-100'>
                                         <Col xs={12} className='p-0'>
@@ -60,7 +58,7 @@ const BlogPage = ({ data }) => {
                                                     backgroundRepeat: "no-repeat",
                                                     backgroundSize: "cover",
                                                     backgroundPosition: "center center",
-                                                    height: "300px",
+                                                    height: "270px",
                                                     width: "100%",
                                                 }}>
                                                 <Row className='bg h-100 w-100'>
@@ -69,15 +67,16 @@ const BlogPage = ({ data }) => {
                                                             <FaBook size={40} className='text--brand'/>
                                                         </Link>
                                                         
+                                                        
                                                     </Col>
                                                 </Row>
                                                 <Row className='blog-details'>
                                                     <Col xs={{span: 4}} lg={{ span: 3}} className="d-flex justify-content-start pb-2">
-                                                        <GatsbyImage objectFit='cover' image={edge.node.reference.picture.asset.gatsbyImageData} alt={edge.node.reference.name} className="rounded-circle border border-3 border-white my-2 ms-3"/>
+                                                        <GatsbyImage objectFit='cover' image={edge.node.reference.picture.asset.gatsbyImageData} alt={edge.node.reference.name} className="rounded-circle border border-3 border-white my-2 ms-0"/>
                                                     </Col>
                                                     <Col xs={{span: 7}} lg={{ span: 9}} className="d-flex justify-content-start align-content-center flex-column mt-3 px-0">
-                                                        <Title className="text--small text--brand link--brand">{edge.node.reference.title}</Title>
-                                                        <h6 className='text-white'>{edge.node.date}</h6>
+                                                        <Title className="author text--small text--brand link--brand">{edge.node.reference.name}, {edge.node.reference.title}</Title>
+                                                        <p className='date text-white'>{edge.node.date}</p>
                                                     </Col>
                                                 </Row>
                                             </Container>
@@ -86,15 +85,17 @@ const BlogPage = ({ data }) => {
                                             <Container className='p-0 d-flex flex-column justify-content-between h-100'>
                                                 <Row>
                                                     <div className='pt-3'>
-                                                        <Title className="fs-4 text-break">{edge.node.title}</Title>
+                                                        <Link to={`/blog/${edge.node.slug.current}`}>
+                                                            <Title className="title fs-6 text-break link--red">{edge.node.title}</Title>
+                                                        </Link>
                                                     </div>
                                                     <div className='pb-3'>
-                                                        <Subtitle className="fs-6 text-break">{edge.node.previewText}</Subtitle>
+                                                        <p className="description text-break">{edge.node.previewText}</p>
                                                     </div>
                                                 </Row>
                                                 <Row>
                                                     <div className='pt-3 pb-0'>
-                                                            <a><h6 className='text--brand link--brand'>Read More <FaLongArrowAltRight size="25"/></h6></a>
+                                                        <Link to={`/blog/${edge.node.slug.current}`}><h6 className='text--brand link--brand'>Read More <FaLongArrowAltRight size="25"/></h6></Link>
                                                     </div>
                                                 </Row>
                                             </Container>
