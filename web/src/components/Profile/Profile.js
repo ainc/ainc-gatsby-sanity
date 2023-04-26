@@ -6,6 +6,7 @@ import Ribbon from "../Ribbon/Ribbon";
 
 import { btnGroupFullWidth } from "./Profile.module.css";
 
+
 const Profile = ({ name, image, linkedin, github, website, position }) => {
   return (
     // <div className={`card ${cardShadow}`}>
@@ -15,15 +16,15 @@ const Profile = ({ name, image, linkedin, github, website, position }) => {
         <Ribbon position={position}></Ribbon>
         <Card.Text className="text-center">{name}</Card.Text>
         <ButtonGroup size="sm" className={`btn-group ${btnGroupFullWidth}`}>
-          <Button href={website} variant="outline-dark">
+          { website && <Button href={website} variant="outline-dark">
             Portfolio
-          </Button>
-          <Button href={linkedin} variant="outline-dark">
+          </Button>}
+          { linkedin && <Button href={linkedin} variant="outline-dark">
             LinkedIn
-          </Button>
-          <Button href={github} variant="outline-dark">
+          </Button>}
+          { github && <Button href={github} variant="outline-dark" className={ ( github == true ? `` : `style:hide`)}>
             GitHub
-          </Button>
+          </Button>}
         </ButtonGroup>
       </Card.Body>
     </Card>
