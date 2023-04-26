@@ -86,6 +86,6 @@ export default createSchema({
     press,
     program,
     careers,
-    mentors
+    mentors,
   ])
 })

@@ -23,6 +23,6 @@ export default {
             name: 'linkedIn',
             type: 'url',
             title: 'LinkedIn URL'
-        }
+        },
     ]
 }
