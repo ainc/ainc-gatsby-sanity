@@ -38,20 +38,21 @@ const MentorsPage = ({ data }) => {
                 </Row>
                 </Container>
                 <Container className=''>
-                    <Row>
+                <div className='row justify-content-center'>
                         {allMentors.map((node) => (
-
-                        <div className='col-4 my-2' key={node.id}>
+                            
+                        <div className='col-4 mb-3' key={node.id}>
                             <Profile
                                 name={node.name}
-                                position={node.occupation}
+                                occupation={node.occupation}
                                 linkedin={node.linkedIn}
                                 image={node.picture.asset.gatsbyImageData}
                              ></Profile>
                              </div>
+                             
 
                         ))}
-                        </Row>
+                        </div>
                 </Container>
             </main>
         </Layout>
