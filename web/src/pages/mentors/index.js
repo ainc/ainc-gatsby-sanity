@@ -41,13 +41,17 @@ const MentorsPage = ({ data }) => {
                 <div className='row justify-content-center'>
                         {allMentors.map((node) => (
                             
-                        <div className='col-4 mb-3' key={node.id}>
+                        <div className='col-sm-10 col-md-5 col-lg-4 col-xl-3 mb-3' key={node.id}>
+                          {/* <Col xs={12} sm={10} md={5} lg={5} xl={5} className='row justify-content-center'> */}
+                      
                             <Profile
                                 name={node.name}
                                 occupation={node.occupation}
                                 linkedin={node.linkedIn}
                                 image={node.picture.asset.gatsbyImageData}
                              ></Profile>
+                            
+                             {/* </Col> */}
                              </div>
                              
 
