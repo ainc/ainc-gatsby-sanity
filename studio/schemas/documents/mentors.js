@@ -7,22 +7,26 @@ export default {
         {
             name: 'name',
             type: 'string',
-            title: 'Full Name'
+            title: 'Full Name',
+            validation: Rule => Rule.required().min(1)
         },
         {
             name: 'picture',
             type: 'image',
-            title: 'Picture'
+            title: 'Picture',
+            validation: Rule => Rule.required()
         },
         {
             name: 'occupation',
             type: 'string',
-            title: 'Occupation'
+            title: 'Occupation',
+            validation: Rule => Rule.required().min(1)
         },
         {
             name: 'linkedIn',
             type: 'url',
-            title: 'LinkedIn URL'
+            title: 'LinkedIn URL',
+            validation: Rule => Rule.required().min(1)
         },
     ]
 }
