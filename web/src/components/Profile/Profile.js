@@ -23,7 +23,7 @@ const Profile = ({ name, image, linkedin, github, website, position, occupation 
           { linkedin && <Button href={linkedin} variant="outline-dark">
             LinkedIn
           </Button>}
-          { github && <Button href={github} variant="outline-dark" className={ ( github == true ? `` : `style:hide`)}>
+          { github && <Button href={github} variant="outline-dark">
             GitHub
           </Button>}
         </ButtonGroup>
