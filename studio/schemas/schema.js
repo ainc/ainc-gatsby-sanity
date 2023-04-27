@@ -42,6 +42,7 @@ import press from './documents/press'
 import program from './documents/program'
 import careers from './documents/careers'
 import mentors from './documents/mentors'
+import teamAlpha from './documents/teamAlpha'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -89,5 +90,6 @@ export default createSchema({
     program,
     careers,
     mentors,
+    teamAlpha,
   ])
 })
