@@ -48,7 +48,8 @@ return (
         <main>
             <Container>
                 <AccordionCustom
-                faq = {faq}></AccordionCustom>
+                    faq = {faq}
+                />
             </Container>
         </main>
     </Layout>
