@@ -14,8 +14,8 @@ const Profile = ({ name, image, linkedin, github, website, position, occupation 
       <GatsbyImage image={image} className="card-img-top" alt={name} />
       <Card.Body>
         { position && <Ribbon position={position}></Ribbon>}
-        <Card.Text className="text-center my-1 fs-6">{name}</Card.Text>
-        { occupation && <p className='text-center text--micro my-0'>{occupation}</p>}
+        <Card.Text className="text-center my-1 fs-6 fw-bold">{name}</Card.Text>
+        { occupation && <p className='text-center text--micro mb-2'>{occupation}</p>}
         <ButtonGroup size="sm" className={`btn-group ${btnGroupFullWidth}`}>
           { website && <Button href={website} variant="outline-dark">
             Portfolio
