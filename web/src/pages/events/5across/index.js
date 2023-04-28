@@ -2,6 +2,7 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../../../components/Layout/Layout";
 import { Container, Col, Row, Image } from "react-bootstrap";
+import SEO from '../../../components/seo'
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import "../../../styles/main.scss"
 import * as styles from "./fiveAcross.module.scss";
@@ -51,7 +52,7 @@ const fiveAcrossPage = ({ data }) => {
 
     return ( 
         <Layout> 
-            {/* <h1>hello world</h1> */}
+            <SEO />
             <main>
                 {/* <section  > */}
                     <Container fluid className={`${styles.mainHeading}`}>

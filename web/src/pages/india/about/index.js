@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Container, Row, Col } from 'react-bootstrap'
+import SEO from '../../../components/seo'
 import Title from '../../../components/UI/Title/Title'
 import Subtitle from '../../../components/UI/Subtitle/Subtitle'
 import IndiaLayout from '../../../components/IndiaLayout/IndiaLayout'
@@ -9,6 +10,7 @@ import * as styles from './about.module.css'
 const IndiaAbout = () => {
     return (
         <IndiaLayout>
+            <SEO />
             <Container>
                 <Row>
                     <Title className='mt-5 mb-4 text-center text-uppercase'>we exist to help people to learn to code.</Title>

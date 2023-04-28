@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Layout from '../../../components/Layout/Layout';
 import { Container, Row, Col, } from 'react-bootstrap';
+import SEO from '../../../components/seo'
 import BrandButton from "../../../components/UI/BrandButton/BrandButton";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import OnlineApplication from "../../../assets/svg/Online-Application.svg";
@@ -10,7 +11,8 @@ import FioChallenge from "../../../assets/svg/FIO-Challenge.svg";
 const Page = ({ data }) => {
 
   return (
-    <Layout pageTitle="Confirmation | Awesome Inc">
+    <Layout>
+        <SEO />
         <Container>
         <Row className="my-3">
             <Col md={{ span: 8, offset: 2 }}><h1>Salesforce Career Accelerator Application Received</h1></Col>
