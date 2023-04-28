@@ -1,0 +1,33 @@
+.testimonial {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.bootcampGradImages {
+    img {
+        width: 125px;
+        margin-bottom: 3rem;
+        border: 2px rgba(255, 255, 255, 0.8) solid;
+        &:last-child {
+          margin-bottom: 0;
+        }
+    }
+}
+
+.testimonialWindow {
+    background-color: rgba(255, 255, 255, 0.8);
+    max-width: 75%;
+    margin-top: 5px;
+
+    width: 708px;
+    height: 424px;
+
+    .testimonial-window-text {
+        max-width: 75%;
+        margin: 3rem 5rem 5rem 5rem;
+        margin-bottom: 3rem;
+        &.active {
+          display: block;
+        }
+      }
+}

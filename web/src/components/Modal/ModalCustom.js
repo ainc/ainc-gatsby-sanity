@@ -27,24 +27,22 @@ const ModalCustom = (props) => {
         aria-labelledby="example-modal-sizes-title-lg"
         backdropClassName={styles.modal}
         contentClassName={styles.modal}
+        scrollable
       >
         {/* <Modal.Title>Test titlee</Modal.Title> */}
         {/* <div class="modal" tabindex="-1" role="dialog"> */}
-  {/* <div class="modal-dialog" role="document"> */}
-    {/* <Mod> */}
-      <Modal.Header className={styles.modal}>
-        <Modal.Title>
-            <Title className="fs-3 text-white">{props.title}</Title>
-        </Modal.Title>
-        <CloseButton variant="white" className={styles.closeBtn} onClick={props.hide} />
-      </Modal.Header>
+        {/* <div class="modal-dialog" role="document"> */}
+        {/* <Mod> */}
+        <Modal.Header className={styles.modal}>
+          <Modal.Title>
+              <Title className="fs-3 text-white">{props.title}</Title>
+          </Modal.Title>
+          <CloseButton variant="white" className={styles.closeBtn} onClick={props.hide} />
+        </Modal.Header>
 
-      <Modal.Body className="bg-white">
-        {props.content}
-      </Modal.Body>
-
-      
-    
+        <Modal.Body className={ props.bgDark === true  ? `` : `bg-white`}>
+          {props.content}
+        </Modal.Body>
       </Modal>
     </div>
   );

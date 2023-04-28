@@ -7,7 +7,7 @@ const BrandButton = styled.button`
     font-family: ${styles.styles.fonts.baseFont};
     font-weight: 600;
     letter-spacing: 3px;
-    background: ${styles.styles.colors.brand};
+    background-color: ${styles.styles.colors.brand};
     padding: 0.5rem 2rem;
     color: white;
     overflow: hidden;
@@ -32,6 +32,11 @@ const BrandButton = styled.button`
     &:hover {
         color: ${styles.styles.colors.brand2};
     }
+    &.hover--black {
+        &:hover {
+            color: ${styles.styles.colors.brand2};
+        }
+    }
 
     &.secondary {
         background-color: ${styles.styles.colors.brand2};
@@ -40,6 +45,7 @@ const BrandButton = styled.button`
             color: ${styles.styles.colors.brandGrey};
         }
     }
+
     &.btn--small {
         font-size: ${styles.styles.sizes.text};
         padding: 0.4rem 1.4rem;

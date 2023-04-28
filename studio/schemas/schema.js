@@ -14,6 +14,7 @@ import internalTeamMember from './objects/internalTeamMember'
 import imageLink from './objects/imageLink'
 import link from './objects/link'
 import sliderImage from './objects/sliderImage'
+import fiveAcrossJudges from './objects/fiveAcrossJudges'
 
 // Document types
 import category from './documents/category'
@@ -28,6 +29,7 @@ import accomplishments from './documents/accomplishments'
 import footer from './documents/footer'
 import imageSlider from './documents/imageSlider'
 import blog from './documents/blog'
+import blogAuthors from './documents/blogAuthors'
 import fellowshipPortfolio from './documents/fellowshipPortfolio'
 import fellowshipSponsers from './documents/fellowshipSponsers'
 import courses from './documents/courses'
@@ -37,6 +39,10 @@ import bootcampGraduationStats from './documents/bootcampGraduationStats'
 import bootcampEmployers from './documents/bootcampEmployers'
 import bootcampProfileCard from './documents/bootcampProfileCard'
 import press from './documents/press'
+import program from './documents/program'
+import links from './documents/links'
+import careers from './documents/careers'
+import mentors from './documents/mentors'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -56,6 +62,7 @@ export default createSchema({
     imageLink,
     link,
     sliderImage,
+    fiveAcrossJudges,
     // The following are document types which will appear
     // in the studio.
     category,
@@ -63,6 +70,7 @@ export default createSchema({
     sampleProject,
     siteSettings,
     blog,
+    blogAuthors,
     bootcampAlumni,
     accomplishments,
     eventTypes,
@@ -78,6 +86,10 @@ export default createSchema({
     bootcampGraduationStats,
     bootcampEmployers,
     bootcampProfileCard,
-    press
+    press,
+    program,
+    links,
+    careers,
+    mentors,
   ])
 })

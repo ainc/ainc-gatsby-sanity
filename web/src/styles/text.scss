@@ -31,6 +31,10 @@
   color: $brand-red-bright;
 }
 
+.link--black:hover {
+  color: black;
+}
+
 .text--brand {
   color: $brand-color;
 }
@@ -40,7 +44,10 @@
 }
 
 .text--micro {
-  @include font-size(8)
+  @include font-size(6);
+  @include screen-max {
+    @include font-size(8);
+  }
 }
 
 .text--huge {
@@ -54,4 +61,8 @@
 .text--aside {
   margin-top: 400px;
   transform: rotate(270deg);
+}
+
+.border--red {
+  border-color: $brand-color !important;
 }

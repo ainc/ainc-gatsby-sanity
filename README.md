@@ -20,20 +20,39 @@ Deployed from [sanity.io/create](https://www.sanity.io/create/?template=sanity-i
 4. `yarn run build` to build to production locally
 ** Note: You may have better success opening two separate terminals to and running `yarn run dev` in both `/studio` and `/web`
 
-## Enable real-time content preview in development
+## Notes
+- Having troucble with `yarn install`?
+Verified Node versions: `14.xx`, `17.xx`
 
-1. Go to your [project’s API settings on manage.sanity.io](https://manage.sanity.io/projects/y716vocf/settings/api) and create a token with read rights.
-2. Copy `.env.development.template` to `.env.development` and paste in the token: `SANITY_READ_TOKEN="yourTokenHere"`.
-3. Restart the development server (`ctrl + C` and `yarn run dev`).
+## Workflow to create new documents for production
+<details>
+<summary>Steps</summary>
+<br>
 
-If you want to disable the preview you can set `watchMode: false` in gatsby-config.js. If you just want to preview published changes you can set `overlayDrafts: false` in gatsby-config.js.
+[Import/Export Documentation](https://www.sanity.io/docs/migrating-data)
+  - Use `local` machine to create document on your personal tagged dataset [(Commit for reference on how to switch to change tags)](https://github.com/ainc/ainc-gatsby-sanity/commit/83a6e89290f1b83a4fd9d0a0223cc858c05bca8b#:~:text=%3A%20%27beta%27-,graphqlTag,-%3A%20%27beta%27)
+  - Export from your tagged dataset, then import into the `dev` dataset using either `--missing` or `--replace` flags [(Documentation)](https://www.sanity.io/docs/importing-data#:~:text=tar.gz%20production-,Protip,-The%20import%20will)
+  - In the `dev` dataset, then add content to your new document in the Sanity Dashboard
+  -  Then export from the `dev` dataset, and import into the `production` dataset using the `--missing skip` flag (adds any missing data, skips any data with same Id's)
+  - Possible have to do `sanity graphql deploy` to update the GraphQL (After adding code in `/documents))
+  - Yay you're done... hopefully (Refer to the commands below)
 
-## Deploy changes
+ - - Note: these commands will only transfer the content of the documents, you will still need to add the document code to the `studio/douments` folder
 
-Netlify automatically deploys new changes commited to the `master` branch on GitHub. If you want to change the deployment branch you may do so in [build & deploy settings on Netlify](https://www.netlify.com/docs/continuous-deployment/#branches-deploys).
+### Confirmed command sequence once a schema is made in your `tagged` dataset
+These 2 commands will export from your `tagged` dataset into the `dev` dataset
+- `sanity dataset export dev --tag [tagName] ./tagged.tar.gz` (Export from `tagged` dataset)
+- `sanity dataset import ./tagged.tar.gz dev --missing skip` (Import into `dev` dataset) this will add all missing data and skip any data with the same id
 
-## Get help
+After this step, you would populate the content in sanity
 
-[![Slack Community Button](https://slack.sanity.io/badge.svg)](https://slack.sanity.io/)
+Then, these 2 commands will import your data from `dev` to `production`
+- `sanity dataset export dev ./dev.tar.gz` (Export from `dev` dataset)
+Create a backup of `production` dataset (Possible GitHub action)
+- `sanity dataset export production ./production.tar.gz` (Export from `production` dataset)
 
-Join [Sanity’s developer community](https://slack.sanity.io) or ping us [on twitter](https://twitter.com/sanity_io).
+Import from `dev` into `production`
+- `sanity dataset import ./dev.tar.gz production --missing skip` (Import into `production` dataset)
+
+<br><br>
+</details>

@@ -27,7 +27,7 @@ const AboutPage = ({ data }) => {
         <section className={styles.aboutHeader}>
           <Container>
             <Row>
-              <Col className="col-9 col-sm-7">
+              <Col className="col-9 col-sm-7 mt-3">
                 <div className={styles.heading}>
                   <Title className={`text-normal mt-5`}>
                     We exist to help people pursue their definition of awesome.
@@ -173,17 +173,18 @@ const AboutPage = ({ data }) => {
 
         {/* Team */}
         <section className={styles.teamSection}>
-          <Container>
+          <Container className="mb-5">
             <Row>
               <h2 className={`text-uppercase text-center ${styles.headingTitle}`}>Meet The Team</h2>
-              <Col md={{ span: 10, offset: 2 }} lg={{span:10, offset: 1}} >
+              <Col xs={{ span: 7, offset: 3}} sm={{ span: 6, offset: 3}} md={{ span: 10, offset: 2}} lg={{ span: 8, offset: 2}} >
                 <Row>
                   {teamMembers.map((node) => (
                     <Col
-                      sm={4}
-                      md={2}
+                      xs={5}
+                      sm={6}
+                      md={3}
                       lg={2}
-                      className="mb-3 mt-3 mx-md-1 mx-lg-0 mt-lg-3 mb-lg-3 mt-md-2 mb-md-2 mt-sm-4 mb-sm-4 mb-xs-3 mt-xs-3 d-flex justify-content-center"
+                      className="mb-3 mt-3 mx-md-1 mx-lg-0 mt-lg-3 my-lg-1 mt-md-2 mb-md-2 mt-sm-4 mb-sm-4 mb-xs-3 mt-xs-3 d-flex justify-content-center"
                     >
                       <TeamMember
                         image={
@@ -244,7 +245,7 @@ export const query_accomplishments = graphql`
         name
         picture {
           asset {
-            gatsbyImageData
+            gatsbyImageData(width: 200, fit: FILL)
           }
         }
       }

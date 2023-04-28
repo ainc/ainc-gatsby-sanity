@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState } from "react";
 import Layout from '../../components/Layout/Layout'
 import { graphql, Link, Img } from 'gatsby'
 import { Container, Row, Col } from 'react-bootstrap'
@@ -14,6 +14,7 @@ import * as styles from './fellowship.module.scss'
 import * as footerStyles from '../../components/Footer/Footer.module.scss'
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
+import ApplyNowModal from "./Components/ApplyNowModal";
 
 /**
  * TODO:
@@ -21,7 +22,7 @@ import { useKeenSlider } from 'keen-slider/react'
  */
 
 const FellowshipPage = ({ data }) => {
-
+  
   const FellowshipSponsers = (data.allSanityFellowshipSponsers.nodes || {})
 
   const [refCallback] = useKeenSlider(
@@ -59,7 +60,11 @@ const FellowshipPage = ({ data }) => {
         slider.on("updated", nextTimeout)
       },
     ]
+    
   )
+  const [lgShow, setLgShow] = useState(false);
+  const handleClose = () => setLgShow(false);
+  const handleShow = () => setLgShow(true);
 
   return (
     <Layout pageTitle="Fellowship">
@@ -70,20 +75,21 @@ const FellowshipPage = ({ data }) => {
           <Col className="m-auto" xs={12} sm={4}>
             <Title className="brand">Fellowship</Title>
             <Subtitle className="fst-italic fw-lighter fs-4 text-lowercase">A mentor-driven program for Kentucky based startups</Subtitle>
-            <BrandButton className="my-3">Apply Now</BrandButton>
+            <ApplyNowModal/>
+
           </Col>
-          <Col className="" xs={12} sm={8}>
+          <Col className="my-5" xs={12} sm={8}>
             <StaticImage src="../../images/brainstorming.jpg" width={375} className='position-relative' alt="people brainstorming"/>
-            
           </Col>
+
         </Row>
       </Container>
       
       {/* What is the fellowship */}
       <Container>
         <Row>
-          <Col className="mx-auto my-5" xs={12} sm={{ offset: 1, span: 10}} md={{ offset: 3, span: 6}}>
-            <Title className="text-center">What is the Fellowship</Title>
+          <Col className="mx-auto my-5" xs={12} sm={{ offset: 1, span: 10}} lg={6}>
+            <Title className="text-center text-uppercase">What is the Fellowship?</Title>
             <p className='text-center mt-3'>
               A mentor-driven program designed to accelerate your high tech startup. The program is tailored to your startup's needs and runs on a flexible timeline unique to your team, supporting your startup for up to one year.
             </p>
@@ -94,22 +100,29 @@ const FellowshipPage = ({ data }) => {
       {/* perks, portfolio and mentors */}
       <Container>
         <Row>
-          <Col className="mx-auto my-5" xs={12} sm={{ offset: 1, span: 10}} md={{ offset: 3, span: 6}}>
+          <Col className="mx-auto my-2" xs={12} sm={{ offset: 1, span: 10}} lg={{ offset: 3, span: 6}} >
             <Row>
-              <Col xs={4} className='px-5'>
-                <PerksIcon />
-                <Title className='text-center fs-3 mt-3'>Perks</Title>
+              <Col className="m-auto text-center" xs={4}>
+                {/* <div > */}
+                <PerksIcon className='mb-2'/>
+                <Subtitle className={`${styles.iconTitle} text-center fw-bold mt-2`}>Perks</Subtitle>
+                {/* </div> */}
               </Col>
-              <Col xs={4} className='px-5'>
+              <Col className="m-auto text-center" xs={4}>
+              {/* <div className="m-auto text-center text-wrap"> */}
+                <MentorsIcon className='mb-2'/>
+                <Subtitle className={`${styles.iconTitle} text-center fw-bold mt-2`}>Mentors</Subtitle>
+                {/* </div> */}
+              </Col>
+              <Col className="m-auto text-center" xs={4}>
+              {/* <div className="m-auto text-center"> */}
                 <Link to="/fellowship/portfolio">
-                  <PortfolioIcon />
+                  <PortfolioIcon className='mb-2'/>
                 </Link>
-                <Title className='text-center fs-3 mt-3'>Portfolio</Title>
+                <Subtitle className={`${styles.iconTitle} text-center fw-bold mt-2`} >Portfolio</Subtitle>
+                {/* </div> */}
               </Col>
-              <Col xs={4} className='px-5'>
-                <MentorsIcon />
-                <Title className='text-center fs-3 mt-3'>Mentors</Title>
-              </Col>
+
             </Row>
           </Col>
         </Row>
@@ -118,8 +131,9 @@ const FellowshipPage = ({ data }) => {
       <Container>
         <Row className="mb-5">
           <Col className="d-flex justify-content-center">
-            <BrandButton>Apply Now</BrandButton>
+          <ApplyNowModal/>
           </Col>
+
         </Row>
       </Container>
 
@@ -199,7 +213,7 @@ const FellowshipPage = ({ data }) => {
         </Row>
         <Row className="mt-5">
           <Col className="d-flex justify-content-center">
-            <BrandButton>Apply Now</BrandButton>
+          <ApplyNowModal/>
           </Col>
         </Row>
       </Container>
