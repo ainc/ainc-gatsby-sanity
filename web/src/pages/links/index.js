@@ -5,37 +5,54 @@ import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import { graphql, Link } from "gatsby";
 import AwesomeIncLogo from "../../assets/svg/square_gray.svg"
 import * as styles from "./links.scss";
+import '../../styles/main.scss'
 import { FaTwitter, FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 const LinksPage = ({ data }) => {
     const allLinks = (data.allSanityLinks.nodes || {})
 
     return (
-        <Container>
-            <div className="header d-flex justify-content-center align-items-center">
-                <AwesomeIncLogo className="logo" />
-            </div>
+      <Container>
+        <Row>
+          <Col className="header d-flex justify-content-center align-items-center">
+            <AwesomeIncLogo className="logo" />
+          </Col>
+        </Row>
 
-            <div className="links">
-            {allLinks.map((node) => (
-                <div className="d-flex justify-content-center">
-                <BrandButton className="brand-button">              
-                    <a href={node.linkToPage} className="brand-button">{node.title}</a>
+        <Row style={{marginTop: "30%"}}>
+          {allLinks.map((node) => (
+            <Col md={{span: 8, offset: 2}}>
+              <a href={node.linkToPage}>
+                <BrandButton className="hover--black mb-4 py-0 w-100 ">       
+                  {node.title}       
                 </BrandButton>
-                </div>
-            ))}
-            </div>
-
-            <Col className= "socialsInlineList">
-            <ul>
-              <li><a href='https://twitter.com/awesomeinclex'><FaTwitter /></a></li>
-              <li><a href='https://www.facebook.com/awesomeinclex'><FaFacebookF /></a></li>
-              <li><a href='https://www.linkedin.com/school/awesome-inc/'><FaLinkedinIn /></a></li>
-              <li><a href='https://www.instagram.com/awesomeinclex/'><FaInstagram /></a></li>
-              <li><a href='https://www.youtube.com/user/AincTelevision/featured'><FaYoutube /></a></li>
-            </ul>
+              </a>
             </Col>
-        </Container> 
+          ))}
+        </Row>
+        <Row className='my-5'>
+          <Col md={{span: 2, offset: 5}} className=''>
+            <Row className='d-flex justify-content-center'>
+              <Col sm={2} className='d-flex justify-content-center'>
+                  <a href='https://twitter.com/awesomeinclex'><FaTwitter size={25} color="black"/></a>
+              </Col>
+              <Col sm={2} className='d-flex justify-content-center'>
+                  <a href='https://www.facebook.com/awesomeinclex'><FaFacebookF size={25} color="black"/></a>
+              </Col>
+              <Col sm={2} className='d-flex justify-content-center'>
+                  <a href='https://www.linkedin.com/school/awesome-inc/'><FaLinkedinIn size={25} color="black"/></a>
+              </Col>
+              <Col sm={2} className='d-flex justify-content-center'>
+                  <a href='https://www.instagram.com/awesomeinclex/'><FaInstagram size={25} color="black"/></a>
+              </Col>
+              <Col sm={2} className='d-flex justify-content-center'>
+                  <a href='https://www.youtube.com/user/AincTelevision/featured'><FaYoutube size={25} color="black"/></a>
+              </Col>
+            </Row>
+          </Col>
+
+        </Row>
+      </Container> 
     )
 }
 
