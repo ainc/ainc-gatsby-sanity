@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Container, Row, Col, Badge } from 'react-bootstrap'
+import SEO from '../../components/seo'
 import { Link } from 'gatsby'
 import Title from '../../components/UI/Title/Title'
 import Accordion from 'react-bootstrap/Accordion'
@@ -11,6 +12,7 @@ import Layout from '../../components/Layout/Layout'
 const FAQPage = () => {
     return (
         <Layout>
+            <SEO />
             <main>
                 <Container>
                     <Row>

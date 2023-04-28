@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Layout from '../../../components/Layout/Layout';
 import { Container, Row, Col } from 'react-bootstrap';
+import SEO from '../../../components/seo'
 import { useStaticQuery, graphql } from "gatsby"
 
 const Page = () => {
@@ -18,7 +19,8 @@ const Page = () => {
   `);
 
   return (
-    <Layout pageTitle="Bootcamp Confirmation | Awesome Inc">
+    <Layout>
+      <SEO />
       <Container>
         <Row className="my-3">
           <Col md={{ span: 9, offset: 2 }}>

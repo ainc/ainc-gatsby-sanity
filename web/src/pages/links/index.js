@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Col, Container, Row } from 'react-bootstrap';
+import SEO from '../../components/seo'
 import Layout from "../../components/Layout/Layout";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import { graphql, Link } from "gatsby";
@@ -13,6 +14,7 @@ const LinksPage = ({ data }) => {
 
     return (
       <Container>
+        <SEO />
         <Row>
           <Col className="header d-flex justify-content-center align-items-center">
             <AwesomeIncLogo className="logo" />

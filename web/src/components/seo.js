@@ -2,19 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
+import { useLocation } from "@reach/router";
 
-function SEO({ description, lang, meta, keywords, title }) {
+
+function SEO({ description, lang, meta, keywords, title, path }) {
   return (
     <StaticQuery
       query={detailsQuery}
       render={data => {
+        const pageTitle = title !== undefined ? title : data.allSanityPageTitles.edges.find(page => page.node.filePath === useLocation().pathname).node.pageTitle || "";
         const metaDescription = description || (data.site && data.site.description) || "";
         const siteTitle = (data.site && data.site.title) || "";
         const siteAuthor = (data.site && data.site.author && data.site.author.name) || "";
         return (
           <Helmet
             htmlAttributes={{ lang }}
-            title={title}
+            title={pageTitle}
             titleTemplate={title === siteTitle ? "%s" : `%s | ${siteTitle}`}
             meta={[
               {
@@ -23,7 +26,7 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 property: "og:title",
-                content: title
+                content: pageTitle
               },
               {
                 property: "og:description",
@@ -43,7 +46,7 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 name: "twitter:title",
-                content: title
+                content: pageTitle
               },
               {
                 name: "twitter:description",
@@ -90,6 +93,14 @@ const detailsQuery = graphql`
       keywords
       author {
         name
+      }
+    }
+    allSanityPageTitles {
+      edges {
+          node {
+              filePath
+              pageTitle
+          }
       }
     }
   }
