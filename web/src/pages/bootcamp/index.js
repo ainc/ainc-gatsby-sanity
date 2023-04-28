@@ -532,7 +532,7 @@ const BootcampPage = props => {
       </section>
 
        {/* Questions */}
-       <section id="questions">
+       <section id="questions" className="w-100">
         <Container fluid className={styles.questions}>
           <Row className="text-center">
             <Col className="text-center mt-4">

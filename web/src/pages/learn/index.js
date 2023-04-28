@@ -17,7 +17,7 @@ const ProvenBackground = styled.div`
   filter: opacity(50%) blur(1pt);
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100vw;
+  width: 100%;
   height: 450px;
   text-align: left;
   display: block;
