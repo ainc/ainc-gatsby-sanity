@@ -1,0 +1,31 @@
+.figure {
+  position: relative;
+}
+
+.figcaption {
+  width: 100%;
+}
+
+.option-hover {
+  display: table;
+}
+
+.option-text {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 14px;
+}
+
+figure figcaption {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.profile figcaption:hover {
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
