@@ -88,7 +88,7 @@ export default createSchema({
     bootcampProfileCard,
     press,
     program,
-    links
+    links,
     careers,
     mentors,
   ])
