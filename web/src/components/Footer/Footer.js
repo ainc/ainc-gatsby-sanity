@@ -43,9 +43,8 @@ const Footer = props => {
   const footerData = (query.sanityFooter || {})
 
   return (
-    <Container fluid className={styles.footerBackground}>
-      <Container>
-
+    <section className={styles.footerBackground}>
+      <Container className={styles.footerBackground}>
         <Row>
           {/* Main column */}
           <Col xs md={4}>
@@ -153,9 +152,8 @@ const Footer = props => {
             </ul>
           </Col>
         </Row>
-
       </Container>
-    </Container>
+    </section>
   )
   
 }

@@ -1,0 +1,11 @@
+.modalDiv {
+    height:70vh;
+    margin:0;
+    padding:0;
+}
+.applicationContent{
+    display:block;
+    width:100%;
+    height:100%;
+    align-content: center;
+}

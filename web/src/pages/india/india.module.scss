@@ -1,0 +1,186 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.bhopal {
+    background-image: url(../../images/india/youth-header-india.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    background-position: 30% center;
+    width: 100vw;
+    height: 115vh;
+    @include screen-lg {
+        background-position: 40%;
+    }
+    @include screen-md {
+        background-position: 45%;
+    }
+    @include screen-sm {
+        line-height: 1rem;
+        background-image:none;
+    }
+    @include screen-xs {
+        font-size: .7rem;
+        height: 600px;
+        background-size: cover;    
+    }
+}
+
+.top-section {
+    @include screen-sm {
+        background-color: $brand-red-bright;
+        background-size: cover;
+        min-width: 100vw;
+        position: absolute;
+        margin-left: -16px;
+        padding-left: 18px;
+        height:110vh;
+    }
+    @include screen-xs {
+        background-color: $brand-red-bright;
+        background-size: cover;
+        min-width: 100vw;
+        position: absolute;
+        margin-left: -16px;
+        padding-left: 18px;
+        height: 110vh;
+    }
+}
+
+.title {
+    margin-top: 20%;
+}
+
+.subtitle {
+    margin-top: 10%;
+    @include screen-sm {
+        margin-top: 20%;
+    }
+    @include screen-xs {
+        margin-top: 20%;
+    }
+}
+
+.description {
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 20px;
+    margin-top: 90px;
+    @include screen-sm {
+        font-size: .9rem;
+        line-height: 1.2rem;
+        color: black;
+    }
+    @include screen-xs {
+        font-size: .5rem;
+        line-height: .9rem;
+        color: white;
+        margin-top: 10px;
+    }
+}
+
+.join-button {
+    @include screen-max {
+        display: block;
+    }
+    @include screen-sm {
+        margin: auto;
+        width: 50%;
+        align-items: start;
+    }
+    @include screen-xs {
+        margin:auto;
+        width: 75%;
+        padding: 1px;
+        margin-top: 0;
+        align-items: start;
+    }
+}
+
+.phone {
+    width: 50%;
+    top: -7%;
+    @include screen-sm {
+        display:none;
+    }
+    @include screen-xs {
+        display: none;
+    }
+}
+
+.cards {
+    background-color: white;
+    padding: 0;
+}
+
+.engaged {
+    background-image: url(../../images/learn/youth-engaged-bg.png);
+    background-repeat: no-repeat;
+    position: center 15%;
+    min-width: 100vw;
+    background-size: 100%;
+    margin-top: 30px;
+    color: white;
+    @include screen-sm {
+        color: $brand-color2;
+    }
+    @include screen-xs {
+        color: $brand-color2;
+    }
+}
+
+.engaged-title {
+    color: white;
+    @include screen-sm {
+        color: $brand-color2;
+    }
+    @include screen-xs {
+        color: $brand-color2;
+    }
+}
+
+.questions {
+    background-image: url(../../images/india/questions.jpeg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center 35%;
+    min-width: 100vw;
+    padding-top: 110px;
+    padding-bottom: 40px;
+    min-height: 50vh;
+    display: fluid;
+}
+
+.faq-button {
+    margin-top: 100px;
+}
+
+.cardHeaders {
+    background-color: white;
+    background-size: cover;
+    margin: 0;
+}
+
+.program-guide {
+    position: absolute !important;
+    left: 65%;
+    bottom: -18%;
+    > div {
+        background-color: $brand-grey-dark;
+        border: inherit;
+    }
+    @include screen-lg {
+        left: 60%;
+        width: 120px;
+    }
+    @include screen-max {
+        bottom: -10%;
+    }
+    @include screen-md {
+        display: none;
+    }
+}
+
+.why-code {
+    margin-top: 160px;
+}

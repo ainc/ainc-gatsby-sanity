@@ -14,7 +14,6 @@ import BrandButton from "../../../components/UI/BrandButton/BrandButton";
 import FiveAcrossBG from '../../../images/5across-hero.png'
 // import Event from "../../../components/Event/Event";
 import DropdownDataDisplay from "../../../components/DropdownDataDisplay/DropdownDataDisplay";
-import { faUniversalAccess } from "@fortawesome/free-solid-svg-icons";
 import HorizontalButtons from './HorizontalButtons';
 
 
@@ -290,7 +289,7 @@ const fiveAcrossPage = ({ data }) => {
     )
 }
 
-export const query_upcoming_5a = graphql`
+export const query_upcoming_5a = graphql` 
 query fiveAcrossQuery($currentDate: Date!) {
     allSanityEvents(
         filter: {reference: {eventTypeName: {eq: "5 Across"}}, date: {gte: $currentDate}}

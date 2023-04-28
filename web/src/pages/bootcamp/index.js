@@ -6,15 +6,15 @@ import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
-import ProfileCard from "./components/ProfileCard/ProfileCard";
-import GradStat from "./components/GradStat/GradStat";
-import Testimonial from "./components/Testimonial/Testimonial";
+import ProfileCard from "./Components/ProfileCard/ProfileCard";
+import GradStat from "./Components/GradStat/GradStat";
+import Testimonial from "./Components/Testimonial/Testimonial";
 import "../../styles/main.scss"
 import * as styles from './bootcamp.module.scss'
 import * as footerStyles from '../../components/Footer/Footer.module.scss'
-import ShieldsRow from "./components/ShieldsRow/ShieldsRow";
+import ShieldsRow from "./Components/ShieldsRow/ShieldsRow";
 import VerticalTitle from "../../components/UI/VerticalTitle/VerticalTitle";
-import SideNav from "./components/SideNav/SideNav"
+import SideNav from "./Components/SideNav/SideNav"
 
 export const query = graphql`
  query BootcampPageQuery {
@@ -136,7 +136,7 @@ const BootcampPage = props => {
 
       {/* Answer Honestly */}
       <section id="answer-honestly">
-        <Container className="py-5 mx-5">
+        <Container className="py-5">
           <Row>
             <Col>
               <Title className="text-center brand fs-3">Answer honestly...</Title>
@@ -144,7 +144,7 @@ const BootcampPage = props => {
             </Col>
           </Row>
           <Col>
-            <Row className="py-5 ps-3 mx-5 text-center" style={{maxWidth: "90%"}}>
+            <Row className="py-5 ps-3 text-center" style={{maxWidth: "90%"}}>
               <ShieldsRow
                 text1="Do you ever think of changing careers?"
                 text2="Are you looking for a more meaningful career?"
@@ -178,7 +178,7 @@ const BootcampPage = props => {
             <Row className="py-5">
               <Title className="text-center text-white text-uppercase mt-5">Hear From Our Alumni</Title>
             </Row>
-            <Row className="text-center mx-5">
+            <Row className="text-center">
               <Testimonial 
                 name1={testimonial1.name}
                 image1={testimonial1.picture.asset.gatsbyImageData}
@@ -267,7 +267,7 @@ const BootcampPage = props => {
 
       {/* Stats */}
       <section id="stats" className="background--brand pe-3">
-        <Container fluid className="py-4 mx-5">
+        <Container fluid className="py-4">
           <Row className="justify-content-center py-5 px-5 mx-5">
             <Row className="justify-content-center px-5 mx-5">
               <Row className="justify-content-center px-5 mx-5">
@@ -299,7 +299,7 @@ const BootcampPage = props => {
 
       {/* Employers */}
       <section id="employers" className="py-4">
-        <Container className="py-4 mx-5">
+        <Container className="py-4">
           <Row className="mx-5">
             <Col>
               <Row className="mt-4">
@@ -333,7 +333,7 @@ const BootcampPage = props => {
       <section id="languages">
         <Container fluid className={styles.languages}>
           <Row className="py-5 mx-5">
-            <Col className="py-3 mx-5">
+            <Col className="py-3">
               <Row>
                 <Subtitle className="text-center fs-5 pb-3 mt-4"><b>With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using</b></Subtitle>
               </Row>
@@ -379,7 +379,7 @@ const BootcampPage = props => {
 
       {/* Apply */}
       <section id="apply">
-        <Container className="py-5 mx-5">
+        <Container className="py-5">
           <Row className="py-5 mx-5">
             <Col>
               <Row>
@@ -446,12 +446,12 @@ const BootcampPage = props => {
 
       {/* Timeline */}
       <section id="timeline" style={{backgroundColor: "lightgray"}} className="py-5 pe-5">
-        <Container className="pt-5 pb-3 pe-3 mx-5">
-          <Row className="mx-5 pe-5">
+        <Container className="pt-5 pb-3 pe-3">
+          <Row className="pe-5">
             <Col className="col-2">
               <VerticalTitle title="Timeline" />
             </Col>
-            <Col className="col-10 pe-5">
+            <Col className="col-xl-10 offset-xl-0 col-lg-9 col-offset-lg-1 pe-5 ">
               <Row className="mt-4 mb-5">
                 <p className="text-justify fs-5 pb-3">This is a realistic timeline of what a Web Developer Bootcamp student can expect from applying to the program to becoming a proud alumni.</p>
               </Row>
@@ -465,7 +465,7 @@ const BootcampPage = props => {
 
       {/* Cost */}
       <section id="cost" className="py-5">
-        <Container className="mx-5">
+        <Container>
           <Row>
             <Col>
               <Row className="mt-2 mb-5">
@@ -518,8 +518,8 @@ const BootcampPage = props => {
         <Container fluid className={styles.stillUnsure}>
           <Row className="mt-5">
             <Col className="text-center">
-              <Row className="col-10 text-center mx-5 pt-5">
-                  <Title className="text-center pt-5 pb-3 mx-5">Still unsure? Here's everyone else who took this same leap and haven't looked back!</Title>
+              <Row className="col-10 text-center pt-5">
+                  <Title className="text-center pt-5 pb-3">Still unsure? Here's everyone else who took this same leap and haven't looked back!</Title>
               </Row>
               <Row className="pt-3">
                 <Col className="text-center">
@@ -532,7 +532,7 @@ const BootcampPage = props => {
       </section>
 
        {/* Questions */}
-       <section id="questions">
+       <section id="questions" className="w-100">
         <Container fluid className={styles.questions}>
           <Row className="text-center">
             <Col className="text-center mt-4">

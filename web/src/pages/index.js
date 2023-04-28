@@ -86,32 +86,23 @@ query IndexPageQuery($currentDate: Date!) {
 }
 `;
 
-const IndexPage = props => {
-
-  const { data, errors } = props;
+const IndexPage = ({ data }) => {
 
   const events = (data.allSanityEvents.nodes || {})
 
   let feature_event = (data.sanityEvents ? data.sanityEvents : events[0]) //if there is no featured event, then set the closest event to be featured
 
   let eventsNoFeature = []; {/* Create empty array for events to filter into */}
+  console.log(data.sanityEvents);
+  console.log(feature_event);
 
   events.forEach(event => {
-    if(!event.eventName.includes(feature_event.eventName)) eventsNoFeature.push(event);  {/*if featured eventName == event.eventName then remove event from list*/}
+      if(!event.eventName.includes(feature_event.eventName)) eventsNoFeature.push(event);  {/*if featured eventName == event.eventName then remove event from list*/}
     }
   )
   eventsNoFeature = eventsNoFeature.slice(0, 3); {/* Slice the list to only contain 3 elements max */}
 
-  
   const courses = (data.allSanityCourses.nodes || {})
-
-  if (errors) {
-    return (
-      <Layout>
-        <GraphQLErrorList errors={errors} />
-      </Layout>
-    );
-  }
 
   return (
     <Layout>
