@@ -1,31 +1,3 @@
-.navbar-brand {
-  font-family: 'Exo';
-  font-weight: 900;
-  letter-spacing: 1.5px;
-  line-height: 1.75rem;
-  text-shadow: 
-    -0.5px 0 white,
-    0 0.5px white, 
-    0.5px 0 white, 
-    0 -0.5px white,
-    -0.5px -0.5px white,
-    0.5px 0.5px white,
-    -0.5px 0.5px white,
-    0.5px -0.5px white;
-}
-
-.NavLink {
-  text-decoration: none;
-  color: #000;
-  font-weight: normal;
-  &:hover {
-    color: #000;
-  }
-  &:focus {
-    color: rgb(255, 255, 255);
-  }
-}
-
 @media (min-width: 992px) {
   .navbar-brand {
     width: 100%;
