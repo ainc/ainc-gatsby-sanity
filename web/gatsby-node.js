@@ -2,7 +2,72 @@ const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
 const { paginate } = require('gatsby-awesome-pagination');
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+async function createBlogPostPages(graphql, actions) {
+  const { createPage } = actions;
+  const result = await graphql(`
+  {
+    allSanityBlog {
+      edges {
+        node {
+          date
+          slug {
+            current
+          }
+          title
+          previewText
+          body
+          thumbnail {
+            asset {
+              url
+            }
+          }
+          reference {
+            name
+            picture {
+              asset {
+                gatsbyImageData(height: 54, width: 54)
+              }
+            }
+            title
+          }
+        }
+      }
+    }
+  }
+  `);
+
+  // console.log(JSON.stringify(result, null, 4));
+
+  if (result.errors) throw result.errors;
+
+  
+
+  const postEdges = result.data.allSanityBlog.edges;
+
+  console.log("Post found: " + postEdges.length)
+  console.log("First Post: "+ postEdges[0].node.title)
+
+  postEdges.forEach((edge) => {
+      // console.log("Edge: " + edge)
+      // console.log("types: " + typeof(edge.node.id))
+      // console.log("Edge ID: " + edge.node)
+      // console log the edge object
+
+
+      // const id = edge.node.id;
+      const path = `/blog/${edge.node.slug.current}`;
+
+      createPage({
+        path: path,
+        component: require.resolve("./src/templates/blog/blog-template.js"),
+        context: { 
+          post: edge.node, 
+        },
+      });
+    });
+}
+
+async function createPodcastPages(graphql, actions) {
   const { createPage } = actions
   const result = await graphql(
     `
@@ -39,7 +104,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         currentPage: i + 1,
       },
     })
-  })
+  })  
+}
+
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  await createPodcastPages(graphql, actions)
+  await createBlogPostPages(graphql, actions)
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

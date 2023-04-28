@@ -1,0 +1,268 @@
+// -----------------------------------------------------------------------------
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+// -----------------------------------------------------------------------------
+
+.youth {
+    background-image: url(../../../images/learn/youth-header.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-position:center 20%;
+    min-width:100vw;
+    height: 85vh;
+    @include screen-lg {
+        background-position: 40%;
+    }
+    @include screen-md {
+        background-position: 45%;
+    }
+    @include screen-sm {
+        line-height: 1rem;
+        // background-image:none;
+    }
+    @include screen-xs {
+        font-size: .7rem;
+        height: 600px;
+        background-size: cover;    
+    }
+}
+
+.program-guide {
+    position: absolute !important;
+    right: 20%;
+    bottom: -30% !important;
+    > div {
+        background-color: $brand-grey-dark;
+        border: inherit;
+    }
+
+    @include screen-md {
+        display: none;
+    }
+    
+    // @include screen-sm {
+    //     display: none;
+    // }
+    // @include screen-xs {
+    //     display: none;
+    // }
+}
+
+.top-section {
+    @include screen-sm {
+        // background-color: $brand-red-bright;
+        background-size: cover;
+        min-width: 100vw;
+        position: absolute;
+        margin-left: -16px;
+        padding-left: 18px;
+        height: 250px;
+    }
+    @include screen-xs {
+        // background-color: $brand-red-bright;
+        background-size: cover;
+        min-width: 100vw;
+        position: absolute;
+        margin-left: -16px;
+        padding-left: 18px;
+        height: 240px;
+    }
+}
+
+.why-learn {
+    margin-top: 30%;
+    text-transform: uppercase;
+
+    @include screen-sm {
+        margin-top: 10%;
+    }
+}
+
+.phone {
+    width: 50%;
+    @include screen-sm {
+        display:none;
+    }
+    @include screen-xs {
+        display: none;
+    }
+}
+.title-text {
+    margin-top: 30vh;
+    @include screen-sm {
+        margin-top: 10vh;
+    }
+    @include screen-xs {
+        margin-top: 5vh;
+    }
+}
+
+.course-description {
+    font-size: 1rem;
+    margin-top: 20%;
+    color: white;
+    @include screen-md {
+        margin-top: 50%;
+    }
+    @include screen-sm {
+        font-size: .9rem;
+        line-height: 1.2rem;
+        margin-top: 260px;
+        color: black;
+    }
+    @include screen-xs {
+        color: white;
+        font-size: .5rem;
+        line-height: .9rem;
+        margin-top: 350px;
+        margin-bottom: 1px;
+    }
+}
+
+.other-description {
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 20px;
+    @include screen-sm {
+        font-size: .9rem;
+        line-height: 1.2rem;
+        color: black;
+    }
+    @include screen-xs {
+        font-size: .5rem;
+        line-height: .9rem;
+        color: white;
+        margin-top: 10px;
+    }
+}
+
+.club-membership {
+    background-image: url(../../../images/learn/Youth_Membership_BG.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    min-width: 100vw;
+    padding-top: 60px;
+    @include screen-sm {
+        background-position: bottom;
+        background-size: 100%;
+    }
+    @include screen-xs {
+        background-position: center;
+    }
+}
+
+.club-camps {
+    @include screen-sm {
+        padding-bottom: 0;
+    }
+}
+
+.questions {
+    background: url(../../../images/bootcamp/faq-bg.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    min-width: 100%;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    min-height: 45vh;
+}
+
+.plans {
+    background-color: white;
+    
+}
+
+.engaged {
+    background-image: url(../../../images/learn/youth-engaged-bg.png);
+    background-repeat: no-repeat;
+    position: center 15%;
+    min-width: 100vw;
+    background-size: 100%;
+    margin-top: 30px;
+    color: white;
+    @include screen-sm {
+        color: $brand-color2;
+    }
+    @include screen-xs {
+        color: $brand-color2;
+    }
+}
+
+.engaged-title {
+    color: white;
+    @include screen-sm {
+        color: $brand-color2;
+    }
+    @include screen-xs {
+        color: $brand-color2;
+    }
+}
+
+.fun {
+    margin-bottom: 120px;
+}
+
+.creative {
+    margin-bottom: 100px;
+}
+
+.scheduling {
+    background-image: url(../../../images/learn/Youth_schedule_background.png);
+    background-repeat: no-repeat;
+    min-width: 100vw;
+}
+
+.list-text {
+    font-size: 1rem;
+    line-height: 1.6rem;
+    padding-left: inherit;
+    text-indent: -1.4rem;
+
+}
+
+.membership-icons {
+    max-height: 60%;
+    max-width: 100%;
+    margin: auto;
+}
+
+.membership-cards {
+    margin:auto;
+    width: 90%;
+    @include screen-md {
+        margin-left: 10px;
+    }
+}
+
+.button-text {
+    letter-spacing: .1px;
+    font-size: .9rem;
+    line-height: 1.2rem;
+    width: 90%;
+    align-content: center;
+    margin: auto;
+}
+
+
+.other-button {
+    // margin-top: 15%;
+    display: none;
+    align-items: end;
+    margin: 15% auto 0% auto;
+    @include screen-sm {
+        display: block;
+        width: 50%;
+    }
+    @include screen-xs {
+        display: block;
+        width: 75%;
+        padding: 1px;
+    }
+}
+
+.modal {
+    background-color: $brand-color2 !important;
+}
