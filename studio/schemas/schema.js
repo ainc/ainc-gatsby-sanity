@@ -40,6 +40,7 @@ import bootcampEmployers from './documents/bootcampEmployers'
 import bootcampProfileCard from './documents/bootcampProfileCard'
 import press from './documents/press'
 import program from './documents/program'
+import links from './documents/links'
 import careers from './documents/careers'
 import mentors from './documents/mentors'
 
@@ -87,6 +88,7 @@ export default createSchema({
     bootcampProfileCard,
     press,
     program,
+    links
     careers,
     mentors,
   ])
