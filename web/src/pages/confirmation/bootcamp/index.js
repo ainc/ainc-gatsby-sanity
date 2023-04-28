@@ -1,12 +1,14 @@
 import * as React from 'react';
 import Layout from '../../../components/Layout/Layout';
 import { Container, Row, Col, } from 'react-bootstrap';
+import SEO from '../../../components/seo'
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 
 const Page = ({ data }) => {
 
   return (
-    <Layout pageTitle="Confirmation | Awesome Inc">
+    <Layout>
+        <SEO />
         <Container>
         <Row className="my-3">
             <Col md={{ span: 6, offset: 2 }}>

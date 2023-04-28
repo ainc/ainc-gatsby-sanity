@@ -43,6 +43,7 @@ import program from './documents/program'
 import links from './documents/links'
 import careers from './documents/careers'
 import mentors from './documents/mentors'
+import pageTitles from './documents/pageTitles'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -91,5 +92,6 @@ export default createSchema({
     links,
     careers,
     mentors,
+    pageTitles,
   ])
 })

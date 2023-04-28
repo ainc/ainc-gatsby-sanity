@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Layout from '../../components/Layout/Layout';
+import SEO from '../../components/seo';
 import { Container, Row, Col, CarouselItem } from 'react-bootstrap';
 import Title from '../../components/UI/Title/Title';
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
@@ -23,7 +24,8 @@ const Page = ({ data }) => {
   });
 
   return (
-    <Layout pageTitle="Week of Code Summer Camp | Awesome Inc">
+    <Layout>
+      <SEO />
       <Container>
       <Title className="my-5 text-center">WEEK OF CODE SUMMER CAMP</Title>
 
