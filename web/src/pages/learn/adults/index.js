@@ -7,6 +7,7 @@ import { graphql } from "gatsby";
 import Title from '../../../components/UI/Title/Title'
 import Subtitle from '../../../components/UI/Subtitle/Subtitle'
 import BrandButton from "../../../components/UI/BrandButton/BrandButton"
+import Dropdown from 'react-bootstrap/Dropdown';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import "../../../styles/main.scss"
@@ -15,23 +16,44 @@ import * as styles from './adults.module.scss'
 const AdultsPage = ({ data }) => {
 
 
-    const [timeFilter, setTimeFilter] = React.useState('');
+    const [timeFilter, setTimeFilter] = React.useState('all');
+    const [buttonTimeFilter, setButtonTimeFilter] = React.useState('Select Schedule');
+    
+    const [typeFilter, setTypeFilter] = React.useState('all');
+    const [buttonTypeFilter, setButtonTypeFilter] = React.useState('Course Subject');
     
 
     const handleRadioChangeTime = (e) => {
-        const value = e.target.value;
-        setTimeFilter(value);
+        // const value = ;
+        setTimeFilter(e.target.id);
+        setButtonTimeFilter(e.target.text);
+    }
+
+    const handleRadioChangeType = (e) => {
+        // console.log(e.target.id)
+        // const value = e.target.value;
+        setTypeFilter(e.target.id);
+        setButtonTypeFilter(e.target.text);
     }
     
 
-    console.log(timeFilter)
+    console.log("Time: " + timeFilter)
+    console.log("Type: " + typeFilter)
     // console.log(selectedFTClass)
 
     // console.log(option1)
+    // console.log(typeFilter)
     var TimeCourses = data.allSanityCourses.edges.filter((course) => course.node.timeRequirement === timeFilter)
-    if(timeFilter === ''){
+    if(timeFilter === 'all'){
         TimeCourses = data.allSanityCourses.edges
     }
+
+    var TypeCourses = TimeCourses.filter((course) => course.node.courseType === typeFilter)
+    if (typeFilter === 'all' || typeFilter === undefined){
+        TypeCourses = TimeCourses
+    }
+    
+
     // const partialTimeCourses = TimeCourses.filter((course) => course.node.timeRequirement === "part-time" && course.node.courseType === "coding")
     
     const tableColumns = ["COURSE", "FORMAT", "TOPICS", "TECHNOLOGIES", "SCHEDULE", "DESIGNED FOR", "LEARN MORE"]
@@ -86,23 +108,38 @@ const AdultsPage = ({ data }) => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
-                        Format:     
-                         <ToggleButtonGroup type="radio" name="options" defaultValue="" className='btn-custom mx-3'>
-                            <ToggleButton onChange={handleRadioChangeTime} className={`${styles.sortButton} btn-custom`} id="tbg-radio-1" value="">
-                            All
-                            </ToggleButton>
-                            <ToggleButton onChange={handleRadioChangeTime} className={`${styles.sortButton} btn-custom`} id="tbg-radio-2" value="full-time">
-                            Full Time
-                            </ToggleButton>
-                            <ToggleButton onChange={handleRadioChangeTime} className={`${styles.sortButton} btn-custom`} id="tbg-radio-3" value="part-time">
-                            Part Time
-                            </ToggleButton>
-                        </ToggleButtonGroup>
+                    <Col lg="3">
+                    Schedule:
+                        <Dropdown>
+                            <Dropdown.Toggle variant="danger" id="dropdown-primary">
+                                {buttonTimeFilter}
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu>
+                                <Dropdown.Item id="all" onClick={handleRadioChangeTime}>All</Dropdown.Item>
+                                <Dropdown.Item id="full-time" onClick={handleRadioChangeTime}>Full Time</Dropdown.Item>
+                                <Dropdown.Item id="part-time" onClick={handleRadioChangeTime}>Part Time</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </Col>
+                    <Col lg="3">
+                    Subject:
+                        <Dropdown>
+                            <Dropdown.Toggle variant="danger" id="dropdown-basic">
+                                {buttonTypeFilter}
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu>
+                                <Dropdown.Item id="all" onClick={handleRadioChangeType}>All</Dropdown.Item>
+                                <Dropdown.Item id="coding" onClick={handleRadioChangeType}>Coding</Dropdown.Item>
+                                <Dropdown.Item id="other" onClick={handleRadioChangeType}>Other</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
                     </Col>
                 </Row>
                 
                 <Row className='mt-5 white-space-auto overflow-auto'>
+                    
                     <Col>
                         <table>
                             <tr>
@@ -112,24 +149,29 @@ const AdultsPage = ({ data }) => {
                                 ))}
                                 
                             </tr>
-                            {TimeCourses.map((course) => (
-                                <tr>
-                                    <td className={styles.cell}>
-                                        <a href={course.node.courseLink}>
-                                            <GatsbyImage alt={course.node.courseTitle} image={course.node.picture.asset.gatsbyImageData} height="100" width="100"/>
-                                        </a>
-                                        <br/>
-                                        {course.node.courseSeason}
-                                    </td>
-                                    <td className={styles.cell}><h6>{course.node.format}</h6></td>                                                                                                                                                                                
-                                    <td className={styles.cell}><h6>{course.node.topics}</h6></td>
-                                    <td className={styles.cell}><h6>{course.node.technologies}</h6></td>
-                                    <td className={styles.cell}><h6>{course.node.startDate} - {course.node.endDate}
-                                    <br/>{course.node.schedule}</h6></td>
-                                    <td className={styles.cell}><h6>{course.node.designedFor ? course.node.designedFor : ""}</h6></td>
-                                    <td className={`${styles.cell}`}><BrandButton className="p-1">Application Closed</BrandButton></td>
-                                </tr>
-                            ))}
+                            {TypeCourses.length === 0 ? (
+                                <h1>No Courses Found</h1>
+                                ) : (
+                                    TypeCourses.map((course) => (
+                                        <tr>
+                                            <td className={styles.cell}>
+                                                <a href={course.node.courseLink}>
+                                                    <GatsbyImage alt={course.node.courseTitle} image={course.node.picture.asset.gatsbyImageData} height="100" width="100"/>
+                                                </a>
+                                                <br/>
+                                                {course.node.courseSeason}
+                                            </td>
+                                            <td className={styles.cell}>{course.node.format}</td>                                                                                                                                                                                
+                                            <td className={styles.cell}>{course.node.topics}</td>
+                                            <td className={styles.cell}>{course.node.technologies}</td>
+                                            <td className={styles.cell}>{course.node.startDate} - {course.node.endDate} <br/>{course.node.schedule}</td>
+                                            <td className={styles.cell}>{course.node.designedFor ? course.node.designedFor : ""}</td>
+                                            <td className={`${styles.cell}`}><BrandButton className="p-1">Application Closed</BrandButton></td>
+                                        </tr>
+                                    ))
+                                )}
+                                 
+                            
                             
                         </table>
                     </Col>
@@ -154,7 +196,7 @@ query {
           endDate(formatString: "MMMM d, YYYY")
           picture {
             asset {
-              gatsbyImageData(layout: CONSTRAINED, width: 65, height: 65, aspectRatio: 0.5)
+              gatsbyImageData
             }
           }
           topics
