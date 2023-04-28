@@ -1,16 +1,8 @@
-@use '../../../styles/variables' as styles;
-// @import '../../../styles/mixins.scss';
+// -----------------------------------------------------------------------------
+@import "../../../styles/variables";
+@import "../../../styles/mixins"; 
+// -----------------------------------------------------------------------------
 
-// .all-padding {
-//     @include screen-sm {
-//         padding: 0 0 !important;
-//     }
-// }
-
-
-// .input[type="radio"]:checked {
-//     background-color: red;
-// }
 
 .sort-button {
     background-color: white !important;
@@ -31,6 +23,13 @@
     text-align: center;
     vertical-align: middle;
     padding: 1%;
+    width: 10%;
+    font-size: 100%;
+    @include screen-xs {
+        font-size: 80%;
+        
+    }
+    
 }
 
 .title-cell {
