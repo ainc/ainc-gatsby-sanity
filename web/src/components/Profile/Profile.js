@@ -62,38 +62,33 @@ const Profile = ( { variant, name, image, linkedin, github, website, position, o
         { position && <Ribbon position={position}></Ribbon>}
         <Card.Text className="text-center my-1 fs-6 fw-bold">{name}</Card.Text>
         { occupation && <p className='text-center text--micro mb-2'>{occupation}</p>}
-       
+       <div className='d-flex justify-content-center'>
         <ButtonGroup size="sm" className={`btn-group ${btnGroupFullWidth}`}>
-          { fact && <Button className={styles.factButton} href={fact} variant="outline-dark">
+          { fact && <Button className={styles.factButton} variant="outline-dark">
             Fun Fact
           </Button>}
           <figcaption className={styles.figcaption}>
-        
-        <div className={styles.nameHover}></div>
           <p className={styles.lgxVerticalFact}>{fact}</p>
       </figcaption>
-          { rule && <Button className={styles.ruleButton} href={rule} variant="outline-dark">
+          { rule && <Button className={styles.ruleButton} variant="outline-dark">
             Favorite Rule
           </Button>}
           <figcaption className={styles.figcaptionRule}>
-        
-        <div className={styles.ruleHover}></div>
           <p className={styles.lgxVerticalRule}>{rule}</p>
           </figcaption>
-          { song && <Button className={styles.songButton} href={song} variant="outline-dark">
+          { song && <Button className={styles.songButton}  variant="outline-dark">
             Favorite Song
           </Button>}
           <figcaption className={styles.figcaptionSong}>
-        <div className={styles.songHover}></div>
           <p className={styles.lgxVerticalSong}>{song}</p>
           </figcaption>
-          { favoritePerson && <Button className={styles.personButton} href={favoritePerson} variant="outline-dark">
+          { favoritePerson && <Button className={` rounded-end ${styles.personButton}`} variant="outline-dark">
             Favorite Person</Button>}
             <figcaption className={styles.figcaptionPerson}>
-        <div className={styles.personHover}></div>
           <p className={styles.lgxVerticalPerson}>{favoritePerson}</p>
           </figcaption>
         </ButtonGroup>
+        </div>
         <div className={styles.test}></div>
        
         
