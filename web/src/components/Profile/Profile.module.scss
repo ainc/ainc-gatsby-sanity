@@ -5,6 +5,8 @@
 
 .profile {
   margin: auto;
+  width: 100%;
+  height: 100%;
 }
 
 .figcaption {
@@ -42,47 +44,12 @@
 .figcaption-person {
   position: absolute;
   width: 101%;
-  right: 15px;
+  right: -1px;
   bottom: 130px;
   height: 492%;
   transition: opacity 0.4s ease-in-out;
   opacity: 0;
   background: rgba(255, 255, 255, 0.7);
-}
-
-.name-hover {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.rule-hover {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top:0;
-  left: 0;
-  z-index: 1;
-}
-
-.song-hover {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top:0;
-  left: 0;
-  z-index: 1;
-}
-.person-hover {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top:0;
-  left: 0;
-  z-index: 1;
 }
 
 .lgx-vertical-fact {
@@ -91,7 +58,7 @@
   vertical-align: middle;
   text-align: center;
   color: #c12029;
-  font-size: 14px;
+  font-size: 1rem;
   line-height: 2.4rem;
 }
 
@@ -101,7 +68,7 @@
   vertical-align: middle;
   text-align: center;
   color: #c12029;
-  font-size: 14px;
+  font-size: 1rem;
   line-height: 2.4rem;
 }
 
@@ -111,7 +78,7 @@
   vertical-align: middle;
   text-align: center;
   color: #c12029;
-  font-size: 14px;
+  font-size: 1rem;
   line-height: 2.4rem;
 }
 .lgx-vertical-person {
@@ -120,7 +87,7 @@
   vertical-align: middle;
   text-align: center;
   color: #c12029;
-  font-size: 14px;
+  font-size: 1rem;
   line-height: 2.4rem;
 }
 
