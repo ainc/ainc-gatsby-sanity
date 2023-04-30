@@ -36,7 +36,7 @@ query TeamAlphaPageQuery {
                     <Title className='text-center mt-3 mb-5 text-uppercase'>Team Alpha</Title>
                     <Col>
                     <a className='d-flex justify-content-center' href='https://www.awesomeinc.org/internships#apply'>
-                    <BrandButton className='mb-5'>Apply Now</BrandButton></a>
+                    <BrandButton className='col-3 mb-5'>Apply Now</BrandButton></a>
                     </Col>
                 </Row>
                 </Container>
