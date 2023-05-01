@@ -25,7 +25,7 @@ const Page = ({ data }) => {
 
   return (
     <Layout>
-      <SEO />
+      <SEO title='Week Of Code'/>
       <Container>
       <Title className="my-5 text-center">WEEK OF CODE SUMMER CAMP</Title>
 
