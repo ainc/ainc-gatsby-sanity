@@ -4,6 +4,7 @@ import moment from 'moment';
 import { GatsbyImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import Title from "../../components/UI/Title/Title";
+import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import { Container, Col, Row, Image } from "react-bootstrap";
 // import BrandButton from "../components/UI/BrandButton/BrandButton"
 import BrandButton from "../UI/BrandButton/BrandButton";
@@ -23,9 +24,14 @@ const CourseTable = ({ tableColumns, tableInfo }) => {
             {tableInfo.map((course) => (
                 <tr>
                     <td className={styles.cell}>
-                        <a href={course.node.courseLink}>
-                            <GatsbyImage alt={course.node.courseTitle} image={course.node.picture.asset.gatsbyImageData} height="100" width="100"/>
+                    <a href={course.node.courseLink}>
+                        {course.node.picture !== null ? (
+                            <GatsbyImage alt={course.node.courseTitle} image={course.node.picture.asset.gatsbyImageData} layout="contrained" width={100}/>
+                        ) : (
+                            <Subtitle className="text--brand link--bright-red">{course.node.courseTitle}</Subtitle>
+                        )}
                         </a>
+                        
                         <br/>
                         {course.node.courseSeason}
                     </td>
