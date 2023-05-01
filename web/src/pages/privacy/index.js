@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Layout from '../../components/Layout/Layout';
 import { Container, Row, Col, CarouselItem } from 'react-bootstrap';
+import SEO from '../../components/seo'
 import Title from '../../components/UI/Title/Title';
 import Subtitle from '../../components/UI/Subtitle/Subtitle';
 import "./privacy.scss";
@@ -8,7 +9,8 @@ import "./privacy.scss";
 const PrivacyPage = ({ data }) => {
 
   return (
-    <Layout pageTitle="Privacy Policy | Awesome Inc">
+    <Layout>
+      <SEO />
     <Container>
       <section className="col-sm-offset-2">
         <Title className="my-4">Privacy Policy</Title>
