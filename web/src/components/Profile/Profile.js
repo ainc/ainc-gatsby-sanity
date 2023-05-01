@@ -20,7 +20,7 @@ const Profile = ({ variant, name, image, linkedin, github, website, position, oc
     setShowText(false);
   };
 
-
+  {/* /mentors cards */}
   const renderVariantOne = () => (
     <React.Fragment>
       <Card className='rounded-0'>
@@ -47,6 +47,7 @@ const Profile = ({ variant, name, image, linkedin, github, website, position, oc
     </React.Fragment>
   );
 
+  {/* Team alpha cards */}
   const renderVariantTwo = () => (
 
     <React.Fragment>
