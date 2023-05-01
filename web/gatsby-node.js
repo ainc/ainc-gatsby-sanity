@@ -132,15 +132,12 @@ async function createNotePages(graphql, actions) {
   // Generate pages based on the data
   result.data.allSanityNotes.edges.forEach(({ node }) => {
     const slug = node.slug.current;
-    const transformedSlug = slug
-      .toLowerCase() // Convert to lowercase
-      .replace(/\s+/g, '-') // Replace spaces with hyphens
-      .replace(/[^a-z0-9-]/g, ''); // Remove non-alphanumeric characters
     const note = node
     createPage({
-      path: `/notes/${transformedSlug}`,
+      path: `/notes/${slug}`,
       component: require.resolve('./src/templates/notes/notes.js'),
       context: { 
+        title: node.title,
         slug: slug,
         note: note,
        },
