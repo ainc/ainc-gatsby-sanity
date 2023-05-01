@@ -9,7 +9,7 @@
         line-height: 30px;
     }
     a {
-        color: #a21b22;
+        color: $brand-color;
       }
     p {
         font-size: 17px;
@@ -21,9 +21,6 @@
             padding-bottom: 50px;
         }
     }
-}
-iframe {
-    border: solid black 1px;
 }
   
   
