@@ -2,13 +2,10 @@ import * as React from 'react'
 // import ReactTable from "react-table"
 import Layout from '../../../components/Layout/Layout'
 import { Container, Row, Col } from 'react-bootstrap'
+import SEO from '../../../components/seo'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { graphql } from "gatsby";
 import Title from '../../../components/UI/Title/Title'
-import Subtitle from '../../../components/UI/Subtitle/Subtitle'
-import BrandButton from "../../../components/UI/BrandButton/BrandButton"
-import ToggleButton from 'react-bootstrap/ToggleButton';
-import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import "../../../styles/main.scss"
 import * as styles from './adult.module.scss'
 import CourseTable from '../../../components/CourseTable/CourseTable'
@@ -28,11 +25,9 @@ const AdultsPage = ({ data }) => {
         <Layout>
             <Container className=''>
                 <Row className='pt-5 mt-5'>
-
-                    <Col col="5" className={`my-5 all-padding`}>
+                    <Col sm="5" className={`my-5 all-padding`}>
                         <Row className={`justify-content-center`}>
-                            <Col md="3"/>
-                            <Col md="9">
+                            <Col md={{span: 9, offset: 3}}>
                                 <Title className="">ADULT</Title>
                                 <h5 className=''><i>Coding Courses</i></h5>
                             </Col>
@@ -40,26 +35,22 @@ const AdultsPage = ({ data }) => {
                                 <h6><i>Full and Part-Time Courses for Career Switchers, Professionals, and Hobbyists</i></h6>
                             </Col>
                         </Row>
-                        
                     </Col>
                     
                     <Col col="6">
-                        <StaticImage quality="100" className="img-responsive" src='../../../images/mac-code.png' alt='computer with code' height={"400"} width={"400"}/>
-
+                        <StaticImage quality="80" className="img-responsive" src='../../../images/mac-code.png' alt='computer with code' height={"400"} width={"400"}/>
                     </Col>
                 </Row>
-                {/* <Container className='mx-5'> */}
+
                 <Row className='mt-5'>
-                    <Col xl="1"/>
-                    <Col className='text-center mb-5'>
+                    <Col lg={{span: 10, offset: 1}} className='text-center mb-5' >
                         <p>Learning to code is difficult, but so is learning to salsa dance or learning to play the guitar. Consistent practice, week after week, is how you become a great programmer.</p>
                     </Col>
-                    <Col xl="1"/>
                 </Row>
                 <Row>
                     <Col xs="12" md="6">
                         <a href="https://youtu.be/mL5h5DqhXjM">
-                            <StaticImage src='../../../images/macbook-youtube-video.png' alt='macbook youtube' quality="100" />
+                            <StaticImage src='../../../images/macbook-youtube-video.png' alt='macbook youtube' quality="80" />
                         </a>
                     </Col>
                     <Col xs="12" md="6" className='d-flex align-items-end mb-5'>
@@ -71,17 +62,17 @@ const AdultsPage = ({ data }) => {
                 
                 <Row className='mt-5'>
                     <Col className="mb-5 white-space-auto overflow-auto" lg="12">
-                        <Title className="text-center text--red fs-2">BECOME A PROFESSIONAL DEVELOPER IN 16 WEEKS</Title>
+                        <Title className="text-center text--brand fs-2">BECOME A PROFESSIONAL DEVELOPER IN 16 WEEKS</Title>
                         {/* Add SVG's here */}
                         <CourseTable tableColumns={tableColumns} tableInfo={FTCodingCourses}/>
                     </Col>
                     <Col className="my-5 white-space-auto overflow-auto" lg="12">
-                        <Title className="text-center text--red fs-2">LEARN TO CODE WITHOUT QUITTING YOUR JOB</Title>
+                        <Title className="text-center text--brand fs-2">LEARN TO CODE WITHOUT QUITTING YOUR JOB</Title>
                         {/* Add SVG's here */}
                         <CourseTable tableColumns={tableColumns} tableInfo={PTCodingCourses}/>
                     </Col>
                     <Col className="my-5 white-space-auto overflow-auto" lg="12">
-                        <Title className="text-center text--red fs-2">NON-CODING COURSES TO HELP YOU GROW YOUR CAREER</Title>
+                        <Title className="text-center text--brand fs-2">NON-CODING COURSES TO HELP YOU GROW YOUR CAREER</Title>
                         {/* Add SVG's here */}
                         <CourseTable tableColumns={tableColumns} tableInfo={otherCourses}/>
                     </Col>
@@ -106,7 +97,7 @@ query {
           endDate(formatString: "MMMM d, YYYY")
           picture {
             asset {
-              gatsbyImageData(layout: CONSTRAINED, width: 65, height: 65, aspectRatio: 0.5)
+              gatsbyImageData
             }
           }
           topics

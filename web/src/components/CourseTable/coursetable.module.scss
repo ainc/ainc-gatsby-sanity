@@ -1,4 +1,8 @@
-// @use '../../../styles/variables' as styles;
+// -----------------------------------------------------------------------------
+@import "../../styles/variables";
+@import "../../styles/mixins"; 
+// -----------------------------------------------------------------------------
+
 
 .cell {
     border: 1px solid #ddd;
@@ -6,6 +10,10 @@
     vertical-align: middle;
     padding: 1%;
     width: 11%;
+    @include screen-tablet-max {
+        font-size: 0.8rem;
+    }
+    width: max-content;
 }
 
 .title-cell {
@@ -22,4 +30,7 @@
     text-transform: uppercase;
     color: white;
     font-family: Exo;
+    @include screen-tablet-max {
+        font-size: 0.8rem;
+    }
 }
