@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { graphql, Link } from "gatsby";
 import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Col, Container, Row } from 'react-bootstrap';
+import SEO from '../../components/seo'
 import Layout from "../../components/Layout/Layout";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
@@ -19,6 +20,7 @@ const BlogPage = ({ data }) => {
 
     return (
         <Layout>
+            <SEO />
             <Container>
                 <Row className="mt-5" style={{ marginTop: '5rem' }}>
                     <Col xs={4} className='d-flex justify-content-center'>

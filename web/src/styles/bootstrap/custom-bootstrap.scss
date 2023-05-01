@@ -1,0 +1,10 @@
+@import "../variables";
+@import "../mixins"; 
+
+// Custom Bootstrap Overrides
+// Documentation: https://getbootstrap.com/docs/5.3/customize/sass/
+
+$primary: $brand-color;
+$secondary: $brand-color2;
+
+@import "~bootstrap/scss/bootstrap";

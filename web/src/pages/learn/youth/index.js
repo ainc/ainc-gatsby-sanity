@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import SEO from '../../../components/seo'
 import { StaticImage } from 'gatsby-plugin-image'
 import Layout from "../../../components/Layout/Layout";
 import Title from "../../../components/UI/Title/Title";
@@ -19,6 +20,7 @@ const YouthPage = () => {
 
     return (
         <Layout>
+            <SEO/>
             <main>
                 <Container className={` ${styles.youth}`}>
                     <Row className="h-100"> 
