@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../../components/Layout/Layout";
 import { Container, Col, Row, Image } from "react-bootstrap";
+import SEO from '../../components/seo'
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
@@ -93,7 +94,8 @@ const BootcampPage = props => {
   }
 
   return (
-    <Layout pageTitle="Bootcamp">
+    <Layout>
+      <SEO/>
       {/* Add SEO Component Here?? */}
       
       {/* Header section */}
@@ -532,7 +534,7 @@ const BootcampPage = props => {
       </section>
 
        {/* Questions */}
-       <section id="questions">
+       <section id="questions" className="w-100">
         <Container fluid className={styles.questions}>
           <Row className="text-center">
             <Col className="text-center mt-4">

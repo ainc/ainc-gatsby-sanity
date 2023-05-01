@@ -1,7 +1,7 @@
 # ainc-gatsby-sanity-studio
 
 How to do get new schemas to show up on gatsby/___graphql
-1.) `npm install -g @sanity/cli`
+1.) `npm install -g @sanity/cli@2.33.2`
 2.) cd to folder with sanity.json in it (studio)
 3.) `sanity login`
 4.) thne login using the options

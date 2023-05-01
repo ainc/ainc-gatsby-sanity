@@ -1,0 +1,31 @@
+@import '../../styles/main.scss';
+
+.classList {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+  
+.classButton {
+  background: none;
+  border: none;
+  border-right: 1px solid gray;
+  padding: 0px 10px;
+  font-size: 17px;
+  color: black;
+  margin-bottom: 20px;
+  height: 35px;
+}
+  
+.classButton:hover,
+.classButton.active {
+  color: #a21b22;
+}
+
+.apax-logo, .bigfans-logo, .blueframe-logo, .cabemtechnologies-logo, .infosys-logo, .lightwell-logo, .nymblsystems-logo, .prospecttrax-logo, .silverfern-logo, .vetdata-logo {
+  width: 200px;
+  @include screen-tablet-max {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

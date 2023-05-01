@@ -4,13 +4,20 @@ export default {
     title: 'Notes',
     fields: [
         {
+            name: 'title',
+            type: 'string',
+            title: 'Title',
+            description: 'Title of the note',
+            validation: Rule => Rule.required().min(1)
+        },
+        {
             name: 'slug',
             type: 'slug',
             title: 'Slug',
-            description: 'Title slug',
+            description: 'This will be the URL of the note',
             options: {
               source: 'title',
-              maxLength: 200,
+              maxLength: 96
             }
         },
         {
@@ -48,12 +55,14 @@ export default {
     ],
     preview: {
         select: {
-          title: 'slug.current',
+          title: 'title',
+          subtitle: 'slug.current'
         },
         prepare(selection) {
-          const { title } = selection;
+          const { title, subtitle } = selection;
           return {
             title: title,
+            subtitle: `/notes/${subtitle}`
           };
         },
     }      

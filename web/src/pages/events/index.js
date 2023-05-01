@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../../components/Layout/Layout";
 import { Container, Col, Row, Image } from "react-bootstrap";
+import SEO from '../../components/seo'
 import { GatsbyImage } from "gatsby-plugin-image";
 
 import * as styles from "./events.module.css";
@@ -19,6 +20,7 @@ const EventsPage = ({ data }) => {
 
     return (
         <Layout>
+            <SEO />
           {/* Heading */}
             <Container className="text-center my-5">
                 <Row>

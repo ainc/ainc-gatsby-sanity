@@ -1,6 +1,7 @@
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import * as React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
+import SEO from '../../components/seo'
 import Title from '../../components/UI/Title/Title'
 import Layout from "../../components/Layout/Layout";
 import { Link, useStaticQuery, graphql } from 'gatsby'
@@ -27,6 +28,7 @@ const ProgramPage = ({ data }) => {
 
   return (
     <Layout>
+      <SEO />
       <Container fluid className={styles.mainHeading}>
         <Col>
           <Row>
