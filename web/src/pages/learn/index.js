@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Layout from '../../components/Layout/Layout'
 import { Container, Row, Col, CarouselItem } from 'react-bootstrap'
+import SEO from '../../components/seo'
 import Carousel from 'react-bootstrap/Carousel'
 import { StaticImage } from 'gatsby-plugin-image'
 import Title from '../../components/UI/Title/Title'
@@ -17,7 +18,7 @@ const ProvenBackground = styled.div`
   filter: opacity(50%) blur(1pt);
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100vw;
+  width: 100%;
   height: 450px;
   text-align: left;
   display: block;
@@ -29,8 +30,8 @@ const ProvenBackground = styled.div`
 
 const LearnPage = ({ data }) => {
   return (
-    <Layout pageTitle="Awesome Inc U - Learn to Code">
-      
+    <Layout>
+      <SEO />
       {/* Header section */}
      
       <Container fluid>

@@ -2,6 +2,7 @@ import * as React from 'react'
 import Layout from '../../../components/Layout/Layout'
 import { graphql, Link } from 'gatsby'
 import { Container, Row, Col } from 'react-bootstrap'
+import SEO from '../../../components/seo'
 import Title from '../../../components/UI/Title/Title'
 import BrandButton from "../../../components/UI/BrandButton/BrandButton"
 import "../../../styles/main.scss"
@@ -13,6 +14,7 @@ const PortfolioPage = ({ data }) => {
 
     return(
         <Layout>
+            <SEO />
             <Row className="col-sm-10 mx-auto">
             <Container>
                 <Row className='text-center text-uppercase my-5'>
