@@ -6,6 +6,7 @@ import { useLocation } from "@reach/router";
 
 
 function SEO({ description, lang, meta, keywords, title, path }) {
+  console.log("Current Page: ", useLocation().pathname);
   return (
     <StaticQuery
       query={detailsQuery}
