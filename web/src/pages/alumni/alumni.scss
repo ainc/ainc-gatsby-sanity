@@ -1,3 +1,5 @@
+@import '../../styles/main.scss';
+
 .classList {
   display: flex;
   flex-wrap: wrap;
@@ -8,7 +10,7 @@
   background: none;
   border: none;
   border-right: 1px solid gray;
-  padding: 10px;
+  padding: 0px 10px;
   font-size: 17px;
   color: black;
   margin-bottom: 20px;
@@ -22,4 +24,8 @@
 
 .apax-logo, .bigfans-logo, .blueframe-logo, .cabemtechnologies-logo, .infosys-logo, .lightwell-logo, .nymblsystems-logo, .prospecttrax-logo, .silverfern-logo, .vetdata-logo {
   width: 200px;
+  @include screen-tablet-max {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }

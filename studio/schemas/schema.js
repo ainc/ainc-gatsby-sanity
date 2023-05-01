@@ -29,6 +29,7 @@ import accomplishments from './documents/accomplishments'
 import footer from './documents/footer'
 import imageSlider from './documents/imageSlider'
 import blog from './documents/blog'
+import blogAuthor from './documents/blogAuthors'
 import fellowshipPortfolio from './documents/fellowshipPortfolio'
 import fellowshipSponsers from './documents/fellowshipSponsers'
 import courses from './documents/courses'
@@ -60,7 +61,7 @@ export default createSchema({
     imageLink,
     link,
     sliderImage,
-    fiveAcrossJudges,
+    imageSlider,
     // The following are document types which will appear
     // in the studio.
     category,
@@ -68,24 +69,25 @@ export default createSchema({
     sampleProject,
     siteSettings,
     blog,
-    bootcampAlumni,
+    blogAuthor,
     accomplishments,
     eventTypes,
     events,
+    program,
+    fiveAcrossJudges,
     fiveAcrossWinners,
     fiveAcrossSponsors,
     fellowshipPortfolio,
     fellowshipSponsers,
     footer,
-    imageSlider,
     courses,
     bootcampTestimonials,
     bootcampGraduationStats,
     bootcampEmployers,
     bootcampProfileCard,
-    press,
-    program,
-    careers,
+    bootcampAlumni,
     bootcampClass,
+    press,
+    careers,
   ])
 })
