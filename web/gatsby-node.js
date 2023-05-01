@@ -83,7 +83,6 @@ async function createPodcastPages(graphql, actions) {
       }
     `
   )
-
   if (result.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
@@ -108,51 +107,9 @@ async function createPodcastPages(graphql, actions) {
   })  
 }
 
-async function createNotePages(graphql, actions) {
-  const { createPage } = actions;
-  const result = await graphql(`
-  {
-    allSanityNotes {
-      edges {
-        node {
-          slug {
-            current
-          }
-          age
-          linkToiframe
-          _rawBody
-        }
-      }
-    }
-  }
-  `);
-
-  
-
-  // Generate pages based on the data
-  result.data.allSanityNotes.edges.forEach(({ node }) => {
-    const slug = node.slug.current;
-    const transformedSlug = slug
-      .toLowerCase() // Convert to lowercase
-      .replace(/\s+/g, '-') // Replace spaces with hyphens
-      .replace(/[^a-z0-9-]/g, ''); // Remove non-alphanumeric characters
-    const note = node
-    createPage({
-      path: `/notes/${transformedSlug}`,
-      component: require.resolve('./src/templates/notes/notes.js'),
-      context: { 
-        slug: slug,
-        note: note,
-       },
-    });
-  });
-}
-
-
 exports.createPages = async ({ graphql, actions, reporter }) => {
   await createPodcastPages(graphql, actions)
   await createBlogPostPages(graphql, actions)
-  await createNotePages(graphql, actions)
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
