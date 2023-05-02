@@ -4,6 +4,7 @@
 .figure {
   width: 100%;
   height: 100%;
+  position: table;
 }
 
 .profile {
@@ -13,7 +14,8 @@
 }
 
 .figcaption {
-  position: absolute;
+  position: table-cell;
+  display: table-cell center;
   width: 246.65px;
   max-width: 300px;
   right: 25px;
@@ -27,9 +29,10 @@
 
   @include screen-max {
     height: 260px;
+    // height: auto;
     width: 260px;
-    right: 8.6px;
-    bottom: 127px;
+    right: -4px;
+    bottom: 136px;
   }
 
   @include screen-md {
@@ -61,7 +64,7 @@
 }
 
 .figcaption-rule {
-  position: absolute;
+  position: table;
   width: 246.65px;
   max-width: 300px;
   right: 12px;
@@ -76,8 +79,8 @@
   @include screen-max {
     height: 260px;
     width: 260px;
-    right: -3.5px;
-    bottom: 127px;
+    right: -4px;
+    bottom: 136px;
   }
   
   @include screen-md {
@@ -109,7 +112,7 @@
 }
 
 .figcaption-song {
-  position: absolute;
+  position: table;
   width: 246.65px;
   max-width: 300px;
   right: 25px;
@@ -124,8 +127,8 @@
   @include screen-max {
     height: 260px;
     width: 260px;
-    right: -3.5px;
-    bottom: 127px;
+    right: -4px;
+    bottom: 136px;
   }
   
   @include screen-md {
@@ -157,7 +160,7 @@
 }
 
 .figcaption-person {
-  position: absolute;
+  position: table;
   width: 246.65px;
   max-width: 300px;
   right: 25px;
@@ -173,8 +176,8 @@
   @include screen-max {
     height: 260px;
     width: 260px;
-    right: -3.5px;
-    bottom: 127px;
+    right: -4px;
+    bottom: 136px;
     justify-content: center;
   }
   
