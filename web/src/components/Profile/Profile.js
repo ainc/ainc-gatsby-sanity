@@ -69,19 +69,19 @@ const Profile = ({ variant, name, image, linkedin, github, website, position, oc
                   Fun Fact
                 </Button>}
                 <figcaption className={`row ${styles.figcaption}`}>
-                  <p className={styles.lgxVerticalFact}>Fun Fact: {fact}</p>
+                  <p className={styles.lgxVerticalFact}><p className='fw-bold ms-0 '>Fun Fact: </p>{fact}</p>
                 </figcaption>
                 {rule && <Button className={styles.ruleButton} variant="outline-dark">
                   Favorite Rule
                 </Button>}
                 <figcaption className={styles.figcaptionRule}>
-                  <p className={styles.lgxVerticalRule}>Favorite Rule: {rule}</p>
+                  <p className={styles.lgxVerticalRule}><p className='fw-bold ms-0 '>Favorite Rule: </p>{rule}</p>
                 </figcaption>
                 {song && <Button className={styles.songButton} variant="outline-dark">
                   Favorite Song
                 </Button>}
                 <figcaption className={styles.figcaptionSong}>
-                  <p className={styles.lgxVerticalSong}>Favorite Song: {song}</p>
+                  <p className={styles.lgxVerticalSong}><p className='fw-bold ms-0 '>Favorite Song: </p>{song}</p>
                 </figcaption>
                 {favoritePerson && <Button className={` rounded-end ${styles.personButton}`} variant="outline-dark">
                   Favorite Person</Button>}
