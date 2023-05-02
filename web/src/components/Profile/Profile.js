@@ -4,7 +4,7 @@ import { ButtonGroup, Button, Card, Container } from "react-bootstrap";
 import { GatsbyImage } from "gatsby-plugin-image";
 import Ribbon from "../Ribbon/Ribbon";
 import * as styles from './Profile.module.scss'
-
+// import {FaUser} from 'react-icons/fa';
 import { btnGroupFullWidth } from "./Profile.module.scss";
 
 
@@ -51,7 +51,7 @@ const Profile = ({ variant, name, image, linkedin, github, website, position, oc
   const renderVariantTwo = () => (
 
     <React.Fragment>
-      <Card className={`rounded-0 ${styles.profile}`}>
+      <Card className={`rounded-0 mb-3 ${styles.profile}`}>
         <figure className={styles.figure}>
           <GatsbyImage
             image={image}
@@ -69,24 +69,24 @@ const Profile = ({ variant, name, image, linkedin, github, website, position, oc
                   Fun Fact
                 </Button>}
                 <figcaption className={`row ${styles.figcaption}`}>
-                  <p className={styles.lgxVerticalFact}>{fact}</p>
+                  <p className={styles.lgxVerticalFact}>Fun Fact: {fact}</p>
                 </figcaption>
                 {rule && <Button className={styles.ruleButton} variant="outline-dark">
                   Favorite Rule
                 </Button>}
                 <figcaption className={styles.figcaptionRule}>
-                  <p className={styles.lgxVerticalRule}>{rule}</p>
+                  <p className={styles.lgxVerticalRule}>Favorite Rule: {rule}</p>
                 </figcaption>
                 {song && <Button className={styles.songButton} variant="outline-dark">
                   Favorite Song
                 </Button>}
                 <figcaption className={styles.figcaptionSong}>
-                  <p className={styles.lgxVerticalSong}>{song}</p>
+                  <p className={styles.lgxVerticalSong}>Favorite Song: {song}</p>
                 </figcaption>
                 {favoritePerson && <Button className={` rounded-end ${styles.personButton}`} variant="outline-dark">
                   Favorite Person</Button>}
                 <figcaption className={styles.figcaptionPerson}>
-                  <p className={styles.lgxVerticalPerson}>{favoritePerson}</p>
+                  <p className={`${styles.lgxVerticalPerson}`}><p className='fw-bold ms-0 '>Favorite Person: </p>{favoritePerson}</p>
                 </figcaption>
               </ButtonGroup>
             </div>

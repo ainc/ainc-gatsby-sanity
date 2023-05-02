@@ -14,129 +14,196 @@
 
 .figcaption {
   position: absolute;
-  width: 115%;
-  right: -9px;
-  bottom: 127px;
-  height: 545%;
+  width: 246.65px;
+  max-width: 300px;
+  right: 25px;
+  bottom: 131px;
+  height: 246.65px;
+  max-height: 300px;
   transition: opacity 0.4s ease-in-out;
   opacity: 0;
   background: rgba(255, 255, 255, 0.7);
   justify-content: center;
 
+  @include screen-max {
+    height: 260px;
+    width: 260px;
+    right: 8.6px;
+    bottom: 127px;
+  }
+
   @include screen-md {
-    width: 108%;
-    height: 515%;
+    width: 283.28px;
+    max-width: 300px;
+    height: 283.28px;
+    max-height: 300px;
     bottom: 139.5px;
-    right: -12px;
+    right: 16px;
   }
 
   @include screen-sm {
-    width: 112%;
-    height: 460%;
+    max-width: 400px;
+    width: 366.56px;
+    height: 300px;
     bottom: 156px;
+    right: -5.5px;
   }
 
   @include screen-xs {
-    width: 92%;
-    right: 14px;
-    height: 440%;
-    bottom: 165px;
+    width: inherit;
+    max-width: 402px;
+    right: -5px;
+    left: -5px;
+    height: 300px;
+    bottom: 164.5px;
+    justify-content: center;
   }
 }
 
 .figcaption-rule {
   position: absolute;
-  width: 115%;
-  right: -20px;
-  bottom: 127px;
-  height: 545%;
+  width: 246.65px;
+  max-width: 300px;
+  right: 12px;
+  bottom: 131px;
+  height: 246.65px;
+  max-height: 346.65px;
   transition: opacity 0.4s ease-in-out;
   opacity: 0;
   background: rgba(255, 255, 255, 0.7);
   justify-content: center;
 
+  @include screen-max {
+    height: 260px;
+    width: 260px;
+    right: -3.5px;
+    bottom: 127px;
+  }
+  
   @include screen-md {
-    width: 108%;
-    height: 515%;
+    width: 283.28px;
+    max-width: 300px;
+    height: 283.28px;
+    max-height: 300px;
     bottom: 139.5px;
-    right: -12px;
+    right: 16px;
   }
 
   @include screen-sm {
-    width: 112%;
-    height: 460%;
+    max-width: 400px;
+    width: 366.56px;
+    height: 300px;
     bottom: 156px;
+    right: -5.5px;
   }
 
   @include screen-xs {
-    width: 92%;
-    right: 14px;
-    height: 440%;
-    bottom: 165px;
+    width: inherit;
+    max-width: 402px;
+    right: -5px;
+    left: -5px;
+    height: 300px;
+    bottom: 164.5px;
+    justify-content: center;
   }
 }
 
 .figcaption-song {
   position: absolute;
-  width: 115%;
-  right: -20px;
-  bottom: 127px;
-  height: 545%;
+  width: 246.65px;
+  max-width: 300px;
+  right: 25px;
+  bottom: 131px;
+  height: 246.65px;
+  max-height: 300px;
   transition: opacity 0.4s ease-in-out;
   opacity: 0;
   background: rgba(255, 255, 255, 0.7);
   justify-content: center;
 
+  @include screen-max {
+    height: 260px;
+    width: 260px;
+    right: -3.5px;
+    bottom: 127px;
+  }
+  
   @include screen-md {
-    width: 108%;
-    height: 515%;
+    width: 283.28px;
+    max-width: 300px;
+    height: 283.28px;
+    max-height: 300px;
     bottom: 139.5px;
-    right: -12px;
+    right: 16px;
   }
 
   @include screen-sm {
-    width: 112%;
-    height: 460%;
+    max-width: 400px;
+    width: 366.56px;
+    height: 300px;
     bottom: 156px;
+    right: -5.5px;
   }
 
   @include screen-xs {
-    width: 92%;
-    right: 14px;
-    height: 440%;
-    bottom: 165px;
+    width: inherit;
+    max-width: 402px;
+    right: -5px;
+    left: -5px;
+    height: 300px;
+    bottom: 164.5px;
+    justify-content: center;
   }
 }
 
 .figcaption-person {
   position: absolute;
-  width: 115%;
-  right: -20px;
-  bottom: 127px;
-  height: 545%;
+  width: 246.65px;
+  max-width: 300px;
+  right: 25px;
+  bottom: 131px;
+  height: 246.65px;
+  max-height: 300px;
   transition: opacity 0.4s ease-in-out;
   opacity: 0;
   background: rgba(255, 255, 255, 0.7);
   justify-content: center;
+  word-break: break-all;
 
+  @include screen-max {
+    height: 260px;
+    width: 260px;
+    right: -3.5px;
+    bottom: 127px;
+    justify-content: center;
+  }
+  
   @include screen-md {
-    width: 108%;
-    height: 515%;
+    width: 283.28px;
+    max-width: 300px;
+    height: 283.28px;
+    max-height: 300px;
     bottom: 139.5px;
-    right: -12px;
+    right: 16px;
+  
   }
 
   @include screen-sm {
-    width: 112%;
-    height: 460%;
+    max-width: 400px;
+    width: 366.56px;
+    height: 300px;
     bottom: 156px;
+    right: -5.5px;
   }
 
   @include screen-xs {
-    width: 92%;
-    right: 14px;
-    height: 440%;
-    bottom: 165px;
+    width: inherit;
+    max-width: 402px;
+    right: -5px;
+    left: -5px;
+    height: 300px;
+    bottom: 164.5px;
+    justify-content: center;
   }
 }
 
@@ -147,7 +214,7 @@
   text-align: center;
   color: #c12029;
   font-size: .8rem;
-  line-height: 2.4rem;
+  line-height: 1.8rem;
 }
 
 .lgx-vertical-rule {
@@ -157,7 +224,7 @@
   text-align: center;
   color: #c12029;
   font-size: .8rem;
-  line-height: 2.4rem;
+  line-height: 1.8rem;
 }
 
 .lgx-vertical-song {
@@ -167,17 +234,19 @@
   text-align: center;
   color: #c12029;
   font-size: .8rem;
-  line-height: 2.4rem;
+  line-height: 1.8rem;
 }
 
 .lgx-vertical-person {
   display: table-cell;
   padding-top: 30px;
-  vertical-align: middle;
-  text-align: center;
+  // vertical-align: middle;
+  // padding-left: 60px;
+  text-align: start;
   color: #c12029;
   font-size: .8rem;
-  line-height: 2.4rem;
+  line-height: 1.8rem;
+  word-break: break-all;
 }
 
 .fact-button:hover+.figcaption {
