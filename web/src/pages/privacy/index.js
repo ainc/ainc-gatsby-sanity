@@ -120,7 +120,7 @@ const PrivacyPage = ({ data }) => {
         <Subtitle>Opting Out and Contacting Us</Subtitle>
         <p style={{fontSize: "16px"}}>You may unsubscribe from our marketing/promotional communications by clicking on the “unsubscribe” link located on the bottom of our e-mails, or by sending us email us at info@awesomeincu.com.
           If you have any questions about this privacy policy or about our treatment of your personal information, contact us by mail at the following address:</p>
-        <div className="card mb-4">
+        <div className="card mb-4 menlo-font">
           <h6>Awesome Ventures, LLC</h6>
           <h6>Attn: Webmaster</h6>
           <h6>348 E. Main St.</h6>
