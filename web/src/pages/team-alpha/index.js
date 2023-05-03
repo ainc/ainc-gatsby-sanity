@@ -38,7 +38,7 @@ const TeamAlphaPage = ({ data }) => {
             <Title className='text-center mt-3 mb-5 text-uppercase'>Team Alpha</Title>
             <Col>
               <Link className='d-flex justify-content-center' to='/internships#apply'>
-                <BrandButton className='col-3 mb-5'>Apply Now</BrandButton>
+                <BrandButton className='mb-5'>Apply Now</BrandButton>
               </Link>
             </Col>
           </Row>
@@ -48,7 +48,7 @@ const TeamAlphaPage = ({ data }) => {
             {allTeamAlpha.map((node) => (
 
               // <div className='col-sm-10 col-md-6 col-lg-4 col-xl-3 mb-3' key={node.id}>
-                <Col xs={12} sm={10} md={6} lg={4} xl={3} className='row justify-content-center'>
+                <Col xs={12} sm={10} md={6} lg={4} xl={4} xxl={3} className='row justify-content-center'>
 
                 <Profile
                   variant="two"

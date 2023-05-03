@@ -10,14 +10,16 @@ import { btnGroupFullWidth } from "./Profile.module.scss";
 
 const Profile = ({ variant, name, image, linkedin, github, website, position, occupation, fact, rule, song, favoritePerson }) => {
 
-  const [showText, setShowText] = useState(false);
+  const [showText, setShowText] = useState("");
 
-  const handleMouseOver = () => {
-    setShowText(true);
+  const handleMouseOver = (event) => {
+    setShowText(event.target.id);
+    console.log('hello there')
   };
 
   const handleMouseOut = () => {
-    setShowText(false);
+    setShowText("");
+    console.log('bye')
   };
 
   {/* /mentors cards */ }
@@ -53,61 +55,85 @@ const Profile = ({ variant, name, image, linkedin, github, website, position, oc
     <React.Fragment>
       <Card className={`rounded-0 mb-3 ${styles.profile}`}>
         <figure className={styles.figure}>
+          <div className={styles.pictureDiv}>
+            <GatsbyImage
+              image={image}
+              className={`card-img-top ${styles.profileImage}`}
+              alt={name}
+            />
+            <div
+              className={` ${styles.figcaption} ${showText == "fact" ? styles.figcaptionShow : styles.figcaptionHide }`}
 
-          <GatsbyImage
-            image={image}
-            className={`card-img-top ${styles.profileImage}`}
-            alt={name}
-          />
-          
+            >
+              <p className={styles.lgxVerticalFact}><p className='fw-bold ms-0 '>Random Fact: </p>{fact}</p>
+            </div>
+            <div
+              className={` ${styles.figcaptionRule} ${showText == "rule" ? styles.figcaptionRuleShow : ""}`}
+
+            >
+              <p className={styles.lgxVerticalRule}><p className='fw-bold ms-0 '>Favorite Rule: </p>{rule}</p>
+            </div>
+            <div
+              className={` ${styles.figcaptionSong} ${showText == "song" ? styles.figcaptionSongShow : ""}`}
+
+            >
+              <p className={styles.lgxVerticalSong}><p className='fw-bold ms-0 '>Favorite Song: </p>{song}</p>
+            </div>
+            <div
+              className={` ${styles.figcaptionPerson} ${showText == "person" ? styles.figcaptionPersonShow : ""}`}
+
+            >
+              <p className={styles.lgxVerticalPerson}><p className='fw-bold ms-0 '>Favorite Person: </p>{favoritePerson}</p>
+            </div>
+          </div>
           <div className='buttonGroup'>
             <Card.Body>
               {position && <Ribbon position={position}></Ribbon>}
               <Card.Text className="text-center my-1 fs-6 fw-bold">{name}</Card.Text>
-              {occupation && <p className='text-center text--micro mb-2'>{occupation}</p>}
+              {occupation && <p className='text-center text--micro mb-2 lh-1'>{occupation}</p>}
               <div className='d-flex justify-content-center'>
-                <ButtonGroup size="sm" className={`btn-group row row-cols-2 ${btnGroupFullWidth}`}>
-                  {fact && <Button className={`rounded-start ${styles.factButton}`} variant="outline-dark">
+                <ButtonGroup size="sm" className={`btn-group row row-cols-2 ${styles.btnGroupFullWidth}`}>
+                  {fact && <Button
+                    id="fact"
+                    onMouseEnter={handleMouseOver}
+                    onMouseLeave={handleMouseOut}
+                    className={`rounded-0 ${styles.factButton}`}
+                    variant="outline-dark">
                     Random Fact
                   </Button>}
-                  <figcaption className={` ${styles.figcaption}`}>
-                    <p className={styles.lgxVerticalFact}><p className='fw-bold ms-0 '>Random Fact: </p>{fact}</p>
-                  </figcaption>
-                  {rule && <Button className={` rounded-end ${styles.ruleButton}`} variant="outline-dark">
+
+                  {rule && <Button
+                    id="rule"
+                    onMouseEnter={handleMouseOver}
+                    onMouseLeave={handleMouseOut}
+                    className={`  ${styles.ruleButton}`}
+                    variant="outline-dark">
                     Favorite Rule
                   </Button>}
-                  <figcaption className={styles.figcaptionRule}>
-                    <p className={styles.lgxVerticalRule}><p className='fw-bold ms-0 '>Favorite Rule: </p>{rule}</p>
-                  </figcaption>
-                  {song && <Button className={` rounded-start border-top-0 ${styles.songButton}`} variant="outline-dark">
+
+                  {song && <Button
+                    id="song"
+                    onMouseEnter={handleMouseOver}
+                    onMouseLeave={handleMouseOut}
+                    className={` text-center border-top-0 ${styles.songButton}`}
+                    variant="outline-dark">
                     Favorite Song
                   </Button>}
-                  <figcaption className={styles.figcaptionSong}>
-                    <p className={styles.lgxVerticalSong}><p className='fw-bold ms-0 '>Favorite Song: </p>{song}</p>
-                  </figcaption>
 
-                  {favoritePerson && <Button className={` rounded-end border-top-0 ${styles.personButton}`} variant="outline-dark">
-                    Favorite Person</Button>}
-                  <figcaption className={styles.figcaptionPerson}>
-                    <p className={`${styles.lgxVerticalPerson}`}><p className='fw-bold ms-0 '>Favorite Person: </p>{favoritePerson}</p>
-                  </figcaption>
+
+                  {favoritePerson && <Button
+                    id="person"
+                    onMouseEnter={handleMouseOver}
+                    onMouseLeave={handleMouseOut}
+                    className={` text-center border-top-0 rounded-0 ${styles.personButton}`}
+                    variant="outline-dark">
+                    Favorite Person
+                  </Button>}
+
                 </ButtonGroup>
 
 
               </div>
-              {/* <div className={styles.test}></div>
-
-            <div className="imageBox">
-              <image/>
-              <caption>{fact}</caption>
-            </div>
-
-            <div className="buttongroup">
-              <button>fact</button>
-              <button>2</button>
-              <button>3</button>
-              <button>4</button>
-            </div> */}
 
 
             </Card.Body>
