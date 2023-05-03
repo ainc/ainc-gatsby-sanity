@@ -13,12 +13,15 @@ function SEO({ description, lang, meta, keywords, title, path }) {
       render={data => {
         const pageTitle = title !== undefined ? 
         (
-          title
+          //If there is a title prop, use that
+          title 
         ) : (
-          data.allSanityPageTitles.edges.find(page => page.node.filePath === useLocation().pathname) !== undefined ? 
+          data.allSanityPageTitles.edges.find(page => page.node.filePath === useLocation().pathname + "/") !== undefined ? 
           (
-            data.allSanityPageTitles.edges.find(page => page.node.filePath === useLocation().pathname).node.pageTitle
+            //if there is a page title for the current page from sanity, use that
+            data.allSanityPageTitles.edges.find(page => page.node.filePath === useLocation().pathname+ "/").node.pageTitle 
           ) : (
+            //if there is no page title for the current page from sanity, use the default title
             "Default Title"
           )
 
