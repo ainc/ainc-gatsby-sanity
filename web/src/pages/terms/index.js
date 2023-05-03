@@ -115,7 +115,7 @@ const TermsPage = ({ data }) => {
               on the Services; (d) your address, telephone number, and email address; (e) a statement by you that you have a good faith belief that the disputed use is not authorized by the owner of the product, work, copyright or intellectual property, 
               or its agent, or applicable law; and (f) a statement by you, made under penalty of perjury, that the above information in your notice is accurate and that you are the product, work, copyright or intellectual property owner or authorized to act on such owner’s behalf.<br/>
               Awesome Inc’s Copyright Agent for notices (and counter-notices) of disputes or claims of copyright or other intellectual property infringement can be reached as follows:</p>
-            <div className="card mb-4">
+            <div className="card mb-4 menlo-font">
             <h6>Awesome Ventures, LLC</h6>
             <h6>Attn: Webmaster</h6>
             <h6>348 E. Main St.</h6>
