@@ -11,7 +11,19 @@ function SEO({ description, lang, meta, keywords, title, path }) {
     <StaticQuery
       query={detailsQuery}
       render={data => {
-        const pageTitle = title !== undefined ? title : data.allSanityPageTitles.edges.find(page => page.node.filePath === useLocation().pathname).node.pageTitle || "";
+        const pageTitle = title !== undefined ? 
+        (
+          title
+        ) : (
+          data.allSanityPageTitles.edges.find(page => page.node.filePath === useLocation().pathname) !== undefined ? 
+          (
+            data.allSanityPageTitles.edges.find(page => page.node.filePath === useLocation().pathname).node.pageTitle
+          ) : (
+            "Default Title"
+          )
+
+        );
+        
         const metaDescription = description || (data.site && data.site.description) || "";
         const siteTitle = (data.site && data.site.title) || "";
         const siteAuthor = (data.site && data.site.author && data.site.author.name) || "";
