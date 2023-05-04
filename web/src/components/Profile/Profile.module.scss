@@ -1,14 +1,7 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
-.figure {
-  width: 100%;
-  height: 100%;
-  position: table;
-}
-
 .profile {
-  margin: auto;
   width: 100%;
   height: 100%;
 }
@@ -20,310 +13,59 @@
   background: rgba(255, 255, 255, 0.7);
   justify-content: center;
   display: flex;
-  height: 60% ;
-  width: 96%;
+  height: 100% ;
+  width: 100%;
   padding-left: 10px;
   padding-right: 7px;
-  @include screen-xs {
-    height: 50%;
-  }
-}
-.figcaption-rule {
-  position: absolute;
-  transition: opacity 0.4s ease-in-out;
-  opacity: 0;
-  background: rgba(255, 255, 255, 0.7);
-  justify-content: center;
-  height: 60% ;
-  width: 96%;
-  padding-left: 10px;
-  padding-right: 7px;
-  @include screen-xs {
-    height: 50%;
-    width: 92%;
-  }
-}
 
-.figcaption-song {
-  position: absolute;
-  transition: opacity 0.4s ease-in-out;
-  opacity: 0;
-  background: rgba(255, 255, 255, 0.7);
-  justify-content: center;
-  height: 60% ;
-  width: 96%;
-  padding-left: 10px;
-  padding-right: 7px;
-  @include screen-xs {
-    height: 50%;
-  }
-}
-
-.figcaption-person {
-  position: absolute;
-  transition: opacity 0.4s ease-in-out;
-  opacity: 0;
-  background: rgba(255, 255, 255, 0.7);
-  justify-content: center;
-  height: 60% ;
-  width: 96%;
-  padding-left: 10px;
-  padding-right: 7px;
-  @include screen-xs {
-    height: 50%;
-  }
 }
 
 .picture-div {
   display: flex;
-
+  position: relative;
 }
-
-// .figcaption-rule {
-//   position: table;
-//   width: 246.65px;
-//   max-width: 300px;
-//   right: 12px;
-//   bottom: 131px;
-//   height: 246.65px;
-//   max-height: 346.65px;
-//   transition: opacity 0.4s ease-in-out;
-//   opacity: 0;
-//   background: rgba(255, 255, 255, 0.7);
-//   justify-content: center;
-
-//   @include screen-max {
-//     height: 260px;
-//     width: 260px;
-//     right: -4px;
-//     bottom: 130px;
-//   }
-  
-//   @include screen-md {
-//     width: 283.28px;
-//     max-width: 300px;
-//     height: 283.28px;
-//     max-height: 300px;
-//     bottom: 139.5px;
-//     right: 16px;
-//   }
-
-//   @include screen-sm {
-//     max-width: 400px;
-//     width: 366.56px;
-//     height: 300px;
-//     bottom: 156px;
-//     right: -5.5px;
-//   }
-
-//   @include screen-xs {
-//     width: inherit;
-//     max-width: 402px;
-//     right: -5px;
-//     left: -5px;
-//     height: 300px;
-//     bottom: 164.5px;
-//     justify-content: center;
-//   }
-// }
-
-// .figcaption-song {
-//   position: table;
-//   width: 246.65px;
-//   max-width: 300px;
-//   right: 25px;
-//   bottom: 131px;
-//   height: 246.65px;
-//   max-height: 300px;
-//   transition: opacity 0.4s ease-in-out;
-//   opacity: 0;
-//   background: rgba(255, 255, 255, 0.7);
-//   justify-content: center;
-
-//   @include screen-max {
-//     height: 260px;
-//     width: 260px;
-//     right: -4px;
-//     bottom: 130px;
-//   }
-  
-//   @include screen-md {
-//     width: 283.28px;
-//     max-width: 300px;
-//     height: 283.28px;
-//     max-height: 300px;
-//     bottom: 139.5px;
-//     right: 16px;
-//   }
-
-//   @include screen-sm {
-//     max-width: 400px;
-//     width: 366.56px;
-//     height: 300px;
-//     bottom: 156px;
-//     right: -5.5px;
-//   }
-
-//   @include screen-xs {
-//     width: inherit;
-//     max-width: 402px;
-//     right: -5px;
-//     left: -5px;
-//     height: 300px;
-//     bottom: 164.5px;
-//     justify-content: center;
-//   }
-// }
-
-// .figcaption-person {
-//   position: table;
-//   width: 246.65px;
-//   max-width: 300px;
-//   right: 25px;
-//   bottom: 131px;
-//   height: 246.65px;
-//   max-height: 300px;
-//   transition: opacity 0.4s ease-in-out;
-//   opacity: 0;
-//   background: rgba(255, 255, 255, 0.7);
-//   justify-content: center;
-//   word-break: break-all;
-
-//   @include screen-max {
-//     height: 260px;
-//     width: 260px;
-//     right: -4px;
-//     bottom: 130px;
-//     justify-content: center;
-//   }
-  
-//   @include screen-md {
-//     width: 283.28px;
-//     max-width: 300px;
-//     height: 283.28px;
-//     max-height: 300px;
-//     bottom: 139.5px;
-//     right: 16px;
-  
-//   }
-
-//   @include screen-sm {
-//     max-width: 400px;
-//     width: 366.56px;
-//     height: 300px;
-//     bottom: 156px;
-//     right: -5.5px;
-//   }
-
-//   @include screen-xs {
-//     width: inherit;
-//     max-width: 402px;
-//     right: -5px;
-//     left: -5px;
-//     height: 300px;
-//     bottom: 164.5px;
-//     justify-content: center;
-//   }
-// }
-
-.lgx-vertical-fact {
-  display: table-cell;
-  padding-top: 30px;
-  vertical-align: middle;
-  text-align: start;
-  color: #c12029;
-  font-size: .8rem;
-  line-height: 1.8rem;
-  @include screen-xs {
-    line-height: 1.3rem;
-    font-size: .52rem;
-  }
-}
-
-.lgx-vertical-rule {
-  display: table-cell;
-  padding-top: 30px;
-  vertical-align: middle;
-  text-align: start;
-  color: #c12029;
-  font-size: .8rem;
-  line-height: 1.8rem;
-  @include screen-xs {
-    line-height: 1rem;
-    font-size: .52rem;
-  }
-}
-
-.lgx-vertical-song {
-  display: table-cell;
-  padding-top: 30px;
-  vertical-align: middle;
-  text-align: start;
-  color: #c12029;
-  font-size: .8rem;
-  line-height: 1.8rem;
-  @include screen-xs {
-    line-height: 1rem;
-    font-size: .52rem;
-  }
-}
-
-.lgx-vertical-person {
-  display: table-cell;
-  padding-top: 30px;
-  // vertical-align: middle;
-  // padding-left: 60px;
-  text-align: start;
-  color: #c12029;
-  font-size: .8rem;
-  line-height: 1.8rem;
-  word-break: break-all;
-  @include screen-xs {
-    line-height: 1rem;
-    font-size: .52rem;
-  }
-}
-
-// .fact-button:hover+.figcaption {
-//   opacity: 1;
-// }
 
 .figcaption-show {
   opacity: 1;
 }
 
-.figcaption-rule-show {
-  opacity: 1;
-}
-
-.figcaptionSongShow {
-  opacity: 1;
-}
-
-.figcaptionPersonShow {
-  opacity: 1;
-}
 .btn-group-full-width {
   width: 100%;
 }
-.song-button {
-  width: 50%;
-  font-size: .7rem;
-  left:1px;
-  border-right-style: hidden;
-  padding: none;
-}
-.person-button {
-  width: 50%;
-  font-size: .7rem;
-  padding: none;
+
+.attribute-button {
+  padding: 5%;
+  border: 1px black solid;
+  white-space: nowrap;
+
+  // Prevent Double borders
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+  &+ :nth-child(2) {
+    border-left: 0;
+  }
+  &+ :nth-child(3) {
+    border-top: 0;
+  }
+  &+ :nth-child(4) {
+    border-top: 0;
+    border-left: 0;
+  }
 }
 
-.fact-button {
-  // width: 50%;
-  font-size: .7rem;
-}
-.rule-button {
-  // width: 50%;
-  font-size: .7rem;
+.attribute-text {
+
+  width: 100%;
+  height: 100%;
+  padding-top: 30px;
+
+  color: $brand-color;
+  font-size: .8rem;
+  line-height: 1.8rem;
+  @include screen-xs {
+    line-height: 1rem;
+    font-size: .52rem;
+  }
 }
