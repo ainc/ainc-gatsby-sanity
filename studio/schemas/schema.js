@@ -43,6 +43,7 @@ import program from './documents/program'
 import links from './documents/links'
 import careers from './documents/careers'
 import mentors from './documents/mentors'
+import teamAlpha from './documents/teamAlpha'
 import pageTitles from './documents/pageTitles'
 import bootcampClass from './documents/bootcampClass'
 import notes from './documents/notes'
@@ -97,5 +98,6 @@ export default createSchema({
     mentors,
     pageTitles,
     notes,
+    teamAlpha,
   ])
 })
