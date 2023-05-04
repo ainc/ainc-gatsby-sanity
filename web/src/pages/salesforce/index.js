@@ -26,12 +26,12 @@ const SalesforcePage = ({ data }) => {
                             <p>Get started now in 30 seconds or less</p>
                         </Col>
                     </Row>
-                <Col xs={{ span: 5, offset: 3 }} className="text-center fw-bold fs-5 lh-lg mb-5">
-                    This part time course will put you on the path towards a
-                    promising career in the Salesforce ecosystem. Work
-                    together with our team and peers to earn your first
-                    Salesforce Certification and learn key tech career skills.
-                </Col>  
+                    <div className="par">
+                        <Col xs={{ span: 10, offset: 1 }} md={{ span: 6, offset: 3 }} className="text-center fw-bold mb-5">
+                            This part-time course will put you on the path towards a promising career in the Salesforce ecosystem. Work together with our team and peers to earn your first Salesforce Certification and learn key tech career skills.
+                        </Col>
+                    </div>
+
                 </Container>
             </section>
 
@@ -121,7 +121,7 @@ const SalesforcePage = ({ data }) => {
                     <p className="fw-light fst-italic">If reading this list makes your eyes glaze over... we get it. Maybe we can talk on the phone to explain the details.</p>
                     <Row className="my-5">
                         <Col>
-                            <ol>
+                            <ol className="lists">
                                 <li>Basics of Customer Relationship Management (CRM)</li>
                                 <li>Study skills and test prep for the Salesforce Administrator certification</li>
                                 <li>Hands-on experience working with a team and a real client's Salesforce org</li>
@@ -130,7 +130,7 @@ const SalesforcePage = ({ data }) => {
                             </ol>
                         <BrandButton>Let's chat</BrandButton>
                         </Col>
-                        <Col>
+                        <Col xs={12}>
                             <StaticImage qualtiy='100' src="./images/salesforce-logo.png" alt="Salesforce Image" />
                         </Col>
                     </Row> 
