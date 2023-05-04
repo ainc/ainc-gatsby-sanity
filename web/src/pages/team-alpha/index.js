@@ -43,13 +43,10 @@ const TeamAlphaPage = ({ data }) => {
             </Col>
           </Row>
         </Container>
-        <Container className=''>
-          <div className='row justify-content-center'>
+        <Container>
+          <Row className='justify-content-center'>
             {allTeamAlpha.map((node) => (
-
-              // <div className='col-sm-10 col-md-6 col-lg-4 col-xl-3 mb-3' key={node.id}>
-                <Col xs={12} sm={10} md={6} lg={4} xl={4} xxl={3} className='row justify-content-center'>
-
+              <Col xs={12} sm={10} md={6} lg={4} xl={4} xxl={3} className='my-2'>
                 <Profile
                   variant="two"
                   name={node.name}
@@ -60,11 +57,9 @@ const TeamAlphaPage = ({ data }) => {
                   favoritePerson={node.favoritePerson}
                   image={node.picture.asset.gatsbyImageData}
                 ></Profile>
-
-                </Col>
-              // </div>
+              </Col>
             ))}
-          </div>
+          </Row>
         </Container>
       </main>
     </Layout>
