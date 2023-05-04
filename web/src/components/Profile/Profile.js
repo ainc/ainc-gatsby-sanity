@@ -34,7 +34,7 @@ const Profile = ({ variant, name, image, linkedin, github, website, position, oc
           <Card.Text className="text-center my-1 fs-6 fw-bold">{name}</Card.Text>
           {occupation && <p className='text-center text--micro mb-2'>{occupation}</p>}
           <ButtonGroup size="sm" className={`btn-group ${btnGroupFullWidth}`}>
-            {website && <Button onMouseOver={MouseOver} onMouseOut={MouseOut} href={website} variant="outline-dark">
+            {website && <Button href={website} variant="outline-dark">
               Portfolio
             </Button>}
             {linkedin && <Button href={linkedin} variant="outline-dark">
