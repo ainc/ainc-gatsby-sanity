@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
 // import { graphql } from "gatsby";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import SEO from "../../components/seo";
 import * as styles from "./workspace.module.css";
 import BorderlessCard from "../../components/BorderlessCard/BorderlessCard";
 import Amenities from "../../components/Amenities/Amenities";
@@ -34,7 +35,8 @@ const WorkspacePage = () => {
   const handleShow = () => setLgShow(true);
 
   return (
-    <Layout pageTitle="Workspace">
+    <Layout>
+      <SEO/>
       {/* Hero */}
       <section>
         <div className={styles.headerWorkspace}>

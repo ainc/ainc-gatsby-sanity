@@ -106,7 +106,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="" description="" keywords="" />
+      <SEO description="" keywords="" />
       <HomepageSlider />
 
       {/* FOUR INITIATIVES */}

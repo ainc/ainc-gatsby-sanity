@@ -2,13 +2,14 @@ import React from 'react';
 import Title from "../../components/UI/Title/Title";
 import Layout from '../../components/Layout/Layout';
 import { Container, Row, Col, } from 'react-bootstrap';
+
 import SEO from '../../components/seo';
 
 
 const Calendar = () => {
   return (
     <Layout>
-        <SEO title="Calendar" description="Awesome Inc Calendar" />
+        <SEO description="Awesome Inc Calendar" />
         <Row>
             <Col className='text-center my-5'>
                 <Title>Calendar</Title>

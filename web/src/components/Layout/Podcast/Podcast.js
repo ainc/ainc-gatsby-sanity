@@ -9,7 +9,7 @@ import podcastLogo from "../../../images/ainc_podcast_logo@2x.png"
 const Podcast = () => {
   return (
     <section>
-        <Row>
+        <Row className="w-100">
           <Col xs={6} sm={4}>
             <img className="d-block mx-auto my-5" src={podcastLogo} alt="Awesome Inc Podcast" />
           </Col>
