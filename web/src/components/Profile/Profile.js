@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 // import { graphql } from 'gatsby'
-import { ButtonGroup, Button, Card, Container } from "react-bootstrap";
+import { ButtonGroup, Button, Card, Container, Row, Col } from "react-bootstrap";
 import { GatsbyImage } from "gatsby-plugin-image";
 import Ribbon from "../Ribbon/Ribbon";
 import * as styles from './Profile.module.scss'
 // import {FaUser} from 'react-icons/fa';
 import { btnGroupFullWidth } from "./Profile.module.scss";
+import "../../styles/main.scss"
 
 
 const Profile = ({ variant, name, image, linkedin, github, website, position, occupation, fact, rule, song, favoritePerson }) => {
@@ -18,8 +19,7 @@ const Profile = ({ variant, name, image, linkedin, github, website, position, oc
   };
 
   const handleMouseOut = () => {
-    setShowText("");
-    console.log('bye')
+    setShowText(""); // reset the state
   };
 
   {/* /mentors cards */ }
@@ -54,91 +54,76 @@ const Profile = ({ variant, name, image, linkedin, github, website, position, oc
 
     <React.Fragment>
       <Card className={`rounded-0 mb-3 ${styles.profile}`}>
-        <figure className={styles.figure}>
           <div className={styles.pictureDiv}>
             <GatsbyImage
               image={image}
               className={`card-img-top ${styles.profileImage}`}
               alt={name}
+              quality="100"
             />
-            <div
-              className={` ${styles.figcaption} ${showText == "fact" ? styles.figcaptionShow : styles.figcaptionHide }`}
-
-            >
-              <p className={styles.lgxVerticalFact}><p className='fw-bold ms-0 '>Random Fact: </p>{fact}</p>
+            <div className={` ${styles.figcaption} ${showText == "fact" ? styles.figcaptionShow : "" }`}>
+              <p className={styles.attributeText}><p className='fw-bold'>Random Fact: </p>{fact}</p>
             </div>
-            <div
-              className={` ${styles.figcaptionRule} ${showText == "rule" ? styles.figcaptionRuleShow : ""}`}
-
-            >
-              <p className={styles.lgxVerticalRule}><p className='fw-bold ms-0 '>Favorite Rule: </p>{rule}</p>
+            
+            <div className={` ${styles.figcaption} ${showText == "rule" ? styles.figcaptionShow : ""}`}>
+              <p className={styles.attributeText}><p className='fw-bold'>Favorite Rule: </p>{rule}</p>
             </div>
-            <div
-              className={` ${styles.figcaptionSong} ${showText == "song" ? styles.figcaptionSongShow : ""}`}
 
-            >
-              <p className={styles.lgxVerticalSong}><p className='fw-bold ms-0 '>Favorite Song: </p>{song}</p>
+            <div className={` ${styles.figcaption} ${showText == "song" ? styles.figcaptionShow : ""}`}>
+              <p className={styles.attributeText}><p className='fw-bold'>Favorite Song: </p>{song}</p>
             </div>
-            <div
-              className={` ${styles.figcaptionPerson} ${showText == "person" ? styles.figcaptionPersonShow : ""}`}
 
-            >
-              <p className={styles.lgxVerticalPerson}><p className='fw-bold ms-0 '>Favorite Person: </p>{favoritePerson}</p>
+            <div className={` ${styles.figcaption} ${showText == "person" ? styles.figcaptionShow : ""}`}>
+              <p className={styles.attributeText}><p className='fw-bold'>Favorite Person: </p>{favoritePerson}</p>
             </div>
           </div>
           <div className='buttonGroup'>
             <Card.Body>
-              {position && <Ribbon position={position}></Ribbon>}
               <Card.Text className="text-center my-1 fs-6 fw-bold">{name}</Card.Text>
               {occupation && <p className='text-center text--micro mb-2 lh-1'>{occupation}</p>}
-              <div className='d-flex justify-content-center'>
-                <ButtonGroup size="sm" className={`btn-group row row-cols-2 ${styles.btnGroupFullWidth}`}>
-                  {fact && <Button
-                    id="fact"
+
+              {/* Button Container */}
+              <Container>
+                <Row className='d-flex justify-content-center text--micro text-center'>
+                  <Col xs={6} 
+                    id="fact" 
+                    className={styles.attributeButton}
                     onMouseEnter={handleMouseOver}
                     onMouseLeave={handleMouseOut}
-                    className={`rounded-0 ${styles.factButton}`}
-                    variant="outline-dark">
+                  >
                     Random Fact
-                  </Button>}
+                  </Col>
 
-                  {rule && <Button
+                  <Col xs={6}
                     id="rule"
+                    className={styles.attributeButton}
                     onMouseEnter={handleMouseOver}
                     onMouseLeave={handleMouseOut}
-                    className={`  ${styles.ruleButton}`}
-                    variant="outline-dark">
+                  >
                     Favorite Rule
-                  </Button>}
+                  </Col>
 
-                  {song && <Button
+                  <Col xs={6}
                     id="song"
+                    className={styles.attributeButton}
                     onMouseEnter={handleMouseOver}
                     onMouseLeave={handleMouseOut}
-                    className={` text-center border-top-0 ${styles.songButton}`}
-                    variant="outline-dark">
+                  >
                     Favorite Song
-                  </Button>}
+                  </Col>
 
-
-                  {favoritePerson && <Button
+                  <Col xs={6} 
                     id="person"
+                    className={styles.attributeButton}
                     onMouseEnter={handleMouseOver}
                     onMouseLeave={handleMouseOut}
-                    className={` text-center border-top-0 rounded-0 ${styles.personButton}`}
-                    variant="outline-dark">
+                  >
                     Favorite Person
-                  </Button>}
-
-                </ButtonGroup>
-
-
-              </div>
-
-
+                  </Col>
+                </Row>
+              </Container>
             </Card.Body>
           </div>
-        </figure>
       </Card>
     </React.Fragment>
   );
