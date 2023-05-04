@@ -28,7 +28,7 @@ query MentorsPageQuery {
 const MentorsPage = ({ data }) => {
     // console.log(data.allSanityMentor.nodes)
 
-    const allMentors = (data.allSanityMentor.nodes || {})
+  const allMentors = (data.allSanityMentor.nodes || {})
     
     return (
       <Layout>
