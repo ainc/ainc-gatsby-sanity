@@ -11,6 +11,7 @@ import * as styles from './adult.module.scss'
 import CourseTable from '../../../components/CourseTable/CourseTable'
 
 // import Icon from '../../../assets/svg/book-circle.svg'
+import DottedLine from '../../../assets/svg/DottedLine.svg'
 
 const AdultsPage = ({ data }) => {
 
@@ -64,16 +65,25 @@ const AdultsPage = ({ data }) => {
                     <Col className="mb-5 white-space-auto overflow-auto" lg="12">
                         <Title className="text-center text--brand fs-2">BECOME A PROFESSIONAL DEVELOPER IN 16 WEEKS</Title>
                         {/* Add SVG's here */}
+                        <DottedLine />
+                        
                         <CourseTable tableColumns={tableColumns} tableInfo={FTCodingCourses}/>
                     </Col>
                     <Col className="my-5 white-space-auto overflow-auto" lg="12">
                         <Title className="text-center text--brand fs-2">LEARN TO CODE WITHOUT QUITTING YOUR JOB</Title>
                         {/* Add SVG's here */}
+                        <div>
+                        <img style={{maxWidth: "100px"}} src={require('../../../assets/svg/DottedLine.svg').default} alt="dotted line" />
+                        </div>
                         <CourseTable tableColumns={tableColumns} tableInfo={PTCodingCourses}/>
                     </Col>
                     <Col className="my-5 white-space-auto overflow-auto" lg="12">
                         <Title className="text-center text--brand fs-2">NON-CODING COURSES TO HELP YOU GROW YOUR CAREER</Title>
                         {/* Add SVG's here */}
+                        <DottedLine />
+                        <div>
+                        <img style={{maxWidth: "100px"}} src={require('../../../assets/svg/DottedLine.svg').default} alt="dotted line" />
+                        </div>
                         <CourseTable tableColumns={tableColumns} tableInfo={otherCourses}/>
                     </Col>
                 </Row>
