@@ -11,7 +11,9 @@ import * as styles from './adult.module.scss'
 import CourseTable from '../../../components/CourseTable/CourseTable'
 
 // import Icon from '../../../assets/svg/book-circle.svg'
-import DottedLine from '../../../assets/svg/DottedLine.svg'
+import DottedLine from '/src/assets/svg/DottedLine.svg'
+import GreyTriangle from '/src/assets/svg/GreyTriangle.svg'
+// import { styles } from '../../../styles/Variables'
 
 const AdultsPage = ({ data }) => {
 
@@ -24,15 +26,29 @@ const AdultsPage = ({ data }) => {
 
     return (
         <Layout>
+            <GreyTriangle className={styles.triangle}
+            // style={{
+            // height: '600px',
+            // // left: '-300px',
+            // position: 'absolute',
+            // width: '100%',
+            // // maxWidth: '150%',
+            // top: '50px',
+            // fill: '#323232',
+            // overflow: 'hidden',
+            // zIndex: '-1'}} 
+            />
+
             <Container className=''>
+            
                 <Row className='pt-5 mt-5'>
                     <Col sm="5" className={`my-5 all-padding`}>
                         <Row className={`justify-content-center`}>
                             <Col md={{span: 9, offset: 3}}>
-                                <Title className="">ADULT</Title>
-                                <h5 className=''><i>Coding Courses</i></h5>
+                                <Title className="text-white">ADULT</Title>
+                                <h5 className='text-white'><i>Coding Courses</i></h5>
                             </Col>
-                            <Col md="6" className=''>
+                            <Col md="6" className='text-white'>
                                 <h6><i>Full and Part-Time Courses for Career Switchers, Professionals, and Hobbyists</i></h6>
                             </Col>
                         </Row>
@@ -42,7 +58,8 @@ const AdultsPage = ({ data }) => {
                         <StaticImage quality="80" className="img-responsive" src='../../../images/mac-code.png' alt='computer with code' height={"400"} width={"400"}/>
                     </Col>
                 </Row>
-
+                </Container>
+                <Container>
                 <Row className='mt-5'>
                     <Col lg={{span: 10, offset: 1}} className='text-center mb-5' >
                         <p>Learning to code is difficult, but so is learning to salsa dance or learning to play the guitar. Consistent practice, week after week, is how you become a great programmer.</p>
@@ -65,24 +82,24 @@ const AdultsPage = ({ data }) => {
                     <Col className="mb-5 white-space-auto overflow-auto" lg="12">
                         <Title className="text-center text--brand fs-2">BECOME A PROFESSIONAL DEVELOPER IN 16 WEEKS</Title>
                         {/* Add SVG's here */}
-                        <DottedLine />
-                        
+                        <div className='d-flex justify-content-center'>
+                        <DottedLine style={{maxWidth: "10px", maxHeight: "55px"}} className='mb-3 mt-5' />
+                        </div>
                         <CourseTable tableColumns={tableColumns} tableInfo={FTCodingCourses}/>
                     </Col>
                     <Col className="my-5 white-space-auto overflow-auto" lg="12">
                         <Title className="text-center text--brand fs-2">LEARN TO CODE WITHOUT QUITTING YOUR JOB</Title>
                         {/* Add SVG's here */}
-                        <div>
-                        <img style={{maxWidth: "100px"}} src={require('../../../assets/svg/DottedLine.svg').default} alt="dotted line" />
+                        <div className='d-flex justify-content-center'>
+                        <DottedLine style={{maxWidth: "10px", maxHeight: "55px"}} className='mb-3 mt-4' />
                         </div>
                         <CourseTable tableColumns={tableColumns} tableInfo={PTCodingCourses}/>
                     </Col>
                     <Col className="my-5 white-space-auto overflow-auto" lg="12">
                         <Title className="text-center text--brand fs-2">NON-CODING COURSES TO HELP YOU GROW YOUR CAREER</Title>
                         {/* Add SVG's here */}
-                        <DottedLine />
-                        <div>
-                        <img style={{maxWidth: "100px"}} src={require('../../../assets/svg/DottedLine.svg').default} alt="dotted line" />
+                        <div className='d-flex justify-content-center'>
+                        <DottedLine style={{maxWidth: "10px", maxHeight: "55px"}} className='mb-3 mt-4' />
                         </div>
                         <CourseTable tableColumns={tableColumns} tableInfo={otherCourses}/>
                     </Col>

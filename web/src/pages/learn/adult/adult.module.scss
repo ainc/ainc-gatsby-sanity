@@ -1,0 +1,16 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.triangle {
+    height: 600px;
+    width: 100%;
+    top: 50px;
+    position: absolute;
+    z-index: -1;
+    fill: #323232;
+    @include screen-xs {
+        height: 800px;
+        width: 100vw;
+        top: 0px;
+    }
+}
