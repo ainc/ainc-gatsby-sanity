@@ -26,9 +26,9 @@ const AdultsPage = ({ data }) => {
 
     return (
         <Layout>
-            <GreyTriangle className={styles.triangle}
-            // style={{
-            // height: '600px',
+            {/* <GreyTriangle className={styles.triangle} */}
+            {/* // style={{ */}
+            {/* // height: '600px',
             // // left: '-300px',
             // position: 'absolute',
             // width: '100%',
@@ -37,8 +37,10 @@ const AdultsPage = ({ data }) => {
             // fill: '#323232',
             // overflow: 'hidden',
             // zIndex: '-1'}} 
-            />
-
+            // /> */}
+<svg viewbox="0 0 100 100" preserveAspectRatio="none" id="grey-triangle-bg" class="triangle-bg">
+  <polygon points="0,0 85,0 0,100"/>
+</svg>
             <Container className=''>
             
                 <Row className='pt-5 mt-5'>
