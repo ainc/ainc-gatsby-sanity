@@ -7,7 +7,6 @@ import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { graphql } from "gatsby";
 import Title from '../../../components/UI/Title/Title'
 import "../../../styles/main.scss"
-import * as styles from './adult.module.scss'
 import CourseTable from '../../../components/CourseTable/CourseTable'
 
 // import Icon from '../../../assets/svg/book-circle.svg'
@@ -26,37 +25,17 @@ const AdultsPage = ({ data }) => {
 
     return (
         <Layout>
-            {/* <GreyTriangle className={styles.triangle} */}
-            {/* // style={{ */}
-            {/* // height: '600px',
-            // // left: '-300px',
-            // position: 'absolute',
-            // width: '100%',
-            // // maxWidth: '150%',
-            // top: '50px',
-            // fill: '#323232',
-            // overflow: 'hidden',
-            // zIndex: '-1'}} 
-            // /> */}
-            <div className={styles.triangleDiv}>
-<svg viewbox="0 0 1000 1000" preserveAspectRatio="none" id="grey-triangle-bg" class="triangle-bg" style={{
-    width: "100vw",
-    height: "85rem",
-    // zIndex: "-1"
-}}>
-  <polygon points="0,0 1000,0 0,600"/>
-</svg>
-</div>
-            <Container className={styles.adultContainer}>
+
+            <Container>
             
                 <Row className='pt-5 mt-5'>
                     <Col sm="5" className={`my-5 all-padding`}>
                         <Row className={`justify-content-center`}>
                             <Col md={{span: 9, offset: 3}}>
-                                <Title className="text-white">ADULT</Title>
-                                <h5 className='text-white'><i>Coding Courses</i></h5>
+                                <Title>ADULT</Title>
+                                <h5><i>Coding Courses</i></h5>
                             </Col>
-                            <Col md="6" className='text-white'>
+                            <Col md="6">
                                 <h6><i>Full and Part-Time Courses for Career Switchers, Professionals, and Hobbyists</i></h6>
                             </Col>
                         </Row>
@@ -67,7 +46,7 @@ const AdultsPage = ({ data }) => {
                     </Col>
                 </Row>
                 </Container>
-                <Container className={styles.otherDiv}>
+                <Container>
                 <Row className='mt-5'>
                     <Col lg={{span: 10, offset: 1}} className='text-center mb-5' >
                         <p>Learning to code is difficult, but so is learning to salsa dance or learning to play the guitar. Consistent practice, week after week, is how you become a great programmer.</p>
