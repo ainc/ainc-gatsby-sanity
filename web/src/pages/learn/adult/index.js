@@ -38,10 +38,16 @@ const AdultsPage = ({ data }) => {
             // overflow: 'hidden',
             // zIndex: '-1'}} 
             // /> */}
-<svg viewbox="0 0 100 100" preserveAspectRatio="none" id="grey-triangle-bg" class="triangle-bg">
-  <polygon points="0,0 85,0 0,100"/>
+            <div className={styles.triangleDiv}>
+<svg viewbox="0 0 1000 1000" preserveAspectRatio="none" id="grey-triangle-bg" class="triangle-bg" style={{
+    width: "100vw",
+    height: "85rem",
+    // zIndex: "-1"
+}}>
+  <polygon points="0,0 1000,0 0,600"/>
 </svg>
-            <Container className=''>
+</div>
+            <Container className={styles.adultContainer}>
             
                 <Row className='pt-5 mt-5'>
                     <Col sm="5" className={`my-5 all-padding`}>
@@ -57,11 +63,11 @@ const AdultsPage = ({ data }) => {
                     </Col>
                     
                     <Col col="6">
-                        <StaticImage quality="80" className="img-responsive" src='../../../images/mac-code.png' alt='computer with code' height={"400"} width={"400"}/>
+                        <StaticImage quality="90" className="img-responsive" src='../../../images/mac-code.png' alt='computer with code' height={"400"} width={"400"}/>
                     </Col>
                 </Row>
                 </Container>
-                <Container>
+                <Container className={styles.otherDiv}>
                 <Row className='mt-5'>
                     <Col lg={{span: 10, offset: 1}} className='text-center mb-5' >
                         <p>Learning to code is difficult, but so is learning to salsa dance or learning to play the guitar. Consistent practice, week after week, is how you become a great programmer.</p>
@@ -70,7 +76,7 @@ const AdultsPage = ({ data }) => {
                 <Row>
                     <Col xs="12" md="6">
                         <a href="https://youtu.be/mL5h5DqhXjM">
-                            <StaticImage src='../../../images/macbook-youtube-video.png' alt='macbook youtube' quality="80" />
+                            <StaticImage src='../../../images/macbook-youtube-video.png' alt='macbook youtube' quality="90" />
                         </a>
                     </Col>
                     <Col xs="12" md="6" className='d-flex align-items-end mb-5'>
