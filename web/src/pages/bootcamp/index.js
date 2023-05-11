@@ -103,8 +103,8 @@ const BootcampPage = props => {
         <Container fluid className={styles.header}>
           <Row className="mt-5 ms-5">
             <Col xs={11} sm={9} className={styles.titleCol}>
-              <Title className={`${styles.headerTitle} text-left fs-4 lh-md`}><b>A 16 week, Full-time, Job-Guaranteed Program designed for individuals looking to make a career change.</b></Title>
-              <Subtitle className="fst-italic fw-lighter fs-5 my-3 w-75">Start your application in less than 30 seconds</Subtitle>
+              <Title className={`${styles.headerTitle} text-left`}><b>A 16 week, Full-time, Job-Guaranteed Program designed for individuals looking to make a career change.</b></Title>
+              <Subtitle className="fst-italic fw-lighter my-3 w-75">Start your application in less than 30 seconds</Subtitle>
               <BrandButton className="my-3">Get Started</BrandButton>
             </Col>
             <Col className="col-2 pt-5 d-none d-sm-block"> {/* Hidden on mobile */}
@@ -209,7 +209,7 @@ const BootcampPage = props => {
         <Container className="py-4">
           <Row className="py-4 mx-5 px-5">
             <Col className="mx-auto py-2 col-">
-              <Title className="text-center brand fs-5">"You don't have to feel trapped. Earn your freedom, work when & where you want. Earn a living in just 40 hours a week."</Title>
+              <Title className="text-center brand">"You don't have to feel trapped. Earn your freedom, work when & where you want. Earn a living in just 40 hours a week."</Title>
             </Col>
           </Row>
         </Container>

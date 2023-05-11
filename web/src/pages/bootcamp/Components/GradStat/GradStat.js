@@ -11,7 +11,7 @@ function GradStat(props) {
             </div>
             <Title className="text-white py-3">{props.stat}</Title>
             <Subtitle className="text-white">{props.subtitle}</Subtitle>
-            <Subtitle className="fst-italic fw-lighter fs-5 text-white">{props.subtext}</Subtitle>
+            <Subtitle className="fst-italic fw-lighter text-white">{props.subtext}</Subtitle>
         </div>
     )
 }

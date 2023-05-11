@@ -29,7 +29,7 @@ const EventsPage = ({ data }) => {
                     </Title>
                 </Row>
                 <Row>
-                    <Subtitle className="fs-5"> 
+                    <Subtitle className=""> 
                         Join us and be a part of the startup community!
                     </Subtitle>
                 </Row>

@@ -16,7 +16,7 @@ export const styles = {
     title: `2.4rem`,
     title_small: `.7rem`,
     subtitle: `1.5rem`,
-    subtitle_small: `1.4rem`,
+    subtitle_small: `0.8rem`,
     subtitle_tiny: `0.7rem`,
     text: `1rem`,
     text_small: `0.8rem`,
