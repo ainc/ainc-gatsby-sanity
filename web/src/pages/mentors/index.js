@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Container, Row, Col } from 'react-bootstrap'
+import SEO from '../../components/seo'
 import Layout from '../../components/Layout/Layout'
 import Title from '../../components/UI/Title/Title'
 import { GatsbyImage } from 'gatsby-plugin-image'
@@ -27,10 +28,11 @@ query MentorsPageQuery {
 const MentorsPage = ({ data }) => {
     // console.log(data.allSanityMentor.nodes)
 
-    const allMentors = (data.allSanityMentor.nodes || {})
+  const allMentors = (data.allSanityMentor.nodes || {})
     
     return (
       <Layout>
+        <SEO />
         <main>
           <Container>
                 <Row>

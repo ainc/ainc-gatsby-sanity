@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Container, Col, Row, Badge } from 'react-bootstrap'
+import SEO from '../../../components/seo'
 import Layout from '../../../components/Layout/Layout'
 import AccordionCustom from '../../../components/Accordion/AccordionCustom'
 import { Link } from 'gatsby'
@@ -45,6 +46,7 @@ const CodingClubFAQ = () => {
 
 return (
     <Layout>
+        <SEO/>
         <main>
             <Container>
                 <AccordionCustom
