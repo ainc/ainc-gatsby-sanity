@@ -1,0 +1,36 @@
+// -----------------------------------------------------------------------------
+@import "../../styles/variables";
+@import "../../styles/mixins"; 
+// -----------------------------------------------------------------------------
+
+
+.cell {
+    border: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+    padding: 1%;
+    width: 11%;
+    @include screen-tablet-max {
+        font-size: 0.8rem;
+    }
+    width: max-content;
+}
+
+.title-cell {
+    border: 1px solid #ddd;
+    text-align: center;
+    background-color: #ED3742;
+    height: 50px;
+    width: 11%;
+}
+
+.title-text {
+    font-size: 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: white;
+    font-family: Exo;
+    @include screen-tablet-max {
+        font-size: 0.8rem;
+    }
+}
