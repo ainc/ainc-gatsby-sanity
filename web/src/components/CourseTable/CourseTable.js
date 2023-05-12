@@ -16,10 +16,10 @@ const CourseTable = ({ tableColumns, tableInfo }) => {
         <table className="">
             <tr>
                 {tableColumns.map((column) => (
-                    <th className={styles.titleCell}><h5 className={styles.titleText}>{column}</h5></th>
-                    
+                    <th className={styles.titleCell}>
+                        <h5 className={styles.titleText}>{column}</h5>
+                    </th>
                 ))}
-                
             </tr>
             {tableInfo.map((course) => (
                 <tr>
