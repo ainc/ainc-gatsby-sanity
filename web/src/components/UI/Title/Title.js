@@ -18,6 +18,14 @@ const Title = styled.h1`
   &.text--huge {
     font-size: 80px;
   }
+
+  &.text--medium {
+    @media only screen and (max-width: ${styles.styles.screens.mobile}) {
+      font-size: ${styles.styles.sizes.title_medium};
+    }
+    
+  }
+
   &.text--small {
     font-size: ${styles.styles.sizes.title_small};
   }

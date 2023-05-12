@@ -114,7 +114,7 @@ const fiveAcrossPage = ({ data }) => {
                 <Container fluid className={`justify-content-center ${styles.upcomingEventCircle}`}>
                     <Row>
                         <Col className="text-center">
-                            <Title className="text-white pt-5 mt-5 fs-2 text-uppercase">Join us at the next 5 Across</Title>
+                            <Title className="text--medium text-white pt-5 mt-5 text-uppercase">Join us at the next 5 Across</Title>
                         </Col>
                     </Row>
                     <Row className="mt-5 justify-content-center">
@@ -176,7 +176,7 @@ const fiveAcrossPage = ({ data }) => {
                 <Container className="mb-5 pb-5">
                     <Row>
                         <Col className="my-5 text-center">
-                            <Title className={`${styles.largeText} text-uppercase py-5`}>Our most recent winner</Title>
+                            <Title className={`text--medium text-uppercase py-5`}>Our most recent winner</Title>
                         </Col>
                     </Row>
                     <Row className={`${styles.recentWinner} p-5`}>
@@ -198,7 +198,7 @@ const fiveAcrossPage = ({ data }) => {
                 {/* PREVIOUS WINNER SECTION */}
                 <Container className="mt-5">
                     <Row className="mt-5 text-center">
-                        <Title className={`${styles.largeText} text-uppercase`}>Or Revisit a Previous Winner</Title>
+                        <Title className={`text--medium text-uppercase`}>Or Revisit a Previous Winner</Title>
                     </Row>
                     <Row>
                         {/* <Col/> */}

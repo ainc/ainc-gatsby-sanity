@@ -14,6 +14,7 @@ export const styles = {
   },
   sizes: {
     title: `2.4rem`,
+    title_medium: `1.2rem`,
     title_small: `.7rem`,
     subtitle: `1.5rem`,
     subtitle_small: `0.8rem`,
