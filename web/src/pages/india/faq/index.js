@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import { Container, Row, Col, Badge } from 'react-bootstrap'
+import SEO from '../../../components/seo'
 import Accordion from 'react-bootstrap/Accordion';
 import AccordionBody from 'react-bootstrap/esm/AccordionBody';
 import AccordionHeader from 'react-bootstrap/esm/AccordionHeader';
@@ -42,6 +43,7 @@ const IndiaFAQ = () => {
  
     return (
         <IndiaLayout>
+            <SEO/>
             <Container>
                 <AccordionCustom
                    faq = {faq}

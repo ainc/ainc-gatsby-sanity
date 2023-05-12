@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Col, Container, Row } from 'react-bootstrap';
+import SEO from '../../components/seo'
 import { StaticImage } from 'gatsby-plugin-image'
 import Layout from "../../components/Layout/Layout";
 import Title from "../../components/UI/Title/Title";
@@ -12,6 +13,7 @@ const ParkingPage = ({ data }) => {
 
     return (
         <Layout>
+            <SEO />
             <main>
              <Container className='ps-3'>
                 <Col xs={{offset:1, span:10}} md={{offset: 1, span:10}} lg={{offset:0, span: 12}} xl={{offset: 3, span: 6}}>

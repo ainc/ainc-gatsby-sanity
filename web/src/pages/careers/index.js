@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Col, Container, Row } from 'react-bootstrap';
+import SEO from '../../components/seo'
 import Layout from "../../components/Layout/Layout";
 import Title from "../../components/UI/Title/Title";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
@@ -13,6 +14,7 @@ const CareersPage = ({ data }) => {
   
   return (
     <Layout>
+      <SEO />
       <Container fluid>
         <Row>
             <Col className="header text-white text-center">

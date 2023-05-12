@@ -19,8 +19,7 @@
     }
   }
   > .hover-options {
-    opacity: 0;
-    display: flex;
+    display: none;
     flex-direction: column;
     position: absolute;
     color: black;
@@ -43,9 +42,12 @@
   }
 
   &:hover {
+    // opacity: 0;
     > .hover-options {
-      opacity: 1;
-      transition: opacity 0.5s ease-in-out;
+      display: flex;
+      height: fit-content;
+      animation-name: opacityToOne;
+      animation-duration: 1s;
     }
   }
 }
@@ -53,7 +55,7 @@
 .navbar {
   background-color: $brand-color2;
   opacity: 0.9;
-  z-index: 100000;
+  z-index: 9999;
   
   .sub-navbar {
     padding-top: 2%;
@@ -190,3 +192,13 @@
     transform: none;
   }
 }
+
+@keyframes opacityToOne {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+ }
+ 

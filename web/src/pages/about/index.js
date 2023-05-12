@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../../components/Layout/Layout";
 import { Container, Col, Row, Image } from "react-bootstrap";
+import SEO from '../../components/seo'
 import { GatsbyImage } from "gatsby-plugin-image";
 
 import * as styles from "./about.module.css";
@@ -22,6 +23,7 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout>
+      <SEO />
       <main>
         {/* About header */}
         <section className={styles.aboutHeader}>

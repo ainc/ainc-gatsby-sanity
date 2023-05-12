@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Col, Container, Row, Badge } from 'react-bootstrap';
+import SEO from '../../components/seo'
 import { StaticImage } from 'gatsby-plugin-image'
 import Layout from "../../components/Layout/Layout";
 import Title from "../../components/UI/Title/Title";
@@ -35,6 +36,7 @@ const IntroWebDevPage = ({ data }) => {
     
     return (
         <Layout>
+            <SEO />
             <main>
                 <Container className={`py-5 ${styles.intro}`}>
                     <Col>
