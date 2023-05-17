@@ -23,6 +23,7 @@ import FeatureCard from "../components/FeatureCard/FeatureCard";
 import HorizontalCard from "../components/HorizontalCard/HorizontalCard";
 import { GatsbyImage } from "gatsby-plugin-image";
 
+
 // Images
 import core_values from "../images/core-values.png";
 import workspace_hero from "../images/ainc-workspace-hero.jpeg";
@@ -30,6 +31,7 @@ import desk_background from "../images/workspace-desk-bg-red.png";
 import DevicesIcon from "../assets/svg/devices.svg";
 import StackIcon from "../assets/svg/stack.svg";
 import ToolsIcon from "../assets/svg/tools.svg";
+
 
 export const query = graphql`
 query IndexPageQuery($currentDate: Date!) {
@@ -112,10 +114,12 @@ const IndexPage = ({ data }) => {
       {/* FOUR INITIATIVES */}
       <section id="initiatives">
         <Container className="my-5">
-          <Row>
-            <Col xs={12} sm={{ span: 10, offset: 1}} >
-              <Row>
-                <Col md={3}>
+          <Row className='d-flex justify-content-center'>
+            {/* <Col xs={12} sm={{ span: 10, offset: 1}} > */}
+                
+              <Row className={` row row-cols-5 justify-content-center my-3 px-1 gx-2`}>
+                {/* <Col md={3}> */}
+                <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
                   <BackgroundCard 
                     title="Learn to Code"
                     text="Everybody can and should learn to code, start today."
@@ -124,7 +128,8 @@ const IndexPage = ({ data }) => {
                     link="/learn"
                   />
                 </Col>
-                <Col md={3}>
+                {/* <Col md={3}> */}
+                <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
                   <BackgroundCard 
                     title="Rent Workspace"
                     text="Rent a desk or space for events, meetings, and more."
@@ -133,7 +138,8 @@ const IndexPage = ({ data }) => {
                     link="/workspace"
                   />
                 </Col>
-                <Col md={3}>
+                {/* <Col md={3}> */}
+                  <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
                   <BackgroundCard 
                     title="Accelerate your startup"
                     text="We will help grow your business with a mentor-driven, accelerator program."
@@ -142,7 +148,8 @@ const IndexPage = ({ data }) => {
                     link="/learn"
                   />
                 </Col>
-                <Col md={3}>
+                {/* <Col md={3}> */}
+                <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
                   <BackgroundCard 
                     title="Software Development"
                     text="Let us create custom software for your business."
@@ -152,7 +159,7 @@ const IndexPage = ({ data }) => {
                   />
                 </Col>
               </Row>
-            </Col>
+            {/* </Col> */}
           </Row>
           <Row>
             <Col xs={12} sm={{span: 8, offset: 2}}>
