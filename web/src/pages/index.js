@@ -198,8 +198,8 @@ const IndexPage = ({ data }) => {
       <section id="events">
         <Title className="my-5 text-uppercase text-center">Upcoming Events</Title>
         <Container >
-          <Row className="card__featured_mosaic">
-            <Col className="card__featured">
+          <Row className="card__featured_mosaic row row-cols-5 gy-1">
+            <Col className="card__featured" xs={12} sm={10} md={12} lg={6}>
               <FeatureCard 
                 title={feature_event.eventName}
                 date={feature_event.date}
@@ -209,10 +209,10 @@ const IndexPage = ({ data }) => {
                 link={feature_event.linkToEvent}
               />
             </Col>
-            <Col className="card__secondary">
+            <Col className="card__secondary position-relative" xs={10} sm={10} md={8} lg={6} xl={6}>
+              <Row className='bottom-0 '>
               {eventsNoFeature.map((node,i) => ( //map through the filtered list
                 <HorizontalCard 
-                  className="mb-3"
                   title={node.eventName}
                   date={node.date}
                   image={node.picture.asset.gatsbyImageData}
@@ -222,6 +222,7 @@ const IndexPage = ({ data }) => {
                   key={i}
                 />
               ))}
+              </Row>
             </Col>
           </Row>
           <Row>
@@ -241,12 +242,12 @@ const IndexPage = ({ data }) => {
         <Container>
           <Row>
             {courses.map((node,i) => (
-              <Col key={i}>
+              <Col className='mb-3' md={4} lg={4} key={i}>
                 <Card className='h-100'>
                   <GatsbyImage 
                     image={node.picture.asset.gatsbyImageData} 
                     alt={node.courseTitle} 
-                    className="m-2" 
+                    className="m-2 d-flex align-content-center" 
                     objectFit="scale-down" 
                     style={{maxHeight: `280px`}}
                   />
@@ -291,7 +292,7 @@ const IndexPage = ({ data }) => {
               <Col xs={12} sm={6}>
                 <div className="d-flex justify-content-center">
                   <a href="#">
-                    <Card className="card--equal-width bg--dark-grey p-4 mb-5">
+                    <Card className="card--equal-width bg-secondary p-4 mb-5">
                       <Subtitle className="fw-bold text-center text-white">Functional Workspace</Subtitle>
                       <p className="text-center text-white fw-bolder">An awesome space to work or host your next meeting.</p>
                     </Card>
@@ -301,7 +302,7 @@ const IndexPage = ({ data }) => {
               <Col xs={12} sm={6}>
                 <div className="d-flex justify-content-center mt-5 pt-5">
                   <a href="#">
-                    <Card className="card--equal-width bg--dark-grey p-4">
+                    <Card className="card--equal-width bg-secondary p-4">
                       <Subtitle className="fw-bold text-center text-white">Membership Benefits</Subtitle>
                       <p className="text-center text-white fw-bolder">Flexible membership options and features to support your business operations.</p>
                     </Card>

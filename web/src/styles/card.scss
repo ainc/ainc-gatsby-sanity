@@ -12,8 +12,8 @@
 }
 
 .card--square-size {
-  width: 125px;
-  height: 125px;
+  width: 114px;
+  height: 114px;
 }
 
 .card__img--overlay {
@@ -21,13 +21,17 @@
   &:before {
     content: '';
     position: absolute;
-    width: 100%;
-    height: 100%;
+    // width: 100%;
+    // height: 100%;
     background: -webkit-linear-gradient(left, rgba(255,0,0,0), #141823);
     background: -o-linear-gradient(bottom, rgba(255,0,0,0), #141823);
     background: -moz-linear-gradient(bottom, rgba(255,0,0,0), #141823);
     background: linear-gradient(to bottom, rgba(255,0,0,0), #141823);
   }
+  // @include screen-xs {
+  //   height: 25%;
+  //   width: 100%;
+  // }
 }
 
 .card--gradient-bg {
@@ -59,11 +63,14 @@
     @include screen-md {
       height: 500px;
     }
+    @include screen-xs {
+      height: 250px;
+    }
   }
   .card__secondary { 
     .card-img {
-      height: 155px;
-      width: 155px;
+      height: 115px;
+      width: 115px;
     }
   }
 }
