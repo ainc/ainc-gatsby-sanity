@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Layout from '../../../components/Layout/Layout'
 import { Container, Row, Col } from 'react-bootstrap'
+import SEO from '../../../components/seo'
 import Title from '../../../components/UI/Title/Title'
 import Subtitle from "../../../components/UI/Subtitle/Subtitle"
 import BrandButton from "../../../components/UI/BrandButton/BrandButton"
@@ -10,7 +11,8 @@ import "./perks.scss";
 const PerksPage = ({ data }) => {
 
     return(
-        <Layout pageTitle="Fellowship Perks | Awesome Inc">
+        <Layout>
+            <SEO />
             <Container>
                 <Title className="mt-5 text-center text-uppercase">Fellowship Perks</Title>
                 <section id="images">

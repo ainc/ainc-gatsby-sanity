@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Layout from '../../components/Layout/Layout';
 import { Container, Row, Col } from 'react-bootstrap';
+import SEO from '../../components/seo';
 import Title from '../../components/UI/Title/Title';
 import Subtitle from '../../components/UI/Subtitle/Subtitle';
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
@@ -65,7 +66,8 @@ const UnsubscribePage = () => {
   };
 
   return (
-    <Layout pageTitle="Unsubscribe | Awesome Inc">
+    <Layout>
+      <SEO />
       <Container>
         <Col className="my-5" md={{ span: 6, offset: 3 }}>
           <Subtitle className="fw-bold">We already miss you</Subtitle>

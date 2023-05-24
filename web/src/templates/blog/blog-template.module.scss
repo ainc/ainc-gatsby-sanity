@@ -1,0 +1,18 @@
+@import '../../styles/variables.scss';
+@import "../../styles/mixins.scss"; 
+
+
+.author {
+    color: $brand-color !important;
+    font-size: 1rem !important;
+    @include screen-tablet-max {
+        font-size: .8rem !important;
+    }
+}
+
+.date {
+    font-size: 1rem;
+    @include screen-tablet-max {
+        font-size: .8rem;
+    }
+}

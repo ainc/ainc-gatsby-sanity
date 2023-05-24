@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Container, Row, Col } from 'react-bootstrap'
+import SEO from '../../components/seo'
 import Title from '../../components/UI/Title/Title'
 import Subtitle from '../../components/UI/Subtitle/Subtitle'
 import * as styles from './india.module.scss'
@@ -14,6 +15,7 @@ const IndiaPage = () => {
     return (
         <IndiaLayout>
             <main>
+            <SEO />
         <Container fluid className={styles.bhopal}>
             <section className={styles.topSection}>
                 <Row className='h-100'>

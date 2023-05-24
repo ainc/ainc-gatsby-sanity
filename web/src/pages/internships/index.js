@@ -5,6 +5,7 @@ import Diagonal from '../../components/Layout/Diagonal/Diagonal'
 import ButtonAndImage from '../../components/ButtonAndImage/ButtonAndImage'
 import ImageOutline from '../../components/ImageOutline/ImageOutline'
 import { Container, Row, Col } from 'react-bootstrap'
+import SEO from '../../components/seo'
 import { StaticImage } from 'gatsby-plugin-image'
 import Title from '../../components/UI/Title/Title'
 import BrandButton from '../../components/UI/BrandButton/BrandButton'
@@ -20,6 +21,8 @@ const InternshipsPage = ({ data }) => {
   return (
     <Layout pageTitle="Internships">
       <main>
+      <SEO />
+      
       {/* Header section */}
       <Container fluid className={`mobile-hide-bg ${headerBackgroundAlignRight}`}>
         <Container className='mb-5'>

@@ -9,18 +9,6 @@ export default {
             title: 'Course Title',
         },
         {
-            name: 'courseType',
-            type: 'string',
-            options: {
-                list: [
-                  {title: 'Adult', value: 'adult'},
-                  {title: 'Youth', value: 'youth'}
-                ], // <-- predefined values
-                layout: 'radio' // <-- defaults to 'dropdown'
-              },
-            validation: Rule => Rule.required()
-        },
-        {
             name: 'picture',
             type: 'image',
             title: 'Course Picture'
@@ -41,9 +29,45 @@ export default {
             title: "Format",
         },
         {
+            name: 'timeRequirement',
+            type: 'string',
+            options: {
+                list: [
+                  {title: 'Full-Time', value: 'full-time'},
+                  {title: 'Part-Time', value: 'part-time'}
+                ], // <-- predefined values
+                layout: 'radio' // <-- defaults to 'dropdown'
+              },
+            validation: Rule => Rule.required()
+        },
+        {
+            name: 'ageGroup',
+            type: 'string',
+            options: {
+                list: [
+                  {title: 'Adult', value: 'adult'},
+                  {title: 'Youth', value: 'youth'}
+                ], // <-- predefined values
+                layout: 'radio' // <-- defaults to 'dropdown'
+              },
+            validation: Rule => Rule.required()
+        },
+        {
             name: 'topics',
             type: 'string',
             title: 'Topics',
+        },
+        {
+            name: 'courseType',
+            type: 'string',
+            options: {
+                list: [
+                  {title: 'Coding', value: 'coding'},
+                  {title: 'Other', value: 'other'}
+                ], // <-- predefined values
+                layout: 'radio' // <-- defaults to 'dropdown'
+              },
+            validation: Rule => Rule.required()
         },
         {
             name: 'technologies',
@@ -95,6 +119,14 @@ export default {
             type: 'text',
             description: 'Please keep this 2-3 sentences.'
         }
-    ]
+    ],
+    preview: {
+        select: {
+            title: 'courseTitle',
+            subtitle: 'courseSeason',
+            media: 'picture'
+        }
+       
+    }
 
 }

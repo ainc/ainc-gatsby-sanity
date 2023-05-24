@@ -1,0 +1,71 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.profile {
+  width: 100%;
+  height: 100%;
+}
+
+.figcaption {
+  position: absolute;
+  transition: opacity 0.4s ease-in-out;
+  opacity: 0;
+  background: rgba(255, 255, 255, 0.7);
+  justify-content: center;
+  display: flex;
+  height: 100% ;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 7px;
+
+}
+
+.picture-div {
+  display: flex;
+  position: relative;
+}
+
+.figcaption-show {
+  opacity: 1;
+}
+
+.btn-group-full-width {
+  width: 100%;
+}
+
+.attribute-button {
+  padding: 5%;
+  border: 1px black solid;
+  white-space: nowrap;
+
+  // Prevent Double borders
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+  &+ :nth-child(2) {
+    border-left: 0;
+  }
+  &+ :nth-child(3) {
+    border-top: 0;
+  }
+  &+ :nth-child(4) {
+    border-top: 0;
+    border-left: 0;
+  }
+}
+
+.attribute-text {
+
+  width: 100%;
+  height: 100%;
+  padding-top: 30px;
+
+  color: $brand-color;
+  font-size: .8rem;
+  line-height: 1.8rem;
+  @include screen-xs {
+    line-height: 1rem;
+    font-size: .52rem;
+  }
+}

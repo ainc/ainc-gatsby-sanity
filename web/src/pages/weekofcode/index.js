@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Layout from '../../components/Layout/Layout';
+import SEO from '../../components/seo';
 import { Container, Row, Col, CarouselItem } from 'react-bootstrap';
 import Title from '../../components/UI/Title/Title';
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
@@ -25,6 +26,7 @@ const Page = ({ data }) => {
   return (
     <Layout pageTitle="Week of Code Summer Camp | Awesome Inc">
       <main>
+      <SEO/>
       <Container>
       <Title className="my-5 text-center">WEEK OF CODE SUMMER CAMP</Title>
 
@@ -90,7 +92,7 @@ const Page = ({ data }) => {
 
       <img className="mb-4 img-fluid" src={weekOfCodeRelayPicture} alt="Week of Code Relay" />
 
-      <h4 className="mb-5" className="fw-bold mb-4">In this course, your student will:</h4>
+      <h4 className="fw-bold mb-4">In this course, your student will:</h4>
 
       <ul className="mb-4">
         <li style={{fontSize: '16px'}}>Create a video game, website, and a mobile app in one week</li>
@@ -109,9 +111,9 @@ const Page = ({ data }) => {
       <Col md={8}>
         <section className="mb-5">
           <h6 className="fw-bold">2023 Dates</h6>
-          <BrandButton className="px-4 mb-3" variant="primary">JUNE 12-15 >></BrandButton> 
-          <BrandButton className="mx-4 px-4 mb-3" variant="primary">JUNE 19-22 >></BrandButton> 
-          <BrandButton className="px-4 mb-3" variant="primary">JULY 10-13 >></BrandButton>
+          <BrandButton className="px-4 mb-3" variant="primary">JUNE 12-15 &gt;&gt;</BrandButton> 
+          <BrandButton className="mx-4 px-4 mb-3" variant="primary">JUNE 19-22 &gt;&gt;</BrandButton> 
+          <BrandButton className="px-4 mb-3" variant="primary">JULY 10-13 &gt;&gt;</BrandButton>
         </section>
       </Col>
       </Row>
