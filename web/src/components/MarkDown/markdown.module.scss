@@ -1,0 +1,126 @@
+// -----------------------------------------------------------------------------
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+// -----------------------------------------------------------------------------
+
+.reactMarkdown {
+    max-width: 100%;
+    overflow-wrap: break-word;
+
+    li {
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+    }
+
+    a {
+        color: $brand-color;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+            color: $brand-red-bright;
+        }
+    }
+
+    code {
+        background-color: $brand-grey-light;
+        border-radius: 4px;
+        padding: 5px;
+    }
+
+    pre {
+        background-color: $brand-grey-light;
+        border-radius: 4px;
+        padding: 2%;
+        line-height: 1.3rem;
+        font-size: 0.9rem;
+    }
+
+    table {
+        width: 100%;
+        th, td {
+            width: fit-content;
+            font-size: 0.8rem;
+            border: 1px solid $brand-grey-dark;
+            padding: 1%;
+        }
+
+    }
+
+    blockquote {
+        color: $brand-grey-dark;
+        margin: 0;
+        padding-left: 1em;
+        border-left: 0.5em $brand-grey-light solid;
+    }
+
+    img {
+        max-width: 100%;
+    }
+    
+
+    @include screen-tablet-max {
+        h1 {    
+            font-size: 1.3rem;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+        }
+
+        h4 {
+            font-size: 1rem;
+        }
+
+        h5 {
+            font-size: 0.9rem;
+        }
+
+        h6 {
+            font-size: 0.8rem;
+        }
+
+        p {
+            font-size: 0.7rem;
+            line-height: 1rem;
+        }
+
+        li {
+            font-size: 0.7rem;
+            line-height: 1rem;
+        }
+
+        a {
+            color: $brand-color;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+                color: $brand-red-bright;
+            }
+        }
+
+        code {
+            background-color: $brand-grey-light;
+            border-radius: 4px;
+            padding: 1%;
+            font-size: 0.7rem;
+        }
+
+        pre {
+            background-color: $brand-grey-light;
+            border-radius: 4px;
+            padding: 5%;
+            font-size: 0.7rem;
+            line-height: 1rem;
+        }
+
+        table, th, td {
+            font-size: 0.7rem;
+            line-height: 1rem;
+            border: 1px solid;
+        }
+    }
+}

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Layout from '../../components/Layout/Layout'
 import { graphql, Link, Img } from 'gatsby'
 import { Container, Row, Col } from 'react-bootstrap'
+import SEO from '../../components/seo'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import PerksIcon from '/src/assets/svg/perks.svg'
 import PortfolioIcon from '/src/assets/svg/portfolio.svg'
@@ -69,6 +70,7 @@ const FellowshipPage = ({ data }) => {
   return (
     <Layout pageTitle="Fellowship">
       <main>
+      <SEO />
       
       {/* Header section */}
       <Container>

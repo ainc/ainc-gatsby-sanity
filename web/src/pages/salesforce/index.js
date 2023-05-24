@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../../components/Layout/Layout";
+import SEO from "../../components/seo";
 import { Container, Col, Row, Image } from "react-bootstrap";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import Title from "../../components/UI/Title/Title";
@@ -13,8 +14,8 @@ import "./salesforce.scss";
 const SalesforcePage = ({ data }) => {
     
     return (
-        <Layout pageTitle="Salesforce | Awesome Inc">
-            
+        <Layout>
+            <SEO />
             {/* Header section */}
             <section id="header">
                 <Container fluid>

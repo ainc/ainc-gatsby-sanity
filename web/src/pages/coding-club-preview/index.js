@@ -10,7 +10,7 @@ const CodingClubPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Coding Club Preview"/>
+      <SEO/>
       <Container>
         <Row>
             <Col sm={7} className="Header my-5 mx-auto text-center">
