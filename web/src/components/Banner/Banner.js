@@ -6,7 +6,7 @@ const Banner = () => {
   const currentDate = new Date().toISOString().slice(0, 10);
 
   return (
-    <div className={`${styles.banner}`}>
+    <div role="banner" className={`${styles.banner}`}>
       <StaticQuery
         query={upcoming_5a}
         render={data => {
