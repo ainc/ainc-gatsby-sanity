@@ -291,7 +291,7 @@ const IndexPage = ({ data }) => {
               <Col xs={12} sm={6}>
                 <div className="d-flex justify-content-center">
                   <a href="#">
-                    <Card className="card--equal-width bg--dark-grey p-4 mb-5">
+                    <Card className="card--equal-width bg-secondary p-4 mb-5">
                       <Subtitle className="fw-bold text-center text-white">Functional Workspace</Subtitle>
                       <p className="text-center text-white fw-bolder">An awesome space to work or host your next meeting.</p>
                     </Card>
@@ -301,7 +301,7 @@ const IndexPage = ({ data }) => {
               <Col xs={12} sm={6}>
                 <div className="d-flex justify-content-center mt-5 pt-5">
                   <a href="#">
-                    <Card className="card--equal-width bg--dark-grey p-4">
+                    <Card className="card--equal-width bg-secondary p-4">
                       <Subtitle className="fw-bold text-center text-white">Membership Benefits</Subtitle>
                       <p className="text-center text-white fw-bolder">Flexible membership options and features to support your business operations.</p>
                     </Card>
