@@ -101,12 +101,13 @@ const AlumniPage = props => {
 
   return (
     <Layout>
+      <main>
       <SEO/> {/* SEO is handled in the Page Titles Sanity document */}
       <Container>
         <Row>
           <Col>
             <Title className="my-4">Bootcamp Alumni</Title>
-            <p>The <Link className="text--brand link--bright-red" to="/bootcamp">Web Developer Bootcamp</Link> is a 16-week, intensive training program to help people launch careers in software development. It includes over 500 hours of hands-on training, gaining experience while building 10+ software projects in an Agile environment, using HTML, CSS, JavaScript, PHP, Laravel, React, cloud deployment, GitHub, and more.</p>
+            <p>The <Link className="text--brand link--brand fw-bold" to="/bootcamp">Web Developer Bootcamp</Link> is a 16-week, intensive training program to help people launch careers in software development. It includes over 500 hours of hands-on training, gaining experience while building 10+ software projects in an Agile environment, using HTML, CSS, JavaScript, PHP, Laravel, React, cloud deployment, GitHub, and more.</p>
             <p>Bootcamp alumni have been hired by more than 50 employers. Initial job titles have included Software Engineer, Software Developer, Web Developer, Application Developer, QA Engineer, DevOps Analyst, Salesforce Consultant, and UX/UI Designer.</p>
             <p className="fst-italic">Ribbons indicate an alum's first programming job following Bootcamp</p>
             <Subtitle>Alumni List</Subtitle>
@@ -151,6 +152,7 @@ const AlumniPage = props => {
           </Col>
         </Row>
       </Container>
+      </main>
     </Layout>
   );
 };
