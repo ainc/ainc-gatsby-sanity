@@ -20,6 +20,7 @@ const BlogPage = ({ data }) => {
 
     return (
         <Layout>
+            <main>
             <SEO />
             <Container>
                 <Row className="mt-5" style={{ marginTop: '5rem' }}>
@@ -65,7 +66,7 @@ const BlogPage = ({ data }) => {
                                                 }}>
                                                 <Row className='bg h-100 w-100'>
                                                     <Col className='book h-100 d-flex justify-content-center align-items-center'>
-                                                        <Link to={`/blog/${edge.node.slug.current}`} className='bg-white p-3 rounded-circle'>
+                                                        <Link to={`/blog/${edge.node.slug.current}`} aria-label="Read the article" className='bg-white p-3 rounded-circle'>
                                                             <FaBook size={40} className='text--brand'/>
                                                         </Link>
                                                         
@@ -97,7 +98,7 @@ const BlogPage = ({ data }) => {
                                                 </Row>
                                                 <Row>
                                                     <div className='pt-3 pb-0'>
-                                                        <Link to={`/blog/${edge.node.slug.current}`}><h6 className='text--brand link--brand'>Read More <FaLongArrowAltRight size="25"/></h6></Link>
+                                                        <Link to={`/blog/${edge.node.slug.current}`}><p className='text--brand fs-6 link--brand'>Read More <FaLongArrowAltRight size="25"/></p></Link>
                                                     </div>
                                                 </Row>
                                             </Container>
@@ -109,7 +110,7 @@ const BlogPage = ({ data }) => {
                     })}
                 </Row>
             </Container>
-
+            </main>
         </Layout>
     )
 }

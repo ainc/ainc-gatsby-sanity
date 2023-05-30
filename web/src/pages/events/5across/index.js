@@ -134,21 +134,21 @@ const fiveAcrossPage = ({ data }) => {
                                                 </Col>
                                             </Row>
                                         </Col>
-                                        
+                                        {/* changed headings in this section from h6, font size utilities currently aren't working but should look normal once the utilities work */}
                                         <Col className="justify-content-start">
-                                            <h6 className="text--red">{node.date}</h6> {/*need to  */}
+                                            <h1 className="text--red fs-6">{node.date}</h1> {/*need to  */} 
                                         </Col>
                                     </Row>
                                     <Row>
                                         <Col sm="4" lg="4"></Col>
                                         <Col>
-                                            <h6 className="text--grey">Location: {node.location}</h6> {/*Location*/}
+                                            <h2 className="text--black fw-light fs-6">Location: {node.location}</h2> {/*Location*/}
                                         </Col>
                                     </Row>
                                     <Row>
                                         <Col sm="4" lg="4"></Col>
                                         <Col>
-                                            <h6 className="text--black">{node.eventName}</h6>{/*title */}
+                                            <h3 className="text--black fs-6">{node.eventName}</h3>{/*title */}
                                         </Col>
                                     </Row>
                                 </a>

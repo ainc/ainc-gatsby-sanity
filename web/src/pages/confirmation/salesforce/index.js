@@ -12,6 +12,7 @@ const Page = ({ data }) => {
 
   return (
     <Layout>
+        <main>
         <SEO />
         <Container>
         <Row className="my-3">
@@ -41,6 +42,7 @@ const Page = ({ data }) => {
           <p><a className="text--red link--bright-red" href="../../salesforce">&lt;&lt;Back to Salesforce</a></p>
         </Col>
         </Container>
+        </main>
     </Layout>
 
   )

@@ -106,7 +106,7 @@ const InternshipsPage = ({ data }) => {
             </Col>
             <Col className='my-2 d-block d-md-none' xs={12}/>
             <Col xs='auto'>
-              <Title className='text-danger text-uppercase' style={{writingMode:'vertical-lr', transform:'rotate(180deg)', margin:'0px'}}>Why Join?</Title>
+              <Title className='text--bright-red text-uppercase' style={{writingMode:'vertical-lr', transform:'rotate(180deg)', margin:'0px'}}>Why Join?</Title>
             </Col>
             <Col xs={7} md={5} lg={7} xl={6}>
               <h2 className='text-white d-flex align-items-center fs-5' style={{textAlign:'justify'}}>

@@ -28,6 +28,8 @@ const ProgramPage = ({ data }) => {
 
   return (
     <Layout>
+      {/* still need to fix heading levels to increase by one */}
+      <main>
       <SEO />
       <Container fluid className={styles.mainHeading}>
         <Col>
@@ -40,9 +42,9 @@ const ProgramPage = ({ data }) => {
             </Col>
           </Row>
           <Row>
-            <ul>
+          
                 <Subtitle className='text-center'>    {allProgram.date} </Subtitle>
-            </ul>
+          
           </Row>
           <Row>
             <Col xs={6}>
@@ -97,13 +99,13 @@ const ProgramPage = ({ data }) => {
         <Col xs={12}>
           {teams.map((team) => (
             <Row>
-              <ul>
+              
                 <GatsbyImage className={styles.teamImage}
                 objectFit='scale-down'
                 image={team.image.asset.gatsbyImageData} alt={team.alt} />
                 <p className="text-center mt-4">{team.title}</p>
                 <hr></hr>
-              </ul>
+              
             </Row>
           ))}
         </Col>
@@ -196,6 +198,7 @@ const ProgramPage = ({ data }) => {
           
         </Col>
       </Container>
+      </main>
     </Layout>
   )
 };

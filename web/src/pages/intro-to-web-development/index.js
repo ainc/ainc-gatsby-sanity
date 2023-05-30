@@ -154,7 +154,7 @@ const IntroWebDevPage = ({ data }) => {
                     {/* ask kyle how to do the images/background??? */}
                     <Title className='pt-5 text-uppercase text-white text-center'>tuition credit</Title>
                     <Col lg={{ offset: 2, span: 8 }}>
-                        <p className='text-center text-white pb-5'>100% of this course payment can be used as tuition credit for our <a className='text--red' href='https://www.awesomeinc.org/bootcamp'>Web Developer Bootcamp</a>. Candidates must enroll in the Bootcamp program within
+                        <p className='text-center text-white pb-5'>100% of this course payment can be used as tuition credit for our <a className='text--white link--bright-red fw-bolder' href='https://www.awesomeinc.org/bootcamp'>Web Developer Bootcamp</a>. Candidates must enroll in the Bootcamp program within
                             one year of completing the Intro to Web Development course. Please note that completion of this course does not guarantee admission to the Web Developer Bootcamp – the standard
                             application process still applies.
                         </p>

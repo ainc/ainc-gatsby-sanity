@@ -8,6 +8,7 @@ import { Container, Col, Row } from "react-bootstrap";
 
 const ThanksPage = () => (
   <Layout>
+    <main>
     <SEO />
     <Container>
       <Title className="text-center my-5 text-uppercase">Thank you</Title>
@@ -20,6 +21,7 @@ const ThanksPage = () => (
                 text="Everybody can and should learn to code, start today."
                 backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
                 imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
+                alt="brackets"
                 link="/learn"
               />
             </Col>
@@ -29,6 +31,7 @@ const ThanksPage = () => (
                 text="Rent a desk or space for events, meetings, and more."
                 backgroundImage="https://www.awesomeinc.org/images/awesome-inc-space-panel.jpg"
                 imgSrc="https://d33wubrfki0l68.cloudfront.net/13acb6f3560e894a9e0eecc194c96f778fba858f/f6fb2/images/icons/rent-workspace.png"
+                alt="brackets"
                 link="/workspace"
               />
             </Col>
@@ -38,6 +41,7 @@ const ThanksPage = () => (
                 text="We will help grow your business with a mentor-driven, accelerator program."
                 backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
                 imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
+                alt="desk and chair"
                 link="/learn"
               />
             </Col>
@@ -47,6 +51,7 @@ const ThanksPage = () => (
                 text="Let us create custom software for your business."
                 backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
                 imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
+                alt="brackets"
                 link="/learn"
               />
             </Col>
@@ -54,6 +59,7 @@ const ThanksPage = () => (
         </Col>
       </Row>
     </Container>
+    </main>
   </Layout>
 );
 
