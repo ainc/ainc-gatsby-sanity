@@ -10,6 +10,8 @@ const TermsPage = ({ data }) => {
 
   return (
     <Layout>
+      {/* still need to fix heading levels to increase by one */}
+      <main>
       <SEO/>
     <Container>
         <section className="col-sm-offset-2">
@@ -245,6 +247,7 @@ const TermsPage = ({ data }) => {
             These Terms were last updated on Sept 22, 2019.</p>
         </section>
     </Container>
+    </main>
     </Layout>
 
   )

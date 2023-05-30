@@ -10,6 +10,8 @@ const PrivacyPage = ({ data }) => {
 
   return (
     <Layout>
+      {/* still need to fix heading levels to increase by one */}
+      <main>
       <SEO />
     <Container>
       <section className="col-sm-offset-2">
@@ -131,6 +133,7 @@ const PrivacyPage = ({ data }) => {
         <p style={{fontSize: "16px"}}>Last updated Sept 22, 2019.</p>
       </section>  
     </Container>
+    </main>
     </Layout>
 
   )

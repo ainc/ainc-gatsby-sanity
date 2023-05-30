@@ -64,8 +64,8 @@ const Header = () => {
             />
           </Link>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="learn-to-code-basic-navbar-nav" className='text-white shadow-none border-white'/>
-        <Navbar.Collapse id="learn-to-code-nav-bar">
+        <Navbar.Toggle aria-controls="learn-to-code-navbar" className='text-white shadow-none border-white'/>
+        <Navbar.Collapse id="learn-to-code-navbar">
           <Nav>
             <Col className="desktop">
               <Nav.Link href="/learn" className="text--white">Learn To Code  <AiFillCaretDown size={10}/></Nav.Link>
@@ -219,7 +219,7 @@ const Header = () => {
                   <Navbar.Brand>
                     <Link  to="/about">Be Awesome</Link>
                   </Navbar.Brand>
-                  <Navbar.Toggle aria-controls="awesome-basic-navbar-nav" onClick={() => handleClick("Be Awesome")} className={`${active === "Be Awesome" && open === true ? "" : "collapsed"} bg-none border-2 border-white text-white shadow-none`}>{active === "Be Awesome" && open === true ? <ImPlus size={20} style={{transform: 'rotate(45deg)'}}/> : <ImPlus size={20}/>}</Navbar.Toggle>
+                  <Navbar.Toggle aria-controls="awesome-navbar" onClick={() => handleClick("Be Awesome")} className={`${active === "Be Awesome" && open === true ? "" : "collapsed"} bg-none border-2 border-white text-white shadow-none`}>{active === "Be Awesome" && open === true ? <ImPlus size={20} style={{transform: 'rotate(45deg)'}}/> : <ImPlus size={20}/>}</Navbar.Toggle>
                   <Navbar.Collapse id="awesome-navbar" className='border-top-0'>
                     <Nav>
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">

@@ -59,8 +59,7 @@ const Page = ({ data }) => {
         of your choice, build a portfolio, and bring your new tech knowledge and skills into the real world.
       </p>
       <div className="ratio ratio-16x9 mb-4">
-      <iframe
-        
+      <iframe 
         src="https://www.youtube.com/embed/daWr1oOWd-Y"  
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
         title="Youtube video"
@@ -125,7 +124,7 @@ const Page = ({ data }) => {
     </Row>
 
 
-    <h1 style={{fontSize: '50px'}} role="region" className="fw-bold">FAQs</h1>
+    <h1 style={{fontSize: '50px'}}  className="fw-bold">FAQs</h1>
 
     <Accordion className="mb-5" defaultActiveKey="0">
       <Accordion.Item eventKey="0">

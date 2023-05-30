@@ -108,7 +108,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <main>
       <SEO title="" description="" keywords="" />
-      <HomepageSlider alt=""/>
+      <HomepageSlider/>
       <SEO description="" keywords="" />
       <HomepageSlider />
 
