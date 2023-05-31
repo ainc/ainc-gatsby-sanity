@@ -14,7 +14,6 @@ const FeatureCard = (props) => {
   const time = Moment(props.date).format('h:mm a')
 
   return (
-    
     <Card className=''>
       <figure className={`card--gradient-bg position-relative`}>
         <Card.Img src={props.image.images.fallback.src} alt={props.title} className={`p-2 card__img--overlay object-fit-cover ${styles.cardImage}`} />

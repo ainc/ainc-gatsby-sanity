@@ -10,7 +10,7 @@ const DateSquare = (props) => {
 
   return (
     <Card className="card--square-size">
-      <Card.Body className="m-1">
+      <Card.Body className="m-0">
         <Card.Title className="text--red fw-bold text-center">         
             {day}          
         </Card.Title>
