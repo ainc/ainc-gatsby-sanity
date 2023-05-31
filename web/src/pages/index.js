@@ -197,10 +197,10 @@ const IndexPage = ({ data }) => {
       {/* EVENTS */}
       <section id="events">
         <Title className="my-5 text-uppercase text-center">Upcoming Events</Title>
-        <Container >
-          <Row className="card__featured_mosaic row row-cols-5 gy-1">
-            <Col className="card__featured" xs={12} sm={10} md={12} lg={6}>
-              <FeatureCard 
+        <Container className=''>
+          <Row className="card__featured_mosaic gy-1  me-2">
+            <Col className="card__featured" xs={12} sm={10} md={12} lg={7} xl={7}>
+              <FeatureCard className='ms-0'
                 title={feature_event.eventName}
                 date={feature_event.date}
                 image={feature_event.picture.asset.gatsbyImageData}
@@ -209,10 +209,10 @@ const IndexPage = ({ data }) => {
                 link={feature_event.linkToEvent}
               />
             </Col>
-            <Col className="card__secondary position-relative" xs={10} sm={10} md={8} lg={6} xl={6}>
-              <Row className='bottom-0 '>
+            <Col className="card__secondary" xs={12} sm={10} md={8} lg={5} xl={5}>
+              <Row className='bottom-0 me-2 ms-1'>
               {eventsNoFeature.map((node,i) => ( //map through the filtered list
-                <HorizontalCard 
+                <HorizontalCard className='ms-0'
                   title={node.eventName}
                   date={node.date}
                   image={node.picture.asset.gatsbyImageData}
