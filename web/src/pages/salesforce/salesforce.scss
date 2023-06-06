@@ -1,29 +1,31 @@
 // -----------------------------------------------------------------------------
 @import "../../styles/variables.scss";
-@import "../../styles/mixins"; 
+@import "../../styles/mixins";
 // -----------------------------------------------------------------------------
 
 #header {
     .header-section {
         background-image: url("./images/intro-to-web-hero.png");
         background-repeat: no-repeat;
-        height: 85vh;
+        height: 45vh;
         width: 100vw;
-        background-position: center top;
-        background-size: contain;
+        background-position: 50% 0;
+        background-size: cover;
+
         @include screen-tablet-max {
             width: 100vw;
         }
     }
-    
+
     .header-text {
-        margin-top: 250px;
+        // margin-top: 250px;
         color: black;
         text-align: center;
+
         p {
             @include screen-tablet-max {
-            font-size: 15px;
-        }
+                font-size: 15px;
+            }
         }
     }
 
@@ -36,21 +38,25 @@
 
 #upcoming-program-dates {
     margin-bottom: 50px;
+
     .title {
         font-weight: bolder;
         color: white;
         text-align: center;
         margin-top: 15px;
     }
+
     .dates {
         text-align: center;
         padding-top: 60px;
         padding-bottom: 50px;
     }
+
     .winter-dates {
         margin-left: 300px;
         border-right: 2px solid red;
         color: white;
+
         @include screen-tablet-max {
             margin-left: 0;
             margin-right: auto;
@@ -58,15 +64,18 @@
             border-right: none;
         }
     }
+
     .spring-dates {
         margin-right: 300px;
         color: white;
+
         @include screen-tablet-max {
             margin-right: 0;
             margin-left: auto;
             max-width: 50%;
         }
     }
+
     .button {
         display: flex;
         justify-content: center;
@@ -76,14 +85,18 @@
 
 
 #why-salesforce {
-    .title, .paragraph {
+
+    .title,
+    .paragraph {
         text-align: right;
     }
+
     p {
         @include screen-tablet-max {
             font-size: 17px;
         }
     }
+
     .arrow-container {
         width: 150px;
         height: 100px;
@@ -103,6 +116,7 @@
     .laptop-image {
         width: 600px;
         height: 350px;
+
         @include screen-tablet-max {
             width: 300px;
             height: 150px;
@@ -117,35 +131,49 @@
 }
 
 #curriculum {
-    li {
-        @include screen-tablet-max {
-            font-size: 20px;
-        }
+
+    // li {
+    //     @include screen-tablet-max {
+    //         font-size: 20px;
+    //     }
+    // }
+    .lists {
+        margin-left: 10px;
+        padding-left: 10px;
+    }
+
+    .list-item {
+        font-size: .9rem;
+        font-weight: 500;
+        line-height: 1.6rem;
     }
 }
 
 #course-outcomes {
     background-image: url("./images/intro-to-web-hero-square.png");
     background-size: cover;
-    height: 50vh;
+    // height: 50vh;
     width: 100vw;
-    @include screen-tablet-max {
-        height: 110vh;
-    }
+    // @include screen-tablet-max {
+    //     height: 110vh;
+    // }
 
-    .laptop-image {
-        width: 550px; 
-        height: 300px;
-        margin-top: 40px;
-        @include screen-tablet-max {
-            width: 250px;
-            height: 150px;
-        }
-    }
+    // .laptop-image {
+    //     width: 550px; 
+    //     height: 300px;
+    //     margin-top: 40px;
+
+    //     @include screen-tablet-max {
+    //         width: 250px;
+    //         height: 150px;
+    //     }
+    // }
 }
 
 #FAQs {
-    .accordion-header, .accordion-body {
+
+    .accordion-header,
+    .accordion-body {
         @include screen-tablet-max {
             font-size: 17px;
         }
@@ -154,11 +182,13 @@
     .accordion-item:hover {
         box-shadow: 1px 1px 5px 1px #c12029;
     }
+
     .accordion-button:hover {
         background-color: rgb(231, 228, 228);
         box-shadow: none;
         transform: translateX(10px);
     }
+
     .accordion-button {
         box-shadow: none;
         transition: transform 0.3s ease-out;
@@ -167,10 +197,27 @@
 
 #apply-now-button {
     background-image: url("./images/two-arrows.png");
-    background-color: #C12029;
-    background-size: 100%;
+    background-color: $brand-color;
+    background-size: 120%;
     background-repeat: no-repeat;
-    background-position: 50%;
+    background-position: center center;
+    min-width: 100%;
+
+    @include screen-lg {
+        background-size: 140%;
+    }
+
+    @include screen-md {
+        background-size: 170%;
+    }
+
+    @include screen-sm {
+        background-size: 140%;
+    }
+
+    @include screen-xs {
+        background-size: 140%;
+    }
 
     .button:hover {
         color: lightgray;
@@ -180,6 +227,9 @@
 #questions {
     background-image: url("./images/faq-bg.jpeg");
     background-size: cover;
-    height: 50vh;
-    width: 100vw;
+    min-height: 40vh;
+    min-width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+
 }
