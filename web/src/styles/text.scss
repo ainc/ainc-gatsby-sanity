@@ -50,6 +50,193 @@
   }
 }
 
+// Text sizes
+
+.text--fs-10 {
+  @include screen-xs {
+    @include font-size(20);
+  }
+  @include screen-sm {
+    @include font-size(20);
+  }
+  @include screen-md {
+    @include font-size(10);
+  }
+  @include screen-lg {
+    @include font-size(10);
+  }
+  @include screen-max {
+    @include font-size(8);
+  }
+}
+
+// this one has been dialied in
+.text--fs-20 {
+  @include screen-xs {
+    @include font-size(25);
+  }
+  @include screen-sm {
+    @include font-size(25);
+  }
+  @include screen-md {
+    @include font-size(15);
+  }
+  @include screen-lg {
+    @include font-size(13);
+  }
+  @include screen-max {
+    @include font-size(8);
+  }
+}
+
+
+.text--fs-30 {
+  @include screen-xs {
+    @include font-size(30);
+  }
+  @include screen-sm {
+    @include font-size(30);
+  }
+  @include screen-md {
+    @include font-size(20);
+  }
+  @include screen-lg {
+    @include font-size(15);
+  }
+  @include screen-max {
+    @include font-size(10);
+  }
+}
+
+.text--fs-40 {
+  @include screen-xs {
+    @include font-size(40);
+  }
+  @include screen-sm {
+    @include font-size(40);
+  }
+  @include screen-md {
+    @include font-size(25);
+  }
+  @include screen-lg {
+    @include font-size(12);
+  }
+  @include screen-max {
+    @include font-size(13);
+  }
+}
+
+.text--fs-50 {
+  @include screen-xs {
+    @include font-size(50);
+  }
+  @include screen-sm {
+    @include font-size(50);
+  }
+  @include screen-md {
+    @include font-size(30);
+  }
+  @include screen-lg {
+    @include font-size(20);
+  }
+  @include screen-max {
+    @include font-size(15);
+  }
+}
+
+.text--fs-60 {
+  @include screen-xs {
+    @include font-size(60);
+  }
+  @include screen-sm {
+    @include font-size(60);
+  }
+  @include screen-md {
+    @include font-size(40);
+  }
+  @include screen-lg {
+    @include font-size(30);
+  }
+  @include screen-max {
+    @include font-size(20);
+  }
+}
+
+.text--fs-70 {
+  @include screen-xs {
+    @include font-size(70);
+  }
+  @include screen-sm {
+    @include font-size(70);
+  }
+  @include screen-md {
+    @include font-size(50);
+  }
+  @include screen-lg {
+    @include font-size(40);
+  }
+  @include screen-max {
+    @include font-size(25);
+  }
+}
+
+.text--fs-80 {
+  @include screen-xs {
+    @include font-size(80);
+  }
+  @include screen-sm {
+    @include font-size(80);
+  }
+  @include screen-md {
+    @include font-size(60);
+  }
+  @include screen-lg {
+    @include font-size(50);
+  }
+  @include screen-max {
+    @include font-size(30);
+  }
+}
+
+.text--fs-90 {
+  @include screen-xs {
+    @include font-size(90);
+  }
+  @include screen-sm {
+    @include font-size(90);
+  }
+  @include screen-md {
+    @include font-size(70);
+  }
+  @include screen-lg {
+    @include font-size(60);
+  }
+  @include screen-max {
+    @include font-size(35);
+  }
+}
+
+
+.text--fs-100 {
+  @include screen-xs {
+    @include font-size(100);
+  }
+  @include screen-sm {
+    @include font-size(100);
+  }
+  @include screen-md {
+    @include font-size(80);
+  }
+  @include screen-lg {
+    @include font-size(70);
+  }
+  @include screen-max {
+    @include font-size(40);
+  }
+}
+
+
+
 .text--huge {
   @include font-size(40)
 }

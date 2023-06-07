@@ -19,6 +19,7 @@
         text-align: center;
         justify-self: center;
         align-self: center;
+        white-space: pre-wrap;
         @include screen-tablet-max {
             @include font-size(12);
         }

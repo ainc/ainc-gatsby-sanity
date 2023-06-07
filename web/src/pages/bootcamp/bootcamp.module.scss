@@ -1,3 +1,5 @@
+@import "../../styles/mixins.scss"; 
+
 .header {
     background-image: url(../../images/bootcamp/hero-bg.jpg);
     background-size: cover;
@@ -131,8 +133,14 @@
 
 .languages {
     background-image: url(../../images/bootcamp/languages-bg.jpg);
-    padding-left: 100px;
-    padding-right: 100px;
+    // padding-left: 100px;
+    // padding-right: 100px;
+
+    // @include screen-xs {
+    //     padding-left: 10px;
+    //     padding-right: 10px;
+    // }
+    
 }
 
 #timeline {
@@ -164,6 +172,7 @@
     background-image: url(../../images/bootcamp/alumni-bg.png);
     background-size: cover;
     height: 50vh;
+    display: flex;
 }
 
 .questions {

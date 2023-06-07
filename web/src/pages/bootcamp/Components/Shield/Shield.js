@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
+import { Row, Col } from 'react-bootstrap'
 
 import * as styles from '../shield.module.scss'
 
 const Shield = ({text}) => {
 
         return (
-            <div className={`${styles.shieldPanel} mx-auto my-auto`}>
-                <div className={`${styles.shieldText} mx-5 `}>
-                    <h6 className="text-white" style={{overflowWrap: "break-word"}}>{text}</h6>
-                </div>
-            </div>
+            <Row className={`${styles.shieldPanel} mx-auto my-auto`}>
+                <Col xs={{span: 6}} md={{span: 10}} className={`${styles.shieldText} mx-5 relative`}>
+                    <h6 className="text-white text-justify" style={{overflowWrap: "break-word"}}>{text}</h6>
+                </Col>
+            </Row>
         )
     
 }

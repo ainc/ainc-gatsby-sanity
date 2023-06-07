@@ -13,10 +13,10 @@
 @mixin font-size($font-size) {
     $pxFontValue: (math.div($font-size, 10));
     $pxLineValue: (math.div($font-size, 10) * 1.5);
-    font-size: $font-size * 1px;
-    line-height: $font-size * 1.5 * 1px;
-    font-size: #{$pxFontValue}rem;
-    line-height: #{$pxLineValue}rem;
+    // font-size: $font-size * 1px;
+    // line-height: $font-size * 1.5 * 1px;
+    font-size: #{$pxFontValue}vw;
+    // line-height: #{$pxLineValue}vw;
 }
 
 
