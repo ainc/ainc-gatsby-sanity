@@ -44,6 +44,7 @@ module.exports = {
       options: {
         rule: {
           include: `${__dirname}/src/assets/svg`
+
         }
       }
     },

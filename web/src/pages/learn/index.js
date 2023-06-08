@@ -10,6 +10,7 @@ import "../../styles/main.scss"
 import * as styles from './courses.module.css'
 import styled from 'styled-components'
 import BlockQuote from '../../components/BlockQuote/BlockQuote'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const ProvenBackground = styled.div`
 &:before {

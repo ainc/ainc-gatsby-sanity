@@ -1,8 +1,9 @@
 // -----------------------------------------------------------------------------
 @import "../../styles/variables";
-@import "../../styles/mixins"; 
-// -----------------------------------------------------------------------------
+@import "../../styles/mixins";
 
+
+// -----------------------------------------------------------------------------
 
 .cell {
     border: 1px solid #ddd;
@@ -10,9 +11,25 @@
     vertical-align: middle;
     padding: 1%;
     width: 11%;
-    @include screen-tablet-max {
+    @include screen-sm {
         font-size: 0.8rem;
+        border: 0px solid #ddd;
+        text-align:right;
+        align-items: center;
+        vertical-align: middle;
+        padding: 1%;
+        width: 100%;
     }
+
+    @include screen-xs {
+        font-size: 0.8rem;
+        border: 0px solid #ddd;
+        text-align:right;
+        vertical-align: middle;
+        padding: 1%;
+        width: 100%;
+    }
+
     width: max-content;
 }
 
@@ -22,6 +39,7 @@
     background-color: #ED3742;
     height: 50px;
     width: 11%;
+ 
 }
 
 .title-text {
@@ -33,4 +51,65 @@
     @include screen-tablet-max {
         font-size: 0.8rem;
     }
+}
+
+.logo{
+    @include screen-sm{
+        display: none;
+    }
+}
+
+.subtitle{
+    @include screen-lg{
+        display: none;
+    }
+}
+.wrapper{
+    overflow-x: hidden;
+}
+
+
+@media only screen and (max-width: 767px) {
+	
+	/* Force table to not be like tables anymore */
+
+
+    table thead tr{
+        display: none
+    }
+
+    table tr{
+        display: block;
+    }
+
+    table td{
+        padding: .5em;
+        float: left;
+        display: block;
+        font-size: 1em;
+        margin-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    table td::before{
+        content: attr(data-title) "";
+        font-family: Exo;
+        font-weight: 900;
+        font-size: 1em;
+        float: left;
+        align-items: center;
+
+
+        
+       
+    }
+    tbody td:first-child{
+        background-color: #ED3742;
+        color: white;
+        border-radius: 7px;
+        content:attr(data-description)
+    }
+
+
+
 }

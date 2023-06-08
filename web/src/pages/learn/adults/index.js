@@ -8,11 +8,11 @@ import { graphql } from "gatsby";
 import Title from '../../../components/UI/Title/Title'
 import "../../../styles/main.scss"
 import CourseTable from '../../../components/CourseTable/CourseTable'
-
 // import Icon from '../../../assets/svg/book-circle.svg'
-import DottedLine from '/src/assets/svg/DottedLine.svg'
-import GreyTriangle from '/src/assets/svg/GreyTriangle.svg'
+// import DottedLine from '/src/assets/svg/DottedLine.svg'
+// import GreyTriangle from '/src/assets/svg/GreyTriangle.svg'
 // import { styles } from '../../../styles/Variables'
+import 'bootstrap/dist/css/bootstrap.css';
 
 const AdultsPage = ({ data }) => {
 
@@ -70,7 +70,7 @@ const AdultsPage = ({ data }) => {
                         <Title className="text-center text--brand fs-2">BECOME A PROFESSIONAL DEVELOPER IN 16 WEEKS</Title>
                         {/* Add SVG's here */}
                         <div className='d-flex justify-content-center'>
-                            <DottedLine style={{maxWidth: "10px", maxHeight: "55px"}} className='mb-3 mt-5' />
+                            {/* <DottedLine style={{maxWidth: "10px", maxHeight: "55px"}} className='mb-3 mt-5' /> */}
                         </div>
                         <CourseTable tableColumns={tableColumns} tableInfo={FTCodingCourses}/>
                     </Col>
@@ -78,7 +78,7 @@ const AdultsPage = ({ data }) => {
                         <Title className="text-center text--brand fs-2">LEARN TO CODE WITHOUT QUITTING YOUR JOB</Title>
                         {/* Add SVG's here */}
                         <div className='d-flex justify-content-center'>
-                            <DottedLine style={{maxWidth: "10px", maxHeight: "55px"}} className='mb-3 mt-4' />
+                            {/* <DottedLine style={{maxWidth: "10px", maxHeight: "55px"}} className='mb-3 mt-4' /> */}
                         </div>
                         <CourseTable tableColumns={tableColumns} tableInfo={PTCodingCourses}/>
                     </Col>
@@ -86,7 +86,7 @@ const AdultsPage = ({ data }) => {
                         <Title className="text-center text--brand fs-2">NON-CODING COURSES TO HELP YOU GROW YOUR CAREER</Title>
                         {/* Add SVG's here */}
                         <div className='d-flex justify-content-center'>
-                            <DottedLine style={{maxWidth: "10px", maxHeight: "55px"}} className='mb-3 mt-4' />
+                            {/* <DottedLine style={{maxWidth: "10px", maxHeight: "55px"}} className='mb-3 mt-4' /> */}
                         </div>
                         <CourseTable tableColumns={tableColumns} tableInfo={otherCourses}/>
                     </Col>
