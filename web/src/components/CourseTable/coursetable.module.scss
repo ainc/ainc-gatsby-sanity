@@ -57,10 +57,16 @@
     @include screen-sm{
         display: none;
     }
+    @include screen-xs{
+        display: none;
+    }
 }
 
 .subtitle{
     @include screen-lg{
+        display: none;
+    }
+    @include screen-md{
         display: none;
     }
 }
