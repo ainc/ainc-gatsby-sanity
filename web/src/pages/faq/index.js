@@ -13,7 +13,6 @@ const FAQPage = () => {
     return (
         <Layout>
             <SEO />
-            <main>
                 <Container>
                     <Row>
                         <Title className='text-center text-uppercase my-3'>Frequently asked questions</Title>
@@ -65,7 +64,6 @@ const FAQPage = () => {
                         </Accordion>
                     </Col>
                 </Container>
-            </main>
         </Layout>
     )
 }

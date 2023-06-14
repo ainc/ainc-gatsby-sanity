@@ -94,7 +94,7 @@ const BootcampPage = props => {
   }
 
   return (
-    <Layout>
+    <Layout pageTitle="Bootcamp">
       <SEO/>
       {/* Add SEO Component Here?? */}
       
@@ -458,7 +458,7 @@ const BootcampPage = props => {
                 <p className="text-justify fs-5 pb-3">This is a realistic timeline of what a Web Developer Bootcamp student can expect from applying to the program to becoming a proud alumni.</p>
               </Row>
               <Row className="mb-3">
-                <img className="text-center pl-2" src={require('/src/images/bootcamp/timeline.png').default}/>
+                <img className="text-center pl-2" src={require('/src/images/bootcamp/timeline.png').default} alt=""/>
               </Row>
             </Col>
           </Row>
@@ -550,7 +550,6 @@ const BootcampPage = props => {
           </Row>
         </Container>
       </section>
-
     </Layout>
   );
 };

@@ -6,8 +6,7 @@
     font-size: 1rem;
     letter-spacing: .01rem;
     line-height: 1.4rem;
-    padding-left: inherit;
-    text-indent: -1.4rem;
+    /* text-indent: -1.4rem; */
 }
 
 .button {

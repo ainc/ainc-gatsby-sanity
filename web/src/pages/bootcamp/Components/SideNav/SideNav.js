@@ -4,7 +4,7 @@ import * as styles from "../sideNav.module.scss"
 function SideNav() {
     return (
         <div class={styles.navContainer}>
-            <nav>
+            <nav aria-label="side-navigation">
                 <ul class="nav flex-column">
                     <li class="nav-item">
                       <a href="#testimonials" class="nav-link text-uppercase text-body text--micro">Hear From Our Alumni</a>

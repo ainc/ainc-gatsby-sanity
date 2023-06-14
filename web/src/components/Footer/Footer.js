@@ -44,10 +44,11 @@ const Footer = props => {
 
   return (
     <section className={styles.footerBackground}>
+      <footer>
       <Container className={styles.footerBackground}>
         <Row>
           {/* Main column */}
-          <Col xs md={4}>
+          <Col xs md={4} aria-label="main-navigation" role="navigation">
             <Row className='justify-content-center'>
               <Link className={styles.aincLogoGap} href='/'>
                 <StaticImage src='../../images/ainc-logo-text-triangle-layer-red.png' alt="Awesome Inc logo" />
@@ -78,7 +79,7 @@ const Footer = props => {
           </Col>
 
           {/* Quicklinks column */}
-          <Col xs={6} sm={6} md={2}>
+          <Col xs={6} sm={6} md={2} aria-label="quicklinks-navigation" role="navigation">
             <h2 className={styles.infoListTitle}>Quicklinks</h2>
             <ul className={styles.infoList}>
               {
@@ -94,7 +95,7 @@ const Footer = props => {
           </Col>
 
           {/* Courses column */}
-          <Col xs={6} sm={6} md={2}>
+          <Col xs={6} sm={6} md={2} aria-label="courses-navigation" role="navigation">
             <h2 className={styles.infoListTitle}>Courses</h2>
             <ul className={styles.infoList}>
               {
@@ -110,7 +111,7 @@ const Footer = props => {
           </Col>
 
           {/* Sponsors column */}
-          <Col xs sm={6} md={4}>
+          <Col xs sm={6} md={4} aria-label="sponsors-navigation" role="navigation">
             <h2 className={styles.infoListTitle}>Sponsors</h2>
             <Row className={styles.sponsorsRow}>
               {
@@ -133,7 +134,7 @@ const Footer = props => {
         </Row>
 
         {/* Bottom row */}
-        <Row className={styles.bottomRow}>
+        <Row className={styles.bottomRow} aria-label="bottom-navigation" role="navigation">
           <Col>
             <ul className={styles.copyrightInlineList}>
               <li><Link to='/about'>About</Link></li>
@@ -142,17 +143,18 @@ const Footer = props => {
               <li><Link to='/terms'>Terms of Service</Link></li>
             </ul>
           </Col>
-          <Col>
+          <Col aria-label="social-navigation" role="navigation">
             <ul className={styles.socialsInlineList}>
-              <li><Link to='https://twitter.com/awesomeinclex'><FaTwitter /></Link></li>
-              <li><Link to='https://www.facebook.com/awesomeinclex'><FaFacebookF /></Link></li>
-              <li><Link to='https://www.linkedin.com/school/awesome-inc/'><FaLinkedinIn /></Link></li>
-              <li><Link to='https://www.instagram.com/awesomeinclex/'><FaInstagram /></Link></li>
-              <li><Link to='https://www.youtube.com/user/AincTelevision/featured'><FaYoutube /></Link></li>
+              <li><Link to='https://twitter.com/awesomeinclex'aria-label="Visit our Twitter"><FaTwitter /></Link></li>
+              <li><Link to='https://www.facebook.com/awesomeinclex'aria-label="Visit our Facebook"><FaFacebookF /></Link></li>
+              <li><Link to='https://www.linkedin.com/school/awesome-inc/'aria-label="Visit our LinkedIn"><FaLinkedinIn /></Link></li>
+              <li><Link to='https://www.instagram.com/awesomeinclex/'aria-label="Visit our Instagram"><FaInstagram /></Link></li>
+              <li><Link to='https://www.youtube.com/user/AincTelevision/featured'aria-label="Visit our Youtube"><FaYoutube /></Link></li>
             </ul>
           </Col>
         </Row>
       </Container>
+      </footer>
     </section>
   )
   

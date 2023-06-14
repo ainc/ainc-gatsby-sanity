@@ -22,6 +22,7 @@ const Podcast = (props) => {
     }
     
     return (
+        
         <a href={props.link}>
             <div className={styles.box}>
                 <div className={styles.insideBox}>

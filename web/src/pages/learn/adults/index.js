@@ -25,7 +25,7 @@ const AdultsPage = ({ data }) => {
 
     return (
         <Layout>
-
+            <SEO />
             <Container>
             
                 <Row className='pt-5 mt-5'>
@@ -33,10 +33,10 @@ const AdultsPage = ({ data }) => {
                         <Row className={`justify-content-center`}>
                             <Col md={{span: 9, offset: 3}}>
                                 <Title>ADULT</Title>
-                                <h5><i>Coding Courses</i></h5>
+                                <h1 className='fs-5'><i>Coding Courses</i></h1>
                             </Col>
                             <Col md="6">
-                                <h6><i>Full and Part-Time Courses for Career Switchers, Professionals, and Hobbyists</i></h6>
+                                <h2 className='fs-6'><i>Full and Part-Time Courses for Career Switchers, Professionals, and Hobbyists</i></h2>
                             </Col>
                         </Row>
                     </Col>
@@ -59,8 +59,8 @@ const AdultsPage = ({ data }) => {
                         </a>
                     </Col>
                     <Col xs="12" md="6" className='d-flex align-items-end mb-5'>
-                        <h6><i>"Starbucks to Software Developer in 12 Weeks."
-                        <br/>Web Developer Bootcamp Student Spotlight: David V.</i></h6>
+                        <p><i>"Starbucks to Software Developer in 12 Weeks."
+                        <br/>Web Developer Bootcamp Student Spotlight: David V.</i></p>
                     </Col>
                 </Row>
                 

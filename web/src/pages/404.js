@@ -16,6 +16,7 @@ const NotFoundPage = () => (
           <Row>
             <Col md={3}>
               <BackgroundCard 
+                alt="brackets"
                 title="Learn to Code"
                 text="Everybody can and should learn to code, start today."
                 backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
@@ -25,6 +26,7 @@ const NotFoundPage = () => (
             </Col>
             <Col md={3}>
               <BackgroundCard 
+                alt="desk and chair"
                 title="Rent Workspace"
                 text="Rent a desk or space for events, meetings, and more."
                 backgroundImage="https://www.awesomeinc.org/images/awesome-inc-space-panel.jpg"
@@ -34,6 +36,7 @@ const NotFoundPage = () => (
             </Col>
             <Col md={3}>
               <BackgroundCard 
+                alt="brackets"
                 title="Accelerate your startup"
                 text="We will help grow your business with a mentor-driven, accelerator program."
                 backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
@@ -43,6 +46,7 @@ const NotFoundPage = () => (
             </Col>
             <Col md={3}>
               <BackgroundCard 
+                alt="brackets"
                 title="Software Development"
                 text="Let us create custom software for your business."
                 backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"

@@ -68,7 +68,7 @@ const FellowshipPage = ({ data }) => {
   const handleShow = () => setLgShow(true);
 
   return (
-    <Layout>
+    <Layout pageTitle="Fellowship">
       <SEO />
       
       {/* Header section */}
@@ -106,7 +106,7 @@ const FellowshipPage = ({ data }) => {
             <Row>
               <Col className="m-auto text-center" xs={4}>
                 {/* <div > */}
-                <PerksIcon className='mb-2'/>
+                <PerksIcon className='mb-2' />
                 <Subtitle className={`${styles.iconTitle} text-center fw-bold mt-2`}>Perks</Subtitle>
                 {/* </div> */}
               </Col>
@@ -118,7 +118,7 @@ const FellowshipPage = ({ data }) => {
               </Col>
               <Col className="m-auto text-center" xs={4}>
               {/* <div className="m-auto text-center"> */}
-                <Link to="/fellowship/portfolio">
+                <Link to="/fellowship/portfolio" aria-label="Read our fellowship portfolio">
                   <PortfolioIcon className='mb-2'/>
                 </Link>
                 <Subtitle className={`${styles.iconTitle} text-center fw-bold mt-2`} >Portfolio</Subtitle>
@@ -162,7 +162,8 @@ const FellowshipPage = ({ data }) => {
                   <p className="text-center text--white mb-1 mt-3">
                     Our company took advantage of all of the services. They were incredibly helpful and well-timed for us.
                   </p>
-                  <p className='text-center fst-italic text--grey mb-3'>
+                  <p className='text-center fst-italic text-white mb-3'> 
+                  {/* changed text from grey to white for better contrast, but lighter grey is probably better */}
                     Kirsten Moorefield
                   </p>
                 </div>
@@ -170,7 +171,7 @@ const FellowshipPage = ({ data }) => {
                   <p className="text-center text--white mb-1 mt-3">
                     The Fellowship Program has been an incredible resource in Kentucky as WeatherCheck grows. Our team utilized many of the resources offered while we were in the program.
                   </p>
-                  <p className='text-center fst-italic text--grey mb-3'>
+                  <p className='text-center fst-italic text-white mb-3'>
                     Demetrius Gray
                   </p>
                 </div>
@@ -178,7 +179,7 @@ const FellowshipPage = ({ data }) => {
                   <p className='text-center text--white mb-1 mt-3'>
                     The network I've developed through the Fellowship program includes some of my most trusted advisors as well as my lead investors.
                   </p>
-                  <p className='text-center fst-italic text--grey mb-3'>
+                  <p className='text-center fst-italic text-white mb-3'>
                     Josh Lau
                   </p>
                 </div>
@@ -229,9 +230,9 @@ const FellowshipPage = ({ data }) => {
               if ((node._rawSponserLogo) == null){
                 return(
                   <Col xs="5" sm="3" className={`${styles.sponsor} text-center`} key={i}>
-                    <a href={node.sponserWebsite}>
+                    <a href={node.sponserWebsite} aria-label="Visit {node.sponser}'s site">
                       <div className='m-2'>
-                        <h4>{node.sponser}</h4>
+                        <h2 className='fs-4'>{node.sponser}</h2>
                       </div>
                     </a>
                   </Col>
@@ -239,9 +240,9 @@ const FellowshipPage = ({ data }) => {
               }else{
                 return (
                   <Col xs="5" sm="3" className={`${styles.sponsor} text-center`} key={i}>
-                    <a href={node.sponserWebsite}>
+                    <a href={node.sponserWebsite} aria-label="Visit {node.sponser}'s site">
                       <div className=''>
-                        <img src={node._rawSponserLogo.asset.url} className="img-fluid"/>
+                        <img src={node._rawSponserLogo.asset.url} alt={node.sponser} className="img-fluid"/>
                       </div>
                     </a>
                   </Col> 

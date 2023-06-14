@@ -24,7 +24,7 @@ const FeatureCard = (props) => {
               <Row>
                 <div className="position-absolute bottom-0">
                   <Col xs={3} className="position-absolute bottom-0 start-0 mb-5 ms-5">
-                    <DateSquare 
+                    <DateSquare className="bg-white"
                       date={props.date}
                     />
                   </Col>
