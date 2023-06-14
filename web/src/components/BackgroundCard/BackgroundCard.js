@@ -10,7 +10,7 @@ const BackgroundCard = (props) => {
     <a href={props.link}>
       <Card className={`${styles.cardBackgroundFilter} h-100`} style={{ backgroundImage: `url(${props.backgroundImage})` }}>
         <Card.Body className="card-body--background-card">
-          <Card.Img variant="top" src={props.imgSrc} className="d-block mx-auto mt-3" style={{ width: `50%` }}/>
+          <Card.Img variant="top" src={props.imgSrc} className="d-block mx-auto mt-3" alt={props.alt} style={{ width: `50%` }}/>
           <Card.Title className="text-uppercase text-white text-center fw-bold fs-6 mt-3 ">{props.title}</Card.Title>
           <Card.Text className="text-white text-center mb-5 fs-6">{props.text}</Card.Text>
         </Card.Body>

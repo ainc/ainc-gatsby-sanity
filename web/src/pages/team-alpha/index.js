@@ -32,7 +32,6 @@ const TeamAlphaPage = ({ data }) => {
   return (
     <Layout>
       <SEO />
-      <main>
         <Container>
           <Row>
             <Title className='text-center mt-3 mb-5 text-uppercase'>Team Alpha</Title>
@@ -61,7 +60,6 @@ const TeamAlphaPage = ({ data }) => {
             ))}
           </Row>
         </Container>
-      </main>
     </Layout>
   )
 }

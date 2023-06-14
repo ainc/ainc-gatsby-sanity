@@ -21,7 +21,7 @@ const LinksPage = ({ data }) => {
           </Col>
         </Row>
 
-        <Row style={{marginTop: "30%"}}>
+        <Row className='pt-3' style={{marginTop: "30%"}}>
           {allLinks.map((node) => (
             <Col md={{span: 8, offset: 2}}>
               <a href={node.linkToPage}>
@@ -36,25 +36,26 @@ const LinksPage = ({ data }) => {
           <Col md={{span: 2, offset: 5}} className=''>
             <Row className='d-flex justify-content-center'>
               <Col sm={2} className='d-flex justify-content-center'>
-                  <a href='https://twitter.com/awesomeinclex'><FaTwitter size={25} color="black"/></a>
+                  <a href='https://twitter.com/awesomeinclex' aria-label="Visit our Twitter" ><FaTwitter size={25} color="black"/></a>
               </Col>
               <Col sm={2} className='d-flex justify-content-center'>
-                  <a href='https://www.facebook.com/awesomeinclex'><FaFacebookF size={25} color="black"/></a>
+                  <a href='https://www.facebook.com/awesomeinclex'aria-label="Visit our Facebook"><FaFacebookF size={25} color="black"/></a>
               </Col>
               <Col sm={2} className='d-flex justify-content-center'>
-                  <a href='https://www.linkedin.com/school/awesome-inc/'><FaLinkedinIn size={25} color="black"/></a>
+                  <a href='https://www.linkedin.com/school/awesome-inc/' aria-label="Visit our LinkedIn"><FaLinkedinIn size={25} color="black"/></a>
               </Col>
               <Col sm={2} className='d-flex justify-content-center'>
-                  <a href='https://www.instagram.com/awesomeinclex/'><FaInstagram size={25} color="black"/></a>
+                  <a href='https://www.instagram.com/awesomeinclex/'aria-label="Visit our Instagram"><FaInstagram size={25} color="black"/></a>
               </Col>
               <Col sm={2} className='d-flex justify-content-center'>
-                  <a href='https://www.youtube.com/user/AincTelevision/featured'><FaYoutube size={25} color="black"/></a>
+                  <a href='https://www.youtube.com/user/AincTelevision/featured'aria-label="Visit our Youtube"><FaYoutube size={25} color="black"/></a>
               </Col>
             </Row>
           </Col>
 
         </Row>
       </Container> 
+      
     )
 }
 

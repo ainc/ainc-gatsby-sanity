@@ -13,7 +13,7 @@ const MemberOption = (props) => {
       <Container className={styles.container} fluid>
         <Row>
           <Col xs={12}>
-            <a href={props.imgModal}>
+            <a href={props.imgModal} aria-label="Read more about this membership">
               <Image
                 onClick={handleShow}
                 className={` ${styles.icon} ${props.classN}`}
