@@ -46,14 +46,12 @@ const CodingClubFAQ = () => {
 
 return (
     <Layout>
-        <SEO/>
-        <main>
+        <SEO/>       
             <Container>
                 <AccordionCustom
                     faq = {faq}
                 />
             </Container>
-        </main>
     </Layout>
 )
 }

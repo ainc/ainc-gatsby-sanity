@@ -10,7 +10,6 @@ const IdeaPage = ({ data }) => {
 
   return (
     <Layout>
-        <main>
         <SEO />
         <Container>
             <Title className="mt-5 text-center text-uppercase">Have an idea?</Title>
@@ -30,7 +29,6 @@ const IdeaPage = ({ data }) => {
             <Subtitle className="mb-5 text-uppercase text-center" style={{ fontWeight: 800 }}>Pitch us your idea</Subtitle>
             <iframe src="https://forms.zohopublic.com/virtualoffice9155/form/Ihaveanidea/formperma/30hj1gQf-u3TTxMYOytfjzUJhtBJgqYeim-yn04e1Tw?gclid=undefined" title="I have an idea form" width="100%" height="1000px"></iframe>
         </Container>
-        </main>
     </Layout>
 
   )

@@ -14,7 +14,6 @@ const ParkingPage = ({ data }) => {
     return (
         <Layout>
             <SEO />
-            <main>
              <Container className='ps-3'>
                 <Col xs={{offset:1, span:10}} md={{offset: 1, span:10}} lg={{offset:0, span: 12}} xl={{offset: 3, span: 6}}>
                 
@@ -57,8 +56,6 @@ const ParkingPage = ({ data }) => {
                     </Col>
                 
              </Container>
-
-            </main>
         </Layout>
     )
 }

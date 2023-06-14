@@ -37,7 +37,6 @@ const IntroWebDevPage = ({ data }) => {
     return (
         <Layout>
             <SEO />
-            <main>
                 <Container className={`py-5 ${styles.intro}`}>
                     <Col>
                     <Title className='pt-5 pb-2 text-center text-uppercase'>intro to web development</Title>
@@ -202,7 +201,6 @@ const IntroWebDevPage = ({ data }) => {
                         <a className='d-flex justify-content-center' href='https://www.awesomeinc.org/contact'><BrandButton className='text-uppercase px-3 mb-5 fw-bold'>contact us</BrandButton></a>
                     </Col>
                 </Container>
-            </main>
         </Layout>
     )
 }

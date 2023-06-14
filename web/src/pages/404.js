@@ -8,7 +8,6 @@ import { Container, Col, Row } from "react-bootstrap";
 
 const NotFoundPage = () => (
   <Layout>
-    <main>
     <SEO title="404: Not found" />
     <Container>
       <Title className="text-center my-5 text-uppercase">Need some direction?</Title>
@@ -61,7 +60,6 @@ const NotFoundPage = () => (
       {/* <h1>NOT FOUND</h1> */}
       {/* <p>You just hit a route that doesn&#39;t exist... the sadness.</p> */}
     </Container>
-    </main>
   </Layout>
 );
 

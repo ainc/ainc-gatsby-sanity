@@ -29,7 +29,6 @@ const ProgramPage = ({ data }) => {
   return (
     <Layout>
       {/* still need to fix heading levels to increase by one */}
-      <main>
       <SEO />
       <Container fluid className={styles.mainHeading}>
         <Col>
@@ -198,7 +197,6 @@ const ProgramPage = ({ data }) => {
           
         </Col>
       </Container>
-      </main>
     </Layout>
   )
 };

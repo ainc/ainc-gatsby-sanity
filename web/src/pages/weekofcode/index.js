@@ -25,7 +25,6 @@ const Page = ({ data }) => {
 
   return (
     <Layout pageTitle="Week of Code Summer Camp | Awesome Inc">
-      <main>
       <SEO/>
       <Container>
       <Title className="my-5 text-center">WEEK OF CODE SUMMER CAMP</Title>
@@ -153,7 +152,6 @@ const Page = ({ data }) => {
       </Accordion.Item>
     </Accordion>
     </Container>
-    </main>
     </Layout>
 
   )

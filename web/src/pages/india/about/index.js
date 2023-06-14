@@ -10,7 +10,6 @@ import * as styles from './about.module.css'
 const IndiaAbout = () => {
     return (
         <IndiaLayout>
-            <main>
             <SEO />
             <Container>
                 <Row>
@@ -46,7 +45,6 @@ const IndiaAbout = () => {
                     </Col>
                 </Row>
             </Container>
-            </main>
         </IndiaLayout>
     )
 }

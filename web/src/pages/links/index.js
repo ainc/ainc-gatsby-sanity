@@ -14,7 +14,6 @@ const LinksPage = ({ data }) => {
 
     return (
       <Container>
-        <main>
         <SEO />
         <Row>
           <Col className="header d-flex justify-content-center align-items-center">
@@ -55,7 +54,6 @@ const LinksPage = ({ data }) => {
           </Col>
 
         </Row>
-        </main>
       </Container> 
       
     )

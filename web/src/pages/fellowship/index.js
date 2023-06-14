@@ -69,7 +69,6 @@ const FellowshipPage = ({ data }) => {
 
   return (
     <Layout pageTitle="Fellowship">
-      <main>
       <SEO />
       
       {/* Header section */}
@@ -253,7 +252,6 @@ const FellowshipPage = ({ data }) => {
           </Row>
           </Col>
       </div>
-      </main>
     </Layout>
   )
 }

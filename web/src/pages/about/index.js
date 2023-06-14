@@ -24,7 +24,6 @@ const AboutPage = ({ data }) => {
   return (
     <Layout>
       <SEO />
-      <main>
         {/* About header */}
         <section className={styles.aboutHeader}>
           <Container>
@@ -216,7 +215,6 @@ const AboutPage = ({ data }) => {
             </svg>
           </div> */}
         </section>
-      </main>
     </Layout>
   );
 };

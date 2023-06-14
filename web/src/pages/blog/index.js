@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { graphql, Link } from "gatsby";
 import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Col, Container, Row } from 'react-bootstrap';
@@ -20,7 +20,6 @@ const BlogPage = ({ data }) => {
 
     return (
         <Layout>
-            <main>
             <SEO />
             <Container>
                 <Row className="mt-5" style={{ marginTop: '5rem' }}>
@@ -28,24 +27,24 @@ const BlogPage = ({ data }) => {
                         <Title className="text-uppercase">Blog</Title>
                     </Col>
                     <Col xs={{ span: 4, offset: 4 }} className='d-flex justify-content-center'>
-                        <a onClick={handleShow}><FaBell size={40} className='link--brand'/></a>
+                        <a onClick={handleShow}><FaBell size={40} className='link--brand' /></a>
                     </Col>
-                    <ModalCustom 
-                            lgShow={lgShow} 
-                            hide={handleClose} 
-                            title="Subscribe to our blog" 
-                            content={
+                    <ModalCustom
+                        lgShow={lgShow}
+                        hide={handleClose}
+                        title="Subscribe to our blog"
+                        content={
                             //Pass HTML here
-                                <Container>
-                                    <Row>
-                                        <Subtitle>Create form here</Subtitle>
-                                    </Row>
-                                    <Row>
-                                        <BrandButton>Hello</BrandButton>
-                                    </Row>
-                                </Container>
-                            }
-                        />
+                            <Container>
+                                <Row>
+                                    <Subtitle>Create form here</Subtitle>
+                                </Row>
+                                <Row>
+                                    <BrandButton>Hello</BrandButton>
+                                </Row>
+                            </Container>
+                        }
+                    />
                 </Row>
             </Container>
             <Container className='px-1 pb-3 pb-lg-5'>
@@ -53,38 +52,38 @@ const BlogPage = ({ data }) => {
                     {data.allSanityBlog.edges.map((edge) => {
                         return (
                             <Col xs={12} md={6} lg={4} className="mt-4 px-0 px-sm-2">
-                                <Container className='blog-card border border-2 rounded-1' style={{height: "540px"}}>
+                                <Container className='blog-card border border-2 rounded-1' style={{ height: "540px" }}>
                                     <Row className='p-3 h-100'>
                                         <Col xs={12} className='p-0'>
                                             <Container className="blog-image d-flex align-items-end relative" style={{
-                                                    backgroundImage: `url(${edge.node.thumbnail.asset.url})`,
-                                                    backgroundRepeat: "no-repeat",
-                                                    backgroundSize: "cover",
-                                                    backgroundPosition: "center center",
-                                                    height: "270px",
-                                                    width: "100%",
-                                                }}>
+                                                backgroundImage: `url(${edge.node.thumbnail.asset.url})`,
+                                                backgroundRepeat: "no-repeat",
+                                                backgroundSize: "cover",
+                                                backgroundPosition: "center center",
+                                                height: "270px",
+                                                width: "100%",
+                                            }}>
                                                 <Row className='bg h-100 w-100'>
                                                     <Col className='book h-100 d-flex justify-content-center align-items-center'>
                                                         <Link to={`/blog/${edge.node.slug.current}`} aria-label="Read the article" className='bg-white p-3 rounded-circle'>
-                                                            <FaBook size={40} className='text--brand'/>
+                                                            <FaBook size={40} className='text--brand' />
                                                         </Link>
-                                                        
-                                                        
+
+
                                                     </Col>
                                                 </Row>
                                                 <Row className='blog-details'>
-                                                    <Col xs={{span: 4}} lg={{ span: 3}} className="d-flex justify-content-start pb-2">
-                                                        <GatsbyImage objectFit='cover' image={edge.node.reference.picture.asset.gatsbyImageData} alt={edge.node.reference.name} className="rounded-circle border border-3 border-white my-2 ms-0"/>
+                                                    <Col xs={{ span: 4 }} lg={{ span: 3 }} className="d-flex justify-content-start pb-2">
+                                                        <GatsbyImage objectFit='cover' image={edge.node.reference.picture.asset.gatsbyImageData} alt={edge.node.reference.name} className="rounded-circle border border-3 border-white my-2 ms-0" />
                                                     </Col>
-                                                    <Col xs={{span: 7}} lg={{ span: 9}} className="d-flex justify-content-start align-content-center flex-column mt-3 px-0">
+                                                    <Col xs={{ span: 7 }} lg={{ span: 9 }} className="d-flex justify-content-start align-content-center flex-column mt-3 px-0">
                                                         <Title className="author">{edge.node.reference.name}, {edge.node.reference.title}</Title>
                                                         <p className='date text-white'>{edge.node.date}</p>
                                                     </Col>
                                                 </Row>
                                             </Container>
                                         </Col>
-                                        <Col xs={12} className='' style={{height: "230px"}}>
+                                        <Col xs={12} className='' style={{ height: "230px" }}>
                                             <Container className='p-0 d-flex flex-column justify-content-between h-100'>
                                                 <Row>
                                                     <div className='pt-3'>
@@ -98,7 +97,7 @@ const BlogPage = ({ data }) => {
                                                 </Row>
                                                 <Row>
                                                     <div className='pt-3 pb-0'>
-                                                        <Link to={`/blog/${edge.node.slug.current}`}><p className='text--brand fs-6 link--brand'>Read More <FaLongArrowAltRight size="25"/></p></Link>
+                                                        <Link to={`/blog/${edge.node.slug.current}`}><p className='text--brand fs-6 link--brand'>Read More <FaLongArrowAltRight size="25" /></p></Link>
                                                     </div>
                                                 </Row>
                                             </Container>
@@ -110,7 +109,6 @@ const BlogPage = ({ data }) => {
                     })}
                 </Row>
             </Container>
-            </main>
         </Layout>
     )
 }

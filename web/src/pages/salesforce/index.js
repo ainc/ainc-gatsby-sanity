@@ -15,7 +15,6 @@ const SalesforcePage = ({ data }) => {
     
     return (
         <Layout>
-            <main>
             <SEO />
             {/* Header section */}
             <section id="header">
@@ -254,7 +253,6 @@ const SalesforcePage = ({ data }) => {
                 </Row>
                 </Container>
             </section>
-            </main>
         </Layout>
 
     ); 

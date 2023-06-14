@@ -10,7 +10,6 @@ const CodingClubPage = ({ data }) => {
 
   return (
     <Layout>
-      <main>
       <SEO/>
       <Container>
         <Row>
@@ -103,7 +102,6 @@ const CodingClubPage = ({ data }) => {
           </Col>
         </Row>
       </Container>
-      </main>
     </Layout>
   )
 }

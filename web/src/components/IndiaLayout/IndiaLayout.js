@@ -10,9 +10,11 @@ const IndiaLayout = ({ pageTitle, children }) => (
         <title>{pageTitle} | This will be dynamic later</title>
         <IndiaBanner />
         <IndiaHeader />
+        <main>
         <div>
             {children}
         </div>
+        </main>
         <IndiaFooter />
     </div>
 

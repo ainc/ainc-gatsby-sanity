@@ -95,7 +95,6 @@ const BootcampPage = props => {
 
   return (
     <Layout pageTitle="Bootcamp">
-      <main>
       <SEO/>
       {/* Add SEO Component Here?? */}
       
@@ -551,7 +550,6 @@ const BootcampPage = props => {
           </Row>
         </Container>
       </section>
-      </main>
     </Layout>
   );
 };
