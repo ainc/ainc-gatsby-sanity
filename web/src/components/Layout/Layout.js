@@ -12,9 +12,11 @@ const Layout = ({ pageTitle, children, onHideNav, onShowNav, showNav, siteTitle 
     <title>{pageTitle} | This will be dynamic later</title>
     <Banner />
     <Header />
+    <main>
     <div>
       {children}
     </div>
+    </main>
     <Footer />
   </div>
 );

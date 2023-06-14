@@ -67,7 +67,6 @@ const UnsubscribePage = () => {
 
   return (
     <Layout>
-      <main>
       <SEO />
       <Container>
         <Col className="my-5" md={{ span: 6, offset: 3 }}>
@@ -91,7 +90,6 @@ const UnsubscribePage = () => {
           </div>
         </Col>
       </Container>
-      </main>
     </Layout>
   );
 };

@@ -31,7 +31,6 @@ const ProvenBackground = styled.div`
 const LearnPage = ({ data }) => {
   return (
     <Layout pageTitle="Awesome Inc U - Learn to Code">
-      <main>
       <SEO />
       {/* Header section */}
      
@@ -181,7 +180,6 @@ const LearnPage = ({ data }) => {
                         </Row>
                         </Container>
       </section>
-      </main>
     </Layout>
   )
 }

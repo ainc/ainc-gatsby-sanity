@@ -20,7 +20,6 @@ import marketingTeamImage from '/src/images/intern-events-marketing.jpg'
 const InternshipsPage = ({ data }) => {
   return (
     <Layout pageTitle="Internships">
-      <main>
       <SEO />
       
       {/* Header section */}
@@ -153,7 +152,6 @@ const InternshipsPage = ({ data }) => {
           </Col>
         </Row>
       </Container>
-      </main>
     </Layout>
   )
 }

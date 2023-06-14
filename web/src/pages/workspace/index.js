@@ -38,7 +38,6 @@ const WorkspacePage = () => {
     <Layout>
       <SEO/>
       {/* Hero */}
-      <main>
       <section>
         <div className={styles.headerWorkspace}>
           <Container>
@@ -213,7 +212,6 @@ const WorkspacePage = () => {
           </Container>
         </Container>
       </section>
-      </main>
     </Layout>
   );
 };

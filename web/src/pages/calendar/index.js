@@ -9,7 +9,6 @@ import SEO from '../../components/seo';
 const Calendar = () => {
   return (
     <Layout>
-      <main>
         <SEO description="Awesome Inc Calendar" />
         <Row>
             <Col className='text-center my-5'>
@@ -20,7 +19,6 @@ const Calendar = () => {
                 {/* <p>Calendar page</p> */}
             </Col>
         </Row>
-        </main>
     </Layout>
   )
 }

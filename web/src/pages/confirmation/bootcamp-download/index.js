@@ -20,7 +20,6 @@ const Page = () => {
 
   return (
     <Layout>
-      <main>
       <SEO />
       <Container>
         <Row className="my-3">
@@ -37,7 +36,6 @@ const Page = () => {
           <p><a className="text--red link--bright-red fw-bold" href="../../bootcamp">&lt;&lt;Back to Bootcamp</a></p>
         </Col>
       </Container>
-      </main>
     </Layout>
   )
 }

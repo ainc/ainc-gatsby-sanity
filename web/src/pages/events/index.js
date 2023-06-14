@@ -22,7 +22,6 @@ const EventsPage = ({ data }) => {
         <Layout>
             <SEO />
           {/* Heading */}
-          <main>
             <Container className="text-center my-5">
                 <Row>
                     <Title className="text-uppercase">
@@ -55,7 +54,6 @@ const EventsPage = ({ data }) => {
                   ))}
                 </Row>
             </Container>
-            </main>
         </Layout>
     )
 }

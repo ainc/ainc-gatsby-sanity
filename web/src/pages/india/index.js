@@ -14,7 +14,6 @@ import { Link } from 'gatsby'
 const IndiaPage = () => {
     return (
         <IndiaLayout>
-            <main>
             <SEO />
         <Container fluid className={styles.bhopal}>
             <section className={styles.topSection}>
@@ -125,7 +124,6 @@ const IndiaPage = () => {
                 </Col>
             </Row>
         </Container>
-        </main>
         </IndiaLayout>
     )
 }

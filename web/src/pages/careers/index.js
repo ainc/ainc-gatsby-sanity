@@ -14,7 +14,6 @@ const CareersPage = ({ data }) => {
   
   return (
     <Layout>
-      <main>
       <SEO />
       <Container fluid>
         <Row>
@@ -64,7 +63,6 @@ const CareersPage = ({ data }) => {
           </Col>
         </Row>
       </Container>
-      </main>
     </Layout>
   )
 }

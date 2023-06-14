@@ -43,14 +43,12 @@ const IndiaFAQ = () => {
  
     return (
         <IndiaLayout>
-            <main>
             <SEO/>
             <Container>
                 <AccordionCustom
                    faq = {faq}
                 />
             </Container>
-            </main>
         </IndiaLayout>
     )
 }

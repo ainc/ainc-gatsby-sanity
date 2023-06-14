@@ -26,7 +26,6 @@ const AdultsPage = ({ data }) => {
     return (
         <Layout>
             <SEO />
-            <main>
             <Container>
             
                 <Row className='pt-5 mt-5'>
@@ -93,7 +92,6 @@ const AdultsPage = ({ data }) => {
                     </Col>
                 </Row>
             </Container>
-            </main>
         </Layout>
     )
 }

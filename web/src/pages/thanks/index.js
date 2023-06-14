@@ -8,7 +8,6 @@ import { Container, Col, Row } from "react-bootstrap";
 
 const ThanksPage = () => (
   <Layout>
-    <main>
     <SEO />
     <Container>
       <Title className="text-center my-5 text-uppercase">Thank you</Title>
@@ -59,7 +58,6 @@ const ThanksPage = () => (
         </Col>
       </Row>
     </Container>
-    </main>
   </Layout>
 );
 

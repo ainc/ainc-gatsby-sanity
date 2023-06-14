@@ -106,7 +106,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <main>
+      
       <SEO title="" description="" keywords="" />
       <HomepageSlider/>
       <SEO description="" keywords="" />
@@ -351,7 +351,7 @@ const IndexPage = ({ data }) => {
 
       {/* PODCAST */}
       <PodcastSection />
-      </main>
+      
     </Layout>
   );
 };
