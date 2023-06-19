@@ -11,10 +11,10 @@ const NotFoundPage = () => (
     <SEO title="404: Not found" />
     <Container>
       <Title className="text-center my-5 text-uppercase">Need some direction?</Title>
-      <Row className="mb-5 d-flex justify-content-center">
-        
-          <Row className={` row row-cols-5 justify-content-center my-3 px-0 gx-2`}>
-            <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
+      <Row className="mb-5">
+        <Col xs={12} sm={{ span: 10, offset: 1}} >
+          <Row>
+            <Col md={3}>
               <BackgroundCard 
                 alt="brackets"
                 title="Learn to Code"
@@ -24,7 +24,7 @@ const NotFoundPage = () => (
                 link="/learn"
               />
             </Col>
-            <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
+            <Col md={3}>
               <BackgroundCard 
                 alt="desk and chair"
                 title="Rent Workspace"
@@ -34,7 +34,7 @@ const NotFoundPage = () => (
                 link="/workspace"
               />
             </Col>
-            <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
+            <Col md={3}>
               <BackgroundCard 
                 alt="brackets"
                 title="Accelerate your startup"
@@ -44,7 +44,7 @@ const NotFoundPage = () => (
                 link="/learn"
               />
             </Col>
-            <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
+            <Col md={3}>
               <BackgroundCard 
                 alt="brackets"
                 title="Software Development"
@@ -55,6 +55,7 @@ const NotFoundPage = () => (
               />
             </Col>
           </Row>
+        </Col>
       </Row>
       {/* <h1>NOT FOUND</h1> */}
       {/* <p>You just hit a route that doesn&#39;t exist... the sadness.</p> */}
