@@ -111,8 +111,6 @@ const IndexPage = ({ data }) => {
       
       <SEO title="" description="" keywords="" />
       <HomepageSlider/>
-      <SEO description="" keywords="" />
-      <HomepageSlider />
 
       {/* FOUR INITIATIVES */}
       <section id="initiatives">
