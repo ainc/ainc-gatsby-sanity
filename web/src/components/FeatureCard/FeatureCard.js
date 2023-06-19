@@ -14,27 +14,26 @@ const FeatureCard = (props) => {
   const time = Moment(props.date).format('h:mm a')
 
   return (
-    
-    <Card>
-      <figure className={`card--gradient-bg position-relative m-0`}>
-        <Card.Img src={props.image.images.fallback.src} alt={props.title} className="p-4 card__img--overlay" />
+    <Card className=''>
+      <figure className={`card--gradient-bg position-relative`}>
+        <Card.Img src={props.image.images.fallback.src} alt={props.title} className={`p-2 card__img--overlay object-fit-cover ${styles.cardImage}`} />
         <a href="#">
-          <Card.ImgOverlay className="m-4">
+          <Card.ImgOverlay className="m-2">
             <div className="card__gradient-bg">
-              <Row>
+              <Row className='row row-cols-small'>
                 <div className="position-absolute bottom-0">
-                  <Col xs={3} className="position-absolute bottom-0 start-0 mb-5 ms-5">
-                    <DateSquare className="bg-white"
+                  <Col xs={2} md={{span: 4, offset: 1}}  className="bottom-0 mb-5 position-absolute px-1 ">
+                    <DateSquare className={` ${styles.square}`}
                       date={props.date}
                     />
                   </Col>
-                  <Col xs={8} className="position-absolute bottom-0 end-0 mb-5">
-                    <Card.Text className="me-3">
-                      <p className="mb-1 text-white">
+                  <Col xs={{span: 8, offset: 6 }} md={{span: 7, offset: 4}} lg={{span: 7, offset: 5}} xl={8} className="ps-1 end-0 bottom-0 mb-5">
+                    <Card.Text className={`me-3 ${styles.cardText}`}>
+                      <p className="mb-1 text-white ">
                         {time} <br />
                         <small>{props.location}</small>
                       </p>
-                      <Subtitle className="fw-bolder text-white">
+                      <Subtitle className={`fw-bolder text-white ${styles.cardSubtitle}`}>
                         {props.title}
                       </Subtitle>
                     </Card.Text>
