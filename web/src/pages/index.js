@@ -324,21 +324,21 @@ const IndexPage = ({ data }) => {
           <Row>
             <Col>
               <div className="h-100 my-5">
-                {/* <DevicesIcon className="d-block mx-auto my-3 w-50" /> */}
+                <DevicesIcon className="d-block mx-auto my-3 w-50" />
                 <Subtitle className="text-center fw-bolder mt-5 mb-3">Mobile Apps + Websites</Subtitle>
                 <p className="text-center">Our expert team of web developers build websites and mobile applications that are fast, secure, and easy to maintain.</p>
               </div>
             </Col>
             <Col>
               <div className="h-100 my-5">
-                {/* <StackIcon className="d-block mx-auto my-3 w-50" /> */}
+                <StackIcon className="d-block mx-auto my-3 w-50" />
                 <Subtitle className="text-center fw-bolder mt-5 mb-3">Software Consulting</Subtitle>
                 <p className="text-center">We make clients part of our streamlined process by facilitating reviews and planning sessions during all parts of the development cycle.</p>
               </div>
             </Col>
             <Col>
               <div className="h-100 my-5">
-                {/* <ToolsIcon className="d-block mx-auto my-3 w-50" /> */}
+                <ToolsIcon className="d-block mx-auto my-3 w-50" />
                 <Subtitle className="text-center fw-bolder mt-5 mb-3">Graphic Design</Subtitle>
                 <p className="text-center">Our UI/UX design services transform your project, increasing user satisfaction, reducing development costs, and delivering a high ROI.</p>
               </div>
