@@ -63,14 +63,14 @@ const AlumniPage = props => {
   const alumniNodes = (data.allSanityBootcampAlumni.nodes || {})
 
   const classList = data.allSanityBootcampAlumni && data.allSanityBootcampAlumni.nodes
-  ? data.allSanityBootcampAlumni.nodes
+    ? data.allSanityBootcampAlumni.nodes
       .map((node) => node.class.title)
       .filter((className, index, arr) => arr.indexOf(className) === index)
       .sort((a, b) => {
         const aClass = data.allSanityBootcampClass.edges.find(({ node }) => node.title === a).node;
         const bClass = data.allSanityBootcampClass.edges.find(({ node }) => node.title === b).node;
         return new Date(bClass.date) - new Date(aClass.date); // sort based on date in descending order
-      })      
+      })
       .map((className) => (
         <button
           className={`classButton ${selectedClass === className ? "active" : ""}`}
@@ -80,7 +80,7 @@ const AlumniPage = props => {
           {className}
         </button>
       ))
-  : null;
+    : null;
 
   // Add an "All Cohorts" button to the class list
   const allCohortsButton = (
@@ -101,12 +101,12 @@ const AlumniPage = props => {
 
   return (
     <Layout>
-      <SEO/> {/* SEO is handled in the Page Titles Sanity document */}
+      <SEO /> {/* SEO is handled in the Page Titles Sanity document */}
       <Container>
         <Row>
           <Col>
             <Title className="my-4">Bootcamp Alumni</Title>
-            <p>The <Link className="text--brand link--bright-red" to="/bootcamp">Web Developer Bootcamp</Link> is a 16-week, intensive training program to help people launch careers in software development. It includes over 500 hours of hands-on training, gaining experience while building 10+ software projects in an Agile environment, using HTML, CSS, JavaScript, PHP, Laravel, React, cloud deployment, GitHub, and more.</p>
+            <p>The <Link className="text--brand link--brand fw-bold" to="/bootcamp">Web Developer Bootcamp</Link> is a 16-week, intensive training program to help people launch careers in software development. It includes over 500 hours of hands-on training, gaining experience while building 10+ software projects in an Agile environment, using HTML, CSS, JavaScript, PHP, Laravel, React, cloud deployment, GitHub, and more.</p>
             <p>Bootcamp alumni have been hired by more than 50 employers. Initial job titles have included Software Engineer, Software Developer, Web Developer, Application Developer, QA Engineer, DevOps Analyst, Salesforce Consultant, and UX/UI Designer.</p>
             <p className="fst-italic">Ribbons indicate an alum's first programming job following Bootcamp</p>
             <Subtitle>Alumni List</Subtitle>
@@ -116,7 +116,7 @@ const AlumniPage = props => {
         <div>
           {classList}
         </div>
-        
+
         <Row>
           {filteredNodes.map((node) => (
             <Col sm={10} md={5} lg={5} xl={3} className="mb-4" key={node.id}>
@@ -138,16 +138,16 @@ const AlumniPage = props => {
         </Row>
         <Row className="d-flex justify-content-center mb-5">
           <Col sm={6} md={5} lg={5} xl={10} className="mb-4">
-            <StaticImage quality='90' className="apax-logo me-3 mb-4" src="./images/apaxsoftware-logo.png"/>
-            <StaticImage quality='90' className="bigfans-logo me-3" src="./images/bigassfans-logo.png"/>
-            <StaticImage quality='90' className="blueframe-logo me-3" src="./images/blueframe-logo.png"/>
-            <StaticImage quality='90' className="cabemtechnologies-logo me-3" src="./images/cabemtechnologies-logo.png"/>
-            <StaticImage quality='90' className="infosys-logo" src="./images/infosys-logo.png"/>
-            <StaticImage quality='90' className="lightwell-logo me-3" src="./images/lightwell-logo.png"/>
-            <StaticImage quality='90' className="nymblsystems-logo me-3" src="./images/nymblsystems-logo.png"/>
-            <StaticImage quality='90' className="prospecttrax-logo me-3" src="./images/prospecttrax-logo.png"/>
-            <StaticImage quality='90' className="silverfern-logo me-3" src="./images/silverfern-logo.png"/>
-            <StaticImage quality='90' className="vetdata-logo" src="./images/vetdata-logo.png"/>
+            <StaticImage quality='90' className="apax-logo me-3 mb-4" src="./images/apaxsoftware-logo.png" />
+            <StaticImage quality='90' className="bigfans-logo me-3" src="./images/bigassfans-logo.png" />
+            <StaticImage quality='90' className="blueframe-logo me-3" src="./images/blueframe-logo.png" />
+            <StaticImage quality='90' className="cabemtechnologies-logo me-3" src="./images/cabemtechnologies-logo.png" />
+            <StaticImage quality='90' className="infosys-logo" src="./images/infosys-logo.png" />
+            <StaticImage quality='90' className="lightwell-logo me-3" src="./images/lightwell-logo.png" />
+            <StaticImage quality='90' className="nymblsystems-logo me-3" src="./images/nymblsystems-logo.png" />
+            <StaticImage quality='90' className="prospecttrax-logo me-3" src="./images/prospecttrax-logo.png" />
+            <StaticImage quality='90' className="silverfern-logo me-3" src="./images/silverfern-logo.png" />
+            <StaticImage quality='90' className="vetdata-logo" src="./images/vetdata-logo.png" />
           </Col>
         </Row>
       </Container>

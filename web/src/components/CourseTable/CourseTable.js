@@ -17,7 +17,7 @@ const CourseTable = ({ tableColumns, tableInfo }) => {
             <tr>
                 {tableColumns.map((column) => (
                     <th className={styles.titleCell}>
-                        <h5 className={styles.titleText}>{column}</h5>
+                        <h1 className={styles.titleText}>{column}</h1>
                     </th>
                 ))}
             </tr>
@@ -35,12 +35,12 @@ const CourseTable = ({ tableColumns, tableInfo }) => {
                         <br/>
                         {course.node.courseSeason}
                     </td>
-                    <td className={styles.cell}><h6>{course.node.format}</h6></td>                                                                                                                                                                                
-                    <td className={styles.cell}><h6>{course.node.topics}</h6></td>
-                    <td className={styles.cell}><h6>{course.node.technologies}</h6></td>
-                    <td className={styles.cell}><h6>{course.node.startDate} - {course.node.endDate}
-                    <br/>{course.node.schedule}</h6></td>
-                    <td className={styles.cell}><h6>{course.node.designedFor ? course.node.designedFor : ""}</h6></td>
+                    <td className={styles.cell}><h2>{course.node.format}</h2></td>                                                                                                                                                                                
+                    <td className={styles.cell}><h2>{course.node.topics}</h2></td>
+                    <td className={styles.cell}><h2>{course.node.technologies}</h2></td>
+                    <td className={styles.cell}><h2>{course.node.startDate} - {course.node.endDate}
+                    <br/>{course.node.schedule}</h2></td>
+                    <td className={styles.cell}><h2>{course.node.designedFor ? course.node.designedFor : ""}</h2></td>
                     <td className={styles.cell}><BrandButton className="p-1">Application Closed</BrandButton></td>
                 </tr>
             ))}

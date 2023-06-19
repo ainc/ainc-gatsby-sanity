@@ -8,13 +8,14 @@ import * as styles from './IndiaFooter.module.scss'
 
 const IndiaFooter = () => {
     return (
-        <section className={styles.footerBackground}>
+        <section className={styles.footerBackground} role="contentinfo">
+            
         <Container>
             <Row>
                 <Col xs md={7} lg={6}>
                     <Row className='justify-content-center'>
                     <Link className={styles.aincLogoGap} href='/india'>
-                        <StaticImage src='../../images/ainc-logo-text-triangle-layer-red.png' alt='Awesome Inc Logo' />
+                        <StaticImage src='../../images/ainc-logo-text-triangle-layer-red.png' alt='Awesome Inc Logo' role="img"/>
                     </Link>
                     </Row>
                     <Row className={styles.firstColRow}>
@@ -57,7 +58,7 @@ const IndiaFooter = () => {
                     </Col>
                     <Col>
                     <ul class={styles.socialsInlineList}>
-                        <li><Link to='https://www.linkedin.com/company/awesome-inc-india/'><FaLinkedinIn/></Link></li>
+                        <li><Link to='https://www.linkedin.com/company/awesome-inc-india/' aria-label="Visit our LinkedIn"><FaLinkedinIn/></Link></li>
                     </ul>
                     </Col>
             </Row>

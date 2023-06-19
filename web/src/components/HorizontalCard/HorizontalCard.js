@@ -19,7 +19,7 @@ const HorizontalCard = (props) => {
           <Card.Body className="ps-1 pe-0 me-0 ms-2">
             <p className="text--brand fs-6 fw-bold m-0 p-0">
               {time} <br />
-              <small className="fw-normal text--grey">{props.location}</small> 
+              <small className="fw-normal text-black">{props.location}</small> 
             </p>
             <p className="fw-bold">
               {props.title}

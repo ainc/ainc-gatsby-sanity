@@ -9,10 +9,10 @@ import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import "../../styles/main.scss"
 import styled from "styled-components";
 import Accordion from 'react-bootstrap/Accordion';
-import "./salesforce.scss";
+import * as styles from "./salesforce.scss";
 
 const SalesforcePage = ({ data }) => {
-    
+
     return (
         <Layout>
             <SEO />
@@ -20,22 +20,23 @@ const SalesforcePage = ({ data }) => {
             <section id="header">
                 <Container fluid>
                     <Row className="header-section">
-                        <Col className="header-text">
-                            <Title className="text-uppercase">Salesforce career accelerator</Title>
-                            <BrandButton className="my-3">Start your application</BrandButton>
+                        <Col className="header-text mt-5">
+                            <Title className="text-uppercase mt-5">Salesforce career accelerator</Title>
+                            <BrandButton className="mt-3 mb-1">Start your application</BrandButton>
                             <p>Get started now in 30 seconds or less</p>
                         </Col>
                     </Row>
-                <Col xs={{ span: 5, offset: 3 }} className="text-center fw-bold fs-5 lh-lg mb-5">
-                    This part time course will put you on the path towards a
-                    promising career in the Salesforce ecosystem. Work
-                    together with our team and peers to earn your first
-                    Salesforce Certification and learn key tech career skills.
-                </Col>  
+                    <div className="par d-flex justify-content-center mt-3">
+                        <Col xs={{ span: 10 }} md={{ span: 5 }} className="text-center fw-bold mb-5 mt-4">
+                            This part-time course will put you on the path towards a promising career in the Salesforce ecosystem. Work together with our team and peers to earn your first Salesforce Certification and learn key tech career skills.
+                        </Col>
+                    </div>
+
                 </Container>
             </section>
 
             {/* Upcoming Program Dates Section*/}
+            {/* still need to fix heading levels to increase by one */}
             <section id="upcoming-program-dates">
                 <Container fluid className="background--grey pt-4">
                     <Row>
@@ -65,18 +66,18 @@ const SalesforcePage = ({ data }) => {
             <section id="why-salesforce">
                 <Container>
                     <Row>
-                        <Col sm={{span: 8, offset: 2}} xs={12} className="title">                   
+                        <Col sm={{ span: 8, offset: 2 }} xs={12} className="title">
                             <Title className="text-uppercase">Why learn salesforce?</Title>
                             <div className="paragraph">
                                 <p>
                                     Career opportunities in the Salesforce ecosystem are growing rapidly, and offer a low hurdle to entry-level tech jobs. Salesforce is the world's leading customer relationship management solution, used by organizations from Fortune 500 companies to government agencies and local non-profits. The role of Salesforce Administrator is a great starting point for a career in the ecosystem, and our Accelerator is a great place to learn the skills you need to get started.
-                                </p> 
+                                </p>
                             </div>
                         </Col>
-                        <Col sm={{span: 8, offset: 2}} xs={12} className="d-flex justify-content-end">
-                            <StaticImage quality='100' className="arrow-container me-3" src="./images/arrow-down-left.png" alt="Arrow Image"/>
+                        <Col sm={{ span: 8, offset: 2 }} xs={12} className="d-flex justify-content-end">
+                            <StaticImage quality='100' className="arrow-container me-3" src="./images/arrow-down-left.png" alt="Arrow Image" />
                             <div>
-                                <BrandButton>What is Salesforce?</BrandButton>                            
+                                <BrandButton>What is Salesforce?</BrandButton>
                             </div>
                         </Col>
                     </Row>
@@ -89,9 +90,9 @@ const SalesforcePage = ({ data }) => {
                     <Row>
                         <Col>
                             <div className="d-flex justify-content-center">
-                            <a href="https://www.youtube.com/embed/xx2sK-QiBjw?rel=0&controls=0">
-                                <StaticImage qualtiy='100' className="laptop-image" src="./images/laptop-video-salesforce.png" alt="Laptop Image" />
-                            </a>
+                                <a href="https://www.youtube.com/embed/xx2sK-QiBjw?rel=0&controls=0">
+                                    <StaticImage qualtiy='100' className="laptop-image" src="./images/laptop-video-salesforce.png" alt="Laptop Image" />
+                                </a>
                             </div>
                         </Col>
                     </Row>
@@ -120,20 +121,20 @@ const SalesforcePage = ({ data }) => {
                     <Title className="text-uppercase">Curriculum</Title>
                     <p className="fw-light fst-italic">If reading this list makes your eyes glaze over... we get it. Maybe we can talk on the phone to explain the details.</p>
                     <Row className="my-5">
-                        <Col>
-                            <ol>
-                                <li>Basics of Customer Relationship Management (CRM)</li>
-                                <li>Study skills and test prep for the Salesforce Administrator certification</li>
-                                <li>Hands-on experience working with a team and a real client's Salesforce org</li>
-                                <li>Online collaboration tools to thrive in remote or hybrid work environments</li>
-                                <li>Career coaching to connect with employers and stand out in the job application process</li>
+                        <Col sm={12} md={7} lg={6} xl={{ span: 5, offset: 0 }}>
+                            <ol className="lists">
+                                <li className='list-item'>Basics of Customer Relationship Management (CRM)</li>
+                                <li className='list-item'>Study skills and test prep for the Salesforce Administrator certification</li>
+                                <li className='list-item'>Hands-on experience working with a team and a real client's Salesforce org</li>
+                                <li className='list-item'>Online collaboration tools to thrive in remote or hybrid work environments</li>
+                                <li className='list-item'>Career coaching to connect with employers and stand out in the job application process</li>
                             </ol>
-                        <BrandButton>Let's chat</BrandButton>
+                            <BrandButton>Let's chat</BrandButton>
                         </Col>
-                        <Col>
+                        <Col xs={12} md={5} lg={{ span: 6 }} xl={{ span: 5, offset: 1 }}>
                             <StaticImage qualtiy='100' src="./images/salesforce-logo.png" alt="Salesforce Image" />
                         </Col>
-                    </Row> 
+                    </Row>
                 </Container>
             </section>
 
@@ -141,11 +142,11 @@ const SalesforcePage = ({ data }) => {
             <section id="course-outcomes">
                 <Container>
                     <Row>
-                        <Col>
+                        <Col className='mt-5' sm={12} md={6} lg={{ span: 6 }} xl={{ offset: 1, span: 5 }}>
                             <StaticImage qualtiy='100' className="laptop-image" src="./images/salesforce-projects.png" alt="Laptop Image" />
                         </Col>
-                        <Col>
-                            <Title className="my-5 text-uppercase">Course outcomes</Title>
+                        <Col sm={12} md={6} lg={{ span: 6 }} xl={{ span: 5 }}>
+                            <Title className="my-5 text-uppercase text-center">Course outcomes</Title>
                             <ul>
                                 <li>Earn your first Salesforce certification</li>
                                 <li>Gain project experience working in a real Salesforce org </li>
@@ -163,9 +164,9 @@ const SalesforcePage = ({ data }) => {
                     <StaticImage quality='100' className="cost-img" src="./images/cost.png" alt="Cost Image" />
                     <Title className="my-4 text-white text-uppercase">Tuition and scholarship</Title>
                     <Col xs={9} className="mx-auto text-light">
-                    <p>
-                        Tuition for this program is $3499. For residents of Lexington-Fayette County, Kentucky, a special $2500 scholarship is available. If this applies to you, fill out this scholarship application. Up to 20 scholarships are available for the July 2022 - June 2023 period.
-                    </p>
+                        <p>
+                            Tuition for this program is $3499. For residents of Lexington-Fayette County, Kentucky, a special $2500 scholarship is available. If this applies to you, fill out this scholarship application. Up to 20 scholarships are available for the July 2022 - June 2023 period.
+                        </p>
                     </Col>
                     <p className="fst-italic">
                         This program is being supported, in whole or in part, by federal award numbers SLFRP0292/SLFRP3418 awarded to Lexington-Fayette
@@ -178,84 +179,75 @@ const SalesforcePage = ({ data }) => {
 
             {/* FAQs Section*/}
             <section id="FAQs">
-                <Container>
+                <Container mb-0>
                     <Title className="text-center my-5">FAQs</Title>
                     <Accordion className="mb-5" defaultActiveKey="0">
-                    <Accordion.Item eventKey="0" className="px-3 py-4 mb-1">
-                        <Accordion.Header>Do I need my own computer?</Accordion.Header>
-                        <Accordion.Body>
-                        <Col>
-                            Yes. Each trainee will need to provide his/her own laptop for the course. Microsoft Windows-based PC's or Apple macOS computers will work. We recommend a laptop made within the past 3-4 years. Computers should be free from viruses/malware. You will also need a webcam and broadband internet connection for video calls and remote learning.
-                        </Col>
-                        <Col className="my-3">
-                            A smartphone or tablet is not sufficient for use in this program.
-                        </Col>
-                        <Col>
-                            If this presents a barrier to your participation, please contact us to discuss possible assistance.
-                        </Col>
-                        </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="1" className="px-3 py-4 mb-1">
-                        <Accordion.Header>Do I need to have prior technical experience?</Accordion.Header>
-                        <Accordion.Body>
-                        No prior programming experience is required, but trainees should be comfortable typing, navigating a file / folder structure, and using a web browser.
-                        </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="2" className="px-3 py-4 mb-1">
-                        <Accordion.Header>How many trainees will there be in my class?</Accordion.Header>
-                        <Accordion.Body>
-                        This course is capped at 16 trainees.
-                        </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="3" className="px-3 py-4 mb-1">
-                        <Accordion.Header>Are there any age limits for trainees in the Salesforce course?</Accordion.Header>
-                        <Accordion.Body>
-                        The Salesforce Career Accelerator is designed for adult learners, age 21+.
-                        </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="4" className="px-3 py-4 mb-1">
-                        <Accordion.Header>Where do I park?</Accordion.Header>
-                        <Accordion.Body>
-                        See <a className="text-danger" href="/parking">map for parking options.</a>
-                        </Accordion.Body>
-                    </Accordion.Item>
+                        <Accordion.Item eventKey="0" className="px-3 py-4 mb-1">
+                            <Accordion.Header>Do I need my own computer?</Accordion.Header>
+                            <Accordion.Body>
+                                <Col>
+                                    Yes. Each trainee will need to provide his/her own laptop for the course. Microsoft Windows-based PC's or Apple macOS computers will work. We recommend a laptop made within the past 3-4 years. Computers should be free from viruses/malware. You will also need a webcam and broadband internet connection for video calls and remote learning.
+                                </Col>
+                                <Col className="my-3">
+                                    A smartphone or tablet is not sufficient for use in this program.
+                                </Col>
+                                <Col>
+                                    If this presents a barrier to your participation, please contact us to discuss possible assistance.
+                                </Col>
+                            </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="1" className="px-3 py-4 mb-1">
+                            <Accordion.Header>Do I need to have prior technical experience?</Accordion.Header>
+                            <Accordion.Body>
+                                No prior programming experience is required, but trainees should be comfortable typing, navigating a file / folder structure, and using a web browser.
+                            </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="2" className="px-3 py-4 mb-1">
+                            <Accordion.Header>How many trainees will there be in my class?</Accordion.Header>
+                            <Accordion.Body>
+                                This course is capped at 16 trainees.
+                            </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="3" className="px-3 py-4 mb-1">
+                            <Accordion.Header>Are there any age limits for trainees in the Salesforce course?</Accordion.Header>
+                            <Accordion.Body>
+                                The Salesforce Career Accelerator is designed for adult learners, age 21+.
+                            </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="4" className="px-3 py-4 mb-1">
+                            <Accordion.Header>Where do I park?</Accordion.Header>
+                            <Accordion.Body>
+                                See <a className="text-danger" href="/parking">map for parking options.</a>
+                            </Accordion.Body>
+                        </Accordion.Item>
                     </Accordion>
                 </Container>
             </section>
 
             {/* Apply Now Button at the Bottom*/}
-            <section id="apply-now-button">
-                <Container>
-                    <Row> 
-                        <div className="d-flex align-items-center my-5 justify-content-center">
-                        <BrandButton className="button bg-dark">Apply now</BrandButton>
-                        </div>    
-                    </Row>
-                </Container>
-            </section>
-            
-            
-            {/* Questions */}
-            <section id="questions">
-                <Container fluid>
-                <Row>
-                    <Col className="text-center mt-5">
-                    <Row className="text-center mt-5">
-                        <Title className="text-center text-white pt-5 mt-5">Still have questions?</Title>
-                    </Row>
-                    <Row className="pt-4">
-                        <Col>
-                        <BrandButton>Contact us</BrandButton>
-                        </Col>
-                    </Row>
-                    </Col>
-                </Row>
-                </Container>
-            </section>
+            {/* <section > */}
+            <Container id="apply-now-button" className='mobile-hide-bg'>
+                <Col xs={{ offset: 3, span: 6 }} sm={{ offset: 3, span: 6 }} md={{ offset: 4, span: 4 }} lg={{ offset: 4, span: 4 }} xl={{ offset: 3, span: 6 }}>
+                    <a className="d-flex align-items-center justify-content-center" href="https://www.awesomeinc.org/salesforce/apply">
+                        <BrandButton className="secondary text-uppercase px-3 my-5">Apply now</BrandButton>
+                    </a>
+                </Col>
+            </Container>
+            {/* </section> */}
 
+
+            {/* Questions */}
+            <section>
+                <Container id="questions" className='pt-5'>
+                    <Title className="text-white text-center pt-5 pb-4">Still have questions?</Title>
+                    <Col xs={{ offset: 3, span: 6 }} sm={{ offset: 3, span: 6 }} md={{ offset: 4, span: 4 }} lg={{ offset: 3, span: 6 }}>
+                        <a className='d-flex justify-content-center' href='https://www.awesomeinc.org/contact'><BrandButton className='text-uppercase px-3 mb-5 fw-bold'>contact us</BrandButton></a>
+                    </Col>
+                </Container>
+            </section>
         </Layout>
 
-    ); 
+    );
 };
 
 export default SalesforcePage;

@@ -24,7 +24,7 @@ const SeeTheSpace = (props) => {
         <Col xs={8} md={8} className={styles.spaceSection}>
           <div className={styles.lgxVideoArea}>
             <div className={styles.videoThumbnail}>
-              <img className={styles.videoArrow} src={Arrow} alt="'see the space' section arrow" />
+              <img className={styles.videoArrow} src={Arrow} alt="'see the space' section arrow"/>
               {/* Youtube Link */}
               <a href={videoLinkSrc}>
                 <Image
@@ -38,7 +38,7 @@ const SeeTheSpace = (props) => {
               </a>
               {/* Tour Btn. Provide link to tour modal */}
               <a role="button" onClick={handleShow} className={styles.tourBtn}>
-                <Image className={styles.tourIcon} src={TourBtn} />
+                <Image className={styles.tourIcon} src={TourBtn} alt="schedule a tour"/>
               </a>
             </div>
           </div>

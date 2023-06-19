@@ -34,30 +34,30 @@ const SocialMedia = () => {
               >
                 <div>
                   <Subtitle className={`text-wrap text-center fw-bold`}>Let's Be Friends!</Subtitle>
-                  <h5 className={styles.headingSubtitle}> - Find us on social media - </h5>
+                  <h3 className={styles.headingSubtitle}> - Find us on social media - </h3>
                   <ul className={styles.socialLinks}>
                     <li>
-                      <a href="https://twitter.com/awesomeinclex">
+                      <a href="https://twitter.com/awesomeinclex" aria-label="Visit our Twitter">
                         <FaTwitter />
                       </a>
                     </li>
                     <li>
-                      <a href="https://www.facebook.com/awesomeinclex">
+                      <a href="https://www.facebook.com/awesomeinclex" aria-label="Visit our Facebook">
                         <FaFacebookF />
                       </a>
                     </li>
                     <li>
-                      <a href="https://www.linkedin.com/school/awesome-inc/">
+                      <a href="https://www.linkedin.com/school/awesome-inc/" aria-label="Visit our LinkedIn">
                         <FaLinkedinIn />
                       </a>
                     </li>
                     <li>
-                      <a href="https://www.instagram.com/awesomeinclex/">
+                      <a href="https://www.instagram.com/awesomeinclex/" aria-label="Visit our Instagram">
                         <FaInstagram />
                       </a>
                     </li>
                     <li>
-                      <a href="https://www.youtube.com/user/AincTelevision/featured">
+                      <a href="https://www.youtube.com/user/AincTelevision/featured" aria-label="Visit our Youtube">
                         <FaYoutube />
                       </a>
                     </li>

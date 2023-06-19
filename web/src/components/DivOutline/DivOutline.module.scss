@@ -1,3 +1,6 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
 .border {
   flex: 1 1 25%;
   border: solid #ed3742 1px;
@@ -12,11 +15,11 @@
   width: min-content;
   padding: 0px 12px;
   position: relative;
-  white-space: nowrap;
   left: 50%;
   top: -15px;
   transform: translateX(-50%);
   line-height: 30px;
+  @include font-size(12)
 }
 
 .content {

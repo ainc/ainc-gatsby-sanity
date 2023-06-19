@@ -21,9 +21,9 @@ const Event = (props) => {
             </div>
                 <div className="mx-3">
                   <a href={props.link} className={`${styles.boldText} ${styles.redText} ${styles.linkHover}`}>{props.date}</a>
-                  <h4 className={styles.smallText}>{host}</h4>
-                  <h6 className={styles.smallText}>{location}</h6>
-                  <h6><a href={props.link} className={`${styles.boldText} ${styles.linkHover}`}>{props.name}</a></h6>
+                  <h2 className={styles.smallText}>{host}</h2>
+                  <h3 className={styles.smallText}>{location}</h3>
+                  <h3><a href={props.link} className={`${styles.boldText} ${styles.linkHover}`}>{props.name}</a></h3>
                 </div>
           </div>
         </a>
