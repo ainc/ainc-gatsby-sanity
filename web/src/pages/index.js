@@ -108,6 +108,9 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
+      
+      <SEO title="" description="" keywords="" />
+      <HomepageSlider/>
       <SEO description="" keywords="" />
       <HomepageSlider />
 
@@ -126,6 +129,7 @@ const IndexPage = ({ data }) => {
                     backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
                     imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
                     link="/learn"
+                    alt="brackets"
                   />
                 </Col>
                 {/* <Col md={3}> */}
@@ -136,6 +140,7 @@ const IndexPage = ({ data }) => {
                     backgroundImage="https://www.awesomeinc.org/images/awesome-inc-space-panel.jpg"
                     imgSrc="https://d33wubrfki0l68.cloudfront.net/13acb6f3560e894a9e0eecc194c96f778fba858f/f6fb2/images/icons/rent-workspace.png"
                     link="/workspace"
+                    alt="desk and chair"
                   />
                 </Col>
                 {/* <Col md={3}> */}
@@ -146,6 +151,7 @@ const IndexPage = ({ data }) => {
                     backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
                     imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
                     link="/learn"
+                    alt="brackets"
                   />
                 </Col>
                 {/* <Col md={3}> */}
@@ -156,6 +162,7 @@ const IndexPage = ({ data }) => {
                     backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
                     imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
                     link="/learn"
+                    alt="brackets"
                   />
                 </Col>
               </Row>
@@ -237,7 +244,7 @@ const IndexPage = ({ data }) => {
 
       {/* COURSES */}
       <section id="courses" style={{backgroundColor: "#323232"}}>
-        <Title className="pt-5 mb-3 text-uppercase text-center white">Educational Courses</Title>
+        <Title className="pt-5 mb-3 text-uppercase text-center text-white">Educational Courses</Title>
         <p className="mb-5 text-uppercase text-center text-white">Made for any level</p>
         <Container>
           <Row>
@@ -253,7 +260,7 @@ const IndexPage = ({ data }) => {
                   />
 
                   <Card.Body className="d-flex flex-column my-3 mx-3">
-                    <p className="text--grey mx-auto mt-2 text--italic text-uppercase">
+                    <p className="text-brand-dark mx-auto mt-2 text--italic text-uppercase">
                       {node.designedFor}
                     </p>
                     <p className="my-2">
@@ -352,7 +359,7 @@ const IndexPage = ({ data }) => {
 
       {/* PODCAST */}
       <PodcastSection />
-
+      
     </Layout>
   );
 };

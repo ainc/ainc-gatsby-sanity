@@ -7,6 +7,7 @@ import FiveAcrossWinnersCard from "../FiveAcrossWinnersCard/FiveAcrossWinnersCar
 import * as styles from './DropdownDataDisplay.module.scss'
 import styled from 'styled-components'
 import * as variables from '../../styles/Variables'
+import "../../styles/main.scss"
 
 const BrandDropdownButton = styled(DropdownButton)`
     button {
@@ -57,7 +58,7 @@ const DropdownDataDisplay = (props) => {
         {/* <Container fluid> */}
             <Row>
                 <Col>
-                    <BrandDropdownButton className="" variant="danger" title={selectedItem ? selectedItem : currentYear}>
+                    <BrandDropdownButton className="" variant="brand-color" title={selectedItem ? selectedItem : currentYear}>
                         {items.map((item) => 
                             <Dropdown.Item eventKey={item} onClick={() => setSelectedItem(item)}>{item}</Dropdown.Item>
                         )}

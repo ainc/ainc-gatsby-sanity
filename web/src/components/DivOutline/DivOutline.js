@@ -1,7 +1,7 @@
 import React from "react";
 import BrandButton from "../../components/UI/BrandButton/BrandButton"
 import Subtitle from "../../components/UI/Subtitle/Subtitle"
-import * as styles from "./DivOutline.module.css";
+import * as styles from "./DivOutline.module.scss";
 
 const WhatWeDo = (props) => {
   return (

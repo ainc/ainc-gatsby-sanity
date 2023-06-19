@@ -24,7 +24,6 @@ const AboutPage = ({ data }) => {
   return (
     <Layout>
       <SEO />
-      <main>
         {/* About header */}
         <section className={styles.aboutHeader}>
           <Container>
@@ -136,7 +135,7 @@ const AboutPage = ({ data }) => {
               </Col>
               <Col sm={12} md={6} lg={4}>
                 <OutlineDiv
-                  subHeading="entrepreneurial Hub"
+                  subHeading="Entrepreneurial Hub"
                   content="Our space and network and provide an opportunity for entrepreneurs to get connected to who they need to be successful."
                   btnText="Read More"
                 />
@@ -216,7 +215,6 @@ const AboutPage = ({ data }) => {
             </svg>
           </div> */}
         </section>
-      </main>
     </Layout>
   );
 };

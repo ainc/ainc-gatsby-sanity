@@ -8,4 +8,12 @@
     &:hover {
         color: $brand-red-bright;
     }
+
+}
+
+.link--brand-dark {
+    color: $color-red-dark;
+    &:hover {
+        color: $brand-color;
+    }
 }

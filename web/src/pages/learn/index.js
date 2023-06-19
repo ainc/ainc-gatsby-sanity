@@ -30,7 +30,7 @@ const ProvenBackground = styled.div`
 
 const LearnPage = ({ data }) => {
   return (
-    <Layout>
+    <Layout pageTitle="Awesome Inc U - Learn to Code">
       <SEO />
       {/* Header section */}
      
@@ -180,7 +180,6 @@ const LearnPage = ({ data }) => {
                         </Row>
                         </Container>
       </section>
-     
     </Layout>
   )
 }

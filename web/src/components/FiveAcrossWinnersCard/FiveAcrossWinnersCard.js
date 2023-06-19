@@ -21,6 +21,7 @@ const FiveAcrossWinnersCard = (props) => {
         <Row className="my-5">
             <Col sm="12">
                 <div className={styles.headerBorder}>
+                    {/* need to change headings to start from h1 and increase by one for accessibility */}
                     <h4 className={`${styles.headingSubtitle}`}><span>{formattedDate}</span></h4>
                     <h4 className="mt-3">{props.companyTitle}</h4>
                     <h4 className={styles.bodyText}>Founders:</h4>

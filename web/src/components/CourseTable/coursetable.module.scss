@@ -10,6 +10,7 @@
     vertical-align: middle;
     padding: 1%;
     width: 11%;
+    font-size: .70rem;
     @include screen-tablet-max {
         font-size: 0.8rem;
     }
@@ -19,7 +20,7 @@
 .title-cell {
     border: 1px solid #ddd;
     text-align: center;
-    background-color: #ED3742;
+    background-color: $brand-color;
     height: 50px;
     width: 11%;
 }

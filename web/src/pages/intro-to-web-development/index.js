@@ -37,7 +37,6 @@ const IntroWebDevPage = ({ data }) => {
     return (
         <Layout>
             <SEO />
-            <main>
                 <Container className={`py-5 ${styles.intro}`}>
                     <Col>
                     <Title className='pt-5 pb-2 text-center text-uppercase'>intro to web development</Title>
@@ -59,10 +58,10 @@ const IntroWebDevPage = ({ data }) => {
                     <Title className='text-white text-uppercase text-center pt-5 pb-5'>upcoming program dates</Title>
                     {allSanityCourses.map((node) => (
                         <div>
-                        <h4 className={`${styles.programText}  pt-3 text-uppercase text-white fw-bold text-center`}>{node.courseSeason}</h4>
-                        <h5 className={`${styles.programText} text-white fw-bold text-center`}>{node.startDate}</h5>
-                        <h5 className='mb-1 text-uppercase text-center text-white'>to</h5>
-                        <h5 className={`${styles.programText} pb-5 text-white fw-bold text-center`}>{node.endDate}</h5>
+                        <h2 className={`${styles.programText} fs-4 pt-3 text-uppercase text-white fw-bold text-center`}>{node.courseSeason}</h2>
+                        <h3 className={`${styles.programText} fs-5 text-white fw-bold text-center`}>{node.startDate}</h3>
+                        <h3 className='mb-1 text-uppercase fs-5 text-center text-white'>to</h3>
+                        <h3 className={`${styles.programText} fs-5 pb-5 text-white fw-bold text-center`}>{node.endDate}</h3>
                         </div>
                         
                         
@@ -140,10 +139,12 @@ const IntroWebDevPage = ({ data }) => {
                         </Col>
                         <Col sm={12} md={6} lg={{span: 6}} xl={{ span: 5}}>
                             <Title className='text-uppercase pb-5 text-center'>course outcomes</Title>
+                            <ul>
                             <li className={styles.outcomeList}>Write code in languages like HTML, CSS, and JavaScript</li>
                             <li className={styles.outcomeList}>Create interactive websites</li>
                             <li className={styles.outcomeList}>Make friends and learn how to continue practicing web development beyond this course</li>
                             <li className={styles.outcomeList}>Build a Final Project like these:</li>
+                            </ul>
                         </Col>
                         
                     </Row>
@@ -152,7 +153,7 @@ const IntroWebDevPage = ({ data }) => {
                     {/* ask kyle how to do the images/background??? */}
                     <Title className='pt-5 text-uppercase text-white text-center'>tuition credit</Title>
                     <Col lg={{ offset: 2, span: 8 }}>
-                        <p className='text-center text-white pb-5'>100% of this course payment can be used as tuition credit for our <a className='text--red' href='https://www.awesomeinc.org/bootcamp'>Web Developer Bootcamp</a>. Candidates must enroll in the Bootcamp program within
+                        <p className='text-center text-white pb-5'>100% of this course payment can be used as tuition credit for our <a className='text--white link--bright-red fw-bolder' href='https://www.awesomeinc.org/bootcamp'>Web Developer Bootcamp</a>. Candidates must enroll in the Bootcamp program within
                             one year of completing the Intro to Web Development course. Please note that completion of this course does not guarantee admission to the Web Developer Bootcamp – the standard
                             application process still applies.
                         </p>
@@ -200,7 +201,6 @@ const IntroWebDevPage = ({ data }) => {
                         <a className='d-flex justify-content-center' href='https://www.awesomeinc.org/contact'><BrandButton className='text-uppercase px-3 mb-5 fw-bold'>contact us</BrandButton></a>
                     </Col>
                 </Container>
-            </main>
         </Layout>
     )
 }
