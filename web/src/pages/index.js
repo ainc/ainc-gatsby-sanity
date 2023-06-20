@@ -121,7 +121,7 @@ const IndexPage = ({ data }) => {
                     text="Everybody can and should learn to code, start today."
                     backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
                     imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
-                    link="/learn"
+                    link="/#courses"
                   />
                 </Col>
                 <Col md={3}>
@@ -130,7 +130,7 @@ const IndexPage = ({ data }) => {
                     text="Rent a desk or space for events, meetings, and more."
                     backgroundImage="https://www.awesomeinc.org/images/awesome-inc-space-panel.jpg"
                     imgSrc="https://d33wubrfki0l68.cloudfront.net/13acb6f3560e894a9e0eecc194c96f778fba858f/f6fb2/images/icons/rent-workspace.png"
-                    link="/workspace"
+                    link="/#workspace"
                   />
                 </Col>
                 <Col md={3}>
@@ -139,7 +139,7 @@ const IndexPage = ({ data }) => {
                     text="We will help grow your business with a mentor-driven, accelerator program."
                     backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
                     imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
-                    link="/learn"
+                    link="/#startups"
                   />
                 </Col>
                 <Col md={3}>
@@ -148,7 +148,7 @@ const IndexPage = ({ data }) => {
                     text="Let us create custom software for your business."
                     backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
                     imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
-                    link="/learn"
+                    link="/#software"
                   />
                 </Col>
               </Row>
@@ -272,7 +272,7 @@ const IndexPage = ({ data }) => {
       </section>
 
       {/* STARTUPS */}
-      {/* <StartupsSection /> */}
+      <StartupsSection />
 
       {/* WORKSPACE */}
       <section id="workspace" style={{backgroundColor: `#D1D1D1`}}>
