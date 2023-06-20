@@ -5,6 +5,7 @@ import {
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
 } from "../lib/helpers";
+import { useState } from 'react';
 import { Container, Row, Col, Image, Badge, Card } from "react-bootstrap";
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
@@ -89,6 +90,9 @@ query IndexPageQuery($currentDate: Date!) {
 `;
 
 const IndexPage = ({ data }) => {
+  const [lgShow, setLgShow] = useState(false);
+  const handleClose = () => setLgShow(false);
+  const handleShow = () => setLgShow(true);
 
   const events = (data.allSanityEvents.nodes || {})
 
