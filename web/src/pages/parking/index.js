@@ -14,7 +14,6 @@ const ParkingPage = ({ data }) => {
     return (
         <Layout>
             <SEO />
-            <main>
              <Container className='ps-3'>
                 <Col xs={{offset:1, span:10}} md={{offset: 1, span:10}} lg={{offset:0, span: 12}} xl={{offset: 3, span: 6}}>
                 
@@ -36,25 +35,27 @@ const ParkingPage = ({ data }) => {
         
                 <Col xs={{ span: 12}} lg={{offset: 2, span:8}} xl={{offset: 2, span: 6}}>
                     <Subtitle className={` ${styles.park}`}>Do Park</Subtitle>
+                    <ul>
                     <li className={` ps-3 ${styles.list}`}>Spaces marked for Awesome Inc in the lot East of our building</li>
                     <li className={` ps-3 ${styles.list}`}>Free 2-hour parking spaces along East Vine Street</li>
                     <li className={` ps-3 ${styles.list}`}>Free full-day spaces on Short Street near Thoroughbred Park and Ransom Ave near Second Presbyterian church</li>
                     <li className={` ps-3 ${styles.list}`}>Deweese Street (PNC Bank) Parking Garage, ~$4/day</li>
                     <li className={` ps-3 ${styles.list}`}>Metered spaces on Water Street, Main Street, or Eastern Avenue</li>
+                    </ul>
                 </Col>
             
             
                     <Col xs={{ span: 12}} lg={{offset: 2, span:8}} xl={{offset: 2, span: 6}} className='pb-3'>
                         <Subtitle className={` pt-2 ${styles.park}`}>Do Not Park</Subtitle>
+                        <ul>
                         <li className={` ps-3 ${styles.list}`}>Spaces marked for Carson's Restaurant or PPG Paints (East side of building)</li>
                         <li className={` ps-3 ${styles.list}`}>Spaces marked for Commerce Lexington, Northwestern Mutual, Tate/Hill/Jacobs Architects, or Awesome Inc Directors (West side of building)</li>
                         <li className={` ps-3 ${styles.list}`}>Spaces in the Main and Vine retail / residential complex</li>
                         <li className={` ps-3 ${styles.list}`}>In the "Loading Zone" on Main Street, directly in front of Awesome Inc</li>
+                        </ul>
                     </Col>
                 
              </Container>
-
-            </main>
         </Layout>
     )
 }

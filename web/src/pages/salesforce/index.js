@@ -36,6 +36,7 @@ const SalesforcePage = ({ data }) => {
             </section>
 
             {/* Upcoming Program Dates Section*/}
+            {/* still need to fix heading levels to increase by one */}
             <section id="upcoming-program-dates">
                 <Container fluid className="background--grey pt-4">
                     <Row>
@@ -244,7 +245,6 @@ const SalesforcePage = ({ data }) => {
                     </Col>
                 </Container>
             </section>
-
         </Layout>
 
     );

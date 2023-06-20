@@ -13,7 +13,7 @@ const IndiaFAQ = () => {
    const faq ={
         questions: [
             {
-                q: "Do you need a computer?",
+                q: [<h1 className='fs-6'>Do you need a computer?</h1>],
                 a: [<p> Yes, your child will need to bring a laptop computer to the courses. This will allow them to work on projects at home if they wish to as well.</p>]
             },
             {

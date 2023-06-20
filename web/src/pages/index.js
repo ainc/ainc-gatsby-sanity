@@ -23,6 +23,7 @@ import FeatureCard from "../components/FeatureCard/FeatureCard";
 import HorizontalCard from "../components/HorizontalCard/HorizontalCard";
 import { GatsbyImage } from "gatsby-plugin-image";
 
+
 // Images
 import core_values from "../images/core-values.png";
 import workspace_hero from "../images/ainc-workspace-hero.jpeg";
@@ -30,6 +31,7 @@ import desk_background from "../images/workspace-desk-bg-red.png";
 import DevicesIcon from "../assets/svg/devices.svg";
 import StackIcon from "../assets/svg/stack.svg";
 import ToolsIcon from "../assets/svg/tools.svg";
+
 
 export const query = graphql`
 query IndexPageQuery($currentDate: Date!) {
@@ -106,16 +108,19 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO description="" keywords="" />
-      <HomepageSlider />
+      
+      <SEO title="" description="" keywords="" />
+      <HomepageSlider/>
 
       {/* FOUR INITIATIVES */}
       <section id="initiatives">
         <Container className="my-5">
-          <Row>
-            <Col xs={12} sm={{ span: 10, offset: 1}} >
-              <Row>
-                <Col md={3}>
+          <Row className='d-flex justify-content-center'>
+            {/* <Col xs={12} sm={{ span: 10, offset: 1}} > */}
+                
+              <Row className={` row row-cols-5 justify-content-center my-3 px-1 gx-2`}>
+                {/* <Col md={3}> */}
+                <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
                   <BackgroundCard 
                     title="Learn to Code"
                     text="Everybody can and should learn to code, start today."
@@ -124,7 +129,8 @@ const IndexPage = ({ data }) => {
                     link="/#courses"
                   />
                 </Col>
-                <Col md={3}>
+                {/* <Col md={3}> */}
+                <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
                   <BackgroundCard 
                     title="Rent Workspace"
                     text="Rent a desk or space for events, meetings, and more."
@@ -133,7 +139,8 @@ const IndexPage = ({ data }) => {
                     link="/#workspace"
                   />
                 </Col>
-                <Col md={3}>
+                {/* <Col md={3}> */}
+                  <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
                   <BackgroundCard 
                     title="Accelerate your startup"
                     text="We will help grow your business with a mentor-driven, accelerator program."
@@ -142,7 +149,8 @@ const IndexPage = ({ data }) => {
                     link="/#startups"
                   />
                 </Col>
-                <Col md={3}>
+                {/* <Col md={3}> */}
+                <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
                   <BackgroundCard 
                     title="Software Development"
                     text="Let us create custom software for your business."
@@ -152,7 +160,7 @@ const IndexPage = ({ data }) => {
                   />
                 </Col>
               </Row>
-            </Col>
+            {/* </Col> */}
           </Row>
           <Row>
             <Col xs={12} sm={{span: 8, offset: 2}}>
@@ -190,10 +198,10 @@ const IndexPage = ({ data }) => {
       {/* EVENTS */}
       <section id="events">
         <Title className="my-5 text-uppercase text-center">Upcoming Events</Title>
-        <Container >
-          <Row className="card__featured_mosaic">
-            <Col className="card__featured">
-              <FeatureCard 
+        <Container className=''>
+          <Row className="card__featured_mosaic gy-1  me-2">
+            <Col className="card__featured" xs={12} sm={10} md={12} lg={7} xl={7}>
+              <FeatureCard className='ms-0'
                 title={feature_event.eventName}
                 date={feature_event.date}
                 image={feature_event.picture.asset.gatsbyImageData}
@@ -202,10 +210,10 @@ const IndexPage = ({ data }) => {
                 link={feature_event.linkToEvent}
               />
             </Col>
-            <Col className="card__secondary">
+            <Col className="card__secondary" xs={12} sm={10} md={8} lg={5} xl={5}>
+              <Row className='bottom-0 me-2 ms-1'>
               {eventsNoFeature.map((node,i) => ( //map through the filtered list
-                <HorizontalCard 
-                  className="mb-3"
+                <HorizontalCard className='ms-0'
                   title={node.eventName}
                   date={node.date}
                   image={node.picture.asset.gatsbyImageData}
@@ -215,6 +223,7 @@ const IndexPage = ({ data }) => {
                   key={i}
                 />
               ))}
+              </Row>
             </Col>
           </Row>
           <Row>
@@ -229,23 +238,23 @@ const IndexPage = ({ data }) => {
 
       {/* COURSES */}
       <section id="courses" style={{backgroundColor: "#323232"}}>
-        <Title className="pt-5 mb-3 text-uppercase text-center white">Educational Courses</Title>
+        <Title className="pt-5 mb-3 text-uppercase text-center text-white">Educational Courses</Title>
         <p className="mb-5 text-uppercase text-center text-white">Made for any level</p>
         <Container>
           <Row>
             {courses.map((node,i) => (
-              <Col key={i}>
+              <Col className='mb-3' md={4} lg={4} key={i}>
                 <Card className='h-100'>
                   <GatsbyImage 
                     image={node.picture.asset.gatsbyImageData} 
                     alt={node.courseTitle} 
-                    className="m-2" 
+                    className="m-2 d-flex align-content-center" 
                     objectFit="scale-down" 
                     style={{maxHeight: `280px`}}
                   />
 
                   <Card.Body className="d-flex flex-column my-3 mx-3">
-                    <p className="text--grey mx-auto mt-2 text--italic text-uppercase">
+                    <p className="text-brand-dark mx-auto mt-2 text--italic text-uppercase">
                       {node.designedFor}
                     </p>
                     <p className="my-2">
@@ -284,7 +293,7 @@ const IndexPage = ({ data }) => {
               <Col xs={12} sm={6}>
                 <div className="d-flex justify-content-center">
                   <a href="#">
-                    <Card className="card--equal-width bg--dark-grey p-4 mb-5">
+                    <Card className="card--equal-width bg-secondary p-4 mb-5">
                       <Subtitle className="fw-bold text-center text-white">Functional Workspace</Subtitle>
                       <p className="text-center text-white fw-bolder">An awesome space to work or host your next meeting.</p>
                     </Card>
@@ -294,7 +303,7 @@ const IndexPage = ({ data }) => {
               <Col xs={12} sm={6}>
                 <div className="d-flex justify-content-center mt-5 pt-5">
                   <a href="#">
-                    <Card className="card--equal-width bg--dark-grey p-4">
+                    <Card className="card--equal-width bg-secondary p-4">
                       <Subtitle className="fw-bold text-center text-white">Membership Benefits</Subtitle>
                       <p className="text-center text-white fw-bolder">Flexible membership options and features to support your business operations.</p>
                     </Card>
@@ -316,21 +325,21 @@ const IndexPage = ({ data }) => {
           <Row>
             <Col>
               <div className="h-100 my-5">
-                {/* <DevicesIcon className="d-block mx-auto my-3 w-50" /> */}
+                <DevicesIcon className="d-block mx-auto my-3 w-50" />
                 <Subtitle className="text-center fw-bolder mt-5 mb-3">Mobile Apps + Websites</Subtitle>
                 <p className="text-center">Our expert team of web developers build websites and mobile applications that are fast, secure, and easy to maintain.</p>
               </div>
             </Col>
             <Col>
               <div className="h-100 my-5">
-                {/* <StackIcon className="d-block mx-auto my-3 w-50" /> */}
+                <StackIcon className="d-block mx-auto my-3 w-50" />
                 <Subtitle className="text-center fw-bolder mt-5 mb-3">Software Consulting</Subtitle>
                 <p className="text-center">We make clients part of our streamlined process by facilitating reviews and planning sessions during all parts of the development cycle.</p>
               </div>
             </Col>
             <Col>
               <div className="h-100 my-5">
-                {/* <ToolsIcon className="d-block mx-auto my-3 w-50" /> */}
+                <ToolsIcon className="d-block mx-auto my-3 w-50" />
                 <Subtitle className="text-center fw-bolder mt-5 mb-3">Graphic Design</Subtitle>
                 <p className="text-center">Our UI/UX design services transform your project, increasing user satisfaction, reducing development costs, and delivering a high ROI.</p>
               </div>
@@ -344,7 +353,7 @@ const IndexPage = ({ data }) => {
 
       {/* PODCAST */}
       <PodcastSection />
-
+      
     </Layout>
   );
 };

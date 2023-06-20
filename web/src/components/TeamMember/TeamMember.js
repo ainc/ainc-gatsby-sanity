@@ -17,7 +17,7 @@ const TeamMember = (props) => {
           />
         <figcaption className={styles.figcaption}>
           <div className={styles.nameHover}>
-            <h6 className={styles.lgxVertical}>{props.name}</h6>
+            <h3 className={styles.lgxVertical}>{props.name}</h3>
           </div>
         </figcaption>
       </figure>
