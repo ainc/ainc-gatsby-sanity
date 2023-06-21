@@ -23,6 +23,7 @@ import FeatureCard from "../components/FeatureCard/FeatureCard";
 import HorizontalCard from "../components/HorizontalCard/HorizontalCard";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 
+
 // Images
 import core_values from "../images/core-values.png";
 import workspace_hero from "../images/ainc-workspace-hero.jpeg";
@@ -30,6 +31,7 @@ import desk_background from "../images/workspace-desk-bg-red.png";
 import DevicesIcon from "../assets/svg/devices.svg";
 import StackIcon from "../assets/svg/stack.svg";
 import ToolsIcon from "../assets/svg/tools.svg";
+
 
 export const query = graphql`
 query IndexPageQuery($currentDate: Date!) {
@@ -113,10 +115,12 @@ const IndexPage = ({ data }) => {
       {/* FOUR INITIATIVES */}
       <section id="initiatives">
         <Container className="my-5">
-          <Row>
-            <Col xs={12} sm={{ span: 10, offset: 1}} >
-              <Row>
-                <Col md={3}>
+          <Row className='d-flex justify-content-center'>
+            {/* <Col xs={12} sm={{ span: 10, offset: 1}} > */}
+                
+              <Row className={` row row-cols-5 justify-content-center my-3 px-1 gx-2`}>
+                {/* <Col md={3}> */}
+                <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
                   <BackgroundCard 
                     title="Learn to Code"
                     text="Everybody can and should learn to code, start today."
@@ -126,7 +130,8 @@ const IndexPage = ({ data }) => {
                     alt="brackets"
                   />
                 </Col>
-                <Col md={3}>
+                {/* <Col md={3}> */}
+                <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
                   <BackgroundCard 
                     title="Rent Workspace"
                     text="Rent a desk or space for events, meetings, and more."
@@ -136,7 +141,8 @@ const IndexPage = ({ data }) => {
                     alt="desk and chair"
                   />
                 </Col>
-                <Col md={3}>
+                {/* <Col md={3}> */}
+                  <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
                   <BackgroundCard 
                     title="Accelerate your startup"
                     text="We will help grow your business with a mentor-driven, accelerator program."
@@ -146,7 +152,8 @@ const IndexPage = ({ data }) => {
                     alt="brackets"
                   />
                 </Col>
-                <Col md={3}>
+                {/* <Col md={3}> */}
+                <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
                   <BackgroundCard 
                     title="Software Development"
                     text="Let us create custom software for your business."
@@ -157,7 +164,7 @@ const IndexPage = ({ data }) => {
                   />
                 </Col>
               </Row>
-            </Col>
+            {/* </Col> */}
           </Row>
           <Row>
             <Col xs={12} sm={{span: 8, offset: 2}}>
@@ -195,10 +202,10 @@ const IndexPage = ({ data }) => {
       {/* EVENTS */}
       <section id="events">
         <Title className="my-5 text-uppercase text-center">Upcoming Events</Title>
-        <Container >
-          <Row className="card__featured_mosaic">
-            <Col className="card__featured">
-              <FeatureCard
+        <Container className=''>
+          <Row className="card__featured_mosaic gy-1  me-2">
+            <Col className="card__featured" xs={12} sm={10} md={12} lg={7} xl={7}>
+              <FeatureCard className='ms-0'
                 title={feature_event.eventName}
                 date={feature_event.date}
                 image={feature_event.picture.asset.gatsbyImageData}
@@ -207,10 +214,10 @@ const IndexPage = ({ data }) => {
                 link={feature_event.linkToEvent}
               />
             </Col>
-            <Col className="card__secondary">
+            <Col className="card__secondary" xs={12} sm={10} md={8} lg={5} xl={5}>
+              <Row className='bottom-0 me-2 ms-1'>
               {eventsNoFeature.map((node,i) => ( //map through the filtered list
-                <HorizontalCard 
-                  className="mb-3"
+                <HorizontalCard className='ms-0'
                   title={node.eventName}
                   date={node.date}
                   image={node.picture.asset.gatsbyImageData}
@@ -220,6 +227,7 @@ const IndexPage = ({ data }) => {
                   key={i}
                 />
               ))}
+              </Row>
             </Col>
           </Row>
           <Row>
@@ -239,12 +247,12 @@ const IndexPage = ({ data }) => {
         <Container>
           <Row>
             {courses.map((node,i) => (
-              <Col key={i}>
+              <Col className='mb-3' md={4} lg={4} key={i}>
                 <Card className='h-100'>
                   <GatsbyImage 
                     image={node.picture.asset.gatsbyImageData} 
                     alt={node.courseTitle} 
-                    className="m-2" 
+                    className="m-2 d-flex align-content-center" 
                     objectFit="scale-down" 
                     style={{maxHeight: `280px`}}
                   />
