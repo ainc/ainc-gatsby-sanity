@@ -20,23 +20,22 @@ const CoreValue = () => {
               {/* <a id="video-btn" href="#" data-bs-toggle="modal" data-target="#lgx-modal"> */}
                   {/* <a id="video-btn" href="https://youtu.be/3dylpY4W_xA" data-bs-toggle="modal" data-target="#lgx-modal"> */}
                       <div onClick={handleShow}>
-                      <StaticImage quality='100' src='./video-button.png' alt="Core values video" />
-                      
-                        <ModalCustom
-                        lgShow={lgShow} 
-                        hide={handleClose}
-                        content={
-                          <iframe 
-                          width="560" 
-                          height="315" 
-                          src="https://www.youtube.com/embed/3dylpY4W_xA" 
-                          title="YouTube video player" 
-                          frameborder="0" 
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                          ></iframe>
-                    
-                        } />
-                        </div>
+                        <StaticImage quality='100' src='./video-button.png' alt="Core values video" />
+                      </div>
+                      <ModalCustom
+                      lgShow={lgShow} 
+                      hide={handleClose}
+                      content={
+                        <iframe 
+                        width="560" 
+                        height="315" 
+                        src="https://www.youtube.com/embed/3dylpY4W_xA" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        ></iframe>
+                  
+                      } />
                       
                       {/* </a>  */}
                 </Col>

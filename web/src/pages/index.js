@@ -29,9 +29,6 @@ import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import core_values from "../images/core-values.png";
 import workspace_hero from "../images/ainc-workspace-hero.jpeg";
 import desk_background from "../images/workspace-desk-bg-red.png";
-import DevicesIcon from "../assets/svg/devices.svg";
-import StackIcon from "../assets/svg/stack.svg";
-import ToolsIcon from "../assets/svg/tools.svg";
 
 
 export const query = graphql`
@@ -114,7 +111,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       
       <SEO title="" description="" keywords="" />
-      <HomepageSlider/>
+      <HomepageSlider />
 
       {/* FOUR INITIATIVES */}
       <section id="initiatives">

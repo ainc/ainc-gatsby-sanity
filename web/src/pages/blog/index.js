@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { graphql, Link } from "gatsby";
-import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Col, Container, Row } from 'react-bootstrap';
 import SEO from '../../components/seo'
 import Layout from "../../components/Layout/Layout";
@@ -19,8 +18,6 @@ const BlogPage = ({ data }) => {
     const handleClose = () => setLgShow(false);
     const handleShow = () => setLgShow(true);
     const [blogData, setBlogData] = useState([]);
-
-    const defaultBgImageUrl = '/web/src/images/logo.png'
 
     React.useEffect(() => {
         setBlogData(data.allSanityBlog.edges)

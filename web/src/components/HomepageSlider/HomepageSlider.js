@@ -84,7 +84,7 @@ const HomepageSlider = (props) => {
               <Container className="mb-3">
                 <Subtitle className="text-white">{slide.subtitle}</Subtitle>
                 <Title className="mb-3 text-white">{slide.title}</Title>
-                <BrandButton href="{slide.cta.url}" className="mt-3">{slide.cta.title}</BrandButton>
+                <a href={`${slide.cta.url}`}><BrandButton className="mt-3">{slide.cta.title}</BrandButton></a>
               </Container>
             </Wrapper>
           </Slide>
