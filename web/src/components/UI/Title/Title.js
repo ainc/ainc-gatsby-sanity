@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import * as styles from '../../../styles/Variables'
 
-const Title = styled.h1`
+const StyleTitle = styled.h1`
   font-family: ${styles.styles.fonts.headingFont};
   font-size: ${styles.styles.sizes.title};
   font-weight: 900;
@@ -28,19 +28,19 @@ const Title = styled.h1`
   }
 `
 
-const title = (props) => {
+const Title = (props) => {
   return (
-    <Title {...props} >
+    <StyleTitle {...props} >
       {props.children}
-    </Title>
+    </StyleTitle>
   )
 }
 
-title.propTypes = {
+Title.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object
   ])
 }
 
-export default title
+export default Title

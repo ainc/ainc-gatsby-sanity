@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import * as styles from '../../../styles/Variables'
 
-const BrandButton = styled.button`
+const StyleBrandButton = styled.button`
     font-family: ${styles.styles.fonts.baseFont};
     font-weight: 600;
     letter-spacing: 3px;
@@ -52,18 +52,18 @@ const BrandButton = styled.button`
     }
 `
 
-const brandButton = (props) => {
+const BrandButton = (props) => {
     return (
-        <BrandButton {...props} >
+        <StyleBrandButton {...props} >
             {props.children}
-        </BrandButton>
+        </StyleBrandButton>
     ) 
 }
 
-brandButton.propTypes = {
+BrandButton.propTypes = {
     childen: PropTypes.oneOfType([
         PropTypes.string,
     ])
 }
  
-export default brandButton;
+export default BrandButton;

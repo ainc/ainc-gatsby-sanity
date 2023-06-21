@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import * as styles from '../../../styles/Variables'
 
-const Subtitle = styled.h2`
+const StyleSubtitle = styled.h2`
   font-family: ${styles.styles.fonts.headingFont};
   font-size: ${styles.styles.sizes.subtitle};
   font-weight: 400;
@@ -25,19 +25,19 @@ const Subtitle = styled.h2`
   }
 `
 
-const subtitle = (props) => {
+const Subtitle = (props) => {
   return (
-    <Subtitle {...props}>
+    <StyleSubtitle {...props}>
       {props.children}
-    </Subtitle>
+    </StyleSubtitle>
   )
 }
 
-subtitle.propTypes = {
+Subtitle.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object
   ])
 }
 
-export default subtitle
+export default Subtitle
