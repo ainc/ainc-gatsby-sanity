@@ -23,6 +23,8 @@ import StartupsSection from "../components/Layout/Startups/Startups";
 import FeatureCard from "../components/FeatureCard/FeatureCard";
 import HorizontalCard from "../components/HorizontalCard/HorizontalCard";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import DottedLine from "../assets/svg/DottedLine.svg";
+import { Link } from "gatsby";
 
 
 // Images
@@ -87,9 +89,7 @@ query IndexPageQuery($currentDate: Date!) {
 `;
 
 const IndexPage = ({ data }) => {
-  const [lgShow, setLgShow] = useState(false);
-  const handleClose = () => setLgShow(false);
-  const handleShow = () => setLgShow(true);
+
 
   const events = (data.allSanityEvents.nodes || {})
 
@@ -229,9 +229,9 @@ const IndexPage = ({ data }) => {
           </Row>
           <Row>
             <Col className="d-flex justify-content-center my-5">
-              <a href="#">
-                <BrandButton href="/events">View Events</BrandButton>
-              </a>
+              <Link to="/events">
+                <BrandButton>View Events</BrandButton>
+              </Link>
             </Col>
           </Row>
         </Container>
@@ -274,7 +274,7 @@ const IndexPage = ({ data }) => {
           <Row>
             <Col className="d-flex justify-content-center my-5">
               <a href="#">
-                <BrandButton href="/events">View Courses</BrandButton>
+                <BrandButton href="/learn">View Courses</BrandButton>
               </a>
             </Col>
           </Row>
@@ -285,34 +285,42 @@ const IndexPage = ({ data }) => {
       <StartupsSection />
 
       {/* WORKSPACE */}
-      <section id="workspace" style={{backgroundColor: `#D1D1D1`}}>
-        <Title className="pt-5 mb-3 text-uppercase text-center">Workspace</Title>
+      <section id="workspace" style={{backgroundColor: "#D1D1D1"}}>
+      <div className='d-flex justify-content-center'>
+      <DottedLine style={{maxWidth: "1rem", maxHeight: "6rem"}} className='mt-4' />
+      </div>
+      <Container style={{backgroundImage: "url(../images/workspace-border.png)"}} className='pb-5'>
+      <div 
+      // style={{border: "solid #fff 10px"}} 
+      className=''>
+        <Title className="mb-3 text-uppercase text-center">Workspace</Title>
         <Subtitle className="mb-5 text-uppercase text-center">Join Our Workspace</Subtitle>
-        <Container>
-          <div style={{backgroundImage: `url(${desk_background})`, backgroundRepeat: `no-repeat`, backgroundSize: `35%`, backgroundPosition: `50% 50%`, padding: `5rem 0`}}>
+        
+          <div style={{backgroundImage: `url(${desk_background})`, backgroundRepeat: `no-repeat`, backgroundSize: `35%`, backgroundPosition: `50% 50%`, padding: `5rem 0`}}className="mb-4">
             <Row>
               <Col xs={12} sm={6}>
                 <div className="d-flex justify-content-center">
-                  <a href="#">
-                    <Card className="card--equal-width bg-secondary p-4 mb-5">
+                  <Link to ="/workspace">
+                    <Card className="card--equal-width bg-secondary p-4 mb-3">
                       <Subtitle className="fw-bold text-center text-white">Functional Workspace</Subtitle>
                       <p className="text-center text-white fw-bolder">An awesome space to work or host your next meeting.</p>
                     </Card>
-                  </a>
+                  </Link>
                 </div>
               </Col>
               <Col xs={12} sm={6}>
                 <div className="d-flex justify-content-center mt-5 pt-5">
-                  <a href="#">
+                  <Link to="/workspace">
                     <Card className="card--equal-width bg-secondary p-4">
                       <Subtitle className="fw-bold text-center text-white">Membership Benefits</Subtitle>
                       <p className="text-center text-white fw-bolder">Flexible membership options and features to support your business operations.</p>
                     </Card>
-                  </a>
+                  </Link>
                 </div>    
               </Col>
             </Row>
           </div>
+        </div>
         </Container>
       </section>
 
@@ -320,12 +328,16 @@ const IndexPage = ({ data }) => {
       {/* SOFTWARE DEVELOPMENT */}
       {/* TODO: Fix icons to be 1:1 */}
       <section id="software">
+        <div className='d-flex justify-content-center'>
+      <DottedLine style={{maxWidth: "1rem", maxHeight: "6rem"}} className=' mt-4' />
+      </div>
         <Title className="pt-5 mb-3 text-uppercase text-center">Software Development</Title>
         <Subtitle className="mb-5 text-uppercase text-center fw-bolder">Let us create custom software for your business</Subtitle>
         <Container>
           <Row>
             <Col>
               <div className="h-100 my-5">
+              <a href="https://apaxsoftware.com/">
                 <StaticImage 
                   className='mx-auto d-block img-fluid' 
                   quality='100' 
@@ -333,12 +345,14 @@ const IndexPage = ({ data }) => {
                   alt="Devices icon"
                   layout='fixed'
                 />
+                </a>
                 <Subtitle className="text-center fw-bolder mt-5 mb-3">Mobile Apps + Websites</Subtitle>
                 <p className="text-center">Our expert team of web developers build websites and mobile applications that are fast, secure, and easy to maintain.</p>
               </div>
             </Col>
             <Col>
               <div className="h-100 my-5">
+                <a href="https://apaxsoftware.com/">
                 <StaticImage 
                   className='mx-auto d-block img-fluid' 
                   quality='100' 
@@ -346,19 +360,22 @@ const IndexPage = ({ data }) => {
                   alt="software stack icon"
                   layout='fixed'
                 />
+                </a>
                 <Subtitle className="text-center fw-bolder mt-5 mb-3">Software Consulting</Subtitle>
                 <p className="text-center">We make clients part of our streamlined process by facilitating reviews and planning sessions during all parts of the development cycle.</p>
               </div>
             </Col>
             <Col>
               <div className="h-100 my-5">
-              <StaticImage 
+             <a href="https://apaxsoftware.com/">
+             <StaticImage 
                   className='mx-auto d-block img-fluid' 
                   quality='100' 
                   src='../assets/svg/tools.svg' 
                   alt="Tools icon"
                   layout='fixed'
                 />
+                </a>
                 <Subtitle className="text-center fw-bolder mt-5 mb-3">Graphic Design</Subtitle>
                 <p className="text-center">Our UI/UX design services transform your project, increasing user satisfaction, reducing development costs, and delivering a high ROI.</p>
               </div>

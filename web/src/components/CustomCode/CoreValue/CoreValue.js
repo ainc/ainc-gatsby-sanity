@@ -26,9 +26,8 @@ const CoreValue = () => {
                       lgShow={lgShow} 
                       hide={handleClose}
                       content={
-                        <iframe 
-                        width="560" 
-                        height="315" 
+                        <iframe
+                        justify-content="center"
                         src="https://www.youtube.com/embed/3dylpY4W_xA" 
                         title="YouTube video player" 
                         frameborder="0" 

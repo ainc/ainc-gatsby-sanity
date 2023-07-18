@@ -4,6 +4,7 @@ import Subtitle from "../../../components/UI/Subtitle/Subtitle";
 import BrandButton from "../../../components/UI/BrandButton/BrandButton";
 import { Container, Row, Col } from "react-bootstrap";
 import { StaticImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 
 const Startups = () => {
   return (
@@ -14,6 +15,7 @@ const Startups = () => {
         <Row>
           <Col>
             <div className="h-100 my-5">
+              <Link to ="/idea">
               <StaticImage 
                 className='mx-auto d-block img-fluid' 
                 quality='100' 
@@ -21,6 +23,7 @@ const Startups = () => {
                 alt="software stack icon"
                 layout='fixed'
               />
+              </Link>
               {/* <img className="d-block mx-auto" src={pitch_your_idea} alt="Pitch your idea icon" /> */}
               <Subtitle className="text-center brand fw-bold">Pitch Your Idea</Subtitle>
               <p className="text-center">We offer outlets for your idea to be heard. Share your idea with us or learn more about events that promote entrepreneurship.</p>
@@ -29,6 +32,7 @@ const Startups = () => {
           </Col>
           <Col>
             <div className="h-100 my-5">
+              <Link to ='/fellowship'>
               <StaticImage 
                 className='mx-auto d-block img-fluid' 
                 quality='100' 
@@ -36,12 +40,14 @@ const Startups = () => {
                 alt="software stack icon"
                 layout='fixed'
               />
+              </Link>
               <Subtitle className="text-center brand fw-bold">Accelerate Your Startup</Subtitle>
               <p className="text-center">Our Fellowship Program is mentor-driven, designed to accelerate your high-tech startup. Learn about the Fellowship Program as well as our other programs designed to foster your startup's growth.</p>
             </div>
           </Col>
           <Col>
             <div className="h-100 my-5">
+              <a href="https://www.entrepreneurhof.com/" >
               <StaticImage 
                 className='mx-auto d-block img-fluid' 
                 quality='100' 
@@ -49,6 +55,7 @@ const Startups = () => {
                 alt="software stack icon"
                 layout='fixed'
               />
+              </a>
               <Subtitle className="text-center brand fw-bold">Showcasing Kentucky Entrepreneurs</Subtitle>
               <p className="text-center">Discover the impact that Entrepreneurship has made in the Commonwealth.</p>
             </div>
