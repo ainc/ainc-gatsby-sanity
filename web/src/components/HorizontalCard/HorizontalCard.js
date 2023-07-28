@@ -13,7 +13,8 @@ const HorizontalCard = (props) => {
     <Card className={` mt-3 p-0 ms-1 ${props.className}`}>
       <Row className='row row-cols-6'>
         <Col xs={1} md={4} lg={5} xl={4}>
-          <Card.Img src={props.image.images.fallback.src} alt={props.title} className="m-3 card--square-size" />
+        <Card.Img src='../../images/ainc-logo-horizontal-white-text.png' alt={props.title} className={`p-2 card__img--overlay object-fit-cover ${styles.cardImage}`} />
+          {/* <Card.Img src={props.image ? props.image.images.fallback.src : '../../images/ainc-logo-horizontal-white-text.png' } alt={props.title} className="m-3 card--square-size" /> */}
         </Col>
         <Col xs={{span: 12, offset: 0}} md={{span: 5, offset: 0}} lg={7} xl={8}>
           <Card.Body className="ps-1 pe-0 me-0 ms-2">

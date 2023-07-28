@@ -106,20 +106,38 @@ const FellowshipPage = ({ data }) => {
             <Row>
               <Col className="m-auto text-center" xs={4}>
                 {/* <div > */}
-                <PerksIcon className='mb-2' />
+                <StaticImage 
+                  className='mx-auto d-block img-fluid' 
+                  quality='100' 
+                  src='../../assets/svg/perks.svg' 
+                  alt="Devices icon"
+                  layout='fixed'
+                />
                 <Subtitle className={`${styles.iconTitle} text-center fw-bold mt-2`}>Perks</Subtitle>
                 {/* </div> */}
               </Col>
               <Col className="m-auto text-center" xs={4}>
               {/* <div className="m-auto text-center text-wrap"> */}
-                <MentorsIcon className='mb-2'/>
+                <StaticImage 
+                  className='mx-auto d-block img-fluid' 
+                  quality='100' 
+                  src='../../assets/svg/mentors.svg' 
+                  alt="Devices icon"
+                  layout='fixed'
+                />
                 <Subtitle className={`${styles.iconTitle} text-center fw-bold mt-2`}>Mentors</Subtitle>
                 {/* </div> */}
               </Col>
               <Col className="m-auto text-center" xs={4}>
               {/* <div className="m-auto text-center"> */}
                 <Link to="/fellowship/portfolio" aria-label="Read our fellowship portfolio">
-                  <PortfolioIcon className='mb-2'/>
+                  <StaticImage 
+                    className='mx-auto d-block img-fluid' 
+                    quality='100' 
+                    src='../../assets/svg/portfolio.svg' 
+                    alt="Devices icon"
+                    layout='fixed'
+                  />
                 </Link>
                 <Subtitle className={`${styles.iconTitle} text-center fw-bold mt-2`} >Portfolio</Subtitle>
                 {/* </div> */}

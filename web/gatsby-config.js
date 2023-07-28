@@ -9,6 +9,9 @@ const token = process.env.SANITY_READ_TOKEN
 const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
+  // flags: {
+  //   DEV_SSR: true // enable server-side rendering to bypass `netlify build`
+  // },
   plugins: [
     'gatsby-plugin-postcss',
     'gatsby-plugin-image',
@@ -52,5 +55,6 @@ module.exports = {
     title: "Awesome Inc",
     description: "Awesome Inc website",
     siteUrl: "https://awesomeinc.org",
-  }
+  },
+  
 }

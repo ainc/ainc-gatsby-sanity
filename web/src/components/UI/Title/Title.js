@@ -9,6 +9,7 @@ const StyleTitle = styled.h1`
   font-size: ${styles.styles.sizes.title};
   font-weight: 900;
   color: ${styles.styles.colors.brand2};
+  letter-spacing: 2px;
   &.brand {
     color: ${styles.styles.colors.brand};
   }
@@ -22,7 +23,6 @@ const StyleTitle = styled.h1`
     font-size: ${styles.styles.sizes.title_small};
   }
 
-  letter-spacing: 2px;
   @media only screen and (max-width: ${styles.styles.screens.mobile}) {
     font-size: ${styles.styles.sizes.subtitle};
   }
