@@ -4,7 +4,6 @@ import SEO from '../../components/seo'
 import Layout from "../../components/Layout/Layout";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import { graphql, Link } from "gatsby";
-import AwesomeIncLogo from "../../assets/svg/square_gray.svg"
 import * as styles from "./links.scss";
 import '../../styles/main.scss'
 import { FaTwitter, FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube } from 'react-icons/fa';
@@ -17,7 +16,7 @@ const LinksPage = ({ data }) => {
         <SEO />
         <Row>
           <Col className="header d-flex justify-content-center align-items-center">
-            <AwesomeIncLogo className="logo" />
+            <img src="../../assets/svg/square_gray.svg" className="logo" />
           </Col>
         </Row>
 
