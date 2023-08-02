@@ -29,7 +29,7 @@ const FeatureCard = (props) => {
                     /> */}
                   </Col>
                   <Col xs={{span: 8, offset: 6 }} md={{span: 7, offset: 4}} lg={{span: 7, offset: 5}} xl={8} className="ps-1 end-0 bottom-0 mb-5">
-                    <Card.Text className={`me-3 ${styles.cardText}`}>
+                    <div className={`me-3 ${styles.cardText}`}>
                       <div className="mb-1 text-white ">
                         {time} <br />
                         <small>{props.location}</small>
@@ -37,7 +37,7 @@ const FeatureCard = (props) => {
                       <Subtitle className={`fw-bolder text-white ${styles.cardSubtitle}`}>
                         {props.title}
                       </Subtitle>
-                    </Card.Text>
+                    </div>
                   </Col>
                 </div>
               </Row>
