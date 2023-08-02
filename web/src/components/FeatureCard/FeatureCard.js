@@ -24,9 +24,9 @@ const FeatureCard = (props) => {
               <Row className='row row-cols-small'>
                 <div className="position-absolute bottom-0">
                   <Col xs={2} md={{span: 4, offset: 1}}  className="bottom-0 mb-5 position-absolute px-1 ">
-                    {/* <DateSquare className={` ${styles.square}`}
+                    <DateSquare className={` ${styles.square}`}
                       date={props.date}
-                    /> */}
+                    />
                   </Col>
                   <Col xs={{span: 8, offset: 6 }} md={{span: 7, offset: 4}} lg={{span: 7, offset: 5}} xl={8} className="ps-1 end-0 bottom-0 mb-5">
                     <div className={`me-3 ${styles.cardText}`}>
