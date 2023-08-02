@@ -25,7 +25,7 @@ async function createBlogPostPages(graphql, actions) {
             name
             picture {
               asset {
-                gatsbyImageData(height: 54, width: 54)
+                gatsbyImageData(height: 54, width: 54, placeholder: DOMINANT_COLOR)
               }
             }
             title
