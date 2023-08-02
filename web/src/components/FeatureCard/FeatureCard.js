@@ -16,7 +16,8 @@ const FeatureCard = (props) => {
   return (
     <Card className=''>
       <figure className={`card--gradient-bg position-relative`}>
-        <Card.Img src={props.image ? props.image.images.fallback.src : '../../images/ainc-logo-horizontal-white-text.png' } alt={props.title} className={`p-2 card__img--overlay object-fit-cover ${styles.cardImage}`} />
+      <Card.Img src={'../../images/ainc-logo-horizontal-white-text.png'} alt={props.title} className={`p-2 card__img--overlay object-fit-cover ${styles.cardImage}`} />
+      {/* <Card.Img src={props.image?.images?.fallback.src || '../../images/ainc-logo-horizontal-white-text.png'} alt={props.title} className={`p-2 card__img--overlay object-fit-cover ${styles.cardImage}`} /> */}
         <a href="#">
           <Card.ImgOverlay className="m-2">
             <div className="card__gradient-bg">
@@ -28,15 +29,15 @@ const FeatureCard = (props) => {
                     />
                   </Col>
                   <Col xs={{span: 8, offset: 6 }} md={{span: 7, offset: 4}} lg={{span: 7, offset: 5}} xl={8} className="ps-1 end-0 bottom-0 mb-5">
-                    <Card.Text className={`me-3 ${styles.cardText}`}>
-                      <p className="mb-1 text-white ">
+                    <div className={`me-3 ${styles.cardText}`}>
+                      <div className="mb-1 text-white ">
                         {time} <br />
                         <small>{props.location}</small>
-                      </p>
+                      </div>
                       <Subtitle className={`fw-bolder text-white ${styles.cardSubtitle}`}>
                         {props.title}
                       </Subtitle>
-                    </Card.Text>
+                    </div>
                   </Col>
                 </div>
               </Row>
