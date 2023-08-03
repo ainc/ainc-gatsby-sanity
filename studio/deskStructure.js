@@ -3,7 +3,7 @@ import { MdSettings } from "react-icons/md";
 import { GiBarefoot } from 'react-icons/gi';
 
 const hiddenDocTypes = listItem =>
-  !['category', 'teamMember', 'sampleProject', 'siteSettings', 'footer', 'accomplishments','fiveAcrossSponsors','program'].includes(listItem.getId())
+  !['category', 'teamMember', 'sampleProject', 'siteSettings', 'footer', 'accomplishments','fiveAcrossSponsors','program','bootcamp'].includes(listItem.getId())
 
 export default () =>
   S.list()
@@ -62,6 +62,14 @@ export default () =>
           .id('fiveAcrossSponsors')
           .schemaType('fiveAcrossSponsors')
           .documentId('fiveAcrossSponsors')
+      ),
+      S.listItem()
+      .title('Bootcamp')
+      .child(
+        S.editor()
+          .id('bootcamp')
+          .schemaType('bootcamp')
+          .documentId('bootcamp')
       ),
       // This returns an array of all the document types
       // defined in schema.js. We filter out those that we have

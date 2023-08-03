@@ -16,10 +16,20 @@ const StyleTitle = styled.h1`
     color: white;
   }
   &.text--huge {
-    font-size: 80px;
+    font-size: ${styles.styles.sizes.title_huge};
+
+  }
+  &.text--big {
+    font-size: ${styles.styles.sizes.title_big};
+  }
+  &.text--medium {
+    font-size: ${styles.styles.sizes.title_medium};
   }
   &.text--small {
     font-size: ${styles.styles.sizes.title_small};
+  }
+  &.text--tiny {
+    font-size: ${styles.styles.sizes.title_tiny};
   }
 
   letter-spacing: 2px;

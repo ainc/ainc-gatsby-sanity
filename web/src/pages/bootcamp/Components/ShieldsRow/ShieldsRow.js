@@ -6,7 +6,7 @@ function ShieldsRow(props) {
     return (
         <div>
             <Row className="row-cols-lg-5 row-cols-md-5">
-                <Col className="my-2">
+                <Col className="my-2 ">
                     <Shield text={props.text1}></Shield>
                 </Col>
                 <Col className="my-2">
