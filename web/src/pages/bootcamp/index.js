@@ -593,29 +593,29 @@ const BootcampPage = props => {
           <Subtitle style={{fontSize: "1.25rem"}}className="text-center fs-5 pb-3 mt-4"><b>With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using</b></Subtitle>
           </Row>
           <Row>
-                <Col className={`${styles.languageIcons} justify-content-center py-4 col-sm-4`}>
-                  <Col className={``}>
+                <Col className={`${styles.languageIcons} d-flex justify-content-center py-4`} xs={10} sm={12}>
+                  <Col sm={3} md={12}>
                     <StaticImage src="../../images/bootcamp/languages/html.png" alt="HTML" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col>
+                  <Col sm={3} md={12} >
                     <StaticImage src="../../images/bootcamp/languages/css.png" alt="CSS" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col>
+                  <Col sm={3} md={12} >
                     <StaticImage src="../../images/bootcamp/languages/javascript.png" alt="JavaScript" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col>
+                  <Col sm={3} md={12} >
                   <StaticImage src="https://d33wubrfki0l68.cloudfront.net/27b5922e90fa2d54a0c37d426870c849e8a41c72/b2845/assets/img/bootcamp/languages/python.png" alt="Python Programming language" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col>
+                  <Col sm={3} md={12} >
                   <StaticImage src="../../images/bootcamp/languages/git.png" alt="Git" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col>
+                  <Col sm={3} md={12} >
                   <StaticImage src="https://d33wubrfki0l68.cloudfront.net/4aa1ba4778ed686e1877a7c5ef5875e364033ca8/f7b05/assets/img/bootcamp/languages/django.png" alt="Django Framework"/>
                   </Col>
-                  <Col>
+                  <Col sm={3} md={12} >
                   <StaticImage src="https://d33wubrfki0l68.cloudfront.net/ee9d2a6ac7c95e3ee2695ce7a14627abeb797b0f/4631a/assets/img/bootcamp/languages/react.png" style={{maxWidth: "150px"}} alt="React Framework"/>
                   </Col>
-                  <Col>
+                  <Col sm={3} md={12} >
                   <StaticImage src="../../images/bootcamp/languages/agile.png" alt="Agile" style={{maxWidth: "150px"}}/>
                   </Col>
                 </Col>

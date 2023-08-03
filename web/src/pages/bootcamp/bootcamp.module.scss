@@ -335,35 +335,9 @@
     width: 100%;
     padding-left: 100px;
     padding-right: 100px;
-    .languageRow{
-        @media (max-width:900px){
-          
-        }
-    }
     .languageIcons{
-        // @media (min-width: 901px){
-        //     spacing: 10px;
-        //     display: flex;
-        //     margin-left: auto;  
-        //     margin-right: auto;          
-
-        // }
-
-        // margin-left: 30%;
-        
-
-       
         justify-content: center;
-        @include screen-max{
-            spacing: 10px;
-            display: flex;
-            margin-left: auto;  
-            margin-right: auto; 
-                   
-        }
 
-
-       
     }
 }
 
