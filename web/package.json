@@ -32,6 +32,8 @@
     "gatsby-source-filesystem": "^5.11.0",
     "gatsby-source-rss-feed": "^1.2.2",
     "gatsby-source-sanity": "^7.8.0",
+    "gatsby-awesome-pagination": "^0.3.8",
+    "gatsby-plugin-react-svg": "^3.3.0",
     "hero-slider": "^3.1.0",
     "keen-slider": "^6.7.0",
     "moment": "^2.29.4",

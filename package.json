@@ -12,9 +12,6 @@
   "dependencies": {
     "@portabletext/react": "^2.0.2",
     "@sanity/block-content-to-react": "^3.0.0",
-    "gatsby-awesome-pagination": "^0.3.8",
-    "gatsby-plugin-react-svg": "^3.3.0",
-    "gatsby-source-rss-feed": "^1.2.2",
     "svgo": "^2.8.0"
   },
   "workspaces": [
