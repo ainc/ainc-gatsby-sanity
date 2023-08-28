@@ -54,6 +54,15 @@ export default {
         },
         
     ],
+    orderings: [
+        {
+            title: "Blog Publish Date",
+            name: 'blogPublishDate',
+            by: [
+                {field: 'date', direction: 'desc' }
+            ]
+        }
+    ],
     preview: {
         select: {
             title: 'title',
