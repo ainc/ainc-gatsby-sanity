@@ -17,7 +17,12 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sharp',
+    { 
+      resolve: 'gatsby-plugin-sharp',
+      options: {
+        placeholder: `dominantColor`,
+      }
+    },
     {
       resolve: 'gatsby-source-sanity',
       options: {

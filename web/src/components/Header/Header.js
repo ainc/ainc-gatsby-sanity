@@ -38,10 +38,14 @@ const Header = () => {
 
 
   React.useEffect(() => {
-    const navbar_selected = window.localStorage.getItem('navbar_selected');
-    const open_selected = window.localStorage.getItem('open');
-    setActive(JSON.parse(navbar_selected !== null ? navbar_selected : ''));
-    setOpen(JSON.parse(open_selected !== null ? open_selected : false)); 
+    const navbar_selected = (window.localStorage.getItem('navbar_selected') !== null);
+    const open_selected = (window.localStorage.getItem('open') !== null);
+    if (navbar_selected) {
+      setActive(JSON.parse(navbar_selected !== null ? navbar_selected : ''));
+    }
+    if (open_selected) {
+      setOpen(JSON.parse(open_selected !== null ? open_selected : false)); 
+    }
   }, []);
 
   React.useEffect(() => {
