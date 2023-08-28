@@ -20,7 +20,9 @@ const Blog = ({ pageContext }) => {
     const handleClose = () => setLgShow(false);
     const handleShow = () => setLgShow(true);
 
-    const blogInfo = pageContext.post
+    const blogInfo = pageContext.post;
+
+    const authorImage = getImage(blogInfo.reference.picture.asset.gatsbyImageData)
 
     return (
         <Layout>
@@ -30,20 +32,21 @@ const Blog = ({ pageContext }) => {
                     <Col sm={{span: 8, offset: 2}}>
                         <Title className="mt-5">{blogInfo.title}</Title>
                         <Container className='my-4'>
-                                <Row className=''>
-                                    <Col xs={{ span: 2}} sm={{span:1}} className="d-flex justify-content-center p-0 rounded-circle border border-1 border-dark">
-                                        <GatsbyImage 
-                                            objectFit='cover' 
-                                            image={blogInfo.reference.picture?.asset.gatsbyImageData || '../../images/ainc-logo-horizontal-white-text.png' } 
-                                            alt={blogInfo.reference.name} 
-                                            className="rounded-circle border border-3 border-white p-1"
-                                        />
-                                    </Col>
-                                    <Col xs={{ span: 10}} sm={{ span: 10}} className="d-flex justify-content-start align-content-center flex-column mt-2 mt-sm-1 mx-0 mx-sm-1">
-                                        <Title className={`${styles.author} mb-0`}>{blogInfo.reference.name}, {blogInfo.reference.title}</Title>
-                                        <p className={`${styles.date} text--grey`}>{blogInfo.date}</p>
-                                    </Col>
-                                </Row>
+                            <Row className=''>
+                                <Col xs={{ span: 2}} sm={{span:1}} className="d-flex justify-content-center p-0 rounded-circle border border-1 border-dark">
+                                    <GatsbyImage 
+                                        objectFit='cover' 
+                                        image={authorImage} 
+                                        // image={'../../images/ainc-logo-horizontal-white-text.png'}
+                                        alt={blogInfo.reference.name} 
+                                        className="rounded-circle border border-3 border-white p-1"
+                                    />
+                                </Col>
+                                <Col xs={{ span: 10}} sm={{ span: 10}} className="d-flex justify-content-start align-content-center flex-column mt-2 mt-sm-1 mx-0 mx-sm-1">
+                                    <Title className={`${styles.author} mb-0`}>{blogInfo.reference.name}, {blogInfo.reference.title}</Title>
+                                    <p className={`${styles.date} text--grey`}>{blogInfo.date}</p>
+                                </Col>
+                            </Row>
                         </Container>
                         <BrandButton className="text-uppercase px-2 py-0 py-sm-1" onClick={handleShow}>Notify Me</BrandButton>
 
