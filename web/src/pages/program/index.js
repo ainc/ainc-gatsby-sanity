@@ -9,7 +9,7 @@ import Subtitle from '../../components/UI/Subtitle/Subtitle'
 // import { styles } from '../../styles/Variables'
 import * as styles from '../program/program.module.scss'
 import BrandButton from '../../components/UI/BrandButton/BrandButton';
-
+import ProgramLinkTree from './ProgramLinkTree';
 
 const ProgramPage = ({ data }) => {
   const allProgram = (data.sanityProgram || {});
@@ -36,7 +36,7 @@ const ProgramPage = ({ data }) => {
             <Title className='text-uppercase text-center text-white mt-5'>Welcome to</Title>
           </Row>
           <Row>
-            <Col xs={{ offset: 1, span: 12 }}>
+            <Col xs={{ offset: 1, span: 10 }}>
               <StaticImage className='my-5 mw-100 w-75' src='../../images/5across-banner.png'></StaticImage>
             </Col>
           </Row>
@@ -55,44 +55,7 @@ const ProgramPage = ({ data }) => {
           </Row>
         </Col>
       </Container>
-      <Container className={styles.details}>
-        <Col>
-          <Row>
-            <Subtitle className='text-uppercase text-black mt-4 mb-4'>Tonight's Details</Subtitle>
-          </Row>
-          <Row>
-            <Col xs={6} className=''>
-              <BrandButton xs={6} className={`secondary my-1 w-100 text-uppercase ${styles.buttons}`}>Vote on raadz</BrandButton>
-            </Col>
-            <Col xs={6} className=''>
-              <BrandButton xs={6} className={`secondary my-1 w-100 text-uppercase ${styles.buttons}`}>Teams</BrandButton>
-            </Col>
-            <Col xs={6} className=''>
-              <BrandButton xs={6} className={`secondary my-1 w-100 text-uppercase ${styles.buttons}`}>Judges</BrandButton>
-            </Col>
-            <Col xs={6} className=''>
-              <BrandButton xs={6} className={`secondary my-1 w-100 text-uppercase ${styles.buttons}`}>Sponsors</BrandButton>
-            </Col>
-            <Col xs={6} className=''>
-              <BrandButton xs={6} className={`secondary my-1 w-100 text-uppercase ${styles.buttons}`}>Podcasts</BrandButton>
-            </Col>
-            <Col xs={6} className=''>
-              <BrandButton xs={6} className={`secondary my-1 w-100 text-uppercase ${styles.buttons}`}>Become a mentor</BrandButton>
-            </Col>
-            <Col xs={6} className=''>
-              <BrandButton xs={6} className={`secondary my-1 w-100 text-uppercase ${styles.buttons}`}>Free ticket for next 5 across</BrandButton>
-            </Col>
-            <Col xs={6} className=''>
-              <BrandButton xs={6} className={`secondary my-1 w-100 text-uppercase ${styles.buttons}`}>Startup pipeline</BrandButton>
-            </Col>
-          </Row>
-          <Row xs={12} className='mb-4'>
-            <Col xs={{ offset: 0, span: 12 }}>
-              <BrandButton className={`secondary my-2 w-100 text-uppercase ${styles.buttons}`}>More about awesome inc</BrandButton>
-            </Col>
-          </Row>
-        </Col>
-      </Container>
+      <ProgramLinkTree />
       <Container className={styles.tonightsTeams}>
         <Subtitle className='text-center my-5 text-black text-uppercase'>Tonight's Teams</Subtitle>
         <Col xs={12}>
