@@ -7,13 +7,17 @@ import * as styles from '../testimonial.module.scss'
 
 const TestimonialContent = (props) => {
     return (
-        <div>
-            <Row>
+        <div style={{height:"290px"}}>
+            <Row className='mx-3'>
                 <Col>
-                    <Subtitle className="text-uppercase fw-bold mt-5 ms-4" style={{float: "left" }}>{props.author}</Subtitle>
+                    <h4 className="text-uppercase fw-bold mt-4" style={{float: "left"}}>{props.author}</h4>
                 </Col>
+                <div>
+                    <p  style={{fontSize:"15px"}}className="mt-4 lh-lg">{props.content}</p>
+                </div>
+                
             </Row>
-            <p className="text-start mt-4 mx-4 lh-lg fs-5">{props.content}</p>
+           
         </div>
     )
 }
@@ -35,37 +39,37 @@ function Testimonial(props) {
     }
 
     return (
-        <div className={`${styles.testimonial} mx-auto`}>
-            <Row>
-                <Col className="col-2">
-                    <div className={styles.bootcampGradImages}>
-                        <Row className="my-4">
+        <div style={{backgroundColor:""}}className={`mx-auto`}>
+            <Col className={styles.testimonial}>
+                <Col xs={10} xl={2} lg={2} md={2} sm={4} className={`${styles.bootcampGradImages} ms-auto`}>
+                    {/* <div className={styles.bootcampGradImages}> */}
+                        <Col className="my-4">
                             <div onClick={(e) => handleTestimonialClick(e, props.name1, props.testimonial1)}>
                                 <GatsbyImage
                                 image={props.image1} 
                                 alt="Bootcamp Graduate 1"
                                 />
                             </div>
-                        </Row>
-                        <Row className="my-4">
+                        </Col>
+                        <Col  className="my-4">
                             <div onClick={(e) => handleTestimonialClick(e, props.name2, props.testimonial2)}>
                                 <GatsbyImage
                                 image={props.image2} 
                                 alt="Bootcamp Graduate 2" 
                                 />
                             </div>
-                        </Row>
-                        <Row className="my-4">
+                        </Col>
+                        <Col className="my-4">
                             <div onClick={(e) => handleTestimonialClick(e, props.name3, props.testimonial3)}>
                                 <GatsbyImage
                                 image={props.image3} 
                                 alt="Bootcamp Graduate 3" 
                                 />
                             </div>
-                        </Row>
-                    </div>
+                        </Col>
+                    {/* </div> */}
                 </Col>
-                <Col className="col-8">
+                <Col xs={12} xl={6} lg={6} md={6} sm={8} className="me-auto">
                     <Row className="mt-3 mb-5">
                         <div className={`${styles.testimonialWindow} mx-auto`}>
                             <Row className="">
@@ -77,7 +81,7 @@ function Testimonial(props) {
                         </div>
                     </Row>
                 </Col>
-            </Row>
+            </Col>
         </div>
     )
 }

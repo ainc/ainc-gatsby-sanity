@@ -16,12 +16,12 @@ export const styles = {
     fancyFont: `'Script MT Bold', cursive`
   },
   sizes: {
-    title: `2.4rem`,
+    title: `2.0rem`,
     title_huge: `3.2rem`,
-    title_big: `2.8rem`,
-    title_medium: `1.5rem`,
+    title_big: `2.5rem`,
+    title_medium: `1.2rem`,
     title_tiny: `0.5rem`,
-    title_small: `.7rem`,
+    title_small: `.8rem`,
     subtitle: `1.5rem`,
     subtitle_small: `1.4rem`,
     subtitle_tiny: `0.7rem`,
