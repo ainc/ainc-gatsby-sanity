@@ -4,9 +4,6 @@ import { Container, Row, Col, } from 'react-bootstrap';
 import SEO from '../../../components/seo'
 import BrandButton from "../../../components/UI/BrandButton/BrandButton";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
-import OnlineApplication from "../../../assets/svg/Online-Application.svg";
-import ScheduleCall from "../../../assets/svg/Schedule-a-Call.svg";
-import FioChallenge from "../../../assets/svg/FIO-Challenge.svg";
 
 const Page = ({ data }) => {
 
@@ -26,11 +23,13 @@ const Page = ({ data }) => {
         <Row>
             <Col md={{ span: 9, offset: 2 }}>
                 <div className="ms-5 my-5">
-                    <OnlineApplication style={{width: "180px"}} />
+                    <img src="../../../assets/svg/Online-Application.svg" style={{width: "180px"}} />
                     <StaticImage className="mt-5 mx-5" quality='100' src="./images/arrow-steps.png"/>
-                    <ScheduleCall style={{width: "150px"}} />
+                    <img src="../../../assets/svg/Schedule-a-Call.svg" style={{width: "180px"}} />
                     <StaticImage className="mt-5 mx-5" quality='100' src="./images/arrow-steps.png"/>
-                    <FioChallenge style={{width: "150px"}} />
+                    <img src="../../../assets/svg/FIO-Challenge.svg" style={{width: "180px"}} />
+                    <StaticImage className="mt-5 mx-5" quality='100' src="./images/arrow-steps.png"/>
+                    
                 </div>
             </Col>
         </Row>
