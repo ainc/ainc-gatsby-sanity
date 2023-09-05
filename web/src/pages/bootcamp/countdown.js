@@ -54,7 +54,6 @@ const Countdown = props => {
         var distanceRegister = countDownRegister - now;
         var distanceApplication = countDownApplication - now;
 
-        if (distance)
         if (distanceApplication < distanceRegister){
             var distance = distanceApplication
             var nextDistance = distanceRegister

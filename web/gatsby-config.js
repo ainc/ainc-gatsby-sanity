@@ -9,12 +9,20 @@ const token = process.env.SANITY_READ_TOKEN
 const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
+  flags: {
+    DEV_SSR: true // enable server-side rendering to bypass `netlify build`
+  },
   plugins: [
     'gatsby-plugin-postcss',
     'gatsby-plugin-image',
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sharp',
+    { 
+      resolve: 'gatsby-plugin-sharp',
+      options: {
+        placeholder: `dominantColor`,
+      }
+    },
     {
       resolve: 'gatsby-source-sanity',
       options: {
@@ -52,5 +60,6 @@ module.exports = {
     title: "Awesome Inc",
     description: "Awesome Inc website",
     siteUrl: "https://awesomeinc.org",
-  }
+  },
+  
 }

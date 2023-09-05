@@ -1,11 +1,10 @@
-import S from '@sanity/desk-tool/structure-builder'
 import { MdSettings } from "react-icons/md";
 import { GiBarefoot } from 'react-icons/gi';
 
 const hiddenDocTypes = listItem =>
   !['category', 'teamMember', 'sampleProject', 'siteSettings', 'footer', 'accomplishments','fiveAcrossSponsors','program','bootcamp'].includes(listItem.getId())
 
-export default () =>
+export default (S) =>
   S.list()
     .title('Content')
     .items([

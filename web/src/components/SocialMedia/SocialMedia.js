@@ -3,6 +3,7 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 import * as styles from "../../pages/about/about.module.css";
 import SocialMediaPhone from "../../images/social-media-phone.gif";
 import {
+  FaTiktok,
   FaTwitter,
   FaFacebookF,
   FaLinkedinIn,
@@ -59,6 +60,11 @@ const SocialMedia = () => {
                     <li>
                       <a href="https://www.youtube.com/user/AincTelevision/featured" aria-label="Visit our Youtube">
                         <FaYoutube />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.tiktok.com/@awesomeinclex" aria-label="Visit our TikTok">
+                        <FaTiktok />
                       </a>
                     </li>
                   </ul>
