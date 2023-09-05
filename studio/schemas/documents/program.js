@@ -26,6 +26,12 @@ export default {
             of: [{type: 'link'}]
         },
         {
+            name: 'next_event_link',
+            type: 'link',
+            title: 'Next event free ticket link',
+            description: 'Enter the entire link (not just the coupon code)'
+        },
+        {
             name: 'teams',
             type: 'array',
             title: 'Teams',
