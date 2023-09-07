@@ -159,13 +159,9 @@ const fiveAcrossPage = ({ data }) => {
                     <Col sm="2" className={`d-none d-sm-block`}></Col>
                 </Row>
                 <Row className="mt-5">
-                    <Col></Col>
-                    <Col></Col>
-                    <Col></Col>
-                    <Col className="d-none d-md-block">
+                    <Col xs={{ span: 2, offset: 7 }} className="d-none d-md-block">
                         <StaticImage quality="90" src="../../../images/5across-arrow.png" alt="5 across arrow" />
                     </Col>
-                    <Col></Col>
 
                 </Row>
             </Container>
