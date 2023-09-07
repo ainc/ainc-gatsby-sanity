@@ -21,13 +21,13 @@ import HorizontalButtons from './HorizontalButtons';
 
 const fiveAcrossPage = ({ data }) => {
 
-    const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].titleSponsor.title || {});
-    const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].titleSponsor.link || {});
-    const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].titleSponsor.image.asset.gatsbyImageData || {});
+    const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].titleSp.title || {});
+    const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].titleSp.link || {});
+    const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].titleSp.image.asset.gatsbyImageData || {});
 
-    const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSponsor.title || {});
-    const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSponsor.link || {});
-    const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSponsor.image.asset.gatsbyImageData || {});
+    const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.title || {});
+    const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.link || {});
+    const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.image.asset.gatsbyImageData || {});
 
     const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors || {});
     const nextFiveAcross = (data.allSanityEvents.nodes || {});
@@ -326,7 +326,7 @@ query fiveAcrossQuery($currentDate: Date!) {
     }
     allSanityFiveAcrossSponsors {
         nodes {
-          presetingSponsor {
+          presentingSp {
             title
             link
             image {
@@ -335,7 +335,7 @@ query fiveAcrossQuery($currentDate: Date!) {
                 }
             }
           }
-          titleSponsor {
+          titleSp {
             title
             link
             image {
