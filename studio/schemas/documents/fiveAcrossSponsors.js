@@ -11,14 +11,14 @@ export default {
             hidden: true
         },
         {
+            name: 'titleSp',
             title: 'Title Sponsor',
             type: 'imageLink',
-            name: 'titleSponsor'
         },
         {
+            name: 'presentingSp',
             title: 'Presenting Sponsor',
             type: 'imageLink',
-            name: 'presetingSponsor'
         },
         {
             name: 'suppourtingSponsors',
