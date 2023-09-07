@@ -21,13 +21,13 @@ import HorizontalButtons from './HorizontalButtons';
 
 const fiveAcrossPage = ({ data }) => {
 
-    const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].titleSponsorName || {});
-    const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].titleSponsorLink || {});
-    const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].titleSponsorImage.asset.gatsbyImageData || {});
+    const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].titleSponsor.title || {});
+    const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].titleSponsor.link || {});
+    const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].titleSponsor.image.asset.gatsbyImageData || {});
 
-    const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSponsorName || {});
-    const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSponsorLink || {});
-    const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSponsorImage.asset.gatsbyImageData || {});
+    const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSponsor.title || {});
+    const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSponsor.link || {});
+    const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSponsor.image.asset.gatsbyImageData || {});
 
     const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors || {});
     const nextFiveAcross = (data.allSanityEvents.nodes || {});
@@ -326,18 +326,22 @@ query fiveAcrossQuery($currentDate: Date!) {
     }
     allSanityFiveAcrossSponsors {
         nodes {
-          presetingSponsorName
-          presentingSponsorLink
-          presentingSponsorImage {
-            asset {
-              gatsbyImageData
+          presetingSponsor {
+            title
+            link
+            image {
+                asset {
+                  gatsbyImageData
+                }
             }
           }
-          titleSponsorName
-          titleSponsorLink
-          titleSponsorImage {
-            asset {
-              gatsbyImageData
+          titleSponsor {
+            title
+            link
+            image {
+                asset {
+                  gatsbyImageData
+                }
             }
           }
           suppourtingSponsors {
