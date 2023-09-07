@@ -1,3 +1,4 @@
+
 {
   "private": true,
   "name": "ainc-gatsby-sanity-web",
@@ -39,16 +40,6 @@
     "keen-slider": "^6.7.0",
     "moment": "^2.29.4",
     "postcss": "^8.4.5",
-<<<<<<< HEAD
-    "react": "^17.0.2",
-    "react-bootstrap": "^2.4.0",
-    "react-countdown": "^2.3.5",
-    "react-dom": "^17.0.2",
-    "react-eventbrite-popup-checkout": "^2.0.8",
-    "react-helmet": "^6.1.0",
-    "react-icons": "^4.7.1",
-    "sass": "^1.64.2",
-=======
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
@@ -59,7 +50,6 @@
     "rehype-raw": "^6.1.1",
     "remark-gfm": "^3.0.1",
     "sass": "^1.53.0",
->>>>>>> 3a80974f3cc110eab06403d8284d82a00398adb8
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
