@@ -180,12 +180,15 @@ const BootcampPage = props => {
                 {/* <Subtitle className="text-center brand fst-italic fw-light fs-6">(your answer is safe with us, we promise.)</Subtitle> */}
               </Col>
           </Row>
-              <Col>
+          <Row>
+                <Col>
                 <Title className="text-center text--medium mt-3">Early Registration Deadline </Title>
                 <Title id="countdown" className="text-center text--medium">7d 12h 59m 27s</Title>
                 <Countdown data={data.sanityBootcamp}/>
                 <Title className="text-center text--small fw-bold fst-italic"> Guarantees open spots for next class</Title>
               </Col>
+          </Row>
+              
           <Row>
               <Col xs={12} sm ={12}  md={4} lg={3} xl={3}  className={` ${styles.bootcampUpcomingdates} text-center ms-auto my-4`}>
               <Title className="text-center text--medium"><strong>MAY 22, 2023</strong></Title>
