@@ -16,9 +16,9 @@ import * as footerStyles from '../../components/Footer/Footer.module.scss'
 import ShieldsRow from "./Components/ShieldsRow/ShieldsRow";
 import VerticalTitle from "../../components/UI/VerticalTitle/VerticalTitle";
 import SideNav from "./Components/SideNav/SideNav"
-import Countdown from "../bootcamp/countdown";
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
+import CountdownTimer from "./Components/CountdownTimer/CountdownTimer";
 
 
 export const query = graphql`
@@ -93,6 +93,14 @@ const BootcampPage = props => {
 
   const employers = (data.allSanityBootcampEmployers.nodes || {})
 
+  const earlyApplicationDeadline = (data.sanityBootcamp.earlyApplication)
+  const earlyRegistration = (data.sanityBootcamp.earlyRegistration)
+
+  const THREE_DAYS_IN_MS = 3 * 24 * 60 * 60 * 1000;
+  const NOW_IN_MS = new Date().getTime();
+
+  const dateTimeAfterThreeDays = NOW_IN_MS + THREE_DAYS_IN_MS;
+
   if (errors) {
     return (
       <Layout>
@@ -139,7 +147,7 @@ const BootcampPage = props => {
 
   return ( 
     <Layout pageTitle="Bootcamp">
-      <SEO/>
+      <SEO title="Bootcamp"/>
       {/* Add SEO Component Here?? */}
       
       {/* Header section */}
@@ -151,7 +159,7 @@ const BootcampPage = props => {
           <Row className="mt-5 ms-5">
             <Col xs={{span: 12, offset: 0}} sm={{span: 8, offset: 4}} md={8} lg={6} xl={5}>
               <div className={`${styles.titleBlock} align-items-end d-flex flex-column`}>
-                <Title id="title" className='white text-uppercase text--big'> Launch your <br/> tech career</Title>
+                <Title className='white text-uppercase text--big'> Launch your <br/> tech career</Title>
                 <h4 className=" w-75 text-end lh-md white mt-4 fw-lighter"><b>A 16 week immersive Bootcamp where you'll learn Full Stack coding skills to land a tech job... or your money back.</b></h4>
                 <BrandButton className="mt-3">Get Started</BrandButton>
                 <p style={{fontSize:"12px"}} className="fst-italic">Start your application in less than 30 seconds</p>
@@ -180,25 +188,27 @@ const BootcampPage = props => {
                 {/* <Subtitle className="text-center brand fst-italic fw-light fs-6">(your answer is safe with us, we promise.)</Subtitle> */}
               </Col>
           </Row>
+          <Row>
               <Col>
                 <Title className="text-center text--medium mt-3">Early Registration Deadline </Title>
-                <Title id="countdown" className="text-center text--medium">7d 12h 59m 27s</Title>
-                <Countdown data={data.sanityBootcamp}/>
+                <CountdownTimer />
+                <Title className="text-center text--medium">7d 12h 59m 27s</Title>
                 <Title className="text-center text--small fw-bold fst-italic"> Guarantees open spots for next class</Title>
               </Col>
+          </Row>
           <Row>
               <Col xs={12} sm ={12}  md={4} lg={3} xl={3}  className={` ${styles.bootcampUpcomingdates} text-center ms-auto my-4`}>
-              <Title className="text-center text--medium"><strong>MAY 22, 2023</strong></Title>
-              <h4>TO</h4>
-              <Title className="text-center text--medium"><strong>AUGUST 25, 2023</strong></Title>
-              <BrandButton className="secondary btn--small my-2" disabled="">APPLICATIONS CLOSED</BrandButton>
+                <Title className="text-center text--medium fw-bolder">MAY 22, 2023</Title>
+                <h4>TO</h4>
+                <Title className="text-center text--medium fw-bolder">AUGUST 25, 2023</Title>
+                <BrandButton className="secondary btn--small my-2" disabled="">APPLICATIONS CLOSED</BrandButton>
 
               </Col>
               <Col xs={12} sm={12} md={4} lg={3} xl={3} className="text-center  me-auto my-4">
-              <Title className="text-center text--medium brand "><strong>AUG 21, 2023</strong></Title>
-              <h4><font color = "#C12029">TO</font></h4>
-              <Title className="text-center text--medium brand"><strong>DECEMBER 08, 2023</strong></Title>
-              <BrandButton className="justify-content-center btn--small my-2" disabled="">APPLY NOW</BrandButton>
+                <Title className="text-center text--medium brand fw-bolder">AUG 21, 2023</Title>
+                <h4 className="brand">TO</h4>
+                <Title className="text-center text--medium brand fw-bolder">DECEMBER 08, 2023</Title>
+                <BrandButton className="justify-content-center btn--small my-2" disabled="">APPLY NOW</BrandButton>
               </Col>
           </Row>
 
@@ -248,7 +258,7 @@ const BootcampPage = props => {
 
       {/* Answer Honestly */}
       <section id="answer-honestly">
-        <Container fluid style={{backgroundColor:""}} className="py-5">
+        <Container fluid className="py-5">
           <Row>
             <Col>
               <Title className="text-center brand fs-3 text--medium">Answer honestly...</Title>
@@ -328,33 +338,33 @@ const BootcampPage = props => {
 
       <section id="carousel">
         <Container ref={sliderRef} className={`${styles.carousel} keen-slider pb-5`} > 
-            <div style={{backgroundColor:""}} className="keen-slider__slide number-slide1">
-              <div style={{width:"40%", border:""}} className="justify-content-center mx-auto py-3">
-                <StaticImage style={{}} className={`${styles.aincuTestimonial} px-5 pt-5`} src="../../images/bootcamp-testimonials/alyssa-holber-linkedin.png"/>
+            <div className="keen-slider__slide number-slide1">
+              <div style={{width:"40%"}} className="justify-content-center mx-auto py-3">
+                <StaticImage alt="Testimonial 1" style={{}} className={`${styles.aincuTestimonial} px-5 pt-5`} src="../../images/bootcamp-testimonials/alyssa-holber-linkedin.png"/>
               </div>
             </div>
           
-            <div style={{backgroundColor:"", border:""}} className="keen-slider__slide number-slide2">
+            <div  className="keen-slider__slide number-slide2">
               <div style={{width: "45%"}} className="justify-content-center mx-auto py-3">
-                <StaticImage className={`${styles.aincuTestimonial} px-5`} src="../../images/bootcamp-testimonials/josh-dale-linkedin.png"/>
+                <StaticImage alt="Testimonial 2" className={`${styles.aincuTestimonial} px-5`} src="../../images/bootcamp-testimonials/josh-dale-linkedin.png"/>
               </div>
             </div>
 
-            <div style={{backgroundColor:""}} className="keen-slider__slide number-slide3">
+            <div className="keen-slider__slide number-slide3">
               <div style={{maxWidth: "45%"}} className="justify-content-center mx-auto py-3">
-                <StaticImage className={`${styles.aincuTestimonial} pt-5`} src="../../images/bootcamp-testimonials/mason-williams.png"/>
+                <StaticImage alt="Testimonial 3" className={`${styles.aincuTestimonial} pt-5`} src="../../images/bootcamp-testimonials/mason-williams.png"/>
               </div>
             </div>
             
-            <div style={{backgroundColor:""}} className="keen-slider__slide number-slide4">
+            <div className="keen-slider__slide number-slide4">
               <div style={{maxWidth: "40%"}}className=" justify-content-center mx-auto py-3">
-                <StaticImage className={`${styles.aincuTestimonial} px-5 pt-5`} src="../../images/bootcamp-testimonials/reic-sparks.png"/>
+                <StaticImage alt="Tetimonial 4" className={`${styles.aincuTestimonial} px-5 pt-5`} src="../../images/bootcamp-testimonials/reic-sparks.png"/>
               </div>
             </div>
 
-            <div style={{backgroundColor:""}} className="keen-slider__slide number-slide5">
+            <div className="keen-slider__slide number-slide5">
               <div style={{maxWidth: "50%"}} className="justify-content-center mx-auto px-5 py-3">
-                <StaticImage className={`${styles.aincuTestimonial} px-5 mx-5`} src="../../images/bootcamp-testimonials/roger-mullins-linkedin.png"/>
+                <StaticImage alt="Tetimonial 5" className={`${styles.aincuTestimonial} px-5 mx-5`} src="../../images/bootcamp-testimonials/roger-mullins-linkedin.png"/>
               </div>
             </div>
 
@@ -409,7 +419,7 @@ const BootcampPage = props => {
         <Container fluid className={styles.jobGuarantee}>
           <Row className={styles.imgRow}>
             <Col className="d-flex justify-content-center">
-              <StaticImage src='../../images/bootcamp/job-guaranteed.png' alt='job guaranteed' style={{maxWidth: "275px"}}></StaticImage>
+              <StaticImage alt="Job Guarantee" src='../../images/bootcamp/job-guaranteed.png' style={{maxWidth: "275px"}} />
             </Col>
           </Row>
           <Row className="mx-5">
@@ -429,7 +439,7 @@ const BootcampPage = props => {
                   <Col className={`${styles.statsCol} justify-content-center`} >
                   {gradStats.map((node,i) => (
                     //  <Col className={`${styles.statsCol} mt-2`}>
-                       <div  className={`${styles.statsRow}`}>
+                       <div key={i} className={`${styles.statsRow}`}>
                         <GradStat
                         image={node.picture.asset.gatsbyImageData}
                         alt={node.title}
@@ -464,7 +474,7 @@ const BootcampPage = props => {
               <Col>
                 <Row className="row-cols-lg-5 my-5 mx-5">
                   {employers.map((node,i) => (
-                    <div class="text-center" xs={12} >
+                    <div key={i} className="text-center" xs={12} >
                       <GatsbyImage 
                       style={{
                         maxWidth: "180px",
@@ -543,25 +553,25 @@ const BootcampPage = props => {
           </Row>
           <Col className={`${styles.applyCol} justify-content-center mb-5`}>
               <div>
-                <StaticImage src="../../images/bootcamp/online-application.png" className="" style={{maxWidth:"180px"}}/>
+                <StaticImage alt="Bootcamp online application" src="../../images/bootcamp/online-application.png" className="" style={{maxWidth:"180px"}}/>
               </div>
               <div className="d-flex align-items-center">
-                <StaticImage src="../../images/bootcamp/arrow-steps.png" className={`${styles.arrowImg} mt-5`} style={{maxWidth:"180px"}}/>
+                <StaticImage alt="Arrow steps" src="../../images/bootcamp/arrow-steps.png" className={`${styles.arrowImg} mt-5`} style={{maxWidth:"180px"}}/>
               </div>
               <div>
-                    <StaticImage src="../../images/bootcamp/basic-challenge.png" className="" style={{maxWidth:"180px"}}/>
+                    <StaticImage alt="Basic challenges" src="../../images/bootcamp/basic-challenge.png" className="" style={{maxWidth:"180px"}}/>
               </div>
               <div className="d-flex align-items-center">
-                <StaticImage src="../../images/bootcamp/arrow-steps.png" className={`${styles.arrowImg} mt-5`} style={{maxWidth:"180px"}}/>
+                <StaticImage alt="Arrow steps" src="../../images/bootcamp/arrow-steps.png" className={`${styles.arrowImg} mt-5`} style={{maxWidth:"180px"}}/>
               </div>
               <div>
-                    <StaticImage src="../../images/bootcamp/in-person-interview.png" className="" style={{maxWidth:"180px"}}/>
+                    <StaticImage alt="in person interview" src="../../images/bootcamp/in-person-interview.png" className="" style={{maxWidth:"180px"}}/>
               </div>
               <div className="d-flex align-items-center" >
-                <StaticImage src="../../images/bootcamp/arrow-steps.png" className={`${styles.arrowImg} mt-5`} style={{maxWidth:"180px"}}/>
+                <StaticImage alt="Arrow steps" src="../../images/bootcamp/arrow-steps.png" className={`${styles.arrowImg} mt-5`} style={{maxWidth:"180px"}}/>
               </div>
               <div>
-                    <StaticImage src="../../images/bootcamp/fio-challenge.png" className="" style={{maxWidth:"180px"}}/>
+                    <StaticImage alt="Figure it out challenge" src="../../images/bootcamp/fio-challenge.png" className="" style={{maxWidth:"180px"}}/>
               </div>
 
           </Col>
@@ -592,7 +602,7 @@ const BootcampPage = props => {
             </div>
             <Col  sm={12} md={12} lg={12} xl={9}>
               <Row className="">
-                <p style={{maxWidth:"",fontSize:"0.8rem"}}className="text-justify">This is a realistic timeline of what a Web Developer Bootcamp student can expect from applying to the program to becoming a proud alumni.</p>
+                <p style={{fontSize:"0.8rem"}}className="text-justify">This is a realistic timeline of what a Web Developer Bootcamp student can expect from applying to the program to becoming a proud alumni.</p>
               </Row>
               <Row className="">
                 <img style={{maxWidth:"90%"}}className="text-center pl-2" src={require('/src/images/bootcamp/timeline.png').default} alt=""/>

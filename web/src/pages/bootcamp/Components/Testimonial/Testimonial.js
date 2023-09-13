@@ -39,7 +39,7 @@ function Testimonial(props) {
     }
 
     return (
-        <div style={{backgroundColor:""}}className={`mx-auto`}>
+        <div className={`mx-auto`}>
             <Col className={styles.testimonial}>
                 <Col xs={10} xl={2} lg={2} md={2} sm={4} className={`${styles.bootcampGradImages} ms-auto`}>
                     {/* <div className={styles.bootcampGradImages}> */}
