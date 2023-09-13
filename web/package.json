@@ -1,4 +1,3 @@
-
 {
   "private": true,
   "name": "ainc-gatsby-sanity-web",
@@ -42,6 +41,7 @@
     "postcss": "^8.4.5",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
+    "react-countdown": "^2.3.5",
     "react-dom": "^18.2.0",
     "react-eventbrite-popup-checkout": "^2.0.8",
     "react-helmet": "^6.1.0",

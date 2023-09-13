@@ -4,8 +4,8 @@ import Shield from '../Shield/Shield';
 
 function ShieldsRow(props) {
     return (
-        <div style={{width:"100vw", backgroundColor:""}}>
-            <Row style={{backgroundColor:""}} className='justify-content-center mx-auto me-auto'>
+        <div style={{width:"100vw"}}>
+            <Row className='justify-content-center mx-auto me-auto'>
                
                 <Col xs={2} sm={1} lg={1} xl={1} className="col-2 me-5">
                     <Shield className="mt-5" text={props.text1}></Shield>
