@@ -6,6 +6,9 @@ function SideNav() {
         <div class={styles.navContainer}>
             <nav aria-label="side-navigation">
                 <ul class="nav flex-column">
+                <li class="nav-item">
+                      <a href="#testimonials" class="nav-link text-uppercase text-body text--micro">Program Dates</a>
+                    </li>
                     <li class="nav-item">
                       <a href="#testimonials" class="nav-link text-uppercase text-body text--micro">Hear From Our Alumni</a>
                     </li>
