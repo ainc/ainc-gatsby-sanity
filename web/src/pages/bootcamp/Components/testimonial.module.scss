@@ -1,11 +1,49 @@
+@import "../../../styles/mixins.scss";
+@import "../../../styles/variables.scss"; 
+
 .testimonial {
-    margin-left: 100px;
-    margin-right: 100px;
+    // margin-left: 100px;
+    // margin-right: 100px;
+    @include screen-max{
+      display: flex;
+    }
+    @include screen-lg{
+      display: flex;
+    }
+    @include screen-md{
+      display: flex;
+    }
+    @include screen-sm{
+      display: flex;
+    }
 }
 
 .bootcampGradImages {
+    // float: left;
+    @include screen-max{
+      flex: none;
+      // border: solid pink;
+    }
+    @include screen-lg{
+     flex: none;
+    //  border: solid white;
+    }
+    @include screen-md{
+      flex: none;
+      // border: dashed;
+    }
+    @include screen-sm{
+      flex: none;
+      // border: solid blue;
+
+    }
+    @include screen-xs{
+      display: flex;
+      
+    }
+    
     img {
-        width: 125px;
+        width: 100px;
         margin-bottom: 3rem;
         border: 2px rgba(255, 255, 255, 0.8) solid;
         &:last-child {
@@ -16,11 +54,18 @@
 
 .testimonialWindow {
     background-color: rgba(255, 255, 255, 0.8);
-    max-width: 75%;
+    // width: 500px;
+    // height: 700px;
     margin-top: 5px;
+    padding-bottom: 60px;
+    text-align: justify;
+    opacity: 0.9;
+    
 
-    width: 708px;
-    height: 424px;
+    width: 80%;
+    height: 90%;
+
+    // height: 500px;
 
     .testimonial-window-text {
         max-width: 75%;
