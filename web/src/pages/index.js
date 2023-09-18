@@ -254,7 +254,7 @@ const IndexPage = ({ data }) => {
                     alt={node.courseTitle} 
                     className="m-2 d-flex align-content-center" 
                     objectFit="scale-down" 
-                    style={{maxHeight: `280px`}}
+                    style={{maxHeight: `300px`}}
                   />
 
                   <Card.Body className="d-flex flex-column my-3 mx-3">
