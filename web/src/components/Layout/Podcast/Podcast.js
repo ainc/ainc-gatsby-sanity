@@ -21,7 +21,7 @@ const Podcast = () => {
           <Subtitle className='text-center fw-bold'>
             Have a podcast? Record yours from our space!
           </Subtitle>
-          <a className='d-flex justify-content-center' href="https://calendly.com/ainc-recording">
+          <a href="https://calendly.com/ainc-recording" target="_blank" rel="noopener noreferrer" className='d-flex justify-content-center' >
             <BrandButton className="my-5 mb-5">Reserve a time on our calendar</BrandButton>
           </a>
         </Col>

@@ -93,8 +93,8 @@ const BootcampPage = props => {
 
   const employers = (data.allSanityBootcampEmployers.nodes || {})
 
-  const earlyApplicationDeadline = (data.sanityBootcamp.earlyApplication)
-  const earlyRegistration = (data.sanityBootcamp.earlyRegistration)
+  
+
 
   const THREE_DAYS_IN_MS = 3 * 24 * 60 * 60 * 1000;
   const NOW_IN_MS = new Date().getTime();
@@ -161,7 +161,7 @@ const BootcampPage = props => {
               <div className={`${styles.titleBlock} align-items-end d-flex flex-column`}>
                 <Title className='white text-uppercase text--big'> Launch your <br/> tech career</Title>
                 <h4 className=" w-75 text-end lh-md white mt-4 fw-lighter"><b>A 16 week immersive Bootcamp where you'll learn Full Stack coding skills to land a tech job... or your money back.</b></h4>
-                <BrandButton className="mt-3">Get Started</BrandButton>
+                <a href = "#"><BrandButton className="mt-3">Get Started</BrandButton></a>
                 <p style={{fontSize:"12px"}} className="fst-italic">Start your application in less than 30 seconds</p>
 
               </div>
@@ -191,8 +191,11 @@ const BootcampPage = props => {
           <Row>
               <Col>
                 <Title className="text-center text--medium mt-3">Early Registration Deadline </Title>
-                <CountdownTimer />
-                <Title className="text-center text--medium">7d 12h 59m 27s</Title>
+                <div>
+                  <CountdownTimer countdownTime={data.sanityBootcamp}/>
+                </div>
+                
+                {/* <Title  id = "timer" className="text-center text--medium">7d 12h 59m 27s</Title> */}
                 <Title className="text-center text--small fw-bold fst-italic"> Guarantees open spots for next class</Title>
               </Col>
           </Row>
@@ -682,7 +685,7 @@ const BootcampPage = props => {
         </Container>
       </section>
 
-    </Layout>
+     </Layout>
   );
 };
 

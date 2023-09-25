@@ -10,7 +10,9 @@ const WhatWeDo = (props) => {
       <p className={`${styles.content}`}>{props.content}</p>
       <div className="d-flex justify-content-center">
         <div className={styles.absolute}>
+          
           <BrandButton className={`d-flex justify-content-center`}>{props.btnText}</BrandButton>
+         
         </div>
       </div>
     </div>

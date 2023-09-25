@@ -171,7 +171,7 @@ const IndexPage = ({ data }) => {
               <Title className="mt-5 text-center text-uppercase">Welcome to Awesome Inc</Title>
               <p className="mt-3 mb-5 text-center">Pursue your Definition of Awesome</p>
               <p className="mt-3 text-center">We exist to create and grow high tech startups. We do this by hosting community events, leading technology education courses, and offering a shared workspace environment. Click one of our initiatives above to learn more about Awesome Inc.</p>
-              <a href="#"><BrandButton className="secondary d-block mx-auto">Learn More</BrandButton></a>
+              <a href="../about"><BrandButton className="secondary d-block mx-auto">Learn More</BrandButton></a>
             </Col>
           </Row>
           
@@ -232,8 +232,8 @@ const IndexPage = ({ data }) => {
           </Row>
           <Row>
             <Col className="d-flex justify-content-center my-5">
-              <a href="#">
-                <BrandButton href="/events">View Events</BrandButton>
+              <a href="../events">
+                <BrandButton>View Events</BrandButton>
               </a>
             </Col>
           </Row>
@@ -276,8 +276,8 @@ const IndexPage = ({ data }) => {
           </Row>
           <Row>
             <Col className="d-flex justify-content-center my-5">
-              <a href="#">
-                <BrandButton href="/events">View Courses</BrandButton>
+              <a href="../learn">
+                <BrandButton>View Courses</BrandButton>
               </a>
             </Col>
           </Row>
@@ -379,6 +379,5 @@ const IndexPage = ({ data }) => {
     </Layout>
   );
 };
-
 
 export default IndexPage;

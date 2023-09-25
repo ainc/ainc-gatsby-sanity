@@ -42,8 +42,8 @@ const LearnPage = ({ data }) => {
           <Col className="m-auto">
             <Title className="brand text-uppercase" >Learn to Code</Title>
             <p className="fst-italic">with Awesome Inc</p>
-            <BrandButton className="secondary mr-3">Youth</BrandButton>
-            <BrandButton className="secondary mx-3">Adult</BrandButton>
+            <a href = "../learn/youth"><BrandButton  className="secondary mr-3">Youth</BrandButton></a>
+            <a href = "../learn/adults"><BrandButton className="secondary mx-3">Adult</BrandButton></a>
           </Col>
         </Row>
       </Container>
@@ -76,7 +76,7 @@ const LearnPage = ({ data }) => {
             <p className="text-left mb-2">
             Students age 9-16 love making games and apps with us. Turn screen time into career-skill time.
             </p>
-            <BrandButton className="secondary btn--small text-end float-left">Learn More</BrandButton>
+            <a href = "../learn/youth"><BrandButton className="secondary btn--small text-end float-left">Learn More</BrandButton></a>
           </Col>
         </Row>
         <Row className="mt-5">
@@ -88,7 +88,7 @@ const LearnPage = ({ data }) => {
             <p className="text-end mb-2">
               If you can write an email, we can help you learn to code. Great for aspiring entrepreneurs and career switchers.
             </p>
-            <BrandButton className="secondary btn--small text-end float-end">Learn More</BrandButton>
+            <a href = "../learn/adults"><BrandButton className="secondary btn--small text-end float-end">Learn More</BrandButton></a>
           </Col>
           <Col xs={12} sm={{ span: 5}}>
             <StaticImage className="p-2 mt-2"src='../../images/learn/adult-coding-laptop.jpeg' alt='learn to code' />
