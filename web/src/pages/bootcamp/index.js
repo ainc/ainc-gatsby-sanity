@@ -191,7 +191,7 @@ const BootcampPage = props => {
           <Row>
               <Col>
                 <Title className="text-center text--medium mt-3">Early Registration Deadline </Title>
-                <div>
+                <div className="text-center">
                   <CountdownTimer countdownTime={data.sanityBootcamp}/>
                 </div>
                 
