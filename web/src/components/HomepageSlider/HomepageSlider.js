@@ -25,7 +25,6 @@ const HomepageSlider = (props) => {
           image {
             asset {
               url
-              gatsbyImage(width: 1200, placeholder: DOMINANT_COLOR)
             }
           }
         }
@@ -35,7 +34,6 @@ const HomepageSlider = (props) => {
 
   const slides = (query.sanityImageSlider.slides || {});
 
-  const images = slides.image.asset.gatsbyImage;
   return (
     <HeroSlider
       controller={{

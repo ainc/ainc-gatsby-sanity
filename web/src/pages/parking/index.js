@@ -8,12 +8,14 @@ import Subtitle from "../../components/UI/Subtitle/Subtitle"
 import BrandButton from "../../components/UI/BrandButton/BrandButton"
 import * as styles from './parking.module.css'
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import HomepageSlider from '../../components/HomepageSlider/HomepageSlider';
 
 const ParkingPage = ({ data }) => {
 
     return (
         <Layout>
             <SEO />
+                <HomepageSlider />
              <Container className='ps-3'>
                 <Col xs={{offset:1, span:10}} md={{offset: 1, span:10}} lg={{offset:0, span: 12}} xl={{offset: 3, span: 6}}>
                 
