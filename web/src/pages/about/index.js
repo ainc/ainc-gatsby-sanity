@@ -39,16 +39,22 @@ const AboutPage = ({ data }) => {
                     technology or business. We strive to make Lexington a better place to live and
                     work.
                   </Subtitle>
-                  <BrandButton className={`text-nowrap`}>View Our Culture Book</BrandButton>
+                  <a href="https://www.awesomeinc.org/assets/culture-book.pdf">
+                    <BrandButton className={`text-nowrap`}>View Our Culture Book</BrandButton>
+                  </a>
+                  
                 </div>
               </Col>
             </Row>
             <Row>
               <Image className={`${styles.headerImg}`} src={coreValues} alt="core-values" />
               <Col className="col-sm-8 col-10">
+                <a href="https://www.awesomeinc.org/assets/core-values.pdf">
                 <BrandButton className={`text-nowrap`}>
                   Read About Our Core Values
                 </BrandButton>
+                </a>
+               
               </Col>
             </Row>
           </Container>
@@ -68,7 +74,7 @@ const AboutPage = ({ data }) => {
                     md={4}
                     sm={12}
                   >
-                    <a href="#" role="button">
+                    <a href="../workspace" role="button">
                       <GatsbyImage
                         objectFit="scale-down"
                         className={styles.imageLinks}
@@ -84,7 +90,7 @@ const AboutPage = ({ data }) => {
                     md={4}
                     sm={12}
                   >
-                    <a href="#" role="button">
+                    <a href="../fellowship" role="button">
                       <GatsbyImage
                         objectFit="scale-down"
                         className={styles.imageLinks}
@@ -100,7 +106,7 @@ const AboutPage = ({ data }) => {
                     md={4}
                     sm={12}
                   >
-                    <a href="#" role="button">
+                    <a href="../learn" role="button">
                       <GatsbyImage
                         objectFit="scale-down"
                         image={
@@ -131,6 +137,7 @@ const AboutPage = ({ data }) => {
                   subHeading="Coding School"
                   content="Awesome Inc U is our coding school. It is for both adults and children. We have taught over 1500 people to code with us."
                   btnText="Read More"
+                  to="../learn"
                 />
               </Col>
               <Col sm={12} md={6} lg={4}>
@@ -138,13 +145,16 @@ const AboutPage = ({ data }) => {
                   subHeading="Entrepreneurial Hub"
                   content="Our space and network and provide an opportunity for entrepreneurs to get connected to who they need to be successful."
                   btnText="Read More"
+                  to="../fellowship"
                 />
               </Col>
               <Col sm={12} md={6} lg={4}>
-                <OutlineDiv
+                <OutlineDiv 
                   subHeading="Apax Software"
                   content="Creating technology is one of our favorite things to do at Awesome Inc. Our software arm, APAX Software, can build enterprise solutions suited for anyone."
                   btnText="Visit Site"
+                  to="https://apaxsoftware.com/"
+                
                 />
               </Col>
               <Col sm={12} md={6} lg={4}>
@@ -152,6 +162,8 @@ const AboutPage = ({ data }) => {
                   subHeading="Workspace"
                   content="We have a space for you to do your best work at. You can also host events at our space."
                   btnText="Read More"
+                  to="../workspace"
+                 
                 />
               </Col>
               <Col sm={12} md={6} lg={4}>
@@ -159,6 +171,8 @@ const AboutPage = ({ data }) => {
                   subHeading="Innovation Incubated"
                   content="Helping KY companies discover, test, and implement innovative ideas."
                   btnText="Read More"
+                  to="https://www.awesomeinc.org/innovation-incubated"
+                 
                 />
               </Col>
               <Col sm={12} md={6} lg={4}>
@@ -166,6 +180,8 @@ const AboutPage = ({ data }) => {
                   subHeading="Culture"
                   content="Culture is so important to us. We want to share it with the community and invite everyone in on it."
                   btnText="Culture Book"
+                  to="https://www.awesomeinc.org/assets/core-values.pdf"
+                
                 />
               </Col>
             </Row>

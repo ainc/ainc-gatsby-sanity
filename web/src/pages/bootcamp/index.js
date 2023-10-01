@@ -16,6 +16,8 @@ import * as footerStyles from '../../components/Footer/Footer.module.scss'
 import ShieldsRow from "./Components/ShieldsRow/ShieldsRow";
 import VerticalTitle from "../../components/UI/VerticalTitle/VerticalTitle";
 import SideNav from "./Components/SideNav/SideNav"
+import ApplyNowModal from "../fellowship/Components/ApplyNowModal";
+import { useRef } from "react";
 
 export const query = graphql`
  query BootcampPageQuery {
@@ -93,6 +95,14 @@ const BootcampPage = props => {
     );
   }
 
+  //Scroll to section 'Cost'
+  const sectionCost = useRef(null);
+  const scrollToSection = (ref) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <Layout pageTitle="Bootcamp">
       <SEO/>
@@ -123,14 +133,16 @@ const BootcampPage = props => {
                 <img style={{maxWidth: "80px"}} src={require('/src/images/bootcamp/QuestionCircle.svg').default} alt="Question Circle" />
               </div>
               <Title className="text-center text-white fs-4 my-4 py-3">Have a few questions?</Title>
-              <BrandButton className="justify-content-center" style={{marginTop: "5px"}}>Download Program Guide</BrandButton>
+              <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
+              title="Download Program Guide"
+              className="justify-content-center" style={{marginTop: "5px"}}/>
             </Col>
             <Col xs={11} sm={4} className={`${styles.rightButtonCol} justify-content-center text-center`}>
               <div>
                 <img style={{maxWidth: "80px"}} src={require('/src/images/bootcamp/MoneyCircle.svg').default} alt="Money Circle" />
               </div>
               <Title className="text-center text-white fs-4 my-4 py-1">Pay nothing until you<br /> land a job!</Title>
-              <BrandButton className="justify-content-center">See How Here</BrandButton>
+              <BrandButton onClick={() => scrollToSection(sectionCost)} className="justify-content-center">See How Here</BrandButton>
             </Col>
           </Row>
         </Container>
@@ -167,7 +179,9 @@ const BootcampPage = props => {
           </Row>
           <Row className="pt-5 pb-3">
             <Col className="d-flex justify-content-center">
-              <BrandButton>Download Program Guide</BrandButton>
+              {/* <BrandButton>Download Program Guide</BrandButton> */}
+              <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
+              title="Download Program Guide"/>
             </Col>
           </Row>
         </Container>
@@ -197,7 +211,10 @@ const BootcampPage = props => {
             </Row>
             <Row className="pt-4 pb-5">
               <Col className="text-center">
-                <BrandButton className="text-center brand">More Alumni</BrandButton>
+                <a href="../alumni">
+                  <BrandButton className="text-center brand">More Alumni</BrandButton>
+                </a>
+                
               </Col>
             </Row>
           </Row>
@@ -289,7 +306,10 @@ const BootcampPage = props => {
                   ))}
                   <Row className="mt-4">
                     <Col className="d-flex justify-content-center">
-                      <BrandButton className="button secondary mt-3">Download Program Guide</BrandButton>
+                      {/* <BrandButton className="button secondary mt-3">Download Program Guide</BrandButton> */}
+                      <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
+                        title="Download Program Guide"
+                        className="button secondary mt-3"/>
                     </Col>
                   </Row>
                 </Row>
@@ -435,10 +455,16 @@ const BootcampPage = props => {
                   <BrandButton>Apply Now</BrandButton>
                 </Col>
                 <Col className="text-center col-4">
-                  <BrandButton>Schedule Call or Visit</BrandButton>
+                  {/* <BrandButton>Schedule Call or Visit</BrandButton> */}
+                  <ApplyNowModal 
+                    title="Schedule Call or Visit"
+                    link="https://calendly.com/ainc/awesome-inc-call?month=2023-10"/>
                 </Col>
                 <Col className="text-center col-5">
-                  <BrandButton>Download Program Guide</BrandButton>
+                  {/* <BrandButton>Download Program Guide</BrandButton> */}
+                  <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
+                        title="Download Program Guide"/>
+                  
                 </Col>
               </Row>
             </Col>
@@ -466,7 +492,7 @@ const BootcampPage = props => {
       </section>
 
       {/* Cost */}
-      <section id="cost" className="py-5">
+      <section ref={sectionCost} id="cost" className="py-5">
         <Container>
           <Row>
             <Col>
@@ -525,7 +551,10 @@ const BootcampPage = props => {
               </Row>
               <Row className="pt-3">
                 <Col className="text-center">
-                  <BrandButton className="my-3">Meet Alumni</BrandButton>
+                  <a href="../alumni">
+                    <BrandButton className="my-3">Meet Alumni</BrandButton>
+                  </a>
+                  
                 </Col>
               </Row>
             </Col>

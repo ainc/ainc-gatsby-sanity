@@ -10,7 +10,7 @@ const CodingClubFAQ = () => {
         questions: [
             {
                 q: [<h1 className='fs-6'>How old do you have to be in the Coding Club?</h1>],
-                a: [<p>The Coding Club is designed for students ages 9-17. Please inquire if your student doesn't fit that age range but you still want him/her to participate - <Link to={`mailto:learn@awesomeinc.org`} className='link--brand'>learn@awesomeinc.org</Link> </p>]
+                a: [<p>The Coding Club is designed for students ages 9-17. Please inquire if your student doesn't fit that age range but you still want him/her to participate - <a href={`mailto:learn@awesomeinc.org`} className='link--brand'>learn@awesomeinc.org</a> </p>]
             },
             {
                 q: "Does the student need to bring a computer?",

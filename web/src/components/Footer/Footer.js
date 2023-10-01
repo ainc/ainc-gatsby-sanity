@@ -10,6 +10,7 @@ import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image'
 import BrandButton from '../UI/BrandButton/BrandButton'
 import { FaEnvelope, FaPhone, FaClock, FaTwitter, FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube } from 'react-icons/fa';
 import * as styles from './Footer.module.scss'
+import ApplyNowModal from '../../pages/fellowship/Components/ApplyNowModal';
 
 
 const Footer = props => {
@@ -50,9 +51,9 @@ const Footer = props => {
           {/* Main column */}
           <Col xs md={4} aria-label="main-navigation" role="navigation">
             <Row className='justify-content-center'>
-              <Link className={styles.aincLogoGap} href='/'>
+              <a className={styles.aincLogoGap} href='/'>
                 <StaticImage src='../../images/ainc-logo-text-triangle-layer-red.png' alt="Awesome Inc logo" />
-              </Link>
+              </a>
             </Row>
             <Row className={styles.firstColRow}>
               <ul className={styles.infoList}>
@@ -61,11 +62,11 @@ const Footer = props => {
                 </li>
                 <li>
                   <FaEnvelope className={styles.redIcon} />
-                  <Link to='mailto:info@awesomeinc.org'>info@awesomeinc.org</Link>
+                  <a href='mailto:info@awesomeinc.org'>info@awesomeinc.org</a>
                 </li>
                 <li>
                   <FaPhone className={styles.redIcon} />
-                  <Link to='tel:8599604600'>859.960.4600</Link>
+                  <a href='tel:8599604600'>859.960.4600</a>
                 </li>
                 <li>
                   <FaClock className={styles.redIcon} />
@@ -74,7 +75,10 @@ const Footer = props => {
               </ul>
             </Row>
             <Row className={styles.firstColRow}>
-              <BrandButton>Newsletter Sign Up</BrandButton>
+              <ApplyNowModal 
+              title="Newsletter Sign Up"
+              link = "https://forms.zohopublic.com/virtualoffice9155/form/OnlineNewsletterSignup/formperma/63TqTON16miWuaZIxR3_tTM4HEyMqE9N_KJOPjJPEUA?gclid=undefined"
+              />
             </Row>
           </Col>
 
@@ -117,13 +121,13 @@ const Footer = props => {
               {
                 footerData.sponsors.map((node,i) => (
                   <Col xs={6} key={i}>
-                    <Link href={node.link} key={i}>
+                    <a href={node.link} key={i}>
                       <GatsbyImage className='my-2'
                         image={getImage(node.image.asset.gatsbyImageData)}
                         alt={node.alt}
                         key={i}
                       />
-                    </Link>
+                    </a>
                   </Col>
                 ))
               }
@@ -137,19 +141,19 @@ const Footer = props => {
         <Row className={styles.bottomRow} aria-label="bottom-navigation" role="navigation">
           <Col>
             <ul className={styles.copyrightInlineList}>
-              <li><Link to='/about'>About</Link></li>
-              <li><Link to='/careers'>Careers</Link></li>
-              <li><Link to='/privacy'>Privacy Policy</Link></li>
-              <li><Link to='/terms'>Terms of Service</Link></li>
+              <li><a href='/about'>About</a></li>
+              <li><a href='/careers'>Careers</a></li>
+              <li><a href='/privacy'>Privacy Policy</a></li>
+              <li><a href='/terms'>Terms of Service</a></li>
             </ul>
           </Col>
           <Col aria-label="social-navigation" role="navigation">
             <ul className={styles.socialsInlineList}>
-              <li><Link to='https://twitter.com/awesomeinclex'aria-label="Visit our Twitter"><FaTwitter /></Link></li>
-              <li><Link to='https://www.facebook.com/awesomeinclex'aria-label="Visit our Facebook"><FaFacebookF /></Link></li>
-              <li><Link to='https://www.linkedin.com/school/awesome-inc/'aria-label="Visit our LinkedIn"><FaLinkedinIn /></Link></li>
-              <li><Link to='https://www.instagram.com/awesomeinclex/'aria-label="Visit our Instagram"><FaInstagram /></Link></li>
-              <li><Link to='https://www.youtube.com/user/AincTelevision/featured'aria-label="Visit our Youtube"><FaYoutube /></Link></li>
+              <li><a href='https://twitter.com/awesomeinclex'aria-label="Visit our Twitter"><FaTwitter /></a></li>
+              <li><a href='https://www.facebook.com/awesomeinclex'aria-label="Visit our Facebook"><FaFacebookF /></a></li>
+              <li><a href='https://www.linkedin.com/school/awesome-inc/'aria-label="Visit our LinkedIn"><FaLinkedinIn /></a></li>
+              <li><a href='https://www.instagram.com/awesomeinclex/'aria-label="Visit our Instagram"><FaInstagram /></a></li>
+              <li><a href='https://www.youtube.com/user/AincTelevision/featured'aria-label="Visit our Youtube"><FaYoutube /></a></li>
             </ul>
           </Col>
         </Row>
