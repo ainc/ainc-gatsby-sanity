@@ -69,7 +69,7 @@ const WorkspacePage = () => {
           <Row>
             <Col md={4} sm={12}>
               <BorderlessCard
-                imgModal="#" 
+                imgModal="#"
                 imgSrc={Mail}
                 header="VIRTUAL MEMBER"
                 infoOne="DOWNTOWN MAILING ADDRESS"
@@ -78,6 +78,7 @@ const WorkspacePage = () => {
                 price="$75/MONTH"
                 imgAlt=""
                 id="44"
+                modalDialog = "hihiihi"
               />
             </Col>
             <Col md={4} sm={12}>
@@ -187,27 +188,15 @@ const WorkspacePage = () => {
           <Container fluid>
             <Row>
               <Col>
-                <Button onClick={handleShow} className={styles.btnCustom}>
+                <Button 
+                  a href="https://calendly.com/awesometour/30min?month=2023-09" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.btnCustom}>
                   Schedule A Tour
                 </Button>
               </Col>
 
-              <ModalCustom 
-                lgShow={lgShow} 
-                hide={handleClose} 
-                title="Schedule a Tour" 
-                content={
-                  //Pass HTML here
-                  <Container>
-                    <Row>
-                      <Subtitle>this is a test</Subtitle>
-                    </Row>
-                    <Row>
-                      <BrandButton>Hello</BrandButton>
-                    </Row>
-                  </Container>
-                }
-                />
             </Row>
           </Container>
         </Container>

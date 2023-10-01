@@ -58,7 +58,7 @@ const Header = () => {
     <Navbar className="sticky-top navbar" variant="dark" expand="lg">
       <Container>
         <Navbar.Brand className={navbarBrand}>
-          <Link to="/">
+          <a href="/">
             <StaticImage
               src="../../images/ainc-logo-horizontal-white-text.png"
               width={200}
@@ -66,7 +66,7 @@ const Header = () => {
               alt="Awesome Inc Logo"
               loading="eager"
             />
-          </Link>
+          </a>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="learn-to-code-navbar" className='text-white shadow-none border-white'/>
         <Navbar.Collapse id="learn-to-code-navbar">
@@ -74,10 +74,11 @@ const Header = () => {
             <Col className="desktop">
               <Nav.Link href="/learn" className="text--white">Learn To Code  <AiFillCaretDown size={10}/></Nav.Link>
               <div className='hover-options'>
-                <Link to="/learn/youth" className='pt-0'>Youth Courses</Link>
-                <Link to="/learn/adults">Adult Courses</Link>
-                <Link to="/learn">Kids Camps</Link>
-                <Link to="/bootcamp">Bootcamp</Link>
+                <a href="/learn/youth" className='pt-0'>Youth Courses</a>
+                <a href="/learn/adults">Adult Courses</a>
+                <a href="/weekofcode">Kids Camps</a>
+                <a href="/bootcamp">Bootcamp</a>
+                <a href="/salesforce">Salesforce Career Accelerator</a>
               </div>
             </Col>
             
@@ -86,19 +87,19 @@ const Header = () => {
               <Navbar className="sticky-top sub-navbar" variant="dark" expand="lg" expanded={active === "Learn To Code" && open === true ? true : false}>
                 <Container className='border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1'>
                   <Navbar.Brand>
-                    <Link to="/learn">
+                    <a href="/learn">
                       Learn To Code
-                    </Link>
+                    </a>
                   </Navbar.Brand>
                   <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => handleClick("Learn To Code")} className={`${active === "Learn To Code" && open === true ? "" : "collapsed"} bg-none border-2 border-white text-white shadow-none`}>{active === "Learn To Code" && open === true ? <ImPlus size={20} style={{transform: 'rotate(45deg)'}}/> : <ImPlus size={20}/>}</Navbar.Toggle>
                   <Navbar.Collapse id="basic-navbar-nav" className='border-top-0'>
                     <Nav>
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
                         <Col xs={{span: 10}} className={`d-flex flex-column py-2 border-0`}>
-                          <Link to="/learn/youth">Youth Courses</Link>
-                          <Link to="/learn/adults">Adult Courses</Link>
-                          <Link to="/learn">Kids Camps</Link>
-                          <Link to="/bootcamp">Bootcamp</Link>
+                          <a href="/learn/youth">Youth Courses</a>
+                          <a href="/learn/adults">Adult Courses</a>
+                          <a href="/learn">Kids Camps</a>
+                          <a href="/bootcamp">Bootcamp</a>
                         </Col>
                       </Row>
                     </Nav>
@@ -110,10 +111,10 @@ const Header = () => {
             <Col className="desktop">
               <Nav.Link href="/fellowship" className="text--white">Startups <AiFillCaretDown size={10}/></Nav.Link>
               <div className={`hover-options`}>
-                <Link to="/idea" className='pt-0'>I Have an Idea</Link>
-                <Link to="/fellowship">Startup Accelerator</Link>
-                <Link to="/events/5across">5 Across</Link>
-                <a>Community Yearbook</a> {/*Need to add yearbooks and possibly other assets*/}
+                <a href="/idea" className='pt-0'>I Have an Idea</a>
+                <a href="/fellowship">Startup Accelerator</a>
+                <a href="/events/5across">5 Across</a>
+                <a href="https://www.awesomeinc.org/assets/community-yearbook.pdf" target="_blank" rel="_noopener">Community Yearbook</a> {/*Need to add yearbooks and possibly other assets*/}
               </div>
             </Col>
 
@@ -121,19 +122,23 @@ const Header = () => {
               <Navbar className="sticky-top sub-navbar" variant="dark" expand="lg" expanded={active === "Startups" && open === true ? true : false}>
                 <Container className='border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1'>
                   <Navbar.Brand>
-                    <Link to="/fellowship">
+                    <a href="/fellowship">
                       Startups
-                    </Link>
+                    </a>
                   </Navbar.Brand>
                   <Navbar.Toggle aria-controls="startup-basic-navbar-nav" onClick={() => handleClick("Startups")} className={`${active === "Startups" && open === true ? "" : "collapsed"} bg-none border-2 border-white bg-none border-2 border-white text-white shadow-none`}>{active === "Startups" && open === true ? <ImPlus size={20} style={{transform: 'rotate(45deg)'}}/> : <ImPlus size={20}/>}</Navbar.Toggle>
                   <Navbar.Collapse id="startup-navbar" className='border-top-0'>
                     <Nav>
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
                         <Col xs={{span: 10}} className={`d-flex flex-column py-2 border-0`}>
-                          <Link to="/idea">I Have an Idea</Link>
-                          <Link to="/fellowship">Startup Accelerator</Link>
-                          <Link to="/events/5across">5 Across</Link>
-                          <Link to="#">Community Yearbook</Link> {/*Need to add yearbooks and possibly other assets*/}
+                          <a href="/idea">I Have an Idea</a>
+                          <a href="/fellowship">Startup Accelerator</a>
+                          <a href="/events/5across">5 Across</a>
+                          <a href="https://www.awesomeinc.org/assets/community-yearbook.pdf"
+                            target="_blank"
+                            rel="noopener">
+                              Community Yearbook
+                          </a> {/*Need to add yearbooks and possibly other assets*/}
                         </Col>
                       </Row>
                     </Nav>
@@ -146,8 +151,8 @@ const Header = () => {
               <Nav.Link href="/workspace" className="text--white">Workspace <AiFillCaretDown size={10}/></Nav.Link>
               <div className='hover-options'>
                 <a href="https://calendly.com/awesometour/30min?month=2023-03" target="_blank" className='pt-0'>Schedule a Tour</a>
-                <Link to="/workspace#become-a-member">Office Space</Link>
-                <Link to="/events">Events</Link>
+                <a href="/workspace#become-a-member">Office Space</a>
+                <a href="/events">Events</a>
               </div>
             </Col>
 
@@ -155,9 +160,9 @@ const Header = () => {
               <Navbar className="sticky-top sub-navbar" variant="dark" expand="lg" expanded={active === "Workspace" && open === true ? true : false}>
                 <Container className='border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1'>
                   <Navbar.Brand>
-                    <Link to="/workspace">
+                    <a href="/workspace">
                       Workspace
-                    </Link>
+                    </a>
                   </Navbar.Brand>
                   <Navbar.Toggle aria-controls="workspace-basic-navbar-nav" onClick={() => handleClick("Workspace")} className={`${active === "Workspace" && open === true ? "" : "collapsed"} bg-none border-2 border-white bg-none border-2 border-white text-white shadow-none`}>{active === "Workspace" && open === true ? <ImPlus size={20} style={{transform: 'rotate(45deg)'}}/> : <ImPlus size={20}/>}</Navbar.Toggle>
                   <Navbar.Collapse id="workspace-navbar" className='border-top-0'>
@@ -165,8 +170,8 @@ const Header = () => {
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
                         <Col xs={{span: 10}} className={`d-flex flex-column py-2 border-0`}>
                           <a href="/https://calendly.com/awesometour/30min?month=2023-03" target="_blank">Schedule a Tour</a>
-                          <Link to="/workspace#become-a-member">Office Space</Link>
-                          <Link to="/events">Events</Link>
+                          <a href="/workspace#become-a-member">Office Space</a>
+                          <a href="/events">Events</a>
                         </Col>
                       </Row>
                     </Nav>
@@ -207,13 +212,13 @@ const Header = () => {
             <Col className="desktop">
               <Nav.Link href="/about" className="text--white">Be Awesome <AiFillCaretDown size={10}/></Nav.Link>
               <div className='hover-options'>
-                <Link to="/about" className='pt-0'>About</Link>
-                <Link to="/about">Core Values</Link>
-                <Link to="/blog/">Blog</Link>
-                <Link to="/press">Press</Link>
-                <Link to="/careers">Careers</Link>
-                <Link to="/internships">Internships</Link>
-                <Link to="/events">Events</Link>
+                <a href="/about" className='pt-0'>About</a>
+                <a href="/about">Core Values</a>
+                <a href="/blog/">Blog</a>
+                <a href="/press">Press</a>
+                <a href="/careers">Careers</a>
+                <a href="/internships">Internships</a>
+                <a href="/events">Events</a>
               </div>
             </Col>
 
@@ -228,13 +233,13 @@ const Header = () => {
                     <Nav>
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
                         <Col xs={{span: 10}} className={`d-flex flex-column py-2 border-0`}>
-                          <Link to="/about">About</Link>
-                          <Link to="/about">Core Values</Link>
-                          <Link to="/blog/">Blog</Link>
-                          <Link to="/press">Press</Link>
-                          <Link to="/careers">Careers</Link>
-                          <Link to="/internships">Internships</Link>
-                          <Link to="/events">Events</Link>
+                          <a href="/about">About</a>
+                          <a href="/about">Core Values</a>
+                          <a href="/blog/">Blog</a>
+                          <a href="/press">Press</a>
+                          <a href="/careers">Careers</a>
+                          <a href="/internships">Internships</a>
+                          <a href="/events">Events</a>
                         </Col>
                       </Row>
                     </Nav>

@@ -5,9 +5,18 @@ import styled from "styled-components";
 import { Card, Row, Col, Container } from 'react-bootstrap'
 
 
+
 const BackgroundCard = (props) => {
+
+  //Scroll to a specific section when card is clicked
+  const scrollToSection = (ref) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <a href={props.link}>
+    <a href onClick={() => scrollToSection(props.sectionRef)}>
       <Card className={`${styles.cardBackgroundFilter} col-xs-12`} style={{ backgroundImage: `url(${props.backgroundImage})` }}>
         <Card.Body className="card-body--background-card p-1">
           <Card.Img variant="top" src={props.imgSrc} alt={props.alt} className="d-block mx-auto mt-3 w-50" />
