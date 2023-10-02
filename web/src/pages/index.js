@@ -253,8 +253,8 @@ const IndexPage = ({ data }) => {
                     image={node.picture.asset.gatsbyImageData} 
                     alt={node.courseTitle} 
                     className="m-2 d-flex align-content-center" 
-                    objectFit="scale-down" 
-                    style={{maxHeight: `300px`}}
+                    objectFit="contain" 
+                    style={{maxHeight: `280px`}}
                   />
 
                   <Card.Body className="d-flex flex-column my-3 mx-3">

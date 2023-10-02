@@ -79,8 +79,8 @@ const AdultsPage = ({ data }) => {
                 </Row>
 
                 <Container fluid className={`${styles.backgroundTop} mt-5`}>
-                    <Col className="my-5 white-space-auto overflow-auto" lg="12">
-                        <Title className='text-center text--brand fs-2 text-black pb-5'>BECOME A PROFESSIONAL DEVELOPER IN 16 WEEKS</Title>
+                    <Col className="my-5 white-space-auto overflow-auto" lg={{ offset: 1, span: 10 }}>
+                        <Title className='text-center text--brand fs-2 text-black pb-5 text-uppercase'>Become a Professional Developer In 16 Weeks</Title>
                         {/* Add SVG's here */}
                         {/*<Subtitle className={styles.cardTopper}>{bootcampCourse.map((course) => course.node.designedFor)}</Subtitle>*/}
                         <CourseCardLong courseInfo={bootcampCourse} stripeColor='#323232'/>
@@ -88,9 +88,9 @@ const AdultsPage = ({ data }) => {
                 </Container>
 
                 <Container fluid className = {styles.backgroundMid}>
-                    <Col className="my-5 white-space-auto overflow-auto" lg="12">
-                        <Title className="text-center text--brand fs-2 text-white align-text-top">FLEXIBLE COURSES</Title>
-                        <Subtitle className="text-center text--brand fs-2 text-white align-text-top pb-5">LEARN TO CODE WITHOUT QUITTING YOUR JOB</Subtitle>
+                    <Col className="my-5 white-space-auto overflow-auto" lg={{ offset: 1, span: 10 }} >
+                        <Title className="text-center text--brand fs-2 text-white align-text-top text-uppercase">Flexible Courses</Title>
+                        <Subtitle className="text-center text--brand fs-2 text-white align-text-top pb-5 text-uppercase">Learn To Code Without Quitting Your Job</Subtitle>
                         {/* Add SVG's here */}
                         {/*<Subtitle className={styles.cardTopper}>{introToWebCourse.map((course) => course.node.designedFor)}</Subtitle>*/}
                         <CourseCardLong courseInfo={introToWebCourse} stripeColor='#939597'/>
@@ -98,9 +98,9 @@ const AdultsPage = ({ data }) => {
                 </Container>
 
                 <Container fluid className = {styles.backgroundBottom}>
-                    <Col className="my-5 white-space-auto overflow-auto" lg="12">
-                        <Title className="text-center text--brand fs-2 text-white align-top">NON-CODING COURSES</Title>
-                        <Subtitle className="text-center text--brand fs-2 text-white align-top pb-5">TO HELP YOU GROW YOUR CAREER</Subtitle>
+                    <Col className="my-5 white-space-auto overflow-auto" lg={{ offset: 1, span: 10 }}>
+                        <Title className="text-center text--brand fs-2 text-white align-top text-uppercase">Non-Coding Courses</Title>
+                        <Subtitle className="text-center text--brand fs-2 text-white align-top pb-5 text-uppercase">To Help You Grow Your Career</Subtitle>
                         {/* Add SVG's here */}
                         {/*<Subtitle className={styles.cardTopper}>{salesforceCourse.map((course) => course.node.designedFor)}</Subtitle>*/}
                         <CourseCardLong courseInfo={salesforceCourse} stripeColor='#C12029'/>
@@ -134,7 +134,6 @@ query {
           schedule
           courseLink
           ageGroup
-          ageDescription
           format
         }
       }
