@@ -25,7 +25,6 @@ const AdultsPage = ({ data }) => {
 
     return (
         <Layout>
-            <SEO />
             <Container>
             
                 <Row className='pt-5 mt-5'>

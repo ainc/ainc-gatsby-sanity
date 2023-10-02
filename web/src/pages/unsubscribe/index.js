@@ -67,7 +67,6 @@ const UnsubscribePage = () => {
 
   return (
     <Layout>
-      <SEO />
       <Container>
         <Col className="my-5" md={{ span: 6, offset: 3 }}>
           <h1 className="fs-3 fw-bold">We already miss you</h1>

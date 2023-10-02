@@ -30,8 +30,7 @@ const ProvenBackground = styled.div`
 
 const LearnPage = ({ data }) => {
   return (
-    <Layout pageTitle="Awesome Inc U - Learn to Code">
-      <SEO />
+    <Layout>
       {/* Header section */}
      
       <Container fluid>

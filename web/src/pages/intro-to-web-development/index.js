@@ -36,7 +36,6 @@ const IntroWebDevPage = ({ data }) => {
     
     return (
         <Layout>
-            <SEO />
                 <Container className={`py-5 ${styles.intro}`}>
                     <Col>
                     <Title className='pt-5 pb-2 text-center text-uppercase'>intro to web development</Title>

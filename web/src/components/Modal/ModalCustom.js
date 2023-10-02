@@ -28,6 +28,7 @@ const ModalCustom = (props) => {
         backdropClassName={styles.modal}
         contentClassName={styles.modal}
         scrollable
+        centered
       >
         {/* <Modal.Title>Test titlee</Modal.Title> */}
         {/* <div class="modal" tabindex="-1" role="dialog"> */}
@@ -40,7 +41,7 @@ const ModalCustom = (props) => {
           <CloseButton variant="white" className={styles.closeBtn} onClick={props.hide} />
         </Modal.Header>
 
-        <Modal.Body className={ props.bgDark === true  ? `` : `bg-white`}>
+        <Modal.Body className={ props.bgDark === true  ? `` : `bg-white`} style={{color:'black'}}>
           {props.content}
         </Modal.Body>
       </Modal>

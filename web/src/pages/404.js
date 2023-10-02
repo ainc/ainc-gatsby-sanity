@@ -8,7 +8,6 @@ import { Container, Col, Row } from "react-bootstrap";
 
 const NotFoundPage = () => (
   <Layout>
-    <SEO title="404: Not found" />
     <Container>
       <Title className="text-center my-5 text-uppercase">Need some direction?</Title>
       <Row className="mb-5 d-flex justify-content-center">
@@ -39,8 +38,8 @@ const NotFoundPage = () => (
                 alt="brackets"
                 title="Accelerate your startup"
                 text="We will help grow your business with a mentor-driven, accelerator program."
-                backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
-                imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
+                backgroundImage="https://www.awesomeinc.org/images/startup-panel-min.jpg"
+                imgSrc="https://d33wubrfki0l68.cloudfront.net/40f039dccd7775d86dcc2076d6b01abe6802fdac/f6c13/images/icons/accelerate-your-startup.png"
                 link="/learn"
               />
             </Col>
@@ -49,8 +48,8 @@ const NotFoundPage = () => (
                 alt="brackets"
                 title="Software Development"
                 text="Let us create custom software for your business."
-                backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
-                imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
+                backgroundImage="https://www.awesomeinc.org/images/software-panel.jpg"
+                imgSrc="https://d33wubrfki0l68.cloudfront.net/fb2b3c6c872a02cdce20d96103c70a10b3f75172/3398b/images/icons/software-development.png"
                 link="/learn"
               />
             </Col>

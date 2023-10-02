@@ -146,15 +146,14 @@ const BootcampPage = props => {
   )
 
   return ( 
-    <Layout pageTitle="Bootcamp">
-      <SEO title="Bootcamp"/>
+    <Layout>
       {/* Add SEO Component Here?? */}
       
       {/* Header section */}
       {/* https://www.awesomeinc.org/assets/img/bootcamp/hero-image-2-min.jpg */}
       <section id="header">
         <Container fluid className={`${styles.header} overflow-hidden`}>
-        <Container className='overflow-hidden'>
+        <Container>
 
           <Row className="mt-5 ms-5">
             <Col xs={{span: 12, offset: 0}} sm={{span: 8, offset: 4}} md={8} lg={6} xl={5}>
@@ -295,7 +294,7 @@ const BootcampPage = props => {
 
       {/* Alumni Testimonials */}
       <section id="testimonials">
-        <Container fluid className={styles.testimonials}>
+        <Container fluid className={`${styles.testimonials}`}>
           <Row className="py-3">
             <Row className="py-5">
               <Title className="text-center text-white text-uppercase mt-5">Hear From Our Alumni</Title>
@@ -351,23 +350,23 @@ const BootcampPage = props => {
             </div>
 
             <div className="keen-slider__slide number-slide3">
-              <div style={{maxWidth: "45%"}} className="justify-content-center mx-auto py-3">
+              <div style={{maxWidth: "80%"}} className="justify-content-center mx-auto py-3">
                 <StaticImage alt="Testimonial 3" className={`${styles.aincuTestimonial} pt-5`} src="../../images/bootcamp-testimonials/mason-williams.png"/>
               </div>
             </div>
-            
+            {/*
             <div className="keen-slider__slide number-slide4">
               <div style={{maxWidth: "40%"}}className=" justify-content-center mx-auto py-3">
                 <StaticImage alt="Tetimonial 4" className={`${styles.aincuTestimonial} px-5 pt-5`} src="../../images/bootcamp-testimonials/reic-sparks.png"/>
               </div>
-            </div>
+            </div> 
+            */}
 
             <div className="keen-slider__slide number-slide5">
               <div style={{maxWidth: "50%"}} className="justify-content-center mx-auto px-5 py-3">
                 <StaticImage alt="Tetimonial 5" className={`${styles.aincuTestimonial} px-5 mx-5`} src="../../images/bootcamp-testimonials/roger-mullins-linkedin.png"/>
               </div>
             </div>
-
 
         </Container>
         </section>
@@ -416,7 +415,7 @@ const BootcampPage = props => {
 
       {/* Job Guarantee */}
       <section id="job-guarantee">
-        <Container fluid className={styles.jobGuarantee}>
+        <Container fluid className={`${styles.jobGuarantee}`}>
           <Row className={styles.imgRow}>
             <Col className="d-flex justify-content-center">
               <StaticImage alt="Job Guarantee" src='../../images/bootcamp/job-guaranteed.png' style={{maxWidth: "275px"}} />
@@ -502,29 +501,29 @@ const BootcampPage = props => {
           <Subtitle style={{fontSize: "1.25rem"}}className="text-center fs-5 pb-3 mt-4"><b>With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using</b></Subtitle>
           </Row>
           <Row>
-                <Col className={`${styles.languageIcons} d-flex justify-content-center py-4`} xs={10} sm={12}>
-                  <Col sm={3} md={12}>
+                <Col className={`${styles.languageIcons} d-flex justify-content-center py-4`}>
+                  <Col>
                     <StaticImage src="../../images/bootcamp/languages/html.png" alt="HTML" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col sm={3} md={12} >
+                  <Col>
                     <StaticImage src="../../images/bootcamp/languages/css.png" alt="CSS" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col sm={3} md={12} >
+                  <Col>
                     <StaticImage src="../../images/bootcamp/languages/javascript.png" alt="JavaScript" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col sm={3} md={12} >
+                  <Col>
                   <StaticImage src="https://d33wubrfki0l68.cloudfront.net/27b5922e90fa2d54a0c37d426870c849e8a41c72/b2845/assets/img/bootcamp/languages/python.png" alt="Python Programming language" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col sm={3} md={12} >
+                  <Col>
                   <StaticImage src="../../images/bootcamp/languages/git.png" alt="Git" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col sm={3} md={12} >
-                  <StaticImage src="https://d33wubrfki0l68.cloudfront.net/4aa1ba4778ed686e1877a7c5ef5875e364033ca8/f7b05/assets/img/bootcamp/languages/django.png" alt="Django Framework"/>
+                  <Col>
+                  <StaticImage src="https://d33wubrfki0l68.cloudfront.net/4aa1ba4778ed686e1877a7c5ef5875e364033ca8/f7b05/assets/img/bootcamp/languages/django.png" alt="Django Framework" style={{maxWidth: "150px"}} className='mt-3'/>
                   </Col>
-                  <Col sm={3} md={12} >
+                  <Col>
                   <StaticImage src="https://d33wubrfki0l68.cloudfront.net/ee9d2a6ac7c95e3ee2695ce7a14627abeb797b0f/4631a/assets/img/bootcamp/languages/react.png" style={{maxWidth: "150px"}} alt="React Framework"/>
                   </Col>
-                  <Col sm={3} md={12} >
+                  <Col>
                   <StaticImage src="../../images/bootcamp/languages/agile.png" alt="Agile" style={{maxWidth: "150px"}}/>
                   </Col>
                 </Col>
@@ -613,7 +612,7 @@ const BootcampPage = props => {
 
       {/* Cost */}
       <section id="cost" className="py-5">
-        <Container className={styles.cost}>
+        <Container className={`${styles.cost}`}>
           <Row>
             <Col>
               <Row className="mt-2 mb-5">

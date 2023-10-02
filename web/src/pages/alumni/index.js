@@ -101,7 +101,6 @@ const AlumniPage = props => {
 
   return (
     <Layout>
-      <SEO /> {/* SEO is handled in the Page Titles Sanity document */}
       <Container>
         <Row>
           <Col>
