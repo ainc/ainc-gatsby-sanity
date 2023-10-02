@@ -22,27 +22,29 @@ const Banner = () => {
 }
 
 export const upcoming_5a = graphql`
-query newfiveAcrossQuery($currentDate: Date) {
-    allSanityEvents(
-        filter: {reference: {eventTypeName: {eq: "5 Across"}}, date: {gte: $currentDate}}
-        sort: {order: ASC, fields: date}
-    ) {
-        nodes {
-            eventName
-            date(formatString: "MMMM D, YYYY")
-            host
-            location
-            linkToEvent
-            picture {
-            asset {
-                gatsbyImageData
-                }
+query MyQuery {
+  allSanityEvents(filter: {eventName: {glob: "5 Across -*"}}, sort: {_rev: ASC}) {
+    nodes {
+       eventName
+             date(formatString: "MMMM D, YYYY")
+             host
+             location
+             linkToEvent
+             picture {
+             asset {
+                 gatsbyImageData
+                 }
+             }
+             reference {
+             eventTypeName
             }
-            reference {
-            eventTypeName
-            }
-        }
     }
-  }`;
+  }
+}`;
 
 export default Banner
+
+
+
+
+

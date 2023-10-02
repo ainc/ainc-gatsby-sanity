@@ -10,7 +10,7 @@ import "../../styles/layout.css";
 const Layout = ({ pageTitle, children, onHideNav, onShowNav, showNav, siteTitle }) => (
   <div>
     <title>{pageTitle} | This will be dynamic later</title>
-    <Banner />
+    <Banner/>
     <Header />
     <main>
     <div>
