@@ -14,11 +14,6 @@ const CourseCardLong = ({ courseInfo, stripeColor }) => {
     <div>
         {courseInfo.map((course) => (
         <Container className={`${styles.box}`} style={backgroundColor}>
-           {/*<Row>
-                <Col>
-                    <Subtitle className={`${styles.designedFor}`}>{course.node.designedFor}</Subtitle>
-                </Col>
-            </Row> */}
             <Row>
                 <Col md='auto'>
                     <GatsbyImage alt={course.node.courseTitle} image={course.node.picture.asset.gatsbyImageData} className={`${styles.imageContainer}`} />

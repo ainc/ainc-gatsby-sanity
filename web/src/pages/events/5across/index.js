@@ -21,13 +21,13 @@ import HorizontalButtons from './HorizontalButtons';
 
 const fiveAcrossPage = ({ data }) => {
 
-    const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].titleSponsorName || {});
-    const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].titleSponsorLink || {});
-    const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].titleSponsorImage.asset.gatsbyImageData || {});
+    const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes[1].titleSp.title || {});
+    const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[1].titleSp.link || {});
+    const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[1].titleSp.image.asset.gatsbyImageData || {});
 
-    const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSponsorName || {});
-    const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSponsorLink || {});
-    const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSponsorImage.asset.gatsbyImageData || {});
+    const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes[1].presentingSp.title || {});
+    const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[1].presentingSp.link || {});
+    const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[1].presentingSp.image.asset.gatsbyImageData || {});
 
     const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors || {});
     const nextFiveAcross = (data.allSanityEvents.nodes || {});
@@ -159,13 +159,9 @@ const fiveAcrossPage = ({ data }) => {
                     <Col sm="2" className={`d-none d-sm-block`}></Col>
                 </Row>
                 <Row className="mt-5">
-                    <Col></Col>
-                    <Col></Col>
-                    <Col></Col>
-                    <Col className="d-none d-md-block">
+                    <Col xs={{ span: 2, offset: 7 }} className="d-none d-md-block">
                         <StaticImage quality="90" src="../../../images/5across-arrow.png" alt="5 across arrow" />
                     </Col>
-                    <Col></Col>
 
                 </Row>
             </Container>
@@ -326,18 +322,22 @@ query fiveAcrossQuery($currentDate: Date!) {
     }
     allSanityFiveAcrossSponsors {
         nodes {
-          presetingSponsorName
-          presentingSponsorLink
-          presentingSponsorImage {
-            asset {
-              gatsbyImageData
+          presentingSp {
+            title
+            link
+            image {
+                asset {
+                  gatsbyImageData
+                }
             }
           }
-          titleSponsorName
-          titleSponsorLink
-          titleSponsorImage {
-            asset {
-              gatsbyImageData
+          titleSp {
+            title
+            link
+            image {
+                asset {
+                  gatsbyImageData
+                }
             }
           }
           suppourtingSponsors {
