@@ -36,7 +36,6 @@ const WorkspacePage = () => {
 
   return (
     <Layout>
-      <SEO/>
       {/* Hero */}
       <section>
         <div className={styles.headerWorkspace}>

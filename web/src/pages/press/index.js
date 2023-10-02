@@ -14,7 +14,6 @@ const PressPage = ({ data }) => {
 
     return (
         <Layout>
-            <SEO />
             {/* Press Header */}
             <section className={styles.pressHeader}>
                 <Container fluid>

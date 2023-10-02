@@ -71,6 +71,10 @@
     }
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
 .bootcampUpcomingdates{
     @media (min-width: 768px){

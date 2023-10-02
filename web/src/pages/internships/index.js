@@ -6,21 +6,20 @@ import ButtonAndImage from '../../components/ButtonAndImage/ButtonAndImage'
 import ImageOutline from '../../components/ImageOutline/ImageOutline'
 import { Container, Row, Col } from 'react-bootstrap'
 import SEO from '../../components/seo'
-import { StaticImage } from 'gatsby-plugin-image'
+import { StaticImage, getImage } from 'gatsby-plugin-image'
 import Title from '../../components/UI/Title/Title'
 import BrandButton from '../../components/UI/BrandButton/BrandButton'
 import { headerBackgroundAlignRight } from "./internships.module.css";
 import '../../styles/main.scss'
 import internWhy from '/src/images/intern-why.jpg';
-import devTeamImage from '/src/images/intern-development.jpg'
+import devTeamImage from '../../images/intern-development.jpg'
 import designTeamImage from '/src/images/intern-design.jpg'
 import videoTeamImage from '/src/images/intern-video.jpg'
 import marketingTeamImage from '/src/images/intern-events-marketing.jpg'
 
 const InternshipsPage = ({ data }) => {
   return (
-    <Layout pageTitle="Internships">
-      <SEO />
+    <Layout>
       
       {/* Header section */}
       <Container fluid className={`mobile-hide-bg ${headerBackgroundAlignRight}`}>

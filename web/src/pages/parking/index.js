@@ -13,7 +13,6 @@ const ParkingPage = ({ data }) => {
 
     return (
         <Layout>
-            <SEO />
              <Container className='ps-3'>
                 <Col xs={{offset:1, span:10}} md={{offset: 1, span:10}} lg={{offset:0, span: 12}} xl={{offset: 3, span: 6}}>
                 
