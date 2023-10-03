@@ -433,30 +433,31 @@ const BootcampPage = props => {
  
 
       <section id="stats" style={{backgroundColor: "#ED3742"}}className="background--brand pe-0">
-        <Container fluid className={`${styles.stats} mx-3 py-5`}>
-                <Row className="pz-0 mx-5 py-0 justify-content-center">
-                  <Col className={`${styles.statsCol} justify-content-center`} >
-                  {gradStats.map((node,i) => (
-                    //  <Col className={`${styles.statsCol} mt-2`}>
-                       <div key={i} className={`${styles.statsRow}`}>
-                        <GradStat
-                        image={node.picture.asset.gatsbyImageData}
-                        alt={node.title}
-                        stat={node.stat}
-                        subtitle={node.title}
-                        subtext={node.subtitle}
-                        ></GradStat>
-                       </div>
-                    //  </Col>
-                  ))}
-                  </Col>
-                  <Row className="mt-0">
-                    <Col className="d-flex justify-content-center pb-4">
-                      <BrandButton style={{width:"300px"}} className="button secondary mt-3 ">Download Program Guide</BrandButton>
-                    </Col>
-                  </Row>
-                </Row>
-          
+        <Container fluid className={`${styles.stats}`}>
+          <div className="mx-3 py-5">
+            <Row className="pz-0 mx-5 py-0 justify-content-center">
+              <Col className={`${styles.statsCol} justify-content-center`} >
+              {gradStats.map((node,i) => (
+                //  <Col className={`${styles.statsCol} mt-2`}>
+                    <div key={i} className={`${styles.statsRow}`}>
+                    <GradStat
+                    image={node.picture.asset.gatsbyImageData}
+                    alt={node.title}
+                    stat={node.stat}
+                    subtitle={node.title}
+                    subtext={node.subtitle}
+                    ></GradStat>
+                    </div>
+                //  </Col>
+              ))}
+              </Col>
+              <Row className="mt-0">
+                <Col className="d-flex justify-content-center pb-4">
+                  <BrandButton style={{width:"300px"}} className="button secondary mt-3 ">Download Program Guide</BrandButton>
+                </Col>
+              </Row>
+            </Row>
+          </div>
         </Container>
       </section>
 
