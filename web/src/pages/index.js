@@ -18,11 +18,11 @@ import CoreValue from "../components/CustomCode/CoreValue/CoreValue";
 import Event from "../components/Event/Event";
 import NewsletterSection from "../components/Layout/Newsletter/Newsletter";
 import PodcastSection from "../components/Layout/Podcast/Podcast";
-import StartupsSection from "../components/Layout/Startups/Startups";
+import Startups from "../components/Layout/Startups/Startups";
 import FeatureCard from "../components/FeatureCard/FeatureCard";
 import HorizontalCard from "../components/HorizontalCard/HorizontalCard";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
-
+import { useLocation } from "@reach/router";
 
 // Images
 import core_values from "../images/core-values.png";
@@ -31,6 +31,7 @@ import desk_background from "../images/workspace-desk-bg-red.png";
 import DevicesIcon from "../assets/svg/devices.svg";
 import StackIcon from "../assets/svg/stack.svg";
 import ToolsIcon from "../assets/svg/tools.svg";
+import { withTheme } from "styled-components";
 
 
 export const query = graphql`
@@ -85,6 +86,14 @@ query IndexPageQuery($currentDate: Date!) {
       }
     }
   }
+  allSanityPageTitles {
+    edges {
+      node {
+        filePath
+        pageTitle
+      }
+    }
+  }
 }
 `;
 
@@ -109,7 +118,6 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       
-      <SEO title="" description="" keywords="" />
       <HomepageSlider/>
 
       {/* FOUR INITIATIVES */}
@@ -146,8 +154,8 @@ const IndexPage = ({ data }) => {
                   <BackgroundCard 
                     title="Accelerate your startup"
                     text="We will help grow your business with a mentor-driven, accelerator program."
-                    backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
-                    imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
+                    backgroundImage="https://www.awesomeinc.org/images/startup-panel-min.jpg"
+                    imgSrc="https://d33wubrfki0l68.cloudfront.net/40f039dccd7775d86dcc2076d6b01abe6802fdac/f6c13/images/icons/accelerate-your-startup.png"
                     link="/learn"
                     alt="brackets"
                   />
@@ -157,8 +165,8 @@ const IndexPage = ({ data }) => {
                   <BackgroundCard 
                     title="Software Development"
                     text="Let us create custom software for your business."
-                    backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
-                    imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
+                    backgroundImage="https://www.awesomeinc.org/images/software-panel.jpg"
+                    imgSrc="https://d33wubrfki0l68.cloudfront.net/fb2b3c6c872a02cdce20d96103c70a10b3f75172/3398b/images/icons/software-development.png"
                     link="/learn"
                     alt="brackets"
                   />
@@ -258,13 +266,13 @@ const IndexPage = ({ data }) => {
                   />
 
                   <Card.Body className="d-flex flex-column my-3 mx-3">
-                    <p className="text-brand-dark mx-auto mt-2 text--italic text-uppercase">
+                    <p className="text-brand-dark mx-auto mt-2text--italic text-uppercase">
                       {node.designedFor}
                     </p>
-                    <p className="my-2">
+                    <p className="my-2 mb-3">
                       {node.description}
                     </p>
-                    <a href={node.learnMore}>
+                    <a href={node.learnMore} className='mt-auto'>
                       <BrandButton className="d-block mx-auto my-4 secondary">Learn More</BrandButton>
                     </a>
                     
@@ -285,12 +293,16 @@ const IndexPage = ({ data }) => {
       </section>
 
       {/* STARTUPS */}
-      {/* <StartupsSection /> */}
+      <Startups />
 
       {/* WORKSPACE */}
-      <section id="workspace" style={{backgroundColor: `#D1D1D1`}}>
+      <section id="workspace" style={{backgroundColor: `#D1D1D1`, borderColor: `black`}}>
         <Title className="pt-5 mb-3 text-uppercase text-center">Workspace</Title>
         <Subtitle className="mb-5 text-uppercase text-center">Join Our Workspace</Subtitle>
+        <div style={{ border: `10px solid white`, borderRadius: '10px', width: '50%', margin: '0px auto'}} />
+        <a style={{position:'relative', top:'-70px', left: '72%'}} href="https://calendly.com/awesometour/30min?" target="_blank">
+          <img src="https://d33wubrfki0l68.cloudfront.net/223738930eb44ab59015db4d33febf500d9da8f1/0ab2a/images/icons/schedule-a-tour-button-red.png" width='100' height='100' id="tour-button" alt="tour button" />
+        </a>
         <Container>
           <div style={{backgroundImage: `url(${desk_background})`, backgroundRepeat: `no-repeat`, backgroundSize: `35%`, backgroundPosition: `50% 50%`, padding: `5rem 0`}}>
             <Row>

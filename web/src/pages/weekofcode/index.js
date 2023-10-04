@@ -24,8 +24,7 @@ const Page = ({ data }) => {
   });
 
   return (
-    <Layout pageTitle="Week of Code Summer Camp | Awesome Inc">
-      <SEO/>
+    <Layout>
       <Container>
       <Title className="my-5 text-center">WEEK OF CODE SUMMER CAMP</Title>
 
@@ -33,9 +32,9 @@ const Page = ({ data }) => {
       <Col md={8}>
         <section className="mb-5">
           <h1 className="fs-6 fw-bold">2023 Dates</h1>
-          <BrandButton className="px-4 mb-3" variant="primary">JUNE 12-15 >></BrandButton> 
-          <BrandButton className="mx-4 px-4 mb-3" variant="primary">JUNE 19-22 >></BrandButton> 
-          <BrandButton className="px-4 mb-3" variant="primary">JULY 10-13 >></BrandButton>
+          <BrandButton className="px-4 mb-3" variant="primary">JUNE 12-15 {'>>'}</BrandButton> 
+          <BrandButton className="mx-4 px-4 mb-3" variant="primary">JUNE 19-22 {'>>'}</BrandButton> 
+          <BrandButton className="px-4 mb-3" variant="primary">JULY 10-13 {'>>'}</BrandButton>
         </section>
       </Col>
     </Row>
@@ -75,9 +74,9 @@ const Page = ({ data }) => {
       <Col md={8}>
         <section className="mb-5">
           <h4 className="fw-bold fs-6">2023 Dates</h4>
-          <BrandButton className="px-4 mb-3" variant="primary">JUNE 12-15 >></BrandButton> 
-          <BrandButton className="mx-4 px-4 mb-3" variant="primary">JUNE 19-22 >></BrandButton> 
-          <BrandButton className="px-4 mb-3" variant="primary">JULY 10-13 >></BrandButton>
+          <BrandButton className="px-4 mb-3" variant="primary">JUNE 12-15 {'>>'}</BrandButton> 
+          <BrandButton className="mx-4 px-4 mb-3" variant="primary">JUNE 19-22 {'>>'}</BrandButton> 
+          <BrandButton className="px-4 mb-3" variant="primary">JULY 10-13 {'>>'}</BrandButton>
         </section>
       </Col>
       </Row>
@@ -100,7 +99,7 @@ const Page = ({ data }) => {
         <li style={{fontSize: '16px'}}>Develop computational thinking skills</li>
       </ul>
 
-      <h5 className="mb-5" className="fw-bold mb-4">Your student will take home:</h5>
+      <h5 className="mb-5 fw-bold mb-4">Your student will take home:</h5>
       <ul>
         <li className="mb-4" style={{fontSize: '16px'}}>Project files and portfolio</li>
       </ul>

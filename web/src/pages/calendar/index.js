@@ -9,7 +9,6 @@ import SEO from '../../components/seo';
 const Calendar = () => {
   return (
     <Layout>
-        <SEO description="Awesome Inc Calendar" />
         <Row>
             <Col className='text-center my-5'>
                 <Title>Calendar</Title>
