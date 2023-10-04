@@ -10,7 +10,6 @@ const IdeaPage = ({ data }) => {
 
   return (
     <Layout>
-        <SEO />
         <Container>
             <Title className="mt-5 text-center text-uppercase">Have an idea?</Title>
             <Row className="justify-content-center" style={{marginTop: "150px", marginBottom: "100px"}}>

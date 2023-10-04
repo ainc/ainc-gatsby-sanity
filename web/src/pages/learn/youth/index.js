@@ -20,7 +20,6 @@ const YouthPage = () => {
 
     return (
         <Layout>
-            <SEO/>
             <main>
                 <Container className={` ${styles.youth}`}>
                     <Row className="h-100"> 

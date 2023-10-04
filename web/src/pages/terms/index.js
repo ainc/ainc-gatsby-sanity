@@ -11,7 +11,6 @@ const TermsPage = ({ data }) => {
   return (
     <Layout>
       {/* still need to fix heading levels to increase by one */}
-      <SEO/>
     <Container>
         <section className="col-sm-offset-2">
             <Title className="my-4">Terms of Service</Title>

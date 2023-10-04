@@ -6,21 +6,16 @@ import ButtonAndImage from '../../components/ButtonAndImage/ButtonAndImage'
 import ImageOutline from '../../components/ImageOutline/ImageOutline'
 import { Container, Row, Col } from 'react-bootstrap'
 import SEO from '../../components/seo'
-import { StaticImage } from 'gatsby-plugin-image'
+import { StaticImage, getImage } from 'gatsby-plugin-image'
 import Title from '../../components/UI/Title/Title'
 import BrandButton from '../../components/UI/BrandButton/BrandButton'
-import { headerBackgroundAlignRight } from "./internships.module.css";
+import { headerBackgroundAlignRight, tbDiv, teamButton } from "./internships.module.scss";
 import '../../styles/main.scss'
 import internWhy from '/src/images/intern-why.jpg';
-import devTeamImage from '/src/images/intern-development.jpg'
-import designTeamImage from '/src/images/intern-design.jpg'
-import videoTeamImage from '/src/images/intern-video.jpg'
-import marketingTeamImage from '/src/images/intern-events-marketing.jpg'
 
 const InternshipsPage = ({ data }) => {
   return (
-    <Layout pageTitle="Internships">
-      <SEO />
+    <Layout>
       
       {/* Header section */}
       <Container fluid className={`mobile-hide-bg ${headerBackgroundAlignRight}`}>
@@ -58,18 +53,46 @@ const InternshipsPage = ({ data }) => {
         </Row>
         <Row className='justify-content-center'>
           <Col md={6} lg={4}>
-            <ButtonAndImage img={ videoTeamImage } imgAlt="Video internship">Video</ButtonAndImage>
+          <div className={`${tbDiv}`}>
+            <ImageOutline>
+              <StaticImage className='img-red-outline' src='../../images/intern-video.jpg' alt='design'/>
+            </ImageOutline>
+            <button className={`${teamButton}`}>
+              Video
+            </button>
+          </div>
           </Col>
           <Col md={6} lg={4}>
-            <ButtonAndImage img={ devTeamImage } imgAlt="Development internship">Development</ButtonAndImage>
+          <div className={`${tbDiv}`}>
+            <ImageOutline>
+              <StaticImage className='img-red-outline' src='../../images/intern-development.jpg' alt='design'/>
+            </ImageOutline>
+            <button className={`${teamButton}`}>
+              Development
+            </button>
+          </div>
           </Col>
         </Row>
         <Row className='justify-content-center'>
           <Col md={6} lg={4}>
-            <ButtonAndImage img={ marketingTeamImage } imgAlt="Events and Marketing internship">Events + Marketing</ButtonAndImage>
+          <div className={`${tbDiv}`}>
+            <ImageOutline>
+              <StaticImage className='img-red-outline' src='../../images/intern-events-marketing.jpg' alt='design'/>
+            </ImageOutline>
+            <button className={`${teamButton}`}>
+              Events + Marketing
+            </button>
+          </div>
           </Col>
           <Col md={6} lg={4}>
-            <ButtonAndImage img={ designTeamImage } imgAlt="Design internship">Design</ButtonAndImage>
+          <div className={`${tbDiv}`}>
+            <ImageOutline>
+              <StaticImage className='img-red-outline' src='../../images/intern-design.jpg' alt='design'/>
+            </ImageOutline>
+            <button className={`${teamButton}`}>
+              Design
+            </button>
+          </div>
           </Col>
         </Row>
         <Row className='text-center'>

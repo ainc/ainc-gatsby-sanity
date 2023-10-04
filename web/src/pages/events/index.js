@@ -20,7 +20,6 @@ const EventsPage = ({ data }) => {
 
     return (
         <Layout>
-            <SEO />
           {/* Heading */}
             <Container className="text-center my-5">
                 <Row>

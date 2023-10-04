@@ -20,7 +20,6 @@ const Page = () => {
 
   return (
     <Layout>
-      <SEO />
       <Container>
         <Row className="my-3">
           <Col md={{ span: 9, offset: 2 }}>
