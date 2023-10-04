@@ -1,0 +1,65 @@
+.background-top {
+    background-image: url('../../../images/adults/DeveloperGrey.png');
+    background-size: cover;
+    background-position: center;
+    padding-top: 40px;
+    height: 70vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.background-mid{
+    background-image: url('../../../images/adults/DeveloperRed.png');
+    background-size: cover;
+    background-position: center;
+    padding-top: 40px;
+    height: 70vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.background-bottom {
+    background-image: url('../../../images/adults/GarretOverlay.png');
+    background-size: cover;
+    background-position: center;
+    padding-top: 40px;
+    height: 70vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-topper{
+    position: absolute;
+    top: 170px;
+    right: 70px;
+    color: white;
+    background-color: #323232;
+    font-size: 20px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    text-align: center;
+
+}
+
+
+/* This was taken out of each of the backgrounds - leaving in comments in case something breaks
+.headerTitle {
+    @media (min-width: 992px) {
+        margin-top: 110px;
+        max-width: 700px;
+    }
+}
+
+.row {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.titleCol {
+    @media (min-width: 481px) {
+        margin-top: 100px;
+    }
+} */
