@@ -98,7 +98,7 @@ export const query = graphql`
         allSanityBlog(sort: {date: DESC}) {
             edges {
                 node {
-                    date
+                    date(formatString: "MMMM DD, YYYY")
                     slug {
                         current
                     }
