@@ -35,7 +35,7 @@ const MemberOption = (props) => {
           </Col>
           <Col>
             <a href={props.priceModal}>
-              <Button className={styles.price}>{props.price}</Button>
+              <Button className={`${styles.price} `}>{props.price}</Button>
             </a>
           </Col>
         </Row>

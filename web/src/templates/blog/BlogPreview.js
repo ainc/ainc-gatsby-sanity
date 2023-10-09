@@ -41,7 +41,7 @@ export default function BlogPreview({blog}) {
                 <GatsbyImage objectFit='cover' image={edge.node.reference.picture?.asset?.gatsbyImageData || ''} alt={edge.node.reference.name !== null ? edge.node.reference.name : ''} className="rounded-circle border border-3 border-white my-2 ms-0" />                  
                 </Col>
                 <Col xs={{ span: 7 }} lg={{ span: 9 }} className="d-flex justify-content-start align-content-center flex-column mt-3 px-0">
-                  <Title className="author" style={{fontWeight: '800', textShadow:'0.07em 0 white, 0 0.07em white, -0.07em 0 white ,0 -0.07em white'}}>{edge.node.reference.name}, {edge.node.reference.title}</Title>
+                  <Title className="author" style={{fontWeight: '800'}}>{edge.node.reference.name}, {edge.node.reference.title}</Title>
                   <p className='date text-white fw-bold'>{edge.node.date}</p>
                 </Col>
               </Row>
