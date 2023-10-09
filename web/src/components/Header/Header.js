@@ -78,6 +78,7 @@ const Header = () => {
                 <Link to="/learn/adults">Adult Courses</Link>
                 <Link to="/learn">Kids Camps</Link>
                 <Link to="/bootcamp">Bootcamp</Link>
+                <Link to="/salesforce">Salesforce Career Accelerator</Link>
               </div>
             </Col>
             
@@ -99,6 +100,8 @@ const Header = () => {
                           <Link to="/learn/adults">Adult Courses</Link>
                           <Link to="/learn">Kids Camps</Link>
                           <Link to="/bootcamp">Bootcamp</Link>
+                          <Link to="/salesforce">Salesforce Career Accelerator</Link>
+
                         </Col>
                       </Row>
                     </Nav>
