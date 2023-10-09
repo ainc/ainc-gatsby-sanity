@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Container, Col, Row, Image, Card, Button } from "react-bootstrap";
 import * as styles from "./coursecardsmall.module.scss";
