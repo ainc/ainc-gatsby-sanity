@@ -26,7 +26,7 @@ const SeeTheSpace = (props) => {
             <div className={styles.videoThumbnail}>
               <img className={styles.videoArrow} src={Arrow} alt="'see the space' section arrow"/>
               {/* Youtube Link */}
-              <a href={videoLinkSrc}>
+              <a href={videoLinkSrc} target="_blank" rel="noopener noreferrer">
                 <Image
                   className={styles.videoFilter}
                   src={Space}
@@ -36,6 +36,7 @@ const SeeTheSpace = (props) => {
                   <FaPlay />
                 </i>
               </a>
+
               <a role='button' href='https://calendly.com/awesometour/30min?' target='_blank' className={styles.tourBtn}>
                 <Image className={styles.tourIcon} src={TourBtn} alt="schedule a tour"/>
               </a>

@@ -76,7 +76,11 @@ const FellowshipPage = ({ data }) => {
           <Col className="m-auto" xs={12} sm={4}>
             <Title className="brand">Fellowship</Title>
             <Subtitle className="fst-italic fw-lighter fs-4 text-lowercase">A mentor-driven program for Kentucky based startups</Subtitle>
-            <ApplyNowModal/>
+                               
+            <ApplyNowModal 
+              title="Apply Now"
+              link=" https://forms.zohopublic.com/virtualoffice9155/form/OnlineNewsletterSignup/formperma/63TqTON16miWuaZIxR3_tTM4HEyMqE9N_KJOPjJPEUA?gclid=undefined"
+            />
 
           </Col>
           <Col className="my-5" xs={12} sm={8}>
@@ -129,7 +133,7 @@ const FellowshipPage = ({ data }) => {
               </Col>
               <Col className="m-auto text-center" xs={4}>
               {/* <div className="m-auto text-center"> */}
-                <Link to="/fellowship/portfolio" aria-label="Read our fellowship portfolio">
+                <a href="/fellowship/portfolio" aria-label="Read our fellowship portfolio">
                   <StaticImage 
                     className='mx-auto d-block img-fluid' 
                     quality='100' 
@@ -137,7 +141,7 @@ const FellowshipPage = ({ data }) => {
                     alt="Devices icon"
                     layout='fixed'
                   />
-                </Link>
+                </a>
                 <Subtitle className={`${styles.iconTitle} text-center fw-bold mt-2`} >Portfolio</Subtitle>
                 {/* </div> */}
               </Col>

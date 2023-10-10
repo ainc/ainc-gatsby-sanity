@@ -23,21 +23,20 @@ const ApplyNowModal = (props) => {
     const handleShow = () => setLgShow(true);
     return (
         <>
-            <BrandButton className="" onClick={handleShow}>
-                Apply Now
+            <BrandButton className={props.secondary ? "secondary" : ""} onClick={handleShow}>
+                {props.title}
             </BrandButton>
 
 
             <ModalCustom
                 lgShow={lgShow}
                 hide={handleClose}
-                title="Apply Now"
                 content={
                     //Pass HTML here
                     <Container>
                         <Row>
                             <div className='modalDiv'>
-                                <iframe className='applicationContent' src="https://forms.zohopublic.com/virtualoffice9155/form/OnlineNewsletterSignup/formperma/63TqTON16miWuaZIxR3_tTM4HEyMqE9N_KJOPjJPEUA?gclid=undefined"></iframe>
+                                <iframe className='applicationContent' src={props.link}></iframe>
                             </div> 
                         </Row>
                     </Container>

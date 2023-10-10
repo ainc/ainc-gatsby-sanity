@@ -16,6 +16,7 @@ import FiveAcrossBG from '../../../images/5across-hero.png'
 // import Event from "../../../components/Event/Event";
 import DropdownDataDisplay from "../../../components/DropdownDataDisplay/DropdownDataDisplay";
 import HorizontalButtons from './HorizontalButtons';
+import { useRef } from "react";
 
 
 
@@ -49,6 +50,14 @@ const fiveAcrossPage = ({ data }) => {
             years.unshift(pastWinnerYear) //add the year to the list of years if it is not in there already (closest year to top)
         }
     }
+    //Scroll to Recent Winner section
+    const recentWinner = useRef(null);
+    const scrollToSection = (ref) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    };
+
     return (
     
         <Layout>
@@ -103,7 +112,7 @@ const fiveAcrossPage = ({ data }) => {
                 </Row>
                 <Row>
                     <Col className="mb-2 d-flex justify-content-center">
-                        <BrandButton>WATCH PAST PITCHES</BrandButton>
+                        <BrandButton onClick={() => scrollToSection(recentWinner)}> WATCH PAST PITCHES</BrandButton>
                     </Col>
                 </Row>
             </Container>
@@ -167,7 +176,7 @@ const fiveAcrossPage = ({ data }) => {
 
 
             {/* RECENT WINNER SECTION */}
-            <Container className="mb-5 pb-5">
+            <Container ref={recentWinner} className="mb-5 pb-5">
                 <Row>
                     <Col className="my-5 text-center">
                         <Title className={`${styles.largeText} text-uppercase py-5`}>Our most recent winner</Title>
