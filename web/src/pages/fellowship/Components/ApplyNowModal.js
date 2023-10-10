@@ -23,7 +23,7 @@ const ApplyNowModal = (props) => {
     const handleShow = () => setLgShow(true);
     return (
         <>
-            <BrandButton className="" onClick={handleShow}>
+            <BrandButton className={props.secondary ? "secondary" : ""} onClick={handleShow}>
                 {props.title}
             </BrandButton>
 

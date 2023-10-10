@@ -78,7 +78,6 @@ const WorkspacePage = () => {
                 price="$75/MONTH"
                 imgAlt=""
                 id="44"
-                modalDialog = "hihiihi"
               />
             </Col>
             <Col md={4} sm={12}>

@@ -11,7 +11,7 @@ const BackgroundCard = (props) => {
   //Scroll to a specific section when card is clicked
   const scrollToSection = (ref) => {
     if (ref.current) {
-      ref.current.scrollIntoView({ behavior: 'smooth' });
+      ref.current.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center'});
     }
   };
 

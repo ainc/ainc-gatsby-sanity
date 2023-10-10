@@ -91,7 +91,7 @@ const InternshipsPage = ({ data }) => {
       <Container className='my-5'>
         <Row className='text-center'>
           <Col>
-            <a href="https://www.youtube.com/watch?v=OCG3FIviexc">
+            <a href="https://www.youtube.com/watch?v=OCG3FIviexc" target='_blank'>
               <BrandButton className='secondary mb-5'>Watch Video</BrandButton>
             </a>
             
