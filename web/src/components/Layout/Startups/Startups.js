@@ -3,6 +3,7 @@ import Title from "../../../components/UI/Title/Title";
 import Subtitle from "../../../components/UI/Subtitle/Subtitle";
 import BrandButton from "../../../components/UI/BrandButton/BrandButton";
 import { Container, Row, Col } from "react-bootstrap";
+import { StaticImage } from "gatsby-plugin-image";
 
 
 const Startups = () => {
@@ -15,7 +16,13 @@ const Startups = () => {
           <Col>
             <div className="h-100 my-5">
             <a href='/idea'>
-                <img className = 'd-block mx-auto w-50 m-5' src='../../../assets/svg/lightbulb-circle.svg' alt="Lightbulb Icon" />
+                <StaticImage 
+                  className='d-block mx-auto w-50 m-5' 
+                  quality='100'
+                  objectFit="contain"
+                  src='../../../assets/svg/lightbulb-circle.svg' 
+                  alt="Lightbulb Icon" 
+                />
               </a>
               <Subtitle className="text-center brand fw-bold">Pitch Your Idea</Subtitle>
               <p className="text-center">We offer outlets for your idea to be heard. Share your idea with us or learn more about events that promote entrepreneurship.</p>
@@ -25,7 +32,13 @@ const Startups = () => {
           <Col>
             <div className="h-100 my-5">
               <a href='/fellowship'>
-                <img className = 'd-block mx-auto w-50 m-5' src='../../../assets/svg/rocket-circle.svg' alt="Rocket" />
+              <StaticImage 
+                  className='d-block mx-auto w-50 m-5' 
+                  quality='100'
+                  objectFit="contain"
+                  src='../../../assets/svg/rocket-circle.svg' 
+                  alt="Rocket Icon" 
+                />
               </a>
               <Subtitle className="text-center brand fw-bold">Accelerate Your Startup</Subtitle>
               <p className="text-center">Our Fellowship Program is mentor-driven, designed to accelerate your high-tech startup. Learn about the Fellowship Program as well as our other programs designed to foster your startup's growth.</p>
@@ -34,7 +47,13 @@ const Startups = () => {
           <Col>
             <div className="h-100 my-5">
               <a href='https://www.entrepreneurhof.com/'>
-                <img className = 'd-block mx-auto w-50 m-5' src='../../../assets/svg/book-circle.svg' alt="Book" />
+                <StaticImage 
+                  className='d-block mx-auto w-50 m-5' 
+                  quality='100'
+                  objectFit="contain"
+                  src='../../../assets/svg/book-circle.svg' 
+                  alt="Book Icon" 
+                />
               </a>
               <Subtitle className="text-center brand fw-bold">Showcasing Kentucky Entrepreneurs</Subtitle>
               <p className="text-center">Discover the impact that Entrepreneurship has made in the Commonwealth.</p>
