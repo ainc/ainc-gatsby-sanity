@@ -24,7 +24,6 @@ const Layout = ({ pageTitle, children, onHideNav, onShowNav, showNav, siteTitle}
   var titleOfPage
   try {
     titleOfPage = query.allSanityPageTitles.edges.find((page) => page.node.filePath === useLocation().pathname).node.pageTitle
-    console.log("Title: ", titleOfPage)
   } catch(error) {
     console.error(error)
   }
