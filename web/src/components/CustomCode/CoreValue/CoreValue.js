@@ -19,7 +19,7 @@ const CoreValue = (props) => {
             <Col sm="6">
               <Row>
                 <Col sm="4">
-                  <a onClick={handleShow}  id="video-btn"  >
+                  <a onClick={handleShow}  id="video-btn" href='#!'>
                       <StaticImage quality='100' src='./video-button.png' alt="Core values video" />
                   </a>
                   
@@ -40,12 +40,13 @@ const CoreValue = (props) => {
         lgShow = {lgShow} 
         hide = {handleClose}
         bgDark = {false} 
+        centered
         content = {
           <iframe 
           width="100%" 
           height="500" 
           src="https://www.youtube.com/embed/3dylpY4W_xA?si=ZwjkbPyAZe0E8eFx" 
-          title="YouTube video player" 
+          title="YouTube video player"
           frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
           allowfullscreen></iframe>
         }/>

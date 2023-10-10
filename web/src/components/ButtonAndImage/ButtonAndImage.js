@@ -23,6 +23,7 @@ const TeamButton = (props) => {
       </button>
 
     <ModalCustom
+    centered
     lgShow={lgShow}
     hide={handleClose}
     content={

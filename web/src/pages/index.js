@@ -117,13 +117,13 @@ const IndexPage = ({ data }) => {
   const scrollToSection = (sectionId) => {
     switch (sectionId) {
       case 'workspace':
-        section1Ref.current.scrollIntoView({ behavior: 'smooth' });
+        section1Ref.current.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center'});
         break;
       case 'courses':
         section2Ref.current.scrollIntoView({ behavior: 'smooth' });
         break;
       case 'startup':
-        section3Ref.current.scrollIntoView({ behavior: 'smooth' });
+        section3Ref.current.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center'});
         break;
       
       default:

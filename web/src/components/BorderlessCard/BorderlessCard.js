@@ -50,7 +50,6 @@ const MemberOption = (props) => {
       <ModalCustom 
         lgShow={showModal1}
         hide={handleCloseModal1}
-        title="hihi"
         content ={
           <Container>
             <Row>

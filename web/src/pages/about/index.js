@@ -180,7 +180,7 @@ const AboutPage = ({ data }) => {
                   subHeading="Culture"
                   content="Culture is so important to us. We want to share it with the community and invite everyone in on it."
                   btnText="Culture Book"
-                  to="https://www.awesomeinc.org/assets/core-values.pdf"
+                  to="https://www.awesomeinc.org/assets/culture-book.pdf"
                 
                 />
               </Col>

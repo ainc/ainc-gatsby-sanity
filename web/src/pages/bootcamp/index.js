@@ -309,7 +309,8 @@ const BootcampPage = props => {
                       {/* <BrandButton className="button secondary mt-3">Download Program Guide</BrandButton> */}
                       <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
                         title="Download Program Guide"
-                        className="button secondary mt-3"/>
+                        className="button secondary mt-3"
+                        secondary={true}/>
                     </Col>
                   </Row>
                 </Row>
