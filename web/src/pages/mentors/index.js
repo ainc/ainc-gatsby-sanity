@@ -32,7 +32,6 @@ const MentorsPage = ({ data }) => {
     
     return (
       <Layout>
-        <SEO />
           <Container>
                 <Row>
                     <Title className='text-center mt-3 mb-5'>Mentors</Title>

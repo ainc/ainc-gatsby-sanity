@@ -36,7 +36,6 @@ const WorkspacePage = () => {
 
   return (
     <Layout>
-      <SEO/>
       {/* Hero */}
       <section>
         <div className={styles.headerWorkspace}>
@@ -102,7 +101,7 @@ const WorkspacePage = () => {
                 infoOne="Private Office Space"
                 infoTwo="Conference Room Access"
                 infoThree="Member Exclusive Events"
-                price="REACH OUT FOR PRICING"
+                price="Reach out for Pricing"
                 imgAlt=""
                 classN={styles.lockIcon}
               />
@@ -187,15 +186,36 @@ const WorkspacePage = () => {
           <Container fluid>
             <Row>
               <Col>
-                <Button 
-                  a href="https://calendly.com/awesometour/30min?month=2023-09" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.btnCustom}>
+              
+                <a href='https://calendly.com/awesometour/30min?' target="_blank">
+                <Button className={styles.btnCustom}>
                   Schedule A Tour
                 </Button>
+                </a>
               </Col>
 
+
+              
+              {/*<Button onClick={handleShow} className={styles.btnCustom}> if want to add modal later
+                  Schedule A Tour
+                </Button>
+              <ModalCustom 
+                lgShow={lgShow} 
+                hide={handleClose} 
+                title="Schedule a Tour" 
+                content={
+                  //Pass HTML here
+                  <Container>
+                    <Row>
+                      <Subtitle>this is a test</Subtitle>
+                    </Row>
+                    <Row>
+                      <BrandButton>Hello</BrandButton>
+                    </Row>
+                  </Container>
+                }
+                />
+                */}
             </Row>
           </Container>
         </Container>

@@ -4,11 +4,12 @@ import styled from 'styled-components'
 import * as styles from '../../../styles/Variables'
 
 const StyleBrandButton = styled.button`
-    font-family: ${styles.styles.fonts.baseFont};
+    // font-family: ${styles.styles.fonts.baseFont};
     font-weight: 600;
     letter-spacing: 3px;
     background-color: ${styles.styles.colors.brand};
-    padding: 0.5rem 2rem;
+    // padding: 0.5rem 2rem;
+    padding: 0.5rem 1rem;
     color: white;
     overflow: hidden;
     display: inline-block;
@@ -49,6 +50,11 @@ const StyleBrandButton = styled.button`
     &.btn--small {
         font-size: ${styles.styles.sizes.text};
         padding: 0.4rem 1.4rem;
+    }
+
+    &.small--text{
+        font-size: 0.7rem;
+        letter-spacing: 3px;
     }
 `
 

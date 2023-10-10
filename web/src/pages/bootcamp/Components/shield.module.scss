@@ -8,20 +8,92 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    height: 220px;
-    width: 100%;
+    height: 200px;
+    width: 120px;
     display: grid;
+    text-align: center;
     grid-template-columns: auto;
     grid-template-rows: auto;
+    box-sizing: inherit;
+
+    @include screen-md{
+        background-image: url(../../../images/bootcamp/shield.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: 50%;
+        background-position-y: 50%;
+        background-position: center top;
+        box-sizing: border-box ;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        height: 200px;
+        width: 100px;
+    }
+
+    @include screen-sm{
+        background-image: url(../../../images/bootcamp/shield.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: 50%;
+        background-position-y: 50%;
+        background-position: center top;
+        box-sizing: border-box ;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        height: 220px;
+        width: 100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @include screen-xs{
+        background-image: url(../../../images/bootcamp/shield.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: 50%;
+        background-position-y: 50%;
+        background-position: center top;
+        box-sizing: border-box ;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        height: 220px;
+        width: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+
+
+
+    
+
+
+
+    
 
     .shieldText {
+        font-weight: 100;
+        width:100px;
+        height: 10px;
         display: flex;
         text-align: center;
         justify-self: center;
-        align-self: center;
-        @include screen-tablet-max {
-            @include font-size(12);
+        align-items: center;
+        
+
+        @include screen-md{
+            width: 90px;
         }
+        @include screen-sm{
+            width: 90px;
+        }
+       
+        // @include screen-tablet-max {
+        //     @include font-size(12);
+        // }
         // padding: 1.5rem 2.75rem 2.5rem 2.75rem;
     }
 }

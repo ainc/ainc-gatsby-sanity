@@ -45,8 +45,7 @@ const CodingClubFAQ = () => {
 
 
 return (
-    <Layout>
-        <SEO/>       
+    <Layout>     
             <Container>
                 <AccordionCustom
                     faq = {faq}

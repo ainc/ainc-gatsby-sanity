@@ -23,14 +23,17 @@
     background-image: url('../../../images/5across-big-red-circle.png');
     background-position: top;
     background-repeat: no-repeat;
+    min-height: 650px;
     @include screen-sm {
         background-image: none;
         background-color: #ed3243;
+        min-height: 250px;
     } 
     @include screen-xs {
         background-image: none;
         background-color: #ed3243;
         margin: none !important;
+        min-height: 450px;
     } 
 }
 

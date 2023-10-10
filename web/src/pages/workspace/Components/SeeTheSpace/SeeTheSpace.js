@@ -36,8 +36,15 @@ const SeeTheSpace = (props) => {
                   <FaPlay />
                 </i>
               </a>
-              {/* Tour Btn. Provide link to tour modal */}
-              <a href = "https://calendly.com/awesometour/30min?" target="_blank" rel="noopener" role="button" className={styles.tourBtn}>
+
+              <a role='button' href='https://calendly.com/awesometour/30min?' target='_blank' className={styles.tourBtn}>
+                <Image className={styles.tourIcon} src={TourBtn} alt="schedule a tour"/>
+              </a>
+              </div>
+          </div>
+        </Col>
+              {/* Tour Btn. Provide link to tour modal - if we want to use later
+              <a role="button" onClick={handleShow} className={styles.tourBtn}>
                 <Image className={styles.tourIcon} src={TourBtn} alt="schedule a tour"/>
               </a>
             </div>
@@ -48,7 +55,7 @@ const SeeTheSpace = (props) => {
 
 
           </ModalCustom>
-        </Col>
+        </Col> */}
       </Row>
     </Container>
   );

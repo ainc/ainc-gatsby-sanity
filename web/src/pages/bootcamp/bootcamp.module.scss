@@ -1,9 +1,31 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss"; 
 .header {
-    background-image: url(../../images/bootcamp/hero-bg.jpg);
-    background-size: cover;
-    background-position: center;
-    padding-top: 40px;
-    height: 92vh;
+        background-image: url(https://www.awesomeinc.org/assets/img/bootcamp/hero-image-2-min.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        @media (min-width: 992px){
+            background-position: center;
+            background-position: 79% 21%;
+            margin-top: 17px;
+            height: 90vh;
+            width: 100%;
+
+        }
+        @media (min-width: 481px) and (max-width: 991px){
+            background-position: center bottom;
+            margin-top: 10px;
+            height: 75vh;
+            width: 100%;
+        }
+
+        @media (max-width: 480px){
+            background-position: center;
+            margin-top: 10px;
+            height: 75vh;
+            width: 100%;
+        }
+       
 
     .headerTitle {
         @media (min-width: 992px) {
@@ -12,67 +34,134 @@
         }
     }
 
-    .row {
-        padding-top: 70px;
-        padding-bottom: 70px;
-    }
+   
 
-    .titleCol {
-        @media (min-width: 481px) {
-            margin-top: 100px;
-        }
-    }
-}
-
-.twoButtonsRow {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    .text-white {
+    .titleBlock {   
         color: white;
-        margin-bottom: 50px;
-        margin-top: 50px;
+        text-align: right;
+        @include screen-max{
+            margin-top: 5vh;
+        }
+        @include screen-lg{
+            margin-top: 5vh ;
+        }
+        @include screen-md{
+            // margin-top: 5vh ;
+          
+            margin-bottom: 170px;
+        }
+        @include screen-sm{
+            title{
+                font-size: small;
+            }
+        }
+        @include screen-xs{
+            
+        }
+       
+
+     
+
+
+    .sideNav{
+        margin-top: 100px;
+        margin-left: 100px;
+    }
+
     }
 }
 
-.leftButtonCol {
-    @media (min-width: 481px) {
-        margin-left: 150px;
-    }
-    @media (max-width: 480px) {
-        border-right: 0px;
+.bootcampUpcomingdates{
+    @media (min-width: 768px){
+        border-right: 2px solid #C12029;
     }
 }
 
-.rightButtonCol {
-    @media (min-width: 481px) {
-        margin-right: 162px;
-        margin-left: -25px;
-        margin-top: -2px;
-        max-width: 70%;
-    }
-    @media (max-width: 480px) {
-        margin-top: 40px;
-    }
+.twoButtons{
+    background-color: #323232;
+    .twoButtonsRow {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        margin-left: 20px;
+
+        .leftButtonCol{
+            padding-right: 50px;
+            border-right: 1.75px solid white ;
+            @include screen-sm{
+              border-right: none;
+              padding-right: none;
+            }
+        }
+    
+        .rightButtonCol{
+            padding-left: 50px;
+            @include screen-sm{
+                padding-left:none;
+                padding-right: none;
+            }
+            
+        }
+}
 }
 
-.twoButtonsIcons {
-    max-width: 50px;
-}
+
 
 .testimonials {
     background-image: url(../../images/bootcamp/testimonials-bg.jpg);
     background-size: cover;
+    
 }
 
-#why-awesome-inc {
-    .textCol {
-        @media (min-width: 480px) {
-            .textRow {
-                border-width: 0px;
+
+.whyAwesomeinc {
+    p{
+        text-align: justify;
+    }
+    .leftCol{
+        @include screen-max{
+            max-width: 410px;
+        }
+        @include screen-lg{
+            
+        }
+        @include screen-md{
+            
+        }
+        @include screen-sm{
+            width: 80vw;
+            text-align: justify;
+            p{
+                font-size: 18px;
             }
         }
+        @include screen-xs{
+            text-align: justify;
+            width: 90vw;
+            p{
+                font-size: 18px;
+            }
+        }
+
     }
+    .rightCol{
+        @include screen-max{
+        }
+        @include screen-lg{
+            margin-top: 100px;
+        }
+        @include screen-md{
+            margin-top: 150px;
+        }
+        @include screen-sm{
+            margin-top: 50px;
+        }
+        @include screen-xs{
+           
+        }
+    }
+  
 }
+
 
 
 .jobGuarantee {
@@ -89,85 +178,235 @@
     .text-white {
         padding-top: 20px;
         padding-bottom: 30px;
-        max-width: 65%;
     }
+}
 
-    .textCol {
-        @media (max-width: 481px) {
-            width: max-content;
-        }
-    }
-
-    .jobGuaranteeText {
-    @media (min-width: 481px) {
-            margin-left: 70px;
-            margin-left: 70px;
-            margin-top: 30px;
-    }
+.carousel{
+    .aincuTestimonial{
+        display: inline-block;
+        padding: 10px;
+        box-shadow: rgba(0,0,0,0.23) 0px 1px 20px 0px ;
+        border-radius: 4px;
     }
 }
 
 .whyAwesomeIncHeader {
-    background-image: url(../../images/bootcamp/awesome-inc-bg.jpg);
+    background-image: url(https://www.awesomeinc.org/assets/img/bootcamp/awesome-inc-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: 10%;
     height: 24vh;
 }
 
-#stats {
-    .statsRow {
-        padding-top: 50px;
-        padding-bottom: 50px;
-    }
-    .button {
-        background-color: grey;
+.apply{
+
+    .applyCol {
+        @include screen-max{
+            display: flex;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        @include screen-lg{
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @include screen-sm{
+            display: flex;
+        }
+
+        @include screen-md{
+            flex: none;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 200px;
+        }
+
+        @include screen-sm{
+            flex: none;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 200px;
+        }
+       
+        @include screen-xs{
+            flex: none;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 200px;
+        }
+
+        .arrowImg{
+            @include screen-md{
+                display: none;
+            }
+            @include screen-sm{
+                display: none;
+            }
+            @include screen-xs{
+                display: none;
+            }
+        }
+     
+        }
+    .applyButtons{
+        display: flex;
+        @include screen-max{
+           flex: none;
+            
+        
+        }
+        
     }
 }
 
-.employerImg {
-    max-width: 50px;
+.stats {
+    .statsCol{
+        @include screen-max{
+            display: flex;
+            text-align: center;
+        }
+        @include screen-lg{
+            display: flex;
+            text-align: center;
+        }
+        @include screen-md{
+            display: flex;
+            text-align: center;
+        }
+
+        @include screen-sm{
+            flex: none;
+            text-align: center;
+        }
+        @include screen-xs{
+            flex: none;
+            text-align: center;
+        }
+    }
+
+    .statsRow{
+        @include screen-max{
+            margin-left: 80px;
+            margin-right: 80px;
+        }
+        @include screen-lg{
+            margin-left: 80px;
+            margin-right: 80px;
+        }
+        @include screen-md{
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+        @include screen-sm{
+            text-align: center;
+        }
+        @include screen-xs{
+            text-align: center;
+        }
+    }
 }
 
 .languages {
     background-image: url(../../images/bootcamp/languages-bg.jpg);
+    background-position: center;
+    background-repeat: none;
+    background-position: 79% 21%;
+    width: 100%;
     padding-left: 100px;
     padding-right: 100px;
+    .languageIcons{
+        justify-content: center;
+        @include screen-md{
+            flex-wrap: nowrap;
+            flex-shrink: 1;
+        }
+        @include screen-sm{
+            flex-wrap: nowrap;
+            flex-shrink: 2;
+        }
+    }
 }
 
-#timeline {
+.timeline {
+    width: 100vw;
+    display: flex;
+    @include screen-xs{
+        flex: none
+    }
+
+    .titleDiv{
+        width: 100px;
+        @include screen-sm{
+            width: 0px;
+        }
+        @include screen-xs{
+            width: 0px;
+        }
+    }
+  
     .timelineTitle {
-        position: absolute; 
-        top: 80%;
         left: 0;
-        margin-left: -30px;
-        color: red;
-        font-size: 70;
+        margin-left: 15px;
+        margin-top: 400px;
+        color: #C12029;
+        font-size: 70px;
         letter-spacing: 4px;
         text-transform: none;
         
         transform: rotate(270deg);
         transform-origin: (0 0);
 
-        // @include screen-xs {
-        //   position: relative;
-        //   @include font-size(34);
-        //   @include transform(rotate(0));
-        //   top: 80%;
-        //   left: 10px;
-        //   letter-spacing: 4px;
-        // }
+        @include screen-xs {
+          position: relative;
+          @include font-size(25);
+          @include transform(rotate(0));
+          top: -500px;
+          left: 150px;
+          letter-spacing: 4px;
+          flex: none;
+          font-size: 25px;
+        }
+
+        @include screen-sm {
+            position: relative;
+            @include font-size(25);
+            @include transform(rotate(0));
+            top: -500px;
+            left: 120px;
+            letter-spacing: 4px;
+            flex: none;
+          }
     }
 }
 
+.cost{
+    .costCol{
+        
+        border-right: solid red;
+        @include screen-md{
+            border-right: none;
+        }
+        @include screen-sm{
+            border-right: none;
+        }
+        @include screen-xs{
+            border-right: none;
+        }
+    }
+}
 .stillUnsure {
     background-image: url(../../images/bootcamp/alumni-bg.png);
     background-size: cover;
-    height: 50vh;
+
 }
 
 .questions {
     background-image: url(../../images/bootcamp/faq-bg.jpg);
-    height: 50vh;
+    background-size: cover;
+    
 }
 
