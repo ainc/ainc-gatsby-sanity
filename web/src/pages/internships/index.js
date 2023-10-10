@@ -26,7 +26,11 @@ const InternshipsPage = ({ data }) => {
               <p>
                 If you’re looking to build your skillset with real projects while building the tech and startup community in Lexington, we’d love to chat. Did we mention we eat a *lot* of Oreos.
               </p>
-              <BrandButton className='my-4'>Apply Now</BrandButton>
+              <a href="https://careers.awesomeinc.org/jobs/Careers/649925000000610353/Team-Alpha---Internship?source=CareerSite"
+                target ="_blank" rel="noopener noreferrer">
+                <BrandButton className='my-4'>Apply Now</BrandButton>
+              </a>
+             
             </Col>
           </Row>
         </Container>
@@ -53,13 +57,16 @@ const InternshipsPage = ({ data }) => {
         </Row>
         <Row className='justify-content-center'>
           <Col md={6} lg={4}>
+
           <div className={`${tbDiv}`}>
             <ImageOutline>
               <StaticImage className='img-red-outline' src='../../images/intern-video.jpg' alt='design'/>
             </ImageOutline>
+            <a href="https://www.youtube.com/embed/Xhs6weqDvfg?si=VAty1-G7uhTV5JeU>
             <button className={`${teamButton}`}>
               Video
             </button>
+            </a>
           </div>
           </Col>
           <Col md={6} lg={4}>
@@ -67,9 +74,11 @@ const InternshipsPage = ({ data }) => {
             <ImageOutline>
               <StaticImage className='img-red-outline' src='../../images/intern-development.jpg' alt='design'/>
             </ImageOutline>
+            <a href="https://www.youtube.com/embed/sflZ2tFXMIY?si=wYiNsRS6-4wJu8GV&amp;controls=0">
             <button className={`${teamButton}`}>
               Development
             </button>
+            </a>
           </div>
           </Col>
         </Row>
@@ -79,9 +88,11 @@ const InternshipsPage = ({ data }) => {
             <ImageOutline>
               <StaticImage className='img-red-outline' src='../../images/intern-events-marketing.jpg' alt='design'/>
             </ImageOutline>
+            <a href="https://www.youtube.com/embed/kyp3acHFCZA?si=quXJIkj8x57EL-3F">
             <button className={`${teamButton}`}>
               Events + Marketing
             </button>
+            </a>
           </div>
           </Col>
           <Col md={6} lg={4}>
@@ -89,15 +100,21 @@ const InternshipsPage = ({ data }) => {
             <ImageOutline>
               <StaticImage className='img-red-outline' src='../../images/intern-design.jpg' alt='design'/>
             </ImageOutline>
+            <a href="https://www.youtube.com/embed/_t21lollr1c?si=fdXekYbyXoR6fXXJ">
             <button className={`${teamButton}`}>
               Design
             </button>
+            </a>
           </div>
           </Col>
         </Row>
         <Row className='text-center'>
           <Col>
-            <BrandButton className='my-5'>Apply Now</BrandButton>
+          <a href="https://careers.awesomeinc.org/jobs/Careers/649925000000610353/Team-Alpha---Internship?source=CareerSite"
+            target="_blank" rel="noopener noreferrer">
+              <BrandButton className='my-5'>Apply Now</BrandButton>
+          </a>
+            
           </Col>
         </Row>
       </Container>
@@ -106,7 +123,10 @@ const InternshipsPage = ({ data }) => {
       <Container className='my-5'>
         <Row className='text-center'>
           <Col>
-            <BrandButton className='secondary mb-5'>Watch Video</BrandButton>
+            <a href="https://www.youtube.com/watch?v=OCG3FIviexc" target='_blank'>
+              <BrandButton className='secondary mb-5'>Watch Video</BrandButton>
+            </a>
+            
           </Col>
         </Row>
         <Row className='justify-content-center'>
@@ -138,7 +158,11 @@ const InternshipsPage = ({ data }) => {
           </Row>
           <Row className='text-center pt-5'>
             <Col>
-              <BrandButton>Apply Now</BrandButton>
+              <a href="https://careers.awesomeinc.org/jobs/Careers/649925000000610353/Team-Alpha---Internship?source=CareerSite" 
+                target="_blank" rel="noopener noreferrer">
+                <BrandButton>Apply Now</BrandButton>
+              </a>
+              
             </Col>
           </Row>
         </Container>
@@ -171,7 +195,10 @@ const InternshipsPage = ({ data }) => {
         </Row>
         <Row className='text-center pt-5'>
           <Col>
-            <BrandButton>Meet the Team</BrandButton>
+            <a href="../team-alpha" target="_blank" rel="noopener noreferrer">
+              <BrandButton>Meet the Team</BrandButton>
+            </a>
+            
           </Col>
         </Row>
       </Container>

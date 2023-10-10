@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import { graphql, Link, useStaticQuery } from 'gatsby'
 // JSX
 import HeroSlider, { Slide, Nav, Overlay } from "hero-slider";
@@ -10,6 +10,10 @@ import BrandButton from "../UI/BrandButton/BrandButton";
 import { Container } from "react-bootstrap"
 
 const HomepageSlider = (props) => {
+  const {scrollToSection, sectionIds} = props
+  
+
+
 
   const query = useStaticQuery(graphql`
     query imageSlider {
@@ -84,7 +88,7 @@ const HomepageSlider = (props) => {
               <Container className="mb-3">
                 <Subtitle className="text-white">{slide.subtitle}</Subtitle>
                 <Title className="mb-3 text-white">{slide.title}</Title>
-                <BrandButton href="{slide.cta.url}" className="mt-3">{slide.cta.title}</BrandButton>
+                <BrandButton onClick={() => scrollToSection(sectionIds[i])}  href="{slide.cta.url}" className="mt-3">{slide.cta.title}</BrandButton>
               </Container>
             </Wrapper>
           </Slide>

@@ -16,6 +16,10 @@ import * as footerStyles from '../../components/Footer/Footer.module.scss'
 import ShieldsRow from "./Components/ShieldsRow/ShieldsRow";
 import VerticalTitle from "../../components/UI/VerticalTitle/VerticalTitle";
 import SideNav from "./Components/SideNav/SideNav"
+
+import ApplyNowModal from "../fellowship/Components/ApplyNowModal";
+import { useRef } from "react";
+
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
 import CountdownTimer from "./Components/CountdownTimer/CountdownTimer";
@@ -109,6 +113,15 @@ const BootcampPage = props => {
     );
   }
 
+
+  //Scroll to section 'Cost'
+  const sectionCost = useRef(null);
+  const scrollToSection = (ref) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const [sliderRef] = useKeenSlider(
     {
       loop: true,
@@ -147,6 +160,7 @@ const BootcampPage = props => {
 
   return ( 
     <Layout>
+
       {/* Add SEO Component Here?? */}
       
       {/* Header section */}
@@ -231,7 +245,9 @@ const BootcampPage = props => {
                   <Row>
                     <Title className="text-center py-2 fs-3 text--medium white">Have a few questions?</Title>
                     <div>
-                    <BrandButton className="justify-content-center btn--small small--text my-3">Download Program Guide</BrandButton>
+                    <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
+                     title="Download Program Guide"
+                     className="justify-content-center" style={{marginTop: "5px"}}/>
                     </div>
                   </Row>
                 </Col>
@@ -244,7 +260,7 @@ const BootcampPage = props => {
                   <Row className="me-5">
                     <Title style={{}} className="text-center py-2 fs-3 text--medium white">Pay nothing until you land a job!</Title>
                     <div>
-                    <BrandButton className="justify-content-center btn--small small--text my-3">See how here</BrandButton>
+                    <BrandButton onClick={() => scrollToSection(sectionCost)} className="justify-content-center">See How Here</BrandButton>
                     </div>
                   </Row>
                  
@@ -286,7 +302,10 @@ const BootcampPage = props => {
           </Row>
           <Row className="pt-5 pb-3">
             <Col className="d-flex justify-content-center">
-              <BrandButton className="btn--small">Download Program Guide</BrandButton>
+              
+              <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
+              title="Download Program Guide"/>
+
             </Col>
           </Row>
         </Container>
@@ -316,7 +335,10 @@ const BootcampPage = props => {
             </Row>
             <Row className="pt-4 pb-5">
               <Col className="text-center">
-                <BrandButton className="text-center brand">More Alumni</BrandButton>
+                <a href="../alumni">
+                  <BrandButton className="text-center brand">More Alumni</BrandButton>
+                </a>
+                
               </Col>
             </Row>
           </Row>
@@ -431,7 +453,6 @@ const BootcampPage = props => {
 
       {/* Stats */}
  
-
       <section id="stats" style={{backgroundColor: "#ED3742"}}className="background--brand pe-0">
         <Container fluid className={`${styles.stats}`}>
           <div className="mx-3 py-5">
@@ -453,7 +474,10 @@ const BootcampPage = props => {
               </Col>
               <Row className="mt-0">
                 <Col className="d-flex justify-content-center pb-4">
-                  <BrandButton style={{width:"300px"}} className="button secondary mt-3 ">Download Program Guide</BrandButton>
+                        <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
+                        title="Download Program Guide"
+                        className="button secondary mt-3"
+                        secondary={true}/>
                 </Col>
               </Row>
             </Row>
@@ -584,10 +608,13 @@ const BootcampPage = props => {
             </div>
           
             <div style={{}} xs={12} sm={12} md={4} lg={4} xl={3}  className="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 mb-3 d-flex justify-content-center ">
-              <BrandButton  className="small--text" style={{width:"fit-content"}}>Schedule A Visit</BrandButton>
+                    <ApplyNowModal 
+                    title="Schedule Call or Visit"
+                    link="https://calendly.com/ainc/awesome-inc-call?"/>
             </div>
             <div style={{} }xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-3 mb-3 d-flex justify-content-center ">
-              <BrandButton className="small--text">Download Program Guide</BrandButton>
+                    <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
+                     title="Download Program Guide"/>
             </div>
           </Row>
 
@@ -612,7 +639,8 @@ const BootcampPage = props => {
       </section>
 
       {/* Cost */}
-      <section id="cost" className="py-5">
+
+      <section ref = {sectionCost} id="cost" className="py-5">
         <Container className={`${styles.cost}`}>
           <Row>
             <Col>
@@ -662,11 +690,14 @@ const BootcampPage = props => {
       </section>
 
       {/* Still Unsure */}
+
      <section id="still-unsure" className="pt-2">
         <Container fluid className={`${styles.stillUnsure} py-4`}>
           <div style={{width:"800px"}} className="mx-5 text-center justify-content-center mx-auto">
             <Title className="text-center pt-5 pb-3">Still unsure? Here's everyone else who took this same leap and hasn't looked back!</Title>
-            <BrandButton className="my-3 small--text">Meet Alumni</BrandButton>
+            <a href="../alumni">
+              <BrandButton className="my-3 small--text">Meet Alumni</BrandButton>
+             </a>
           </div>
         </Container>
 

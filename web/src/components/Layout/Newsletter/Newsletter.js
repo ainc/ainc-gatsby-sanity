@@ -2,9 +2,11 @@ import * as React from "react";
 import Title from "../../../components/UI/Title/Title";
 import Subtitle from "../../../components/UI/Subtitle/Subtitle";
 import BrandButton from "../../../components/UI/BrandButton/BrandButton";
+
 import { Modal } from "react-bootstrap";
 import { useState } from "react";
 import * as styles from './newsletter.module.scss';
+
 const Newsletter = () => {
 
   const [show, setShow] = useState(false);
@@ -15,6 +17,7 @@ const Newsletter = () => {
     <section style={{ backgroundColor: `#555`}}>
       <Title className="text-center text-uppercase text-white py-5">Sign up for Our Newsletter</Title>
       <div className="py-5">
+
         <BrandButton className="d-block mx-auto mb-5" onClick={handleShow}>Sign Up</BrandButton>
         <Modal show={show} onHide={handleClose} centered size='lg' aria-labelledby='contained-modal-title-vcenter'>
         <form
@@ -137,7 +140,7 @@ const Newsletter = () => {
           </Modal.Body>
         </form>
         </Modal>
-      </div>
+     </div>
     </section>
   )
 }

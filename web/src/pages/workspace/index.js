@@ -68,7 +68,7 @@ const WorkspacePage = () => {
           <Row>
             <Col md={4} sm={12}>
               <BorderlessCard
-                imgModal="#" 
+                imgModal="#"
                 imgSrc={Mail}
                 header="VIRTUAL MEMBER"
                 infoOne="DOWNTOWN MAILING ADDRESS"
@@ -186,12 +186,14 @@ const WorkspacePage = () => {
           <Container fluid>
             <Row>
               <Col>
+              
                 <a href='https://calendly.com/awesometour/30min?' target="_blank">
                 <Button className={styles.btnCustom}>
                   Schedule A Tour
                 </Button>
                 </a>
               </Col>
+
 
               
               {/*<Button onClick={handleShow} className={styles.btnCustom}> if want to add modal later
