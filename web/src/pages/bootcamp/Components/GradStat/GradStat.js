@@ -6,12 +6,12 @@ import { GatsbyImage } from "gatsby-plugin-image";
 function GradStat(props) {
     return (
         <div>
-            <div>
-                <GatsbyImage image={props.image} alt={props.alt} style={{maxWidth: "160px"}}/>
+            <div style={{width: "190px",weight: "150px", display:"block", marginLeft:"auto", marginRight: "auto"}}>
+                <GatsbyImage image={props.image} alt={props.alt}/>
             </div>
-            <Title className="text-white py-3">{props.stat}</Title>
-            <Subtitle className="text-white">{props.subtitle}</Subtitle>
-            <Subtitle className="fst-italic fw-lighter fs-5 text-white">{props.subtext}</Subtitle>
+            <h2 className="text-white py-3 fw-bolder">{props.stat}</h2>
+            <h3 className="text-white subtitle--small">{props.subtitle}</h3>
+            <h6 className="fst-italic fw-lighter fs-5 text-white subtitle--small">{props.subtext}</h6>
         </div>
     )
 }

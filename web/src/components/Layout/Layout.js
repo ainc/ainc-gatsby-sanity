@@ -3,13 +3,34 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Banner from '../Banner/Banner'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
-
 import "../../styles/layout.css";
+import SEO from "../seo";
+import { useLocation } from "@reach/router";
 
+const Layout = ({ pageTitle, children, onHideNav, onShowNav, showNav, siteTitle}) => {
+  const query = useStaticQuery(graphql`
+  query {
+    allSanityPageTitles {
+      edges {
+        node {
+          filePath
+          pageTitle
+        }
+      }
+    }
+  }
+  `);
 
-const Layout = ({ pageTitle, children, onHideNav, onShowNav, showNav, siteTitle }) => (
+  var titleOfPage
+  try {
+    titleOfPage = query.allSanityPageTitles.edges.find((page) => page.node.filePath === useLocation().pathname).node.pageTitle
+  } catch(error) {
+    console.error(error)
+  }
+  
+  return(
   <div>
-    <title>{pageTitle} | This will be dynamic later</title>
+    <SEO title={titleOfPage ? titleOfPage : 'Awesome Inc'}/>
     <Banner />
     <Header />
     <main>
@@ -19,6 +40,8 @@ const Layout = ({ pageTitle, children, onHideNav, onShowNav, showNav, siteTitle 
     </main>
     <Footer />
   </div>
-);
+  );
+};
+
 
 export default Layout;

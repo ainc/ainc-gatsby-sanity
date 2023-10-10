@@ -68,8 +68,7 @@ const FellowshipPage = ({ data }) => {
   const handleShow = () => setLgShow(true);
 
   return (
-    <Layout pageTitle="Fellowship">
-      <SEO />
+    <Layout>
       
       {/* Header section */}
       <Container>
@@ -246,7 +245,7 @@ const FellowshipPage = ({ data }) => {
       {/* Sponsors */}
       <div className={`${footerStyles.footerBackground} text-center pt-5 pb-1`}>
         <Col className="col-md-auto">
-        <Title className="text-center text--white mb-5">FELLOWSHIP SPONSORS</Title>
+        <Title className="text-center text-white mb-5">FELLOWSHIP SPONSORS</Title>
           <Row className={`mx-auto col-sm-6`} style={{"letterSpacing": "0rem"}}> {/*Change the "col-sm-6" higher or lower to change total column width*/}
             {FellowshipSponsers.map((node,i) => {
               if ((node._rawSponserLogo) == null){

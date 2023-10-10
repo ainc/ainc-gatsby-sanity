@@ -1,11 +1,12 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage, StaticImage} from 'gatsby-plugin-image'
 import ImageOutline from '../ImageOutline/ImageOutline'
 import { tbDiv, teamButton } from './ButtonAndImage.module.scss'
 import ApplyNowModal from '../../pages/fellowship/Components/ApplyNowModal'
 import { useState } from 'react'
 import ModalCustom from '../Modal/ModalCustom'
+
 
 const TeamButton = (props) => {
   const [lgShow, setLgShow] = useState(false);
@@ -13,9 +14,9 @@ const TeamButton = (props) => {
   const handleShow = () => setLgShow(true); 
 
   return (
-    <div className={`${tbDiv}`}>
+    <div className={`${tbDiv}`} {...props}>
       <ImageOutline>
-        <GatsbyImage className='img-red-outline' image={getImage(props.img)} alt={props.imgAlt} />
+        <GatsbyImage className='img-red-outline' image={getImage(props.img.src)} alt={props.imgAlt} />
       </ImageOutline>
       <button onClick={handleShow} {...props} className={`${teamButton}`}>
         {props.children}
@@ -35,13 +36,13 @@ const TeamButton = (props) => {
   ) 
 }
 
-TeamButton.propTypes = {
+ButtonAndImage.propTypes = {
   img: PropTypes.any.isRequired,
   imgAlt: PropTypes.string,
 }
 
-TeamButton.defaultProps = {
+ButtonAndImage.defaultProps = {
   imgAlt: "Unknown image",
 }
 
-export default TeamButton
+export default ButtonAndImage;

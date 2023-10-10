@@ -12,7 +12,6 @@ import Layout from '../../components/Layout/Layout'
 const FAQPage = () => {
     return (
         <Layout>
-            <SEO />
                 <Container>
                     <Row>
                         <Title className='text-center text-uppercase my-3'>Frequently asked questions</Title>

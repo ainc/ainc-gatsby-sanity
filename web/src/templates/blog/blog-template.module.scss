@@ -4,9 +4,9 @@
 
 .author {
     color: $brand-color !important;
-    font-size: 1rem !important;
+    font-size: 1.5rem !important;
     @include screen-tablet-max {
-        font-size: .8rem !important;
+        font-size: 1rem !important;
     }
 }
 

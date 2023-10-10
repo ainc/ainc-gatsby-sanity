@@ -41,7 +41,9 @@ const MemberOption = (props) => {
           </Col>
           <Col>
             <a href={props.priceModal}>
+
               <Button onClick = {handleShowModal2} className={styles.price}>{props.price}</Button>
+
             </a>
           </Col>
         </Row>

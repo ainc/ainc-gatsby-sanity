@@ -8,7 +8,6 @@ const Page = ({ data }) => {
 
   return (
     <Layout>
-        <SEO />
         <Container>
         <Row className="my-3">
             <Col md={{ span: 6, offset: 2 }}>

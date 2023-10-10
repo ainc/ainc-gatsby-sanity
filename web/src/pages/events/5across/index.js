@@ -50,7 +50,6 @@ const fiveAcrossPage = ({ data }) => {
             years.unshift(pastWinnerYear) //add the year to the list of years if it is not in there already (closest year to top)
         }
     }
-
     //Scroll to Recent Winner section
     const recentWinner = useRef(null);
     const scrollToSection = (ref) => {
@@ -60,8 +59,8 @@ const fiveAcrossPage = ({ data }) => {
     };
 
     return (
+    
         <Layout>
-            <SEO />
             {/* <section  > */}
             <Container fluid className={`${styles.mainHeading}`}>
                 <Row>

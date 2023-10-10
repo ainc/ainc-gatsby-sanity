@@ -23,7 +23,6 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO />
         {/* About header */}
         <section className={styles.aboutHeader}>
           <Container>
