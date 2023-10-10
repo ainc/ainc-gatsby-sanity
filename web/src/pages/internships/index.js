@@ -2,7 +2,6 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../../components/Layout/Layout'
 import Diagonal from '../../components/Layout/Diagonal/Diagonal'
-import ButtonAndImage from '../../components/ButtonAndImage/ButtonAndImage'
 import ImageOutline from '../../components/ImageOutline/ImageOutline'
 import { Container, Row, Col } from 'react-bootstrap'
 import SEO from '../../components/seo'
@@ -12,8 +11,18 @@ import BrandButton from '../../components/UI/BrandButton/BrandButton'
 import { headerBackgroundAlignRight, tbDiv, teamButton } from "./internships.module.scss";
 import '../../styles/main.scss'
 import internWhy from '/src/images/intern-why.jpg';
+import { useState } from 'react'
+import ModalCustom from '../../components/Modal/ModalCustom'
+import ModalButton from '../../components/ModalButton/ModalButton'
+//import ButtonAndImage from '../../components/ButtonAndImage/ButtonAndImage'
 
 const InternshipsPage = ({ data }) => {
+  //define show and close functions for all of the modals- had to do it this way because ButtonAndImage was not displaying images correctly
+  const [lgShow, setLgShow] = useState(false);
+
+  const handleClose = () => setLgShow(false);
+  const handleShow = () => setLgShow(true);
+  
   return (
     <Layout>
       
@@ -30,7 +39,6 @@ const InternshipsPage = ({ data }) => {
                 target ="_blank" rel="noopener noreferrer">
                 <BrandButton className='my-4'>Apply Now</BrandButton>
               </a>
-             
             </Col>
           </Row>
         </Container>
@@ -57,28 +65,19 @@ const InternshipsPage = ({ data }) => {
         </Row>
         <Row className='justify-content-center'>
           <Col md={6} lg={4}>
-
           <div className={`${tbDiv}`}>
             <ImageOutline>
-              <StaticImage className='img-red-outline' src='../../images/intern-video.jpg' alt='design'/>
+              <StaticImage className='img-red-outline' src='../../images/intern-video.jpg' alt='Video Intern'/>
             </ImageOutline>
-            <a href="https://www.youtube.com/embed/Xhs6weqDvfg?si=VAty1-G7uhTV5JeU">
-            <button className={`${teamButton}`}>
-              Video
-            </button>
-            </a>
+            <ModalButton to="https://www.youtube.com/embed/Xhs6weqDvfg?si=VAty1-G7uhTV5JeU">Video</ModalButton>
           </div>
           </Col>
           <Col md={6} lg={4}>
           <div className={`${tbDiv}`}>
             <ImageOutline>
-              <StaticImage className='img-red-outline' src='../../images/intern-development.jpg' alt='design'/>
+              <StaticImage className='img-red-outline' src='../../images/intern-development.jpg' alt='Development Intern'/>
             </ImageOutline>
-            <a href="https://www.youtube.com/embed/sflZ2tFXMIY?si=wYiNsRS6-4wJu8GV&amp;controls=0">
-            <button className={`${teamButton}`}>
-              Development
-            </button>
-            </a>
+            <ModalButton to="https://www.youtube.com/embed/sflZ2tFXMIY?si=wYiNsRS6-4wJu8GV&amp;controls=0">Development</ModalButton>
           </div>
           </Col>
         </Row>
@@ -86,25 +85,17 @@ const InternshipsPage = ({ data }) => {
           <Col md={6} lg={4}>
           <div className={`${tbDiv}`}>
             <ImageOutline>
-              <StaticImage className='img-red-outline' src='../../images/intern-events-marketing.jpg' alt='design'/>
+              <StaticImage className='img-red-outline' src='../../images/intern-events-marketing.jpg' alt='Events and Marketing Intern'/>
             </ImageOutline>
-            <a href="https://www.youtube.com/embed/kyp3acHFCZA?si=quXJIkj8x57EL-3F">
-            <button className={`${teamButton}`}>
-              Events + Marketing
-            </button>
-            </a>
+            <ModalButton to="https://www.youtube.com/embed/kyp3acHFCZA?si=quXJIkj8x57EL-3F">Events + Marketing</ModalButton>
           </div>
           </Col>
           <Col md={6} lg={4}>
           <div className={`${tbDiv}`}>
             <ImageOutline>
-              <StaticImage className='img-red-outline' src='../../images/intern-design.jpg' alt='design'/>
+              <StaticImage className='img-red-outline' src='../../images/intern-design.jpg' alt='Design Intern'/>
             </ImageOutline>
-            <a href="https://www.youtube.com/embed/_t21lollr1c?si=fdXekYbyXoR6fXXJ">
-            <button className={`${teamButton}`}>
-              Design
-            </button>
-            </a>
+            <ModalButton to="https://www.youtube.com/embed/_t21lollr1c?si=fdXekYbyXoR6fXXJ">Design</ModalButton>
           </div>
           </Col>
         </Row>
