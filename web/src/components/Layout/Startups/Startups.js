@@ -20,6 +20,7 @@ const Startups = () => {
                   className='d-block mx-auto w-50 m-5' 
                   quality='100'
                   objectFit="contain"
+                  style={{height:"150px", width: '150px'}}
                   src='../../../assets/svg/lightbulb-circle.svg' 
                   alt="Lightbulb Icon" 
                 />
@@ -36,8 +37,9 @@ const Startups = () => {
                   className='d-block mx-auto w-50 m-5' 
                   quality='100'
                   objectFit="contain"
-                  src='../../../assets/svg/rocket-circle.svg' 
-                  alt="Rocket Icon" 
+                  style={{height:"150px", width: '150px'}}
+                  src='../../../assets/svg/rocket-circle.svg'
+                  alt="Rocket Icon"
                 />
               </a>
               <Subtitle className="text-center brand fw-bold">Accelerate Your Startup</Subtitle>
@@ -51,6 +53,7 @@ const Startups = () => {
                   className='d-block mx-auto w-50 m-5' 
                   quality='100'
                   objectFit="contain"
+                  style={{height:"150px", width: '150px'}}
                   src='../../../assets/svg/book-circle.svg' 
                   alt="Book Icon" 
                 />
