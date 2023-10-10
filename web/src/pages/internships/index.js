@@ -62,7 +62,7 @@ const InternshipsPage = ({ data }) => {
             <ImageOutline>
               <StaticImage className='img-red-outline' src='../../images/intern-video.jpg' alt='design'/>
             </ImageOutline>
-            <a href="https://www.youtube.com/embed/Xhs6weqDvfg?si=VAty1-G7uhTV5JeU>
+            <a href="https://www.youtube.com/embed/Xhs6weqDvfg?si=VAty1-G7uhTV5JeU">
             <button className={`${teamButton}`}>
               Video
             </button>
