@@ -78,6 +78,7 @@ const BlogPage = ({ data }) => {
                     />
                 </Row>
             </Container>
+            
             <Container className='px-1 pb-3 pb-lg-5'>
                 <Row className="mb-5 mx-3">
                     {blogData.map((edge) => {
@@ -113,7 +114,11 @@ export const query = graphql`
                         name
                         picture {
                             asset {
-                            gatsbyImageData
+                            gatsbyImageData(
+                                width: 100
+                                height: 100
+                                layout: FIXED
+                            )
                             }
                         }
                         title

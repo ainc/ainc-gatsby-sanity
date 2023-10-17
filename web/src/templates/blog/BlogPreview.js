@@ -20,6 +20,7 @@ export default function BlogPreview({blog}) {
         <Row className='p-3 h-100'>
           <Col xs={12} className='p-0'>
             <Container className="blog-image d-flex align-items-end relative" style={{
+             
               backgroundImage: bgImage,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
@@ -37,14 +38,18 @@ export default function BlogPreview({blog}) {
                 </Col>
               </Row>
               <Row className='blog-details'>
-                <Col xs={{ span: 4 }} lg={{ span: 3 }} className="d-flex justify-content-start pb-2">
-                <GatsbyImage objectFit='cover' image={edge.node.reference.picture?.asset?.gatsbyImageData || ''} alt={edge.node.reference.name !== null ? edge.node.reference.name : ''} className="rounded-circle border border-3 border-white my-2 ms-0" />                  
+                <Col xs={4} lg={3} className="d-flex justify-content-start pb-2">
+                  <div style={{height:'fit-content', width:'fit-content'}} className='justify-content-center align-items-center'>
+                    <GatsbyImage objectFit='contain' style={{height:'70px', width:'70px'}}  image={edge.node.reference.picture?.asset?.gatsbyImageData || ''} alt={edge.node.reference.name !== null ? edge.node.reference.name : ''} className="rounded-circle border border-3 border-white my-0 ms-0" /> 
+                    {/* <GatsbyImage objectFit='cover' image={edge.node.reference.picture?.asset?.gatsbyImageData || ''} alt={edge.node.reference.name !== null ? edge.node.reference.name : ''} className="rounded-circle border border-3 border-white my-2 ms-0" /> */}
+                  </div>
                 </Col>
-                <Col xs={{ span: 7 }} lg={{ span: 9 }} className="d-flex justify-content-start align-content-center flex-column mt-3 px-0">
+                <Col  xs={7} lg={9} className="d-flex justify-content-start align-content-center flex-column mt-3 px-0">
                   <Title className="author" style={{fontWeight: '800'}}>{edge.node.reference.name}, {edge.node.reference.title}</Title>
                   <p className='date text-white fw-bold'>{edge.node.date}</p>
                 </Col>
               </Row>
+
             </Container>
           </Col>
           <Col xs={12} className='' style={{ height: "230px" }}>
