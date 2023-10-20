@@ -82,11 +82,10 @@
     .twoButtonsRow {
         padding-top: 50px;
         padding-bottom: 50px;
-        margin-left: 20px;
 
         .leftButtonCol{
             padding-right: 50px;
-            border-right: 1.75px solid white ;
+            border-right: 1.75px solid white;
             @include screen-sm{
               border-right: none;
               padding-right: none;
@@ -410,3 +409,10 @@
     
 }
 
+.special-link{
+    color: #a21b22;
+}
+
+.special-link:hover{
+    color: #de3640;
+}

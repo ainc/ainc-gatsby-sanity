@@ -176,12 +176,11 @@ const BootcampPage = props => {
                 <h4 className=" w-75 text-end lh-md white mt-4 fw-lighter"><b>A 16 week immersive Bootcamp where you'll learn Full Stack coding skills to land a tech job... or your money back.</b></h4>
                 <BrandButton className="mt-3">Get Started</BrandButton>
                 <p style={{fontSize:"12px"}} className="fst-italic">Start your application in less than 30 seconds</p>
-
               </div>
             
             </Col>
             <Col  className= "mt-5 col-2 pt-5 d-none d-sm-block"> {/* Hidden on mobile */}
-              {/* <SideNav/> */}
+                <SideNav/>
             </Col>
             
           </Row>
@@ -203,25 +202,24 @@ const BootcampPage = props => {
           </Row>
           <Row>
               <Col>
-                <Title className="text-center text--medium mt-3">Early Registration Deadline </Title>
-                <CountdownTimer />
-                <Title className="text-center text--medium">7d 12h 59m 27s</Title>
+                <Title className="text-center text--medium mt-3">Early Application Deadline </Title>
+                <Title className="text-center text--medium"><CountdownTimer date={earlyApplicationDeadline}/></Title>
                 <Title className="text-center text--small fw-bold fst-italic"> Guarantees open spots for next class</Title>
               </Col>
           </Row>
           <Row>
-              <Col xs={12} sm ={12}  md={4} lg={3} xl={3}  className={` ${styles.bootcampUpcomingdates} text-center ms-auto my-4`}>
-                <Title className="text-center text--medium fw-bolder">MAY 22, 2023</Title>
+              <Col xs={12} sm ={12}  md={4} lg={3} xl={3}  className={` ${styles.bootcampUpcomingdates} text-center ms-auto my-4 d-none d-sm-block`}> {/*Hidden on mobile*/}
+                <Title className="text-center text--medium fw-bolder">AUG 21, 2023</Title>
                 <h4>TO</h4>
-                <Title className="text-center text--medium fw-bolder">AUGUST 25, 2023</Title>
+                <Title className="text-center text--medium fw-bolder">DECEMBER 08, 2023</Title>
                 <BrandButton className="secondary btn--small my-2" disabled="">APPLICATIONS CLOSED</BrandButton>
 
               </Col>
               <Col xs={12} sm={12} md={4} lg={3} xl={3} className="text-center  me-auto my-4">
-                <Title className="text-center text--medium brand fw-bolder">AUG 21, 2023</Title>
+                <Title className="text-center text--medium brand fw-bolder">MAR 4, 2024</Title>
                 <h4 className="brand">TO</h4>
-                <Title className="text-center text--medium brand fw-bolder">DECEMBER 08, 2023</Title>
-                <BrandButton className="justify-content-center btn--small my-2" disabled="">APPLY NOW</BrandButton>
+                <Title className="text-center text--medium brand fw-bolder">JUNE 21, 2024</Title>
+                <a href="/bootcamp/apply"><BrandButton className="justify-content-center btn--small my-2" disabled="">APPLY NOW</BrandButton></a>
               </Col>
           </Row>
 
@@ -604,7 +602,7 @@ const BootcampPage = props => {
           </Row>
           <Row className={`${styles.applyButtons} justify-content-center`}>
             <div style={{}} xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-3 col-lg-3 offset-lg-1 col-xl-2 offset-xl-1 mb-3 justify-content-center">
-              <BrandButton className="small--text">Apply Now</BrandButton>
+              <a href="/bootcamp/apply"><BrandButton>Apply Now</BrandButton></a>
             </div>
           
             <div style={{}} xs={12} sm={12} md={4} lg={4} xl={3}  className="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 mb-3 d-flex justify-content-center ">
