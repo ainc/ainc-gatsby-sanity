@@ -46,36 +46,16 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
   } else {
     // Render a countdown
     return (
-      <div>
-          <strong>{days}d {hours}h {minutes}m {seconds}s </strong>
-      </div>
+      <span>
+        {days}d {hours}h {minutes}m {seconds}s
+      </span>
     );
   }
 };
 
-
-
-const CountdownTimer = props => {
-  const earlyApplication = new Date(props.countdownTime.earlyApplication) 
-  const earlyRegistration = new Date(props.countdownTime.earlyRegistration) 
-  let deadline
-  const now = Date.now()
-  
-
-  if (earlyApplication < earlyRegistration && earlyApplication > now){
-    deadline = earlyApplication
-    
-  }
-  else {
-    deadline = earlyRegistration
-  
-  }
-
-  
+const CountdownTimer = () => {
   return (
-    <div>
-      <Countdown date={deadline} renderer={renderer}/>
-    </div>
+    <Countdown date={props.date} renderer={renderer} />
   );
 }
 
