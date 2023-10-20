@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import { AiFillCaretDown } from "react-icons/ai";
 import { ImPlus } from "react-icons/im";
-
+import { useLocation } from "@reach/router";
 import "./header.scss"
 import "../../styles/main.scss"
 import { 
@@ -15,6 +15,7 @@ import {
 } from 'react-bootstrap'
 
 import { navbarBrand } from './Header.module.scss'
+import BrandButton from '../UI/BrandButton/BrandButton';
 
 
 const Header = () => {
@@ -68,6 +69,12 @@ const Header = () => {
             />
           </Link>
         </Navbar.Brand>
+        {useLocation().pathname === '/bootcamp/' && ( 
+          <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2 pb-3'>
+            <a href="/bootcamp/apply"><BrandButton>Apply Now</BrandButton></a>
+          </Row>
+
+        )}
         <Navbar.Toggle aria-controls="learn-to-code-navbar" className='text-white shadow-none border-white'/>
         <Navbar.Collapse id="learn-to-code-navbar">
           <Nav>
@@ -95,10 +102,12 @@ const Header = () => {
                     <Nav>
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
                         <Col xs={{span: 10}} className={`d-flex flex-column py-2 border-0`}>
-                          <Link to="/learn/youth">Youth Courses</Link>
-                          <Link to="/learn/adults">Adult Courses</Link>
-                          <Link to="/learn">Kids Camps</Link>
-                          <Link to="/bootcamp">Bootcamp</Link>
+
+                          <a href="/learn/youth">Youth Courses</a>
+                          <a href="/learn/adults">Adult Courses</a>
+                          <a href="/learn">Kids Camps</a>
+                          <a href="/bootcamp">Bootcamp</a>
+                          <a href="/salesforce">Salesforce Career Accelerator</a>
                         </Col>
                       </Row>
                     </Nav>
@@ -242,6 +251,12 @@ const Header = () => {
                 </Container>
               </Navbar>
             </Row>
+
+          {useLocation().pathname === '/bootcamp/' && (
+            <Col className="desktop" style={{paddingLeft: "8%",}}>
+                <a href='/bootcamp/apply' className=""><BrandButton style={{padding: '1.5 rem 2 rem', fontSize: '1.25rem'}}>Apply Now</BrandButton></a>
+            </Col>
+          )}
 
           </Nav>
         </Navbar.Collapse>

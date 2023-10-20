@@ -15,7 +15,7 @@ const renderer = ({ hours, minutes, seconds, completed }) => {
     // Render a countdown
     return (
       <span>
-        {hours}:{minutes}:{seconds}
+        {days}d {hours}h {minutes}m {seconds}s
       </span>
     );
   }
@@ -23,7 +23,7 @@ const renderer = ({ hours, minutes, seconds, completed }) => {
 
 const CountdownTimer = () => {
   return (
-    <Countdown date={Date.now() + 10000} renderer={renderer} />
+    <Countdown date={props.date} renderer={renderer} />
   );
 }
 

@@ -77,7 +77,7 @@ const HomepageSlider = (props) => {
           <Slide
             background={{
               backgroundImageSrc: slide.image.asset.url,
-              backgroundAttachment: "fixed"
+              backgroundAttachment: "fixed",
             }}
             >
             <Wrapper>
