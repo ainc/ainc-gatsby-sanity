@@ -20,7 +20,6 @@ const YouthPage = () => {
 
     return (
         <Layout>
-            <SEO/>
             <main>
                 <Container className={` ${styles.youth}`}>
                     <Row className="h-100"> 
@@ -177,7 +176,7 @@ const YouthPage = () => {
                             <li className={` ${styles.listText} `} >Immersive environment</li>
                             <li className={` ${styles.listText} `} >Builds confidence</li>
                             <li className={` ${styles.listText} `} >Find new friends with similar interests</li>
-                            <li className={` pb-3 ${styles.listText} `} >From coding to outdoor activities and hilarious games</li>
+                            <li className={` pb-3 ${styles.listText} text-left`} >From coding to outdoor activities and hilarious games</li>
                             </ul>
                             <a href='https://www.awesomeinc.org/weekofcode'><BrandButton className='mb-3 text-uppercase'>find a camp</BrandButton></a>
                         </Col>
@@ -197,9 +196,9 @@ const YouthPage = () => {
                                     <Card.Body>
                                         <Card.Title className='mb-5 text-uppercase secondary text-center'>1 month plan</Card.Title>
                                         <StaticImage transformOptions={{ fit: 'contain' }} className={`mb-2 d-flex w-75 justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-1-month.png' alt='one-month-icon'></StaticImage>
-                                        <h1 className='mb-4 text-center fw-bold fs-3 '>$120</h1>
+                                        <h1 className='mb-4 mt-3 text-center fw-bold fs-3 '>$120</h1>
                                         <h2 className='text-center fs-6 fw-bold fst-italic'>Billed Monthly</h2>
-                                        <a href='https://subscriptions.zoho.com/subscribe/03ecd1f5f1714d3cb3ee018041d15410a7726ba08b65d6ccad482bf477cf719e/coding-club-membership'> <BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton></a>
+                                        <a href='https://subscriptions.zoho.com/subscribe/03ecd1f5f1714d3cb3ee018041d15410a7726ba08b65d6ccad482bf477cf719e/coding-club-membership'> <BrandButton className={`mb-0 mt-3 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton></a>
                                     </Card.Body>
                                 </Card>
                             </Col>
@@ -208,7 +207,7 @@ const YouthPage = () => {
                                     <Card.Body>
                                         <Card.Title className='mb-5 text-uppercase secondary text-center'>3 month plan</Card.Title>
                                         <StaticImage transformOptions={{ fit: 'contain' }} className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-3-month.png' alt='three-month-icon'></StaticImage>
-                                        <h1 className='mb-4 text-center fw-bold fs-3'>$329</h1>
+                                        <h1 className='mb-4 mt-3 text-center fw-bold fs-3'>$329</h1>
                                         <h2 className='fs-6 text-center fw-bold fst-italic'>Billed Quarterly</h2>
                                         <a href='https://subscriptions.zoho.com/subscribe/03ecd1f5f1714d3cb3ee018041d15410a7726ba08b65d6ccad482bf477cf719e/3-month'><BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton></a>
                                     </Card.Body>

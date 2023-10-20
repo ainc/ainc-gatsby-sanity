@@ -20,10 +20,10 @@ const Event = (props) => {
               />
             </div>
                 <div className="mx-3">
-                  <a href={props.link} className={`${styles.boldText} ${styles.redText} ${styles.linkHover}`}>{props.date}</a>
+                  <h2><a href={props.link} target="_blank" rel="noopener noreferrer" className={`${styles.boldText} ${styles.redText} ${styles.linkHover}`}>{props.date}</a></h2>
                   <h2 className={styles.smallText}>{host}</h2>
                   <h3 className={styles.smallText}>{location}</h3>
-                  <h3><a href={props.link} className={`${styles.boldText} ${styles.linkHover}`}>{props.name}</a></h3>
+                  <h3><a href={props.link} target="_blank" rel="noopener noreferrer" className={`${styles.boldText} ${styles.linkHover}`}>{props.name}</a></h3>
                 </div>
           </div>
         </a>

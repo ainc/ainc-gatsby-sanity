@@ -16,18 +16,19 @@ import FiveAcrossBG from '../../../images/5across-hero.png'
 // import Event from "../../../components/Event/Event";
 import DropdownDataDisplay from "../../../components/DropdownDataDisplay/DropdownDataDisplay";
 import HorizontalButtons from './HorizontalButtons';
+import { useRef } from "react";
 
 
 
 const fiveAcrossPage = ({ data }) => {
 
-    const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].titleSponsor.title || {});
-    const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].titleSponsor.link || {});
-    const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].titleSponsor.image.asset.gatsbyImageData || {});
+    const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes[1].titleSp.title || {});
+    const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[1].titleSp.link || {});
+    const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[1].titleSp.image.asset.gatsbyImageData || {});
 
-    const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSponsor.title || {});
-    const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSponsor.link || {});
-    const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSponsor.image.asset.gatsbyImageData || {});
+    const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes[1].presentingSp.title || {});
+    const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[1].presentingSp.link || {});
+    const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[1].presentingSp.image.asset.gatsbyImageData || {});
 
     const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors || {});
     const nextFiveAcross = (data.allSanityEvents.nodes || {});
@@ -49,10 +50,17 @@ const fiveAcrossPage = ({ data }) => {
             years.unshift(pastWinnerYear) //add the year to the list of years if it is not in there already (closest year to top)
         }
     }
+    //Scroll to Recent Winner section
+    const recentWinner = useRef(null);
+    const scrollToSection = (ref) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    };
 
     return (
+    
         <Layout>
-            <SEO />
             {/* <section  > */}
             <Container fluid className={`${styles.mainHeading}`}>
                 <Row>
@@ -104,7 +112,7 @@ const fiveAcrossPage = ({ data }) => {
                 </Row>
                 <Row>
                     <Col className="mb-2 d-flex justify-content-center">
-                        <BrandButton>WATCH PAST PITCHES</BrandButton>
+                        <BrandButton onClick={() => scrollToSection(recentWinner)}> WATCH PAST PITCHES</BrandButton>
                     </Col>
                 </Row>
             </Container>
@@ -159,20 +167,16 @@ const fiveAcrossPage = ({ data }) => {
                     <Col sm="2" className={`d-none d-sm-block`}></Col>
                 </Row>
                 <Row className="mt-5">
-                    <Col></Col>
-                    <Col></Col>
-                    <Col></Col>
-                    <Col className="d-none d-md-block">
+                    <Col xs={{ span: 2, offset: 7 }} className="d-none d-md-block">
                         <StaticImage quality="90" src="../../../images/5across-arrow.png" alt="5 across arrow" />
                     </Col>
-                    <Col></Col>
 
                 </Row>
             </Container>
 
 
             {/* RECENT WINNER SECTION */}
-            <Container className="mb-5 pb-5">
+            <Container ref={recentWinner} className="mb-5 pb-5">
                 <Row>
                     <Col className="my-5 text-center">
                         <Title className={`${styles.largeText} text-uppercase py-5`}>Our most recent winner</Title>
@@ -326,7 +330,7 @@ query fiveAcrossQuery($currentDate: Date!) {
     }
     allSanityFiveAcrossSponsors {
         nodes {
-          presetingSponsor {
+          presentingSp {
             title
             link
             image {
@@ -335,7 +339,7 @@ query fiveAcrossQuery($currentDate: Date!) {
                 }
             }
           }
-          titleSponsor {
+          titleSp {
             title
             link
             image {

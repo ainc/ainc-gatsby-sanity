@@ -68,8 +68,7 @@ const FellowshipPage = ({ data }) => {
   const handleShow = () => setLgShow(true);
 
   return (
-    <Layout pageTitle="Fellowship">
-      <SEO />
+    <Layout>
       
       {/* Header section */}
       <Container>
@@ -77,7 +76,11 @@ const FellowshipPage = ({ data }) => {
           <Col className="m-auto" xs={12} sm={4}>
             <Title className="brand">Fellowship</Title>
             <Subtitle className="fst-italic fw-lighter fs-4 text-lowercase">A mentor-driven program for Kentucky based startups</Subtitle>
-            <ApplyNowModal/>
+                               
+            <ApplyNowModal 
+              title="Apply Now"
+              link=" https://forms.zohopublic.com/virtualoffice9155/form/OnlineNewsletterSignup/formperma/63TqTON16miWuaZIxR3_tTM4HEyMqE9N_KJOPjJPEUA?gclid=undefined"
+            />
 
           </Col>
           <Col className="my-5" xs={12} sm={8}>
@@ -130,7 +133,7 @@ const FellowshipPage = ({ data }) => {
               </Col>
               <Col className="m-auto text-center" xs={4}>
               {/* <div className="m-auto text-center"> */}
-                <Link to="/fellowship/portfolio" aria-label="Read our fellowship portfolio">
+                <a href="/fellowship/portfolio" aria-label="Read our fellowship portfolio">
                   <StaticImage 
                     className='mx-auto d-block img-fluid' 
                     quality='100' 
@@ -138,7 +141,7 @@ const FellowshipPage = ({ data }) => {
                     alt="Devices icon"
                     layout='fixed'
                   />
-                </Link>
+                </a>
                 <Subtitle className={`${styles.iconTitle} text-center fw-bold mt-2`} >Portfolio</Subtitle>
                 {/* </div> */}
               </Col>
@@ -242,7 +245,7 @@ const FellowshipPage = ({ data }) => {
       {/* Sponsors */}
       <div className={`${footerStyles.footerBackground} text-center pt-5 pb-1`}>
         <Col className="col-md-auto">
-        <Title className="text-center text--white mb-5">FELLOWSHIP SPONSORS</Title>
+        <Title className="text-center text-white mb-5">FELLOWSHIP SPONSORS</Title>
           <Row className={`mx-auto col-sm-6`} style={{"letterSpacing": "0rem"}}> {/*Change the "col-sm-6" higher or lower to change total column width*/}
             {FellowshipSponsers.map((node,i) => {
               if ((node._rawSponserLogo) == null){

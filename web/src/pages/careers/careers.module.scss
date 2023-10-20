@@ -29,7 +29,7 @@
     }
 }
 
-.careerTitle {
+.career-title {
     font-size: 25px;
     @include screen-tablet-max {
         font-size: 20px;
@@ -41,7 +41,7 @@
     }
 }
 
-.careerBody {
+.career-body {
     font-size: 15px;
     @include screen-tablet-max {
         font-size: 15px;
@@ -58,7 +58,7 @@
     }
 }
 
-.manager_email {
+.manager-email {
     font-size: 15px;
 }
 
@@ -74,7 +74,7 @@
 
 .footer {
     background-color: #D1D2D4;
-    height: 300px;
+    height: 200px;
     width: 100%;
     margin-top: 50px;
     @include screen-tablet-max {

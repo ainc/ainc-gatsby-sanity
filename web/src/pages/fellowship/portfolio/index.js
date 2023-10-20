@@ -23,9 +23,9 @@ const PortfolioPage = ({ data }) => {
             </Container>
             <Container>
                 <Row className='d-inline h6 mx-1'>
-                    <Link to='#' className='link--red text--grey px-0'>HOME</Link>
+                    <a href='#' className='link--red text--grey px-0'>HOME</a>
                     <h6 className='d-inline px-2'>/</h6>
-                    <Link to='/fellowship' className='link--red text--grey px-0'>FELLOWSHIP</Link>
+                    <a href='/fellowship' className='link--red text--grey px-0'>FELLOWSHIP</a>
                     <h6 className='d-inline px-2'>/</h6>
                     <h6 className='d-inline px-0 text--red'>PORTFOLIO</h6>
                     

@@ -1,4 +1,5 @@
 import React from "react";
+import {useRef} from "react";
 import { graphql } from "gatsby";
 import {
   mapEdgesToNodes,
@@ -18,11 +19,14 @@ import CoreValue from "../components/CustomCode/CoreValue/CoreValue";
 import Event from "../components/Event/Event";
 import NewsletterSection from "../components/Layout/Newsletter/Newsletter";
 import PodcastSection from "../components/Layout/Podcast/Podcast";
-import StartupsSection from "../components/Layout/Startups/Startups";
+import Startups from "../components/Layout/Startups/Startups";
 import FeatureCard from "../components/FeatureCard/FeatureCard";
 import HorizontalCard from "../components/HorizontalCard/HorizontalCard";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 
+import ModalCustom from "../components/Modal/ModalCustom";
+
+import { useLocation } from "@reach/router";
 
 // Images
 import core_values from "../images/core-values.png";
@@ -31,6 +35,7 @@ import desk_background from "../images/workspace-desk-bg-red.png";
 import DevicesIcon from "../assets/svg/devices.svg";
 import StackIcon from "../assets/svg/stack.svg";
 import ToolsIcon from "../assets/svg/tools.svg";
+import { withTheme } from "styled-components";
 
 
 export const query = graphql`
@@ -85,6 +90,14 @@ query IndexPageQuery($currentDate: Date!) {
       }
     }
   }
+  allSanityPageTitles {
+    edges {
+      node {
+        filePath
+        pageTitle
+      }
+    }
+  }
 }
 `;
 
@@ -106,16 +119,37 @@ const IndexPage = ({ data }) => {
 
   const courses = (data.allSanityCourses.nodes || {})
 
+  const section1Ref = useRef(null);
+  const section2Ref = useRef(null);
+  const section3Ref = useRef(null);
+  const section4Ref = useRef(null);
+
+  //Scroll to a section when button is clicked (HomepageSlider component)
+  const scrollToSection = (sectionId) => {
+    switch (sectionId) {
+      case 'workspace':
+        section1Ref.current.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center'});
+        break;
+      case 'courses':
+        section2Ref.current.scrollIntoView({ behavior: 'smooth' });
+        break;
+      case 'startup':
+        section3Ref.current.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center'});
+        break;
+      
+      default:
+        break;
+    }
+  };
+
+
+
   return (
     <Layout>
-      
-<<<<<<< Updated upstream
-      <SEO title="" description="" keywords="" />
-      <HomepageSlider/>
-=======
 
-      <HomepageSlider scrollToSection={scrollToSection} sectionIds={['workspace','courses','startup']}/>
->>>>>>> Stashed changes
+      <HomepageSlider
+       scrollToSection={scrollToSection} sectionIds={['workspace','courses','startup']}/>
+
 
       {/* FOUR INITIATIVES */}
       <section id="initiatives">
@@ -125,14 +159,15 @@ const IndexPage = ({ data }) => {
                 
               <Row className={` row row-cols-5 justify-content-center my-3 px-1 gx-2`}>
                 {/* <Col md={3}> */}
-                <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
-                  <BackgroundCard 
+                <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3'>
+                  <BackgroundCard
                     title="Learn to Code"
                     text="Everybody can and should learn to code, start today."
                     backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
                     imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
-                    link="/learn"
                     alt="brackets"
+                    sectionRef = {section2Ref}
+                  
                   />
                 </Col>
                 {/* <Col md={3}> */}
@@ -144,6 +179,9 @@ const IndexPage = ({ data }) => {
                     imgSrc="https://d33wubrfki0l68.cloudfront.net/13acb6f3560e894a9e0eecc194c96f778fba858f/f6fb2/images/icons/rent-workspace.png"
                     link="/workspace"
                     alt="desk and chair"
+                    sectionRef = {section1Ref}
+                   
+
                   />
                 </Col>
                 {/* <Col md={3}> */}
@@ -151,10 +189,12 @@ const IndexPage = ({ data }) => {
                   <BackgroundCard 
                     title="Accelerate your startup"
                     text="We will help grow your business with a mentor-driven, accelerator program."
-                    backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
-                    imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
+                    backgroundImage="https://www.awesomeinc.org/images/startup-panel-min.jpg"
+                    imgSrc="https://d33wubrfki0l68.cloudfront.net/40f039dccd7775d86dcc2076d6b01abe6802fdac/f6c13/images/icons/accelerate-your-startup.png"
                     link="/learn"
                     alt="brackets"
+                    sectionRef = {section3Ref}
+
                   />
                 </Col>
                 {/* <Col md={3}> */}
@@ -162,10 +202,12 @@ const IndexPage = ({ data }) => {
                   <BackgroundCard 
                     title="Software Development"
                     text="Let us create custom software for your business."
-                    backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
-                    imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
+                    backgroundImage="https://www.awesomeinc.org/images/software-panel.jpg"
+                    imgSrc="https://d33wubrfki0l68.cloudfront.net/fb2b3c6c872a02cdce20d96103c70a10b3f75172/3398b/images/icons/software-development.png"
                     link="/learn"
                     alt="brackets"
+                    sectionRef = {section4Ref}
+                    
                   />
                 </Col>
               </Row>
@@ -176,7 +218,12 @@ const IndexPage = ({ data }) => {
               <Title className="mt-5 text-center text-uppercase">Welcome to Awesome Inc</Title>
               <p className="mt-3 mb-5 text-center">Pursue your Definition of Awesome</p>
               <p className="mt-3 text-center">We exist to create and grow high tech startups. We do this by hosting community events, leading technology education courses, and offering a shared workspace environment. Click one of our initiatives above to learn more about Awesome Inc.</p>
-              <a href="#"><BrandButton className="secondary d-block mx-auto">Learn More</BrandButton></a>
+              
+                <a href="../about">
+                  <BrandButton className="secondary d-block mx-auto">Learn More</BrandButton>
+                </a>
+              
+              
             </Col>
           </Row>
           
@@ -184,7 +231,7 @@ const IndexPage = ({ data }) => {
       </section>
 
       {/* CORE VALUES */}
-      <section id="core-values">
+      <section  id="core-values">
         <div 
           className="parallax bg-filter-mute" 
           style={{ backgroundPosition: `0 50%`, minHeight: `500px` }}>
@@ -237,8 +284,8 @@ const IndexPage = ({ data }) => {
           </Row>
           <Row>
             <Col className="d-flex justify-content-center my-5">
-              <a href="#">
-                <BrandButton href="/events">View Events</BrandButton>
+              <a href="../events">
+                <BrandButton >View Events</BrandButton>
               </a>
             </Col>
           </Row>
@@ -246,7 +293,7 @@ const IndexPage = ({ data }) => {
       </section>
 
       {/* COURSES */}
-      <section id="courses" style={{backgroundColor: "#323232"}}>
+      <section ref={section2Ref} id="courses" style={{backgroundColor: "#323232"}}>
         <Title className="pt-5 mb-3 text-uppercase text-center text-white">Educational Courses</Title>
         <p className="mb-5 text-uppercase text-center text-white">Made for any level</p>
         <Container>
@@ -258,18 +305,19 @@ const IndexPage = ({ data }) => {
                     image={node.picture.asset.gatsbyImageData} 
                     alt={node.courseTitle} 
                     className="m-2 d-flex align-content-center" 
-                    objectFit="scale-down" 
+                    objectFit="contain" 
                     style={{maxHeight: `280px`}}
                   />
 
                   <Card.Body className="d-flex flex-column my-3 mx-3">
-                    <p className="text-brand-dark mx-auto mt-2 text--italic text-uppercase">
+                    <p className="text-brand-dark mx-auto mt-2text--italic text-uppercase">
                       {node.designedFor}
                     </p>
-                    <p className="my-2">
+                    <p className="my-2 mb-3">
                       {node.description}
                     </p>
-                    <a href={node.learnMore}>
+
+                    <a href={node.learnMore} className='mt-auto'>
                       <BrandButton className="d-block mx-auto my-4 secondary">Learn More</BrandButton>
                     </a>
                     
@@ -281,8 +329,8 @@ const IndexPage = ({ data }) => {
           </Row>
           <Row>
             <Col className="d-flex justify-content-center my-5">
-              <a href="#">
-                <BrandButton href="/events">View Courses</BrandButton>
+              <a href="../learn">
+                <BrandButton >View Courses</BrandButton>
               </a>
             </Col>
           </Row>
@@ -290,18 +338,25 @@ const IndexPage = ({ data }) => {
       </section>
 
       {/* STARTUPS */}
-      {/* <StartupsSection /> */}
 
+      <section ref={section3Ref} id="startup">
+      <Startups />
+      </section>  
+        
       {/* WORKSPACE */}
-      <section id="workspace" style={{backgroundColor: `#D1D1D1`}}>
+      <section ref={section1Ref} id="workspace" style={{backgroundColor: `#D1D1D1`, borderColor: `black`}}>
         <Title className="pt-5 mb-3 text-uppercase text-center">Workspace</Title>
         <Subtitle className="mb-5 text-uppercase text-center">Join Our Workspace</Subtitle>
+        <div style={{ border: `10px solid white`, borderRadius: '10px', width: '50%', margin: '0px auto'}} />
+        <a style={{position:'relative', top:'-70px', left: '72%'}} href="https://calendly.com/awesometour/30min?" target="_blank">
+          <img src="https://d33wubrfki0l68.cloudfront.net/223738930eb44ab59015db4d33febf500d9da8f1/0ab2a/images/icons/schedule-a-tour-button-red.png" width='100' height='100' id="tour-button" alt="tour button" />
+        </a>
         <Container>
           <div style={{backgroundImage: `url(${desk_background})`, backgroundRepeat: `no-repeat`, backgroundSize: `35%`, backgroundPosition: `50% 50%`, padding: `5rem 0`}}>
             <Row>
               <Col xs={12} sm={6}>
                 <div className="d-flex justify-content-center">
-                  <a href="#">
+                  <a href="../workspace">
                     <Card className="card--equal-width bg-secondary p-4 mb-5">
                       <Subtitle className="fw-bold text-center text-white">Functional Workspace</Subtitle>
                       <p className="text-center text-white fw-bolder">An awesome space to work or host your next meeting.</p>
@@ -311,7 +366,7 @@ const IndexPage = ({ data }) => {
               </Col>
               <Col xs={12} sm={6}>
                 <div className="d-flex justify-content-center mt-5 pt-5">
-                  <a href="#">
+                  <a href="../workspace">
                     <Card className="card--equal-width bg-secondary p-4">
                       <Subtitle className="fw-bold text-center text-white">Membership Benefits</Subtitle>
                       <p className="text-center text-white fw-bolder">Flexible membership options and features to support your business operations.</p>
@@ -327,26 +382,31 @@ const IndexPage = ({ data }) => {
 
       {/* SOFTWARE DEVELOPMENT */}
       {/* TODO: Fix icons to be 1:1 */}
-      <section id="software">
+      <section ref={section4Ref} id="software">
         <Title className="pt-5 mb-3 text-uppercase text-center">Software Development</Title>
         <Subtitle className="mb-5 text-uppercase text-center fw-bolder">Let us create custom software for your business</Subtitle>
         <Container>
           <Row>
             <Col>
               <div className="h-100 my-5">
-                <StaticImage 
-                  className='mx-auto d-block img-fluid' 
-                  quality='100' 
-                  src='../assets/svg/devices.svg' 
-                  alt="Devices icon"
-                  layout='fixed'
-                />
-                <Subtitle className="text-center fw-bolder mt-5 mb-3">Mobile Apps + Websites</Subtitle>
+                <a href="https://apaxsoftware.com/">
+                  <StaticImage 
+                    className='mx-auto d-block img-fluid' 
+                    quality='100' 
+                    src='../assets/svg/devices.svg' 
+                    alt="Devices icon"
+                    layout='fixed'
+                  />
+                  <Subtitle className="text-center fw-bolder mt-5 mb-3">Mobile Apps + Websites</Subtitle>
+
+                </a>
+                
                 <p className="text-center">Our expert team of web developers build websites and mobile applications that are fast, secure, and easy to maintain.</p>
               </div>
             </Col>
             <Col>
               <div className="h-100 my-5">
+              <a href="https://apaxsoftware.com/">
                 <StaticImage 
                   className='mx-auto d-block img-fluid' 
                   quality='100' 
@@ -355,11 +415,13 @@ const IndexPage = ({ data }) => {
                   layout='fixed'
                 />
                 <Subtitle className="text-center fw-bolder mt-5 mb-3">Software Consulting</Subtitle>
+                </a>
                 <p className="text-center">We make clients part of our streamlined process by facilitating reviews and planning sessions during all parts of the development cycle.</p>
               </div>
             </Col>
             <Col>
               <div className="h-100 my-5">
+              <a href="https://apaxsoftware.com/">
               <StaticImage 
                   className='mx-auto d-block img-fluid' 
                   quality='100' 
@@ -368,6 +430,7 @@ const IndexPage = ({ data }) => {
                   layout='fixed'
                 />
                 <Subtitle className="text-center fw-bolder mt-5 mb-3">Graphic Design</Subtitle>
+              </a>
                 <p className="text-center">Our UI/UX design services transform your project, increasing user satisfaction, reducing development costs, and delivering a high ROI.</p>
               </div>
             </Col>
