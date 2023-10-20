@@ -4,6 +4,7 @@ import Title from "../../components/UI/Title/Title";
 import { Link } from "gatsby";
 import { FaLongArrowAltRight, FaBook } from "react-icons/fa";
 import { GatsbyImage } from 'gatsby-plugin-image'
+import "./BlogPreview.scss"
 
 export default function BlogPreview({blog}) {
   const edge = blog
@@ -19,14 +20,14 @@ export default function BlogPreview({blog}) {
       <Container className='blog-card border border-2 rounded-1' style={{ height: "540px" }}>
         <Row className='p-3 h-100'>
           <Col xs={12} className='p-0'>
-            <Container className="blog-image d-flex align-items-end relative" style={{
-             
+            <Container className="blog-image d-flex align-items-end relative" style={{ 
               backgroundImage: bgImage,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundPosition: "center center",
               height: "270px",
               width: "100%",
+              position: "relative"
             }}>
               <Row className='bg h-100 w-100'>
                 <Col className='book h-100 d-flex justify-content-center align-items-center'>
@@ -40,15 +41,17 @@ export default function BlogPreview({blog}) {
               <Row className='blog-details'>
                 <Col xs={4} lg={3} className="d-flex justify-content-start pb-2">
                   <div style={{height:'fit-content', width:'fit-content'}} className='justify-content-center align-items-center'>
-                    <GatsbyImage objectFit='contain' style={{height:'70px', width:'70px'}}  image={edge.node.reference.picture?.asset?.gatsbyImageData || ''} alt={edge.node.reference.name !== null ? edge.node.reference.name : ''} className="rounded-circle border border-3 border-white my-0 ms-0" /> 
+                    <GatsbyImage objectFit='contain' style={{height:'70px', width:'70px', zIndex:"2"}}  image={edge.node.reference.picture?.asset?.gatsbyImageData || ''} alt={edge.node.reference.name !== null ? edge.node.reference.name : ''} className="rounded-circle border border-3 border-white my-0 ms-0" /> 
                     {/* <GatsbyImage objectFit='cover' image={edge.node.reference.picture?.asset?.gatsbyImageData || ''} alt={edge.node.reference.name !== null ? edge.node.reference.name : ''} className="rounded-circle border border-3 border-white my-2 ms-0" /> */}
                   </div>
                 </Col>
                 <Col  xs={7} lg={9} className="d-flex justify-content-start align-content-center flex-column mt-3 px-0">
-                  <Title className="author" style={{fontWeight: '800'}}>{edge.node.reference.name}, {edge.node.reference.title}</Title>
-                  <p className='date text-white fw-bold'>{edge.node.date}</p>
+                  <Title className="author" style={{fontWeight: '800', zIndex: "2"}}>{edge.node.reference.name}, {edge.node.reference.title}</Title>
+                  <p style={{zIndex:"2"}} className='date text-white fw-bold'>{edge.node.date}</p>
                 </Col>
               </Row>
+              <div className='overlay'></div>
+
 
             </Container>
           </Col>
