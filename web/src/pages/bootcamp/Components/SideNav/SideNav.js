@@ -7,7 +7,7 @@ function SideNav() {
             <nav aria-label="side-navigation">
                 <ul class="nav flex-column">
                 <li class="nav-item">
-                      <a href="#testimonials" class="nav-link text-uppercase text-body text--micro">Program Dates</a>
+                      <a href="#bootcamp-upcoming-dates" class="nav-link text-uppercase text-body text--micro">Program Dates</a>
                     </li>
                     <li class="nav-item">
                       <a href="#testimonials" class="nav-link text-uppercase text-body text--micro">Hear From Our Alumni</a>

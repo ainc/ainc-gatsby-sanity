@@ -276,7 +276,7 @@ const FellowshipPage = ({ data }) => {
 
 export const query_sponsers = graphql`
 query {
-  allSanityFellowshipSponsers {
+  allSanityFellowshipSponsers(sort: {_rawSponserLogo: ASC}) {
     nodes {
       sponser
       sponserWebsite

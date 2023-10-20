@@ -109,8 +109,13 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       
+<<<<<<< Updated upstream
       <SEO title="" description="" keywords="" />
       <HomepageSlider/>
+=======
+
+      <HomepageSlider scrollToSection={scrollToSection} sectionIds={['workspace','courses','startup']}/>
+>>>>>>> Stashed changes
 
       {/* FOUR INITIATIVES */}
       <section id="initiatives">
