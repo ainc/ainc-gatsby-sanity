@@ -7,7 +7,7 @@ import Countdown from 'react-countdown';
 const Completionist = () => <span>You are good to go!</span>;
 
 // Renderer callback with condition
-const renderer = ({ hours, minutes, seconds, completed }) => {
+const renderer = ({days, hours, minutes, seconds, completed }) => {
   if (completed) {
     // Render a complete state
     return <Completionist />;
