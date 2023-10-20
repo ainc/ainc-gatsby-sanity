@@ -146,10 +146,10 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      
 
       <HomepageSlider
        scrollToSection={scrollToSection} sectionIds={['workspace','courses','startup']}/>
+
 
       {/* FOUR INITIATIVES */}
       <section id="initiatives">
