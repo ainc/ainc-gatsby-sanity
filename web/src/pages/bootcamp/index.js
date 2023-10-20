@@ -16,6 +16,10 @@ import * as footerStyles from '../../components/Footer/Footer.module.scss'
 import ShieldsRow from "./Components/ShieldsRow/ShieldsRow";
 import VerticalTitle from "../../components/UI/VerticalTitle/VerticalTitle";
 import SideNav from "./Components/SideNav/SideNav"
+
+import ApplyNowModal from "../fellowship/Components/ApplyNowModal";
+import { useRef } from "react";
+
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
 import CountdownTimer from "./Components/CountdownTimer/CountdownTimer";
@@ -109,6 +113,15 @@ const BootcampPage = props => {
     );
   }
 
+
+  //Scroll to section 'Cost'
+  const sectionCost = useRef(null);
+  const scrollToSection = (ref) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const [sliderRef] = useKeenSlider(
     {
       loop: true,
@@ -146,15 +159,15 @@ const BootcampPage = props => {
   )
 
   return ( 
-    <Layout pageTitle="Bootcamp">
-      <SEO title="Bootcamp"/>
+    <Layout>
+
       {/* Add SEO Component Here?? */}
       
       {/* Header section */}
       {/* https://www.awesomeinc.org/assets/img/bootcamp/hero-image-2-min.jpg */}
       <section id="header">
         <Container fluid className={`${styles.header} overflow-hidden`}>
-        <Container className='overflow-hidden'>
+        <Container>
 
           <Row className="mt-5 ms-5">
             <Col xs={{span: 12, offset: 0}} sm={{span: 8, offset: 4}} md={8} lg={6} xl={5}>
@@ -230,7 +243,9 @@ const BootcampPage = props => {
                   <Row>
                     <Title className="text-center py-2 fs-3 text--medium white">Have a few questions?</Title>
                     <div>
-                    <BrandButton className="justify-content-center btn--small small--text my-3">Download Program Guide</BrandButton>
+                    <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
+                     title="Download Program Guide"
+                     className="justify-content-center" style={{marginTop: "5px"}}/>
                     </div>
                   </Row>
                 </Col>
@@ -243,7 +258,7 @@ const BootcampPage = props => {
                   <Row className="me-5">
                     <Title style={{}} className="text-center py-2 fs-3 text--medium white">Pay nothing until you land a job!</Title>
                     <div>
-                    <BrandButton className="justify-content-center btn--small small--text my-3">See how here</BrandButton>
+                    <BrandButton onClick={() => scrollToSection(sectionCost)} className="justify-content-center">See How Here</BrandButton>
                     </div>
                   </Row>
                  
@@ -285,7 +300,10 @@ const BootcampPage = props => {
           </Row>
           <Row className="pt-5 pb-3">
             <Col className="d-flex justify-content-center">
-              <BrandButton className="btn--small">Download Program Guide</BrandButton>
+              
+              <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
+              title="Download Program Guide"/>
+
             </Col>
           </Row>
         </Container>
@@ -293,7 +311,7 @@ const BootcampPage = props => {
 
       {/* Alumni Testimonials */}
       <section id="testimonials">
-        <Container fluid className={styles.testimonials}>
+        <Container fluid className={`${styles.testimonials}`}>
           <Row className="py-3">
             <Row className="py-5">
               <Title className="text-center text-white text-uppercase mt-5">Hear From Our Alumni</Title>
@@ -315,7 +333,10 @@ const BootcampPage = props => {
             </Row>
             <Row className="pt-4 pb-5">
               <Col className="text-center">
-                <BrandButton className="text-center brand">More Alumni</BrandButton>
+                <a href="../alumni">
+                  <BrandButton className="text-center brand">More Alumni</BrandButton>
+                </a>
+                
               </Col>
             </Row>
           </Row>
@@ -349,23 +370,23 @@ const BootcampPage = props => {
             </div>
 
             <div className="keen-slider__slide number-slide3">
-              <div style={{maxWidth: "45%"}} className="justify-content-center mx-auto py-3">
+              <div style={{maxWidth: "80%"}} className="justify-content-center mx-auto py-3">
                 <StaticImage alt="Testimonial 3" className={`${styles.aincuTestimonial} pt-5`} src="../../images/bootcamp-testimonials/mason-williams.png"/>
               </div>
             </div>
-            
+            {/*
             <div className="keen-slider__slide number-slide4">
               <div style={{maxWidth: "40%"}}className=" justify-content-center mx-auto py-3">
                 <StaticImage alt="Tetimonial 4" className={`${styles.aincuTestimonial} px-5 pt-5`} src="../../images/bootcamp-testimonials/reic-sparks.png"/>
               </div>
-            </div>
+            </div> 
+            */}
 
             <div className="keen-slider__slide number-slide5">
               <div style={{maxWidth: "50%"}} className="justify-content-center mx-auto px-5 py-3">
                 <StaticImage alt="Tetimonial 5" className={`${styles.aincuTestimonial} px-5 mx-5`} src="../../images/bootcamp-testimonials/roger-mullins-linkedin.png"/>
               </div>
             </div>
-
 
         </Container>
         </section>
@@ -414,7 +435,7 @@ const BootcampPage = props => {
 
       {/* Job Guarantee */}
       <section id="job-guarantee">
-        <Container fluid className={styles.jobGuarantee}>
+        <Container fluid className={`${styles.jobGuarantee}`}>
           <Row className={styles.imgRow}>
             <Col className="d-flex justify-content-center">
               <StaticImage alt="Job Guarantee" src='../../images/bootcamp/job-guaranteed.png' style={{maxWidth: "275px"}} />
@@ -430,32 +451,35 @@ const BootcampPage = props => {
 
       {/* Stats */}
  
-
       <section id="stats" style={{backgroundColor: "#ED3742"}}className="background--brand pe-0">
-        <Container fluid className={`${styles.stats} mx-3 py-5`}>
-                <Row className="pz-0 mx-5 py-0 justify-content-center">
-                  <Col className={`${styles.statsCol} justify-content-center`} >
-                  {gradStats.map((node,i) => (
-                    //  <Col className={`${styles.statsCol} mt-2`}>
-                       <div key={i} className={`${styles.statsRow}`}>
-                        <GradStat
-                        image={node.picture.asset.gatsbyImageData}
-                        alt={node.title}
-                        stat={node.stat}
-                        subtitle={node.title}
-                        subtext={node.subtitle}
-                        ></GradStat>
-                       </div>
-                    //  </Col>
-                  ))}
-                  </Col>
-                  <Row className="mt-0">
-                    <Col className="d-flex justify-content-center pb-4">
-                      <BrandButton style={{width:"300px"}} className="button secondary mt-3 ">Download Program Guide</BrandButton>
-                    </Col>
-                  </Row>
-                </Row>
-          
+        <Container fluid className={`${styles.stats}`}>
+          <div className="mx-3 py-5">
+            <Row className="pz-0 mx-5 py-0 justify-content-center">
+              <Col className={`${styles.statsCol} justify-content-center`} >
+              {gradStats.map((node,i) => (
+                //  <Col className={`${styles.statsCol} mt-2`}>
+                    <div key={i} className={`${styles.statsRow}`}>
+                    <GradStat
+                    image={node.picture.asset.gatsbyImageData}
+                    alt={node.title}
+                    stat={node.stat}
+                    subtitle={node.title}
+                    subtext={node.subtitle}
+                    ></GradStat>
+                    </div>
+                //  </Col>
+              ))}
+              </Col>
+              <Row className="mt-0">
+                <Col className="d-flex justify-content-center pb-4">
+                        <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
+                        title="Download Program Guide"
+                        className="button secondary mt-3"
+                        secondary={true}/>
+                </Col>
+              </Row>
+            </Row>
+          </div>
         </Container>
       </section>
 
@@ -500,29 +524,29 @@ const BootcampPage = props => {
           <Subtitle style={{fontSize: "1.25rem"}}className="text-center fs-5 pb-3 mt-4"><b>With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using</b></Subtitle>
           </Row>
           <Row>
-                <Col className={`${styles.languageIcons} d-flex justify-content-center py-4`} xs={10} sm={12}>
-                  <Col sm={3} md={12}>
+                <Col className={`${styles.languageIcons} d-flex justify-content-center py-4`}>
+                  <Col>
                     <StaticImage src="../../images/bootcamp/languages/html.png" alt="HTML" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col sm={3} md={12} >
+                  <Col>
                     <StaticImage src="../../images/bootcamp/languages/css.png" alt="CSS" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col sm={3} md={12} >
+                  <Col>
                     <StaticImage src="../../images/bootcamp/languages/javascript.png" alt="JavaScript" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col sm={3} md={12} >
+                  <Col>
                   <StaticImage src="https://d33wubrfki0l68.cloudfront.net/27b5922e90fa2d54a0c37d426870c849e8a41c72/b2845/assets/img/bootcamp/languages/python.png" alt="Python Programming language" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col sm={3} md={12} >
+                  <Col>
                   <StaticImage src="../../images/bootcamp/languages/git.png" alt="Git" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col sm={3} md={12} >
-                  <StaticImage src="https://d33wubrfki0l68.cloudfront.net/4aa1ba4778ed686e1877a7c5ef5875e364033ca8/f7b05/assets/img/bootcamp/languages/django.png" alt="Django Framework"/>
+                  <Col>
+                  <StaticImage src="https://d33wubrfki0l68.cloudfront.net/4aa1ba4778ed686e1877a7c5ef5875e364033ca8/f7b05/assets/img/bootcamp/languages/django.png" alt="Django Framework" style={{maxWidth: "150px"}} className='mt-3'/>
                   </Col>
-                  <Col sm={3} md={12} >
+                  <Col>
                   <StaticImage src="https://d33wubrfki0l68.cloudfront.net/ee9d2a6ac7c95e3ee2695ce7a14627abeb797b0f/4631a/assets/img/bootcamp/languages/react.png" style={{maxWidth: "150px"}} alt="React Framework"/>
                   </Col>
-                  <Col sm={3} md={12} >
+                  <Col>
                   <StaticImage src="../../images/bootcamp/languages/agile.png" alt="Agile" style={{maxWidth: "150px"}}/>
                   </Col>
                 </Col>
@@ -582,10 +606,13 @@ const BootcampPage = props => {
             </div>
           
             <div style={{}} xs={12} sm={12} md={4} lg={4} xl={3}  className="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 mb-3 d-flex justify-content-center ">
-              <BrandButton  className="small--text" style={{width:"fit-content"}}>Schedule A Visit</BrandButton>
+                    <ApplyNowModal 
+                    title="Schedule Call or Visit"
+                    link="https://calendly.com/ainc/awesome-inc-call?"/>
             </div>
             <div style={{} }xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-3 mb-3 d-flex justify-content-center ">
-              <BrandButton className="small--text">Download Program Guide</BrandButton>
+                    <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
+                     title="Download Program Guide"/>
             </div>
           </Row>
 
@@ -610,8 +637,9 @@ const BootcampPage = props => {
       </section>
 
       {/* Cost */}
-      <section id="cost" className="py-5">
-        <Container className={styles.cost}>
+
+      <section ref = {sectionCost} id="cost" className="py-5">
+        <Container className={`${styles.cost}`}>
           <Row>
             <Col>
               <Row className="mt-2 mb-5">
@@ -660,11 +688,14 @@ const BootcampPage = props => {
       </section>
 
       {/* Still Unsure */}
+
      <section id="still-unsure" className="pt-2">
         <Container fluid className={`${styles.stillUnsure} py-4`}>
           <div style={{width:"800px"}} className="mx-5 text-center justify-content-center mx-auto">
             <Title className="text-center pt-5 pb-3">Still unsure? Here's everyone else who took this same leap and hasn't looked back!</Title>
-            <BrandButton className="my-3 small--text">Meet Alumni</BrandButton>
+            <a href="../alumni">
+              <BrandButton className="my-3 small--text">Meet Alumni</BrandButton>
+             </a>
           </div>
         </Container>
 

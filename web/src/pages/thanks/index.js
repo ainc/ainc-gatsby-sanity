@@ -8,7 +8,6 @@ import { Container, Col, Row } from "react-bootstrap";
 
 const ThanksPage = () => (
   <Layout>
-    <SEO />
     <Container>
       <Title className="text-center my-5 text-uppercase">Thank you</Title>
       <Row className="mb-5 d-flex justify-content-center">

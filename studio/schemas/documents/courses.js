@@ -79,7 +79,7 @@ export default {
             type: 'date',
             title: "Start Date",
             options: {
-                dateFormat: 'MM/DD/YYYY',
+                dateFormat: 'MM/DD',
             },
             validation: Rule => Rule.required().min()
         },
@@ -88,7 +88,7 @@ export default {
             type: 'date',
             title: 'End Date',
             options: {
-                dateFormat: 'MM/DD/YYYY',
+                dateFormat: 'MM/DD',
             },
             validation: Rule => Rule.required().min()
         },

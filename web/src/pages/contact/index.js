@@ -8,7 +8,6 @@ const ContactPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO />
       <Container>
           <Title className="text-center my-5 text-uppercase">Contact us</Title>
           <div style={{marginTop: "100px"}} className="d-flex justify-content-center mb-5">

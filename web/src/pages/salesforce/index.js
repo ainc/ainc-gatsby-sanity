@@ -15,7 +15,6 @@ const SalesforcePage = ({ data }) => {
 
     return (
         <Layout>
-            <SEO />
             {/* Header section */}
             <section id="header">
                 <Container fluid>

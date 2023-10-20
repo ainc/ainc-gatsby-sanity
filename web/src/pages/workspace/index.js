@@ -36,7 +36,6 @@ const WorkspacePage = () => {
 
   return (
     <Layout>
-      <SEO/>
       {/* Hero */}
       <section>
         <div className={styles.headerWorkspace}>
@@ -69,7 +68,7 @@ const WorkspacePage = () => {
           <Row>
             <Col md={4} sm={12}>
               <BorderlessCard
-                imgModal="#" 
+                imgModal="#"
                 imgSrc={Mail}
                 header="VIRTUAL MEMBER"
                 infoOne="DOWNTOWN MAILING ADDRESS"
@@ -102,7 +101,7 @@ const WorkspacePage = () => {
                 infoOne="Private Office Space"
                 infoTwo="Conference Room Access"
                 infoThree="Member Exclusive Events"
-                price="REACH OUT FOR PRICING"
+                price="Reach out for Pricing"
                 imgAlt=""
                 classN={styles.lockIcon}
               />
@@ -187,11 +186,19 @@ const WorkspacePage = () => {
           <Container fluid>
             <Row>
               <Col>
-                <Button onClick={handleShow} className={styles.btnCustom}>
+              
+                <a href='https://calendly.com/awesometour/30min?' target="_blank">
+                <Button className={styles.btnCustom}>
                   Schedule A Tour
                 </Button>
+                </a>
               </Col>
 
+
+              
+              {/*<Button onClick={handleShow} className={styles.btnCustom}> if want to add modal later
+                  Schedule A Tour
+                </Button>
               <ModalCustom 
                 lgShow={lgShow} 
                 hide={handleClose} 
@@ -208,6 +215,7 @@ const WorkspacePage = () => {
                   </Container>
                 }
                 />
+                */}
             </Row>
           </Container>
         </Container>

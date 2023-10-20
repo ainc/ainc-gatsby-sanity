@@ -9,7 +9,6 @@ const Page = ({ data }) => {
 
   return (
     <Layout>
-        <SEO />
         <Container>
         <Row className="my-3">
             <Col md={{ span: 8, offset: 2 }}><h1>Salesforce Career Accelerator Application Received</h1></Col>
