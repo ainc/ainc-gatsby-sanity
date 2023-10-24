@@ -23,7 +23,9 @@ const renderer = ({days, hours, minutes, seconds, completed }) => {
 
 const CountdownTimer = (props) => {
   return (
-    <Countdown date={props.date} renderer={renderer} />
+    <div className="text-center mt-3 mb-3" style={{fontWeight: 'bold'}}>
+      <Countdown  date={props.date} renderer={renderer} />
+    </div>
   );
 }
 

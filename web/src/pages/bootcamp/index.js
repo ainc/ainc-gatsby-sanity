@@ -203,7 +203,7 @@ const BootcampPage = props => {
           <Row>
               <Col>
                 <Title className="text-center text--medium mt-3">Early Application Deadline </Title>
-                <Title className="text-center text--medium"><CountdownTimer date={earlyApplicationDeadline}/></Title>
+                <CountdownTimer date={earlyApplicationDeadline}/>
                 <Title className="text-center text--small fw-bold fst-italic"> Guarantees open spots for next class</Title>
               </Col>
           </Row>
