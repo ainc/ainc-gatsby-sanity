@@ -7,12 +7,23 @@ import Subtitle from "../../../components/UI/Subtitle/Subtitle";
 import BrandButton from "../../../components/UI/BrandButton/BrandButton";
 import * as styles from '../bootcamp.module.scss';
 
-const BootcampApplyPage = () => {
+
+export const query = graphql`
+query ApplyQuery {
+    sanityBootcamp {
+      cohort
+      abbreviation
+      finalApplication(formatString: "")
+    }
+  }`
+
+const BootcampApplyPage = ({data}) => {
+    const applicationDeadlineDate= new Date(data.sanityBootcamp.finalApplication).toLocaleDateString('en-us', {weekday: "long", month:"long", day: 'numeric'})
     return (
         <Layout>
             <Title className='text-center mt-3 mb-3'>WEB DEVELOPER BOOTCAMP APPLICATION</Title>
             <div style={{display: 'flex', justifyContent: 'center',}}>
-                <Subtitle className='px-5 py-5' style={{textAlign: 'left', width: '54%'}}> HOME / LEARN / ADULTS / BOOTCAMP / <span style={{color: '#a21b22'}}>APPLY</span></Subtitle>
+                <Subtitle className='px-5 py-5' style={{textAlign: 'left', width: '55%', fontSize: '1.25rem'}}> HOME / LEARN / ADULTS / BOOTCAMP / <span style={{color: '#a21b22'}}>APPLY</span></Subtitle>
             </div>
             <form action="https://forms.zohopublic.com/virtualoffice9155/form/BootcampApplication/formperma/H7RiVteQOsrAh4ytlS0k9R-UO5McXKE5_FvNKrYe6JU/htmlRecords/submit" name="form" id="form" method="POST" acceptCharset="UTF-8" encType="multipart/form-data" siq_id="autopick_1809">
 
@@ -23,14 +34,14 @@ const BootcampApplyPage = () => {
           
             {/*<!-- Do not remove this code. -->*/}
             <legend className='' style={{borderBottom: '1px solid #e5e5e5', display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
-            <div style={{textAlign: 'left', width: '49%'}}>
+            <div style={{textAlign: 'left', width: '50%', fontSize: '1.25rem'}}>
                 Fill out this form to start your application process
             </div>
-            <div class="button__info-blurb" style={{textAlign: 'left', width: '49%'}}>
-                <p className='text-left'>Pay nothing until you land a job! <a href="#cost" className={styles.specialLink}>See how here</a></p>
+            <div class="button__info-blurb" style={{textAlign: 'left', width: '50%', fontSize: '1rem'}}>
+                <p className='text-left' style={{fontSize: '1rem'}}>Pay nothing until you land a job! <a href="#cost" className={styles.specialLink}>See how here</a></p>
             </div>
             <br />
-            <small style={{textAlign: 'left', width: '49%'}}>Application Deadline for cohort Spring '24 (S24): <b>Friday, January 19</b></small>
+            <small style={{textAlign: 'left', width: '50%', fontSize: '1rem'}}>Application Deadline for cohort {data.sanityBootcamp.cohort} ({data.sanityBootcamp.abbreviation}): <b>{applicationDeadlineDate}</b></small>
         
             </legend>
 
@@ -81,7 +92,7 @@ const BootcampApplyPage = () => {
                 <Row>
                     <Col>
                     <Row className="mt-2 mb-5">
-                        <Title style={{color:"#ED3742"}}className="text--huge text-center mt-4 ">The Cost</Title>
+                        <Title style={{color:"#ED3742"}} className="text--huge text-center mt-4 ">The Cost</Title>
                 </Row>
                     <Row>
                         <Col className={`${styles.costCol} text-center`}>
