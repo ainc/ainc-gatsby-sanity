@@ -44,8 +44,18 @@ export default {
           timeStep: 1,
           calendarTodayLabel: 'Today'
         }
+      },
+      {
+        title: 'Final Application Deadline',
+        name: 'finalApplication',
+        type: 'datetime',
+        options: {
+          dateFormat: 'MMMM D, YYYYp',
+          timeFormat: 'HH:mm:ss',
+          timeStep: 1,
+          calendarTodayLabel: 'Today'
       }
-
+    }
   
     ]
   }

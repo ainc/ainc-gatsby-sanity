@@ -69,15 +69,16 @@ const Header = () => {
             />
           </a>
         </Navbar.Brand>
-        {useLocation().pathname === '/bootcamp/' && ( 
-          <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2 pb-3'>
-            <a href="/bootcamp/apply"><BrandButton>Apply Now</BrandButton></a>
-          </Row>
 
-        )}
+
         <Navbar.Toggle aria-controls="learn-to-code-navbar" className='text-white shadow-none border-white'/>
         <Navbar.Collapse id="learn-to-code-navbar">
           <Nav>
+          {useLocation().pathname === '/bootcamp/' && (
+            <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
+                <a href='/bootcamp/apply' className='mt-3 mb-1'><BrandButton>Apply Now</BrandButton></a>
+            </Row>
+          )}
             <Col className="desktop">
               <Nav.Link href="/learn" className="text--white">Learn To Code  <AiFillCaretDown size={10}/></Nav.Link>
               <div className='hover-options'>
