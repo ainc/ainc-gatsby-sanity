@@ -347,7 +347,7 @@ const IndexPage = ({ data }) => {
       <section ref={section1Ref} id="workspace" style={{backgroundColor: `#D1D1D1`, borderColor: `black`}}>
         <Title className="pt-5 mb-3 text-uppercase text-center">Workspace</Title>
         <Subtitle className="mb-5 text-uppercase text-center">Join Our Workspace</Subtitle>
-        <div style={{ border: `10px solid white`, borderRadius: '10px', width: '50%', margin: '0px auto'}} />
+        <div style={{ border: `10px solid white`, borderRadius: '0.625rem', width: '50%', margin: '0px auto'}} />
         <a style={{position:'relative', top:'-70px', left: '72%'}} href="https://calendly.com/awesometour/30min?" target="_blank">
           <img src="https://d33wubrfki0l68.cloudfront.net/223738930eb44ab59015db4d33febf500d9da8f1/0ab2a/images/icons/schedule-a-tour-button-red.png" width='100' height='100' id="tour-button" alt="tour button" />
         </a>

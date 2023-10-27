@@ -23,7 +23,7 @@ const BootcampApplyPage = ({data}) => {
         <Layout>
             <Title className='text-center mt-3 mb-3'>WEB DEVELOPER BOOTCAMP APPLICATION</Title>
             <div style={{display: 'flex', justifyContent: 'center',}}>
-                <Subtitle className='px-5 py-5' style={{textAlign: 'left', width: '55%', fontSize: '1.25rem'}}> HOME / LEARN / ADULTS / BOOTCAMP / <span style={{color: '#a21b22'}}>APPLY</span></Subtitle>
+                <Subtitle className='px-lg-5 py-5' style={{textAlign: 'left', width: '55%', fontSize: '1.25rem'}}> HOME / LEARN / ADULTS / BOOTCAMP / <span style={{color: '#a21b22'}}>APPLY</span></Subtitle>
             </div>
             <form action="https://forms.zohopublic.com/virtualoffice9155/form/BootcampApplication/formperma/H7RiVteQOsrAh4ytlS0k9R-UO5McXKE5_FvNKrYe6JU/htmlRecords/submit" name="form" id="form" method="POST" acceptCharset="UTF-8" encType="multipart/form-data" siq_id="autopick_1809">
 
