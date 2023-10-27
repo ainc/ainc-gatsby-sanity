@@ -15,18 +15,16 @@
   },
   "dependencies": {
     "@portabletext/react": "^2.0.2",
-    "@sanity/cli": "^3.18.1",
+    "@sanity/cli": "^3.15.1",
     "@sanity/components": "^2.14.0",
     "@sanity/dashboard": "^3.1.5",
     "@sanity/structure": "^2.36.2",
     "@sanity/studio-hints": "^2.35.3",
     "@sanity/ui": "^1.8.2",
     "@sanity/vision": "^3.16.2",
-    "cssstyle": "^3.0.0",
     "date-fns": "^2.27.0",
     "easymde": "^2.18.0",
     "jsdom": "^22.1.0",
-    "parse5": "^7.1.2",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -40,8 +38,6 @@
     "sanity-plugin-dashboard-widget-netlify": "^1.2.1",
     "sanity-plugin-markdown": "^4.1.0",
     "sanity-plugin-tags": "^2.0.1",
-    "saxes": "^6.0.0",
-    "scheduler": "^0.23.0",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
