@@ -163,7 +163,7 @@ const Header = () => {
             <Col className="desktop">
               <Nav.Link href="/workspace" className="text--white">Workspace <AiFillCaretDown size={10}/></Nav.Link>
               <div className='hover-options'>
-                <a href="https://calendly.com/awesometour/30min?month=2023-03" target="_blank" className='pt-0'>Schedule a Tour</a>
+                <a href="https://calendly.com/awesometour/30min?" target="_blank" className='pt-0'>Schedule a Tour</a>
                 <a href="/workspace#become-a-member">Office Space</a>
                 <a href="/events">Events</a>
               </div>
@@ -182,7 +182,7 @@ const Header = () => {
                     <Nav>
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
                         <Col xs={{span: 10}} className={`d-flex flex-column py-2 border-0`}>
-                          <a href="/https://calendly.com/awesometour/30min?month=2023-03" target="_blank">Schedule a Tour</a>
+                          <a href="https://calendly.com/awesometour/30min?" target="_blank">Schedule a Tour</a>
                           <a href="/workspace#become-a-member">Office Space</a>
                           <a href="/events">Events</a>
                         </Col>

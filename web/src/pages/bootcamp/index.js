@@ -169,13 +169,13 @@ const BootcampPage = props => {
         <Container fluid className={`${styles.header} overflow-hidden`}>
         <Container>
 
-          <Row className="mt-5 ms-5">
+          <Row className={`${styles.titleBlock} mt-5 ms-5`}>
             <Col xs={{span: 12, offset: 0}} sm={{span: 8, offset: 4}} md={8} lg={6} xl={5}>
               <div className={`${styles.titleBlock} align-items-end d-flex flex-column`}>
                 <Title className='white text-uppercase text--big'> Launch your <br/> tech career</Title>
-                <h4 className=" w-75 text-end lh-md white mt-4 fw-lighter"><b>A 16 week immersive Bootcamp where you'll learn Full Stack coding skills to land a tech job... or your money back.</b></h4>
-                <BrandButton className="mt-3">Get Started</BrandButton>
-                <p style={{fontSize:"12px"}} className="fst-italic">Start your application in less than 30 seconds</p>
+                <h4 className= "w-75 text-end lh-md white mt-4 fw-lighter"><b>A 16 week immersive Bootcamp where you'll learn Full Stack coding skills to land a tech job... or your money back.</b></h4>
+                <a href="/bootcamp/apply"><BrandButton className="mt-3">Get Started</BrandButton></a>
+                <p style={{}}className="fst-italic">Start your application in less than 30 seconds</p>
               </div>
             
             </Col>
@@ -345,12 +345,11 @@ const BootcampPage = props => {
 
       {/* Motivational Quote */}
       <section id="motivational">
-        <Container className={`py-4`}>
-          <Row className="py-4 mx-5 px-5">
-            <Col className="mx-auto py-2 col-">
-              <Title className="text-center brand fs-5 text--medium">"You don't have to feel trapped. Earn your freedom, work when & where you want. Earn a living in just 40 hours a week."</Title>
+        <Container className={`py-4 text-center `}>
+          <Row className="py-lg-4 mx-lg-5 px-lg-5">
+            <Col className="mx-auto py-2">
+              <Title className={`text-center brand fs-5 text--medium `}>"You don't have to feel trapped. Earn your freedom, work when & where you want. Earn a living in just 40 hours a week."</Title>
             </Col>
-  
           </Row>
         </Container>
       </section>
@@ -396,7 +395,6 @@ const BootcampPage = props => {
 
       {/* Why Awesome Inc Header */}
       <section id="why-awesome-inc-header" className={styles.whyAwesomeIncHeader}>
-        <div></div>
       </section>
 
       {/* Why Awesome Inc */}
@@ -406,7 +404,7 @@ const BootcampPage = props => {
             <Col xs={12} sm={12} md={7} lg={7} xl={{span: 5, offset: 2}} className={`ps-0`}>
 
                 <div className={`${styles.leftCol}`}>
-                <Title className="text-uppercase py-3" style={{marginLeft: "0px"}}>Why Awesome Inc?</Title>
+                <Title className="text-uppercase py-3 " style={{marginLeft: "0px"}}>Why Awesome Inc?</Title>
                 <p style={{borderRight:"1.5px solid #C12029", lineHeight:"20px", fontSize: "12px"}} className={`mb-3 mt-4 pe-4`}>At Awesome Inc, everything we do starts with our Core Values. 
                   We care about people, and making a difference in our community. 
                   That's why we want to help 120 everyone we can learn the life changing skill of coding. 
@@ -416,7 +414,7 @@ const BootcampPage = props => {
                   but we're here to help! With coaching from Senior Developers and a curriculum built 
                   for you, we're ready to meet you where you're at, even if you're at step 0.
                 </p>
-                <BrandButton className={` mt-3`} style={{marginLeft: "0px"}}>Schedule Call</BrandButton>
+                <BrandButton className={` mt-3`} style={{marginLeft: "0rem"}}>Schedule Call</BrandButton>
 
                 </div>
             </Col>
@@ -494,16 +492,16 @@ const BootcampPage = props => {
                 <Title className="text-uppercase text-center mt-4">Companies who have hired our graduates</Title>
               </Row>
               <Col>
-                <Row className="row-cols-lg-5 my-5 mx-5">
+                <Row className="row-cols-lg-5 my-lg-5 mx-lg-5">
                   {employers.map((node,i) => (
                     <div key={i} className="text-center" xs={12} >
                       <GatsbyImage 
                       style={{
-                        maxWidth: "180px",
-                        marginTop: "10px",
-                        marginLeft: "10px",
-                        marginRight: "10px",
-                        marginBottom: "10px",
+                        maxWidth: "40rem",
+                        marginTop: "1.5rem",
+                        marginLeft: "1.5rem",
+                        marginRight: "1.5rem",
+                        marginBottom: "1.5rem",
                       }}
                       image={node.picture.asset.gatsbyImageData}
                       alt={node.company}
@@ -691,7 +689,7 @@ const BootcampPage = props => {
 
      <section id="still-unsure" className="pt-2">
         <Container fluid className={`${styles.stillUnsure} py-4`}>
-          <div style={{width:"800px"}} className="mx-5 text-center justify-content-center mx-auto">
+          <div style={{}} className="mx-5 text-center justify-content-center mx-auto">
             <Title className="text-center pt-5 pb-3">Still unsure? Here's everyone else who took this same leap and hasn't looked back!</Title>
             <a href="../alumni">
               <BrandButton className="my-3 small--text">Meet Alumni</BrandButton>
