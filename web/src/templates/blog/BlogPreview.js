@@ -69,7 +69,7 @@ export default function BlogPreview({blog}) {
               </Row>
               <Row>
                 <div className='pt-3 pb-0'>
-                  <a href={`/blog/${edge.node.slug.current}`}><p className='text--brand fs-6 link--brand'>Read More <FaLongArrowAltRight size="25" /></p></a>
+                  <a href={`/blog/${edge.node.slug.current}`}><p className='text--brand fs-6 link--brand'> Read More <FaLongArrowAltRight size="25" /></p></a>
                 </div>
               </Row>
             </Container>
