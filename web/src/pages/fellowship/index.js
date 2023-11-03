@@ -16,6 +16,7 @@ import * as footerStyles from '../../components/Footer/Footer.module.scss'
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
 import ApplyNowModal from "./Components/ApplyNowModal";
+import ModalCustom from "../../components/Modal/ModalCustom";
 
 /**
  * TODO:
@@ -79,7 +80,7 @@ const FellowshipPage = ({ data }) => {
                                
             <ApplyNowModal 
               title="Apply Now"
-              link=" https://forms.zohopublic.com/virtualoffice9155/form/OnlineNewsletterSignup/formperma/63TqTON16miWuaZIxR3_tTM4HEyMqE9N_KJOPjJPEUA?gclid=undefined"
+              link=""
             />
 
           </Col>
@@ -154,7 +155,9 @@ const FellowshipPage = ({ data }) => {
       <Container>
         <Row className="mb-5">
           <Col className="d-flex justify-content-center">
-          <ApplyNowModal/>
+          <ApplyNowModal
+          title="Apply Now"
+          link=""/>
           </Col>
 
         </Row>
@@ -164,7 +167,23 @@ const FellowshipPage = ({ data }) => {
       <Container>
         <Row className="my-5">
           <Col xs={8} sm={6}>
+          <a onClick={handleShow}  id="video-btn" href='#!'>
             <StaticImage src="../../images/fellowship-video-macbook.png" className="position-relative" alt="Macbook with video"/>
+          </a>
+          <ModalCustom 
+          lgShow = {lgShow} 
+          hide = {handleClose}
+          bgDark = {false} 
+          centered
+          content = {
+          <iframe 
+          width="100%" 
+          height="500" 
+          src="https://www.youtube.com/embed/IlLYF7VwiD8?si=L7HdAvUqlppI9SgM" 
+          title="YouTube video player"
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen></iframe>
+          }/>
           </Col>
           <Col xs={4} sm={6}>
             <Title>How it Works</Title>
@@ -237,7 +256,9 @@ const FellowshipPage = ({ data }) => {
         </Row>
         <Row className="mt-5">
           <Col className="d-flex justify-content-center">
-          <ApplyNowModal/>
+          <ApplyNowModal 
+          title="Apply Now"
+          link=""/>
           </Col>
         </Row>
       </Container>

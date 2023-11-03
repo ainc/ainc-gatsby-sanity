@@ -16,7 +16,7 @@ const Newsletter = () => {
   return (
     <section style={{ backgroundColor: `#555`}}>
       <Title className="text-center text-uppercase text-white py-5">Sign up for Our Newsletter</Title>
-      <div className="py-5">
+      <div className="py-1">
 
         <BrandButton className="d-block mx-auto mb-5" onClick={handleShow}>Sign Up</BrandButton>
         <Modal show={show} onHide={handleClose} centered size='lg' aria-labelledby='contained-modal-title-vcenter'>

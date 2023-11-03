@@ -8,10 +8,9 @@
         background-image: url("./images/intro-to-web-hero.png");
         background-repeat: no-repeat;
         height: 45vh;
-        width: 100vw;
+        width: 99vw;
         background-position: 50% 0;
         background-size: cover;
-
         @include screen-tablet-max {
             width: 100vw;
         }
@@ -108,7 +107,7 @@
 #what-salesforce {
     background-image: url("./images/red-wavy-bg.png");
     background-size: cover;
-    width: 100vw;
+    width: 99vw;
     padding-bottom: 5vh;
     padding-top: 5vh;
     margin-bottom: 5vh;
@@ -153,7 +152,7 @@
     background-image: url("./images/intro-to-web-hero-square.png");
     background-size: cover;
     // height: 50vh;
-    width: 100vw;
+    width: 99vw;
     // @include screen-tablet-max {
     //     height: 110vh;
     // }

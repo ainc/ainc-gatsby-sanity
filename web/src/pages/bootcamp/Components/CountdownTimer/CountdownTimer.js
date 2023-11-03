@@ -4,7 +4,7 @@ import ReactDom from 'react-dom';
 import Countdown from 'react-countdown';
 
 // Random component
-const Completionist = () => <span>You are good to go!</span>;
+const Completionist = () => <span>CLOSED</span>;
 
 // Renderer callback with condition
 const renderer = ({days, hours, minutes, seconds, completed }) => {
