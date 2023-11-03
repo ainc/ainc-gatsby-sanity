@@ -76,7 +76,9 @@ const fiveAcrossPage = ({ data }) => {
                             </Col>
                         </Row>
                         <Row className="">
-                            <HorizontalButtons />
+                            {nextFiveAcross.map((node) => (
+                                <HorizontalButtons register={node.linkToEvent} />
+                            ))}
                         </Row>
                     </Col>
                 </Row>
@@ -101,7 +103,9 @@ const fiveAcrossPage = ({ data }) => {
                     </Col>
                 </Row>
                 <Row className="my-5 d-flex justify-content-center">
-                    <HorizontalButtons />
+                {nextFiveAcross.map((node) => (
+                    <HorizontalButtons register={node.linkToEvent} />
+                ))}
                 </Row>
             </Container>
             <Container fluid className={`mt-5 ${styles.pastPitches}`}>
@@ -335,7 +339,7 @@ query fiveAcrossQuery($currentDate: Date!) {
             link
             image {
                 asset {
-                  gatsbyImageData
+                  gatsbyImageData(height: 200)
                 }
             }
           }
@@ -344,7 +348,7 @@ query fiveAcrossQuery($currentDate: Date!) {
             link
             image {
                 asset {
-                  gatsbyImageData
+                  gatsbyImageData(height: 500)
                 }
             }
           }

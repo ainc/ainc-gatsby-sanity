@@ -10,11 +10,11 @@ import podcastLogo from "../../../images/ainc_podcast_logo@2x.png"
 const Podcast = () => {
   return (
     <section>
-      <Row className="mx-auto" >
-        <Col className='my-3' xs={5} md={3} lg={3}>
-          <img className="ms-3" src={podcastLogo} alt="Awesome Inc Podcast" />
+      <Row className="mx-auto">
+        <Col className='my-3' xs={11} md={5} lg={5} >
+          <img className="" src={podcastLogo} alt="Awesome Inc Podcast" style={{float: 'right'}} />
         </Col>
-        <Col xs={12} md={{ offset: 1, span: 7 }} lg={7} xl={7}>
+        <Col xs={12} md={7} lg={5} xl={4}>
           <Title className="fw-normal text-center pt-3 pb-3">
             Check out <a href='https://podcasters.spotify.com/pod/show/awesomeinc' className='link--brand'> Awesome Inc's Podcast</a>
           </Title>
