@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState} from "react";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import * as styles from "./BackgroundCard.module.scss";
 import styled from "styled-components";
@@ -7,6 +7,8 @@ import { Card, Row, Col, Container } from 'react-bootstrap'
 
 
 const BackgroundCard = (props) => {
+
+  const [isHovered, setIsHovered] = useState(false);
 
   //Scroll to a specific section when card is clicked
   const scrollToSection = (ref) => {
@@ -17,11 +19,12 @@ const BackgroundCard = (props) => {
 
   return (
     <a href onClick={() => scrollToSection(props.sectionRef)}>
-      <Card className={`${styles.cardBackgroundFilter} col-xs-12`} style={{ backgroundImage: `url(${props.backgroundImage})` }}>
+      <Card className={`${styles.cardBackgroundFilter} col-xs-12`} style={{ backgroundImage: `url(${props.backgroundImage})` }} 
+      onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
         <Card.Body className="card-body--background-card p-1">
-          <Card.Img variant="top" src={props.imgSrc} alt={props.alt} className="d-block mx-auto mt-3 w-50" />
-          <Card.Title className={`text-uppercase text-white text-center fw-bold mt-3 ${styles.cardTitle}`}>{props.title}</Card.Title>
-          <Card.Text className={`text-white text-center mb-5 ${styles.cardText}`}>{props.text}</Card.Text>
+          <Card.Img variant="top" src={props.imgSrc} alt={props.alt} className="d-block mx-auto mt-3 w-50" style={{transform: isHovered ? 'scale(1.1)' : '', transition: '0.3s'}}/>
+          <Card.Title className={`text-uppercase text-white text-center fw-bold mt-3 ${styles.cardTitle}`} style={{transform: isHovered ? 'scale(1.1)' : '', transition: '0.3s'}}>{props.title}</Card.Title>
+          <Card.Text className={`text-white text-center mb-5 ${styles.cardText}`} style={{transform: isHovered ? 'scale(1.1)' : '', transition: '0.3s'}}>{props.text}</Card.Text>
         </Card.Body>
       </Card>
     </a>

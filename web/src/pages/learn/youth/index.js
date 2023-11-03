@@ -188,6 +188,10 @@ const YouthPage = () => {
                 <section id='join'>
                     <Container fluid='md' className={` ${styles.clubMembership}`}>
                         <Title className='text-center text-uppercase text-white pt-5'>coding club membership</Title>
+                        <p className='mb-5 text-white text-center'>The coding club is currently taking a break. If you have an interested student, please fill out this form and we will let you know if anything changes.</p>
+                        <iframe frameborder="0" style={{height:'500px', width:'99%', border:'none'}} src="https://forms.zohopublic.com/virtualoffice9155/form/YouthWaitlist/formperma/JYcInu3QDQ0CdIzfwqoouSab5htBYC95LprfIvNMozM?gclid=undefined"></iframe>
+                       {/* Saving for later if coding club comes back */}
+                        {/*
                         <p className='mb-5 text-white text-center'><strong>Note:</strong> The Coding Club runs from September - May, taking a break in the summer.
                             You can still sign up to reserve a spot if you are applying during the summer.</p>
                         <Row>
@@ -240,6 +244,7 @@ const YouthPage = () => {
                                 </Card>
                             </Col>
                         </Row>
+                    */}
                     </Container>
                 </section>
                 <Container className={styles.questions}>
