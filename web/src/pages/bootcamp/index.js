@@ -692,7 +692,7 @@ const BootcampPage = props => {
           <div style={{}} className="mx-5 text-center justify-content-center mx-auto">
             <Title className="text-center pt-5 pb-3">Still unsure? Here's everyone else who took this same leap and hasn't looked back!</Title>
             <a href="../alumni">
-              <BrandButton className="my-3 small--text">Meet Alumni</BrandButton>
+              <BrandButton className="my-3 ">Meet Alumni</BrandButton>
              </a>
           </div>
         </Container>
@@ -704,7 +704,7 @@ const BootcampPage = props => {
         <Container fluid className={`${styles.questions}`}>
           <div className="py-5 text-center">
             <Title className="text-white pt-5 pb-3">Still have questions?</Title>
-            <BrandButton className=" small--text">See our Faqs</BrandButton>
+            <BrandButton className="">See our Faqs</BrandButton>
           </div>
         </Container>
       </section>
