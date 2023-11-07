@@ -10,11 +10,12 @@ import "../../styles/main.scss"
 import * as styles from './courses.module.css'
 import styled from 'styled-components'
 import BlockQuote from '../../components/BlockQuote/BlockQuote'
+import BackgroundPicture from '/src/images/phone-booth-abstract.jpg'
 
 const ProvenBackground = styled.div`
 &:before {
   content: "\xA0";
-  background-image: url(https://www.awesomeinc.org/images/phone-booth-abstract.jpg);
+  background-image: ${props => (props.bgImage !== undefined) ? `url( ${Object.values(props.bgImage)[0]} )` : undefined};
   filter: opacity(50%) blur(1pt);
   background-repeat: no-repeat;
   background-size: cover;
@@ -111,8 +112,8 @@ const LearnPage = ({ data }) => {
       
       {/* Proven Success Section */}
       
-      <section className={styles.provenContainer}>
-        <ProvenBackground>
+      <section>
+        <ProvenBackground bgImage={{BackgroundPicture}}>
         <Container className="py-3"fluid>
         <Row><Col xs={12}> <Title className="brand test text-center normal text-end">Proven Success</Title></Col></Row>
         <Row>
