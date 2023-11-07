@@ -102,7 +102,7 @@ async function createPodcastPages(graphql, actions) {
   }
 
   const posts = result.data.allFeedAnchorPodcast.nodes
-  const postsPerPage = 8
+  const postsPerPage = 10
   const numPages = Math.ceil(posts.length / postsPerPage)
 
   //pagination with import
