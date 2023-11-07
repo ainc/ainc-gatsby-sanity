@@ -1,4 +1,5 @@
 import React from "react"
+// import { DiagonalDiv } from './Diagonal.module.scss';
 import styled from 'styled-components';
 import * as styles from '../../../styles/Variables';
 
@@ -8,7 +9,6 @@ const fullWidth = 100;
 // const MagicNumber = 0.09719;
 const RotationDeg = Rotation * (Math.PI / 180);
 const MagicNumber = Math.tan(RotationDeg) / 2;
-console.log("Magic #: " + MagicNumber);
 const SkewPadding = Math.abs(width * MagicNumber);
 const ClipPadding = fullWidth * MagicNumber;
 
@@ -17,7 +17,7 @@ const DiagonalDiv = styled.div`
   padding: ${SkewPadding}vw 0;
   margin-top: -1px;
   &:before {
-    content: "";
+    content: "\xA0";
     position: absolute;
     top: 0;
     right: 0;
