@@ -32,8 +32,6 @@ const Banner = () => {
 
   const currentDate = new Date().toISOString().slice(0, 10);
 
-  console.log("banner: ", bannerData)
-
   const upcoming = bannerData.allSanityEvents.nodes.filter(event => new Date(event.date) >= new Date(currentDate));
   const showUpcoming = currentDate > upcoming ? null : <p>Sign up <a href={upcoming[0].linkToEvent}>here</a> for 5 Across - {upcoming[0].date} </p>; 
 
