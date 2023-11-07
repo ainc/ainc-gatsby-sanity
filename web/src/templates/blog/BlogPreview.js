@@ -20,7 +20,8 @@ export default function BlogPreview({blog}) {
       <Container className='blog-card border border-2 rounded-1' style={{ height: "540px" }}>
         <Row className='p-3 h-100'>
           <Col xs={12} className='p-0'>
-            <Container className="blog-image d-flex align-items-end relative" style={{ 
+            {/* <Container className="blog-image d-flex align-items-end relative" style={{  */}
+            <Container className="blog-image d-flex flex-column"style={{
               backgroundImage: bgImage,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
@@ -34,20 +35,16 @@ export default function BlogPreview({blog}) {
                   <a href={`/blog/${edge.node.slug.current}`} aria-label="Read the article" className='bg-white p-3 rounded-circle'>
                     <FaBook size={40} className='text--brand' />
                   </a>
-
-
                 </Col>
               </Row>
-              <Row className='blog-details'>
-                <Col xs={4} lg={3} className="d-flex justify-content-start pb-2">
-                  <div style={{height:'fit-content', width:'fit-content'}} className='justify-content-center align-items-center'>
+
+              <Row style={{height:'90px'}} className='blog-details mt-auto'>
+                  <Col xs={4} lg={4} style={{height:'', width:'fit-content'}} className='justify-content-center align-items-center'>
                     <GatsbyImage objectFit='contain' style={{height:'70px', width:'70px', zIndex:"2"}}  image={edge.node.reference.picture?.asset?.gatsbyImageData || ''} alt={edge.node.reference.name !== null ? edge.node.reference.name : ''} className="rounded-circle border border-3 border-white my-0 ms-0" /> 
-                    {/* <GatsbyImage objectFit='cover' image={edge.node.reference.picture?.asset?.gatsbyImageData || ''} alt={edge.node.reference.name !== null ? edge.node.reference.name : ''} className="rounded-circle border border-3 border-white my-2 ms-0" /> */}
-                  </div>
                 </Col>
-                <Col  xs={7} lg={9} className="d-flex justify-content-start align-content-center flex-column mt-3 px-0">
+                <Col  xs={7} lg={8} className=" d-flex justify-content-start align-content-center flex-column mt-3 px-0">
                   <Title className="author" style={{fontWeight: '800', zIndex: "2"}}>{edge.node.reference.name}, {edge.node.reference.title}</Title>
-                  <p style={{zIndex:"2"}} className='date text-white fw-bold'>{edge.node.date}</p>
+                  <p style={{zIndex:"2"}} className='date text-white'> {edge.node.date}</p>
                 </Col>
               </Row>
               <div className='overlay'></div>
