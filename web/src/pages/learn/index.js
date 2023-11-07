@@ -13,7 +13,7 @@ import BlockQuote from '../../components/BlockQuote/BlockQuote'
 
 const ProvenBackground = styled.div`
 &:before {
-  content: "\s";
+  content: "\xA0";
   background-image: url(https://www.awesomeinc.org/images/phone-booth-abstract.jpg);
   filter: opacity(50%) blur(1pt);
   background-repeat: no-repeat;
