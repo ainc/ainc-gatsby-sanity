@@ -17,7 +17,7 @@ const DiagonalDiv = styled.div`
   padding: ${SkewPadding}vw 0;
   margin-top: -1px;
   &:before {
-    content: "";
+    content: "\s";
     position: absolute;
     top: 0;
     right: 0;
