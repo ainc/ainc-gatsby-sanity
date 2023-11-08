@@ -13,8 +13,8 @@ import BlockQuote from '../../components/BlockQuote/BlockQuote'
 import BackgroundPicture from '/src/images/phone-booth-abstract.jpg'
 
 const ProvenBackground = styled.div`
-&:before {
-  content: "\xA0";
+&::before {
+  content: '';
   background-image: ${props => (props.bgImage !== undefined) ? `url( ${Object.values(props.bgImage)[0]} )` : undefined};
   filter: opacity(50%) blur(1pt);
   background-repeat: no-repeat;
