@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
-// import { graphql } from "gatsby";
+import { graphql } from "gatsby";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import SEO from "../../components/seo";
 import * as styles from "./workspace.module.css";
@@ -11,6 +11,8 @@ import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import BrandButton from '../../components/UI/BrandButton/BrandButton'
 import SeeTheSpace from "./Components/SeeTheSpace/SeeTheSpace";
 import ModalCustom from "../../components/Modal/ModalCustom";
+import 'keen-slider/keen-slider.min.css'
+import { useKeenSlider } from 'keen-slider/react'
 
 //Image Links Below
 import Mail from "../../images/virtual-member-mail.png";
@@ -29,7 +31,50 @@ import Lightbulb from "../../images/indoor-outdoor.png";
 import Scooter from "../../images/electric-scooter.png";
 import ThreeDPrinter from "../../images/3d-printer.png";
 
-const WorkspacePage = () => {
+const WorkspacePage = ({data}) => {
+
+  const workspaceTestimonials = (data.allSanityWorkspaceTestimonials.nodes || {})
+  
+
+  const [refCallback] = useKeenSlider(
+    {
+      rtl: true,
+      loop: true,
+    },
+    [
+      (slider) => {
+        let timeout
+        let mouseOver = false
+        function clearNextTimeout() {
+          clearTimeout(timeout)
+        }
+        function nextTimeout() { 
+          clearTimeout(timeout)
+          if (mouseOver) return
+          timeout = setTimeout(() => {
+            slider.next()
+          }, 5000)
+        }
+        slider.on("created", () => {
+          slider.container.addEventListener("mouseover", () => {
+            mouseOver = true
+            clearNextTimeout()
+          })
+          slider.container.addEventListener("mouseout", () => {
+            mouseOver = false
+            nextTimeout()
+          })
+          nextTimeout()
+        })
+        slider.on("dragStarted", clearNextTimeout)
+        slider.on("animationEnded", nextTimeout)
+        slider.on("updated", nextTimeout)
+      },
+    ]
+    
+  )
+
+
   const [lgShow, setLgShow] = useState(false);
   const handleClose = () => setLgShow(false);
   const handleShow = () => setLgShow(true);
@@ -56,6 +101,8 @@ const WorkspacePage = () => {
       <section className={styles.spotlightAdult}>
         <SeeTheSpace />
       </section>
+
+      
 
       {/* Become a member */}
       <section className={styles.member}>
@@ -108,6 +155,28 @@ const WorkspacePage = () => {
             </Col>
           </Row>
         </Container>
+      </section>
+      
+      {/* Testimonials */}
+      <section>
+      <Container fluid className="background--grey">
+        <Row className="my-5">
+          <Col xs={12} className="m-auto">
+            <Container className="double-border--brand my-5">
+              <Title className="text-center white"> What our members have to say</Title>
+              <div ref={refCallback} className="keen-slider d-flex align-items-center">
+                 {workspaceTestimonials.map((node) => (
+                    <div className="keen-slider__slide">
+                      {/* changed text from grey to white for better contrast, but lighter grey is probably better */}
+                      <p className="text-center text--white mb-1 mt-3">{node.testimonial}</p>
+                      <p className="text-center fst-italic text-white mb-3"> - {node.name}</p>
+                    </div>
+                  ))}
+              </div>
+            </Container>
+          </Col>
+        </Row>
+      </Container>
       </section>
 
       {/* Membership amenities */}
@@ -224,4 +293,17 @@ const WorkspacePage = () => {
   );
 };
 
+export const query_testimonials = graphql`
+query {
+  allSanityWorkspaceTestimonials (sort: {_updatedAt: ASC}) {
+    nodes {
+      name
+      testimonial
+    }
+  }
+}
+`
+
+
 export default WorkspacePage;
+

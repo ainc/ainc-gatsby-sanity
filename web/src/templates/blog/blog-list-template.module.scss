@@ -1,0 +1,38 @@
+@use '../../styles/variables' as styles;
+@import '../../styles/mixins';
+
+* {
+    letter-spacing: 0 !important;
+}
+
+.page {
+    // padding-top: 300px;
+    margin: 0 .5rem 0 .5rem;
+    font-weight: 900;
+    color: styles.$brand-color;
+    @include screen-xs {
+        font-size: 5vw;
+    }
+}
+
+.page-number-single {
+    display: none;
+    @include screen-xs {
+        display: flex;
+    }
+}
+
+.page-number-all {
+    @include screen-xs {
+        display: none;
+       
+    }
+}
+
+.page:hover {
+    // text-shadow: 2px 2px 0 rgb(0, 0, 0);
+    // transform: scale(2.5);
+    // transition-duration: 400ms;
+    color: styles.$brand-red-bright;
+}
+
