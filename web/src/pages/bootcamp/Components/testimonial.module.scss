@@ -57,7 +57,7 @@
     // width: 500px;
     // height: 700px;
     margin-top: 5px;
-    padding-bottom: 60px;
+    padding-bottom: 40px;
     text-align: justify;
     opacity: 0.9;
     
@@ -75,4 +75,10 @@
           display: block;
         }
       }
+}
+
+.content{
+  @include screen-lg{
+    height: 15rem;
+  }
 }

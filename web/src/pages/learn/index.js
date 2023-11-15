@@ -11,6 +11,7 @@ import * as styles from './courses.module.css'
 import styled from 'styled-components'
 import BlockQuote from '../../components/BlockQuote/BlockQuote'
 import BackgroundPicture from '/src/images/phone-booth-abstract.jpg'
+import ImageOutline from '../../components/ImageOutline/ImageOutline'
 
 const ProvenBackground = styled.div`
 &::before {
@@ -68,12 +69,16 @@ const LearnPage = ({ data }) => {
             </p>
           </Col>
           <Col xs={12} sm={{ span: 5}} md={{ span: 6 }}>
-            <StaticImage src='../../images/student-learn-to-code-shirt.jpg' alt='learn to code' />
+            <ImageOutline>
+              <StaticImage src='../../images/student-learn-to-code-shirt.jpg' alt='learn to code' />
+            </ImageOutline>
           </Col>
         </Row>
         <Row className="mt-5">
           <Col xs={12} sm={{ span: 5}}>
-          <StaticImage src='../../images/student-learn-to-code-week-of-code.jpg' alt='learn to code youth classes' />
+            <ImageOutline>
+              <StaticImage src='../../images/student-learn-to-code-week-of-code.jpg' alt='learn to code youth classes' />
+          </ImageOutline>
           </Col>
           <Col xs={12} sm={{ span: 5 }}>
             <Title className="brand text-normal text-left">Youth</Title>
@@ -102,7 +107,9 @@ const LearnPage = ({ data }) => {
            
           </Col>
           <Col xs={12} sm={{ span: 5}}>
-            <StaticImage className="p-2 mt-2"src='../../images/learn/adult-coding-laptop.jpeg' alt='learn to code' />
+            <ImageOutline>
+              <StaticImage src='../../images/learn/adult-coding-laptop.jpeg' alt='learn to code' />
+            </ImageOutline>
           </Col>
         </Row>
 
@@ -114,8 +121,13 @@ const LearnPage = ({ data }) => {
       
       <section>
         <ProvenBackground bgImage={{BackgroundPicture}}>
-        <Container className="py-3"fluid>
-        <Row><Col xs={12}> <Title className="brand test text-center normal text-end">Proven Success</Title></Col></Row>
+        <Container className="py-3" fluid>
+        <Row>
+          <Col xs={12}> 
+            {/*<StaticImage src='../../images/learn/Bootcamp-Helped100People.jpg' style={{maxWidth: '12%', position: 'relative',  left: '20rem'}} alt='Who we have helped'/> */}
+            <Title className="brand test text-center normal text-end">Proven Success</Title>
+          </Col>
+        </Row>
         <Row>
           <Col xs={12} md={{offset: 4, span: 4}}>
           <p className="text-center">Since 2013, over 1500 people have learned to code with us. Here's what they have to say:</p>
