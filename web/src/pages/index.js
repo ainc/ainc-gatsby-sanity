@@ -1,5 +1,5 @@
 import React from "react";
-import {useRef, useState} from "react";
+import {useRef, useState, useEffect} from "react";
 import { graphql } from "gatsby";
 import {
   mapEdgesToNodes,
@@ -32,6 +32,8 @@ import { useLocation } from "@reach/router";
 import core_values from "../images/core-values.png";
 import workspace_hero from "../images/ainc-workspace-hero.jpeg";
 import desk_background from "../images/workspace-desk-bg-red.png";
+import workspace_background from "../images/workspace-border.png";
+
 import DevicesIcon from "../assets/svg/devices.svg";
 import StackIcon from "../assets/svg/stack.svg";
 import ToolsIcon from "../assets/svg/tools.svg";
@@ -144,6 +146,24 @@ const IndexPage = ({ data }) => {
 
   const [isWorkspaceButton1Hovered, setIsWorkspaceButton1Hovered] = useState(false);
   const [isWorkspaceButton2Hovered, setIsWorkspaceButton2Hovered] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 800); // Adjust the threshold as needed
+    };
+
+    // Initial check on component mount
+    handleResize();
+
+    // Event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); // Empty dependency array ensures that the effect runs only once on mount
 
 
   return (
@@ -346,11 +366,10 @@ const IndexPage = ({ data }) => {
       </section>  
         
       {/* WORKSPACE */}
-      <section ref={section1Ref} id="workspace" style={{backgroundColor: `#D1D1D1`, borderColor: `black`}}>
-        <Title className="pt-5 mb-3 text-uppercase text-center">Workspace</Title>
-        <Subtitle className="mb-5 text-uppercase text-center">Join Our Workspace</Subtitle>
-        <div style={{ border: `10px solid white`, borderRadius: '0.625rem', width: '50%', margin: '0px auto'}} />
-        <a style={{position:'relative', top:'-70px', left: '72%'}} href="https://calendly.com/awesometour/30min?" target="_blank">
+      <section ref={section1Ref} id="workspace" style={{backgroundColor: `#D1D1D1`, borderColor: `black`, backgroundImage: isLargeScreen ? `url(${workspace_background})`: '', backgroundRepeat: 'no-repeat', backgroundPosition: 'center 80%', backgroundSize: '85% 85%'}}>
+        <Title className="pt-5 mb-2 text-uppercase text-center">Workspace</Title>
+        <Subtitle className=" text-uppercase text-center">Join Our Workspace</Subtitle>
+        <a style={{position:'relative', top: isLargeScreen ? '-6rem' : '', left: isLargeScreen ? '90%' : '', justifyContent: isLargeScreen ? '' : 'center'}} href="https://calendly.com/awesometour/30min?" target="_blank">
           <img src="https://d33wubrfki0l68.cloudfront.net/223738930eb44ab59015db4d33febf500d9da8f1/0ab2a/images/icons/schedule-a-tour-button-red.png" width='100' height='100' id="tour-button" alt="tour button" />
         </a>
         <Container>
@@ -359,7 +378,7 @@ const IndexPage = ({ data }) => {
               <Col xs={12} sm={6}>
                 <div className="d-flex justify-content-center" >
                   <a href="../workspace">
-                    <Card className="card--equal-width bg-secondary p-4 mb-5" onMouseEnter={() => setIsWorkspaceButton1Hovered(true)} onMouseLeave={() =>setIsWorkspaceButton1Hovered(false)} style={{boxShadow: isWorkspaceButton1Hovered ? ' 0 5px 10px rgba(162, 27, 34, 0.75)' : ''}}>
+                    <Card className="card--equal-width bg-secondary p-4 mb-3" onMouseEnter={() => setIsWorkspaceButton1Hovered(true)} onMouseLeave={() =>setIsWorkspaceButton1Hovered(false)} style={{boxShadow: isWorkspaceButton1Hovered ? ' 0 5px 10px rgba(162, 27, 34, 0.75)' : ''}}>
                       <Subtitle className="fw-bold text-center text-white">Functional Workspace</Subtitle>
                       <p className="text-center text-white fw-bolder">An awesome space to work or host your next meeting.</p>
                     </Card>

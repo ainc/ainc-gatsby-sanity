@@ -274,12 +274,12 @@ const BootcampPage = props => {
         <Container fluid className="py-5">
           <Row>
             <Col>
-              <Title className="text-center brand fs-3 text--medium">Answer honestly...</Title>
-              <Subtitle className="text-center brand fst-italic fw-light fs-6 subtitle--tiny">(your answer is safe with us, we promise.)</Subtitle>
+              <Title className="text-center brand fs-3 text--large">Answer honestly...</Title>
+              <Subtitle className="text-center brand fst-italic fw-light fs-6 subtitle--small mb-5">(your answer is safe with us, we promise.)</Subtitle>
             </Col>  
           </Row>
           <Col className="d-flex justify-content-center">
-            <Row className="py-0 text-center" style={{maxWidth: "100%"}}>
+            <Row className="py-1 text-center" style={{maxWidth: "100%"}}>
               <ShieldsRow
                 text1="Do you ever think of changing careers?"
                 text2="Are you looking for a more meaningful career?"
@@ -293,10 +293,10 @@ const BootcampPage = props => {
             <Subtitle className="text-center brand fs-3 fancy-font fst-italic">yes!</Subtitle>
             <br />
             <br />
-            <Subtitle className="text-center pt-3 fs-6 subtitle--tiny pb-3"><b>If you answered yes to any of these, our Web Developer Bootcamp could be your next move.</b></Subtitle>
+            <Subtitle className="text-center pt-3 fs-6 subtitle--small pb-3"><b>If you answered yes to any of these, our Web Developer Bootcamp could be your next move.</b></Subtitle>
             <br />
             <br />
-            <Subtitle className="text-center fs-6 subtitle--tiny">The Web Developer Bootcamp is a 16-week, intensive training program for aspiriing software developers.</Subtitle>
+            <Subtitle className="text-center fs-6 subtitle--small">The Web Developer Bootcamp is a 16-week, intensive training program for aspiriing software developers.</Subtitle>
           </Row>
           <Row className="pt-5 pb-3">
             <Col className="d-flex justify-content-center">
@@ -576,19 +576,19 @@ const BootcampPage = props => {
                 <StaticImage alt="Bootcamp online application" src="../../images/bootcamp/online-application.png" className="" style={{maxWidth:"180px"}}/>
               </div>
               <div className="d-flex align-items-center">
-                <StaticImage alt="Arrow steps" src="../../images/bootcamp/arrow-steps.png" className={`${styles.arrowImg} mt-5`} style={{maxWidth:"180px"}}/>
+                <StaticImage alt="Arrow steps" src="../../images/bootcamp/arrow-steps.png" className={`${styles.arrowImg} `} style={{maxWidth:"180px"}}/>
               </div>
               <div>
                     <StaticImage alt="Basic challenges" src="../../images/bootcamp/basic-challenge.png" className="" style={{maxWidth:"180px"}}/>
               </div>
               <div className="d-flex align-items-center">
-                <StaticImage alt="Arrow steps" src="../../images/bootcamp/arrow-steps.png" className={`${styles.arrowImg} mt-5`} style={{maxWidth:"180px"}}/>
+                <StaticImage alt="Arrow steps" src="../../images/bootcamp/arrow-steps.png" className={`${styles.arrowImg}`} style={{maxWidth:"180px"}}/>
               </div>
               <div>
                     <StaticImage alt="in person interview" src="../../images/bootcamp/in-person-interview.png" className="" style={{maxWidth:"180px"}}/>
               </div>
               <div className="d-flex align-items-center" >
-                <StaticImage alt="Arrow steps" src="../../images/bootcamp/arrow-steps.png" className={`${styles.arrowImg} mt-5`} style={{maxWidth:"180px"}}/>
+                <StaticImage alt="Arrow steps" src="../../images/bootcamp/arrow-steps.png" className={`${styles.arrowImg}`} style={{maxWidth:"180px"}}/>
               </div>
               <div>
                     <StaticImage alt="Figure it out challenge" src="../../images/bootcamp/fio-challenge.png" className="" style={{maxWidth:"180px"}}/>
@@ -654,7 +654,7 @@ const BootcampPage = props => {
                     <Title className="text-center py-4 fs-3 text--medium">Income Share Agreement</Title>
                   </Row>
                   <Row className="mx-5">
-                    <p  style={{fontSize:"0.75rem"}} className="text-justify">
+                    <p  style={{fontSize:"1rem"}} className="text-justify">
                       Fund your future with an Income Share Agreement. We're 
                       partnered with industry-leading ISA provider Meratas to 
                       allow students to enroll in our full-time program with no 
@@ -671,10 +671,10 @@ const BootcampPage = props => {
                     </div>
                   </Row>
                   <Row className="me-5">
-                    <Title className="text-center py-5 ms-3 text--medium">Up-Front Payment</Title>
+                    <Title className="text-center py-4 ms-3 text--medium">Up-Front Payment</Title>
                   </Row>
                   <Row className="mx-5">
-                    <p style={{fontSize:"0.75rem"}} className="text-justify ">
+                    <p style={{fontSize:"1rem"}} className="text-justify ">
                       Students who choose to pay tuition up front are offered a discounted tuition rate of $13,500.
                     </p>
                   </Row>
