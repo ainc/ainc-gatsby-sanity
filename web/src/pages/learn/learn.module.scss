@@ -69,4 +69,20 @@
     position: absolute;
 }
 
+.proven-background {
+    &::before {
+        content: ""; 
+        color: rgba(0,0,0,0);
+        background-image: url('../../images/phone-booth-abstract.jpg');
+        filter: opacity(50%) blur(1pt);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 450px;
+        text-align: left;
+        display: block;
+        z-index: -1;
+        position: absolute;
+    }
+}
 /*  ^^^^^^  */
