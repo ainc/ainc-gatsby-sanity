@@ -1,3 +1,4 @@
+@use 'sass:math';
 @import '../../styles/variables.scss';
 
 .header-background-align-right {
@@ -31,4 +32,34 @@
   background-color: $brand-color2;
   color: $white-color;
   overflow: hidden;
+}
+
+$Rotation: -5;
+$width: 100;
+$fullWidth: 100;
+$MagicNumber: 0.09719;
+$RotationDeg: '-5deg';
+$SkewPadding: '4.4 vw';
+$ClipPadding: $fullWidth * $MagicNumber;
+.diagonal-background {
+  position: relative;
+  padding: 4.4vw 0;
+  margin-top: -1px;
+  &::before {
+    content: ""; 
+    color: rgba(0,0,0,0);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: $brand-grey-light;
+    background-image: url('../../images/intern-why.jpg');
+    background-size: cover;
+    background-position: center;
+    transform: skewY(-5deg);
+    transform-origin: 50% 0;
+    backface-visibility: hidden;
+    z-index: -1;
+  }
 }
