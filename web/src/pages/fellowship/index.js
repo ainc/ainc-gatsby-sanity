@@ -160,7 +160,7 @@ const FellowshipPage = ({ data }) => {
       </Container>
 
       <Container>
-        <Row className="mb-5">
+        <Row className="mb-5 mt-4">
           <Col className="d-flex justify-content-center">
           <ApplyNowModal
           title="Apply Now"
