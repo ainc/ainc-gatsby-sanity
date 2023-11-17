@@ -84,7 +84,7 @@ const YouthPage = () => {
                             <StaticImage src='../../../images/learn/laptop.png' alt='laptop'></StaticImage>
                         </Col>
                         <Col sm={{ offset: 2, span: 8 }} md={{ span: 5 }} lg={{ span: 4, offset: 1 }} xl={{ span: 4, offset: 1 }}>
-                            <Title className={` ${styles.engagedTitle} mt-5 text-uppercase ml-4`}>keep your kids engaged</Title>
+                            <Title className={` ${styles.engagedTitle} mt-5 text-uppercase ml-4 text-white`}>keep your kids engaged</Title>
                             <p className='text-start'>Your kids will have the support of our instructors - professional coders just a step, or a click away!</p>
                             <BrandButton onClick={handleShow} className='mb-5 text-uppercase'>meet the team</BrandButton>
                             <Container className={styles.modalContainer}>
