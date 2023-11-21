@@ -28,29 +28,29 @@ export default {
             type: "url",
             description: 'Will default to the 5 Across youtube playlist if left blank ',
         },
-        {
-            name: "image",
-            title: "Image",
-            type: "image"
-        }
+        // {
+        //     name: "image",
+        //     title: "Image",
+        //     type: "image"
+        // }
 
     ],
-    orderings: [
-        {
-          title: 'Winning Date, New',
-          name: 'WinningDateDesc',
-          by: [
-            {field: 'WinningDate', direction: 'desc'}
-          ]
-        },
-        {
-            title: 'Winning Date, Old',
-            name: 'WinningDateAsc',
-            by: [
-              {field: 'WinningDate', direction: 'asc'}
-            ]
-          }
-    ],    
+    // orderings: [
+    //     {
+    //       title: 'Winning Date, New',
+    //       name: 'WinningDateDesc',
+    //       by: [
+    //         {field: 'WinningDate', direction: 'desc'}
+    //       ]
+    //     },
+    //     {
+    //         title: 'Winning Date, Old',
+    //         name: 'WinningDateAsc',
+    //         by: [
+    //           {field: 'WinningDate', direction: 'asc'}
+    //         ]
+    //       }
+    // ],    
     preview: {
         select: {
           title: 'companyTitle',
