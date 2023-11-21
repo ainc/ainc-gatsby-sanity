@@ -8,7 +8,7 @@ import Space from "../../../../images/awesome-inc-space-banner.jpeg";
 import Arrow from "../../../../images/arrow.png";
 
 const SeeTheSpace = (props) => {
-  const videoLinkSrc = "https://www.youtube.com/watch?v=0YgGYadr7rk";
+  const videoLinkSrc = "https://www.youtube.com/watch?v=300C7ovyL0Y";
 
   const [lgShow, setLgShow] = useState(false);
   const handleClose = () => setLgShow(false);

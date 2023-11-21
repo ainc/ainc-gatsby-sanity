@@ -2,7 +2,7 @@
 export default {
     name: 'bootcamp',
     type: 'document',
-    title: 'Bootcamp',
+    title: 'Bootcamp Dates',
 
     fields: [
    
@@ -12,6 +12,16 @@ export default {
         title: 'Title',
         initialValue: 'Bootcamp',
         hidden: true
+      },
+      {
+        name: 'cohort',
+        type: 'string',
+        title: 'Cohort'
+      },
+      {
+        name: 'abbreviation',
+        type: 'string',
+        title: 'Abbreviation'
       },
       {
         title: 'Early Application Deadline',
@@ -34,8 +44,18 @@ export default {
           timeStep: 1,
           calendarTodayLabel: 'Today'
         }
+      },
+      {
+        title: 'Final Application Deadline',
+        name: 'finalApplication',
+        type: 'datetime',
+        options: {
+          dateFormat: 'MMMM D, YYYYp',
+          timeFormat: 'HH:mm:ss',
+          timeStep: 1,
+          calendarTodayLabel: 'Today'
       }
-
+    }
   
     ]
   }

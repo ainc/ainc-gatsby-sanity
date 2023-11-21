@@ -16,6 +16,8 @@ import * as footerStyles from '../../components/Footer/Footer.module.scss'
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
 import ApplyNowModal from "./Components/ApplyNowModal";
+import ModalCustom from "../../components/Modal/ModalCustom";
+import ImageOutline from '../../components/ImageOutline/ImageOutline'
 
 /**
  * TODO:
@@ -73,18 +75,20 @@ const FellowshipPage = ({ data }) => {
       {/* Header section */}
       <Container>
         <Row>
-          <Col className="m-auto" xs={12} sm={4}>
-            <Title className="brand">Fellowship</Title>
+          <Col className="m-auto" xs={12} sm={4} >
+            <Title className="brand" >FELLOWSHIP</Title>
             <Subtitle className="fst-italic fw-lighter fs-4 text-lowercase">A mentor-driven program for Kentucky based startups</Subtitle>
-                               
-            <ApplyNowModal 
+  
+            <ApplyNowModal
               title="Apply Now"
-              link=" https://forms.zohopublic.com/virtualoffice9155/form/OnlineNewsletterSignup/formperma/63TqTON16miWuaZIxR3_tTM4HEyMqE9N_KJOPjJPEUA?gclid=undefined"
+              link="https://forms.zohopublic.com/virtualoffice9155/form/AwesomeFellowshipApplication/formperma/r12Y7iQP0rWYHU33MvoA15j6wO4YlTVP02EuWMwJol8"
             />
 
           </Col>
-          <Col className="my-5" xs={12} sm={8}>
-            <StaticImage src="../../images/brainstorming.jpg" width={375} className='position-relative' alt="people brainstorming"/>
+          <Col className="my-5 " xs={12} sm={8} >
+            <ImageOutline style={{marginLeft: "7rem"}}>
+              <StaticImage src="../../images/brainstorming.jpg" width={375} objectFit='cover' className='position-relative' alt="people brainstorming"/>
+            </ImageOutline>
           </Col>
 
         </Row>
@@ -109,6 +113,7 @@ const FellowshipPage = ({ data }) => {
             <Row>
               <Col className="m-auto text-center" xs={4}>
                 {/* <div > */}
+                <a href="/fellowship/perks" aria-label="Perks of the fellowship">
                 <StaticImage 
                   className='mx-auto d-block img-fluid' 
                   quality='100' 
@@ -116,6 +121,7 @@ const FellowshipPage = ({ data }) => {
                   alt="Devices icon"
                   layout='fixed'
                 />
+                </a>
                 <Subtitle className={`${styles.iconTitle} text-center fw-bold mt-2`}>Perks</Subtitle>
                 {/* </div> */}
               </Col>
@@ -154,7 +160,9 @@ const FellowshipPage = ({ data }) => {
       <Container>
         <Row className="mb-5">
           <Col className="d-flex justify-content-center">
-          <ApplyNowModal/>
+          <ApplyNowModal
+          title="Apply Now"
+          link="https://forms.zohopublic.com/virtualoffice9155/form/AwesomeFellowshipApplication/formperma/r12Y7iQP0rWYHU33MvoA15j6wO4YlTVP02EuWMwJol8"/>
           </Col>
 
         </Row>
@@ -164,7 +172,23 @@ const FellowshipPage = ({ data }) => {
       <Container>
         <Row className="my-5">
           <Col xs={8} sm={6}>
+          <a onClick={handleShow}  id="video-btn" href='#!'>
             <StaticImage src="../../images/fellowship-video-macbook.png" className="position-relative" alt="Macbook with video"/>
+          </a>
+          <ModalCustom 
+          lgShow = {lgShow} 
+          hide = {handleClose}
+          bgDark = {false} 
+          centered
+          content = {
+          <iframe 
+          width="100%" 
+          height="500" 
+          src="https://www.youtube.com/embed/IlLYF7VwiD8?si=L7HdAvUqlppI9SgM"
+          title="YouTube video player"
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen></iframe>
+          }/>
           </Col>
           <Col xs={4} sm={6}>
             <Title>How it Works</Title>
@@ -237,7 +261,9 @@ const FellowshipPage = ({ data }) => {
         </Row>
         <Row className="mt-5">
           <Col className="d-flex justify-content-center">
-          <ApplyNowModal/>
+          <ApplyNowModal 
+          title="Apply Now"
+          link="https://forms.zohopublic.com/virtualoffice9155/form/AwesomeFellowshipApplication/formperma/r12Y7iQP0rWYHU33MvoA15j6wO4YlTVP02EuWMwJol8"/>
           </Col>
         </Row>
       </Container>
@@ -279,7 +305,7 @@ const FellowshipPage = ({ data }) => {
 
 export const query_sponsers = graphql`
 query {
-  allSanityFellowshipSponsers {
+  allSanityFellowshipSponsers(sort: {_rawSponserLogo: ASC}) {
     nodes {
       sponser
       sponserWebsite
