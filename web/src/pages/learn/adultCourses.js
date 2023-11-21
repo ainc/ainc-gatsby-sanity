@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import GraphQLErrorList from "../../components/graphql-error-list";
 import Courses from "../../components/Courses/Courses";
 import Layout from '../../components/Layout/Layout'
-import * as styles from "./courses.module.css";
+import * as styles from "./learn.module.scss";
 import Title from '../../components/UI/Title/Title'
 import { Container, Row, Col } from 'react-bootstrap'
 import { GatsbyImage } from "gatsby-plugin-image";
