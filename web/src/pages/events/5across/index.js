@@ -85,6 +85,7 @@ const fiveAcrossPage = ({ data }) => {
             </Container>
 
             <Container className="my-5 pt-2">
+                <Subtitle className='text-center fw-bold'>5 Across has given over 250 founders a new platform and thousands of Kentuckians a fun place to engage with local startups.</Subtitle>
                 <Row className="mt-5 d-flex justify-content-center">
                     <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
                         <StaticImage quality="100" src="../../../images/5across-pitches.png" />

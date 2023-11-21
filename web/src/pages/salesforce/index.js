@@ -21,7 +21,7 @@ const SalesforcePage = ({ data }) => {
                     <Row className="header-section">
                         <Col className="header-text mt-5">
                             <Title className="text-uppercase mt-5">Salesforce career accelerator</Title>
-                            <BrandButton className="mt-3 mb-1">Start your application</BrandButton>
+                            <a href='/salesforce/apply'><BrandButton className="mt-3 mb-1">Start your application</BrandButton></a>
                             <p>Get started now in 30 seconds or less</p>
                         </Col>
                     </Row>
@@ -39,23 +39,23 @@ const SalesforcePage = ({ data }) => {
             <section id="upcoming-program-dates">
                 <Container fluid className="background--grey pt-4">
                     <Row>
-                        <h1 className="title">UPCOMING PROGRAM DATES</h1>
+                        <Title className="text--large text-white text-center mt-3">UPCOMING PROGRAM DATES</Title>
                     </Row>
                     <Row className="dates">
                         <Col className="winter-dates">
-                            <h4 className="fw-bold">WINTER 2023</h4>
-                            <h4 className="fw-bold">2.15.23</h4>
-                            <h4>TO</h4>
-                            <h4 className="fw-bold">05.15.23</h4>
+                            <Subtitle className="fw-bold text-white">WINTER 2023</Subtitle>
+                            <Subtitle className="fw-bold text-white">2.15.23</Subtitle>
+                            <Subtitle className='text-white'>TO</Subtitle>
+                            <Subtitle className="fw-bold text-white">05.15.23</Subtitle>
                         </Col>
                         <Col className="spring-dates">
-                            <h4 className="fw-bold">SPRING 2023</h4>
-                            <h4 className="fw-bold">03.15.23</h4>
-                            <h4>TO</h4>
-                            <h4 className="fw-bold">06.15.23</h4>
+                            <Subtitle className="fw-bold text-white">SPRING 2023</Subtitle>
+                            <Subtitle className="fw-bold text-white">03.15.23</Subtitle>
+                            <Subtitle className='text-white'>TO</Subtitle>
+                            <Subtitle className="fw-bold text-white">06.15.23</Subtitle>
                         </Col>
                         <div className="button">
-                            <BrandButton>Let's chat</BrandButton>
+                            <a href='https://calendly.com/mack-hanes/salesforce-info-chat' target='_blank'><BrandButton>Let's chat</BrandButton></a>
                         </div>
                     </Row>
                 </Container>
