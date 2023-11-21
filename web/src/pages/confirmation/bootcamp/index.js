@@ -16,19 +16,18 @@ const Page = ({ data }) => {
         </Row>
         <Row className="my-3">
             <Col md={{ span: 9, offset: 2 }}>
-                <p>Thanks for your interest in Awesome Inc's Web Developer Bootcamp. You have completed Step 1 of our four-step application process: </p>
+                <p>Thanks for your interest in Awesome Inc's Web Developer Bootcamp.</p>
+                <p className='mt-5 fw-bold'>One of the next steps in your learn-to-code journey is to schedule an interview with our team. You can schedule one below or look for an email from us.</p>
             </Col>
         </Row>
-        <Row className="my-3">
-            <Col md={{ span: 9, offset: 2 }}>
-                <StaticImage quality='100' src="./images/bootcamp-application-process.png"/>
-            </Col>
-        </Row>
-        <Row className="my-4 fw-bold">
-            <Col md={{ span: 9, offset: 2 }}>
-                <p>A member of our team will be in touch shortly with the next steps in your learn-to-code journey.</p>
-            </Col>
-        </Row>
+        <div class="calendly-inline-widget" data-url="https://calendly.com/ainc/bootcamp-interview?hide_gdpr_banner=1" style={{position: 'relative', minWidth:'320px', height:'1000px'}} data-processed="true">
+            <div class="calendly-spinner">
+                <div class="calendly-bounce1" />
+                <div class="calendly-bounce2" />
+                <div class="calendly-bounce3" />
+            </div>
+            <iframe src="https://calendly.com/ainc/bootcamp-interview?embed_domain=www.awesomeinc.org&amp;embed_type=Inline&amp;hide_gdpr_banner=1" width="100%" height="100%" frameborder="0" title="Select a Date &amp; Time - Calendly"></iframe>
+        </div>
         <Col className="mb-5" md={{ span: 9, offset: 2 }}>
           <p><a className="text--red link--bright-red" href="../../bootcamp">&lt;&lt;Back to Bootcamp</a></p>
         </Col>

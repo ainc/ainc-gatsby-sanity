@@ -22,10 +22,10 @@ const YouthPage = () => {
         <Layout>
             <main>
                 <Container className={` ${styles.youth}`}>
-                    <Row className="h-100"> 
+                    <Row className="h-100">
                         <Col xs={12} sm={12} md={{ span: 7 }} lg={{ span: 6, offset: 1 }} xl={{ span: 5, offset: 1 }} className='px-0'>
                             <section className={styles.topSection}>
-                                <Title className={`mb-4 mt-5 text-start text-uppercase text-white ${styles.titleText}`}>youth</Title>
+                                <Title className={`mb-4 mt-5 text-start text--huge text-white ${styles.titleText}`}>Youth</Title>
                                 <Subtitle className='fst-italic ontext-start text-white'>Coding Courses</Subtitle>
                                 <Subtitle className='fst-italic ontext-start text-white'>Ages 9 - 16</Subtitle>
                             </section>
@@ -41,7 +41,7 @@ const YouthPage = () => {
                             </Container>
                             
                         </Col>
-                        <Col sm={6} md={{ span: 5 }} lg={{ span: 4, offset: 1 }} xl={{ span: 3, offset: 3 }} className='position-relative'>
+                        <Col sm={6} md={{ span: 5 }} lg={{ span: 4, offset: 1 }} xl={{ span: 0, offset: 7 }} className='position-relative'>
                             <div className={styles.programGuide}>
                                 <YouthProgramGuide/>
                             </div>
@@ -84,7 +84,7 @@ const YouthPage = () => {
                             <StaticImage src='../../../images/learn/laptop.png' alt='laptop'></StaticImage>
                         </Col>
                         <Col sm={{ offset: 2, span: 8 }} md={{ span: 5 }} lg={{ span: 4, offset: 1 }} xl={{ span: 4, offset: 1 }}>
-                            <Title className={` ${styles.engagedTitle} mt-5 text-uppercase text-start`}>keep your kids engaged</Title>
+                            <Title className={` ${styles.engagedTitle} mt-5 text-uppercase ml-4 text-white`}>keep your kids engaged</Title>
                             <p className='text-start'>Your kids will have the support of our instructors - professional coders just a step, or a click away!</p>
                             <BrandButton onClick={handleShow} className='mb-5 text-uppercase'>meet the team</BrandButton>
                             <Container className={styles.modalContainer}>

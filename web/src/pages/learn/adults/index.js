@@ -33,21 +33,21 @@ const AdultsPage = ({ data }) => {
         <Layout>
             <Container>
             
-                <Row className='pt-5 mt-5'>
-                    <Col sm="5" className={`my-5 all-padding`}>
+                <Row className={`${styles.box} pt-2 mt-3`}>
+                    <Col sm="5" className={`my-5 pt-3 all-padding`}>
                         <Row className={`justify-content-center`}>
                             <Col md={{span: 9, offset: 3}}>
                                 <Title className=''>ADULT</Title>
-                                <h1 className='fs-5'><i>Coding Courses</i></h1>
+                                <Subtitle className='fs-5 '><i>Coding Courses</i></Subtitle>
                             </Col>
                             <Col md="6">
-                                <h2 className='fs-6'><i>Full and Part-Time Courses for Career Switchers, Professionals, and Hobbyists</i></h2>
+                                <p className='fs-6'><i>Full and Part-Time Courses for Career Switchers, Professionals, and Hobbyists</i></p>
                             </Col>
                         </Row>
                     </Col>
                     
                     <Col col="6">
-                        <StaticImage quality="90" className="img-responsive" src='../../../images/mac-code.png' alt='computer with code' height={"400"} width={"400"}/>
+                        <StaticImage quality="90" className="img-responsive" src='../../../images/mac-code.png' alt='computer with code' height={"450"} width={"450"} style={{left: '20%'}}/>
                     </Col>
                 </Row>
                 </Container>

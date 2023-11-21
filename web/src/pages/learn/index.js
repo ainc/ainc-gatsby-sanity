@@ -11,6 +11,7 @@ import * as styles from './learn.module.scss'
 import styled from 'styled-components'
 import BlockQuote from '../../components/BlockQuote/BlockQuote'
 import BackgroundPicture from '/src/images/phone-booth-abstract.jpg'
+import ImageOutline from '../../components/ImageOutline/ImageOutline'
 
 const ProvenBackground = styled.div`
 &::before {
@@ -27,7 +28,6 @@ const ProvenBackground = styled.div`
   z-index: -1;
   position: absolute;
 }
-
 `
 
 const LearnPage = ({ data }) => {
@@ -62,19 +62,25 @@ const LearnPage = ({ data }) => {
           
         <Row>
           <Col xs={12} sm={6} md={{ span: 6 }}>
-            <Title className="brand text-center">A Course For Everyone</Title>
+            {/* Future styling */}
+            {/*<div className={`${styles.courseForEveryone} d-xs-none`}></div>*/}
+            <Title className={` brand text-center`}>A Course For Everyone</Title>
             <p className="text-black subtitle fw-bold text-uppercase text-center">Join one now</p>
             <p className="text-center">
               Whether you are an adult looking to make a career change or have a child that wants to learn how to build apps and video games, we have a class for you. You don't need to be a genius to learn how to code. All you need is determination. Our courses have helped launch people into new careers in tech and prepared students to study Computer Science through college and beyond.
             </p>
           </Col>
           <Col xs={12} sm={{ span: 5}} md={{ span: 6 }}>
-            <StaticImage src='../../images/student-learn-to-code-shirt.jpg' alt='learn to code' />
+            <ImageOutline>
+              <StaticImage src='../../images/student-learn-to-code-shirt.jpg' alt='learn to code' />
+            </ImageOutline>
           </Col>
         </Row>
         <Row className="mt-5">
           <Col xs={12} sm={{ span: 5}}>
-          <StaticImage src='../../images/student-learn-to-code-week-of-code.jpg' alt='learn to code youth classes' />
+            <ImageOutline>
+              <StaticImage src='../../images/student-learn-to-code-week-of-code.jpg' alt='learn to code youth classes' />
+          </ImageOutline>
           </Col>
           <Col xs={12} sm={{ span: 5 }}>
             <Title className="brand text-normal text-left">Youth</Title>
@@ -103,7 +109,9 @@ const LearnPage = ({ data }) => {
            
           </Col>
           <Col xs={12} sm={{ span: 5}}>
-            <StaticImage className="p-2 mt-2"src='../../images/learn/adult-coding-laptop.jpeg' alt='learn to code' />
+            <ImageOutline>
+              <StaticImage src='../../images/learn/adult-coding-laptop.jpeg' alt='learn to code' />
+            </ImageOutline>
           </Col>
         </Row>
 
@@ -118,6 +126,8 @@ const LearnPage = ({ data }) => {
           <Container className="py-3"fluid>
             <Row>
               <Col xs={12}> 
+                {/* Future Styling */}
+                {/*<StaticImage src='../../images/learn/Bootcamp-Helped100People.jpg' style={{maxWidth: '12%', position: 'absolute',  left: '31rem', top: '160%'}} alt='Who we have helped'/>*/}
                 <Title className="brand test text-center normal text-end">Proven Success</Title>
               </Col>
             </Row>

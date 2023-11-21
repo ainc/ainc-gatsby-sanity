@@ -127,6 +127,7 @@ const FellowshipPage = ({ data }) => {
               </Col>
               <Col className="m-auto text-center" xs={4}>
               {/* <div className="m-auto text-center text-wrap"> */}
+              <a href="/mentors" aria-label="Mentors of the fellowship">
                 <StaticImage 
                   className='mx-auto d-block img-fluid' 
                   quality='100' 
@@ -134,6 +135,7 @@ const FellowshipPage = ({ data }) => {
                   alt="Devices icon"
                   layout='fixed'
                 />
+                </a>
                 <Subtitle className={`${styles.iconTitle} text-center fw-bold mt-2`}>Mentors</Subtitle>
                 {/* </div> */}
               </Col>
@@ -158,7 +160,7 @@ const FellowshipPage = ({ data }) => {
       </Container>
 
       <Container>
-        <Row className="mb-5">
+        <Row className="mb-5 mt-4">
           <Col className="d-flex justify-content-center">
           <ApplyNowModal
           title="Apply Now"
