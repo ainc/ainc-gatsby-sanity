@@ -88,5 +88,6 @@ export default [
     notes,
     teamAlpha,
     bootcamp,
+  
   ]
 
