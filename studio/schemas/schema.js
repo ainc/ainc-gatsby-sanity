@@ -10,7 +10,7 @@ import link from './objects/link'
 import sliderImage from './objects/sliderImage'
 import fiveAcrossJudges from './objects/fiveAcrossJudges'
 
-// Document types
+// Document typesy
 import category from './documents/category'
 import teamMember from './documents/teamMember'
 import sampleProject from './documents/sampleProject'
@@ -89,6 +89,6 @@ export default [
     notes,
     teamAlpha,
     bootcamp,
-    workspaceTestimonials
+    workspaceTestimonials,
   ]
 
