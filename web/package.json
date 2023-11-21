@@ -36,6 +36,7 @@
     "gatsby-source-rss-feed": "^1.2.2",
     "gatsby-source-sanity": "^7.8.0",
     "hero-slider": "^3.1.0",
+    "js-yaml": "^4.1.0",
     "keen-slider": "^6.7.0",
     "moment": "^2.29.4",
     "postcss": "^8.4.5",
