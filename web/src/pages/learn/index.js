@@ -27,7 +27,6 @@ const ProvenBackground = styled.div`
   z-index: -1;
   position: absolute;
 }
-
 `
 
 const LearnPage = ({ data }) => {
@@ -62,7 +61,9 @@ const LearnPage = ({ data }) => {
           
         <Row>
           <Col xs={12} sm={6} md={{ span: 6 }}>
-            <Title className="brand text-center">A Course For Everyone</Title>
+            {/* Future styling */}
+            {/*<div className={`${styles.courseForEveryone} d-xs-none`}></div>*/}
+            <Title className={` brand text-center`}>A Course For Everyone</Title>
             <p className="text-black subtitle fw-bold text-uppercase text-center">Join one now</p>
             <p className="text-center">
               Whether you are an adult looking to make a career change or have a child that wants to learn how to build apps and video games, we have a class for you. You don't need to be a genius to learn how to code. All you need is determination. Our courses have helped launch people into new careers in tech and prepared students to study Computer Science through college and beyond.
@@ -121,10 +122,12 @@ const LearnPage = ({ data }) => {
       
       <section>
         <ProvenBackground bgImage={{BackgroundPicture}}>
+
         <Container className="py-3" fluid>
         <Row>
           <Col xs={12}> 
-            {/*<StaticImage src='../../images/learn/Bootcamp-Helped100People.jpg' style={{maxWidth: '12%', position: 'relative',  left: '20rem'}} alt='Who we have helped'/> */}
+            {/* Future Styling */}
+            {/*<StaticImage src='../../images/learn/Bootcamp-Helped100People.jpg' style={{maxWidth: '12%', position: 'absolute',  left: '31rem', top: '160%'}} alt='Who we have helped'/>*/}
             <Title className="brand test text-center normal text-end">Proven Success</Title>
           </Col>
         </Row>
@@ -134,7 +137,7 @@ const LearnPage = ({ data }) => {
           </Col></Row>
         <Row>
           <Col xs={12} md={{ offset: 2, span: 8}}>
-           <Carousel className={styles.carousel} indicators={false} controls={false} fade={true}>
+           <Carousel className={`${styles.carousel} mt-5`} indicators={false} controls={false} fade={true}>
              
               <Carousel.Item interval={5000}>
               <BlockQuote>
