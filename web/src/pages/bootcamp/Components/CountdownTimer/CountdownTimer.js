@@ -4,10 +4,10 @@ import ReactDom from 'react-dom';
 import Countdown from 'react-countdown';
 
 // Random component
-const Completionist = () => <span>You are good to go!</span>;
+const Completionist = () => <span>CLOSED</span>;
 
 // Renderer callback with condition
-const renderer = ({ hours, minutes, seconds, completed }) => {
+const renderer = ({days, hours, minutes, seconds, completed }) => {
   if (completed) {
     // Render a complete state
     return <Completionist />;
@@ -15,15 +15,17 @@ const renderer = ({ hours, minutes, seconds, completed }) => {
     // Render a countdown
     return (
       <span>
-        {hours}:{minutes}:{seconds}
+        {days}d {hours}h {minutes}m {seconds}s
       </span>
     );
   }
 };
 
-const CountdownTimer = () => {
+const CountdownTimer = (props) => {
   return (
-    <Countdown date={Date.now() + 10000} renderer={renderer} />
+    <div className="text-center mt-3 mb-3" style={{fontWeight: 'bold'}}>
+      <Countdown  date={props.date} renderer={renderer} />
+    </div>
   );
 }
 

@@ -8,7 +8,7 @@ import SEO from '../../components/seo'
 import { StaticImage, getImage } from 'gatsby-plugin-image'
 import Title from '../../components/UI/Title/Title'
 import BrandButton from '../../components/UI/BrandButton/BrandButton'
-import { headerBackgroundAlignRight, tbDiv, teamButton } from "./internships.module.scss";
+import { headerBackgroundAlignRight, tbDiv, teamButton, diagonalBackground } from "./internships.module.scss";
 import '../../styles/main.scss'
 import internWhy from '/src/images/intern-why.jpg';
 import { useState } from 'react'
@@ -45,7 +45,7 @@ const InternshipsPage = ({ data }) => {
       </Container>
 
       {/* Why section */}
-      <Diagonal bgImage={{internWhy}}>
+      <div className={`${diagonalBackground}`}>
         <Container>
           <Row>      
             <Col md={8}>
@@ -56,7 +56,7 @@ const InternshipsPage = ({ data }) => {
             </Col>
           </Row>
         </Container>
-      </Diagonal>
+      </div>
 
       {/* Teams section */}
       <Container className='my-5'>

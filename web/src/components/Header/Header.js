@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import { AiFillCaretDown } from "react-icons/ai";
 import { ImPlus } from "react-icons/im";
-
+import { useLocation } from "@reach/router";
 import "./header.scss"
 import "../../styles/main.scss"
 import { 
@@ -15,6 +15,7 @@ import {
 } from 'react-bootstrap'
 
 import { navbarBrand } from './Header.module.scss'
+import BrandButton from '../UI/BrandButton/BrandButton';
 
 
 const Header = () => {
@@ -68,9 +69,16 @@ const Header = () => {
             />
           </a>
         </Navbar.Brand>
+
+
         <Navbar.Toggle aria-controls="learn-to-code-navbar" className='text-white shadow-none border-white'/>
         <Navbar.Collapse id="learn-to-code-navbar">
           <Nav>
+          {useLocation().pathname === '/bootcamp/' && (
+            <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
+                <a href='/bootcamp/apply' className='mt-3 mb-1'><BrandButton>Apply Now</BrandButton></a>
+            </Row>
+          )}
             <Col className="desktop">
               <Nav.Link href="/learn" className="text--white">Learn To Code  <AiFillCaretDown size={10}/></Nav.Link>
               <div className='hover-options'>
@@ -103,6 +111,7 @@ const Header = () => {
                           <a href="/learn/adults">Adult Courses</a>
                           <a href="/learn">Kids Camps</a>
                           <a href="/bootcamp">Bootcamp</a>
+                          <a href="/salesforce">Salesforce Career Accelerator</a>
 
                         </Col>
                       </Row>
@@ -154,7 +163,7 @@ const Header = () => {
             <Col className="desktop">
               <Nav.Link href="/workspace" className="text--white">Workspace <AiFillCaretDown size={10}/></Nav.Link>
               <div className='hover-options'>
-                <a href="https://calendly.com/awesometour/30min?month=2023-03" target="_blank" className='pt-0'>Schedule a Tour</a>
+                <a href="https://calendly.com/awesometour/30min?" target="_blank" className='pt-0'>Schedule a Tour</a>
                 <a href="/workspace#become-a-member">Office Space</a>
                 <a href="/events">Events</a>
               </div>
@@ -173,7 +182,7 @@ const Header = () => {
                     <Nav>
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
                         <Col xs={{span: 10}} className={`d-flex flex-column py-2 border-0`}>
-                          <a href="/https://calendly.com/awesometour/30min?month=2023-03" target="_blank">Schedule a Tour</a>
+                          <a href="https://calendly.com/awesometour/30min?" target="_blank">Schedule a Tour</a>
                           <a href="/workspace#become-a-member">Office Space</a>
                           <a href="/events">Events</a>
                         </Col>
@@ -251,6 +260,12 @@ const Header = () => {
                 </Container>
               </Navbar>
             </Row>
+
+          {useLocation().pathname === '/bootcamp/' && (
+            <Col className="desktop" style={{paddingLeft: "8%",}}>
+                <a href='/bootcamp/apply' className=""><BrandButton style={{padding: '1.5 rem 2 rem', fontSize: '1.25rem'}}>Apply Now</BrandButton></a>
+            </Col>
+          )}
 
           </Nav>
         </Navbar.Collapse>

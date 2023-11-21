@@ -3,7 +3,7 @@ import BrandButton from '../../../components/UI/BrandButton/BrandButton';
 import { Col } from "react-bootstrap";
 import * as styles from "./fiveAcross.module.scss";
 
-export default function HorizontalButtons() {
+const HorizontalButtons = ( props ) => {
   return (
     <>
       <Col md="auto" className="d-flex justify-content-center">
@@ -15,7 +15,7 @@ export default function HorizontalButtons() {
          
       </Col>
       <Col md="auto" className="d-flex justify-content-center">
-        <a href="https://www.eventbrite.com/e/5-across-october-2023-entrepreneur-pitch-competition-awesome-inc-tickets-705466097087"
+        <a href={props.register}
           target="_blank"
           rel="noopener">
           <BrandButton className={`secondary text-uppercase`}>Register to Attend</BrandButton>
@@ -23,4 +23,6 @@ export default function HorizontalButtons() {
       </Col>
     </>
   )
-}
+};
+
+export default HorizontalButtons;
