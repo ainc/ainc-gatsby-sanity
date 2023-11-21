@@ -4,6 +4,11 @@ export default {
     title: "5 Across Winners",
     fields: [
         {
+          name: "string",
+          type:"string",
+          title: "string"
+        },
+        {
             name: "companyTitle",
             type: "string",
             title: "Company"
@@ -35,43 +40,43 @@ export default {
         // }
 
     ],
-    // orderings: [
-    //     {
-    //       title: 'Winning Date, New',
-    //       name: 'WinningDateDesc',
-    //       by: [
-    //         {field: 'WinningDate', direction: 'desc'}
-    //       ]
-    //     },
-    //     {
-    //         title: 'Winning Date, Old',
-    //         name: 'WinningDateAsc',
-    //         by: [
-    //           {field: 'WinningDate', direction: 'asc'}
-    //         ]
-    //       }
-    // ],    
-    preview: {
-        select: {
-          title: 'companyTitle',
-          subtitle: 'WinningDate',
-          media: 'image'
+    orderings: [
+        {
+          title: 'Winning Date, New',
+          name: 'WinningDateDesc',
+          by: [
+            {field: 'WinningDate', direction: 'desc'}
+          ]
         },
-        //Show date as MMMM D, YYYY in preview subtitle
-        prepare(selection) {
-          
-          const {title, subtitle, media} = selection
-          
-          const d = new Date(subtitle)
-          let day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
-          let month = new Intl.DateTimeFormat('en', { month: 'long' }).format(d);
-          let year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
-    
-          return {
-            title: title,
-            subtitle: `${month} ${year}`,
-            media: media
+        {
+            title: 'Winning Date, Old',
+            name: 'WinningDateAsc',
+            by: [
+              {field: 'WinningDate', direction: 'asc'}
+            ]
           }
-        }
-      }
+    ],    
+//     preview: {
+//         select: {
+//           title: 'companyTitle',
+//           subtitle: 'WinningDate',
+//           media: 'image'
+//         },
+//         //Show date as MMMM D, YYYY in preview subtitle
+//         prepare(selection) {
+          
+//           const {title, subtitle, media} = selection
+          
+//           const d = new Date(subtitle)
+//           let day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+//           let month = new Intl.DateTimeFormat('en', { month: 'long' }).format(d);
+//           let year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
+    
+//           return {
+//             title: title,
+//             subtitle: `${month} ${year}`,
+//             media: media
+//           }
+//         }
+//       }
 }
