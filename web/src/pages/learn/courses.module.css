@@ -69,4 +69,26 @@
     position: absolute;
 }
 
+.course-for-everyone::before{
+    content: '';
+    position: absolute;
+    left: 41%;
+    right: 45%;
+    bottom: 28%;
+    border: 1px solid #ed3742;
+    z-index: 1;
+}
+
+@media screen and (max-width: 1023px) {
+    .course-for-everyone::before {
+        display: none;
+    }
+  }
+@media screen and (min-width: 1800px) {
+    .course-for-everyone::before {
+      left: 42%; /* Adjust the left position for lg screens */
+      right: 48%; /* Adjust the right position for lg screens */
+      bottom: 36%
+    }
+}
 /*  ^^^^^^  */

@@ -313,7 +313,7 @@ const BootcampPage = props => {
       <section id="testimonials">
         <Container fluid className={`${styles.testimonials}`}>
           <Row className="py-3">
-            <Row className="py-5">
+            <Row className="">
               <Title className="text-center text-white text-uppercase mt-5">Hear From Our Alumni</Title>
             </Row>
             <Row className="text-center">
@@ -405,7 +405,7 @@ const BootcampPage = props => {
 
                 <div className={`${styles.leftCol}`}>
                 <Title className="text-uppercase py-3 " style={{marginLeft: "0px"}}>Why Awesome Inc?</Title>
-                <p style={{borderRight:"1.5px solid #C12029", lineHeight:"20px", fontSize: "12px"}} className={`mb-3 mt-4 pe-4`}>At Awesome Inc, everything we do starts with our Core Values. 
+                <p style={{borderRight:"1.5px solid #C12029", lineHeight:"25px",}} className={`mb-3 mt-4 pe-4`}>At Awesome Inc, everything we do starts with our Core Values. 
                   We care about people, and making a difference in our community. 
                   That's why we want to help 120 everyone we can learn the life changing skill of coding. 
                   And while doing that, we've seen that the best way to learn a new skill is to get 
@@ -441,7 +441,7 @@ const BootcampPage = props => {
           </Row>
           <Row className="mx-5">
             <Col className="d-flex justify-content-center">
-              <Subtitle style={{fontSize:"0.75rem", width:"750px", lineHeight:"20px"}}className={`${styles.jobGuaranteeText} text-white text-center fs-6`}>We only succeed when you succeed. We guarantee that all students who complete the 16-week Bootcamp program and uphold the job search requirements will receive a job offer within six months of their graduation date, or we'll refund your tuition. See our Student Agreement for details.</Subtitle>
+              <Subtitle style={{fontSize:"1rem", width:"750px", lineHeight:"25px"}}className={`${styles.jobGuaranteeText} text-white text-center fs-6`}>We only succeed when you succeed. We guarantee that all students who complete the 16-week Bootcamp program and uphold the job search requirements will receive a job offer within six months of their graduation date, or we'll refund your tuition. See our Student Agreement for details.</Subtitle>
             </Col>
           </Row>
         </Container>
@@ -550,9 +550,9 @@ const BootcampPage = props => {
                 </Col>
           </Row>
           <Row>
-            <p style={{fontSize:"0.75rem"}} className="pt-5 text-justify">With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using HTML, CSS, JavaScript, web frameworks, GitHub, Agile, and more.
+            <p style={{fontSize:"1rem"}} className="pt-5 text-center">With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using HTML, CSS, JavaScript, web frameworks, GitHub, Agile, and more.
           </p>
-            <p style={{fontSize:"0.75rem"}} className="pb-5 text-justify">
+            <p style={{fontSize:"1rem"}} className="pb-5 text-justify text-center">
             Students begin with a part-time Prework phase, with 4 weeks of remote lessons covering the basics of web development. After that, we kick it into high gear for 12 weeks of full-time, in-person training. We've designed Bootcamp to feel less like school, and more like you first 3 months on the job. By the conclusion of the combined 16-week program, our alumni are ready to interview with regional and national employers for the opportunity to earn a full-time position at a competitive junior developer's salary.
             </p>
           </Row>
@@ -596,7 +596,8 @@ const BootcampPage = props => {
 
           </Col>
           <Row className="justify-content-center">
-          <p style={{fontSize:"12px", width:"900px"}} className="text-justify">This process helps us to find top-quality applicants for the Bootcamp. We continue to be surprised and inspired by the variety of different educational and professional backgrounds rfom which our students come to Bootcamp. Contrary to stereotypes about software developers, there's not just on archetype that's a good fit for this career. Our goal throughout the application process is to find people who, in their own unique way, are ready to dive into a software development career through the accelerated learning environment we provide. For more on this, check out our blog post What We Look For In A Bootcamp Student.</p>
+          <p style={{fontSize:"1rem", width:"900px"}} className="text-justify">This process helps us to find top-quality applicants for the Bootcamp. We continue to be surprised and inspired by the variety of different educational and professional backgrounds rfom which our students come to Bootcamp. Contrary to stereotypes about software developers, there's not just on archetype that's a good fit for this career. Our goal throughout the application process is to find people who, in their own unique way, are ready to dive into a software development career through the accelerated learning environment we provide. For more on this, check out our blog post 
+          <a href='https://www.awesomeinc.org/blog/what-we-look-for-bootcamp-student' className='link--brand' target='_blank'> What We Look For In A Bootcamp Student.</a></p>
           </Row>
           <Row className={`${styles.applyButtons} justify-content-center`}>
             <div style={{}} xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-3 col-lg-3 offset-lg-1 col-xl-2 offset-xl-1 mb-3 justify-content-center">
@@ -625,10 +626,10 @@ const BootcampPage = props => {
             </div>
             <Col  sm={12} md={12} lg={12} xl={9}>
               <Row className="">
-                <p style={{fontSize:"0.8rem"}}className="text-justify">This is a realistic timeline of what a Web Developer Bootcamp student can expect from applying to the program to becoming a proud alumni.</p>
+                <p style={{fontSize:"1rem"}}className="text-justify">This is a realistic timeline of what a Web Developer Bootcamp student can expect from applying to the program to becoming a proud alumni.</p>
               </Row>
               <Row className="">
-                <img style={{maxWidth:"90%"}}className="text-center pl-2" src={require('/src/images/bootcamp/timeline.png').default} alt=""/>
+                <img style={{maxWidth:"90%"}}className="text-center pl-2 mb-3" src={require('/src/images/bootcamp/timeline.png').default} alt=""/>
               </Row>
             </Col>   
         </Container>
@@ -654,7 +655,7 @@ const BootcampPage = props => {
                     <Title className="text-center py-4 fs-3 text--medium">Income Share Agreement</Title>
                   </Row>
                   <Row className="mx-5">
-                    <p  style={{fontSize:"1rem"}} className="text-justify">
+                    <p  style={{fontSize:"1rem"}} className="text-justify text-center">
                       Fund your future with an Income Share Agreement. We're 
                       partnered with industry-leading ISA provider Meratas to 
                       allow students to enroll in our full-time program with no 
@@ -674,7 +675,7 @@ const BootcampPage = props => {
                     <Title className="text-center py-4 ms-3 text--medium">Up-Front Payment</Title>
                   </Row>
                   <Row className="mx-5">
-                    <p style={{fontSize:"1rem"}} className="text-justify ">
+                    <p style={{fontSize:"1rem"}} className="text-justify text-center">
                       Students who choose to pay tuition up front are offered a discounted tuition rate of $13,500.
                     </p>
                   </Row>
