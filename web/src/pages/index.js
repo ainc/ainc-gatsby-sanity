@@ -1,5 +1,5 @@
 import React from "react";
-import {useRef} from "react";
+import {useRef, useState} from "react";
 import { graphql } from "gatsby";
 import {
   mapEdgesToNodes,
@@ -142,14 +142,16 @@ const IndexPage = ({ data }) => {
     }
   };
 
+  const [isWorkspaceButton1Hovered, setIsWorkspaceButton1Hovered] = useState(false);
+  const [isWorkspaceButton2Hovered, setIsWorkspaceButton2Hovered] = useState(false);
 
 
   return (
     <Layout>
-      
 
       <HomepageSlider
        scrollToSection={scrollToSection} sectionIds={['workspace','courses','startup']}/>
+
 
       {/* FOUR INITIATIVES */}
       <section id="initiatives">
@@ -347,7 +349,7 @@ const IndexPage = ({ data }) => {
       <section ref={section1Ref} id="workspace" style={{backgroundColor: `#D1D1D1`, borderColor: `black`}}>
         <Title className="pt-5 mb-3 text-uppercase text-center">Workspace</Title>
         <Subtitle className="mb-5 text-uppercase text-center">Join Our Workspace</Subtitle>
-        <div style={{ border: `10px solid white`, borderRadius: '10px', width: '50%', margin: '0px auto'}} />
+        <div style={{ border: `10px solid white`, borderRadius: '0.625rem', width: '50%', margin: '0px auto'}} />
         <a style={{position:'relative', top:'-70px', left: '72%'}} href="https://calendly.com/awesometour/30min?" target="_blank">
           <img src="https://d33wubrfki0l68.cloudfront.net/223738930eb44ab59015db4d33febf500d9da8f1/0ab2a/images/icons/schedule-a-tour-button-red.png" width='100' height='100' id="tour-button" alt="tour button" />
         </a>
@@ -355,9 +357,9 @@ const IndexPage = ({ data }) => {
           <div style={{backgroundImage: `url(${desk_background})`, backgroundRepeat: `no-repeat`, backgroundSize: `35%`, backgroundPosition: `50% 50%`, padding: `5rem 0`}}>
             <Row>
               <Col xs={12} sm={6}>
-                <div className="d-flex justify-content-center">
+                <div className="d-flex justify-content-center" >
                   <a href="../workspace">
-                    <Card className="card--equal-width bg-secondary p-4 mb-5">
+                    <Card className="card--equal-width bg-secondary p-4 mb-5" onMouseEnter={() => setIsWorkspaceButton1Hovered(true)} onMouseLeave={() =>setIsWorkspaceButton1Hovered(false)} style={{boxShadow: isWorkspaceButton1Hovered ? ' 0 5px 10px rgba(162, 27, 34, 0.75)' : ''}}>
                       <Subtitle className="fw-bold text-center text-white">Functional Workspace</Subtitle>
                       <p className="text-center text-white fw-bolder">An awesome space to work or host your next meeting.</p>
                     </Card>
@@ -367,7 +369,7 @@ const IndexPage = ({ data }) => {
               <Col xs={12} sm={6}>
                 <div className="d-flex justify-content-center mt-5 pt-5">
                   <a href="../workspace">
-                    <Card className="card--equal-width bg-secondary p-4">
+                    <Card className="card--equal-width bg-secondary p-4" onMouseEnter={() => setIsWorkspaceButton2Hovered(true)} onMouseLeave={() =>setIsWorkspaceButton2Hovered(false)} style={{boxShadow: isWorkspaceButton2Hovered ? ' 0 5px 10px rgba(162, 27, 34, 0.75)' : ''}}>
                       <Subtitle className="fw-bold text-center text-white">Membership Benefits</Subtitle>
                       <p className="text-center text-white fw-bolder">Flexible membership options and features to support your business operations.</p>
                     </Card>

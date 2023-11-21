@@ -20,9 +20,11 @@
         }
 
         @media (max-width: 480px){
-            background-position: center;
+            background-size: cover;
+            background-position: 20% 0;
             margin-top: 10px;
-            height: 75vh;
+            font-size: 0.75rem;
+            height: 90vh;
             width: 100%;
         }
        
@@ -46,9 +48,8 @@
             margin-top: 5vh ;
         }
         @include screen-md{
-            // margin-top: 5vh ;
-          
-            margin-bottom: 170px;
+           // margin-top: 5vh ;
+            
         }
         @include screen-sm{
             title{
@@ -58,9 +59,6 @@
         @include screen-xs{
             
         }
-       
-
-     
 
 
     .sideNav{
@@ -82,11 +80,10 @@
     .twoButtonsRow {
         padding-top: 50px;
         padding-bottom: 50px;
-        margin-left: 20px;
 
         .leftButtonCol{
             padding-right: 50px;
-            border-right: 1.75px solid white ;
+            border-right: 1.75px solid white;
             @include screen-sm{
               border-right: none;
               padding-right: none;
@@ -410,3 +407,10 @@
     
 }
 
+.special-link{
+    color: #a21b22;
+}
+
+.special-link:hover{
+    color: #de3640;
+}
