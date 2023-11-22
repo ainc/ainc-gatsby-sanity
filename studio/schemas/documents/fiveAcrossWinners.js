@@ -4,11 +4,6 @@ export default {
     title: "5 Across Winners",
     fields: [
         {
-          name: "string",
-          type:"string",
-          title: "string"
-        },
-        {
             name: "companyTitle",
             type: "string",
             title: "Company"
@@ -56,27 +51,27 @@ export default {
             ]
           }
     ],    
-//     preview: {
-//         select: {
-//           title: 'companyTitle',
-//           subtitle: 'WinningDate',
-//           media: 'image'
-//         },
-//         //Show date as MMMM D, YYYY in preview subtitle
-//         prepare(selection) {
+    preview: {
+        select: {
+          title: 'companyTitle',
+          subtitle: 'WinningDate',
+          // media: 'image'
+        },
+        //Show date as MMMM D, YYYY in preview subtitle
+        prepare(selection) {
           
-//           const {title, subtitle, media} = selection
+          const {title, subtitle, media} = selection
           
-//           const d = new Date(subtitle)
-//           let day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
-//           let month = new Intl.DateTimeFormat('en', { month: 'long' }).format(d);
-//           let year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
+          const d = new Date(subtitle)
+          let day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+          let month = new Intl.DateTimeFormat('en', { month: 'long' }).format(d);
+          let year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
     
-//           return {
-//             title: title,
-//             subtitle: `${month} ${year}`,
-//             media: media
-//           }
-//         }
-//       }
+          return {
+            title: title,
+            subtitle: `${month} ${year}`,
+            // media: media
+          }
+        }
+      }
 }
