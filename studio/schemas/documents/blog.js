@@ -1,7 +1,9 @@
+import { FaBlog } from 'react-icons/fa'
 export default {
     name: 'blog',
     type: 'document',
     title: 'Blog',
+    icon: FaBlog,
     fields: [
         {
             name: 'date',

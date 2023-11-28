@@ -1,8 +1,10 @@
+import { MdOutlineTitle } from "react-icons/md";
 
 export default {
     name: "pageTitles",
     title: "Page Titles",
     type: "document",
+    icon: MdOutlineTitle,
     fields: [
         {
             name: "filePath",
