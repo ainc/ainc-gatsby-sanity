@@ -22,7 +22,7 @@
     "@sanity/studio-hints": "^2.35.3",
     "@sanity/ui": "^1.8.2",
     "@sanity/vision": "^3.16.2",
-    "date-fns": "^2.27.0",
+    "date-fns": "^2.30.0",
     "easymde": "^2.18.0",
     "front-matter": "^4.0.2",
     "fs": "^0.0.1-security",
