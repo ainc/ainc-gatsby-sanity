@@ -1,9 +1,11 @@
 //
+import { GiGraduateCap } from "react-icons/gi";
+
 export default {
     name: 'bootcamp',
     type: 'document',
     title: 'Bootcamp Dates',
-
+    icon: GiGraduateCap,
     fields: [
    
       {
