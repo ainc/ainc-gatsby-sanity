@@ -275,7 +275,8 @@ const IndexPage = ({ data }) => {
       
       {/* EVENTS */}
       <section id="events">
-        <Title className="my-5 text-uppercase text-center">Upcoming Events</Title>
+        <Title className="mt-5 mb-3 text-uppercase text-center">Upcoming Events</Title>
+        <p className='text-center'>Join us and be apart of the startup community!</p>
         <Container className=''>
           <Row className="card__featured_mosaic gy-1  me-2">
             <Col className="card__featured" xs={12} sm={10} md={12} lg={7} xl={7}>
@@ -362,7 +363,7 @@ const IndexPage = ({ data }) => {
       {/* STARTUPS */}
 
       <section ref={section3Ref} id="startup">
-      <Startups />
+        <Startups />
       </section>  
         
       {/* WORKSPACE */}

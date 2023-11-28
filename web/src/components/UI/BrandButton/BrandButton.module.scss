@@ -1,22 +1,27 @@
 // -----------------------------------------------------------------------------
-@import "../../styles/variables.scss";
-@import "../../styles/mixins"; 
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins";
 // -----------------------------------------------------------------------------
 
-.Btn-Brand {
+
+.button {
   font-family: $heading-font;
   font-weight: 600;
   letter-spacing: 3px;
-  background: $brand-color;
-  padding: 0.8rem 2.4rem;
+  background-color: $brand-color;
+  padding: 0.5rem 1rem;
   color: $white-color;
   overflow: hidden;
   display: inline-block;
   text-transform: uppercase;
-  @include font-size(12);
+  font-size: 1rem;
   border: 2px solid $brand-color;
   border-radius: 4px;
   position: relative;
+  @media only screen and (max-width: $screen-xs) {
+    font-size: 0.6rem/* use the mobile font size variable here */;
+    padding: 0.3rem 1rem;
+  }
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
@@ -25,4 +30,26 @@
   &:hover {
     color: $brand-color2;
   }
+  &.hover--black {
+    &:hover {
+        color: $brand-color2;
+    }
+  }
+  &.secondary {
+    background-color: $brand-color2;
+    border-color: $brand-color2;
+    &:hover {
+        color: $brand-grey-dark;
+    }
+  }
+  &.btn--small {
+    font-size: 1rem;
+    padding: 0.4rem 1.4rem;
+}
+
+&.small--text{
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+}
+
 }
