@@ -1,6 +1,6 @@
 const fs = require('fs');
 const matter = require('gray-matter');
-const { format, isValid, parse, parseISO } = require('date-fns');
+const { format, parse } = require('date-fns');
 
 // Directory path containing MD files
 const mdDirectory = "./_fellowship_portfolio/";
@@ -10,6 +10,15 @@ const data = [];
 
 // Read the files within the directory
 const fileNames = fs.readdirSync(mdDirectory);
+
+//check if image file exists in local image folder
+const fileExists = (filePath) => {
+  try {
+    return fs.existsSync(filePath);
+  } catch (err) {
+    return false;
+  }
+};
 
 // Process each MD file
 fileNames.forEach((fileName) => {
@@ -33,12 +42,19 @@ fileNames.forEach((fileName) => {
 
     const formattedDate = format(dateValue, 'yyyy-MM-dd');
 
+    const imageURL = "."+frontmatter.logo;
+    const imageExists = fileExists(imageURL);
+    const defaultImageURL = "image@file://./images/uploads/5across_logo.png";
+    const Image = imageExists ? `image@file://${imageURL}` : defaultImageURL;
+
     const jsonData = {
       _type: "fellowshipPortfolio",
       year: formattedDate,
       companyName: frontmatter.company,
       companyURL: frontmatter.website,
-      fellowshipImage: { "_sanityAsset": "image@file://." + frontmatter.logo, "_type": "image" },
+      fellowshipImage: { 
+        "_sanityAsset": Image,
+         "_type": "image" },
       description: content
     };
 
