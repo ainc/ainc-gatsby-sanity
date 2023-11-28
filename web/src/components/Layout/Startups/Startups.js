@@ -43,7 +43,7 @@ const Startups = () => {
                 />
               </a>
               <Subtitle className="text-center brand fw-bold">Accelerate Your Startup</Subtitle>
-              <p className="text-center">Our Fellowship Program is mentor-driven, designed to accelerate your high-tech startup. Learn about the Fellowship Program as well as our other programs designed to foster your startup's growth.</p>
+              <p className="text-center">Our <span className='fw-bold'>Fellowship Program</span> is mentor-driven, designed to accelerate your high-tech startup.</p>
             </div>
           </Col>
           <Col>

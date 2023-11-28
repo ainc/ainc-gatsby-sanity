@@ -17,6 +17,7 @@ const Page = ({ data }) => {
         <Row className="my-3">
             <Col md={{ span: 9, offset: 2 }}>
                 <p>Thanks for your interest in Awesome Inc's Web Developer Bootcamp.</p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/o12a29ivKTY?si=6TIWojVv8_lf3e-y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
                 <p className='mt-5 fw-bold'>One of the next steps in your learn-to-code journey is to schedule an interview with our team. You can schedule one below or look for an email from us.</p>
             </Col>
         </Row>
