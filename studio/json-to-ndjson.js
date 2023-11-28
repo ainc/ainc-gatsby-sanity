@@ -23,30 +23,7 @@ const eventDateMap = {
   }
   
 
-// function eventNametoMonth(eventName, year) {
-//   if (eventName === 'Event1') {
-//     return year + '- 02';
-//   }
-//   if (eventName === 'Event2') {
-//     return year + '- 04';
-//   }
-//   if (eventName === 'Event3'){
-//     return year + '- 06';
-//   }
-//   if (eventName === 'Event4'){
-//     return year + '- 08';
-//   }
-//   if (eventName === 'Event5'){
-//     return year + '- 10';
-//   }
-//   if (eventName === 'Finals'){
-//     return year + '- 12';
-//   }
-//   return year;
-// }
-
 function formatDate(date) {
-//   return new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' }).format(date);
     return date.toISOString().slice(0, 10);}
 
 const eventsData = Object.entries(jsonData.years).flatMap(([year, events]) => {
@@ -57,13 +34,16 @@ const eventsData = Object.entries(jsonData.years).flatMap(([year, events]) => {
       _type: "fiveAcrossWinners",
       WinningDate: formattedDate,
       companyTitle: replaceSpecialCharacters(eventData.winner, "Unknown Winner"),
-      founderVideo: replaceSpecialCharacters(eventData.url, "https://www.youtube.com"),
+      founderVideo: replaceSpecialCharacters(eventData.url, "https://www.youtube.com/playlist?list=PL_YvoQ-KM3YHtlmn9_E841lpegYDVlXOk"),
       FounderNames: replaceSpecialCharacters(eventData.founder, "Unknown Founder"),
+      image: {
+        "_sanityAsset":"image@file://./images/uploads/5across_logo.png",
+        "_type":"image"}
+      
     };
     return [winnerData];
   });
 });
-
 
 
 const ndjsonArray = eventsData.map(data => JSON.stringify(data)).join('\n');
@@ -71,4 +51,4 @@ const ndjsonArray = eventsData.map(data => JSON.stringify(data)).join('\n');
 // Write NDJSON to a file
 fs.writeFileSync('output.ndjson', ndjsonArray);
 
-console.log('Conversion successful');
+console.log('Conversion completed successfully');

@@ -28,11 +28,14 @@ export default {
             type: "url",
             description: 'Will default to the 5 Across youtube playlist if left blank ',
         },
-        // {
-        //     name: "image",
-        //     title: "Image",
-        //     type: "image"
-        // }
+        {
+          name: 'image',
+          title: 'Image',
+          type: 'image',
+          // type: 'url',
+          // validation: Rule => Rule.uri({ allowRelative: true }),
+          description: 'Default to awesomeinc logo if it is not the most recent winner',
+        }
 
     ],
     orderings: [
@@ -55,7 +58,7 @@ export default {
         select: {
           title: 'companyTitle',
           subtitle: 'WinningDate',
-          // media: 'image'
+          media: 'image'
         },
         //Show date as MMMM D, YYYY in preview subtitle
         prepare(selection) {
@@ -70,7 +73,7 @@ export default {
           return {
             title: title,
             subtitle: `${month} ${year}`,
-            // media: media
+            media: media
           }
         }
       }
