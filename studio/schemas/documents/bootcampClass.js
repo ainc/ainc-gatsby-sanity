@@ -1,7 +1,10 @@
+import { GiGraduateCap } from "react-icons/gi";
+
 export default {
   name: 'bootcampClass',
   type: 'document',
   title: 'Bootcamp Class',
+  icon: GiGraduateCap,
   fields: [
     {
       name: 'title',

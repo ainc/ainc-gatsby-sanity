@@ -1,8 +1,10 @@
+import { TbAlpha } from "react-icons/tb";
+
 export default {
     name: 'teamAlpha',
     type: 'document',
     title: 'Team Alpha',
-
+    icon: TbAlpha,
     fields: [
         {
             name: 'name',
