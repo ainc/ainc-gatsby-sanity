@@ -2,6 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import * as styles from '../../../styles/Variables'
+//import * as styles from './BrandButton.module.scss'
 
 const StyleBrandButton = styled.button`
     // font-family: ${styles.styles.fonts.baseFont};
@@ -57,12 +58,17 @@ const StyleBrandButton = styled.button`
         letter-spacing: 3px;
     }
 `
-
 const BrandButton = (props) => {
     return (
         <StyleBrandButton {...props} >
             {props.children}
         </StyleBrandButton>
+    
+       /* secondary does not work
+       <button className={styles.button} {...props}>
+            {props.children}
+       </button>
+       */
     ) 
 }
 
