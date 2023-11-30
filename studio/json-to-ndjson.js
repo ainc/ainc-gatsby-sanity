@@ -4,7 +4,7 @@ const fs = require('fs');
 const jsonData = require('./5across_past.json');
 
 const replaceSpecialCharacters = (value, defaultValue) => {
-  const specialCharacters = ['???', '#']; 
+  const specialCharacters = ['???', '#', ""]; 
   return value === undefined || specialCharacters.includes(value) ? defaultValue : value;
 };
 

@@ -34,7 +34,7 @@ export default {
           type: 'image',
           // type: 'url',
           // validation: Rule => Rule.uri({ allowRelative: true }),
-          description: 'Default to awesomeinc logo if it is not the most recent winner',
+          description: 'Default to 5 Across logo if it is not the most recent winner',
         }
 
     ],
