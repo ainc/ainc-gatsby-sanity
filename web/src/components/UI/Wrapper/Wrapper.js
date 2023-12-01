@@ -19,4 +19,4 @@ Wrapper.propTypes = {
   ])
 }
 
-export default Wrapper
+export default Wrapper;

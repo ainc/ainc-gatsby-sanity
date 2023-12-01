@@ -2,18 +2,53 @@ import React, {useRef} from "react";
 import { graphql, Link, useStaticQuery } from 'gatsby'
 // JSX
 import HeroSlider, { Slide, Nav, Overlay } from "hero-slider";
+import 'keen-slider/keen-slider.min.css'
+import { useKeenSlider } from 'keen-slider/react'
+
 import Wrapper from "../UI/Wrapper/Wrapper";
 import Title from "../UI/Title/Title";
 import Subtitle from "../UI/Subtitle/Subtitle";
 import BrandButton from "../UI/BrandButton/BrandButton";
-// import { ButtonContainer } from "./BasicSlider.module.scss"
-import { Container } from "react-bootstrap"
+import { Container, Row, Col } from "react-bootstrap"
 
 const HomepageSlider = (props) => {
   const {scrollToSection, sectionIds} = props
-  
 
-
+  const  [sliderRef] = useKeenSlider(
+    {
+      loop: true,
+    },
+    [
+      (slider) => {
+        let timeout
+        let mouseOver = false
+        function clearNextTimeout() {
+          clearTimeout(timeout)
+        }
+        function nextTimeout() {
+          clearTimeout(timeout)
+          if (mouseOver) return
+          timeout = setTimeout(() => {
+            slider.next()
+          }, 2500)
+        }
+        slider.on("created", () => {
+          slider.container.addEventListener("mouseover", () => {
+            mouseOver = true
+            clearNextTimeout()
+          })
+          slider.container.addEventListener("mouseout", () => {
+            mouseOver = false
+            nextTimeout()
+          })
+          nextTimeout()
+        })
+        slider.on("dragStarted", clearNextTimeout)
+        slider.on("animationEnded", nextTimeout)
+        slider.on("updated", nextTimeout)
+      },
+    ]
+  )
 
   const query = useStaticQuery(graphql`
     query imageSlider {
@@ -38,64 +73,35 @@ const HomepageSlider = (props) => {
 
   const slides = (query.sanityImageSlider.slides || {});
   return (
-    <HeroSlider
-      // slidingAnimation="left_to_right"
-      // orientation="horizontal"
-      // initialSlide={1}
-      // onBeforeChange={(previousSlide, nextSlide) =>
-      //   console.log("onBeforeChange", previousSlide, nextSlide)
-      // }
-      // onChange={nextSlide => console.log("onChange", nextSlide)}
-      // onAfterChange={nextSlide => console.log("onAfterChange", nextSlide)}
-      // style={{
-      //   backgroundColor: "rgba(0, 0, 0, 0.33)"
-      // }}
-      // settings={{
-      //   slidingDuration: 250, 
-      //   slidingDelay: 100,
-      //   shouldAutoplay: true,
-      //   shouldDisplayButtons: true,
-      //   autoplayDuration: 5000,
-      //   height: "100vh"
-      // }}
-      controller={{
-        initialSlide: 1,
-        slidingDuration: 500,
-        slidingDelay: 100,
-        onSliding: (nextSlide) =>
-          console.debug("onSliding(nextSlide): ", nextSlide),
-        onBeforeSliding: (previousSlide, nextSlide) =>
-          console.debug(
-            "onBeforeSliding(previousSlide, nextSlide): ",
-            previousSlide,
-            nextSlide
-          ),
-        onAfterSliding: (nextSlide) =>
-          console.debug("onAfterSliding(nextSlide): ", nextSlide)
-      }}
-      autoplay
-      height={"100vh"}
-    >
+    <>
+      <div ref={sliderRef} className="keen-slider">
       {slides.map((slide,i) => (
-        <Overlay key={i}>
-          <Slide
-            background={{
-              backgroundImageSrc: slide.image.asset.url,
-              backgroundAttachment: "fixed",
+        <div className={`keen-slider__slide number-slide${i}`} key={i}>
+          <div style={{ 
+              backgroundAttachment: 'fixed',
+              backgroundImage: `url(${slide.image.asset.url})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover',
+              height: '100vh',
+              backgroundPosition: 'center center',
             }}
-            >
+          >
             <Wrapper>
-              <Container className="mb-3">
-                <Subtitle className="text-white">{slide.subtitle}</Subtitle>
-                <Title className="mb-3 text-white">{slide.title}</Title>
-                <BrandButton onClick={() => scrollToSection(sectionIds[i])}  href="{slide.cta.url}" className="mt-3">{slide.cta.title}</BrandButton>
+              <Container className="mb-3 d-flex align-content-center flex-wrap h-100">
+                  <Row>
+                    <Subtitle className="text-white">{slide.subtitle}</Subtitle>
+                    <Title className="mb-3 text-white">{slide.title}</Title>
+                    <Col>
+                      <BrandButton onClick={() => scrollToSection(sectionIds[i])}  href='slide.cta.url' className="mt-3">Learn More</BrandButton>
+                    </Col>
+                  </Row>
               </Container>
             </Wrapper>
-          </Slide>
-        </Overlay>
+          </div>
+        </div>
       ))}
-      <Nav />
-    </HeroSlider>
+      </div>
+    </>
     
   );
 };
