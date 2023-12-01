@@ -307,7 +307,7 @@ const IndexPage = ({ data }) => {
           <Row>
             <Col className="d-flex justify-content-center my-5">
               <a href="../events">
-                <BrandButton >View Events</BrandButton>
+                <BrandButton>View Events</BrandButton>
               </a>
             </Col>
           </Row>
@@ -327,12 +327,12 @@ const IndexPage = ({ data }) => {
                     image={node.picture.asset.gatsbyImageData} 
                     alt={node.courseTitle} 
                     className="m-2 d-flex align-content-center" 
-                    objectFit="contain" 
+                    objectFit="contain"
                     style={{maxHeight: `280px`}}
                   />
 
                   <Card.Body className="d-flex flex-column my-3 mx-3">
-                    <p className="text-brand-dark mx-auto mt-2text--italic text-uppercase">
+                    <p className="text-brand-dark mx-auto mt-2 text--italic text-uppercase">
                       {node.designedFor}
                     </p>
                     <p className="my-2 mb-3">
