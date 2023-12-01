@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 //import * as styles from '../../../styles/Variables'
-import  * as styles from './BrandButton.module.scss';
+import  * as styles from './BrandButton.scss';
 /*
 const StyleBrandButton = styled.button`
     // font-family: ${styles.styles.fonts.baseFont};
@@ -66,7 +66,7 @@ const BrandButton = (props) => {
             {props.children}
         </StyleBrandButton>
         */
-       <button className={`${styles.button}`} {...props}>
+       <button {...props} className={`button ${props.className}`}>
             {props.children}
        </button>
     ) 
@@ -74,6 +74,9 @@ const BrandButton = (props) => {
 
 BrandButton.propTypes = {
     childen: PropTypes.oneOfType([
+        PropTypes.string,
+    ]),
+    className: PropTypes.oneOfType([
         PropTypes.string,
     ])
 }
