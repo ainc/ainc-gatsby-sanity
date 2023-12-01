@@ -87,7 +87,7 @@ const HomepageSlider = (props) => {
             <Wrapper>
               <Container className="mb-3">
                 <Subtitle className="text-white">{slide.subtitle}</Subtitle>
-                <Title className="mb-3 text-white">{slide.title}</Title>
+                <Title className="mb-3 text-white text--big">{slide.title}</Title>
                 <BrandButton onClick={() => scrollToSection(sectionIds[i])}  href="{slide.cta.url}" className="mt-3">{slide.cta.title}</BrandButton>
               </Container>
             </Wrapper>
