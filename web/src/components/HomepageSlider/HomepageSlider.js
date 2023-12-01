@@ -9,7 +9,7 @@ import Wrapper from "../UI/Wrapper/Wrapper";
 import Title from "../UI/Title/Title";
 import Subtitle from "../UI/Subtitle/Subtitle";
 import BrandButton from "../UI/BrandButton/BrandButton";
-import { Container, Row } from "react-bootstrap"
+import { Container, Row, Col } from "react-bootstrap"
 
 const HomepageSlider = (props) => {
   const {scrollToSection, sectionIds} = props
@@ -30,7 +30,7 @@ const HomepageSlider = (props) => {
           if (mouseOver) return
           timeout = setTimeout(() => {
             slider.next()
-          }, 2000)
+          }, 2500)
         }
         slider.on("created", () => {
           slider.container.addEventListener("mouseover", () => {
@@ -82,18 +82,21 @@ const HomepageSlider = (props) => {
               backgroundImage: `url(${slide.image.asset.url})`,
               backgroundRepeat: 'no-repeat',
               backgroundSize: 'cover',
+              height: '100vh',
+              backgroundPosition: 'center center',
             }}
-            className="vw-100 vh-100"
           >
-            <Container className="mb-3 h-100">
-              <div className="d-flex align-content-center flex-wrap h-100">
-                <div className="row">
-                  <Subtitle className="text-white">{slide.subtitle}</Subtitle>
-                  <Title className="mb-3 text-white">{slide.title}</Title>
-                  <BrandButton onClick={() => scrollToSection(sectionIds[i])}  href="{slide.cta.url}" className="mt-3">{slide.cta.title}</BrandButton>
-                </div>
-              </div>
-            </Container>
+            <Wrapper>
+              <Container className="mb-3 d-flex align-content-center flex-wrap h-100">
+                  <Row>
+                    <Subtitle className="text-white">{slide.subtitle}</Subtitle>
+                    <Title className="mb-3 text-white">{slide.title}</Title>
+                    <Col>
+                      <BrandButton onClick={() => scrollToSection(sectionIds[i])}  href='slide.cta.url' className="mt-3">Learn More</BrandButton>
+                    </Col>
+                  </Row>
+              </Container>
+            </Wrapper>
           </div>
         </div>
       ))}
