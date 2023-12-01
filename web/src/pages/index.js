@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import {useRef, useState, useEffect} from "react";
 import { graphql } from "gatsby";
 import {
@@ -169,9 +169,11 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
 
-      <HomepageSlider
-       scrollToSection={scrollToSection} sectionIds={['workspace','courses','startup']}/>
-
+      <Suspense fallback={<div>Loading...</div>}>  
+        <HomepageSlider
+          scrollToSection={scrollToSection} sectionIds={['workspace','courses','startup']}
+        />
+      </Suspense>
 
       {/* FOUR INITIATIVES */}
       <section id="initiatives">
