@@ -619,7 +619,7 @@ const BootcampPage = props => {
     </section>
 
       {/* Timeline */}
-      <section id="timeline" style={{backgroundColor: "#e6e7e8"}} className="pt-5 ">
+      <section id="timeline" style={{backgroundColor: "#e6e7e8"}} className="pt-5 mb-3">
         <Container className={`${styles.timeline} pt-5 justify-content-center`}>
             <div className={`${styles.titleDiv} justify-content-center`}>
               <Title className={`${styles.timelineTitle}`}>Timeline</Title>
@@ -701,9 +701,9 @@ const BootcampPage = props => {
       </section>
 
        {/* Questions */}
-      <section id="questions">
-        <Container fluid className={`${styles.questions}`}>
-          <div className="py-5 text-center">
+      <section id="questions" className={`${styles.questions}`}>
+        <Container >
+          <div className="text-center">
             <Title className="text-white pt-5 pb-3">Still have questions?</Title>
             <BrandButton className="">See our Faqs</BrandButton>
           </div>
