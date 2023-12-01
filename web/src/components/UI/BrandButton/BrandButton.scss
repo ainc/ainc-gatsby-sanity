@@ -30,7 +30,7 @@
   &:hover {
     color: $brand-color2;
   }
-  &.hover--black {
+  .hover--black {
     &:hover {
         color: $brand-color2;
     }
@@ -47,9 +47,9 @@
     padding: 0.4rem 1.4rem;
 }
 
-&.small--text{
-    font-size: 0.7rem;
-    letter-spacing: 3px;
-}
+  &.small--text{
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+  }
 
 }

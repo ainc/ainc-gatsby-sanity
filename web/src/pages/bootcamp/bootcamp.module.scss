@@ -1,5 +1,6 @@
 @import "../../styles/mixins.scss";
-@import "../../styles/variables.scss"; 
+@import "../../styles/variables.scss";
+
 .header {
         background-image: url(https://www.awesomeinc.org/assets/img/bootcamp/hero-image-2-min.jpg);
         background-size: cover;
@@ -348,7 +349,7 @@
     .timelineTitle {
         left: 0;
         margin-left: 10px;
-        margin-top: 350px;
+        margin-top: 440px;
         color: #C12029;
         font-size: 70px;
         letter-spacing: 4px;
@@ -404,6 +405,7 @@
 .questions {
     background-image: url(../../images/bootcamp/faq-bg.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
     
 }
 
