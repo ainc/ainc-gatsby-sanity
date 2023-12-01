@@ -222,7 +222,7 @@ section .header-workspace {
 
 @media (min-width: 769px) {
   .video-arrow {
-    width: 60%;
+    width: 45%;
     top: 20%;
     left: -50%;
   }
@@ -230,7 +230,7 @@ section .header-workspace {
 
 @media (max-width: 576px) {
   .video-arrow {
-    width: 40%;
+    width: 30%;
     top: 60%;
     left: -30%;
   }
