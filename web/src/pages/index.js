@@ -307,7 +307,7 @@ const IndexPage = ({ data }) => {
           <Row>
             <Col className="d-flex justify-content-center my-5">
               <a href="../events">
-                <BrandButton className='secondary'>View Events</BrandButton>
+                <BrandButton>View Events</BrandButton>
               </a>
             </Col>
           </Row>
