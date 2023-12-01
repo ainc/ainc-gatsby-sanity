@@ -203,12 +203,11 @@ const IndexPage = ({ data }) => {
                     alt="desk and chair"
                     sectionRef = {section1Ref}
                    
-
-                  />
+                   />
                 </Col>
                 {/* <Col md={3}> */}
                   <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
-                  <BackgroundCard 
+                  <BackgroundCard
                     title="Accelerate your startup"
                     text="We will help grow your business with a mentor-driven, accelerator program."
                     backgroundImage="https://www.awesomeinc.org/images/startup-panel-min.jpg"
