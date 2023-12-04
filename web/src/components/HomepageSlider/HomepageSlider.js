@@ -1,7 +1,6 @@
 import React from 'react';
 import KeenSlider from 'keen-slider'
 import 'keen-slider/keen-slider.min.css'
-import SliderItem from './SliderItem';
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import Wrapper from "../UI/Wrapper/Wrapper";
 import { Container, Row, Col } from "react-bootstrap"
