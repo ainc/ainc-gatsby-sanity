@@ -1,54 +1,20 @@
-import React, {useRef} from "react";
-import { graphql, Link, useStaticQuery } from 'gatsby'
-// JSX
-import HeroSlider, { Slide, Nav, Overlay } from "hero-slider";
+import React from 'react';
+import KeenSlider from 'keen-slider'
 import 'keen-slider/keen-slider.min.css'
-import { useKeenSlider } from 'keen-slider/react'
-
+import SliderItem from './SliderItem';
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import Wrapper from "../UI/Wrapper/Wrapper";
+import { Container, Row, Col } from "react-bootstrap"
 import Title from "../UI/Title/Title";
 import Subtitle from "../UI/Subtitle/Subtitle";
 import BrandButton from "../UI/BrandButton/BrandButton";
-import { Container, Row, Col } from "react-bootstrap"
 
-const HomepageSlider = (props) => {
-  const {scrollToSection, sectionIds} = props
-
-  const  [sliderRef] = useKeenSlider(
-    {
-      loop: true,
-    },
-    [
-      (slider) => {
-        let timeout
-        let mouseOver = false
-        function clearNextTimeout() {
-          clearTimeout(timeout)
-        }
-        function nextTimeout() {
-          clearTimeout(timeout)
-          if (mouseOver) return
-          timeout = setTimeout(() => {
-            slider.next()
-          }, 2500)
-        }
-        slider.on("created", () => {
-          slider.container.addEventListener("mouseover", () => {
-            mouseOver = true
-            clearNextTimeout()
-          })
-          slider.container.addEventListener("mouseout", () => {
-            mouseOver = false
-            nextTimeout()
-          })
-          nextTimeout()
-        })
-        slider.on("dragStarted", clearNextTimeout)
-        slider.on("animationEnded", nextTimeout)
-        slider.on("updated", nextTimeout)
-      },
-    ]
-  )
+export default ({ preload, sectionIds }) => {
+  const sliderRef = React.useRef(null);
+  
+  const [slider, setSlider] = React.useState(null);
+  const [currentSlide, setCurrentSlide] = React.useState(0);
+  const [loaded, setLoaded] = React.useState([])
 
   const query = useStaticQuery(graphql`
     query imageSlider {
@@ -72,38 +38,68 @@ const HomepageSlider = (props) => {
   `);
 
   const slides = (query.sanityImageSlider.slides || {});
-  return (
-    <>
-      <div ref={sliderRef} className="keen-slider">
-      {slides.map((slide,i) => (
-        <div className={`keen-slider__slide number-slide${i}`} key={i}>
-          <div style={{ 
-              backgroundAttachment: 'fixed',
-              backgroundImage: `url(${slide.image.asset.url})`,
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: 'cover',
-              height: '100vh',
-              backgroundPosition: 'center center',
-            }}
-          >
-            <Wrapper>
-              <Container className="mb-3 d-flex align-content-center flex-wrap h-100">
-                  <Row>
-                    <Subtitle className="text-white">{slide.subtitle}</Subtitle>
-                    <Title className="mb-3 text-white">{slide.title}</Title>
-                    <Col>
-                      <BrandButton onClick={() => scrollToSection(sectionIds[i])}  href='slide.cta.url' className="mt-3">Learn More</BrandButton>
-                    </Col>
-                  </Row>
-              </Container>
-            </Wrapper>
-          </div>
-        </div>
-      ))}
-      </div>
-    </>
-    
-  );
-};
 
-export default HomepageSlider;
+  React.useEffect(() => {
+    const slider_new = new KeenSlider(sliderRef.current, {
+      initialSlide: currentSlide,
+      changed: (idx) => {
+        setCurrentSlide(idx)
+      }  
+    }) 
+    setSlider(slider_new)
+    return () => {
+      slider_new.destroy() 
+    };
+  }, [])
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      const new_loaded = [...loaded]
+      new_loaded[currentSlide] = true
+      setLoaded(new_loaded)
+    },500)
+  }, [currentSlide])
+  
+
+
+  function getLoaded(){
+    return loaded
+  }
+
+  
+  return  <div className="slider-wrapper">
+            <div ref={sliderRef} className="keen-slider">
+              <div className="keen-slider__track">
+                {
+                  slides.map((image, i) => { 
+                    return (
+                      <div className={`keen-slider__slide number-slide`}>
+                        <div style={{ 
+                              backgroundAttachment: 'fixed',
+                              backgroundImage: `url(${image.image.asset.url})`,
+                              backgroundRepeat: 'no-repeat',
+                              backgroundSize: 'cover',
+                              height: '100vh',
+                              backgroundPosition: 'center center',
+                            }}
+                          >
+                          <Wrapper>
+                            <Container className="mb-3 d-flex align-content-center flex-wrap h-100">
+                                <Row>
+                                  <Subtitle className="text-white">{image.subtitle}</Subtitle>
+                                  <Title className="mb-3 text-white">{image.title}</Title>
+                                  <Col>
+                                    <BrandButton onClick={() => scrollToSection(sectionIds[i])}  href='slide.cta.url' className="mt-3">Learn More</BrandButton>
+                                  </Col>
+                                </Row>
+                            </Container>
+                          </Wrapper>
+                        </div>
+                      </div>
+                    )
+                  })
+                }
+              </div>
+            </div>
+          </div>
+};
