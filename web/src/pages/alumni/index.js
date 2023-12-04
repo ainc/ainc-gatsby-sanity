@@ -18,7 +18,8 @@ import "../../styles/main.scss";
 
 export const query = graphql`
   query AlumniPageQuery {
-    allSanityBootcampAlumni {
+    allSanityBootcampAlumni (
+      sort: {job: ASC}) {
       nodes {
         id
         name
@@ -52,6 +53,7 @@ const AlumniPage = props => {
   const { data, errors } = props;
   const [selectedClass, setSelectedClass] = useState("");
 
+
   if (errors) {
     return (
       <Layout>
@@ -71,6 +73,9 @@ const AlumniPage = props => {
         const bClass = data.allSanityBootcampClass.edges.find(({ node }) => node.title === b).node;
         return new Date(bClass.date) - new Date(aClass.date); // sort based on date in descending order
       })
+
+
+
       .map((className) => (
         <button
           className={`classButton ${selectedClass === className ? "active" : ""}`}
@@ -125,7 +130,7 @@ const AlumniPage = props => {
                 linkedin={node.linkedin}
                 github={node.github}
                 website={node.portfolio}
-                position={node.job}
+                position={node.job} 
               />
             </Col>
           ))}
@@ -136,7 +141,7 @@ const AlumniPage = props => {
           </Col>
         </Row>
         <Row className="d-flex justify-content-center mb-5">
-          <Col sm={6} md={5} lg={5} xl={10} className="mb-4">
+          <Col sm={6} md={5} lg={5} xl={10} className={`${styles.card} mb-4`}>
             <StaticImage quality='90' className="apax-logo me-3 mb-4" src="./images/apaxsoftware-logo.png" />
             <StaticImage quality='90' className="bigfans-logo me-3" src="./images/bigassfans-logo.png" />
             <StaticImage quality='90' className="blueframe-logo me-3" src="./images/blueframe-logo.png" />
