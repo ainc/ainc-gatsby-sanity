@@ -125,7 +125,7 @@ query {
           endDate(formatString: "MMMM d, YYYY")
           picture {
             asset {
-              gatsbyImageData
+              gatsbyImageData(height: 200)
             }
           }
           topics
