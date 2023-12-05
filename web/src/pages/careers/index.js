@@ -42,7 +42,7 @@ const CareersPage = ({ data }) => {
                 <section id={node.careerTitle} key={node.id}>
                     <Title className={`${styles.careerTitle} mt-4`}>{node.careerTitle}</Title>
                     <BlockContent className={styles.careerBody} blocks={node._rawBody} />
-                    <a className={`${styles.managerEmail} link--brand `} href={`mailto:${node.manager_email}`}>Questions? Email {node.manager} {node.manager_email}</a>
+                    <a className={`${styles.managerEmail} link--brand`} href={`mailto:${node.manager_email}`}>Questions? Email: {node.manager} {node.manager_email}</a>
                     <div>
                       <a className={`${styles.brandButton}`} href={node.linkToForm}>
                       <BrandButton>Apply here

@@ -163,25 +163,33 @@ const InternshipsPage = ({ data }) => {
       <Container className='my-5'>
         <Row className='text-center'>
           <Col xs={6} md={3}>
+            <a href='/team-alpha'>
             <ImageOutline>
               <StaticImage objectFit='cover' src='../../images/emilywehrle-wall.jpg' alt="Headshot of Emily Wehrle" />
             </ImageOutline>
+            </a>
           </Col>
           <Col xs={6} md={3}>
+          <a href='/team-alpha'>
             <ImageOutline>
               <StaticImage objectFit='cover' src='../../images/kyleraney-wall.jpg' alt="Headshot of Kyle Raney" />
             </ImageOutline>
+          </a>
           </Col>
           <Col className='my-4 d-block d-md-none' xs={12}/>
           <Col xs={6} md={3}>
+          <a href='/team-alpha'>
             <ImageOutline>
               <StaticImage objectFit='cover' src='../../images/jacquelinebenson-wall.jpg' alt="Headshot of Jacqueline Benson" />
             </ImageOutline>
+          </a>
           </Col>
           <Col xs={6} md={3}>
+          <a href='/team-alpha'>
             <ImageOutline>
               <StaticImage objectFit='cover' src='../../images/garrettfahrbach-wall.jpg' alt="Headshot of GarrettFahrbach" />
             </ImageOutline>
+          </a>
           </Col>
         </Row>
         <Row className='text-center pt-5'>
@@ -189,7 +197,6 @@ const InternshipsPage = ({ data }) => {
             <a href="../team-alpha" target="_blank" rel="noopener noreferrer">
               <BrandButton>Meet the Team</BrandButton>
             </a>
-            
           </Col>
         </Row>
       </Container>
