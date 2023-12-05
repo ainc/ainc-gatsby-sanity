@@ -18,8 +18,7 @@ import "../../styles/main.scss";
 
 export const query = graphql`
   query AlumniPageQuery {
-    allSanityBootcampAlumni (
-      sort: {job: ASC}) {
+    allSanityBootcampAlumni{
       nodes {
         id
         name
@@ -75,7 +74,6 @@ const AlumniPage = props => {
       })
 
 
-
       .map((className) => (
         <button
           className={`classButton ${selectedClass === className ? "active" : ""}`}
@@ -87,6 +85,7 @@ const AlumniPage = props => {
       ))
     : null;
 
+
   // Add an "All Cohorts" button to the class list
   const allCohortsButton = (
     <button
@@ -97,12 +96,34 @@ const AlumniPage = props => {
       All Cohorts
     </button>
   );
+
   classList.unshift(allCohortsButton);
 
   let filteredNodes = alumniNodes;
   if (selectedClass) {
     filteredNodes = alumniNodes.filter(node => node.class.title === selectedClass);
   }
+  else {
+    //sort based on class date and job for 'All Cohorts' button
+  filteredNodes.sort((a, b) => {
+  const dateA = new Date(a.class.date);
+  const dateB = new Date(b.class.date);
+  const dateComparison = dateB - dateA;  //sort based on date in descending order
+
+  if (dateComparison !== 0){
+    return dateComparison
+  }
+
+  const jobComparison = b.job ? 1 : a.job ? -1 : 0; // prioritize node with job
+
+  if (jobComparison !== 0) {
+    return jobComparison;
+  }  
+
+});
+
+  }
+
 
   return (
     <Layout>
