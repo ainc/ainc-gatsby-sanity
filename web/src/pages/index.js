@@ -168,12 +168,10 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-
-      <Suspense fallback={<div>Loading...</div>}>  
+ 
         <HomepageSlider
           scrollToSection={scrollToSection} sectionIds={['workspace','courses','startup']}
         />
-      </Suspense>
 
       {/* FOUR INITIATIVES */}
       <section id="initiatives">
