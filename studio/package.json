@@ -38,6 +38,8 @@
     "sanity-plugin-dashboard-widget-netlify": "^1.2.1",
     "sanity-plugin-markdown": "^4.1.0",
     "sanity-plugin-tags": "^2.0.1",
+    "scheduler": "^0.23.0",
+    "scroll-into-view-if-needed": "^3.1.0",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {

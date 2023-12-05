@@ -10,7 +10,7 @@ import link from './objects/link'
 import sliderImage from './objects/sliderImage'
 import fiveAcrossJudges from './objects/fiveAcrossJudges'
 
-// Document types
+// Document typesy
 import category from './documents/category'
 import teamMember from './documents/teamMember'
 import sampleProject from './documents/sampleProject'
@@ -42,6 +42,7 @@ import pageTitles from './documents/pageTitles'
 import bootcampClass from './documents/bootcampClass'
 import notes from './documents/notes'
 import bootcamp from './documents/bootcamp'
+import workspaceTestimonials from './documents/workspaceTestimonials'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
@@ -88,5 +89,6 @@ export default [
     notes,
     teamAlpha,
     bootcamp,
+    workspaceTestimonials,
   ]
 
