@@ -46,11 +46,4 @@ const Title = (props) => {
   )
 }
 
-Title.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object,
-  ])
-}
-
 export default Title

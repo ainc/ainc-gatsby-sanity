@@ -366,10 +366,10 @@ const IndexPage = ({ data }) => {
       </section>  
         
       {/* WORKSPACE */}
-      <section ref={section1Ref} id="workspace" style={{backgroundColor: `#D1D1D1`, borderColor: `black`, backgroundImage: isLargeScreen ? `url(${workspace_background})`: '', backgroundRepeat: 'no-repeat', backgroundPosition: 'center 80%', backgroundSize: '85% 85%'}}>
+      <section ref={section1Ref} id="workspace" style={{backgroundColor: `#D1D1D1`, borderColor: `black`, backgroundImage: isLargeScreen ? `url(${workspace_background})`: 'inherit', backgroundRepeat: 'no-repeat', backgroundPosition: 'center 80%', backgroundSize: '85% 85%'}}>
         <Title className="pt-5 mb-2 text-uppercase text-center">Workspace</Title>
         <Subtitle className=" text-uppercase text-center">Join Our Workspace</Subtitle>
-        <a style={{position:'relative', top: isLargeScreen ? '-6rem' : '', left: isLargeScreen ? '90%' : '', justifyContent: isLargeScreen ? '' : 'center'}} href="https://calendly.com/awesometour/30min?" target="_blank">
+        <a style={{position:'relative', top: isLargeScreen ? '-6rem' : 'inherit', left: isLargeScreen ? '90%' : 'inherit', justifyContent: isLargeScreen ? 'inherit' : 'center'}} href="https://calendly.com/awesometour/30min?" target="_blank">
           <img src="https://d33wubrfki0l68.cloudfront.net/223738930eb44ab59015db4d33febf500d9da8f1/0ab2a/images/icons/schedule-a-tour-button-red.png" width='100' height='100' id="tour-button" alt="tour button" />
         </a>
         <Container>
@@ -378,7 +378,7 @@ const IndexPage = ({ data }) => {
               <Col xs={12} sm={6}>
                 <div className="d-flex justify-content-center" >
                   <a href="../workspace">
-                    <Card className="card--equal-width bg-secondary p-4 mb-3" onMouseEnter={() => setIsWorkspaceButton1Hovered(true)} onMouseLeave={() =>setIsWorkspaceButton1Hovered(false)} style={{boxShadow: isWorkspaceButton1Hovered ? ' 0 5px 10px rgba(162, 27, 34, 0.75)' : ''}}>
+                    <Card className="card--equal-width bg-secondary p-4 mb-3" onMouseEnter={() => setIsWorkspaceButton1Hovered(true)} onMouseLeave={() =>setIsWorkspaceButton1Hovered(false)} style={{boxShadow: isWorkspaceButton1Hovered ? ' 0 5px 10px rgba(162, 27, 34, 0.75)' : 'inherit'}}>
                       <Subtitle className="fw-bold text-center text-white">Functional Workspace</Subtitle>
                       <p className="text-center text-white fw-bolder">An awesome space to work or host your next meeting.</p>
                     </Card>
@@ -388,7 +388,7 @@ const IndexPage = ({ data }) => {
               <Col xs={12} sm={6}>
                 <div className="d-flex justify-content-center mt-5 pt-5">
                   <a href="../workspace">
-                    <Card className="card--equal-width bg-secondary p-4" onMouseEnter={() => setIsWorkspaceButton2Hovered(true)} onMouseLeave={() =>setIsWorkspaceButton2Hovered(false)} style={{boxShadow: isWorkspaceButton2Hovered ? ' 0 5px 10px rgba(162, 27, 34, 0.75)' : ''}}>
+                    <Card className="card--equal-width bg-secondary p-4" onMouseEnter={() => setIsWorkspaceButton2Hovered(true)} onMouseLeave={() =>setIsWorkspaceButton2Hovered(false)} style={{boxShadow: isWorkspaceButton2Hovered ? ' 0 5px 10px rgba(162, 27, 34, 0.75)' : 'inherit'}}>
                       <Subtitle className="fw-bold text-center text-white">Membership Benefits</Subtitle>
                       <p className="text-center text-white fw-bolder">Flexible membership options and features to support your business operations.</p>
                     </Card>
