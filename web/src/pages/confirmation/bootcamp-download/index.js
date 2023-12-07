@@ -1,8 +1,8 @@
 import * as React from 'react';
-import Layout from '../../../components/Layout/Layout';
-import { Container, Row, Col } from 'react-bootstrap';
-import SEO from '../../../components/seo'
 import { useStaticQuery, graphql } from "gatsby"
+import { Container, Row, Col } from 'react-bootstrap';
+
+import Layout from '../../../components/Layout/Layout';
 
 const Page = () => {
   const data = useStaticQuery(graphql`

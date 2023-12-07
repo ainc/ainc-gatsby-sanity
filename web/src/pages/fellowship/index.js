@@ -1,23 +1,20 @@
 import React, { useState } from "react";
-import Layout from '../../components/Layout/Layout'
-import { graphql, Link, Img } from 'gatsby'
+import { graphql } from 'gatsby'
+import 'keen-slider/keen-slider.min.css'
+import { useKeenSlider } from 'keen-slider/react'
+import { StaticImage } from 'gatsby-plugin-image'
 import { Container, Row, Col } from 'react-bootstrap'
-import SEO from '../../components/seo'
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
-import PerksIcon from '/src/assets/svg/perks.svg'
-import PortfolioIcon from '/src/assets/svg/portfolio.svg'
-import MentorsIcon from '/src/assets/svg/mentors.svg'
-import Title from '../../components/UI/Title/Title'
+
+import ApplyNowModal from "./Components/ApplyNowModal";
+import Layout from '../../components/Layout/Layout'
+import ImageOutline from '../../components/ImageOutline/ImageOutline'
+import ModalCustom from "../../components/Modal/ModalCustom";
 import Subtitle from '../../components/UI/Subtitle/Subtitle'
-import BrandButton from "../../components/UI/BrandButton/BrandButton"
+import Title from '../../components/UI/Title/Title'
+
 import "../../styles/main.scss"
 import * as styles from './fellowship.module.scss'
 import * as footerStyles from '../../components/Footer/Footer.module.scss'
-import 'keen-slider/keen-slider.min.css'
-import { useKeenSlider } from 'keen-slider/react'
-import ApplyNowModal from "./Components/ApplyNowModal";
-import ModalCustom from "../../components/Modal/ModalCustom";
-import ImageOutline from '../../components/ImageOutline/ImageOutline'
 
 /**
  * TODO:

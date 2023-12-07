@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import { graphql, Link } from "gatsby";
-import {
-  mapEdgesToNodes,
-  filterOutDocsWithoutSlugs,
-  filterOutDocsPublishedInTheFuture
-} from "../../lib/helpers";
+// import {
+//   mapEdgesToNodes,
+//   filterOutDocsWithoutSlugs,
+//   filterOutDocsPublishedInTheFuture
+// } from "../../lib/helpers";
 import { Col, Container, Row } from 'react-bootstrap';
+import { StaticImage } from "gatsby-plugin-image";
+
 import GraphQLErrorList from "../../components/graphql-error-list";
-import Profile from "../../components/Profile/Profile";
-import SEO from "../../components/seo";
 import Layout from "../../containers/layout";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from '../../components/UI/Subtitle/Subtitle';
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
-import * as styles from "./alumni.scss";
+import Profile from "../../components/Profile/Profile";
+
 import "../../styles/main.scss";
 
 export const query = graphql`

@@ -1,29 +1,27 @@
 import React, {useState} from "react";
-import { graphql } from "gatsby";
-import Layout from "../../components/Layout/Layout";
-import { Container, Col, Row, Image, Modal, Accordion} from "react-bootstrap";
-import SEO from '../../components/seo'
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
-import Title from "../../components/UI/Title/Title";
-import Subtitle from "../../components/UI/Subtitle/Subtitle";
-import BrandButton from "../../components/UI/BrandButton/BrandButton";
-import ProfileCard from "./Components/ProfileCard/ProfileCard";
-import GradStat from "./Components/GradStat/GradStat";
-import Testimonial from "./Components/Testimonial/Testimonial";
-import "../../styles/main.scss"
-import * as styles from './bootcamp.module.scss'
-import * as footerStyles from '../../components/Footer/Footer.module.scss'
-import ShieldsRow from "./Components/ShieldsRow/ShieldsRow";
-import VerticalTitle from "../../components/UI/VerticalTitle/VerticalTitle";
-import SideNav from "./Components/SideNav/SideNav"
-
-import ApplyNowModal from "../fellowship/Components/ApplyNowModal";
 import { useRef } from "react";
+import { graphql } from "gatsby";
+import { Container, Col, Row, Image, Modal, Accordion} from "react-bootstrap";
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import {InlineWidget} from 'react-calendly'
-
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
+
+import ApplyNowModal from "../fellowship/Components/ApplyNowModal";
+import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import CountdownTimer from "./Components/CountdownTimer/CountdownTimer";
+import GradStat from "./Components/GradStat/GradStat";
+import Layout from "../../components/Layout/Layout";
+import ProfileCard from "./Components/ProfileCard/ProfileCard";
+import ShieldsRow from "./Components/ShieldsRow/ShieldsRow";
+import SideNav from "./Components/SideNav/SideNav"
+import Subtitle from "../../components/UI/Subtitle/Subtitle";
+import Testimonial from "./Components/Testimonial/Testimonial";
+import Title from "../../components/UI/Title/Title";
+
+import "../../styles/main.scss"
+import * as styles from './bootcamp.module.scss'
+
 
 
 export const query = graphql`

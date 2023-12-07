@@ -1,13 +1,14 @@
 import * as React from 'react'
-import { Col, Container, Row } from 'react-bootstrap';
-import SEO from '../../components/seo'
-import Layout from "../../components/Layout/Layout";
-import Title from "../../components/UI/Title/Title";
-import Subtitle from '../../components/UI/Subtitle/Subtitle';
-import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import { graphql } from "gatsby";
-import * as styles from "./careers.module.scss";
+import { Col, Container, Row } from 'react-bootstrap';
 import BlockContent from '@sanity/block-content-to-react';
+
+import BrandButton from "../../components/UI/BrandButton/BrandButton";
+import Layout from "../../components/Layout/Layout";
+import Subtitle from '../../components/UI/Subtitle/Subtitle';
+import Title from "../../components/UI/Title/Title";
+
+import * as styles from "./careers.module.scss";
 
 const CareersPage = ({ data }) => {
   const allCareers = (data.allSanityCareers.nodes || {})

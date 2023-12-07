@@ -1,13 +1,12 @@
 import React from "react";
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
-import styled from "styled-components";
+import { useState } from "react";
+import { StaticImage } from "gatsby-plugin-image";
+import { Row, Col } from "react-bootstrap";
+
+import ModalCustom from "../../Modal/ModalCustom";
+
 import '../../../styles/main.scss'
 import "./CoreValue.scss";
-import { Container, Row, Col, Image, Badge, Card } from "react-bootstrap";
-import ModalCustom from "../../Modal/ModalCustom";
-import { useState } from "react";
-import {Button} from "react-bootstrap";
-
 
 const CoreValue = (props) => {
   const [lgShow, setLgShow] = useState(false)

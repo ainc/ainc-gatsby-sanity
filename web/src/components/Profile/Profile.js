@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-// import { graphql } from 'gatsby'
 import { ButtonGroup, Button, Card, Container, Row, Col } from "react-bootstrap";
 import { GatsbyImage } from "gatsby-plugin-image";
+
 import Ribbon from "../Ribbon/Ribbon";
-import * as styles from './Profile.module.scss'
-// import {FaUser} from 'react-icons/fa';
-import { btnGroupFullWidth } from "./Profile.module.scss";
+
 import "../../styles/main.scss"
+import * as styles from './Profile.module.scss'
+import { btnGroupFullWidth } from "./Profile.module.scss";
 
 
 const Profile = ({ variant, name, image, linkedin, github, website, position, occupation, fact, rule, song, favoritePerson }) => {

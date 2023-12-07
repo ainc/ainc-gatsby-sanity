@@ -1,10 +1,7 @@
 import React , {useState} from "react";
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import { Card } from 'react-bootstrap'
+
 import * as styles from "./BackgroundCard.module.scss";
-import styled from "styled-components";
-import { Card, Row, Col, Container } from 'react-bootstrap'
-
-
 
 const BackgroundCard = (props) => {
 

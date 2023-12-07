@@ -1,18 +1,13 @@
 import * as React from 'react'
-import { Container, Row, Col, Modal } from 'react-bootstrap'
-import { graphql, Link, useStaticQuery } from 'gatsby'
-import {
-  mapEdgesToNodes,
-  filterOutDocsWithoutSlugs,
-  filterOutDocsPublishedInTheFuture
-} from "../../lib/helpers";
-import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image'
-import BrandButton from '../UI/BrandButton/BrandButton'
-import { FaEnvelope, FaPhone, FaClock, FaTwitter, FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube } from 'react-icons/fa';
-import * as styles from './Footer.module.scss'
-
-import ApplyNowModal from '../../pages/fellowship/Components/ApplyNowModal';
 import { useState } from "react";
+import { graphql, useStaticQuery } from 'gatsby'
+import { Container, Row, Col, Modal } from 'react-bootstrap'
+import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { FaEnvelope, FaPhone, FaClock, FaTwitter, FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube } from 'react-icons/fa';
+
+import BrandButton from '../UI/BrandButton/BrandButton'
+
+import * as styles from './Footer.module.scss'
 
 
 const Footer = () => {

@@ -1,9 +1,10 @@
 import * as React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { Container, Col, Row, Image, Card, Button } from "react-bootstrap";
-import * as styles from "./coursecardsmall.module.scss";
-import Subtitle from "../UI/Subtitle/Subtitle";
+import { Container, Col, Row, Card } from "react-bootstrap";
+
 import BrandButton from "../UI/BrandButton/BrandButton";
+
+import * as styles from "./coursecardsmall.module.scss";
 
 const CourseCardSmall = ({ courseInfo }) => {
 

@@ -1,11 +1,9 @@
 import * as React from 'react'
-import PropTypes from 'prop-types'
-import { GatsbyImage, getImage, StaticImage} from 'gatsby-plugin-image'
-import ImageOutline from '../ImageOutline/ImageOutline'
-import { tbDiv, teamButton } from './ModalButton.module.scss'
-import ApplyNowModal from '../../pages/fellowship/Components/ApplyNowModal'
 import { useState } from 'react'
+
 import ModalCustom from '../Modal/ModalCustom'
+
+import { teamButton } from './ModalButton.module.scss'
 
 
 const ModalButton = (props) => {
