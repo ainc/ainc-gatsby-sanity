@@ -63,7 +63,6 @@ const LearnPage = ({ data }) => {
         <Row>
           <Col xs={12} sm={6} md={{ span: 6 }}>
             {/* Future styling */}
-            {/*<div className={`${styles.courseForEveryone} d-xs-none`}></div>*/}
             <Title className={` brand text-center`}>A Course For Everyone</Title>
             <p className="text-black subtitle fw-bold text-uppercase text-center">Join one now</p>
             <p className="text-center">

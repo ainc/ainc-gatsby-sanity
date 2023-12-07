@@ -94,7 +94,7 @@ const ProgramPage = ({ data }) => {
         </Row>
        
       </Container>
-      <Container className={styles.sponsors}>
+      <Container>
         <Row>
           <Col xs={{offset: 2, span: 10}} md={{offset: 1, span: 12}}>
             <StaticImage className='my-4 mw-100 w-75' src='../../images/5across-banner.png'></StaticImage>
