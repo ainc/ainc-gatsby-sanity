@@ -1,10 +1,11 @@
 import React from "react";
-import { Modal, CloseButton, Row, Container } from "react-bootstrap";
-import BrandButton from '../UI/BrandButton/BrandButton'
-// import Title from "../components/UI/Title/Title";
+import { Modal, CloseButton } from "react-bootstrap";
+
 import Title from "..//UI/Title/Title"
-import Subtitle from "../UI/Subtitle/Subtitle";
+
 import * as styles from "./Modal.module.css";
+
+
 
 /*In order to use the ModalCustom Component (it was renamed to ModalCustom because Modal is a saved component name for react-bootstrap), state must be imported to whatever component it is used in:
 

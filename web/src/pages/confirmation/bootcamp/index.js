@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
-import Layout from '../../../components/Layout/Layout';
 import { Container, Row, Col, } from 'react-bootstrap';
-import SEO from '../../../components/seo'
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
-import BrandButton from '../../../components/UI/BrandButton/BrandButton';
-import {InlineWidget} from 'react-calendly'
 import { Modal } from 'react-bootstrap';
+import {InlineWidget} from 'react-calendly'
+
+import BrandButton from '../../../components/UI/BrandButton/BrandButton';
+import Layout from '../../../components/Layout/Layout';
 
 const Page = ({ data }) => {
 

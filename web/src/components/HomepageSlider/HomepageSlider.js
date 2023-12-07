@@ -1,15 +1,14 @@
 import React, {useRef} from "react";
 import { graphql, Link, useStaticQuery } from 'gatsby'
-// JSX
-import HeroSlider, { Slide, Nav, Overlay } from "hero-slider";
+
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
-
-import Wrapper from "../UI/Wrapper/Wrapper";
-import Title from "../UI/Title/Title";
-import Subtitle from "../UI/Subtitle/Subtitle";
-import BrandButton from "../UI/BrandButton/BrandButton";
 import { Container, Row, Col } from "react-bootstrap"
+
+import BrandButton from "../UI/BrandButton/BrandButton";
+import Subtitle from "../UI/Subtitle/Subtitle";
+import Title from "../UI/Title/Title";
+import Wrapper from "../UI/Wrapper/Wrapper";
 
 const HomepageSlider = (props) => {
   const {scrollToSection, sectionIds} = props

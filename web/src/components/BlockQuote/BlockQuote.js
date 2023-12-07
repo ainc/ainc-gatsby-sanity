@@ -1,7 +1,7 @@
 import React from "react";
-import * as styles from "./blockquote.module.scss";
-import { GatsbyImage } from "gatsby-plugin-image";
 import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
+
+import * as styles from "./blockquote.module.scss";
 
 const BlockQuote = ({ children }) => {
     return (

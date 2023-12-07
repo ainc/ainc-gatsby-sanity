@@ -1,10 +1,10 @@
 import * as React from "react";
+import { useState } from "react";
+import { Modal } from "react-bootstrap";
+
 import Title from "../../../components/UI/Title/Title";
-import Subtitle from "../../../components/UI/Subtitle/Subtitle";
 import BrandButton from "../../../components/UI/BrandButton/BrandButton";
 
-import { Modal } from "react-bootstrap";
-import { useState } from "react";
 import * as styles from './newsletter.module.scss';
 
 const Newsletter = () => {
