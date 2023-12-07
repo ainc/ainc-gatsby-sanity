@@ -57,24 +57,24 @@ const Profile = ({ variant, name, image, linkedin, github, website, position, oc
           <div className={styles.pictureDiv}>
             <GatsbyImage
               image={image}
-              className={`card-img-top ${styles.profileImage}`}
+              className={`card-img-top`}
               alt={name}
               quality="100"
             />
             <div className={` ${styles.figcaption} ${showText == "fact" ? styles.figcaptionShow : "" }`}>
-              <p className={styles.attributeText}><p className='fw-bold'>Random Fact: </p>{fact}</p>
+              <p className={styles.attributeText}><span className='fw-bold'>Random Fact: </span>{fact}</p>
             </div>
             
             <div className={` ${styles.figcaption} ${showText == "rule" ? styles.figcaptionShow : ""}`}>
-              <p className={styles.attributeText}><p className='fw-bold'>Favorite Rule: </p>{rule}</p>
+              <p className={styles.attributeText}><span className='fw-bold'>Favorite Rule: </span>{rule}</p>
             </div>
 
             <div className={` ${styles.figcaption} ${showText == "song" ? styles.figcaptionShow : ""}`}>
-              <p className={styles.attributeText}><p className='fw-bold'>Favorite Song: </p>{song}</p>
+              <p className={styles.attributeText}><span className='fw-bold'>Favorite Song: </span>{song}</p>
             </div>
 
             <div className={` ${styles.figcaption} ${showText == "person" ? styles.figcaptionShow : ""}`}>
-              <p className={styles.attributeText}><p className='fw-bold'>Favorite Person: </p>{favoritePerson}</p>
+              <p className={styles.attributeText}><span className='fw-bold'>Favorite Person: </span>{favoritePerson}</p>
             </div>
           </div>
           <div className='buttonGroup'>

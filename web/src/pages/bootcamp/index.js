@@ -453,7 +453,7 @@ const BootcampPage = props => {
           </Row>
           <Row className="mx-5">
             <Col className="d-flex justify-content-center">
-              <Subtitle style={{fontSize:"1rem", width:"750px", lineHeight:"25px"}}className={`${styles.jobGuaranteeText} text-white text-center fs-6`}>We only succeed when you succeed. We guarantee that all students who complete the 16-week Bootcamp program and uphold the job search requirements will receive a job offer within six months of their graduation date, or we'll refund your tuition. See our Student Agreement for details.</Subtitle>
+              <Subtitle style={{fontSize:"1rem", width:"750px", lineHeight:"25px"}}className={`text-white text-center fs-6`}>We only succeed when you succeed. We guarantee that all students who complete the 16-week Bootcamp program and uphold the job search requirements will receive a job offer within six months of their graduation date, or we'll refund your tuition. See our Student Agreement for details.</Subtitle>
             </Col>
           </Row>
         </Container>

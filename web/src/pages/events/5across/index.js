@@ -111,7 +111,7 @@ const fiveAcrossPage = ({ data }) => {
             </Container>
             <Container fluid className={`mt-5 ${styles.pastPitches}`}>
                 <Row className="m-5 justify-content-center">
-                    <Col id={styles.largeTextCol} md="10" sm="12">
+                    <Col md="10" sm="12">
                         <Title className={`${styles.largeText} text-white mt-5 mb-3 text-uppercase`}>Over 10 years of putting the spotlight on Kentucky Entrepreneurs</Title>
                     </Col>
                 </Row>
