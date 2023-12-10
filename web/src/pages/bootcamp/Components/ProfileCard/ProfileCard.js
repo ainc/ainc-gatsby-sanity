@@ -17,7 +17,7 @@ const ProfileCard = (props) => {
         <div className={`${styles.profileCard} text-center`}>
             <GatsbyImage image={props.image} alt="Profile Image" className={`${styles.cardImg} img-circle`} />
         <div className={`${styles.cardContainer} background--gray rounded`}>
-            <Subtitle className="text-white fs-2 mt-4 pt-4 fancy-font">meet stephen</Subtitle>
+            <Subtitle className="text-white fs-2 mt-4 pt-4 fancy-font">meet {props.name.toString().toLowerCase()}</Subtitle>
             <p style={{fontSize:"12px", lineHeight:"12px"}} className="text-center text-white pt-2 mb-1 mx-3 mt-2 px-2">{props.text1}</p>
             <p style={{fontSize:"12px", lineHeight:"12px"}} className="text-center text-white text--micro pb-3 mx-3 px-0">{props.text2}</p>
         </div>
