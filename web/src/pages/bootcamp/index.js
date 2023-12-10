@@ -297,7 +297,7 @@ const BootcampPage = props => {
             </Row>
           </Col>
           <Row>
-            <Subtitle className="text-center brand fs-3 fancy-font fst-italic">yes!</Subtitle>
+            <Subtitle className="text-center brand fs-3 fancy-font fst-italic">Yes!</Subtitle>
             <br />
             <br />
             <Subtitle className="text-center pt-3 fs-6 subtitle--small pb-3"><b>If you answered yes to any of these, our Web Developer Bootcamp could be your next move.</b></Subtitle>
