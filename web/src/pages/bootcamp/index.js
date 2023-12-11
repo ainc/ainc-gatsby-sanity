@@ -182,7 +182,7 @@ const BootcampPage = props => {
                 <Title className='white text-uppercase text--big'> Launch your <br/> tech career</Title>
                 <h4 className= "w-75 text-end lh-md white mt-4 fw-lighter"><b>A 16 week immersive Bootcamp where you'll learn Full Stack coding skills to land a tech job... or your money back.</b></h4>
                 <a href="/bootcamp/apply"><BrandButton className="mt-3">Get Started</BrandButton></a>
-                <p style={{}}className="fst-italic">Start your application in less than 30 seconds</p>
+                <p className="fst-italic">Start your application in less than 30 seconds</p>
               </div>
             
             </Col>
@@ -263,7 +263,7 @@ const BootcampPage = props => {
                     </div>
                   </Row>
                   <Row className="me-5">
-                    <Title style={{}} className="text-center py-2 fs-3 text--medium white">Pay nothing until you land a job!</Title>
+                    <Title className="text-center py-2 fs-3 text--medium white">Pay nothing until you land a job!</Title>
                     <div>
                     <BrandButton onClick={() => scrollToSection(sectionCost)} className="justify-content-center">See How Here</BrandButton>
                     </div>
@@ -365,7 +365,7 @@ const BootcampPage = props => {
         <Container ref={sliderRef} className={`${styles.carousel} keen-slider pb-5`} > 
             <div className="keen-slider__slide number-slide1">
               <div style={{width:"40%"}} className="justify-content-center mx-auto py-3">
-                <StaticImage alt="Testimonial 1" style={{}} className={`${styles.aincuTestimonial} px-5 pt-5`} src="../../images/bootcamp-testimonials/alyssa-holber-linkedin.png"/>
+                <StaticImage alt="Testimonial 1" className={`${styles.aincuTestimonial} px-5 pt-5`} src="../../images/bootcamp-testimonials/alyssa-holber-linkedin.png"/>
               </div>
             </div>
           
@@ -451,7 +451,7 @@ const BootcampPage = props => {
           </Row>
           <Row className="mx-5">
             <Col className="d-flex justify-content-center">
-              <Subtitle style={{fontSize:"1rem", width:"750px", lineHeight:"25px"}}className={`text-white text-center fs-6`}>We only succeed when you succeed. We guarantee that all students who complete the 16-week Bootcamp program and uphold the job search requirements will receive a job offer within six months of their graduation date, or we'll refund your tuition. See our Student Agreement for details.</Subtitle>
+              <Subtitle style={{fontSize:"1rem", width:"750px", lineHeight:"25px"}} className={`text-white text-center fs-6`}>We only succeed when you succeed. We guarantee that all students who complete the 16-week Bootcamp program and uphold the job search requirements will receive a job offer within six months of their graduation date, or we'll refund your tuition. See our Student Agreement for details.</Subtitle>
             </Col>
           </Row>
         </Container>
@@ -459,7 +459,7 @@ const BootcampPage = props => {
 
       {/* Stats */}
  
-      <section id="stats" style={{backgroundColor: "#ED3742"}}className="background--brand pe-0">
+      <section id="stats" style={{backgroundColor: "#ED3742"}} className="background--brand pe-0">
         <Container fluid className={`${styles.stats}`}>
           <div className="mx-3 py-5">
             <Row className="pz-0 mx-5 py-0 justify-content-center">
@@ -529,7 +529,7 @@ const BootcampPage = props => {
 <section id="languages">
         <Container fluid className={`${styles.languages}`}>
           <Row>
-          <Subtitle style={{fontSize: "1.25rem"}}className="text-center fs-5 pb-3 mt-4"><b>With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using</b></Subtitle>
+          <Subtitle style={{fontSize: "1.25rem"}} className="text-center fs-5 pb-3 mt-4"><b>With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using</b></Subtitle>
           </Row>
           <Row>
                 <Col className={`${styles.languageIcons} d-flex justify-content-center py-4`}>
@@ -610,16 +610,16 @@ const BootcampPage = props => {
           <a href='https://www.awesomeinc.org/blog/what-we-look-for-bootcamp-student' className='link--brand' target='_blank'> What We Look For In A Bootcamp Student.</a></p>
           </Row>
           <Row className={`${styles.applyButtons} justify-content-center`}>
-            <div style={{}} xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-3 col-lg-3 offset-lg-1 col-xl-2 offset-xl-1 mb-3 justify-content-center">
+            <div xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-3 col-lg-3 offset-lg-1 col-xl-2 offset-xl-1 mb-3 justify-content-center">
               <a href="/bootcamp/apply"><BrandButton>Apply Now</BrandButton></a>
             </div>
           
-            <div style={{}} xs={12} sm={12} md={4} lg={4} xl={3}  className="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 mb-3 d-flex justify-content-center ">
+            <div  xs={12} sm={12} md={4} lg={4} xl={3}  className="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 mb-3 d-flex justify-content-center ">
                     <ApplyNowModal 
                     title="Schedule Call or Visit"
                     link="https://calendly.com/ainc/awesome-inc-call?"/>
             </div>
-            <div style={{} }xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-3 mb-3 d-flex justify-content-center ">
+            <div xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-3 mb-3 d-flex justify-content-center ">
                     <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
                      title="Download Program Guide"/>
             </div>
@@ -700,7 +700,7 @@ const BootcampPage = props => {
 
      <section id="still-unsure" className="pt-2">
         <Container fluid className={`${styles.stillUnsure} py-4`}>
-          <div style={{}} className="mx-5 text-center justify-content-center mx-auto">
+          <div className="mx-5 text-center justify-content-center mx-auto">
             <Title className="text-center pt-5 pb-3">Still unsure? Here's everyone else who took this same leap and hasn't looked back!</Title>
             <a href="../alumni">
               <BrandButton className="my-3 ">Meet Alumni</BrandButton>

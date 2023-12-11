@@ -7,7 +7,7 @@ import * as styles from '../testimonial.module.scss'
 
 const TestimonialContent = (props) => {
     return (
-        <div style={{height:""}}>
+        <div>
             <Row className='mx-3'>
                 <Col>
                     <h4 className="text-uppercase fw-bold mt-4" style={{float: "left"}}>{props.author}</h4>

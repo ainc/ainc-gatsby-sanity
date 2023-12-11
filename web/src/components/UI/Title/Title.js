@@ -47,4 +47,11 @@ const Title = (props) => {
   )
 }
 
-export default Title
+Title.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+  ])
+}
+
+
+export default Title;
