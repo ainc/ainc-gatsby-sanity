@@ -1,6 +1,7 @@
 import React from "react";
-import * as styles from "./Amenities.module.css";
 import { Image } from "react-bootstrap";
+
+import * as styles from "./Amenities.module.css";
 
 const Amenities = (props) => {
   return (

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
-import * as styles from "./BorderlessCard.module.css";
+
 import ModalCustom from "../Modal/ModalCustom";
+
+import * as styles from "./BorderlessCard.module.css";
 
 const MemberOption = (props) => {
   const [showModal1, setShowModal1] = useState(false);
@@ -10,7 +12,6 @@ const MemberOption = (props) => {
   const handleShowModal1 = () => setShowModal1(true);
   const handleCloseModal2= () => setShowModal2(false);
   const handleShowModal2= () => setShowModal2(true);
-
 
   return (
     <div> 

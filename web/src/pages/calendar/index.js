@@ -1,9 +1,8 @@
 import React from 'react';
-import Title from "../../components/UI/Title/Title";
-import Layout from '../../components/Layout/Layout';
 import { Container, Row, Col, } from 'react-bootstrap';
 
-import SEO from '../../components/seo';
+import Layout from '../../components/Layout/Layout';
+import Title from "../../components/UI/Title/Title";
 
 
 const Calendar = () => {

@@ -1,12 +1,14 @@
 import * as React from 'react'
-import Layout from '../../../components/Layout/Layout'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import { Container, Row, Col } from 'react-bootstrap'
+
+import BrandButton from "../../../components/UI/BrandButton/BrandButton"
+import FellowshipCompanyCard from '../../../components/FellowshipCompanyCard/FellowshipCompanyCard'
+import Layout from '../../../components/Layout/Layout'
 import SEO from '../../../components/seo'
 import Title from '../../../components/UI/Title/Title'
-import BrandButton from "../../../components/UI/BrandButton/BrandButton"
+
 import "../../../styles/main.scss"
-import FellowshipCompanyCard from '../../../components/FellowshipCompanyCard/FellowshipCompanyCard'
 
 const PortfolioPage = ({ data }) => {
 

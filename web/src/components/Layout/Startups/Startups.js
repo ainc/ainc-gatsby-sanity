@@ -1,10 +1,9 @@
 import * as React from "react";
-import Title from "../../../components/UI/Title/Title";
-import Subtitle from "../../../components/UI/Subtitle/Subtitle";
-import BrandButton from "../../../components/UI/BrandButton/BrandButton";
 import { Container, Row, Col } from "react-bootstrap";
 import { StaticImage } from "gatsby-plugin-image";
 
+import Subtitle from "../../../components/UI/Subtitle/Subtitle";
+import Title from "../../../components/UI/Title/Title";
 
 const Startups = () => {
   return (

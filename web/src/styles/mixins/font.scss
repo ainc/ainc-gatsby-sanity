@@ -34,3 +34,8 @@
     min-width: math.div(($param * 100), 12%);
 }
 
+@font-face {
+    font-family: 'The-Bohemian-Regular';
+    src: url('/fonts/The-Bohemian-Regular.woff') format('woff');
+}
+

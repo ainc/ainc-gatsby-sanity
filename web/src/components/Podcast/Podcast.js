@@ -1,7 +1,7 @@
 import React from "react";
-import * as styles from "./podcast.module.scss";
-import moment from 'moment';
 import { parse } from 'node-html-parser';
+
+import * as styles from "./podcast.module.scss";
 
 const Podcast = (props) => {
 
