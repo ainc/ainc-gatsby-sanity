@@ -27,7 +27,7 @@ const Page = ({ data }) => {
                 <p className='mt-5 fw-bold'>One of the next steps in your learn-to-code journey is to schedule an interview with our team. You can schedule one below or look for an email from us.</p>
                 <BrandButton onClick={handleShow}>Schedule Now</BrandButton>
                 <Modal show={showWidget} onHide={handleClose} centered>
-                    <InlineWidget url='https://calendly.com/ainc/bootcamp-interview' />
+                    {/* <InlineWidget url='https://calendly.com/ainc/bootcamp-interview' /> */}
                 </Modal>
             </Col>
             </Row>
