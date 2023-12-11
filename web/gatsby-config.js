@@ -17,6 +17,7 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-gatsby-cloud',
     { 
       resolve: 'gatsby-plugin-sharp',
       options: {

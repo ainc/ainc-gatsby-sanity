@@ -15,7 +15,6 @@ const Profile = ({ variant, name, image, linkedin, github, website, position, oc
 
   const handleMouseOver = (event) => {
     setShowText(event.target.id);
-    console.log('hello there')
   };
 
   const handleMouseOut = () => {
@@ -62,19 +61,19 @@ const Profile = ({ variant, name, image, linkedin, github, website, position, oc
               quality="100"
             />
             <div className={` ${styles.figcaption} ${showText == "fact" ? styles.figcaptionShow : "" }`}>
-              <p className={styles.attributeText}><span className='fw-bold'>Random Fact: </span>{fact}</p>
+              <div className={styles.attributeText}><p className='fw-bold'>Random Fact: </p>{fact}</div>
             </div>
             
             <div className={` ${styles.figcaption} ${showText == "rule" ? styles.figcaptionShow : ""}`}>
-              <p className={styles.attributeText}><span className='fw-bold'>Favorite Rule: </span>{rule}</p>
+              <div className={styles.attributeText}><p className='fw-bold'>Favorite Rule: </p>{rule}</div>
             </div>
 
             <div className={` ${styles.figcaption} ${showText == "song" ? styles.figcaptionShow : ""}`}>
-              <p className={styles.attributeText}><span className='fw-bold'>Favorite Song: </span>{song}</p>
+              <div className={styles.attributeText}><p className='fw-bold'>Favorite Song: </p>{song}</div>
             </div>
 
             <div className={` ${styles.figcaption} ${showText == "person" ? styles.figcaptionShow : ""}`}>
-              <p className={styles.attributeText}><span className='fw-bold'>Favorite Person: </span>{favoritePerson}</p>
+              <div className={styles.attributeText}><p className='fw-bold'>Favorite Person: </p>{favoritePerson}</div>
             </div>
           </div>
           <div className='buttonGroup'>
