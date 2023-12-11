@@ -57,7 +57,7 @@ const YouthPage = () => {
                             <StaticImage className={styles.phone} src='../../../images/learn/header-phone.png' alt='phone'></StaticImage>
                         </Col>
                         <Col sm={12} md={8} lg={6} xl={6} className='mt-3'>
-                            <Title className={styles.whyLearn}>why should my child learn to code?</Title>
+                            <Title>why should my child learn to code?</Title>
                             <p className='text-start'>Technology is all around us. Whether you are an app developer or an English professor, you will utilize technology in your daily work.
                                 Awesome Inc exists to take your child's screen time and turn it into career-skill time. Our courses increase communication, public speaking, organization,
                                 and social skills in a fun learning environment.</p>

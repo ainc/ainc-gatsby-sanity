@@ -1,11 +1,13 @@
  import React from "react";
 import { useStaticQuery, graphql } from 'gatsby';
-import Banner from '../Banner/Banner'
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
-import "../../styles/layout.css";
-import SEO from "../seo";
 import { useLocation } from "@reach/router";
+
+import Banner from '../Banner/Banner'
+import Footer from '../Footer/Footer'
+import Header from '../Header/Header'
+import SEO from "../seo";
+
+import "../../styles/layout.css";
 
 const Layout = ({ pageTitle, children, onHideNav, onShowNav, showNav, siteTitle}) => {
   const query = useStaticQuery(graphql`

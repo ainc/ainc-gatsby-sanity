@@ -11,9 +11,7 @@ export const styles = {
     headingFont: `'Open Sans', sans-serif`,
     subheadingFont: `'Open Sans', sans-serif`,
     baseFont: `'Open Sans', sans-serif`,
-    // fancyFont: `'Garamond', serif`
-    // fancyFont: `'Freestyle Script', serif`
-    fancyFont: `'Script MT Bold', cursive`
+    fancyFont: `'The-Bohemian-Regular', serif`
   },
   sizes: {
     title: `2.0rem`,

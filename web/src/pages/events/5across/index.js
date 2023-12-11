@@ -1,23 +1,19 @@
 import React from "react";
+import { useRef } from "react";
 import { graphql, Link } from "gatsby";
-import Layout from "../../../components/Layout/Layout";
-import { Container, Col, Row, Image } from "react-bootstrap";
-import SEO from '../../../components/seo'
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
-import "../../../styles/main.scss"
-import * as styles from "./fiveAcross.module.scss";
-import SocialMedia from "../../../components/SocialMedia/SocialMedia";
-import TeamMember from "../../../components/TeamMember/TeamMember";
-import OutlineDiv from "../../../components/DivOutline/DivOutline";
-import Title from "../../../components/UI/Title/Title";
-import Subtitle from "../../../components/UI/Subtitle/Subtitle";
+import { Container, Col, Row, Image } from "react-bootstrap";
+
 import BrandButton from "../../../components/UI/BrandButton/BrandButton";
-import FiveAcrossBG from '../../../images/5across-hero.png'
-// import Event from "../../../components/Event/Event";
 import DropdownDataDisplay from "../../../components/DropdownDataDisplay/DropdownDataDisplay";
 import HorizontalButtons from './HorizontalButtons';
-import { useRef } from "react";
+import Layout from "../../../components/Layout/Layout";
+import SocialMedia from "../../../components/SocialMedia/SocialMedia";
+import Subtitle from "../../../components/UI/Subtitle/Subtitle";
+import Title from "../../../components/UI/Title/Title";
 
+import "../../../styles/main.scss"
+import * as styles from "./fiveAcross.module.scss";
 
 
 const fiveAcrossPage = ({ data }) => {

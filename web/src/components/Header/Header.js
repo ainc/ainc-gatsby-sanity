@@ -1,11 +1,13 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
+
+import { useLocation } from "@reach/router";
 import { AiFillCaretDown } from "react-icons/ai";
 import { ImPlus } from "react-icons/im";
-import { useLocation } from "@reach/router";
-import "./header.scss"
-import "../../styles/main.scss"
+
+import BrandButton from '../UI/BrandButton/BrandButton';
+
 import { 
   Navbar,
   Nav,
@@ -14,9 +16,10 @@ import {
   Col
 } from 'react-bootstrap'
 
-import { navbarBrand } from './Header.module.scss'
-import BrandButton from '../UI/BrandButton/BrandButton';
 
+import "../../styles/main.scss"
+import { navbarBrand } from './Header.module.scss'
+import "./header.scss"
 
 const Header = () => {
 

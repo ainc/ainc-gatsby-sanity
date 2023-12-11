@@ -1,10 +1,10 @@
 import * as React from 'react';
-import Layout from '../../components/Layout/Layout';
 import { Container, Row, Col } from 'react-bootstrap';
-import SEO from '../../components/seo'
-import Title from '../../components/UI/Title/Title';
+import { StaticImage } from "gatsby-plugin-image";
+
+import Layout from '../../components/Layout/Layout';
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import Title from '../../components/UI/Title/Title';
 
 const IdeaPage = ({ data }) => {
 

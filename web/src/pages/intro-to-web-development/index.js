@@ -55,12 +55,12 @@ const IntroWebDevPage = ({ data }) => {
                 </Container>
                 <Container className={` ${styles.upcomingProgram}`}>
                     <Title className='text-white text-uppercase text-center pt-5 pb-5'>upcoming program dates</Title>
-                    {allSanityCourses.map((node) => (
-                        <div>
-                        <h2 className={`${styles.programText} fs-4 pt-3 text-uppercase text-white fw-bold text-center`}>{node.courseSeason}</h2>
-                        <h3 className={`${styles.programText} fs-5 text-white fw-bold text-center`}>{node.startDate}</h3>
-                        <h3 className='mb-1 text-uppercase fs-5 text-center text-white'>to</h3>
-                        <h3 className={`${styles.programText} fs-5 pb-5 text-white fw-bold text-center`}>{node.endDate}</h3>
+                    {allSanityCourses.map((node, i) => (
+                        <div key={i}>
+                            <h2 className={`${styles.programText} fs-4 pt-3 text-uppercase text-white fw-bold text-center`}>{node.courseSeason}</h2>
+                            <h3 className={`${styles.programText} fs-5 text-white fw-bold text-center`}>{node.startDate}</h3>
+                            <h3 className='mb-1 text-uppercase fs-5 text-center text-white'>to</h3>
+                            <h3 className={`${styles.programText} fs-5 pb-5 text-white fw-bold text-center`}>{node.endDate}</h3>
                         </div>
                         
                         

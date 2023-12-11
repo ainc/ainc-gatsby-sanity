@@ -2,6 +2,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+
 import * as styles from '../../../styles/Variables'
 
 const StyleTitle = styled.h1`
@@ -52,4 +53,5 @@ Title.propTypes = {
   ])
 }
 
-export default Title
+
+export default Title;
