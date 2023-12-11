@@ -38,7 +38,7 @@ const AboutPage = ({ data }) => {
                     technology or business. We strive to make Lexington a better place to live and
                     work.
                   </Subtitle>
-                  <a href="https://www.awesomeinc.org/assets/culture-book.pdf">
+                  <a href="/culture-book.pdf">
                     <BrandButton className={`text-nowrap`}>View Our Culture Book</BrandButton>
                   </a>
                   

@@ -87,7 +87,7 @@ const YouthPage = () => {
                             <Title className={` ${styles.engagedTitle} mt-5 text-uppercase ml-4 text-white`}>keep your kids engaged</Title>
                             <p className='text-start'>Your kids will have the support of our instructors - professional coders just a step, or a click away!</p>
                             <BrandButton onClick={handleShow} className='mb-5 text-uppercase'>meet the team</BrandButton>
-                            <Container className={styles.modalContainer}>
+                            <Container>
                                 <ModalCustom 
                                     lgShow={lgShow}
                                     hide={handleClose}
