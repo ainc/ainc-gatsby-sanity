@@ -43,9 +43,8 @@ const Subtitle = (props) => {
 
 Subtitle.propTypes = {
   children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object
+    PropTypes.node,
   ])
 }
 
-export default Subtitle
+export default Subtitle;
