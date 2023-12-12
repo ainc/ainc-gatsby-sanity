@@ -67,6 +67,8 @@ async function createBlogPostPages(graphql, actions) {
     createPage({
       path: i === 0 ? `/blog` : `/blog/${i + 1}`,  
       component: require.resolve("./src/templates/blog/blog-list-template.js"),
+      // component: require.resolve("./src/pages/blog/index.js"),
+
       context: {
         limit: blogsPerPage,
         skip: i * blogsPerPage,
