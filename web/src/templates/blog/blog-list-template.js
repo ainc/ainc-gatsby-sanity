@@ -1,3 +1,5 @@
+
+
 import React, { useState } from 'react'
 import { graphql, Link } from "gatsby";
 import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image'
@@ -11,7 +13,7 @@ import ModalCustom from '../../components/Modal/ModalCustom';
 import { FaBell } from "react-icons/fa";
 import BlogPreview from './BlogPreview';
 import  '../../styles/main.scss'; 
-import * as styles from "./blog-list-template.module.scss";
+import * as styles from "../blog/blog-list-template";
 
 
 
@@ -41,10 +43,11 @@ const BlogPage = ({pageContext, data }) => {
         <Layout>
             <SEO />
             <Container>
+                {currentBlog}
             
                 <Row className="mt-5" style={{ marginTop: '5rem' }}>
                     <Col xs={4} className='d-flex justify-content-center'>
-                        <Title className="text-uppercase">Blog</Title>
+                        <Title className="text-uppercase">Blogggg</Title>
                     </Col>
                     <Col xs={{ span: 4, offset: 4 }} className='d-flex justify-content-center'>
                         <a onClick={handleShow}><FaBell size={40} className='link--brand' /></a>
@@ -136,11 +139,10 @@ const BlogPage = ({pageContext, data }) => {
 }
 
 export const query = graphql`
-    query BlogPageQuery($skip: Int!, $limit: Int!) {
+    query BlogPageQuery {
         allSanityBlog (
             sort: {date: DESC}
-            skip: $skip,
-            limit: $limit 
+           
          ) {
             totalCount
             edges {
@@ -176,3 +178,5 @@ export const query = graphql`
 `
 
 export default BlogPage;
+
+
