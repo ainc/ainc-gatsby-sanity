@@ -139,9 +139,11 @@ const BlogPage = ({pageContext, data }) => {
 }
 
 export const query = graphql`
-    query BlogPageQuery {
+    query BlogPageQuery ($skip: Int!, $limit: Int!) {
         allSanityBlog (
-            sort: {date: DESC}
+            sort: {date: DESC},
+            skip: $skip,
+            limit: $limit
            
          ) {
             totalCount
