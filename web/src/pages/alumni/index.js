@@ -14,7 +14,7 @@ import Title from "../../components/UI/Title/Title";
 import Subtitle from '../../components/UI/Subtitle/Subtitle';
 import Profile from "../../components/Profile/Profile";
 
-import "../../styles/main.scss";
+import "./alumni.scss";
 
 export const query = graphql`
   query AlumniPageQuery {
@@ -71,13 +71,13 @@ const AlumniPage = props => {
         const bClass = data.allSanityBootcampClass.edges.find(({ node }) => node.title === b).node;
         return new Date(bClass.date) - new Date(aClass.date); // sort based on date in descending order
       })
-      .map((className) => (
+      .map((gradClass) => (
         <button
-          className={`classButton ${selectedClass === className ? "active" : ""}`}
-          key={className}
-          onClick={() => setSelectedClass(className)}
+          className={`classButton ${selectedClass === gradClass ? "active" : ""}`}
+          key={gradClass}
+          onClick={() => setSelectedClass(gradClass)}
         >
-          {className}
+          {gradClass}
         </button>
       ))
     : null;
