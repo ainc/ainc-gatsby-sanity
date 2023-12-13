@@ -295,7 +295,7 @@ export const query_upcoming_5a = graphql`
 query fiveAcrossQuery($currentDate: Date!) {
     allSanityEvents(
         filter: {reference: {eventTypeName: {eq: "5 Across"}}, date: {gte: $currentDate}}
-        sort: {order: ASC, fields: date}
+        sort: {date: ASC}
         limit: 1
     ) {
         nodes {
@@ -314,7 +314,7 @@ query fiveAcrossQuery($currentDate: Date!) {
             }
         }
     }
-    allSanityFiveAcrossWinners(sort: {order: ASC, fields: WinningDate}) {
+    allSanityFiveAcrossWinners(sort: {WinningDate: ASC}) {
         edges {
             node {
                 WinningDate

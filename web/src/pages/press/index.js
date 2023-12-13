@@ -103,7 +103,7 @@ const PressPage = ({ data }) => {
   
 export const query_press = graphql`
 query {
-    allSanityPress(sort: {fields: date, order: DESC}) {
+    allSanityPress(sort: {date: DESC}) {
       nodes {
         author
         linkToArticle

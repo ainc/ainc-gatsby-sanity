@@ -60,7 +60,7 @@ const LinksPage = ({ data }) => {
 
 export const query_links = graphql`
 query {
-    allSanityLinks(sort: {fields: title, order: DESC}) {
+    allSanityLinks(sort: {title: DESC}) {
       nodes {
         title
         linkToPage
