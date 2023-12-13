@@ -74,7 +74,7 @@ async function createPodcastPages(graphql, actions) {
     `
       {
         allFeedAnchorPodcast (
-            sort: { fields: [isoDate], order: DESC }
+            sort: { isoDate: DESC }
           ) {
             totalCount
             nodes {
@@ -184,7 +184,16 @@ exports.onCreatePage = ({ page, actions }) => {
     },
   })
 }
-
+exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
+    const config = getConfig()
+    const miniCssExtractPlugin = config.plugins.find(
+      plugin => plugin.constructor.name === 'MiniCssExtractPlugin'
+    )
+    if (miniCssExtractPlugin) {
+      miniCssExtractPlugin.options.ignoreOrder = true
+    }
+    actions.replaceWebpackConfig(config)
+}
 /**
  * Returns the current date in YYYY-MM-DD format
  */
@@ -200,3 +209,4 @@ function getCurrentDate() {
   }
   return `${d.getFullYear()}-${month}-${day}`;
 }
+
