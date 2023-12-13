@@ -24,7 +24,7 @@ query($currentDate: Date!) {
         courseTitle
         courseType
       }
-      max(field: courseTitle)
+      max(field: {courseTitle: SELECT})
     }
   }
   `;

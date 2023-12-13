@@ -1,6 +1,5 @@
-import * as React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-
+import * as React from 'react'
 import * as styles from './Banner.module.scss'
 
 const Banner = () => {
@@ -10,7 +9,7 @@ const Banner = () => {
       query newfiveAcrossQuery($currentDate: Date) {
         allSanityEvents(
           filter: {reference: {eventTypeName: {eq: "5 Across"}}, date: {gte: $currentDate}}
-          sort: {order: ASC, fields: date}
+          sort: {date: ASC}
         ) {
           nodes {
             eventName

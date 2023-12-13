@@ -37,7 +37,7 @@ export const query = graphql`
         }
       }
     }
-    allSanityBootcampClass(sort: { fields: date, order: DESC }) {
+    allSanityBootcampClass(sort: { date: DESC }) {
       edges {
         node {
           title

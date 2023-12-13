@@ -106,7 +106,7 @@ const PodcastPage = ({pageContext, data }) => {
 export const podcastInfo = graphql`
     query($skip: Int!, $limit: Int!){
       allFeedAnchorPodcast (
-          sort: { fields: [isoDate], order: DESC }
+          sort: { isoDate: DESC }
           skip: $skip,
           limit: $limit
         ) {

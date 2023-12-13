@@ -40,6 +40,7 @@
     "gatsby-source-sanity": "^7.8.0",
     "hero-slider": "^3.1.0",
     "keen-slider": "^6.7.0",
+    "mini-css-extract-plugin": "^2.7.6",
     "moment": "^2.29.4",
     "postcss": "^8.4.5",
     "react": "^18.2.0",

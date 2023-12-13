@@ -56,7 +56,7 @@ query IndexPageQuery($currentDate: Date!) {
     linkToEvent
     host
   }
-  allSanityEvents(sort: {fields: date, order: ASC}, filter: {date: {gte: $currentDate}}) {
+  allSanityEvents(sort: {date: ASC}, filter: {date: {gte: $currentDate}}) {
     nodes {
       id
       featured

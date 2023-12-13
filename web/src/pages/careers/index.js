@@ -71,7 +71,7 @@ export const query_careers = graphql`
   query {
     allSanityCareers(
       filter: { active: { eq: true } }
-      sort: { fields: careerTitle, order: DESC }
+      sort: { careerTitle: DESC }
     ) {
       nodes {
         active
