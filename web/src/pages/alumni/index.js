@@ -18,7 +18,7 @@ import "./alumni.scss";
 
 export const query = graphql`
   query AlumniPageQuery {
-    allSanityBootcampAlumni {
+    allSanityBootcampAlumni{
       nodes {
         id
         name
@@ -52,6 +52,7 @@ const AlumniPage = props => {
   const { data, errors } = props;
   const [selectedClass, setSelectedClass] = useState("");
 
+
   if (errors) {
     return (
       <Layout>
@@ -71,6 +72,7 @@ const AlumniPage = props => {
         const bClass = data.allSanityBootcampClass.edges.find(({ node }) => node.title === b).node;
         return new Date(bClass.date) - new Date(aClass.date); // sort based on date in descending order
       })
+
       .map((gradClass) => (
         <button
           className={`classButton ${selectedClass === gradClass ? "active" : ""}`}
@@ -82,6 +84,7 @@ const AlumniPage = props => {
       ))
     : null;
 
+
   // Add an "All Cohorts" button to the class list
   const allCohortsButton = (
     <button
@@ -92,12 +95,34 @@ const AlumniPage = props => {
       All Cohorts
     </button>
   );
+
   classList.unshift(allCohortsButton);
 
   let filteredNodes = alumniNodes;
   if (selectedClass) {
     filteredNodes = alumniNodes.filter(node => node.class.title === selectedClass);
   }
+  else {
+    //sort based on class date and job for 'All Cohorts' button
+  filteredNodes.sort((a, b) => {
+  const dateA = new Date(a.class.date);
+  const dateB = new Date(b.class.date);
+  const dateComparison = dateB - dateA;  //sort based on date in descending order
+
+  if (dateComparison !== 0){
+    return dateComparison
+  }
+
+  const jobComparison = b.job ? 1 : a.job ? -1 : 0; // prioritize node with job
+
+  if (jobComparison !== 0) {
+    return jobComparison;
+  }  
+
+});
+
+  }
+
 
   return (
     <Layout>
@@ -125,7 +150,7 @@ const AlumniPage = props => {
                 linkedin={node.linkedin}
                 github={node.github}
                 website={node.portfolio}
-                position={node.job}
+                position={node.job} 
               />
             </Col>
           ))}
@@ -136,7 +161,7 @@ const AlumniPage = props => {
           </Col>
         </Row>
         <Row className="d-flex justify-content-center mb-5">
-          <Col sm={6} md={5} lg={5} xl={10} className="mb-4">
+          <Col sm={6} md={5} lg={5} xl={10} className={`${styles.card} mb-4`}>
             <StaticImage quality='90' className="apax-logo me-3 mb-4" src="./images/apaxsoftware-logo.png" />
             <StaticImage quality='90' className="bigfans-logo me-3" src="./images/bigassfans-logo.png" />
             <StaticImage quality='90' className="blueframe-logo me-3" src="./images/blueframe-logo.png" />

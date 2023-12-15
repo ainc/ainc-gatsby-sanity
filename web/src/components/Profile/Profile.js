@@ -27,9 +27,10 @@ const Profile = ({ variant, name, image, linkedin, github, website, position, oc
       <Card className='rounded-0'>
         <div>
           <GatsbyImage image={image} className="card-img-top" alt={name} />
+          {position && <Ribbon position={position}></Ribbon>}
+
         </div>
         <Card.Body>
-          {position && <Ribbon position={position}></Ribbon>}
           <Card.Text className="text-center my-1 fs-6 fw-bold">{name}</Card.Text>
           {occupation && <p className='text-center text--micro mb-2'>{occupation}</p>}
           <ButtonGroup size="sm" className={`btn-group ${btnGroupFullWidth}`}>
