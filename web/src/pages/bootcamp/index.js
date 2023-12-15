@@ -76,6 +76,10 @@ export const query = graphql`
   sanityBootcamp {
     earlyApplication(formatString: "")
     earlyRegistration(formatString: "")
+    previousEndDate(formatString: "MMMM DD, YYYY")
+    previousStartDate(formatString: "MMMM DD, YYYY")
+    upcomingEndDate(formatString: "MMMM DD, YYYY")
+    upcomingStartDate(formatString: "MMMM DD, YYYY")
   }
 }
 `
@@ -216,16 +220,16 @@ const BootcampPage = props => {
           </Row>
           <Row>
               <Col xs={12} sm ={12}  md={4} lg={3} xl={3}  className={` ${styles.bootcampUpcomingdates} text-center ms-auto my-4 d-none d-sm-block`}> {/*Hidden on mobile*/}
-                <Title className="text-center text--medium fw-bolder">AUG 21, 2023</Title>
+                <Title className="text-center text--medium fw-bolder">{data.sanityBootcamp.previousStartDate}</Title>
                 <h4>TO</h4>
-                <Title className="text-center text--medium fw-bolder">DECEMBER 08, 2023</Title>
+                <Title className="text-center text--medium fw-bolder">{data.sanityBootcamp.previousEndDate}</Title>
                 <BrandButton className="secondary btn--small my-2" disabled="">APPLICATIONS CLOSED</BrandButton>
 
               </Col>
               <Col xs={12} sm={12} md={4} lg={3} xl={3} className="text-center  me-auto my-4">
-                <Title className="text-center text--medium brand fw-bolder">MAR 4, 2024</Title>
+                <Title className="text-center text--medium brand fw-bolder">{data.sanityBootcamp.upcomingStartDate}</Title>
                 <h4 className="brand">TO</h4>
-                <Title className="text-center text--medium brand fw-bolder">JUNE 21, 2024</Title>
+                <Title className="text-center text--medium brand fw-bolder">{data.sanityBootcamp.upcomingEndDate}</Title>
                 <a href="/bootcamp/apply"><BrandButton className="justify-content-center btn--small my-2" disabled="">APPLY NOW</BrandButton></a>
               </Col>
           </Row>

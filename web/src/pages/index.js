@@ -110,8 +110,6 @@ const IndexPage = ({ data }) => {
   let feature_event = (data.sanityEvents ? data.sanityEvents : events[0]) //if there is no featured event, then set the closest event to be featured
 
   let eventsNoFeature = []; {/* Create empty array for events to filter into */}
-  console.log(data.sanityEvents);
-  console.log(feature_event);
 
   events.forEach(event => {
       if(!event.eventName.includes(feature_event.eventName)) eventsNoFeature.push(event);  {/*if featured eventName == event.eventName then remove event from list*/}

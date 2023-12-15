@@ -50,7 +50,6 @@ const DropdownDataDisplay = (props) => {
         }
     }
     // var currentChoice = ""
-    console.log("Current Data: ", currentData)
 
 
   return (
