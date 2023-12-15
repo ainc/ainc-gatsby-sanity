@@ -10,7 +10,7 @@ const FiveAcrossWinnersCard = (props) => {
 
     let d = new Date(props.fiveAcrossDate)
     let formattedDate = d.toLocaleDateString('en-GB', { //formats date as MMMM YYYY
-        month: 'long', year: 'numeric'
+        month: 'long', year: 'numeric', timeZone: 'UTC'
       });
     
     //if no video is set by sanity, then default link to 5Across playlist
