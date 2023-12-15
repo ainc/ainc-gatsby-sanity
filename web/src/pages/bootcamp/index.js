@@ -1,28 +1,27 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Layout from "../../components/Layout/Layout";
-import { Container, Col, Row, Image } from "react-bootstrap";
-import SEO from '../../components/seo'
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
-import Title from "../../components/UI/Title/Title";
-import Subtitle from "../../components/UI/Subtitle/Subtitle";
-import BrandButton from "../../components/UI/BrandButton/BrandButton";
-import ProfileCard from "./Components/ProfileCard/ProfileCard";
-import GradStat from "./Components/GradStat/GradStat";
-import Testimonial from "./Components/Testimonial/Testimonial";
-import "../../styles/main.scss"
-import * as styles from './bootcamp.module.scss'
-import * as footerStyles from '../../components/Footer/Footer.module.scss'
-import ShieldsRow from "./Components/ShieldsRow/ShieldsRow";
-import VerticalTitle from "../../components/UI/VerticalTitle/VerticalTitle";
-import SideNav from "./Components/SideNav/SideNav"
-
-import ApplyNowModal from "../fellowship/Components/ApplyNowModal";
+import React, {useState} from "react";
 import { useRef } from "react";
-
+import { graphql } from "gatsby";
+import { Container, Col, Row, Image, Modal, Accordion} from "react-bootstrap";
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import {InlineWidget} from 'react-calendly'
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
+
+import ApplyNowModal from "../fellowship/Components/ApplyNowModal";
+import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import CountdownTimer from "./Components/CountdownTimer/CountdownTimer";
+import GradStat from "./Components/GradStat/GradStat";
+import Layout from "../../components/Layout/Layout";
+import ProfileCard from "./Components/ProfileCard/ProfileCard";
+import ShieldsRow from "./Components/ShieldsRow/ShieldsRow";
+import SideNav from "./Components/SideNav/SideNav"
+import Subtitle from "../../components/UI/Subtitle/Subtitle";
+import Testimonial from "./Components/Testimonial/Testimonial";
+import Title from "../../components/UI/Title/Title";
+
+import "../../styles/main.scss"
+import * as styles from './bootcamp.module.scss'
+
 
 
 export const query = graphql`
@@ -157,6 +156,14 @@ const BootcampPage = props => {
       },
     ]
   )
+  const[showWidget, setShowWidget] = useState(false);
+  const[showFAQ, setShowFAQ] = useState(false);
+
+  const handleFAQshow = () => setShowFAQ(true);
+  const handleFAQhide = () => setShowFAQ(false);
+
+  const handleShow = () => setShowWidget(true);
+  const handleClose = () => setShowWidget(false);
 
   return ( 
     <Layout>
@@ -175,7 +182,7 @@ const BootcampPage = props => {
                 <Title className='white text-uppercase text--big'> Launch your <br/> tech career</Title>
                 <h4 className= "w-75 text-end lh-md white mt-4 fw-lighter"><b>A 16 week immersive Bootcamp where you'll learn Full Stack coding skills to land a tech job... or your money back.</b></h4>
                 <a href="/bootcamp/apply"><BrandButton className="mt-3">Get Started</BrandButton></a>
-                <p style={{}}className="fst-italic">Start your application in less than 30 seconds</p>
+                <p className="fst-italic">Start your application in less than 30 seconds</p>
               </div>
             
             </Col>
@@ -256,7 +263,7 @@ const BootcampPage = props => {
                     </div>
                   </Row>
                   <Row className="me-5">
-                    <Title style={{}} className="text-center py-2 fs-3 text--medium white">Pay nothing until you land a job!</Title>
+                    <Title className="text-center py-2 fs-3 text--medium white">Pay nothing until you land a job!</Title>
                     <div>
                     <BrandButton onClick={() => scrollToSection(sectionCost)} className="justify-content-center">See How Here</BrandButton>
                     </div>
@@ -290,7 +297,7 @@ const BootcampPage = props => {
             </Row>
           </Col>
           <Row>
-            <Subtitle className="text-center brand fs-3 fancy-font fst-italic">yes!</Subtitle>
+            <Subtitle className="text-center brand fs-3 fancy-font fst-italic">Yes!</Subtitle>
             <br />
             <br />
             <Subtitle className="text-center pt-3 fs-6 subtitle--small pb-3"><b>If you answered yes to any of these, our Web Developer Bootcamp could be your next move.</b></Subtitle>
@@ -358,7 +365,7 @@ const BootcampPage = props => {
         <Container ref={sliderRef} className={`${styles.carousel} keen-slider pb-5`} > 
             <div className="keen-slider__slide number-slide1">
               <div style={{width:"40%"}} className="justify-content-center mx-auto py-3">
-                <StaticImage alt="Testimonial 1" style={{}} className={`${styles.aincuTestimonial} px-5 pt-5`} src="../../images/bootcamp-testimonials/alyssa-holber-linkedin.png"/>
+                <StaticImage alt="Testimonial 1" className={`${styles.aincuTestimonial} px-5 pt-5`} src="../../images/bootcamp-testimonials/alyssa-holber-linkedin.png"/>
               </div>
             </div>
           
@@ -414,7 +421,10 @@ const BootcampPage = props => {
                   but we're here to help! With coaching from Senior Developers and a curriculum built 
                   for you, we're ready to meet you where you're at, even if you're at step 0.
                 </p>
-                <BrandButton className={` mt-3`} style={{marginLeft: "0rem"}}>Schedule Call</BrandButton>
+                <BrandButton className={` mt-3`} style={{marginLeft: "0rem"}} onClick={handleShow}>Schedule Call</BrandButton>
+                <Modal show={showWidget} onHide={handleClose} centered>
+                    <InlineWidget url="https://calendly.com/ainc/awesome-inc-call" />
+                </Modal>
 
                 </div>
             </Col>
@@ -441,7 +451,7 @@ const BootcampPage = props => {
           </Row>
           <Row className="mx-5">
             <Col className="d-flex justify-content-center">
-              <Subtitle style={{fontSize:"1rem", width:"750px", lineHeight:"25px"}}className={`${styles.jobGuaranteeText} text-white text-center fs-6`}>We only succeed when you succeed. We guarantee that all students who complete the 16-week Bootcamp program and uphold the job search requirements will receive a job offer within six months of their graduation date, or we'll refund your tuition. See our Student Agreement for details.</Subtitle>
+              <Subtitle style={{fontSize:"1rem", width:"750px", lineHeight:"25px"}} className={`text-white text-center fs-6`}>We only succeed when you succeed. We guarantee that all students who complete the 16-week Bootcamp program and uphold the job search requirements will receive a job offer within six months of their graduation date, or we'll refund your tuition. See our Student Agreement for details.</Subtitle>
             </Col>
           </Row>
         </Container>
@@ -449,7 +459,7 @@ const BootcampPage = props => {
 
       {/* Stats */}
  
-      <section id="stats" style={{backgroundColor: "#ED3742"}}className="background--brand pe-0">
+      <section id="stats" style={{backgroundColor: "#ED3742"}} className="background--brand pe-0">
         <Container fluid className={`${styles.stats}`}>
           <div className="mx-3 py-5">
             <Row className="pz-0 mx-5 py-0 justify-content-center">
@@ -519,7 +529,7 @@ const BootcampPage = props => {
 <section id="languages">
         <Container fluid className={`${styles.languages}`}>
           <Row>
-          <Subtitle style={{fontSize: "1.25rem"}}className="text-center fs-5 pb-3 mt-4"><b>With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using</b></Subtitle>
+          <Subtitle style={{fontSize: "1.25rem"}} className="text-center fs-5 pb-3 mt-4"><b>With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using</b></Subtitle>
           </Row>
           <Row>
                 <Col className={`${styles.languageIcons} d-flex justify-content-center py-4`}>
@@ -600,16 +610,16 @@ const BootcampPage = props => {
           <a href='https://www.awesomeinc.org/blog/what-we-look-for-bootcamp-student' className='link--brand' target='_blank'> What We Look For In A Bootcamp Student.</a></p>
           </Row>
           <Row className={`${styles.applyButtons} justify-content-center`}>
-            <div style={{}} xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-3 col-lg-3 offset-lg-1 col-xl-2 offset-xl-1 mb-3 justify-content-center">
+            <div xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-3 col-lg-3 offset-lg-1 col-xl-2 offset-xl-1 mb-3 justify-content-center">
               <a href="/bootcamp/apply"><BrandButton>Apply Now</BrandButton></a>
             </div>
           
-            <div style={{}} xs={12} sm={12} md={4} lg={4} xl={3}  className="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 mb-3 d-flex justify-content-center ">
+            <div  xs={12} sm={12} md={4} lg={4} xl={3}  className="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 mb-3 d-flex justify-content-center ">
                     <ApplyNowModal 
                     title="Schedule Call or Visit"
                     link="https://calendly.com/ainc/awesome-inc-call?"/>
             </div>
-            <div style={{} }xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-3 mb-3 d-flex justify-content-center ">
+            <div xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-3 mb-3 d-flex justify-content-center ">
                     <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
                      title="Download Program Guide"/>
             </div>
@@ -619,7 +629,7 @@ const BootcampPage = props => {
     </section>
 
       {/* Timeline */}
-      <section id="timeline" style={{backgroundColor: "#e6e7e8"}} className="pt-5 ">
+      <section id="timeline" style={{backgroundColor: "#e6e7e8"}} className="pt-5 mb-3">
         <Container className={`${styles.timeline} pt-5 justify-content-center`}>
             <div className={`${styles.titleDiv} justify-content-center`}>
               <Title className={`${styles.timelineTitle}`}>Timeline</Title>
@@ -690,7 +700,7 @@ const BootcampPage = props => {
 
      <section id="still-unsure" className="pt-2">
         <Container fluid className={`${styles.stillUnsure} py-4`}>
-          <div style={{}} className="mx-5 text-center justify-content-center mx-auto">
+          <div className="mx-5 text-center justify-content-center mx-auto">
             <Title className="text-center pt-5 pb-3">Still unsure? Here's everyone else who took this same leap and hasn't looked back!</Title>
             <a href="../alumni">
               <BrandButton className="my-3 ">Meet Alumni</BrandButton>
@@ -701,11 +711,104 @@ const BootcampPage = props => {
       </section>
 
        {/* Questions */}
-      <section id="questions">
-        <Container fluid className={`${styles.questions}`}>
-          <div className="py-5 text-center">
-            <Title className="text-white pt-5 pb-3">Still have questions?</Title>
-            <BrandButton className="">See our Faqs</BrandButton>
+      <section id="questions" className={`${styles.questions}`}>
+        <Container className=''>
+          <div className="text-center">
+            <Title className="text-white pb-3">Still have questions?</Title>
+            <BrandButton onClick={handleFAQshow} className="">See our Faqs</BrandButton>
+            <Modal show={showFAQ} onHide={handleFAQhide} centered size='lg' scrollable>
+              <Modal.Body>
+              <Accordion>
+                <Accordion.Item eventKey='0' className='px-3 py-4'>
+                <Accordion.Header>What is Developer Bootcamp?</Accordion.Header>
+                <Accordion.Body>
+                Employers around the country are experiencing a shortage of well-qualified software developers, and Kentucky is no different. 
+                While there are several possible responses to this need, many regions have benefited from intensive training programs called Developer Bootcamps. 
+                The general model is a 3-month program, in batches of 10-20 students, with a curriculum for full-stack web development jobs. 
+                Bootcamps are taught by experienced software developers (10+ years industry experience), with a focus on quickly moving from basic skills to project experience.
+                High job placement rates (&gt;80% within 180 days of graduation) are the target for these programs. 
+                Successful programs are highly selective of their applicants, typically targeting college graduates and experienced professionals in their 20s, 30s, and 40s looking to make a career change.
+                </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey='1' className='px-3 py-3'>
+                <Accordion.Header>Who should apply?</Accordion.Header>
+                <Accordion.Body>
+                Our ideal applicants are professional men and women who are looking to transition into a career in software development. 
+                This program is not for everyone. Like all Awesome Inc initiatives, we've built this program on the foundation of our Core Values. 
+                CV #2 (Be Excellent) is a big part of this program. We expect that many of our candidates will have deep experience in a related field, such as graphic design, math/finance, or project management. 
+                Some applicants will have prior programming experience, maybe a class back in high school or college, but many will not.
+                Most of our applicants reside in Kentucky, and desire to live and work in the region after Bootcamp. 
+                Since the 12-week in-person phase of our program is full-time (8am - 5pm, five days per week), our candidates must be willing to sacrifice other commitments (such as outside employment) to focus on learning for that duration.
+                </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey='2' className='px-3 py-3'>
+                <Accordion.Header>What is the cost of the Bootcamp?</Accordion.Header>
+                <Accordion.Body>
+                Tuition for the Bootcamp is $15,500. Financing and flexible payment plans are available. Once accepted, a $500 deposit is due to confirm your spot in the program. 
+                If the only thing keeping you from participating in the program is finances, please contact us and we'll do our best to work with you to find a solution.
+                </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey='3' className='px-3 py-3'>
+                <Accordion.Header>Are scholarships available?</Accordion.Header>
+                <Accordion.Body>
+                Yes. Through employer partners such as APAX Software, partial scholarships are available. 
+                Once you've applied for the Bootcamp, please fill out the <a href='https://docs.google.com/forms/d/e/1FAIpQLSd9t_ECAVqVVHWNalx-hiUiOeRk7hk94uZQEGBu7Vt48Uu5PQ/viewform' className= 'link--brand'>scholarship application</a> for more information.
+                </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey='4' className='px-3 py-3'>
+                <Accordion.Header>When is the next class?</Accordion.Header>
+                <Accordion.Body>
+                Our next Bootcamp cohort (Spring 2024, i.e. S24) begins Onboarding on Monday, March 4, 
+                then moves to intensive classes from Monday, March 4 - Friday, June 21. The application deadline for the S24 cohort is Friday, January 19.
+                </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey='5' className='px-3 py-3'>
+                <Accordion.Header>What will I learn?</Accordion.Header>
+                <Accordion.Body>
+                Our curriculum provides what we and our employer partners see as necessary skills for a junior-level software developer. 
+                First, we'll help you learn how to learn (seriously, there are some lifehacks you'll wish you had during college chemistry class). 
+                Then we will start with programming and computer science basics, dive into the building blocks of web pages (HTML, CSS, JS), then get into the server side of 
+                web applications (databases, SQL, Python/Node.js/Ruby/PHP, web frameworks, AWS), all with plenty of exposure to modern development systems and tools (Git, GitHub, Agile, TDD, UI/UX design). 
+                Through all of this, our focus is on making real, working software projects. We can print off a certificate for you at the end if you're the sentimental type, 
+                but this experience is really about making things, working with a team, building your project portfolio, and networking with the local developers and companies who we hope will be your future co-workers and employers.
+                As software development is a rapidly-changing field, we update some our specific technology offerings for each cohort. A few past offerings:
+                <ul>
+                  <li>Spring 2022 - Fall 2023: JavaScript, Python, React, MySQL, Django, GitPod, Google Cloud</li>
+                  <li>Spring 2021 - Fall 2021: JavaScript, PHP, React, MySQL, Laravel, Codeanywhere</li>
+                  <li>Fall 2019 - Fall 2020: JavaScript, PHP, React, MySQL, Laravel, Google Cloud</li>
+                  <li>Fall 2017 - Spring 2019: JavaScript, PHP, VueJS, PostgreSQL or MySQL, Laravel, Heroku</li>
+                  <li>Summer 2017: JavaScript, PHP, AngularJS, PostgreSQL, Laravel, Heroku</li>
+                  <li>Fall 2016: JavaScript, Python, AngularJS, PostgreSQL, Django, AWS</li>
+                </ul>
+                </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey='6' className='px-3 py-3'>
+                <Accordion.Header>What is Prework?</Accordion.Header>
+                <Accordion.Body>
+                Prework is like a summer reading assignment for Bootcamp. It's what our accepted students work on independently prior to working with our instructional team.
+                Prework helps to prepare students for Onboarding, the first four weeks of lessons which are delivered remotely. 
+                This helps us to hit the ground running on week one of the intensive Bootcamp phase, while minimizing the time our students spend out of full-time work. 
+                Our students start with different prior experiences, so we want to make sure everyone is starting at (nearly) the same spot.
+                And we want that spot to be somewhere beyond absolute zero. Our program is an intense 16 weeks, but without the prework, we couldn't fit in all that you'll need.
+                The Intro to Web Development is a part-time, evening course intended to cover most of the Prework and Onboarding content, 
+                with the added benefits of an in-person instructor and a slower pace (nine weeks instead of four). For someone who wants to explore coding before committing to Bootcamp,
+                 or who wants to get a head start on Bootcamp content, the <a href='intro-to-web-development' className='link--brand'>Intro to Web Development</a> is a great opportunity.
+                </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey='7' className='px-3 py-3'>
+                <Accordion.Header>Do I need a laptop?</Accordion.Header>
+                <Accordion.Body>
+                Yes, students are required to furnish their own laptop computer for the Bootcamp program. The minimum requirements are:
+                <ul>
+                  <li>Operating System: the latest version of macOS (recommended), Windows, or Ubuntu</li>
+                  <li>Processor: Intel Core i5 or faster (recommended: <a href='https://browser.geekbench.com/mac-benchmarks' className='link--brand'>Geekbench score</a> &gt;600)</li>
+                  <li>RAM: 8 GB</li>
+                </ul>
+                </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
+              </Modal.Body>
+            </Modal>
           </div>
         </Container>
       </section>

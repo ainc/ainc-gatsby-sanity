@@ -1,6 +1,6 @@
 import React from "react"
-// import { DiagonalDiv } from './Diagonal.module.scss';
 import styled from 'styled-components';
+
 import * as styles from '../../../styles/Variables';
 
 const Rotation = -5;

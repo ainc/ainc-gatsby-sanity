@@ -4,7 +4,7 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 import { FaPlay } from "react-icons/fa";
 import ModalCustom from "../../../../components/Modal/ModalCustom";
 import TourBtn from "../../../../images/schedule-a-tour-button-white.png";
-import Space from "../../../../images/awesome-inc-space-banner.jpeg";
+import Space from "../../../../images/awesome-inc-space-banner.jpg";
 import Arrow from "../../../../images/arrow.png";
 
 const SeeTheSpace = (props) => {

@@ -54,8 +54,10 @@ const SalesforcePage = ({ data }) => {
                             <Subtitle className='text-white'>TO</Subtitle>
                             <Subtitle className="fw-bold text-white">06.15.23</Subtitle>
                         </Col>
-                        <div className="button">
+                        <div>
+                            <Col>
                             <a href='https://calendly.com/mack-hanes/salesforce-info-chat' target='_blank'><BrandButton>Let's chat</BrandButton></a>
+                            </Col>
                         </div>
                     </Row>
                 </Container>
@@ -128,7 +130,7 @@ const SalesforcePage = ({ data }) => {
                                 <li className='list-item'>Online collaboration tools to thrive in remote or hybrid work environments</li>
                                 <li className='list-item'>Career coaching to connect with employers and stand out in the job application process</li>
                             </ol>
-                            <BrandButton>Let's chat</BrandButton>
+                                <BrandButton>Let's chat</BrandButton>
                         </Col>
                         <Col xs={12} md={5} lg={{ span: 6 }} xl={{ span: 5, offset: 1 }}>
                             <StaticImage qualtiy='100' src="./images/salesforce-logo.png" alt="Salesforce Image" />

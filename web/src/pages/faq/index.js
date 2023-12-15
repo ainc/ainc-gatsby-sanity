@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Container, Row, Col, Badge } from 'react-bootstrap'
-import SEO from '../../components/seo'
-import { Link } from 'gatsby'
-import Title from '../../components/UI/Title/Title'
+
 import Accordion from 'react-bootstrap/Accordion'
 import AccordionBody from 'react-bootstrap/esm/AccordionBody';
 import AccordionHeader from  'react-bootstrap/esm/AccordionHeader';
 import AccordionItem from 'react-bootstrap/esm/AccordionItem';
+
 import Layout from '../../components/Layout/Layout'
+import Title from '../../components/UI/Title/Title'
 
 const FAQPage = () => {
     return (

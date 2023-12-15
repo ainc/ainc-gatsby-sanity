@@ -1,9 +1,8 @@
 import React from "react";
-import { GatsbyImage} from "gatsby-plugin-image";
-import { Container, Col, Row, Image } from "react-bootstrap";
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+import { Col, Row } from "react-bootstrap";
+
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
+
 import * as styles from './FiveAcrossWinnersCard.module.scss'
 
 

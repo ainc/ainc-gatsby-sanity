@@ -1,13 +1,14 @@
 import * as React from 'react'
-import { Col, Container, Row } from 'react-bootstrap';
-import SEO from '../../components/seo'
-import Layout from "../../components/Layout/Layout";
-import Title from "../../components/UI/Title/Title";
-import Subtitle from '../../components/UI/Subtitle/Subtitle';
-import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import { graphql } from "gatsby";
-import * as styles from "./careers.module.scss";
+import { Col, Container, Row } from 'react-bootstrap';
 import BlockContent from '@sanity/block-content-to-react';
+
+import BrandButton from "../../components/UI/BrandButton/BrandButton";
+import Layout from "../../components/Layout/Layout";
+import Subtitle from '../../components/UI/Subtitle/Subtitle';
+import Title from "../../components/UI/Title/Title";
+
+import * as styles from "./careers.module.scss";
 
 const CareersPage = ({ data }) => {
   const allCareers = (data.allSanityCareers.nodes || {})
@@ -42,7 +43,7 @@ const CareersPage = ({ data }) => {
                 <section id={node.careerTitle} key={node.id}>
                     <Title className={`${styles.careerTitle} mt-4`}>{node.careerTitle}</Title>
                     <BlockContent className={styles.careerBody} blocks={node._rawBody} />
-                    <a className={`${styles.managerEmail} link--brand `} href={`mailto:${node.manager_email}`}>Questions? Email {node.manager} {node.manager_email}</a>
+                    <a className={`${styles.managerEmail} link--brand`} href={`mailto:${node.manager_email}`}>Questions? Email: {node.manager} {node.manager_email}</a>
                     <div>
                       <a className={`${styles.brandButton}`} href={node.linkToForm}>
                       <BrandButton>Apply here
@@ -70,7 +71,7 @@ export const query_careers = graphql`
   query {
     allSanityCareers(
       filter: { active: { eq: true } }
-      sort: { fields: careerTitle, order: DESC }
+      sort: { careerTitle: DESC }
     ) {
       nodes {
         active

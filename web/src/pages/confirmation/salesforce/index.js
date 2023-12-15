@@ -1,9 +1,9 @@
 import * as React from 'react';
-import Layout from '../../../components/Layout/Layout';
 import { Container, Row, Col, } from 'react-bootstrap';
-import SEO from '../../../components/seo'
+import { StaticImage } from "gatsby-plugin-image";
+
 import BrandButton from "../../../components/UI/BrandButton/BrandButton";
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import Layout from '../../../components/Layout/Layout';
 
 const Page = ({ data }) => {
 

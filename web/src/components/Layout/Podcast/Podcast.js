@@ -1,11 +1,13 @@
 import * as React from "react";
 import { Row, Col } from "react-bootstrap"
-import Title from "../../../components/UI/Title/Title";
-import Subtitle from "../../../components/UI/Subtitle/Subtitle";
+
 import BrandButton from "../../../components/UI/BrandButton/BrandButton";
-import "../../../styles/main.scss"
+import Subtitle from "../../../components/UI/Subtitle/Subtitle";
+import Title from "../../../components/UI/Title/Title";
+
 import podcastLogo from "../../../images/ainc_podcast_logo@2x.png"
 
+import "../../../styles/main.scss"
 
 const Podcast = () => {
   return (

@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { graphql, Link } from "gatsby";
-import {
-  mapEdgesToNodes,
-  filterOutDocsWithoutSlugs,
-  filterOutDocsPublishedInTheFuture
-} from "../../lib/helpers";
+// import {
+//   mapEdgesToNodes,
+//   filterOutDocsWithoutSlugs,
+//   filterOutDocsPublishedInTheFuture
+// } from "../../lib/helpers";
 import { Col, Container, Row } from 'react-bootstrap';
+import { StaticImage } from "gatsby-plugin-image";
+
 import GraphQLErrorList from "../../components/graphql-error-list";
-import Profile from "../../components/Profile/Profile";
-import SEO from "../../components/seo";
 import Layout from "../../containers/layout";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from '../../components/UI/Subtitle/Subtitle';
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
-import * as styles from "./alumni.scss";
-import "../../styles/main.scss";
+import Profile from "../../components/Profile/Profile";
+
+import "./alumni.scss";
 
 export const query = graphql`
   query AlumniPageQuery {
@@ -37,7 +37,7 @@ export const query = graphql`
         }
       }
     }
-    allSanityBootcampClass(sort: { fields: date, order: DESC }) {
+    allSanityBootcampClass(sort: { date: DESC }) {
       edges {
         node {
           title
@@ -73,14 +73,13 @@ const AlumniPage = props => {
         return new Date(bClass.date) - new Date(aClass.date); // sort based on date in descending order
       })
 
-
-      .map((className) => (
+      .map((gradClass) => (
         <button
-          className={`classButton ${selectedClass === className ? "active" : ""}`}
-          key={className}
-          onClick={() => setSelectedClass(className)}
+          className={`classButton ${selectedClass === gradClass ? "active" : ""}`}
+          key={gradClass}
+          onClick={() => setSelectedClass(gradClass)}
         >
-          {className}
+          {gradClass}
         </button>
       ))
     : null;

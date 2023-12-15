@@ -1,9 +1,6 @@
 import React from "react";
 import { GatsbyImage} from "gatsby-plugin-image";
 import * as styles from "./events.module.scss";
-import styled from "styled-components";
-import Title from "../../components/UI/Title/Title";
-import { Container, Col, Row, Image } from "react-bootstrap";
 
 const Event = (props) => {
   const host = (props.host != null) ? `Host: ${props.host}` : "Host: To Be Determined"

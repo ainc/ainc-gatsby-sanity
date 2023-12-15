@@ -87,7 +87,7 @@ const Page = ({ data }) => {
         logical thinking skills, and brain power. The camp is kept small to ensure everyone gets focused attention.
       </p>
 
-      <img className="mb-4 img-fluid" src={weekOfCodeRelayPicture} alt="Week of Code Relay" />
+      <img className="mb-4 img-fluid" style={{width: '70rem'}}src={weekOfCodeRelayPicture} alt="Week of Code Relay" />
 
       <h4 className="fw-bold mb-4">In this course, your student will:</h4>
 

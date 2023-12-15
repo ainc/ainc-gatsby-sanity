@@ -1,6 +1,7 @@
 const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
 const { paginate } = require('gatsby-awesome-pagination');
+const { createRedirect } = require('gatsby-plugin-netlify');
 
 async function createBlogPostPages(graphql, actions) {
   const { createPage } = actions;
@@ -73,7 +74,7 @@ async function createPodcastPages(graphql, actions) {
     `
       {
         allFeedAnchorPodcast (
-            sort: { fields: [isoDate], order: DESC }
+            sort: { isoDate: DESC }
           ) {
             totalCount
             nodes {
@@ -147,6 +148,14 @@ async function createNotePages(graphql, actions) {
 
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
+  const { createRedirect } = actions
+  //internal
+  createRedirect({fromPath: `/5across`, toPath: `/events/5across`, isPermanent: true, force: true, redirectInBrowser: true})
+  createRedirect({fromPath: `/5across/program`, toPath: `/program`, isPermanent: true, force: true, redirectInBrowser: true})
+
+  //external
+  createRedirect({fromPath: `https://awesomeincu.com/`, toPath: `/learn`, isPermanent: true, force: true, redirectInBrowser: true})
+
   await createPodcastPages(graphql, actions)
   await createBlogPostPages(graphql, actions)
   await createNotePages(graphql, actions)
@@ -157,7 +166,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
     createNodeField({
-      name: `slug`,
+      name: `slug`, 
       node,
       value,
     })
@@ -175,7 +184,16 @@ exports.onCreatePage = ({ page, actions }) => {
     },
   })
 }
-
+exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
+    const config = getConfig()
+    const miniCssExtractPlugin = config.plugins.find(
+      plugin => plugin.constructor.name === 'MiniCssExtractPlugin'
+    )
+    if (miniCssExtractPlugin) {
+      miniCssExtractPlugin.options.ignoreOrder = true
+    }
+    actions.replaceWebpackConfig(config)
+}
 /**
  * Returns the current date in YYYY-MM-DD format
  */
@@ -191,3 +209,4 @@ function getCurrentDate() {
   }
   return `${d.getFullYear()}-${month}-${day}`;
 }
+
