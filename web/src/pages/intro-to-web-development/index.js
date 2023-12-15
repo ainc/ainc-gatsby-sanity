@@ -41,7 +41,7 @@ const IntroWebDevPage = ({ data }) => {
                     <Title className='pt-5 pb-2 text-center text-uppercase'>intro to web development</Title>
                     </Col>
                     <Col xs={{span:6, offset: 3}} sm={6} md={{offset:3}} lg={{offset: 3}} xl={{ offset: 3, span: 6 }}>
-                       <a className='d-flex justify-content-center' href='https://www.eventbrite.com/e/intro-to-web-development-remote-spring-2023-tickets-479978607937'><BrandButton className='px-3 text-uppercase mb-5'>register now</BrandButton></a> 
+                       <a className='d-flex justify-content-center' href='https://www.eventbrite.com/e/intro-to-web-development-remote-spring-2024-tickets-768626050207?aff=oddtdtcreator'><BrandButton className='px-3 text-uppercase mb-5'>register now</BrandButton></a> 
                     </Col>
                     </Container>
                     <Container className={`my-5 ${styles.bottomIntro}`}>
@@ -124,7 +124,7 @@ const IntroWebDevPage = ({ data }) => {
                             <li className={` ${styles.curriculumList} mb-2`}>Getting Data from APIs</li>
                             <li className={` ${styles.curriculumList} mb-2`}>Final Project</li>
                         </ol>
-                        <a className='d-flex justify-content-start' href='https://www.awesomeinc.org/'><BrandButton className='ms-3 mt-3 px-3 text-uppercase mb-5'>let's chat</BrandButton></a>
+                        <a className='d-flex justify-content-start' href='/contact'><BrandButton className='ms-3 mt-3 px-3 text-uppercase mb-5'>let's chat</BrandButton></a>
                     </Col>
                     <Col md={6} lg={{span: 6}} xl={{span: 5}}>
                         <StaticImage className='mb-3 pe-3' src='../../images/bootcamp/languages/languages-showcase.png'></StaticImage>
@@ -189,7 +189,7 @@ const IntroWebDevPage = ({ data }) => {
                 </Container>
                 <Container className={`mobile-hide-bg ${styles.register}`}>
                     <Col  xs={{offset:3, span: 6}} sm={{offset: 3, span: 6}} md={{offset: 4, span: 4}} lg={{offset:4, span: 4}} xl={{ offset: 3, span: 6 }}>
-                        <a  className={` d-flex justify-content-center`} href='https://www.eventbrite.com/e/intro-to-web-development-remote-spring-2023-tickets-479978607937' >
+                        <a  className={` d-flex justify-content-center`} href='https://www.eventbrite.com/e/intro-to-web-development-remote-spring-2024-tickets-768626050207?aff=oddtdtcreator' >
                             <BrandButton className={`secondary text-uppercase px-3 my-5`}>register now</BrandButton></a>
                             {/* still need to fit button between arrows for smaller screen sizes/fix button responsiveness for entire page */}
                     </Col>

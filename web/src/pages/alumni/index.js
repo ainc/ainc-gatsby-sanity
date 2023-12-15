@@ -161,7 +161,7 @@ const AlumniPage = props => {
           </Col>
         </Row>
         <Row className="d-flex justify-content-center mb-5">
-          <Col sm={6} md={5} lg={5} xl={10} className={`${styles.card} mb-4`}>
+          <Col sm={6} md={5} lg={5} xl={10} className={`card mb-4`}>
             <StaticImage quality='90' className="apax-logo me-3 mb-4" src="./images/apaxsoftware-logo.png" />
             <StaticImage quality='90' className="bigfans-logo me-3" src="./images/bigassfans-logo.png" />
             <StaticImage quality='90' className="blueframe-logo me-3" src="./images/blueframe-logo.png" />
