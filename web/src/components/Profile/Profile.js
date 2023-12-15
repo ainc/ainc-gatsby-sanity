@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-// import { graphql } from 'gatsby'
 import { ButtonGroup, Button, Card, Container, Row, Col } from "react-bootstrap";
 import { GatsbyImage } from "gatsby-plugin-image";
+
 import Ribbon from "../Ribbon/Ribbon";
-import * as styles from './Profile.module.scss'
-// import {FaUser} from 'react-icons/fa';
-import { btnGroupFullWidth } from "./Profile.module.scss";
+
 import "../../styles/main.scss"
+import * as styles from './Profile.module.scss'
+import { btnGroupFullWidth } from "./Profile.module.scss";
 
 
 const Profile = ({ variant, name, image, linkedin, github, website, position, occupation, fact, rule, song, favoritePerson }) => {
@@ -15,7 +15,6 @@ const Profile = ({ variant, name, image, linkedin, github, website, position, oc
 
   const handleMouseOver = (event) => {
     setShowText(event.target.id);
-    console.log('hello there')
   };
 
   const handleMouseOut = () => {
@@ -58,24 +57,24 @@ const Profile = ({ variant, name, image, linkedin, github, website, position, oc
           <div className={styles.pictureDiv}>
             <GatsbyImage
               image={image}
-              className={`card-img-top ${styles.profileImage}`}
+              className={`card-img-top`}
               alt={name}
               quality="100"
             />
             <div className={` ${styles.figcaption} ${showText == "fact" ? styles.figcaptionShow : "" }`}>
-              <p className={styles.attributeText}><p className='fw-bold'>Random Fact: </p>{fact}</p>
+              <div className={styles.attributeText}><p className='fw-bold'>Random Fact: </p>{fact}</div>
             </div>
             
             <div className={` ${styles.figcaption} ${showText == "rule" ? styles.figcaptionShow : ""}`}>
-              <p className={styles.attributeText}><p className='fw-bold'>Favorite Rule: </p>{rule}</p>
+              <div className={styles.attributeText}><p className='fw-bold'>Favorite Rule: </p>{rule}</div>
             </div>
 
             <div className={` ${styles.figcaption} ${showText == "song" ? styles.figcaptionShow : ""}`}>
-              <p className={styles.attributeText}><p className='fw-bold'>Favorite Song: </p>{song}</p>
+              <div className={styles.attributeText}><p className='fw-bold'>Favorite Song: </p>{song}</div>
             </div>
 
             <div className={` ${styles.figcaption} ${showText == "person" ? styles.figcaptionShow : ""}`}>
-              <p className={styles.attributeText}><p className='fw-bold'>Favorite Person: </p>{favoritePerson}</p>
+              <div className={styles.attributeText}><p className='fw-bold'>Favorite Person: </p>{favoritePerson}</div>
             </div>
           </div>
           <div className='buttonGroup'>

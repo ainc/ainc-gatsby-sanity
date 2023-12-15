@@ -1,9 +1,10 @@
 import React from "react";
 import * as styles from './FellowshipCompanyCard.module.scss';
-import "../../styles/main.scss"
 import { Container } from "react-bootstrap";
+
 import Title from "../UI/Title/Title";
 
+import "../../styles/main.scss"
 
 const FellowshipCompanyCard = (props) => {
 

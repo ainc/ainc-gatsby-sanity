@@ -1,11 +1,13 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
+
+import { useLocation } from "@reach/router";
 import { AiFillCaretDown } from "react-icons/ai";
 import { ImPlus } from "react-icons/im";
-import { useLocation } from "@reach/router";
-import "./header.scss"
-import "../../styles/main.scss"
+
+import BrandButton from '../UI/BrandButton/BrandButton';
+
 import { 
   Navbar,
   Nav,
@@ -14,9 +16,10 @@ import {
   Col
 } from 'react-bootstrap'
 
-import { navbarBrand } from './Header.module.scss'
-import BrandButton from '../UI/BrandButton/BrandButton';
 
+import "../../styles/main.scss"
+import { navbarBrand } from './Header.module.scss'
+import "./header.scss"
 
 const Header = () => {
 
@@ -127,7 +130,7 @@ const Header = () => {
                 <a href="/idea" className='pt-0'>I Have an Idea</a>
                 <a href="/fellowship">Startup Accelerator</a>
                 <a href="/events/5across">5 Across</a>
-                <a href="https://www.awesomeinc.org/assets/community-yearbook.pdf" target="_blank" rel="_noopener">Community Yearbook</a> {/*Need to add yearbooks and possibly other assets*/}
+                <a href="/community-yearbook.pdf" target="_blank" rel="_noopener">Community Yearbook</a> {/*Need to add yearbooks and possibly other assets*/}
               </div>
             </Col>
 
@@ -147,7 +150,7 @@ const Header = () => {
                           <a href="/idea">I Have an Idea</a>
                           <a href="/fellowship">Startup Accelerator</a>
                           <a href="/events/5across">5 Across</a>
-                          <a href="https://www.awesomeinc.org/assets/community-yearbook.pdf"
+                          <a href="/community-yearbook.pdf"
                             target="_blank"
                             rel="noopener">
                               Community Yearbook

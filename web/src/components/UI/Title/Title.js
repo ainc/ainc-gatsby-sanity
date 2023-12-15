@@ -2,6 +2,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+
 import * as styles from '../../../styles/Variables'
 
 const StyleTitle = styled.h1`
@@ -48,9 +49,9 @@ const Title = (props) => {
 
 Title.propTypes = {
   children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object,
+    PropTypes.node,
   ])
 }
 
-export default Title
+
+export default Title;

@@ -1,9 +1,8 @@
 import * as React from 'react'
-import { Col, Row, Container, Badge } from 'react-bootstrap'
-import Accordion from 'react-bootstrap/Accordion';
+import { Col, Badge } from 'react-bootstrap'
 import AccordionBody from 'react-bootstrap/esm/AccordionBody';
-import AccordionHeader from 'react-bootstrap/esm/AccordionHeader';
 import AccordionItem from 'react-bootstrap/esm/AccordionItem';
+import Accordion from 'react-bootstrap/Accordion';
 
 const AccordionCustom = (props) => {
 

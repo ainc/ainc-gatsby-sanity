@@ -48,7 +48,7 @@ query CoursesPageQuery {
     const adultCoursesNodes = (data.allSanityCourses.nodes || {})
     return(
     <Layout>
-        <Container className={styles.container}>
+        <Container>
             <Col>
                 <Title className={styles.headingText}>Adult Courses</Title>
             </Col>
