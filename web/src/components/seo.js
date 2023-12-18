@@ -107,6 +107,36 @@ function SEO({ description, lang, meta, keywords, title, path, jsImports }) {
     >
     <link rel="icon" type="image/png" href={favicon} sizes="16x16" />
     <jsImports />
+    {/*Google tag manager */}
+    <script>
+            {`
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-WVS8Q79');
+            `}
+    </script>
+    {/*End Google tag manager */}
+
+    {/*Google tag (gtag.js*/}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2X6W47GSDL"></script>
+          <script>
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-10985315854');
+              gtag('config', 'G-2X6W47GSDL');
+            `}
+          </script>
+   {/*End Google tag (gtag.js*/}
+   
+   <script type="text/javascript" src="/zoho-marketing-hub.js"></script>
+   <script type="text/javascript" src="/zoho-cookie.js"></script>
+   <script type="text/javascript" src="/facebook-pixel-code.js"></script>
+   <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v14.0&appId=405237331509908&autoLogAppEvents=1" nonce="CPsa0mSK"></script>
+
     </Helmet>
   );
 }
