@@ -4,8 +4,9 @@ import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 import { useLocation } from "@reach/router";
 import favicon from'../images/logo.png'
+import ZohoSales from "./Scripts/ZohoSales";
 
-function SEO({ description, lang, meta, keywords, title, path }) {
+function SEO({ description, lang, meta, keywords, title, path, jsImports }) {
   console.log("Current Page: ", useLocation().pathname);
 
   const data = useStaticQuery(
@@ -105,6 +106,7 @@ function SEO({ description, lang, meta, keywords, title, path }) {
         .concat(meta)}
     >
     <link rel="icon" type="image/png" href={favicon} sizes="16x16" />
+    <jsImports />
     </Helmet>
   );
 }

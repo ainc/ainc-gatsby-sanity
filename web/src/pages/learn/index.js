@@ -12,6 +12,7 @@ import styled from 'styled-components'
 import BlockQuote from '../../components/BlockQuote/BlockQuote'
 import BackgroundPicture from '/src/images/phone-booth-abstract.jpg'
 import ImageOutline from '../../components/ImageOutline/ImageOutline'
+import ZohoSales from "../../components/Scripts/ZohoSales";
 
 const ProvenBackground = styled.div`
 &::before {
@@ -32,7 +33,7 @@ const ProvenBackground = styled.div`
 
 const LearnPage = ({ data }) => {
   return (
-    <Layout>
+    <Layout jsImport={ZohoSales}>
       {/* Header section */}
      
       <Container fluid>
