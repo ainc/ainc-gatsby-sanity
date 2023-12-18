@@ -18,6 +18,7 @@ import SideNav from "./Components/SideNav/SideNav"
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import Testimonial from "./Components/Testimonial/Testimonial";
 import Title from "../../components/UI/Title/Title";
+import ZohoSales from "../../components/Scripts/ZohoSales";
 
 import "../../styles/main.scss"
 import * as styles from './bootcamp.module.scss'
@@ -169,8 +170,9 @@ const BootcampPage = props => {
   const handleShow = () => setShowWidget(true);
   const handleClose = () => setShowWidget(false);
 
+
   return ( 
-    <Layout>
+    <Layout jsImport={ZohoSales}>
 
       {/* Add SEO Component Here?? */}
       
