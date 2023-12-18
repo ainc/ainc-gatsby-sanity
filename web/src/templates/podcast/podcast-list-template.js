@@ -12,6 +12,7 @@ import * as styles from "./podcast.module.scss";
 import '../../styles/main.scss'
 import Podcast from "../../components/Podcast/Podcast";
 
+
 const PodcastPage = ({pageContext, data }) => {
     const {currentPage, numPages} = pageContext
 

@@ -47,6 +47,7 @@ export default {
             type: 'image',
             title: 'Cover Image',
             description: 'The image that will show on the main blog page'
+           
         },
         {
             name: 'body',
