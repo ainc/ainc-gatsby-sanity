@@ -13,7 +13,7 @@ import ModalCustom from '../../components/Modal/ModalCustom';
 import { FaBell } from "react-icons/fa";
 import BlogPreview from './BlogPreview';
 import  '../../styles/main.scss'; 
-import * as styles from "../blog/blog-list-template";
+import * as styles from "./blog-list-template.module.scss";
 
 
 
@@ -41,13 +41,11 @@ const BlogPage = ({pageContext, data }) => {
 
     return (
         <Layout>
-            <SEO />
             <Container>
-                {currentBlog}
             
                 <Row className="mt-5" style={{ marginTop: '5rem' }}>
                     <Col xs={4} className='d-flex justify-content-center'>
-                        <Title className="text-uppercase">Blogggg</Title>
+                        <Title className="text-uppercase">Blog</Title>
                     </Col>
                     <Col xs={{ span: 4, offset: 4 }} className='d-flex justify-content-center'>
                         <a onClick={handleShow}><FaBell size={40} className='link--brand' /></a>
