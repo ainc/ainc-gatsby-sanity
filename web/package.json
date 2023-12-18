@@ -43,6 +43,7 @@
     "react-bootstrap": "^2.8.0",
     "react-calendly": "^4.3.0",
     "react-countdown": "^2.3.5",
+    "react-countdown-circle-timer": "^3.2.1",
     "react-dom": "^18.2.0",
     "react-eventbrite-popup-checkout": "^2.0.8",
     "react-helmet": "^6.1.0",

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, } from 'react-bootstrap';
 import Layout from '../../../components/Layout/Layout';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+import * as styles from "../interview/interview.module.scss"
+import { FaSquare } from 'react-icons/fa';
 
 const InterviewPage = () => {
     const [isTimerComplete, setIsTimerComplete] = useState(false);
@@ -20,18 +22,20 @@ const InterviewPage = () => {
                 <Row>
                     <p  className='ms-3' style={{fontSize: "1.5 rem"}}>  Thank you for scheduling a call with us. Please check your inbox and confirm that you can make the scheduled time. </p>
                 </Row>
-                <Row>
+                <Row className='justify-content-center'> 
                     {!isTimerComplete ? (
                         <CountdownCircleTimer 
                             isPlaying
                             duration={290} // 4 minutes 50 seconds
                             onComplete={handleTimerComplete}
                             colors={[['#ff0000']]}
-                            size={120}
+                            strokeLinecap = {'square'}
+                            strokeWidth= {'5'}
+                            size={60}
                             >
-                            {({ remainingTime }) => (
+                            {({ remainingTime}) => (
                                 <div>
-                                <h1 style={{ fontSize: 24}}>{`${Math.floor(remainingTime / 60).toString().padStart(2, '0')}:${(remainingTime % 60).toString().padStart(2, '0')}`}</h1>
+                                <h1 style={{ fontSize: 16, marginLeft: "25px", marginTop: "5px", fontWeight: "bold"}}>{`${Math.floor(remainingTime / 60).toString().padStart(2, '0')}:${(remainingTime % 60).toString().padStart(2, '0')}`}</h1>
                                 </div>
                             )}
                         </CountdownCircleTimer>
