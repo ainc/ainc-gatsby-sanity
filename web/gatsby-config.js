@@ -10,7 +10,7 @@ const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
   flags: {
-    DEV_SSR: true // enable server-side rendering to bypass `netlify build`
+    // DEV_SSR: true // enable server-side rendering to bypass `netlify build`
   },
   plugins: [
     'gatsby-plugin-postcss',
@@ -52,7 +52,7 @@ module.exports = {
       resolve: `gatsby-plugin-react-svg`,
       options: {
         rule: {
-          include: `${__dirname}/src/assets/svg`
+          include: /\.inline\.svg$/
         }
       }
     },
