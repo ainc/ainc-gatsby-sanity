@@ -8,6 +8,7 @@ async function createBlogPostPages(graphql, actions) {
   const result = await graphql(`
   {
     allSanityBlog {
+      totalCount
       edges {
         node {
           date
@@ -40,21 +41,11 @@ async function createBlogPostPages(graphql, actions) {
   // console.log(JSON.stringify(result, null, 4));
 
   if (result.errors) throw result.errors;
-
   
-
+  //Create individual blog post
   const postEdges = result.data.allSanityBlog.edges;
 
-  console.log("Post found: " + postEdges.length)
-  console.log("First Post: "+ postEdges[0].node.title)
-
   postEdges.forEach((edge) => {
-      // console.log("Edge: " + edge)
-      // console.log("types: " + typeof(edge.node.id))
-      // console.log("Edge ID: " + edge.node)
-      // console log the edge object
-
-
       // const id = edge.node.id;
       const path = `/blog/${edge.node.slug.current}`;
 
@@ -66,7 +57,30 @@ async function createBlogPostPages(graphql, actions) {
         },
       });
     });
+
+
+  //pagination for all blog posts
+  const blogCount = result.data.allSanityBlog.totalCount
+  const blogsPerPage = 9
+  const numBlogs = Math.ceil(blogCount/ blogsPerPage)
+
+  Array.from({ length: numBlogs }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/blog` : `/blog/${i + 1}`,  
+      component: require.resolve("./src/templates/blog/blog-list-template.js"),
+      // component: require.resolve("./src/pages/blog/index.js"),
+
+      context: {
+        limit: blogsPerPage,
+        skip: i * blogsPerPage,
+        numBlogs,
+        currentBlog: i + 1,
+      }
+    })
+  })   
 }
+
+ 
 
 async function createPodcastPages(graphql, actions) {
   const { createPage } = actions
