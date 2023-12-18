@@ -1,3 +1,5 @@
+
+
 import React, { useState } from 'react'
 import { graphql, Link } from "gatsby";
 import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image'
@@ -9,12 +11,13 @@ import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import ModalCustom from '../../components/Modal/ModalCustom';
 import { FaBell } from "react-icons/fa";
-import BlogPreview from '../../templates/blog/BlogPreview';
-import '../../styles/main.scss'
-import "./blog.scss";
+import BlogPreview from './BlogPreview';
+import  '../../styles/main.scss'; 
+import * as styles from "./blog-list-template.module.scss";
 
 
-const BlogPage = ({ data }) => {
+
+const BlogPage = ({pageContext, data }) => {
     const [lgShow, setLgShow] = useState(false);
     const handleClose = () => setLgShow(false);
     const handleShow = () => setLgShow(true);
@@ -22,15 +25,24 @@ const BlogPage = ({ data }) => {
 
     const defaultBgImageUrl = '/web/src/images/logo.png'
 
+    const blogs = (data.allSanityBlog.edges)
+
+    const {currentBlog, numBlogs} = pageContext
+    const isFirst = currentBlog === 1
+    const isLast = currentBlog === numBlogs
+    const prevPage = currentBlog - 1 === 1 ? "" : (currentBlog - 1).toString()
+    const nextPage = (currentBlog + 1).toString()
+
     React.useEffect(() => {
         setBlogData(data.allSanityBlog.edges)
+        // console.log("hihi", pageContext)
 
     })
 
     return (
         <Layout>
-            <SEO />
             <Container>
+            
                 <Row className="mt-5" style={{ marginTop: '5rem' }}>
                     <Col xs={4} className='d-flex justify-content-center'>
                         <Title className="text-uppercase">Blog</Title>
@@ -78,6 +90,7 @@ const BlogPage = ({ data }) => {
                     />
                 </Row>
             </Container>
+            
             <Container className='px-1 pb-3 pb-lg-5'>
                 <Row className="mb-5 mx-3">
                     {blogData.map((edge) => {
@@ -89,13 +102,49 @@ const BlogPage = ({ data }) => {
                     })}
                 </Row>
             </Container>
+
+            <h5 className='text-center mb-5 mt-5'>
+                <Row className={`${styles.pageNumberAll}` }>
+                    <Col >
+                    {!isFirst && (
+                            <a href={`${prevPage == 1 ? "" : `/blog/${prevPage}`}`} rel="prev" className={styles.page}>
+                            ← Previous Page 
+                            </a>
+                        )}
+                    </Col>
+                    <Col>
+                        {Array.from({ length: numBlogs }, (_, i) => (
+                                <a href = {`/blog/${i === 0 ? "" : i + 1}`} className={styles.page} key={`pagination-number${i + 1}`}  style={{
+                                    textDecoration: 'none',
+                                    color: i + 1 === currentBlog ? '#323333' : '',
+                                }}>
+                                {i + 1}
+                                </a>
+                        ))}
+                    </Col>
+                    <Col>
+                    {!isLast && (
+                            <a href={`/blog/${nextPage}`} className={styles.page} rel="next">
+                            Next Page →
+                            </a>
+                        )}
+                   
+                    </Col>
+                </Row>
+            </h5>
         </Layout>
     )
 }
 
 export const query = graphql`
-    query BlogPageQuery {
-        allSanityBlog(sort: {date: DESC}) {
+    query BlogPageQuery ($skip: Int!, $limit: Int!) {
+        allSanityBlog (
+            sort: {date: DESC},
+            skip: $skip,
+            limit: $limit
+           
+         ) {
+            totalCount
             edges {
                 node {
                     date(formatString: "MMMM DD, YYYY")
@@ -113,7 +162,11 @@ export const query = graphql`
                         name
                         picture {
                             asset {
-                            gatsbyImageData
+                            gatsbyImageData(
+                                width: 100
+                                height: 100
+                                layout: FIXED
+                            )
                             }
                         }
                         title
@@ -125,3 +178,5 @@ export const query = graphql`
 `
 
 export default BlogPage;
+
+
