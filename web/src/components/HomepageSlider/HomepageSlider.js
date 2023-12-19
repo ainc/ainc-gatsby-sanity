@@ -9,6 +9,7 @@ import BrandButton from "../UI/BrandButton/BrandButton";
 import Subtitle from "../UI/Subtitle/Subtitle";
 import Title from "../UI/Title/Title";
 import Wrapper from "../UI/Wrapper/Wrapper";
+import './HomepageSlider.module.scss'
 
 const HomepageSlider = (props) => {
   const {scrollToSection, sectionIds} = props
@@ -69,11 +70,11 @@ const HomepageSlider = (props) => {
       }
     }
   `);
-
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent); //fixes slider images on safari
   const slides = (query.sanityImageSlider.slides || {});
   return (
     <>
-      <div ref={sliderRef} className="keen-slider">
+      <div ref={sliderRef} className={`keen-slider ${isSafari ? 'safari-fix' : ''}`}>
       {slides.map((slide,i) => (
         <div className={`keen-slider__slide number-slide${i}`} key={i}>
           <div style={{ 
@@ -84,6 +85,7 @@ const HomepageSlider = (props) => {
               height: '100vh',
               backgroundPosition: 'center center',
             }}
+            className={isSafari ? 'safari-fix' : ''}
           >
             <Wrapper>
               <Container className="mb-3 d-flex align-content-center flex-wrap h-100">
