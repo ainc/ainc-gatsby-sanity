@@ -47,6 +47,7 @@ $bg-filter-blur: blur(2px) grayscale(0.8);
 .bg-filter-mute {
   background-image: url($image-path);
   background-size: cover;
+  background-attachment: scroll; // for safari
   overflow: auto;
   position: relative;
   z-index: 2; //-2 was making links unclickable, 2 gives the same effect and makes links work
