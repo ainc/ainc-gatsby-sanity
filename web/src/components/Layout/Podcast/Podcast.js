@@ -18,7 +18,7 @@ const Podcast = () => {
         </Col>
         <Col xs={12} md={7} lg={7} xl={5}>
           <Title className="fw-bold text-center pt-5 pb-5 text--big">
-            Check out <a href='https://podcasters.spotify.com/pod/show/awesomeinc' className='link--brand'> Awesome Inc's Podcast!</a>
+            Check out <a href='https://podcasters.spotify.com/pod/show/awesomeinc' target='_blank' className='link--brand'> Awesome Inc's Podcast!</a>
           </Title>
           <Subtitle className='text-center fw-bold'>
             Have a podcast? Record yours from our space!

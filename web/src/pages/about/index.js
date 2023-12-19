@@ -29,7 +29,7 @@ const AboutPage = ({ data }) => {
             <Row>
               <Col className="col-9 col-sm-7 mt-3">
                 <div className={styles.heading}>
-                  <Title className={`text-normal mt-5`}>
+                  <Title className={`mt-5`}>
                     We exist to help people pursue their definition of awesome.
                   </Title>
                   <Subtitle className={`fs-6 mt-2 mb-5`}>
