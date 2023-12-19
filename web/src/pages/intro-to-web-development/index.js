@@ -15,16 +15,14 @@ import { graphql } from 'gatsby';
 import laptopGIF from '../../images/animated-projects.gif'
 
 export const query = graphql` 
-query($currentDate: Date!) {
-        allSanityCourses(filter: {startDate: {gte: $currentDate}}) {
+query MyQuery {
+    allSanityCourses(filter: {courseTitle: {eq: "Intro To Web Development"}}) {
       nodes {
-        startDate(formatString: "MM.D.YYYY")
-        endDate(formatString: "MM.D.YYYY")
+        startDate(formatString: "MMMM DD")
+        endDate(formatString: "MMMM DD")
         courseSeason
         courseTitle
-        courseType
       }
-      max(field: {courseTitle: SELECT})
     }
   }
   `;
