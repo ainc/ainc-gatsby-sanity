@@ -81,7 +81,7 @@ const HomepageSlider = (props) => {
               backgroundImage: `url(${slide.image.asset.url})`,
               backgroundRepeat: 'no-repeat',
               backgroundSize: 'cover',
-              backgroundAttachment: 'scroll',
+              backgroundAttachment: 'scroll', //for safari
               height: '100vh',
               backgroundPosition: 'center center',
             }}
