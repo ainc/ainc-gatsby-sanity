@@ -73,6 +73,9 @@ $bg-filter-blur: blur(2px) grayscale(0.8);
 .bg--brand-color {
   background-color: $brand-color;
 }
+.bg--brand-light {
+  background-color: $brand-light;
+}
 
 .border-right--white {
   border-right: 2px solid #fff;

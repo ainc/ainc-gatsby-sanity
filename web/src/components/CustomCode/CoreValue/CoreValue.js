@@ -24,7 +24,7 @@ const CoreValue = (props) => {
                   
                 </Col>
                 <Col sm="4">
-                  <a id="culture-book-btn" href="https://www.awesomeinc.org/assets/culture-book.pdf" target="_blank" rel="noopener">
+                  <a id="culture-book-btn" href="/culture-book.pdf" target="_blank" rel="noopener">
                       <StaticImage quality='100' src='./culture-book-button.png' alt="Core values video" />
                   </a>
                 </Col>
