@@ -34,17 +34,17 @@ const Startups = () => {
             <div className="h-100 my-5">
               <a href='/fellowship'>
               <StaticImage 
-                  className='d-block mx-auto w-50 m-5 bg--brand-color' 
+                  className='d-block mx-auto m-5 bg--brand-light rounded-circle' 
                   quality='100'
                   objectFit="contain"
                   height='150px'
                   width='150px'
-                  style={{borderRadius: '50%'}}
+                  style={{width: '150px', height: '150px'}}
                   src='../../../images/accelerate-your-startup.png'
                   alt="Rocket Icon"
                 />
               </a>
-              <Subtitle className="text-center brand fw-bold">Accelerate Your Startup</Subtitle>
+              <Subtitle className="text-center brand fw-bold ">Accelerate Your Startup</Subtitle>
               <p className="text-center">Our <span className='fw-bold'>Fellowship Program</span> is mentor-driven, designed to accelerate your high-tech startup.</p>
             </div>
           </Col>

@@ -78,7 +78,9 @@ const SalesforcePage = ({ data }) => {
                         <Col sm={{ span: 8, offset: 2 }} xs={12} className="d-flex justify-content-end">
                             <StaticImage quality='100' className="arrow-container me-3" src="./images/arrow-down-left.png" alt="Arrow Image" />
                             <div>
-                                <BrandButton>What is Salesforce?</BrandButton>
+                                <a href='https://www.youtube.com/embed/xx2sK-QiBjw?rel=0&controls=0'>
+                                    <BrandButton>What is Salesforce?</BrandButton>
+                                </a>
                             </div>
                         </Col>
                     </Row>
@@ -130,7 +132,7 @@ const SalesforcePage = ({ data }) => {
                                 <li className='list-item'>Online collaboration tools to thrive in remote or hybrid work environments</li>
                                 <li className='list-item'>Career coaching to connect with employers and stand out in the job application process</li>
                             </ol>
-                                <BrandButton>Let's chat</BrandButton>
+                                <a href='https://calendly.com/mack-hanes/salesforce-info-chat' target='_blank'><BrandButton>Let's chat</BrandButton></a>
                         </Col>
                         <Col xs={12} md={5} lg={{ span: 6 }} xl={{ span: 5, offset: 1 }}>
                             <StaticImage qualtiy='100' src="./images/salesforce-logo.png" alt="Salesforce Image" />
@@ -174,7 +176,9 @@ const SalesforcePage = ({ data }) => {
                     </p>
                 </Container>
                 <div className="my-5 d-flex justify-content-center">
+                    <a href='/salesforce/apply'>
                     <BrandButton>Apply now</BrandButton>
+                    </a>
                 </div>
             </section>
 

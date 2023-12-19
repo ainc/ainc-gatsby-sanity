@@ -621,9 +621,10 @@ const BootcampPage = props => {
             </div>
           
             <div  xs={12} sm={12} md={4} lg={4} xl={3}  className="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 mb-3 d-flex justify-content-center ">
-                    <ApplyNowModal 
-                    title="Schedule Call or Visit"
-                    link="https://calendly.com/ainc/awesome-inc-call?"/>
+            <BrandButton onClick={handleShow}>Schedule Call or Visit</BrandButton>
+                <Modal show={showWidget} onHide={handleClose} centered>
+                    <InlineWidget url="https://calendly.com/ainc/awesome-inc-call" />
+                </Modal>
             </div>
             <div xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-3 mb-3 d-flex justify-content-center ">
                     <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"

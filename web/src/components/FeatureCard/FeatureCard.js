@@ -16,7 +16,7 @@ const FeatureCard = (props) => {
     <Card className=''>
       <figure className={`card--gradient-bg position-relative`}>
       <Card.Img src={props.image?.images?.fallback.src || '../../images/ainc-logo-horizontal-white-text.png'} alt={props.title} className={`p-2 card__img--overlay object-fit-cover ${styles.cardImage}`} />
-        <a href="#">
+        <a href={props.link} target="_blank">
           <Card.ImgOverlay className="m-2">
             <div className="card__gradient-bg">
               <Row className='row row-cols-small'>
