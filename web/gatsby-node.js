@@ -169,6 +169,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   //external
   createRedirect({fromPath: `https://awesomeincu.com/`, toPath: `/learn`, isPermanent: true, force: true, redirectInBrowser: true})
+  createRedirect({fromPath: `https://5across.org/`, toPath: `/events/5across`, isPermanent: true, force: true, redirectInBrowser: true})
+  createRedirect({fromPath: `https://awesomeincu.com/*`, toPath: `/learn`, isPermanent: true, force: true, redirectInBrowser: true})
+  createRedirect({fromPath: `https://awesomeincu.com`, toPath: `/learn`, isPermanent: true, force: true, redirectInBrowser: true})
+
+
+
 
   await createPodcastPages(graphql, actions)
   await createBlogPostPages(graphql, actions)
