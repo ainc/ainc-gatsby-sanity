@@ -121,8 +121,8 @@ query {
           timeRequirement
           description
           designedFor
-          startDate(formatString: "MMMM d, YYYY")
-          endDate(formatString: "MMMM d, YYYY")
+          startDate(formatString: "MMMM D, YYYY")
+          endDate(formatString: "MMMM D, YYYY")
           picture {
             asset {
               gatsbyImageData(height: 200)
