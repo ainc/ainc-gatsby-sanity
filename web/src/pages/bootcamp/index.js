@@ -420,7 +420,7 @@ const BootcampPage = props => {
                 <Title className="text-uppercase py-3 " style={{marginLeft: "0px"}}>Why Awesome Inc?</Title>
                 <p style={{borderRight:"1.5px solid #C12029", lineHeight:"25px",}} className={`mb-3 mt-4 pe-4`}>At Awesome Inc, everything we do starts with our Core Values. 
                   We care about people, and making a difference in our community. 
-                  That's why we want to help 120 everyone we can learn the life changing skill of coding. 
+                  That's why we want to help everyone we can learn the life changing skill of coding. 
                   And while doing that, we've seen that the best way to learn a new skill is to get 
                   the right help on your journey. It's so easy to waste time trying to learn something 
                   by yourself, constantly running into problems, and getting frustrated along the way, 
@@ -508,7 +508,7 @@ const BootcampPage = props => {
                 <Title className="text-uppercase text-center mt-4">Companies who have hired our graduates</Title>
               </Row>
               <Col>
-                <Row className="row-cols-lg-5 my-lg-5 mx-lg-5">
+                <Row className="row-cols-lg-5 mt-lg-5 mb-lg-1 mx-lg-5">
                   {employers.map((node,i) => (
                     <div key={i} className="text-center" xs={12} >
                       <GatsbyImage 
@@ -525,6 +525,11 @@ const BootcampPage = props => {
                     </div>
                   ))}
                 </Row>
+                <div className="text-center">
+                  <p style={{ marginTop: `0`, fontSize: `10px`}}>
+                    <b>and over 50 more companies</b>
+                  </p>
+                </div>
               </Col>
             </Col>
           </Row>
@@ -682,7 +687,7 @@ const BootcampPage = props => {
                       partnered with industry-leading ISA provider Meratas to 
                       allow students to enroll in our full-time program with no 
                       up front tuition costs. ISA recipients only pay when they've 
-                      landed a job making $40,000/year or more. Want to know 
+                      landed a job making $45,000/year or more. Want to know 
                       more? Schedule a call today!
                     </p>
                   </Row>
@@ -698,7 +703,7 @@ const BootcampPage = props => {
                   </Row>
                   <Row className="mx-5">
                     <p style={{fontSize:"1rem"}} className="text-justify text-center">
-                      Students who choose to pay tuition up front are offered a discounted tuition rate of $13,500.
+                      Students who choose to pay tuition up front are offered a discounted tuition rate of $15,500.
                     </p>
                   </Row>
                 </Col>
