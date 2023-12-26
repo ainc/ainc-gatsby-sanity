@@ -74,10 +74,10 @@
 
     
 
-    .shieldText {
+    .shieldDiv {
         font-weight: 100;
         width:100px;
-        height: 10px;
+        height: auto;
         display: flex;
         text-align: center;
         justify-self: center;
@@ -85,15 +85,26 @@
         
 
         @include screen-md{
-            width: 90px;
+            width: 100%
         }
         @include screen-sm{
-            width: 90px;
+            width: 100%;
         }
        
         // @include screen-tablet-max {
         //     @include font-size(12);
         // }
         // padding: 1.5rem 2.75rem 2.5rem 2.75rem;
+    }
+    .shieldText{
+        font-size: 1rem;
+
+        @include screen-md{
+            font-size: 0.75rem;
+        }
+        @include screen-xs {
+            font-size: 0.5rem;
+        }
+
     }
 }

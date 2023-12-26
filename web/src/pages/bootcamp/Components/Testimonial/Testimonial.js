@@ -26,44 +26,50 @@ function Testimonial(props) {
 
     const [data, setData] = React.useState({
         author: "",
-        content: ""
+        content: "",
+        hoveredImage: null, // Track the currently hovered image
     })
 
     React.useEffect(() => {
-        setData({...data, ['author']: props.name2, ['content']: props.testimonial2})
+        setData({...data, ['author']: props.name1, ['content']: props.testimonial1})
     }, [])
 
-    const handleTestimonialClick = (e, author, content) => {
-        e.preventDefault()
-        setData({...data, ['author']: author, ['content']: content})
+    const handleTestimonialHover = (author, content, image) => {
+        setData({...data, ['author']: author, ['content']: content, ['hoveredImage']: image})
     }
 
+    
     return (
         <div className={`mx-auto`}>
             <Col className={styles.testimonial}>
                 <Col xs={10} xl={2} lg={2} md={2} sm={4} className={`${styles.bootcampGradImages} ms-auto`}>
                     {/* <div className={styles.bootcampGradImages}> */}
                         <Col className="my-4">
-                            <div onClick={(e) => handleTestimonialClick(e, props.name1, props.testimonial1)}>
+                            <div onMouseEnter={() => handleTestimonialHover(props.name1, props.testimonial1, props.image1)}>
                                 <GatsbyImage
                                 image={props.image1} 
                                 alt="Bootcamp Graduate 1"
+                                style={{border: data.hoveredImage === props.image1 ? '4px solid #C12029' : 'none'}}
                                 />
                             </div>
                         </Col>
                         <Col  className="my-4">
-                            <div onClick={(e) => handleTestimonialClick(e, props.name2, props.testimonial2)}>
+                            <div onMouseEnter={() => handleTestimonialHover(props.name2, props.testimonial2, props.image2)}>
                                 <GatsbyImage
                                 image={props.image2} 
                                 alt="Bootcamp Graduate 2" 
+                                style={{border: data.hoveredImage === props.image2 ? '4px solid #C12029' : 'none'}}
+
                                 />
                             </div>
                         </Col>
                         <Col className="my-4">
-                            <div onClick={(e) => handleTestimonialClick(e, props.name3, props.testimonial3)}>
+                            <div onMouseEnter={() => handleTestimonialHover(props.name3, props.testimonial3, props.image3)}>
                                 <GatsbyImage
                                 image={props.image3} 
-                                alt="Bootcamp Graduate 3" 
+                                alt="Bootcamp Graduate 3"
+                                style={{border: data.hoveredImage === props.image3 ? '4px solid #C12029' : 'none'}}
+
                                 />
                             </div>
                         </Col>
