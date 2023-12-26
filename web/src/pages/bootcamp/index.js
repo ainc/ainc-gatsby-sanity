@@ -420,7 +420,7 @@ const BootcampPage = props => {
                 <Title className="text-uppercase py-3 " style={{marginLeft: "0px"}}>Why Awesome Inc?</Title>
                 <p style={{borderRight:"1.5px solid #C12029", lineHeight:"25px",}} className={`mb-3 mt-4 pe-4`}>At Awesome Inc, everything we do starts with our Core Values. 
                   We care about people, and making a difference in our community. 
-                  That's why we want to help 120 everyone we can learn the life changing skill of coding. 
+                  That's why we want to help everyone we can learn the life changing skill of coding. 
                   And while doing that, we've seen that the best way to learn a new skill is to get 
                   the right help on your journey. It's so easy to waste time trying to learn something 
                   by yourself, constantly running into problems, and getting frustrated along the way, 
@@ -508,7 +508,7 @@ const BootcampPage = props => {
                 <Title className="text-uppercase text-center mt-4">Companies who have hired our graduates</Title>
               </Row>
               <Col>
-                <Row className="row-cols-lg-5 my-lg-5 mx-lg-5">
+                <Row className="row-cols-lg-5 mt-lg-5 mb-lg-1 mx-lg-5">
                   {employers.map((node,i) => (
                     <div key={i} className="text-center" xs={12} >
                       <GatsbyImage 
@@ -525,6 +525,11 @@ const BootcampPage = props => {
                     </div>
                   ))}
                 </Row>
+                <div className="text-center">
+                  <p style={{ marginTop: `0`, fontSize: `10px`}}>
+                    <b>and over 50 more companies</b>
+                  </p>
+                </div>
               </Col>
             </Col>
           </Row>
@@ -538,34 +543,32 @@ const BootcampPage = props => {
             <Subtitle style={{fontSize: "1.25rem"}} className="text-center fs-5 pb-3 mt-4"><b>With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using</b></Subtitle>
           </Row>
           <Container>
-            <Row>
-                <Col className={`${styles.languageIcons} d-flex justify-content-center py-4`}>
-                  <Col>
+                <Row className={`${styles.languageIcons} d-flex justify-content-center py-4`}>
+                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
                     <StaticImage src="../../images/bootcamp/languages/html.png" alt="HTML" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col>
+                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
                     <StaticImage src="../../images/bootcamp/languages/css.png" alt="CSS" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col>
+                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
                     <StaticImage src="../../images/bootcamp/languages/javascript.png" alt="JavaScript" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col>
+                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center"> 
                     <StaticImage src="https://d33wubrfki0l68.cloudfront.net/27b5922e90fa2d54a0c37d426870c849e8a41c72/b2845/assets/img/bootcamp/languages/python.png" alt="Python Programming language" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col>
+                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
                    <StaticImage src="../../images/bootcamp/languages/git.png" alt="Git" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col>
+                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
                     <StaticImage src="https://d33wubrfki0l68.cloudfront.net/4aa1ba4778ed686e1877a7c5ef5875e364033ca8/f7b05/assets/img/bootcamp/languages/django.png" alt="Django Framework" style={{maxWidth: "150px"}} className='mt-3'/>
                   </Col>
-                  <Col>
+                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
                     <StaticImage src="https://d33wubrfki0l68.cloudfront.net/ee9d2a6ac7c95e3ee2695ce7a14627abeb797b0f/4631a/assets/img/bootcamp/languages/react.png" style={{maxWidth: "150px"}} alt="React Framework"/>
                   </Col>
-                  <Col>
+                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
                     <StaticImage src="../../images/bootcamp/languages/agile.png" alt="Agile" style={{maxWidth: "150px"}}/>
                   </Col>
-                </Col>
-            </Row>
+              </Row>
           </Container>
           <Container>
             <Row>
@@ -682,7 +685,7 @@ const BootcampPage = props => {
                       partnered with industry-leading ISA provider Meratas to 
                       allow students to enroll in our full-time program with no 
                       up front tuition costs. ISA recipients only pay when they've 
-                      landed a job making $40,000/year or more. Want to know 
+                      landed a job making $45,000/year or more. Want to know 
                       more? Schedule a call today!
                     </p>
                   </Row>
@@ -698,7 +701,7 @@ const BootcampPage = props => {
                   </Row>
                   <Row className="mx-5">
                     <p style={{fontSize:"1rem"}} className="text-justify text-center">
-                      Students who choose to pay tuition up front are offered a discounted tuition rate of $13,500.
+                      Students who choose to pay tuition up front are offered a discounted tuition rate of $15,500.
                     </p>
                   </Row>
                 </Col>
