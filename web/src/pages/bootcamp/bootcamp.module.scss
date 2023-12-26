@@ -318,14 +318,6 @@
     padding-right: 100px;
     .languageIcons{
         justify-content: center;
-        @include screen-md{
-            flex-wrap: nowrap;
-            flex-shrink: 1;
-        }
-        @include screen-sm{
-            flex-wrap: nowrap;
-            flex-shrink: 2;
-        }
     }
 }
 
