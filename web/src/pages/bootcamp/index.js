@@ -559,7 +559,7 @@ const BootcampPage = props => {
                   <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
                    <StaticImage src="../../images/bootcamp/languages/git.png" alt="Git" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
+                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center align-items-center">
                     <StaticImage src="https://d33wubrfki0l68.cloudfront.net/4aa1ba4778ed686e1877a7c5ef5875e364033ca8/f7b05/assets/img/bootcamp/languages/django.png" alt="Django Framework" style={{maxWidth: "150px"}} className='mt-3'/>
                   </Col>
                   <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
