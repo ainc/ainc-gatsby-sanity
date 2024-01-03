@@ -1,17 +1,24 @@
 @use 'sass:math';
 @import '../../styles/variables.scss';
 
-.header-background-align-right {
-  margin-right: 0;
-  background-image: url('../../images/oreo-trail.png');
-  background-position: right 25%;
-  background-size: 42%;
+
+
+.header-section {
+  background-image: url("../../images/intro-to-web-hero.png");
   background-repeat: no-repeat;
+  height: 45vh;
+  width: 99vw;
+  background-size: cover;
+  background-position: center;
 }
 
 .tb-div {
   position: relative;
-  margin: 10% 5%;
+  height: 100%; /* Ensure the container has some height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .team-button {

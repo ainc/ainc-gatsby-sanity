@@ -10,10 +10,12 @@ import Title from '../../components/UI/Title/Title'
 import BrandButton from '../../components/UI/BrandButton/BrandButton'
 import { headerBackgroundAlignRight, tbDiv, teamButton, diagonalBackground } from "./internships.module.scss";
 import '../../styles/main.scss'
+import * as styles from './internships.module.scss';
 import internWhy from '/src/images/intern-why.jpg';
 import { useState } from 'react'
 import ModalCustom from '../../components/Modal/ModalCustom'
 import ModalButton from '../../components/ModalButton/ModalButton'
+import Subtitle from '../../components/UI/Subtitle/Subtitle'
 //import ButtonAndImage from '../../components/ButtonAndImage/ButtonAndImage'
 
 const InternshipsPage = ({ data }) => {
@@ -25,138 +27,95 @@ const InternshipsPage = ({ data }) => {
   
   return (
     <Layout>
-      
-      {/* Header section */}
-      <Container fluid className={`mobile-hide-bg ${headerBackgroundAlignRight}`}>
-        <Container className='mb-5'>
-          <Row>
-            <Col md={7}>
-              <Title className="text-uppercase mt-5">Looking for an Internship?</Title>
-              <p>
-                If you’re looking to build your skillset with real projects while building the tech and startup community in Lexington, we’d love to chat. Did we mention we eat a *lot* of Oreos.
-              </p>
-              <a href="https://careers.awesomeinc.org/jobs/Careers/649925000000610353/Team-Alpha---Internship?source=CareerSite"
-                target ="_blank" rel="noopener noreferrer">
-                <BrandButton className='my-4'>Apply Now</BrandButton>
-              </a>
-            </Col>
-          </Row>
-        </Container>
-      </Container>
+        {/* Header section */}
+        <section id="header">
+            <Container fluid>
+              <Row className={styles.headerSection}>
+                  <Col className="mt-5 offset-md-2">
+                      <Title className="text-uppercase mt-5 text-white">Join Team Alpha</Title>
+                      <Subtitle className='text-uppercase text-white'>Gain Real experience.</Subtitle>
+                      <Subtitle className='text-uppercase text-white'>Meet Awesome People.</Subtitle>
+                      <Subtitle className='text-uppercase text-white'>Eat A Lot of Oreos.</Subtitle>
+                      <a href="https://careers.awesomeinc.org/jobs/Careers/649925000000610353/Team-Alpha---Internship?source=CareerSite"
+                      target="_blank" rel="noopener noreferrer">
+                      <BrandButton className="mt-3 mb-1">Apply Now</BrandButton>
+                      </a>
+                  </Col>
+              </Row>
+            </Container>
+        </section>
 
-      {/* Why section */}
-      <div className={`${diagonalBackground}`}>
+      {/* What is Team Alpha Section */}
         <Container>
-          <Row>      
-            <Col md={8}>
-              <Title className='text-white text-uppercase my-5'>About Team Alpha</Title>
-              <p className='text-white my-5'>
-                Our interns, or Team Alpha as we prefer, are integral parts in helping us make Lexington a better place to live and work. We want you to bring your passion, curiosity, determination, and healthy disregard of the fear of failure. Together, we can grow the tech and startup ecosystem and we promise not to take ourselves too seriously while we’re at it.
+          <Row>
+            <Col>
+            {/*Team alpha image */}
+            </Col>  
+            <Col className='my-3'>
+              <Title className='text--bright-red text-uppercase mt-5'>What is Team Alpha?</Title>
+              <p className='my-5'>
+                Team Alpha, Awesome Inc's internship program, is an integral part of helping accomplish our mission to make Lexington a better place
+                to live and work. Our goal is to equip each intern with skill sets while gaining real-world experience by working on one of four teams:
+                web development, design, videography, and marketing.
               </p>
+            <a href='#team'><BrandButton className='secondary mb-5'>Find your team</BrandButton></a>
             </Col>
           </Row>
         </Container>
-      </div>
 
       {/* Teams section */}
-      <Container className='my-5'>
-        <Row>
-          <Title className='text-center text-uppercase my-5'>Find the Right Team for You</Title>
-        </Row>
-        <Row className='justify-content-center'>
-          <Col md={6} lg={4}>
-          <div className={`${tbDiv}`}>
-            <ImageOutline>
-              <StaticImage className='img-red-outline' src='../../images/intern-video.jpg' alt='Video Intern'/>
-            </ImageOutline>
-            <ModalButton to="https://www.youtube.com/embed/Xhs6weqDvfg?si=VAty1-G7uhTV5JeU">Video</ModalButton>
-          </div>
-          </Col>
-          <Col md={6} lg={4}>
-          <div className={`${tbDiv}`}>
-            <ImageOutline>
-              <StaticImage className='img-red-outline' src='../../images/intern-development.jpg' alt='Development Intern'/>
-            </ImageOutline>
-            <ModalButton to="https://www.youtube.com/embed/sflZ2tFXMIY?si=wYiNsRS6-4wJu8GV&amp;controls=0">Development</ModalButton>
-          </div>
-          </Col>
-        </Row>
-        <Row className='justify-content-center'>
-          <Col md={6} lg={4}>
-          <div className={`${tbDiv}`}>
-            <ImageOutline>
-              <StaticImage className='img-red-outline' src='../../images/intern-events-marketing.jpg' alt='Events and Marketing Intern'/>
-            </ImageOutline>
-            <ModalButton to="https://www.youtube.com/embed/kyp3acHFCZA?si=quXJIkj8x57EL-3F">Events + Marketing</ModalButton>
-          </div>
-          </Col>
-          <Col md={6} lg={4}>
-          <div className={`${tbDiv}`}>
-            <ImageOutline>
-              <StaticImage className='img-red-outline' src='../../images/intern-design.jpg' alt='Design Intern'/>
-            </ImageOutline>
-            <ModalButton to="https://www.youtube.com/embed/_t21lollr1c?si=fdXekYbyXoR6fXXJ">Design</ModalButton>
-          </div>
-          </Col>
-        </Row>
-        <Row className='text-center'>
-          <Col>
-          <a href="https://careers.awesomeinc.org/jobs/Careers/649925000000610353/Team-Alpha---Internship?source=CareerSite"
-            target="_blank" rel="noopener noreferrer">
-              <BrandButton className='my-5'>Apply Now</BrandButton>
-          </a>
-            
-          </Col>
-        </Row>
-      </Container>
-
-      {/* Who We Look For section */}
-      <Container className='my-5'>
-        <Row className='text-center'>
-          <Col>
-            <a href="https://www.youtube.com/watch?v=OCG3FIviexc" target='_blank'>
-              <BrandButton className='secondary mb-5'>Watch Video</BrandButton>
-            </a>
-            
-          </Col>
-        </Row>
-        <Row className='justify-content-center'>
-          <Col md={8} lg={7}>
-            <Title className='text-center text-uppercase my-6'>Who We're Looking For</Title>
-            <p style={{textAlign:'justify'}}>
-              We’re looking for interns to join any of our teams for a 20ish week internship in Lexington, KY. Interns produce compelling videos to tell stories that matter, create web applications that improve processes and efficiency, build community by bringing people together through our communication channels, and design visual graphics that keep all of the above creative and cohesive.
-            </p>
-          </Col>
-        </Row>
-      </Container>
-
-      {/* Why Join section */}
-      <Container fluid className='my-5 py-5' style={{backgroundColor:'#323232'}}>
-        <Container>
-          <Row className='justify-content-center'>
-            <Col className='text-center my-auto' xs={12} md={5} lg={3}>
-              <StaticImage src='../../images/question.png' alt="Question mark logo" width={250} />
-            </Col>
-            <Col className='my-2 d-block d-md-none' xs={12}/>
-            <Col xs='auto'>
-              <Title className='text--bright-red text-uppercase' style={{writingMode:'vertical-lr', transform:'rotate(180deg)', margin:'0px'}}>Why Join?</Title>
-            </Col>
-            <Col xs={7} md={5} lg={7} xl={6}>
-              <h2 className='text-white d-flex align-items-center fs-5' style={{textAlign:'justify'}}>
-                In addition to the free t-shirt, we’ll provide you with an opportunity to improve your skills, portfolio and network. Our goal is to assure you the best experience by helping you achieve your goals whether that is getting into your dream school or working for your favorite company.
-              </h2>
-            </Col>
+      <section id='team'>
+        <Container fluid style={{backgroundColor: '#C12029'}}>
+          <Row>
+            <Title className='text-center text-white text-uppercase mt-5 mb-3'>Find Your Team</Title>
+            <p className='text-center text-white'>Find the team that's right for you and join our list of alumni.</p>
+            <p className='text-center text-white' style={{fontStyle: 'italic'}}>(Some have gone on to work at places like Disney, Facebook, Google, Spotify, and more!)</p>
           </Row>
-          <Row className='text-center pt-5'>
-            <Col>
-              <a href="https://careers.awesomeinc.org/jobs/Careers/649925000000610353/Team-Alpha---Internship?source=CareerSite" 
-                target="_blank" rel="noopener noreferrer">
-                <BrandButton>Apply Now</BrandButton>
-              </a>
-              
+          <Row className='justify-content-center gx-2' style={{height: '21rem'}}>
+            <Col className='col-md-2'>
+                <div className={styles.tbDiv}>
+                  <StaticImage style={{width: '17rem', height: '21rem', position: 'absolute', bottom: '-10%'}} src='../../images/intern-design.jpg' alt='Design Intern'/>
+                  <ModalButton to="https://www.youtube.com/embed/_t21lollr1c?si=fdXekYbyXoR6fXXJ">Design</ModalButton>
+                </div>
+            </Col>
+            <Col className='col-md-2'>
+              <div className={styles.tbDiv}>
+                <StaticImage style={{width: '17rem', height: '21rem' , position: 'absolute', bottom: '-10%'}} src='../../images/intern-events-marketing.jpg' alt='Events and Marketing Intern'/>
+                <ModalButton to="https://www.youtube.com/embed/kyp3acHFCZA?si=quXJIkj8x57EL-3F">Marketing</ModalButton>
+              </div>
+            </Col>
+            <Col className='col-md-2'>
+              <div className={styles.tbDiv}>
+                <StaticImage style={{width: '17rem', height: '21rem', position: 'absolute', bottom: '-10%'}}  src='../../images/intern-video.jpg' alt='Video Intern'/>
+                <ModalButton to="https://www.youtube.com/embed/Xhs6weqDvfg?si=VAty1-G7uhTV5JeU">Video</ModalButton>
+              </div>
+            </Col>
+            <Col className='col-md-2'>
+            <div className={styles.tbDiv}>
+                <StaticImage style={{width: '17rem', height: '21rem', position: 'absolute', bottom: '-10%'}} src='../../images/intern-development.jpg' alt='Development Intern'/>
+                <ModalButton to="https://www.youtube.com/embed/sflZ2tFXMIY?si=wYiNsRS6-4wJu8GV&amp;controls=0">Development</ModalButton>
+            </div>
             </Col>
           </Row>
         </Container>
+      </section>
+
+      {/* Why Awesome Inc section */}
+      <Container className='mt-5'>
+        <Row className='mt-5'>
+          <Col className='text-right mt-5'>
+          <Title className='text--bright-red text-uppercase mt-5 text-right'>Why Awesome Inc?</Title>
+          <p className='my-5'>
+          In addition to the free t-shirt and unlimited oreos, we'll provide you with an opportunity to improve your skills,
+          portfolio, and network. Since 2009, Awesome Inc has built a work hard, play ahrd culture capable of accelerating you towards your definition
+          of awesome. Our goal is to give you the best experience by helping you achieve your goals; whether that is getting into your dream school, working
+          for your favorite company, or starting something of your own.
+          </p>
+          </Col>
+          <Col>
+          {/*Garret/Cam flick */}
+          </Col>
+        </Row>
       </Container>
 
       {/* Our Team section */}
