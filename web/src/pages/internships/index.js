@@ -3,13 +3,13 @@ import { graphql } from 'gatsby'
 import Layout from '../../components/Layout/Layout'
 import Diagonal from '../../components/Layout/Diagonal/Diagonal'
 import ImageOutline from '../../components/ImageOutline/ImageOutline'
-import { Container, Row, Col, Accordion } from 'react-bootstrap'
+import { Container, Row, Col, Accordion, Card } from 'react-bootstrap'
 import SEO from '../../components/seo'
 import { StaticImage, getImage, GatsbyImage} from 'gatsby-plugin-image'
 import Title from '../../components/UI/Title/Title'
 import BrandButton from '../../components/UI/BrandButton/BrandButton'
-import '../../styles/main.scss'
 import * as styles from './internships.module.scss';
+import './accordion.scss'
 import internWhy from '/src/images/intern-why.jpg';
 import ModalCustom from '../../components/Modal/ModalCustom'
 import ModalButton from '../../components/ModalButton/ModalButton'
@@ -252,26 +252,31 @@ const InternshipsPage = ({ data }) => {
         <Row className='text-center'>
           <Title className='text-white text-uppercase mt-5'>Frequently Asked Questions</Title>
         </Row>
-        <Accordion>
-          <Row> {/*Use CARD inside accordion */}
-            <Col>
-              <Accordion.Item eventKey="0">
-                <Accordion.Header>How long does the internship last?</Accordion.Header>
-                <Accordion.Body>
-                </Accordion.Body>
-              </Accordion.Item>
-            </Col>
-            <Col>
-              <Accordion.Item eventKey="1">
-                <Accordion.Header>What does a typical day look like?</Accordion.Header>
-                <Accordion.Body>
-                </Accordion.Body>
-              </Accordion.Item>
-            </Col>
-          </Row>
-        </Accordion>
+          <Accordion>
+            <Row>
+              <Col>
+                  <Accordion.Item eventKey="0" >
+                    <Accordion.Header>
+                    How long does the internship last?
+                    </Accordion.Header>
+                    <Accordion.Body style={{ backgroundColor: '#323232', color: '#ffffff' }}>
+                    adfffffffsffffffffffffffffffffffffffffff
+                    </Accordion.Body>
+                  </Accordion.Item>
+              </Col>
+              <Col>
+                  <Accordion.Item eventKey="1">
+                    <Accordion.Header>
+                    What does a typical day look like?
+                    </Accordion.Header>
+                    <Accordion.Body style={{ backgroundColor: '#323232', color: '#ffffff' }}>
+                    </Accordion.Body>
+                  </Accordion.Item>
+              </Col>
+            </Row>
+      </Accordion>
       </Container>
-      </section>
+    </section>
       {/* Our Team section */}
       <Container>
           <Row className='justify-content-center mt-5'>
