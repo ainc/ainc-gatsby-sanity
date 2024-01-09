@@ -11,7 +11,14 @@
   background-size: cover;
   background-position: center;
 }
-
+.apply-section {
+  background-image: url("../../images/intro-to-web-hero.png");
+  background-repeat: no-repeat;
+  height: 25vh;
+  width: 99vw;
+  background-size: cover;
+  background-position: center;
+}
 .tb-div {
   position: relative;
   height: 100%; /* Ensure the container has some height */
