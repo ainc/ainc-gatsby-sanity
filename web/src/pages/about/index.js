@@ -24,12 +24,12 @@ const AboutPage = ({ data }) => {
   return (
     <Layout>
         {/* About header */}
-        <section className={styles.aboutHeader}>
+        <section className={`${styles.aboutHeader}`}>
           <Container>
             <Row>
               <Col className="col-9 col-sm-7 mt-3">
                 <div className={styles.heading}>
-                  <Title className={`mt-5`}>
+                  <Title className={`mt-5 fw-bold `}>
                     We exist to help people pursue their definition of awesome.
                   </Title>
                   <Subtitle className={`fs-6 mt-2 mb-5`}>
