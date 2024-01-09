@@ -7,7 +7,8 @@ const jsonData = yaml.load(yamlData);
 // Transform the data (change field names)
 const transformedData = jsonData.map(entry => ({
     _type: "mentor",
-    name: entry.firstname + " " + entry.lastname,
+    name: entry.firstname + entry.lastname,
+    picture: {"_sanityAsset":"image@file://."+ entry.image,"_type":"image" },
     occupation: entry.company,
     linkedIn: entry.website,
   // ... add more field mappings as needed
