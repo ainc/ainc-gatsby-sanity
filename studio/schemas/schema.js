@@ -42,7 +42,7 @@ import pageTitles from './documents/pageTitles'
 import bootcampClass from './documents/bootcampClass'
 import notes from './documents/notes'
 import bootcamp from './documents/bootcamp'
-
+import internTestimonials from './documents/internTestimonials'
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
     bioPortableText,
@@ -88,5 +88,6 @@ export default [
     notes,
     teamAlpha,
     bootcamp,
+    internTestimonials,
   ]
 
