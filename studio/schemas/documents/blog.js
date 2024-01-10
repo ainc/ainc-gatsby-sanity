@@ -51,9 +51,17 @@ export default {
         },
         {
             name: 'body',
-            type: 'markdown',
-            title: 'Blog body',
-            description: 'Blog content',
+            type: 'array',
+            title: 'Body',
+            description: 'Body content',
+            of: [
+              {
+                type: 'block'
+              },
+              {
+                type: 'image',
+              },
+            ]
         },
         
     ],
