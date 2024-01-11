@@ -33,16 +33,5 @@
       "implements": "part:@sanity/dashboard/config",
       "path": "./dashboardConfig.js"
     }
-  ],
-  "migrations": [
-    {
-      "source": "*",
-      "destination": "production",
-      "mode": "create",
-      "direction": "up"
-    },
-    {
-      "name": "blog-migration"
-    }
   ]
 }
