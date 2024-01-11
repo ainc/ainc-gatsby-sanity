@@ -51,19 +51,10 @@ export default {
         },
         {
             name: 'body',
-            type: 'array',
+            type: 'markdown',
             title: 'Body',
-            description: 'Body content',
-            of: [
-              {
-                type: 'block'
-              },
-              {
-                type: 'image',
-              },
-            ]
+            description: 'Body content. If you want to add an image, drag and drop it to the place within the blog you would like it to be.',
         },
-        
     ],
     orderings: [
         {
