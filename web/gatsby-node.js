@@ -160,6 +160,37 @@ async function createNotePages(graphql, actions) {
   });
 }
 
+async function createTutorialsPages(graphql, actions) {
+  const { createPage } = actions;
+  const result = await graphql(`
+  {
+    allSanityTutorials {
+      edges {
+        node {
+          slug {
+            current
+          }
+          body
+          title
+        }
+      }
+    }
+  }
+  `);
+
+    // Generate pages based on the data
+    result.data.allSanityTutorials.edges.forEach(({ node }) => {
+      const slug = node.slug.current;
+      createPage({
+        path: `/tutorials/${slug}`,
+        component: require.resolve('./src/templates/tutorials/tutorials.js'),
+        context: {
+          post: node
+         },
+      });
+    });
+  }
+
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createRedirect } = actions
@@ -179,6 +210,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   await createPodcastPages(graphql, actions)
   await createBlogPostPages(graphql, actions)
   await createNotePages(graphql, actions)
+  await createTutorialsPages(graphql, actions)
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
