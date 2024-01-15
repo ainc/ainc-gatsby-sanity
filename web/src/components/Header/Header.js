@@ -130,7 +130,7 @@ const Header = () => {
                 <a href="/idea" className='pt-0'>I Have an Idea</a>
                 <a href="/fellowship">Startup Accelerator</a>
                 <a href="/events/5across">5 Across</a>
-                <a href="/community-yearbook.pdf" target="_blank" rel="_noopener">Community Yearbook</a> {/*Need to add yearbooks and possibly other assets*/}
+                <a href="/assets/community-yearbook.pdf" target="_blank" rel="_noopener">Community Yearbook</a> {/*Need to add yearbooks and possibly other assets*/}
               </div>
             </Col>
 
@@ -150,7 +150,7 @@ const Header = () => {
                           <a href="/idea">I Have an Idea</a>
                           <a href="/fellowship">Startup Accelerator</a>
                           <a href="/events/5across">5 Across</a>
-                          <a href="/community-yearbook.pdf"
+                          <a href="/assets/community-yearbook.pdf"
                             target="_blank"
                             rel="noopener">
                               Community Yearbook
