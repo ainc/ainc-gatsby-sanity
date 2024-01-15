@@ -19,10 +19,10 @@ export default {
         title: 'Team',
         options: {
             list:[
-                {title: "Marketing", value: 'marketing'},
-                {title: "Video", value: 'video'},
-                {title: "Web Development", value: 'development'},
-                {title: 'Design', value: 'design'},
+                {title: "Marketing", value: 'Marketing'},
+                {title: "Video", value: 'Video'},
+                {title: "Web Development", value: 'Web Development'},
+                {title: 'Design', value: 'Design'},
             ]
         }
       },

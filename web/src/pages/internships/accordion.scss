@@ -1,7 +1,23 @@
 .accordion-button {
     background-color: #323232 !important;
     color: white;
-  }
-  .accordion-button:not(.collapsed) {
+}
+.accordion-button:not(.collapsed) {
     background-color: #323232;
-  }
+}
+
+/* to change the accordion button image
+.accordion-button:not(.collapsed)::after {
+    background-color: #d2153d;
+    background-image: url("/img/Home/FAQ/arrow-up.png");
+    transform: rotate(360deg);
+    background-size: auto;
+    background-position: center;
+}
+    
+.accordion-button.collapsed::after {
+    background-image: url("/img/Home/FAQ/arrow-down.png");
+    background-size: auto;
+    background-position: center;
+}
+*/
