@@ -38,7 +38,7 @@ const AboutPage = ({ data }) => {
                     technology or business. We strive to make Lexington a better place to live and
                     work.
                   </Subtitle>
-                  <a href="/culture-book.pdf">
+                  <a href="/assets/culture-book.pdf">
                     <BrandButton className={`text-nowrap`}>View Our Culture Book</BrandButton>
                   </a>
                   
@@ -48,7 +48,7 @@ const AboutPage = ({ data }) => {
             <Row>
               <Image className={`${styles.headerImg}`} src={coreValues} alt="core-values" />
               <Col className="col-sm-8 col-10">
-                <a href="https://www.awesomeinc.org/assets/core-values.pdf">
+                <a href="/assets/core-values.pdf">
                 <BrandButton className={`text-nowrap`}>
                   Read About Our Core Values
                 </BrandButton>
