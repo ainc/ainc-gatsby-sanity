@@ -253,14 +253,15 @@ const InternshipsPage = ({ data }) => {
           <Title className='text-white text-uppercase mt-5'>Frequently Asked Questions</Title>
         </Row>
           <Accordion>
-            <Row>
+            <Row className='mt-3'>
               <Col>
                   <Accordion.Item eventKey="0" >
                     <Accordion.Header>
                     How long does the internship last?
                     </Accordion.Header>
                     <Accordion.Body style={{ backgroundColor: '#323232', color: '#ffffff' }}>
-                    adfffffffsffffffffffffffffffffffffffffff
+                    Typically, interns are with us for around the length of a college semester or a summer break.
+                    However, some of our strongest and most mutually-beneficial internships have lasted longer.
                     </Accordion.Body>
                   </Accordion.Item>
               </Col>
@@ -270,6 +271,59 @@ const InternshipsPage = ({ data }) => {
                     What does a typical day look like?
                     </Accordion.Header>
                     <Accordion.Body style={{ backgroundColor: '#323232', color: '#ffffff' }}>
+                    Our interns typically work anywhere from 10-25 hours per week. 
+                    On a work day, you’ll come to our space and sit anywhere you’d like. Team Alpha  gets lots of real-world office and team-building experience. 
+                    We bring the fun at our space, which means there will be plenty of opportunities for team lunches and coffee walks, ping pong tournaments, and great conversation.
+                    </Accordion.Body>
+                  </Accordion.Item>
+              </Col>
+            </Row>
+            <Row className='mt-3'>
+              <Col>
+                  <Accordion.Item eventKey="3" >
+                    <Accordion.Header>
+                    What if I am interested in multiple teams?
+                    </Accordion.Header>
+                    <Accordion.Body style={{ backgroundColor: '#323232', color: '#ffffff' }}>
+                    Great! Our internships are flexible and we try to play to each individual’s strengths and passions. 
+                    We encourage you to pick a team that best fits your skills and experience as your first choice.
+                    We’re flexible with what team you end up on and try to put you where it’s best suited. 
+                    </Accordion.Body>
+                  </Accordion.Item>
+              </Col>
+              <Col>
+                  <Accordion.Item eventKey="4">
+                    <Accordion.Header>
+                    What's up with the Oreos?
+                    </Accordion.Header>
+                    <Accordion.Body style={{ backgroundColor: '#323232', color: '#ffffff' }}>
+                    Ever since the beginning of Awesome Inc, Oreos have been our Founders’ and Team’s snack of choice.
+                    We like to say that the Double Stuf Oreo is the Lexington Startup Community’s favorite cookie.
+                    </Accordion.Body>
+                  </Accordion.Item>
+              </Col>
+            </Row>
+            <Row className='mt-3'>
+              <Col>
+                  <Accordion.Item eventKey="5" >
+                    <Accordion.Header>
+                    Is this a paid internship?
+                    </Accordion.Header>
+                    <Accordion.Body style={{ backgroundColor: '#323232', color: '#ffffff' }}>
+                    We do not pay our interns. Team Alpha will gain experience, knowledge, and eat lots of Oreos. 
+                    We’ve found out interns learn <span style={{fontStyle: 'italic'}}>how</span> to work while being around our team and we help them transition to another internship or their first job.
+                    Our program lays a necessary foundation that interns build upon for their futures.
+                    </Accordion.Body>
+                  </Accordion.Item>
+              </Col>
+              <Col>
+                  <Accordion.Item eventKey="6">
+                    <Accordion.Header>
+                    Is this internship in-person?
+                    </Accordion.Header>
+                    <Accordion.Body style={{ backgroundColor: '#323232', color: '#ffffff' }}>
+                    We strongly encourage in-person so one can take full advantage of our office culture and experience. 
+                    Rarely, do we make exceptions for fully remote interns. We want to be your friend, and it’s much easier to do that when you’re with us at the space!
                     </Accordion.Body>
                   </Accordion.Item>
               </Col>
