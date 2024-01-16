@@ -1,10 +1,14 @@
+// @import '../../../styles/variables.scss';
+@import "../../../styles/variables.scss";
+
+
 .link{
-    color: black;
+    color: $brand-color;
     text-decoration: none; /* Remove underline if necessary */
     transition: color 0.3s; /* Add smooth transition effect */
   
     /* Hover style */
     &:hover {
-      color: red;
+      color: $brand-color2;
     }
 }
