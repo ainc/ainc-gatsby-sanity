@@ -77,3 +77,25 @@ $ClipPadding: $fullWidth * $MagicNumber;
     z-index: -1;
   }
 }
+
+  .custom-col-1 {
+    @media (min-width: 992px) {
+    justify-content: flex-end;
+    }
+    @media (max-width: 991px){
+      justify-content: center;
+    }
+  }
+
+  .custom-col-2 {
+    justify-content: center;
+  }
+
+  .custom-col-3 {
+    @media (min-width: 992px) {
+      justify-content: flex-start;
+    }
+    @media (max-width: 991px){
+      justify-content: center;
+    }
+  }
