@@ -160,8 +160,8 @@ const InternshipsPage = ({ data }) => {
       </section>
 
       {/* Why Awesome Inc section */}
-      <Container className='mt-5'>
-        <Row className='mt-5'>
+      <Container className='mt-4'>
+        <Row className='mt-4'>
           <Col className='mt-5'>
           <Title className='text--bright-red text-uppercase mt-5' style={{textAlign: 'right'}}>Why Awesome Inc?</Title>
           <p className='my-5' style={{textAlign: 'right'}}>
@@ -180,12 +180,12 @@ const InternshipsPage = ({ data }) => {
       {/*Who we're looking for section */}
       <Container fluid style={{backgroundColor: '#ED3742'}}>
         <Row className=''>
-          <Col className='mt-5'>
+          <Col className=''>
           {/*5 across flick */}
           </Col>
           <Col className='my-5'>
             <Title className='text-uppercase text-white'>Who we're looking for</Title>
-            <p className='text-white'>
+            <p className='text-white my-3'>
             High school, college, and graduate students that are eager, coachable, and a good fit for Awesome Inc's culture.
             This immersive experience in Lexington, KY typically lasts for 1-2 semesters. To learn more about what our specific requirements are, click each
             team's profile above.
@@ -214,10 +214,10 @@ const InternshipsPage = ({ data }) => {
                 </Col>
               </Row>
               <Row>
-                <Col md={6} className='d-flex align-items-center justify-content-end'>
+                <Col md={6} className='d-flex align-items-center justify-content-center justify-content-md-end'>
                   <GatsbyImage image={node.picture.asset.gatsbyImageData} className='rounded-circle'/>
                 </Col>
-                <Col className='pt-3'>
+                <Col className='pt-3 d-flex flex-column align-items-center align-items-md-start'>
                   <Subtitle style={{color: '#C12029'}}>{node.name}</Subtitle>
                   <p className='mb-0' style={{fontStyle: 'italic'}}>{node.cohort}</p>
                   <p style={{fontStyle: 'italic'}}>{node.team}</p>
@@ -226,7 +226,7 @@ const InternshipsPage = ({ data }) => {
             </div>
           ))}
         </div>
-        <div className='d-none d-lg-flex' style={{position: 'absolute', top: '50%', transform: 'translateY(-50%)', display: 'flex', justifyContent: 'space-between', width: '100%', padding: '0 17rem'}}>
+        <div className='d-none d-lg-flex' style={{position: 'absolute', top: '50%', transform: 'translateY(-50%)', display: 'flex', justifyContent: 'space-between', width: '100%', padding: '0 10rem'}}>
           <button onClick={handlePrevClick} style={{border: 'none', backgroundColor: 'transparent'}}>
             <StaticImage src='../../images/bootcamp/arrow-steps.png' alt="Previous" style={{transform: 'scaleX(-1)'}}/>
           </button>
@@ -252,10 +252,11 @@ const InternshipsPage = ({ data }) => {
         <Row className='text-center'>
           <Title className='text-white text-uppercase mt-5'>Frequently Asked Questions</Title>
         </Row>
-          <Accordion>
+        <Container className='pb-2'>
+          <Accordion className='pb-3'>
             <Row className='mt-3'>
               <Col>
-                  <Accordion.Item eventKey="0" >
+                  <Accordion.Item eventKey="0">
                     <Accordion.Header>
                     How long does the internship last?
                     </Accordion.Header>
@@ -328,14 +329,15 @@ const InternshipsPage = ({ data }) => {
                   </Accordion.Item>
               </Col>
             </Row>
-      </Accordion>
+          </Accordion>
+        </Container>
       </Container>
     </section>
       {/* Our Team section */}
       <Container>
-          <Row className='justify-content-center mt-5'>
+          <Row className='d-flex justify-content-center mt-5'>
             {allTeamAlpha.map((node, i) => (
-              <Col xs={12} sm={10} md={6} lg={4} xl={3} xxl={3} className='my-2' key={i}>
+              <Col xs={12} sm={10} md={6} lg={4} xl={4} xxl={4} className={`my-3 d-flex ${i < 3 ? `${styles[`customCol${i % 3 + 1}`]}` : 'justify-content-center'}`} key={i}> {/*Applies conditional styling to the first three columns - do this because the profile card was not mind for 3 column rows in mind */}
                 <Profile
                   variant="two"
                   name={node.name}
@@ -348,6 +350,11 @@ const InternshipsPage = ({ data }) => {
                 />
               </Col>
             ))}
+          </Row>
+          <Row>
+            <Col className='text-center'>
+            <BrandButton className='mb-3'>Add me to the fun bunch</BrandButton>
+            </Col>
           </Row>
         </Container>
     </Layout>
