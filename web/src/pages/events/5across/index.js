@@ -106,14 +106,10 @@ const fiveAcrossPage = ({ data }) => {
                 </Row>
             </Container>
             <Container fluid className={`mt-5 ${styles.pastPitches}`}>
-                <Row className="m-5 justify-content-center">
+                <Row className="mx-5 justify-content-center text-center">
                     <Col md="10" sm="12">
-                        <Title className={`${styles.largeText} text-white mt-5 mb-3 text-uppercase`}>Over 10 years of putting the spotlight on Kentucky Entrepreneurs</Title>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col className="mb-2 d-flex justify-content-center">
-                        <BrandButton onClick={() => scrollToSection(recentWinner)}> WATCH PAST PITCHES</BrandButton>
+                        <Title className={`${styles.largeText} text-white mt-5  text-uppercase`}>Over 10 years of putting the spotlight on Kentucky Entrepreneurs</Title>
+                        <BrandButton className='mt-3 mb-5' onClick={() => scrollToSection(recentWinner)}>WATCH PAST PITCHES</BrandButton>
                     </Col>
                 </Row>
             </Container>
@@ -144,13 +140,13 @@ const fiveAcrossPage = ({ data }) => {
                                         </Col>
                                         {/* changed headings in this section from h6, font size utilities currently aren't working but should look normal once the utilities work */}
                                         <Col className="justify-content-start">
-                                            <h1 className="text--red fs-6">{node.date}</h1> {/*need to  */}
+                                            <h2 className="text--red fs-6 fw-bold">{node.date}</h2> {/*need to  */}
                                         </Col>
                                     </Row>
                                     <Row>
                                         <Col sm="4" lg="4"></Col>
                                         <Col>
-                                            <h2 className="text--black fw-light fs-6">Location: {node.location}</h2> {/*Location*/}
+                                            <h4 className="text--black fw-light fs-5">Location: {node.location}</h4> {/*Location*/}
                                         </Col>
                                     </Row>
                                     <Row>

@@ -36,3 +36,11 @@ text-align: center;
     }
     letter-spacing: .5px;
 }
+
+.sponsor-background {
+    // width: 100vw;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    background-color: $brand-color;
+    color: white;
+  }
