@@ -174,6 +174,7 @@ const IndexPage = ({ data }) => {
      
       <StackIcon fill="blue" width="200px" />
       <ToolsIcon fill ="purple"/>
+      
      
 
       {/* FOUR INITIATIVES */}
