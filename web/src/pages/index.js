@@ -6,7 +6,7 @@ import {
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
 } from "../lib/helpers";
-import { Container, Row, Col, Image, Badge, Card } from "react-bootstrap";
+import { Container, Row, Col, Image, Badge, Card, Stack } from "react-bootstrap";
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
@@ -35,11 +35,11 @@ import desk_background from "../images/workspace-desk-bg-red.png";
 import workspace_background from "../images/workspace-border.png";
 
 import DevicesIcon from "../assets/svg/devices.svg";
-import StackIcon from "../assets/svg/stack.svg";
+// import StackIcon from "../assets/svg/stack.svg";
 import ToolsIcon from "../assets/svg/tools.svg";
 import { withTheme } from "styled-components";
 
-
+import StackIcon from "../assets/svg/stack.svg"
 export const query = graphql`
 query IndexPageQuery($currentDate: Date!) {
   sanityEvents(featured: {eq: true}, date: {gte: $currentDate}) {
@@ -170,6 +170,11 @@ const IndexPage = ({ data }) => {
         <HomepageSlider
           scrollToSection={scrollToSection} sectionIds={['workspace','courses','startup']}
         />
+
+     
+      <StackIcon fill="blue" width="200px" />
+      <ToolsIcon fill ="purple"/>
+     
 
       {/* FOUR INITIATIVES */}
       <section id="initiatives">
