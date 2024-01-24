@@ -9,7 +9,7 @@ import SEO from "../seo";
 
 import "../../styles/layout.css";
 
-const Layout = ({ pageTitle, children, onHideNav, onShowNav, showNav, siteTitle}) => {
+const Layout = ({ pageTitle, children, onHideNav, onShowNav, showNav, siteTitle, jsImports}) => {
   const query = useStaticQuery(graphql`
   query {
     allSanityPageTitles {
@@ -32,7 +32,7 @@ const Layout = ({ pageTitle, children, onHideNav, onShowNav, showNav, siteTitle}
   
   return(
   <div>
-    <SEO title={titleOfPage ? titleOfPage : 'Awesome Inc'}/>
+    <SEO title={titleOfPage ? titleOfPage : 'Awesome Inc'} imports={jsImports}/>
     <Banner />
     <Header />
     <main>

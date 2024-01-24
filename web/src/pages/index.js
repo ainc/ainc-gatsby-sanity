@@ -56,7 +56,7 @@ query IndexPageQuery($currentDate: Date!) {
     linkToEvent
     host
   }
-  allSanityEvents(sort: {fields: date, order: ASC}, filter: {date: {gte: $currentDate}}) {
+  allSanityEvents(sort: {date: ASC}, filter: {date: {gte: $currentDate}}) {
     nodes {
       id
       featured
@@ -110,8 +110,6 @@ const IndexPage = ({ data }) => {
   let feature_event = (data.sanityEvents ? data.sanityEvents : events[0]) //if there is no featured event, then set the closest event to be featured
 
   let eventsNoFeature = []; {/* Create empty array for events to filter into */}
-  console.log(data.sanityEvents);
-  console.log(feature_event);
 
   events.forEach(event => {
       if(!event.eventName.includes(feature_event.eventName)) eventsNoFeature.push(event);  {/*if featured eventName == event.eventName then remove event from list*/}
@@ -185,7 +183,7 @@ const IndexPage = ({ data }) => {
                   <BackgroundCard
                     title="Learn to Code"
                     text="Everybody can and should learn to code, start today."
-                    backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
+                    backgroundImage="/images/student-learn-to-code-shirt.jpg"
                     imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
                     alt="brackets"
                     sectionRef = {section2Ref}
@@ -197,7 +195,7 @@ const IndexPage = ({ data }) => {
                   <BackgroundCard 
                     title="Rent Workspace"
                     text="Rent a desk or space for events, meetings, and more."
-                    backgroundImage="https://www.awesomeinc.org/images/awesome-inc-space-panel.jpg"
+                    backgroundImage="/images/awesome-inc-space-banner.jpg"
                     imgSrc="https://d33wubrfki0l68.cloudfront.net/13acb6f3560e894a9e0eecc194c96f778fba858f/f6fb2/images/icons/rent-workspace.png"
                     link="/workspace"
                     alt="desk and chair"
@@ -210,7 +208,7 @@ const IndexPage = ({ data }) => {
                   <BackgroundCard
                     title="Accelerate your startup"
                     text="We will help grow your business with a mentor-driven, accelerator program."
-                    backgroundImage="https://www.awesomeinc.org/images/startup-panel-min.jpg"
+                    backgroundImage="/images/startup-panel-min.jpg"
                     imgSrc="https://d33wubrfki0l68.cloudfront.net/40f039dccd7775d86dcc2076d6b01abe6802fdac/f6c13/images/icons/accelerate-your-startup.png"
                     link="/learn"
                     alt="brackets"
@@ -223,7 +221,7 @@ const IndexPage = ({ data }) => {
                   <BackgroundCard 
                     title="Software Development"
                     text="Let us create custom software for your business."
-                    backgroundImage="https://www.awesomeinc.org/images/software-panel.jpg"
+                    backgroundImage="/images/software-panel.jpg"
                     imgSrc="https://d33wubrfki0l68.cloudfront.net/fb2b3c6c872a02cdce20d96103c70a10b3f75172/3398b/images/icons/software-development.png"
                     link="/learn"
                     alt="brackets"

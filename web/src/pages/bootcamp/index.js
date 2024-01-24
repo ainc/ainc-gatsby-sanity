@@ -18,6 +18,7 @@ import SideNav from "./Components/SideNav/SideNav"
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import Testimonial from "./Components/Testimonial/Testimonial";
 import Title from "../../components/UI/Title/Title";
+import ZohoSales from "../../components/Scripts/ZohoSales";
 
 import "../../styles/main.scss"
 import * as styles from './bootcamp.module.scss'
@@ -76,6 +77,10 @@ export const query = graphql`
   sanityBootcamp {
     earlyApplication(formatString: "")
     earlyRegistration(formatString: "")
+    previousEndDate(formatString: "MMMM DD, YYYY")
+    previousStartDate(formatString: "MMMM DD, YYYY")
+    upcomingEndDate(formatString: "MMMM DD, YYYY")
+    upcomingStartDate(formatString: "MMMM DD, YYYY")
   }
 }
 `
@@ -165,8 +170,9 @@ const BootcampPage = props => {
   const handleShow = () => setShowWidget(true);
   const handleClose = () => setShowWidget(false);
 
+
   return ( 
-    <Layout>
+    <Layout jsImport={ZohoSales}>
 
       {/* Add SEO Component Here?? */}
       
@@ -182,7 +188,7 @@ const BootcampPage = props => {
                 <Title className='white text-uppercase text--big'> Launch your <br/> tech career</Title>
                 <h4 className= "w-75 text-end lh-md white mt-4 fw-lighter"><b>A 16 week immersive Bootcamp where you'll learn Full Stack coding skills to land a tech job... or your money back.</b></h4>
                 <a href="/bootcamp/apply"><BrandButton className="mt-3">Get Started</BrandButton></a>
-                <p style={{}}className="fst-italic">Start your application in less than 30 seconds</p>
+                <p className="fst-italic">Start your application in less than 30 seconds</p>
               </div>
             
             </Col>
@@ -216,16 +222,16 @@ const BootcampPage = props => {
           </Row>
           <Row>
               <Col xs={12} sm ={12}  md={4} lg={3} xl={3}  className={` ${styles.bootcampUpcomingdates} text-center ms-auto my-4 d-none d-sm-block`}> {/*Hidden on mobile*/}
-                <Title className="text-center text--medium fw-bolder">AUG 21, 2023</Title>
+                <Title className="text-center text--medium fw-bolder">{data.sanityBootcamp.previousStartDate}</Title>
                 <h4>TO</h4>
-                <Title className="text-center text--medium fw-bolder">DECEMBER 08, 2023</Title>
+                <Title className="text-center text--medium fw-bolder">{data.sanityBootcamp.previousEndDate}</Title>
                 <BrandButton className="secondary btn--small my-2" disabled="">APPLICATIONS CLOSED</BrandButton>
 
               </Col>
               <Col xs={12} sm={12} md={4} lg={3} xl={3} className="text-center  me-auto my-4">
-                <Title className="text-center text--medium brand fw-bolder">MAR 4, 2024</Title>
+                <Title className="text-center text--medium brand fw-bolder">{data.sanityBootcamp.upcomingStartDate}</Title>
                 <h4 className="brand">TO</h4>
-                <Title className="text-center text--medium brand fw-bolder">JUNE 21, 2024</Title>
+                <Title className="text-center text--medium brand fw-bolder">{data.sanityBootcamp.upcomingEndDate}</Title>
                 <a href="/bootcamp/apply"><BrandButton className="justify-content-center btn--small my-2" disabled="">APPLY NOW</BrandButton></a>
               </Col>
           </Row>
@@ -263,7 +269,7 @@ const BootcampPage = props => {
                     </div>
                   </Row>
                   <Row className="me-5">
-                    <Title style={{}} className="text-center py-2 fs-3 text--medium white">Pay nothing until you land a job!</Title>
+                    <Title className="text-center py-2 fs-3 text--medium white">Pay nothing until you land a job!</Title>
                     <div>
                     <BrandButton onClick={() => scrollToSection(sectionCost)} className="justify-content-center">See How Here</BrandButton>
                     </div>
@@ -365,7 +371,7 @@ const BootcampPage = props => {
         <Container ref={sliderRef} className={`${styles.carousel} keen-slider pb-5`} > 
             <div className="keen-slider__slide number-slide1">
               <div style={{width:"40%"}} className="justify-content-center mx-auto py-3">
-                <StaticImage alt="Testimonial 1" style={{}} className={`${styles.aincuTestimonial} px-5 pt-5`} src="../../images/bootcamp-testimonials/alyssa-holber-linkedin.png"/>
+                <StaticImage alt="Testimonial 1" className={`${styles.aincuTestimonial} px-5 pt-5`} src="../../images/bootcamp-testimonials/alyssa-holber-linkedin.png"/>
               </div>
             </div>
           
@@ -414,7 +420,7 @@ const BootcampPage = props => {
                 <Title className="text-uppercase py-3 " style={{marginLeft: "0px"}}>Why Awesome Inc?</Title>
                 <p style={{borderRight:"1.5px solid #C12029", lineHeight:"25px",}} className={`mb-3 mt-4 pe-4`}>At Awesome Inc, everything we do starts with our Core Values. 
                   We care about people, and making a difference in our community. 
-                  That's why we want to help 120 everyone we can learn the life changing skill of coding. 
+                  That's why we want to help everyone we can learn the life changing skill of coding. 
                   And while doing that, we've seen that the best way to learn a new skill is to get 
                   the right help on your journey. It's so easy to waste time trying to learn something 
                   by yourself, constantly running into problems, and getting frustrated along the way, 
@@ -451,7 +457,7 @@ const BootcampPage = props => {
           </Row>
           <Row className="mx-5">
             <Col className="d-flex justify-content-center">
-              <Subtitle style={{fontSize:"1rem", width:"750px", lineHeight:"25px"}}className={`text-white text-center fs-6`}>We only succeed when you succeed. We guarantee that all students who complete the 16-week Bootcamp program and uphold the job search requirements will receive a job offer within six months of their graduation date, or we'll refund your tuition. See our Student Agreement for details.</Subtitle>
+              <Subtitle style={{fontSize:"1rem", width:"750px", lineHeight:"25px"}} className={`text-white text-center fs-6`}>We only succeed when you succeed. We guarantee that all students who complete the 16-week Bootcamp program and uphold the job search requirements will receive a job offer within six months of their graduation date, or we'll refund your tuition. See our Student Agreement for details.</Subtitle>
             </Col>
           </Row>
         </Container>
@@ -459,7 +465,7 @@ const BootcampPage = props => {
 
       {/* Stats */}
  
-      <section id="stats" style={{backgroundColor: "#ED3742"}}className="background--brand pe-0">
+      <section id="stats" style={{backgroundColor: "#ED3742"}} className="background--brand pe-0">
         <Container fluid className={`${styles.stats}`}>
           <div className="mx-3 py-5">
             <Row className="pz-0 mx-5 py-0 justify-content-center">
@@ -502,7 +508,7 @@ const BootcampPage = props => {
                 <Title className="text-uppercase text-center mt-4">Companies who have hired our graduates</Title>
               </Row>
               <Col>
-                <Row className="row-cols-lg-5 my-lg-5 mx-lg-5">
+                <Row className="row-cols-lg-5 mt-lg-5 mb-lg-1 mx-lg-5">
                   {employers.map((node,i) => (
                     <div key={i} className="text-center" xs={12} >
                       <GatsbyImage 
@@ -519,6 +525,11 @@ const BootcampPage = props => {
                     </div>
                   ))}
                 </Row>
+                <div className="text-center">
+                  <p style={{ marginTop: `0`, fontSize: `10px`}}>
+                    <b>and over 50 more companies</b>
+                  </p>
+                </div>
               </Col>
             </Col>
           </Row>
@@ -529,43 +540,46 @@ const BootcampPage = props => {
 <section id="languages">
         <Container fluid className={`${styles.languages}`}>
           <Row>
-          <Subtitle style={{fontSize: "1.25rem"}}className="text-center fs-5 pb-3 mt-4"><b>With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using</b></Subtitle>
+            <Subtitle style={{fontSize: "1.25rem"}} className="text-center fs-5 pb-3 mt-4"><b>With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using</b></Subtitle>
           </Row>
-          <Row>
-                <Col className={`${styles.languageIcons} d-flex justify-content-center py-4`}>
-                  <Col>
+          <Container>
+                <Row className={`${styles.languageIcons} d-flex justify-content-center py-4`}>
+                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
                     <StaticImage src="../../images/bootcamp/languages/html.png" alt="HTML" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col>
+                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
                     <StaticImage src="../../images/bootcamp/languages/css.png" alt="CSS" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col>
+                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
                     <StaticImage src="../../images/bootcamp/languages/javascript.png" alt="JavaScript" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col>
-                  <StaticImage src="https://d33wubrfki0l68.cloudfront.net/27b5922e90fa2d54a0c37d426870c849e8a41c72/b2845/assets/img/bootcamp/languages/python.png" alt="Python Programming language" style={{maxWidth: "150px"}}/>
+                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center"> 
+                    <StaticImage src="https://d33wubrfki0l68.cloudfront.net/27b5922e90fa2d54a0c37d426870c849e8a41c72/b2845/assets/img/bootcamp/languages/python.png" alt="Python Programming language" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col>
-                  <StaticImage src="../../images/bootcamp/languages/git.png" alt="Git" style={{maxWidth: "150px"}}/>
+                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
+                   <StaticImage src="../../images/bootcamp/languages/git.png" alt="Git" style={{maxWidth: "150px"}}/>
                   </Col>
-                  <Col>
-                  <StaticImage src="https://d33wubrfki0l68.cloudfront.net/4aa1ba4778ed686e1877a7c5ef5875e364033ca8/f7b05/assets/img/bootcamp/languages/django.png" alt="Django Framework" style={{maxWidth: "150px"}} className='mt-3'/>
+                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center align-items-center">
+                    <StaticImage src="https://d33wubrfki0l68.cloudfront.net/4aa1ba4778ed686e1877a7c5ef5875e364033ca8/f7b05/assets/img/bootcamp/languages/django.png" alt="Django Framework" style={{maxWidth: "150px"}} className='mt-3'/>
                   </Col>
-                  <Col>
-                  <StaticImage src="https://d33wubrfki0l68.cloudfront.net/ee9d2a6ac7c95e3ee2695ce7a14627abeb797b0f/4631a/assets/img/bootcamp/languages/react.png" style={{maxWidth: "150px"}} alt="React Framework"/>
+                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
+                    <StaticImage src="https://d33wubrfki0l68.cloudfront.net/ee9d2a6ac7c95e3ee2695ce7a14627abeb797b0f/4631a/assets/img/bootcamp/languages/react.png" style={{maxWidth: "150px"}} alt="React Framework"/>
                   </Col>
-                  <Col>
-                  <StaticImage src="../../images/bootcamp/languages/agile.png" alt="Agile" style={{maxWidth: "150px"}}/>
+                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
+                    <StaticImage src="../../images/bootcamp/languages/agile.png" alt="Agile" style={{maxWidth: "150px"}}/>
                   </Col>
-                </Col>
-          </Row>
-          <Row>
-            <p style={{fontSize:"1rem"}} className="pt-5 text-center">With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using HTML, CSS, JavaScript, web frameworks, GitHub, Agile, and more.
-          </p>
-            <p style={{fontSize:"1rem"}} className="pb-5 text-justify text-center">
-            Students begin with a part-time Prework phase, with 4 weeks of remote lessons covering the basics of web development. After that, we kick it into high gear for 12 weeks of full-time, in-person training. We've designed Bootcamp to feel less like school, and more like you first 3 months on the job. By the conclusion of the combined 16-week program, our alumni are ready to interview with regional and national employers for the opportunity to earn a full-time position at a competitive junior developer's salary.
-            </p>
-          </Row>
+              </Row>
+          </Container>
+          <Container>
+            <Row>
+              <p style={{fontSize:"1rem"}} className="pt-5 text-center">
+                With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using HTML, CSS, JavaScript, web frameworks, GitHub, Agile, and more.
+              </p>
+              <p style={{fontSize:"1rem"}} className="pb-5 text-justify text-center">
+                Students begin with a part-time Prework phase, with 4 weeks of remote lessons covering the basics of web development. After that, we kick it into high gear for 12 weeks of full-time, in-person training. We've designed Bootcamp to feel less like school, and more like you first 3 months on the job. By the conclusion of the combined 16-week program, our alumni are ready to interview with regional and national employers for the opportunity to earn a full-time position at a competitive junior developer's salary.
+              </p>
+            </Row>
+          </Container>
           
             
 
@@ -607,19 +621,20 @@ const BootcampPage = props => {
           </Col>
           <Row className="justify-content-center">
           <p style={{fontSize:"1rem", width:"900px"}} className="text-justify">This process helps us to find top-quality applicants for the Bootcamp. We continue to be surprised and inspired by the variety of different educational and professional backgrounds rfom which our students come to Bootcamp. Contrary to stereotypes about software developers, there's not just on archetype that's a good fit for this career. Our goal throughout the application process is to find people who, in their own unique way, are ready to dive into a software development career through the accelerated learning environment we provide. For more on this, check out our blog post 
-          <a href='https://www.awesomeinc.org/blog/what-we-look-for-bootcamp-student' className='link--brand' target='_blank'> What We Look For In A Bootcamp Student.</a></p>
+          <a href='https://www.awesomeinc.org/blog/what-we-look-for-in-a-bootcamp-student' className='link--brand' target='_blank'> What We Look For In A Bootcamp Student.</a></p>
           </Row>
           <Row className={`${styles.applyButtons} justify-content-center`}>
-            <div style={{}} xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-3 col-lg-3 offset-lg-1 col-xl-2 offset-xl-1 mb-3 justify-content-center">
+            <div xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-3 col-lg-3 offset-lg-1 col-xl-2 offset-xl-1 mb-3 justify-content-center">
               <a href="/bootcamp/apply"><BrandButton>Apply Now</BrandButton></a>
             </div>
           
-            <div style={{}} xs={12} sm={12} md={4} lg={4} xl={3}  className="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 mb-3 d-flex justify-content-center ">
-                    <ApplyNowModal 
-                    title="Schedule Call or Visit"
-                    link="https://calendly.com/ainc/awesome-inc-call?"/>
+            <div  xs={12} sm={12} md={4} lg={4} xl={3}  className="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 mb-3 d-flex justify-content-center ">
+            <BrandButton onClick={handleShow}>Schedule Call or Visit</BrandButton>
+                <Modal show={showWidget} onHide={handleClose} centered>
+                    <InlineWidget url="https://calendly.com/ainc/awesome-inc-call" />
+                </Modal>
             </div>
-            <div style={{} }xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-3 mb-3 d-flex justify-content-center ">
+            <div xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-3 mb-3 d-flex justify-content-center ">
                     <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
                      title="Download Program Guide"/>
             </div>
@@ -670,7 +685,7 @@ const BootcampPage = props => {
                       partnered with industry-leading ISA provider Meratas to 
                       allow students to enroll in our full-time program with no 
                       up front tuition costs. ISA recipients only pay when they've 
-                      landed a job making $40,000/year or more. Want to know 
+                      landed a job making $45,000/year or more. Want to know 
                       more? Schedule a call today!
                     </p>
                   </Row>
@@ -686,7 +701,7 @@ const BootcampPage = props => {
                   </Row>
                   <Row className="mx-5">
                     <p style={{fontSize:"1rem"}} className="text-justify text-center">
-                      Students who choose to pay tuition up front are offered a discounted tuition rate of $13,500.
+                      Students who choose to pay tuition up front are offered a discounted tuition rate of $15,500.
                     </p>
                   </Row>
                 </Col>
@@ -700,7 +715,7 @@ const BootcampPage = props => {
 
      <section id="still-unsure" className="pt-2">
         <Container fluid className={`${styles.stillUnsure} py-4`}>
-          <div style={{}} className="mx-5 text-center justify-content-center mx-auto">
+          <div className="mx-5 text-center justify-content-center mx-auto">
             <Title className="text-center pt-5 pb-3">Still unsure? Here's everyone else who took this same leap and hasn't looked back!</Title>
             <a href="../alumni">
               <BrandButton className="my-3 ">Meet Alumni</BrandButton>

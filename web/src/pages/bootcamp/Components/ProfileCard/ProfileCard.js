@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import Subtitle from '../../../../components/UI/Subtitle/Subtitle'
 import { GatsbyImage } from 'gatsby-plugin-image'
+
+import Subtitle from '../../../../components/UI/Subtitle/Subtitle'
+
 import * as styles from '../profileCard.module.scss'
 const ProfileCard = (props) => {
     
@@ -25,5 +27,7 @@ const ProfileCard = (props) => {
     </div>
     )
 }
+
+
 
 export default ProfileCard

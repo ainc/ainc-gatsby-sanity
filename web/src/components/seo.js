@@ -5,8 +5,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { useLocation } from "@reach/router";
 import favicon from'../images/logo.png'
 
-function SEO({ description, lang, meta, keywords, title, path }) {
-  console.log("Current Page: ", useLocation().pathname);
+function SEO({ description, lang, meta, keywords, title, path, jsImports }) {
 
   const data = useStaticQuery(
     graphql`
@@ -50,7 +49,8 @@ function SEO({ description, lang, meta, keywords, title, path }) {
     const metaDescription = description || (data.site && data.site.description) || "";
     const siteTitle = (data.site && data.site.title) || "";
     const siteAuthor = (data.site && data.site.author && data.site.author.name) || "";
-
+    const salesIQPages = ['/learn/', '/learn/adults/', '/learn/youth/', '/bootcamp/', '/bootcamp/apply/']
+    const includeSalesIQ = salesIQPages.includes(useLocation().pathname)
   return (
     <Helmet
       htmlAttributes={{ lang }}
@@ -105,6 +105,76 @@ function SEO({ description, lang, meta, keywords, title, path }) {
         .concat(meta)}
     >
     <link rel="icon" type="image/png" href={favicon} sizes="16x16" />
+    <jsImports />
+    {/*Google tag manager */}
+    <script>
+            {`
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtag/js?id=AW-10985315854';f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-WVS8Q79');
+            `}
+    </script>
+    {/*End Google tag manager */}
+
+    {/*Google tag (gtag.js*/}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10985315854"></script>
+          <script>
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-10985315854');
+              gtag('config', 'G-2X6W47GSDL');
+            `}
+          </script>
+   {/*End Google tag (gtag.js*/}
+
+   {/*Zoho CRM / Google Ads */}
+   <script type="text/javascript" src='https://crm.zoho.com/crm/javascript/zcga.js'></script>
+
+   <script type="text/javascript" src='https://forms.zoho.com/js/zf_gclid.js'></script>
+
+   {/*Zoho marketing hub */}
+    <script type="text/javascript" src="/zoho-marketing-hub.js"></script>
+
+    {/*Zoho Cookie */}
+    <script type="text/javascript" src="/zoho-cookie.js"></script>
+    
+    {/*Facebook pixel code */}
+    <script type="text/javascript" src="/facebook-pixel-code.js"></script>
+
+    {/*Zoho Sales IQ */}
+    {includeSalesIQ && 
+    <script>
+    {`
+      var $zoho = $zoho || {};
+      $zoho.salesiq = $zoho.salesiq || {
+        widgetcode: "77464144f0307e5d43de560d9806d2fdd98dbf1a8dba0fb4a61a9630fe7d7d5c1e92507c13fa0fac71e5ac4fb3822ca1",
+        values: {},
+        ready: function () {}
+      };
+
+      var d = document;
+      var s = d.createElement("script");
+      s.id = "zsiqscript";
+      s.defer = true;
+      s.src = "https://salesiq.zoho.com/widget";
+      
+      var t = d.getElementsByTagName("script")[0];
+      t.parentNode.insertBefore(s, t);
+
+      var widgetContainer = d.createElement("div");
+      widgetContainer.id = "zsiqwidget";
+      d.body.appendChild(widgetContainer);
+    `}
+    </script>
+    }
+    {/*End Zoho Sales IQ */}
+    
+   <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v14.0&appId=405237331509908&autoLogAppEvents=1" nonce="CPsa0mSK"></script>
+
     </Helmet>
   );
 }

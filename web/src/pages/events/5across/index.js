@@ -63,7 +63,7 @@ const fiveAcrossPage = ({ data }) => {
                     <Col className="offset-sm-2" style={{ marginTop: "10%" }}>
                         <Row className="">
                             <Col sm="10" md="10" lg="6" className="">
-                                <StaticImage className="my-5 mw-100" src="../../../images/5across-banner.png" />
+                                <StaticImage className="my-5 mw-100" src="../../../images/5across-banner.png" alt=''/>
                             </Col>
                         </Row>
                         <Row>
@@ -84,19 +84,19 @@ const fiveAcrossPage = ({ data }) => {
                 <Subtitle className='text-center fw-bold'>5 Across has given over 250 founders a new platform and thousands of Kentuckians a fun place to engage with local startups.</Subtitle>
                 <Row className="mt-5 d-flex justify-content-center">
                     <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
-                        <StaticImage quality="100" src="../../../images/5across-pitches.png" />
+                        <StaticImage quality="100" src="../../../images/5across-pitches.png" alt=''/>
                     </Col>
                     <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
-                        <StaticImage quality="100" src="../../../images/5across-time.png" />
+                        <StaticImage quality="100" src="../../../images/5across-time.png" alt='' />
                     </Col>
                     <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
-                        <StaticImage quality="100" src="../../../images/5across-prize.png" />
+                        <StaticImage quality="100" src="../../../images/5across-prize.png" alt=''/>
                     </Col>
                     <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
-                        <StaticImage quality="100" src="../../../images/5across-start.png" />
+                        <StaticImage quality="100" src="../../../images/5across-start.png" alt=''/>
                     </Col>
                     <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
-                        <StaticImage quality="100" src="../../../images/5across-entry.png" />
+                        <StaticImage quality="100" src="../../../images/5across-entry.png" alt=''/>
                     </Col>
                 </Row>
                 <Row className="my-5 d-flex justify-content-center">
@@ -138,7 +138,7 @@ const fiveAcrossPage = ({ data }) => {
                                         <Col lg="4" md="4" sm="4" className="">
                                             <Row className="justify-content-end">
                                                 <Col lg="10" className="d-none d-lg-block d-md-block">
-                                                    <StaticImage quality="100" src="../../../images/5across-banner.png" />
+                                                    <StaticImage quality="100" src="../../../images/5across-banner.png" alt=''/>
                                                 </Col>
                                             </Row>
                                         </Col>
@@ -192,7 +192,7 @@ const fiveAcrossPage = ({ data }) => {
                         <h1 className={`${styles.recentWinnerText} fs-1 fst-italic fw-light`}>Kentucky</h1>
                         <Row>
                             <Col sm="2" className="mb-5">
-                                <StaticImage src="../../../images/5across-banner.png" />
+                                <StaticImage src="../../../images/5across-banner.png" alt=''/>
                             </Col>
                         </Row>
                     </Col>
@@ -232,7 +232,7 @@ const fiveAcrossPage = ({ data }) => {
                                 <Title className={`${styles.bringTheFun} text-uppercase`}>Fun</Title>
                             </div>
                         </div>
-                        <StaticImage className={`${styles.unicornImage}`} quality="100" src="../../../images/dabbing_unicorn.png" />
+                        <StaticImage className={`${styles.unicornImage}`} quality="100" src="../../../images/dabbing_unicorn.png" alt=''/>
                     </Col>
                 </Row>
             </Container>
@@ -295,7 +295,7 @@ export const query_upcoming_5a = graphql`
 query fiveAcrossQuery($currentDate: Date!) {
     allSanityEvents(
         filter: {reference: {eventTypeName: {eq: "5 Across"}}, date: {gte: $currentDate}}
-        sort: {order: ASC, fields: date}
+        sort: {date: ASC}
         limit: 1
     ) {
         nodes {
@@ -314,7 +314,7 @@ query fiveAcrossQuery($currentDate: Date!) {
             }
         }
     }
-    allSanityFiveAcrossWinners(sort: {order: ASC, fields: WinningDate}) {
+    allSanityFiveAcrossWinners(sort: {WinningDate: ASC}) {
         edges {
             node {
                 WinningDate

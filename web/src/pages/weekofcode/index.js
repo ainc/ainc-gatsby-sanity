@@ -15,13 +15,31 @@ const Page = ({ data }) => {
     console.log('Order completed successfully');
   }, []);
 
+
+  const event_id = '801830545747' 
   const iframeCheckout = useEventbrite({
-    eventId: '484398708577',
+    eventId: event_id,
     modal: false,
     onOrderComplete: handleOrderCompleted,
     iFrameHeight: 500, // optional
     iFrameAutoAdapt: 100, // optional - The widget's viewport percentage (between 75-100)
   });
+
+  const eventLink = 'https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-' + event_id
+
+  const ButtonRow = () => {
+    return (
+      <section className="mb-5">
+        <h1 className="fs-6 fw-bold">2024 Dates</h1>
+        <a href={eventLink}>
+          <BrandButton href={eventLink} className="px-4 mb-3" variant="primary">JUNE 10-13 {'>>'}</BrandButton> 
+        </a>
+        <a href={eventLink}>
+          <BrandButton href={eventLink} className="mx-4 px-4 mb-3" variant="primary">JULY 15-18 {'>>'}</BrandButton> 
+        </a>
+      </section>
+    )
+  }
 
   return (
     <Layout>
@@ -30,12 +48,7 @@ const Page = ({ data }) => {
 
     <Row className="justify-content-start">
       <Col md={8}>
-        <section className="mb-5">
-          <h1 className="fs-6 fw-bold">2023 Dates</h1>
-          <BrandButton className="px-4 mb-3" variant="primary">JUNE 12-15 {'>>'}</BrandButton> 
-          <BrandButton className="mx-4 px-4 mb-3" variant="primary">JUNE 19-22 {'>>'}</BrandButton> 
-          <BrandButton className="px-4 mb-3" variant="primary">JULY 10-13 {'>>'}</BrandButton>
-        </section>
+        <ButtonRow />
       </Col>
     </Row>
       
@@ -72,12 +85,7 @@ const Page = ({ data }) => {
 
       <Row className="justify-content-start">
       <Col md={8}>
-        <section className="mb-5">
-          <h4 className="fw-bold fs-6">2023 Dates</h4>
-          <BrandButton className="px-4 mb-3" variant="primary">JUNE 12-15 {'>>'}</BrandButton> 
-          <BrandButton className="mx-4 px-4 mb-3" variant="primary">JUNE 19-22 {'>>'}</BrandButton> 
-          <BrandButton className="px-4 mb-3" variant="primary">JULY 10-13 {'>>'}</BrandButton>
-        </section>
+        <ButtonRow />
       </Col>
       </Row>
 
@@ -106,12 +114,7 @@ const Page = ({ data }) => {
       
       <Row className="justify-content-start">
       <Col md={8}>
-        <section className="mb-5">
-          <h6 className="fw-bold">2023 Dates</h6>
-          <BrandButton className="px-4 mb-3" variant="primary">JUNE 12-15 &gt;&gt;</BrandButton> 
-          <BrandButton className="mx-4 px-4 mb-3" variant="primary">JUNE 19-22 &gt;&gt;</BrandButton> 
-          <BrandButton className="px-4 mb-3" variant="primary">JULY 10-13 &gt;&gt;</BrandButton>
-        </section>
+        <ButtonRow />
       </Col>
       </Row>
 

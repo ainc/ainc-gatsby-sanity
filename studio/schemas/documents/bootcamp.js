@@ -56,8 +56,52 @@ export default {
           timeFormat: 'HH:mm:ss',
           timeStep: 1,
           calendarTodayLabel: 'Today'
+        }
+      },
+      {
+        title: 'Previous Cohort Start Date',
+        name: 'previousStartDate',
+        type: 'datetime',
+        options: {
+          dateFormat: 'MMMM D, YYYYp',
+          timeFormat: 'HH:mm:ss',
+          timeStep: 1,
+          calendarTodayLabel: 'Today'
+        }
+      },
+      {
+        title: 'Previous Cohort End Date',
+        name: 'previousEndDate',
+        type: 'datetime',
+        options: {
+          dateFormat: 'MMMM D, YYYYp',
+          timeFormat: 'HH:mm:ss',
+          timeStep: 1,
+          calendarTodayLabel: 'Today'
+        }
+      },
+      {
+        title: 'Upcoming Cohort Start Date',
+        name: 'upcomingStartDate',
+        type: 'datetime',
+        options: {
+          dateFormat: 'MMMM D, YYYYp',
+          timeFormat: 'HH:mm:ss',
+          timeStep: 1,
+          calendarTodayLabel: 'Today'
+        }
+      },
+      {
+        title: 'Upcoming Cohort End Date',
+        name: 'upcomingEndDate',
+        type: 'datetime',
+        options: {
+          dateFormat: 'MMMM D, YYYYp',
+          timeFormat: 'HH:mm:ss',
+          timeStep: 1,
+          calendarTodayLabel: 'Today'
+        }
       }
-    }
   
     ]
   }
