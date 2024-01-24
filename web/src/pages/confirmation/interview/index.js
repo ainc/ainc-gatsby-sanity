@@ -16,16 +16,25 @@ const App = () => {
   
   )
 }
-  
+
 const InterviewPage = () => {
     const [isTimerComplete, setIsTimerComplete] = useState(false);
+    const [name, setName] = useState(false);
+    const [startTime, setStartTime] = useState(false);
+    const [endTime, setEndTime] = useState(false);
+    const [invitee, setInvitee] = useState(false);
+    
     const location = useLocation();
     
     const queryParameters = new URLSearchParams(location.search);
-    const name = queryParameters.get("assigned_to");
-    const startTime = queryParameters.get("event_start_time")
-    const endTime = queryParameters.get("event_end_time")
-    const invitee = queryParameters.get("invitee_email")
+
+    useEffect(() => {
+        setName(queryParameters.get("assigned_to"))
+        setStartTime(queryParameters.get("event_start_time"))
+        setEndTime(queryParameters.get("event_end_time"))
+        setInvitee(queryParameters.get("invitee_email"))
+    })
+
 
 
     const StarttimeStamp = new Date(startTime)
