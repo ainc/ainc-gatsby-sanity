@@ -51,7 +51,7 @@ const EventsPage = ({ data }) => {
 
 export const query_events = graphql`
   query($currentDate: Date!) {
-    allSanityEvents(sort: {fields: date, order: DESC}, filter: {date: {gte: $currentDate}}) {
+    allSanityEvents(sort: {date: DESC}, filter: {date: {gte: $currentDate}}) {
       edges {
         node {
           eventName

@@ -17,7 +17,7 @@ const NotFoundPage = () => (
                 alt="brackets"
                 title="Learn to Code"
                 text="Everybody can and should learn to code, start today."
-                backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
+                backgroundImage="/images/student-learn-to-code-shirt.jpg"
                 imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
                 link="/learn"
               />
@@ -27,7 +27,7 @@ const NotFoundPage = () => (
                 alt="desk and chair"
                 title="Rent Workspace"
                 text="Rent a desk or space for events, meetings, and more."
-                backgroundImage="https://www.awesomeinc.org/images/awesome-inc-space-panel.jpg"
+                backgroundImage="/images/awesome-inc-space-banner.jpg"
                 imgSrc="https://d33wubrfki0l68.cloudfront.net/13acb6f3560e894a9e0eecc194c96f778fba858f/f6fb2/images/icons/rent-workspace.png"
                 link="/workspace"
               />

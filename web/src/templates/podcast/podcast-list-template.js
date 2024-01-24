@@ -12,6 +12,7 @@ import * as styles from "./podcast.module.scss";
 import '../../styles/main.scss'
 import Podcast from "../../components/Podcast/Podcast";
 
+
 const PodcastPage = ({pageContext, data }) => {
     const {currentPage, numPages} = pageContext
 
@@ -106,7 +107,7 @@ const PodcastPage = ({pageContext, data }) => {
 export const podcastInfo = graphql`
     query($skip: Int!, $limit: Int!){
       allFeedAnchorPodcast (
-          sort: { fields: [isoDate], order: DESC }
+          sort: { isoDate: DESC }
           skip: $skip,
           limit: $limit
         ) {

@@ -81,7 +81,7 @@ const PortfolioPage = ({ data }) => {
 // fit: MAX
 export const query = graphql`
     query {
-        allSanityFellowshipPortfolio {
+        allSanityFellowshipPortfolio(sort: {year: DESC}) {
         nodes {
             year
             companyName

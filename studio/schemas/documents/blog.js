@@ -47,14 +47,14 @@ export default {
             type: 'image',
             title: 'Cover Image',
             description: 'The image that will show on the main blog page'
+           
         },
         {
             name: 'body',
             type: 'markdown',
-            title: 'Blog body',
-            description: 'Blog content',
+            title: 'Body',
+            description: 'Body content. If you want to add an image, drag and drop it to the place within the blog you would like it to be.',
         },
-        
     ],
     orderings: [
         {

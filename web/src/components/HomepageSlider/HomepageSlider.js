@@ -73,7 +73,7 @@ const HomepageSlider = (props) => {
   const slides = (query.sanityImageSlider.slides || {});
   return (
     <>
-      <div ref={sliderRef} className="keen-slider">
+      <div ref={sliderRef} className={`keen-slider`}>
       {slides.map((slide,i) => (
         <div className={`keen-slider__slide number-slide${i}`} key={i}>
           <div style={{ 
@@ -81,6 +81,7 @@ const HomepageSlider = (props) => {
               backgroundImage: `url(${slide.image.asset.url})`,
               backgroundRepeat: 'no-repeat',
               backgroundSize: 'cover',
+              backgroundAttachment: 'scroll', //for safari
               height: '100vh',
               backgroundPosition: 'center center',
             }}

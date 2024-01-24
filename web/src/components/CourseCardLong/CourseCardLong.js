@@ -21,7 +21,13 @@ const CourseCardLong = ({ courseInfo, stripeColor }) => {
                 <Col>
                     <Title className={`${styles.boxTitle} text-uppercase text--brand fw-bold mt-3`}>{course.node.courseTitle}</Title>
                     <Subtitle className={`${styles.boxDescription} text-uppercase text--brand fw-bold ml-2 text-black fs-5`}>{course.node.courseSeason} / {course.node.format}</Subtitle>
+                    {course.node.courseTitle != 'SalesForce Career Accelerator' && (
                     <Subtitle className={`${styles.boxDescription} text--brand fw-bold ml-2 text-muted`}>{course.node.startDate} - {course.node.endDate} / {course.node.schedule}</Subtitle>
+                    )}
+                    {course.node.courseTitle === 'SalesForce Career Accelerator' && (
+                        <Subtitle className={`${styles.boxDescription} text--brand fw-bold ml-2 text-muted`}>Rolling admission for Cohort, start dates mid-month</Subtitle>
+
+                    )}
                     <a href={course.node.courseLink}>
                         <BrandButton className={`${styles.boxDescription} mb-3`}>Learn More</BrandButton>
                     </a>

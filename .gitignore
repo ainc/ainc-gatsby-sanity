@@ -11,3 +11,5 @@
 .netlify
 
 .vscode
+
+../yarn.lock

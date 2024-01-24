@@ -1,12 +1,14 @@
 const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
 const { paginate } = require('gatsby-awesome-pagination');
+const { createRedirect } = require('gatsby-plugin-netlify');
 
 async function createBlogPostPages(graphql, actions) {
   const { createPage } = actions;
   const result = await graphql(`
   {
     allSanityBlog {
+      totalCount
       edges {
         node {
           date
@@ -39,21 +41,11 @@ async function createBlogPostPages(graphql, actions) {
   // console.log(JSON.stringify(result, null, 4));
 
   if (result.errors) throw result.errors;
-
   
-
+  //Create individual blog post
   const postEdges = result.data.allSanityBlog.edges;
 
-  console.log("Post found: " + postEdges.length)
-  console.log("First Post: "+ postEdges[0].node.title)
-
   postEdges.forEach((edge) => {
-      // console.log("Edge: " + edge)
-      // console.log("types: " + typeof(edge.node.id))
-      // console.log("Edge ID: " + edge.node)
-      // console log the edge object
-
-
       // const id = edge.node.id;
       const path = `/blog/${edge.node.slug.current}`;
 
@@ -65,7 +57,30 @@ async function createBlogPostPages(graphql, actions) {
         },
       });
     });
+
+
+  //pagination for all blog posts
+  const blogCount = result.data.allSanityBlog.totalCount
+  const blogsPerPage = 9
+  const numBlogs = Math.ceil(blogCount/ blogsPerPage)
+
+  Array.from({ length: numBlogs }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/blog` : `/blog/${i + 1}`,  
+      component: require.resolve("./src/templates/blog/blog-list-template.js"),
+      // component: require.resolve("./src/pages/blog/index.js"),
+
+      context: {
+        limit: blogsPerPage,
+        skip: i * blogsPerPage,
+        numBlogs,
+        currentBlog: i + 1,
+      }
+    })
+  })   
 }
+
+ 
 
 async function createPodcastPages(graphql, actions) {
   const { createPage } = actions
@@ -73,7 +88,7 @@ async function createPodcastPages(graphql, actions) {
     `
       {
         allFeedAnchorPodcast (
-            sort: { fields: [isoDate], order: DESC }
+            sort: { isoDate: DESC }
           ) {
             totalCount
             nodes {
@@ -145,11 +160,57 @@ async function createNotePages(graphql, actions) {
   });
 }
 
+async function createTutorialsPages(graphql, actions) {
+  const { createPage } = actions;
+  const result = await graphql(`
+  {
+    allSanityTutorials {
+      edges {
+        node {
+          slug {
+            current
+          }
+          body
+          title
+        }
+      }
+    }
+  }
+  `);
+
+    // Generate pages based on the data
+    result.data.allSanityTutorials.edges.forEach(({ node }) => {
+      const slug = node.slug.current;
+      createPage({
+        path: `/tutorials/${slug}`,
+        component: require.resolve('./src/templates/tutorials/tutorials.js'),
+        context: {
+          post: node
+         },
+      });
+    });
+  }
+
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
+  const { createRedirect } = actions
+  //internal
+  createRedirect({fromPath: `/5across`, toPath: `/events/5across`, isPermanent: true, force: true, redirectInBrowser: true})
+  createRedirect({fromPath: `/5across/program`, toPath: `/program`, isPermanent: true, force: true, redirectInBrowser: true})
+
+  //external
+  createRedirect({fromPath: `https://awesomeincu.com/`, toPath: `/learn`, isPermanent: true, force: true, redirectInBrowser: true})
+  createRedirect({fromPath: `https://5across.org/`, toPath: `/events/5across`, isPermanent: true, force: true, redirectInBrowser: true})
+  createRedirect({fromPath: `https://awesomeincu.com/*`, toPath: `/learn`, isPermanent: true, force: true, redirectInBrowser: true})
+  createRedirect({fromPath: `https://awesomeincu.com`, toPath: `/learn`, isPermanent: true, force: true, redirectInBrowser: true})
+
+
+
+
   await createPodcastPages(graphql, actions)
   await createBlogPostPages(graphql, actions)
   await createNotePages(graphql, actions)
+  await createTutorialsPages(graphql, actions)
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -157,7 +218,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
     createNodeField({
-      name: `slug`,
+      name: `slug`, 
       node,
       value,
     })
@@ -175,7 +236,16 @@ exports.onCreatePage = ({ page, actions }) => {
     },
   })
 }
-
+exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
+    const config = getConfig()
+    const miniCssExtractPlugin = config.plugins.find(
+      plugin => plugin.constructor.name === 'MiniCssExtractPlugin'
+    )
+    if (miniCssExtractPlugin) {
+      miniCssExtractPlugin.options.ignoreOrder = true
+    }
+    actions.replaceWebpackConfig(config)
+}
 /**
  * Returns the current date in YYYY-MM-DD format
  */
@@ -191,3 +261,4 @@ function getCurrentDate() {
   }
   return `${d.getFullYear()}-${month}-${day}`;
 }
+
