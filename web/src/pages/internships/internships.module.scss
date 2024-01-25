@@ -11,6 +11,28 @@
   background-position: center;
 }
 
+.team-alpha-badge{
+  max-width: 175px;
+  position: absolute; 
+  transform: rotate(-20deg);
+  @media (max-width: 2000px) {
+    left: 15%; 
+    top: -20%;
+  }
+  @media (max-width: 1024px) {
+    left: 5%; 
+    top: -20%; 
+  }
+  @media (max-width: 768px) {
+    left: -5%; 
+    top: 0%; 
+  }
+  @media (max-width: 425px) {
+  left: 0%; 
+  top: -20%; 
+  }
+}
+
 .looking-for-section{
   background-image: url("../../images/wave-main.png");
   background-repeat: no-repeat;
@@ -70,28 +92,6 @@
 
 }
 
-.team-alpha-badge{
-  max-width: 175px;
-  position: absolute; 
-  transform: rotate(-20deg);
-  @media (max-width: 2000px) {
-    left: 15%; 
-    top: -20%;
-  }
-  @media (max-width: 1024px) {
-    left: 5%; 
-    top: -20%; 
-  }
-  @media (max-width: 768px) {
-    left: -5%; 
-    top: 0%; 
-  }
-  @media (max-width: 425px) {
-  left: 0%; 
-  top: -20%; 
-  }
-
-}
 
 .team-button {
   padding-left: 10px !important;
