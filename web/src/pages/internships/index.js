@@ -200,7 +200,7 @@ const InternshipsPage = ({ data }) => {
       <Container fluid className={styles.lookingForSection} >
         <Row className='flex-column flex-sm-row'>
           <Col className='d-flex align-items-center justify-content-center my-5 py-5'>
-            <StaticImage src='../../images/team-alpha-5across.jpg' alt='Team Alpha at 5Across' style={{maxWidth: '400px'}} className=''/>
+            <StaticImage src='../../images/team-alpha-5across.jpg' alt='Team Alpha at 5Across' style={{maxWidth: '400px'}} className=' '/>
           </Col>
           <Col className='mt-5 pt-5 text-left mx-md-5'>
             <Title className='text-uppercase text-white'>Who we're looking for</Title>
