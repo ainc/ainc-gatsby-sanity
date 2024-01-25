@@ -42,13 +42,21 @@
         color: $brand-grey-dark;
     }
   }
-  &.white{
+  &.white--dark-text{
     background-color: white;
     border-color: white;
     color: $brand-color2;
     &:hover {
       color: $brand-color;
   }
+  }
+  &.white--red-text{
+    background-color: white;
+    border-color: white;
+    color: $brand-red-bright;
+    &:hover {
+      color: $brand-color2;
+    }
   }
   &.btn--small {
     font-size: 1rem;
