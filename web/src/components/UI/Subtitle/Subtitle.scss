@@ -1,0 +1,40 @@
+// -----------------------------------------------------------------------------
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins"; 
+// -----------------------------------------------------------------------------
+
+.subtitle {
+  
+    @font-face {
+    font-family: 'The-Bohemian-Regular';
+    src: local('The-Bohemian-Regular'),
+       url('/web/src/assets/fonts/The-Bohemian-Regular.woff') format('woff');
+    }
+    font-family: $heading-font;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 0;
+    color: $brand-color2;
+    
+    &.brand {
+      color: $brand-color;
+    }
+    &.white {
+      color: white;
+    }
+    letter-spacing: 1px;
+    &.subtitle--small {
+      font-size: 1.4rem;
+    }
+    &.subtitle--tiny{
+      font-size: 0.7rem;
+    }
+    &.fancy-font {
+      font-size: 3.2rem;
+      font-family: 'The-Bohemian-Regular';
+    }  
+  
+    @media only screen and (max-width: $screen-xs) {
+      font-size: 1.4rem;
+    }
+}
