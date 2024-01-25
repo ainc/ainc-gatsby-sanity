@@ -78,7 +78,7 @@ const InternshipsPage = ({ data }) => {
             <Container fluid>
               <Row className={styles.headerSection}>
                   <Col className="mt-5 offset-md-2">
-                      <Title className="text-uppercase mt-5 text-white">Join Team Alpha</Title>
+                      <Title className="text-uppercase mt-5 fw-bold text-white">Join Team Alpha</Title>
                       <Subtitle className='text-uppercase text-white'>Gain Real experience.</Subtitle>
                       <Subtitle className='text-uppercase text-white'>Meet Awesome People.</Subtitle>
                       <Subtitle className='text-uppercase text-white'>Eat A Lot of Oreos.</Subtitle>
@@ -118,7 +118,9 @@ const InternshipsPage = ({ data }) => {
             <Title className='text-center text-white text-uppercase mt-5 mb-3'>Find Your Team</Title>
             <p className='text-center text-white'>Find the team that's right for you and join our list of alumni.</p>
             <p className='text-center text-white' style={{fontStyle: 'italic'}}>(Some have gone on to work at places like Disney, Facebook, Google, Spotify, and more!)</p>
-            <StaticImage src='../../images/billi.png' className={`${styles.billiImage} d-none d-sm-block`} alt='billi'/>
+            <div className={`${styles.billiImage} d-none d-sm-block`}>
+              <StaticImage src='../../images/billi.png' alt='billi'/>
+            </div>
           </div>
           </Row>
           <Row className='justify-content-center ' style={{height: '21rem'}}>
@@ -233,7 +235,7 @@ const InternshipsPage = ({ data }) => {
           </Row>
           <Row>
             <Col md={6} className='d-flex align-items-center justify-content-center justify-content-md-end'>
-              <GatsbyImage image={node.picture.asset.gatsbyImageData} className='rounded-circle'/>
+              <GatsbyImage image={node.picture.asset.gatsbyImageData} className='rounded-circle' alt={node.name}/>
             </Col>
             <Col className='pt-3 d-flex flex-column align-items-center align-items-md-start'>
               <Subtitle style={{color: '#C12029'}}>{node.name}</Subtitle>
