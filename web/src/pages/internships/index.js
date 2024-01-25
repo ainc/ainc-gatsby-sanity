@@ -78,7 +78,7 @@ const InternshipsPage = ({ data }) => {
             <Container fluid>
               <Row className={styles.headerSection}>
                   <Col className="mt-5 offset-md-2">
-                      <Title className="text-uppercase mt-5 fw-bold text-white">Join Team Alpha</Title>
+                      <Title className="text--big mt-5 fw-bold text-white">Join Team Alpha</Title>
                       <Subtitle className='text-uppercase text-white'>Gain Real experience.</Subtitle>
                       <Subtitle className='text-uppercase text-white'>Meet Awesome People.</Subtitle>
                       <Subtitle className='text-uppercase text-white'>Eat A Lot of Oreos.</Subtitle>
@@ -96,7 +96,9 @@ const InternshipsPage = ({ data }) => {
           <Row className='flex-column flex-sm-row my-5'>
             <Col className='d-flex align-items-center justify-content-center my-5' style={{position: 'relative'}}>
               <StaticImage src='../../images/team-alpha-coffee.jpg' alt='Team Alpha getting coffee' style={{maxWidth: '350px'}}/>
-              <StaticImage src='../../images/Team_Alpha_Logo_Grey.png' alt='Team alpha logo' className={styles.teamAlphaBadge} />
+              <div className={styles.teamAlphaBadge}>
+                <StaticImage src='../../images/Team_Alpha_Logo_Grey.png' alt='Team alpha logo' />
+              </div>
             </Col>  
             <Col className='my-3'>
               <Title className='text--bright-red text-uppercase mt-5'>What is Team Alpha?</Title>

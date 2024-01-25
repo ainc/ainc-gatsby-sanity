@@ -11,7 +11,7 @@ const StyleSubtitle = styled.h2`
         url('/web/src/assets/fonts/The-Bohemian-Regular.woff') format('woff');
   }
   font-family: ${styles.styles.fonts.headingFont};
-  font-size: ${styles.styles.sizes.subtitle};
+  font-size: 1.5rem;
   font-weight: 400;
   margin-top: 0;
   color: ${styles.styles.colors.brand2};
