@@ -27,9 +27,9 @@ const InterviewPage = () => {
     const location = useLocation();
     
     const queryParameters = new URLSearchParams(location.search);
-
+    console.log(queryParameters)
     useEffect(() => {
-        setName(queryParameters.get("assigned_to"))
+        setName(queryParameters.get("invitee_full_name"))
         setStartTime(queryParameters.get("event_start_time"))
         setEndTime(queryParameters.get("event_end_time"))
         setInvitee(queryParameters.get("invitee_email"))
@@ -70,7 +70,7 @@ const InterviewPage = () => {
                 </Row>
                 <Row className='mt-5 my-1'>
                     <Col lg={{span: 12 , offset: 0}}>
-
+                    {console.log(invitee)}
                     <h4  className='ms-3 mb-5 ' style={{fontSize: "1.5 rem"}}>  Thank you, {name}! </h4>
                     <p className='ms-3' style={{fontSize: "1.5 rem"}}>Your call is scheduled on <strong>{month} from {fullStartTime} to {fullEndTime}. </strong></p>
                     <p className='ms-3' style={{fontSize: "1.5 rem"}}> Please check your inbox at <a style={{color: "#C12029"}} href={`mailto:${invitee}`}>{invitee}</a> and confirm that you can make the scheduled time.</p>
@@ -79,7 +79,7 @@ const InterviewPage = () => {
                 </Row>
                 <Row className='justify-content-center my-3'> 
                     {!isTimerComplete ? (
-                        <CountdownCircleTimer 
+                        <CountdownCircleTimer
                             isPlaying
                             duration={290} // 4 minutes 50 seconds 
                             onComplete={handleTimerComplete}
