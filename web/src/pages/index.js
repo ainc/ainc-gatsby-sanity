@@ -41,7 +41,7 @@ import { withTheme } from "styled-components";
 
 
 export const query = graphql`
-query IndexPageQuery($currentDate: Date!) {
+query IndexPageQuery($currentDate: Date!) { 
   sanityEvents(featured: {eq: true}, date: {gte: $currentDate}) {
     id
     featured
