@@ -16,7 +16,7 @@
 }
 
 .heading {
-  margin-top: 120px;
+  margin-top: 150px;
   float: left;
 }
 
@@ -27,7 +27,7 @@
   text-transform: none;
   line-height: 3.5rem;
   font-weight: 900;
-  font-size: 39px;
+  font-size: 50px !important;
 }
 
 .heading-subtitle {
@@ -37,10 +37,12 @@
   margin-bottom: 2.25rem;
 }
 
+
 .header-img {
   padding-bottom: 2rem;
-  max-width: 100%;
-  height: auto;
+  max-width: 300px;
+  height: 300px;
+  object-fit: cover;
 }
 
 .entrepreneurship {
@@ -50,30 +52,15 @@
 }
 
 .logo {
-  max-height: 150px;
+  max-height: 200px;
+  max-width: 200px;
+}
+.logo-description {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.accomplishment {
-  background-color: rgba(230,231,232,255);
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  filter: contrast(110%);
-  padding-bottom: 3rem;
-  margin-bottom: 50px;
-}
-
-.accomplishment img {
-  height: 190px;
-  max-height: 190px;
-  max-width: 100%;
-}
-
-.accomplishment .heading-title {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  text-transform: uppercase;
-}
 
 .header-border .heading-title {
   margin-top: 1rem;
@@ -87,16 +74,13 @@
 }
 
 .programs {
-  padding: 0px 50px 50px;
   margin-bottom: 1rem;
   margin-top: 0;
+  font-weight: 800;
 }
 
-.btnAbsolute {
-  position: absolute;
-  /* left: 30px; */
-  right: 35px;
-  white-space: nowrap;
+.programs-subheader {
+  font-size: 20px;
 }
 
 .programs .heading-title {
@@ -114,37 +98,6 @@
   max-width: 50%;
 }
 
-.inner {
-  padding: 4.2rem 0;
-}
-
-.quoteBlock {
-  color: #c02129;
-  margin-top: 4rem;
-  margin-bottom: 1rem;
-  text-align: left;
-  text-transform: none;
-  line-height: 3.5rem;
-  font-weight: 600;
-  font-size: 30px;
-}
-
-.quoteParagraph {
-  max-width: 60%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-.quoteSignature {
-  color: #c02129;
-  max-width: 60%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  font-style: italic;
-}
-
 .work-header {
   padding-bottom: 8rem;
   padding-top: 6rem;
@@ -155,21 +108,15 @@
   max-width: 100%;
 }
 
-.services {
-  padding: 3rem;
-  
-}
-
-.services h2 {
-  margin-bottom: 1rem;  
-}
-
-.services p {
-  margin-bottom: 3rem;
+.logo-header {
+  padding-bottom: 6rem;
   max-width: 50%;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
+}
+
+.dot-divider {
+  width: 100%
 }
 
 .asterisk {
@@ -181,17 +128,17 @@
 
 @media (min-width: 900px) {
   .header-img {
-    width: 100%;
+    max-width: 250px;
   }
-  .involvement .header-img {
-    width: 100%;
-  }
-
 }
 
 @media (max-width: 1000px) {
   .whatWeDo .heading-title {
     padding: 0px 10px;
+    
+  }
+  .logo-header {
+    max-width: 100%;
   }
 }
 
@@ -232,7 +179,7 @@
   }
 
   .header-img {
-    width: 100%;
+    max-width: 300px;
   }
 
   .gatsby-image {
