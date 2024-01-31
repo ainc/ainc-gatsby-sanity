@@ -56,9 +56,9 @@ const WhatWeDoPage = ({ data }) => {
                     <Title className={` ${styles.headingTitle} text-uppercase text-white mt-5`}>
                         Why awesome inc exists
                     </Title>
-                    <Subtitle className={` ${styles.headingSubtitle} text-white fs-6 mt-5 mb-5`}>
+                    <Subtitle className={` ${styles.headingSubtitle} text-white mt-4 mb-4`}>
                         Awesome Inc exists to help people pursue their definition of 
-                        Awesome. We do this by creatign community around
+                        Awesome. We do this by creating community around
                         entrepreneurship and technology.
                     </Subtitle>
                     <BrandButton className={`text-nowrap`}>Learn More</BrandButton>
@@ -83,28 +83,27 @@ const WhatWeDoPage = ({ data }) => {
                             </p>
                         </Col>
                     </Row>
-                    {/*To do: Make midddle image correct size */}
                     <Row className="justify-content-center">
-                            <Col className={`align-items-md mb-sm-4 d-flex justify-content-md-center justify-content-sm-center`} md={4} sm={12}>
-                                <Image className={`${styles.headerImg}`} src={computerStare} alt="Computer Stare" />
+                            <Col className={`align-items-md mb-sm-4 d-flex justify-content-md-center justify-content-sm-center`} lg={4} sm={12}>
+                                <Image className={`${styles.headerImg} mx-auto`} src={computerStare} alt="Computer Stare" />
                             </Col>
-                            <Col className={`align-items-md-end mb-sm-4 d-flex justify-content-md-center justify-content-sm-center`} md={4} sm={12}>
-                                <Image className={`${styles.headerImg}`} src={bellRinging} alt="Success Bell Ringing"/>
+                            <Col className={`align-items-md-end mb-sm-4 d-flex justify-content-md-center justify-content-sm-center`} lg={4} md={12}>
+                                <Image className={`${styles.headerImg} mx-auto`} src={bellRinging} alt="Success Bell Ringing"/>
                             </Col>
-                            <Col className={`align-items-md-end mb-sm-4 d-flex justify-content-md-center justify-content-sm-center`} md={4} sm={12}>
-                                <Image className={`${styles.headerImg}`} src={handShake} alt="Handshake"/>
+                            <Col className={`align-items-md-end mb-sm-4 d-flex justify-content-md-center justify-content-sm-center`} lg={4} md={12}>
+                                <Image className={`${styles.headerImg} mx-auto`} src={handShake} alt="Handshake"/>
                             </Col>
                     </Row>
                 </Container>
             </section>
 
-            {/*To do: Make images align and paragraphs align */}
+            {/*To do: Make images align with each other and paragraphs align with each other */}
 
             {/* Entrepreneurship */}
             <section className="mt-5">
             <Container className={styles.entrepreneurship}>
                 {/* Header */}
-                <Row className={`${styles.logoHeader} align-items-center justify-content-center `}>
+                <Row className={`${styles.logoHeader}`}>
                     <h2 className={`text-uppercase text-danger text-center ${styles.headingTitle}`}>
                         Entrepreneurship
                     </h2>
@@ -112,19 +111,19 @@ const WhatWeDoPage = ({ data }) => {
                 </Row>
                 {/* Row 1 Logos */}
                 <Row className={`align-items-center justify-content-center mb-5`}>
-                    <Col className="text-center flex-column align-items-center">
+                    <Col lg={4} md={12} className="text-center flex-column align-items-center">
                         <Image className={`${styles.logo} img-fluid mb-3`} src={fiveAcross} alt="Five across logo" />
                         <p className={`${styles.logoDescription} mt-3 mb-5`}>
                                 A pitch competition for kentucky entrepreneurs.
                         </p>
                     </Col>
-                    <Col className="text-center flex-column align-items-center">
+                    <Col lg={4} md={12} className="text-center flex-column align-items-center">
                         <Image className={`${styles.logo} img-fluid mb-3`} src={fellowship} alt="Fellowship logo" />
                         <p className={`${styles.logoDescription} mt-3 mb-5`}>
                                 A mentor-driven program designed to accelerate Kentucky's high tech startups.
                         </p>
                     </Col>
-                    <Col className="text-center flex-column align-items-center">
+                    <Col lg={4} md={12} className="text-center flex-column align-items-center">
                         <Image className={`${styles.logo} img-fluid mb-3`} src={awesomeFund} alt="Awesome fund" />
                         <p className={`${styles.logoDescription} mt-3 mb-5`}>
                                 A pre-seed and seed stage fund that will invest in tech startups primarily in and near Kentucky.
@@ -134,13 +133,13 @@ const WhatWeDoPage = ({ data }) => {
                 {/* Row 2 Logos */}
                 <Row className={`align-items-center justify-content-center mb-5`}> 
                     <Image className={`mb-5`} src={dotDivider} alt="Dot Divider" />
-                    <Col className="mt-3 text-center flex-column align-items-center">
+                    <Col lg={4} md={12} className="mt-3 text-center flex-column align-items-center">
                         <Image className={`${styles.logo} img-fluid `} src={corporateInnovation} alt="Corporate Innovation" />
                         <p className={`${styles.logoDescription} mt-3 mb-5`}>
                             Helping KY companies discover, test, and implement innovative ideas.
                         </p>
                     </Col>
-                    <Col className="mt-3 text-center flex-column align-items-center">
+                    <Col lg={4} md={12} className="mt-3 text-center flex-column align-items-center">
                         <Image className={`${styles.logo} img-fluid`} src={coworking} alt="Coworking" />
                         <p className={`${styles.logoDescription} mt-3 mb-5`}>
                             Awesome Inc's coworking space hosts anyone needing a place to work. Open coworking,
@@ -148,7 +147,7 @@ const WhatWeDoPage = ({ data }) => {
                             team to work from and collaborate with one another.
                         </p>
                     </Col>
-                    <Col className="mt-3 text-center flex-column align-items-center">
+                    <Col lg={4} md={12} className="mt-3 text-center flex-column align-items-center">
                         <Image className={`${styles.logo} img-fluid`} src={cherubFund} alt="Cherub Fund" />
                         <p className={`${styles.logoDescription} mt-3 mb-5`}>
                             The Cherub Fund is a baby angel fund that was launched in 2013. The Cherub Fund makes
@@ -157,11 +156,10 @@ const WhatWeDoPage = ({ data }) => {
                     </Col>
                 </Row>
                 {/* Row 3 Logos */}
-                {/* To do: center image */}
-                <Row className={`align-items-center mb-5`}>
+                <Row className={`mb-5`}>
                     <Image className={`mb-5`} src={dotDivider} alt="Dot Divider" />
-                    <Col style={{ maxWidth: "33%" }} className="justify-content-left"> 
-                        <Image className={`${styles.logo} justify-content-center`} src={hallOfFame} alt="Hall of Fame" />
+                    <Col md={12} className={`${styles.hallOfFame} d-flex flex-column align-items-center`}> 
+                        <Image className={`${styles.logo} mx-auto`} src={hallOfFame} alt="Hall of Fame" />
                         <p className={`mt-3 mb-5 text-center`}>
                             The Kentucky Entrepreneur Hall of Fame is a physical and virtual destination that
                             shares and celebrates the stories of Kentucky's most successful entrepreneurs.
@@ -181,13 +179,13 @@ const WhatWeDoPage = ({ data }) => {
                     <Image className={`${styles.dotDivider}`} src={dotDivider} alt="Dot Divider" />
                 </Row>
                 <Row className={`align-items-center justify-content-center mb-5 mt-5`}>
-                    <Col className="text-center flex-column align-items-center">
+                    <Col lg={4} md={12} className="text-center flex-column align-items-center">
                         <Image className={`${styles.logo} img-fluid `} src={apax} alt="Apax Logo" />
                         <p className={`${styles.logoDescription} mt-3 mb-5`}>
                             APAX is your partner in creating customized software solutions that help organizations grow and thrive.
                         </p>
                     </Col>
-                    <Col className="text-center flex-column align-items-center mb-5">
+                    <Col lg={4} md={12} className="text-center flex-column align-items-center mb-5">
                         <Image className={`${styles.logo} img-fluid`} src={codeLogo} alt="C.O.D.E Logo" />
                         <p className={`${styles.logoDescription} mt-3 mb-5`}>
                             Students learn to code by working through curriculum and building projects on teams.
@@ -195,7 +193,7 @@ const WhatWeDoPage = ({ data }) => {
                             professional development to equip teachers to educate students and prepare them for the future.
                         </p>
                     </Col>
-                    <Col className="text-center flex-column align-items-center mb-5"> 
+                    <Col lg={4} md={12} className="text-center flex-column align-items-center mb-5"> 
                         <Image className={`${styles.logo} img-fluid`} src={codingClub} alt="Coding Club" />
                         <p className={`${styles.logoDescription} mt-3 mb-5`}>
                             The coding club offers students an opportunity to learn to code from professional
@@ -206,14 +204,14 @@ const WhatWeDoPage = ({ data }) => {
                 </Row>
                 <Row className={`align-items-center justify-content-center`}>
                     <Image className={`mb-5`} src={dotDivider} alt="Dot Divider" />
-                    <Col className="mt-3 text-center flex-column align-items-center mb-5"> 
+                    <Col lg={4} md={12} className="mt-3 text-center flex-column align-items-center mb-5"> 
                         <Image className={`${styles.logo} img-fluid`} src={graphicDesign} alt="Intro to graphic design" />
                         <p className={`${styles.logoDescription} mt-3 mb-5`}>
                             The Intro to Design course is created to focus on helping professionals in the marketing
                             and events workspace. No prior design knowledge or experience is required, but basic computer skills.
                         </p>
                     </Col>
-                    <Col className="mt-3 text-center flex-column align-items-center mb-5">
+                    <Col lg={4} md={12} className="mt-3 text-center flex-column align-items-center mb-5">
                         <Image className={`${styles.logo} img-fluid `} src={webDevelopment} alt="Intro to web development" />
                         <p className={`${styles.logoDescription} mt-3 mb-5`}>
                             Curious about coding, but not quite ready to take the plunge with our Web Developer Bootcamp?
@@ -221,7 +219,7 @@ const WhatWeDoPage = ({ data }) => {
                             even for absolute beginners.
                         </p>
                     </Col>
-                    <Col className="mt-3 text-center flex-column align-items-center mb-5">
+                    <Col lg={4} md={12} className="mt-3 text-center flex-column align-items-center mb-5">
                         <Image className={`${styles.logo} img-fluid`} src={salesforce} alt="Salesforce Accelerator" />
                         <p className={`${styles.logoDescription} mt-3 mb-5`}>
                             The best way to launch a career in the rapdily growing Salesforce ecosystem is through becoming
@@ -231,19 +229,18 @@ const WhatWeDoPage = ({ data }) => {
                     </Col>
                 </Row>
                 <Row>
-                    {/*To do: Center Images */}
                     <Image className={`mb-5`} src={dotDivider} alt="Dot Divider" />
-                    <Row style={{ maxWidth: "67%" }} className="justify-content-left">
-                    <Col className={`mt-3`}>
-                        <Image className={`${styles.logo} img-fluid`} src={bootcamp} alt="Web Developer Bootcamp" />
+                    <Row className="flex-row align-items-center">
+                    <Col lg={4} md={12} className={`mt-3 d-flex flex-column`}>
+                        <Image className={`${styles.logo} mx-auto`} src={bootcamp} alt="Web Developer Bootcamp" />
                         <p className={`${styles.logoDescription} mt-3 mb-5 text-center`}>
                             The Web Developer Bootcamp is an intenstive, hands-on program teachign web and
                             software development, with a focus on job-ready skills. In just 16 weeks, we'll help
                             you achieve your goals and land your dream job as a developer.
                         </p>
                     </Col>
-                    <Col className={`mt-3`}>
-                        <Image className={`${styles.logo} img-fluid`} src={weekOfCode} alt="Week of Code" />
+                    <Col lg={4} md={12} className={`mt-3 d-flex flex-column`}>
+                        <Image className={`${styles.logo} mx-auto`} src={weekOfCode} alt="Week of Code" />
                         <p className={`${styles.logoDescription} mt-3 mb-5 text-center`}>
                             The Week of Code Summer Camp provides a fun and engaging introduction to coding,
                             with a focus on building important skills for the future. By the end of the week,
@@ -265,20 +262,20 @@ const WhatWeDoPage = ({ data }) => {
                     <Image className={``} src={dotDivider} alt="Dot Divider" />
                 </Row>
                 <Row className={`align-items-center justify-content-center mb-5`}>
-                    <Col className="text-center flex-column align-items-center">
+                    <Col lg={4} md={12} className="text-center flex-column align-items-center">
                         <Image className={`${styles.logo} img-fluid `} src={joyProject} alt="Joy Project" />
                         <p className={`mt-3 mb-5`}>
                             The Joy Project is a charity foundation that was founded to better the lives of people in the Lexington Community.
                         </p>
                     </Col>
-                    <Col className="text-center flex-column align-items-center">
+                    <Col lg={4} md={12} className="text-center flex-column align-items-center">
                         <Image className={`${styles.logo} img-fluid`} src={startupLex} alt="Startup Lexington" />
                         <Image className={`${styles.asterisk}`} src={redAsterisk} alt="Red asterisk"/>
                         <p className={`mt-3 mb-5`}>
                             Startup Lex is an entrepreneur focused community made for encouraging growth, education, and giving first.
                         </p>
                     </Col>
-                    <Col className="text-center flex-column align-items-center"> 
+                    <Col lg={4} md={12} className="text-center flex-column align-items-center"> 
                         <Image className={`${styles.logo} img-fluid`} src={startupWeekend} alt="Lexington Startup Weekend"/>
                         <Image className={`${styles.asterisk}`} src={redAsterisk} alt="Red asterisk"/>
                         <p className={`mt-3 mb-5`}>
@@ -288,19 +285,19 @@ const WhatWeDoPage = ({ data }) => {
                 </Row>
                 <Row className={`align-items-center justify-content-center`}>
                     <Image className={``} src={dotDivider} alt="Dot Divider" />
-                    <Col className="text-center flex-column align-items-center mt-5"> 
+                    <Col lg={4} md={12} className="text-center flex-column align-items-center mt-5"> 
                         <Image className={`${styles.logo} img-fluid`} src={startupSummer} alt="Startup Summer Retreat" />
                         <p className={`mt-3 mb-5`}>
                             Join other founders, entrepreneurs, mentors, and startup community members for a multi-day retreat, focused on growth. All while having fun.
                         </p>
                     </Col>
-                    <Col className="text-center flex-column align-items-center mt-5">
+                    <Col lg={4} md={12} className="text-center flex-column align-items-center mt-5">
                         <Image className={`${styles.logo} img-fluid `} src={teamAlpha} alt="Team Alpha" />
                         <p className={`mt-3 mb-5`}>
                             Team Alpha is our internship program with a goal to equip each intern with skill sets while gaining real-world experience by working on one of four teams. 
                         </p>
                     </Col>
-                    <Col className="text-center flex-column align-items-center mt-5">
+                    <Col lg={4} md={12} className="text-center flex-column align-items-center mt-5">
                         <Image className={`${styles.logo} img-fluid`} src={undrcvr} alt="UndrCvr Lex" />
                         <Image className={`${styles.asterisk}`} src={redAsterisk} alt="Red asterisk"/>
                         <p className={`mt-3 mb-5`}>
