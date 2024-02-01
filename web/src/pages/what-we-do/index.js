@@ -110,23 +110,29 @@ const WhatWeDoPage = ({ data }) => {
                     <Image className={`${styles.dotDivider}`} src={dotDivider} alt="Dot Divider" />
                 </Row>
                 {/* Row 1 Logos */}
-                <Row className={`align-items-center justify-content-center mb-5`}>
-                    <Col lg={4} md={12} className="text-center flex-column align-items-center">
-                        <Image className={`${styles.logo} img-fluid mb-3`} src={fiveAcross} alt="Five across logo" />
-                        <p className={`${styles.logoDescription} mt-3 mb-5`}>
-                                A pitch competition for kentucky entrepreneurs.
+                <Row className={`d-flex justify-content-center mb-5`}>
+                    <Col lg={4} md={12} className="d-flex flex-column justify-content-center align-items-center text-center">
+                        <div className={styles.logoContainer}>
+                            <Image className={` mb-3`} src={fiveAcross} alt="Five across logo" />
+                        </div>
+                        <p className={`${styles.logoDescription}  mt-auto mb-5`}>
+                            A pitch competition for kentucky entrepreneurs.
                         </p>
                     </Col>
-                    <Col lg={4} md={12} className="text-center flex-column align-items-center">
-                        <Image className={`${styles.logo} img-fluid mb-3`} src={fellowship} alt="Fellowship logo" />
-                        <p className={`${styles.logoDescription} mt-3 mb-5`}>
-                                A mentor-driven program designed to accelerate Kentucky's high tech startups.
+                    <Col lg={4} md={12} className="d-flex flex-column justify-content-center align-items-center text-center">
+                        <div className={styles.logoContainer}>
+                            <Image className={` mb-3`} src={fellowship} alt="Fellowship logo" />
+                        </div>
+                        <p className={`${styles.logoDescription} mt-auto mb-5`}>
+                            A mentor-driven program designed to accelerate Kentucky's high tech startups.
                         </p>
                     </Col>
-                    <Col lg={4} md={12} className="text-center flex-column align-items-center">
-                        <Image className={`${styles.logo} img-fluid mb-3`} src={awesomeFund} alt="Awesome fund" />
-                        <p className={`${styles.logoDescription} mt-3 mb-5`}>
-                                A pre-seed and seed stage fund that will invest in tech startups primarily in and near Kentucky.
+                    <Col lg={4} md={12} className="d-flex flex-column justify-content-center align-items-center text-center ">
+                        <div className={styles.logoContainer}>
+                            <Image className={`mb-5`} src={awesomeFund} alt="Awesome fund" />
+                        </div>
+                        <p className={`${styles.logoDescription} mt-auto mb-5`}>
+                            A pre-seed and seed stage fund that will invest in tech startups primarily in and near Kentucky.
                         </p>
                     </Col>
                 </Row>
