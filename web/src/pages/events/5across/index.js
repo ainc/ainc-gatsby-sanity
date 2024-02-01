@@ -132,7 +132,7 @@ const fiveAcrossPage = ({ data }) => {
                                 <a href={node.linkToEvent}>
                                     <Row className=''>
                                         <Col lg="4" md="4" sm="4" className="">
-                                            <Row className="justify-content-end">
+                                            <Row className="d-flex flex-column align-items-center">
                                                 <Col lg="10" className="d-none d-lg-block d-md-block">
                                                     <StaticImage quality="100" src="../../../images/5across-banner.png" alt=''/>
                                                 </Col>
@@ -185,9 +185,11 @@ const fiveAcrossPage = ({ data }) => {
                     </Col>
                     <Col className={`mt-5`}>
                         <h1 className={styles.recentWinnerText}>{previousWinner.companyTitle}</h1>
-                        <h1 className={`${styles.recentWinnerText} fs-1 fst-italic fw-light`}>Kentucky</h1>
+                        <Row className=''>
+                            <h1 className={`fs-1 fst-italic fw-light`} style={{fontSize: '2.5vw'}}>Kentucky</h1>
+                        </Row>
                         <Row>
-                            <Col sm="2" className="mb-5">
+                            <Col sm="2" className="mt-3">
                                 <StaticImage src="../../../images/5across-banner.png" alt=''/>
                             </Col>
                         </Row>
@@ -241,18 +243,18 @@ const fiveAcrossPage = ({ data }) => {
                     </Col>
                 </Row>
                 <Row className="text-center my-5">
-                    <Col lg="12" className="my-5">
+                    <Col lg="12" className="my-3">
                         <Title className="fs-2">Title Sponsor</Title>
                     </Col>
-                    <Col lg="12" className="my-5">
+                    <Col lg="12" className="my-2">
                         <a href={titleSponsorLink}>
                             <GatsbyImage image={titleSponsorImage} alt={titleSponsorName} />
                         </a>
                     </Col>
-                    <Col lg="12" className="my-5">
+                    <Col lg="12" className="my-2">
                         <Title className="fs-2 my-5">Presenting Sponsor</Title>
                     </Col>
-                    <Col lg="12" className="my-5">
+                    <Col lg="12" className="my-2">
                         <a href={presentingSponsorLink}>
                             <GatsbyImage image={presentingSponsorImage} alt={presentingSponsorName} />
                         </a>

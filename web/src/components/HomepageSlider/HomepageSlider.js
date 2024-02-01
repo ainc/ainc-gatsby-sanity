@@ -88,9 +88,9 @@ const HomepageSlider = (props) => {
             }}
           >
             <Wrapper>
-                <Container className="mb-3 d-flex align-content-center flex-wrap h-100">
+                <Container className="mb-5 d-flex align-content-center flex-wrap h-100">
                   <Row>
-                    <Subtitle className="text-white">{slide.subtitle}</Subtitle>
+                    <Subtitle className="text-white pl-3">{slide.subtitle}</Subtitle>
                     <Title className="mb-3 text-white">{slide.title}</Title>
                     <Col>
                       <BrandButton onClick={() => scrollToSection(sectionIds[i])} href={slide.cta.url} className="mt-3">

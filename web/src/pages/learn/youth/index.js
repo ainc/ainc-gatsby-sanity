@@ -43,7 +43,7 @@ const YouthPage = () => {
                         </Col>
                         <Col sm={6} md={{ span: 5 }} lg={{ span: 4, offset: 1 }} xl={{ span: 0, offset: 7 }} className='position-relative'>
                             <div className={styles.programGuide}>
-                                <YouthProgramGuide/>
+                                <YouthProgramGuide />
                             </div>
                         </Col>
                         <Row className='px-auto'>
@@ -52,11 +52,11 @@ const YouthPage = () => {
                     </Row>
                 </Container>
                 <Container>
-                    <Row>
+                    <Row className='d-flex align-items-center'>
                         <Col sm={{ span: 4 }} md={{ offset: 0, span: 4 }} lg={{ span: 5, offset: 1 }} xl={{ offset: 1, span: 4 }} >
                             <StaticImage className={styles.phone} src='../../../images/learn/header-phone.png' alt='phone'></StaticImage>
                         </Col>
-                        <Col sm={12} md={8} lg={6} xl={6} className='mt-3'>
+                        <Col sm={12} md={8} lg={6} xl={6} className=''>
                             <Title>Why should my child learn to code?</Title>
                             <p className='text-start'>Technology is all around us. Whether you are an app developer or an English professor, you will utilize technology in your daily work.
                                 Awesome Inc exists to take your child's screen time and turn it into career-skill time. Our courses increase communication, public speaking, organization,
