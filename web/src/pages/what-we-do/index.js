@@ -296,7 +296,7 @@ const WhatWeDoPage = ({ data }) => {
                         <div className={styles.logoContainer}>
                             <Image className={`${styles.logo} img-fluid `} src={joyProject} alt="Joy Project" />
                         </div>
-                        <p className={`mt-3 mb-5`}>
+                        <p className={`${styles.logoDescription} mt-3 mb-5 text-center`}>
                             The Joy Project is a charity foundation that was founded to better the lives of people in the Lexington Community.
                         </p>
                     </Col>
@@ -305,7 +305,7 @@ const WhatWeDoPage = ({ data }) => {
                             <Image className={`${styles.logo} img-fluid`} src={startupLex} alt="Startup Lexington" />
                             <Image className={`${styles.asterisk}`} src={redAsterisk} alt="Red asterisk"/>
                         </div>
-                        <p className={`mt-3 mb-5`}>
+                        <p className={`${styles.logoDescription} mt-3 mb-5 text-center`}>
                             Startup Lex is an entrepreneur focused community made for encouraging growth, education, and giving first.
                         </p>
                     </Col>
@@ -314,7 +314,7 @@ const WhatWeDoPage = ({ data }) => {
                             <Image className={`${styles.logo} img-fluid`} src={startupWeekend} alt="Lexington Startup Weekend"/>
                             <Image className={`${styles.asterisk}`} src={redAsterisk} alt="Red asterisk"/>
                         </div>
-                        <p className={`mt-3 mb-5`}>
+                        <p className={`${styles.logoDescription} mt-3 mb-5 text-center`}>
                             Startup Weekend is a three-day program where aspiring entrepreneurs can build a company and experience startup life.
                         </p>
                     </Col>
@@ -325,7 +325,7 @@ const WhatWeDoPage = ({ data }) => {
                         <div className={styles.logoContainer}>
                             <Image className={`${styles.logo} img-fluid`} src={startupSummer} alt="Startup Summer Retreat" />
                         </div>
-                        <p className={`mt-3 mb-5`}>
+                        <p className={`${styles.logoDescription} mt-3 mb-5 text-center`}>
                             Join other founders, entrepreneurs, mentors, and startup community members for a multi-day retreat, focused on growth. All while having fun.
                         </p>
                     </Col>
@@ -333,7 +333,7 @@ const WhatWeDoPage = ({ data }) => {
                         <div className={styles.logoContainer}>
                             <Image className={`${styles.logo} img-fluid `} src={teamAlpha} alt="Team Alpha" />
                         </div>
-                        <p className={`mt-3 mb-5`}>
+                        <p className={`${styles.logoDescription} mt-3 mb-5 text-center`}>
                             Team Alpha is our internship program with a goal to equip each intern with skill sets while gaining real-world experience by working on one of four teams. 
                         </p>
                     </Col>
@@ -342,7 +342,7 @@ const WhatWeDoPage = ({ data }) => {
                             <Image className={`${styles.logo} img-fluid`} src={undrcvr} alt="UndrCvr Lex" />
                             <Image className={`${styles.asterisk}`} src={redAsterisk} alt="Red asterisk"/>
                         </div>
-                        <p className={`mt-3 mb-5`}>
+                        <p className={`${styles.logoDescription} mt-3 mb-5 text-center`}>
                             UndrCvr Lex is a partnership between Awesome Inc, BaseHere, and the Lexington Chamber of Commerce
                             that provides opportunity to introudce the community and college student talent to all of the tech organizations in Lexington.
                         </p>
@@ -350,8 +350,8 @@ const WhatWeDoPage = ({ data }) => {
                 </Row>
                 <Row className="align-items-center justify-content-center mb-5">
                     <Col xs="auto" className="d-inline-flex align-items-center">
-                        <Image className={`${styles.asterisk}`} src={redAsterisk} alt="Red asterisk"/>
-                        <p className="text-center mb-0 ml-2">Awesome Inc is a contributor of this program, not an owner</p>
+                        <Image className={`${styles.asterisk} mt-5`} src={redAsterisk} alt="Red asterisk"/>
+                        <p className="text-center mb-0 ml-2 mt-5">Awesome Inc is a contributor of this program, not an owner</p>
                     </Col>
                 </Row>
             </Container>
