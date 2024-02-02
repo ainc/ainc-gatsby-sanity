@@ -61,7 +61,9 @@ const WhatWeDoPage = ({ data }) => {
                         Awesome. We do this by creating community around
                         entrepreneurship and technology.
                     </Subtitle>
-                    <BrandButton className={`text-nowrap`}>Learn More</BrandButton>
+                    <a href='/about'>
+                        <BrandButton className={`text-nowrap`}>Learn More</BrandButton>
+                    </a>
                     </div>
                 </Col>
                 </Row>
