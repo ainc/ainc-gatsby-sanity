@@ -1,5 +1,6 @@
 import React , {useState} from "react";
 import { Card } from 'react-bootstrap'
+import { motion } from "framer-motion"
 
 import * as styles from "./BackgroundCard.module.scss";
 
@@ -15,7 +16,9 @@ const BackgroundCard = (props) => {
   };
 
   return (
-    <a onClick={() => scrollToSection(props.sectionRef)}>
+    
+      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }}>
+      <a onClick={() => scrollToSection(props.sectionRef)}>
       <Card className={`${styles.cardBackgroundFilter} col-xs-12`} style={{ backgroundImage: `url(${props.backgroundImage})` }} 
       onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
         <Card.Body className="card-body--background-card p-1">
@@ -24,7 +27,9 @@ const BackgroundCard = (props) => {
           <Card.Text className={`text-white text-center mb-5 ${styles.cardText}`} style={{transform: isHovered ? 'scale(1.05)' : 'scale(1.0)', transition: '0.3s'}}>{props.text}</Card.Text>
         </Card.Body>
       </Card>
-    </a>
+      </a>
+      </motion.div>
+    
   );
 };
 
