@@ -21,7 +21,7 @@ const CoreValue = (props) => {
                 <Col sm="4">
                   <a onClick={handleShow}  id="video-btn" href='#!'>
                     <motion.div
-                      initial={{ opacity: 0.5, y: 50 }}
+                      initial={{ opacity: 0.5, y: -50 }}
                       whileInView={{ opacity: 1 , y: 0}}
                       transition={{ duration: 0.5 }}
                       whileHover={{ scale: 1.1 }} 
@@ -34,7 +34,7 @@ const CoreValue = (props) => {
                 <Col sm="4">
                   <a id="culture-book-btn" href="/assets/culture-book.pdf" target="_blank" rel="noopener">
                     <motion.div
-                      initial={{ opacity: 0.5, y: -50 }}
+                      initial={{ opacity: 0.5, y: 50 }}
                       whileInView={{ opacity: 1 , y: 0}}
                       transition={{ duration: 0.5 }}
                       whileHover={{ scale: 1.1 }} 
