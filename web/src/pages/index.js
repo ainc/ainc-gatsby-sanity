@@ -40,7 +40,6 @@ import StackIcon from "../assets/svg/stack.svg";
 import ToolsIcon from "../assets/svg/tools.svg";
 import { withTheme } from "styled-components";
 
-
 export const query = graphql`
 query IndexPageQuery($currentDate: Date!) { 
   sanityEvents(featured: {eq: true}, date: {gte: $currentDate}) {
@@ -178,12 +177,9 @@ const IndexPage = ({ data }) => {
           <Row className='d-flex justify-content-center'>
             {/* <Col xs={12} sm={{ span: 10, offset: 1}} > */}
                 
-              <Row className={` row row-cols-5 justify-content-center my-3 px-1 gx-5`}>
+              <Row className={` row row-cols-5 justify-content-center my-3 px-1 gx-3`}>
                 {/* <Col md={3}> */}
-                
                 <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3'>
-                  <motion.div whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}>
                   <BackgroundCard
                     title="Learn to Code"
                     text="Everybody can and should learn to code, start today."
@@ -193,13 +189,11 @@ const IndexPage = ({ data }) => {
                     sectionRef = {section2Ref}
                   
                   />
-                  </motion.div>
                 </Col>
                 
                 {/* <Col md={3}> */}
-                <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
-                  <motion.div whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}>
+                <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3'>
+
                   <BackgroundCard 
                     title="Rent Workspace"
                     text="Rent a desk or space for events, meetings, and more."
@@ -210,12 +204,9 @@ const IndexPage = ({ data }) => {
                     sectionRef = {section1Ref}
                    
                    />
-                   </motion.div>
                 </Col>
                 {/* <Col md={3}> */}
-                  <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
-                  <motion.div whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}>
+                  <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3'>
                   <BackgroundCard
                     title="Accelerate your startup"
                     text="We will help grow your business with a mentor-driven, accelerator program."
@@ -226,12 +217,9 @@ const IndexPage = ({ data }) => {
                     sectionRef = {section3Ref}
 
                   />
-                  </motion.div>
                 </Col>
                 {/* <Col md={3}> */}
                 <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
-                <motion.div whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}>
                   <BackgroundCard 
                     title="Software Development"
                     text="Let us create custom software for your business."
@@ -242,7 +230,6 @@ const IndexPage = ({ data }) => {
                     sectionRef = {section4Ref}
                     
                   />
-                  </motion.div>
                 </Col>
               </Row>
             {/* </Col> */}
