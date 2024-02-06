@@ -1,5 +1,4 @@
 import React from "react";
-// import styled from "styled-components";
 import { Card } from "react-bootstrap";
 import Moment from 'moment';
 

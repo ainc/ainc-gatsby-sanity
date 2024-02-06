@@ -1,12 +1,14 @@
 import * as React from 'react'
-import Layout from '../../../components/Layout/Layout'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import { Container, Row, Col } from 'react-bootstrap'
+
+import BrandButton from "../../../components/UI/BrandButton/BrandButton"
+import FellowshipCompanyCard from '../../../components/FellowshipCompanyCard/FellowshipCompanyCard'
+import Layout from '../../../components/Layout/Layout'
 import SEO from '../../../components/seo'
 import Title from '../../../components/UI/Title/Title'
-import BrandButton from "../../../components/UI/BrandButton/BrandButton"
+
 import "../../../styles/main.scss"
-import FellowshipCompanyCard from '../../../components/FellowshipCompanyCard/FellowshipCompanyCard'
 
 const PortfolioPage = ({ data }) => {
 
@@ -23,9 +25,9 @@ const PortfolioPage = ({ data }) => {
             </Container>
             <Container>
                 <Row className='d-inline h6 mx-1'>
-                    <Link to='#' className='link--red text--grey px-0'>HOME</Link>
+                    <a href='#' className='link--red text--grey px-0'>HOME</a>
                     <h6 className='d-inline px-2'>/</h6>
-                    <Link to='/fellowship' className='link--red text--grey px-0'>FELLOWSHIP</Link>
+                    <a href='/fellowship' className='link--red text--grey px-0'>FELLOWSHIP</a>
                     <h6 className='d-inline px-2'>/</h6>
                     <h6 className='d-inline px-0 text--red'>PORTFOLIO</h6>
                     
@@ -79,7 +81,7 @@ const PortfolioPage = ({ data }) => {
 // fit: MAX
 export const query = graphql`
     query {
-        allSanityFellowshipPortfolio {
+        allSanityFellowshipPortfolio(sort: {year: DESC}) {
         nodes {
             year
             companyName

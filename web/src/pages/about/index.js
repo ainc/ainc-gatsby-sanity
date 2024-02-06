@@ -23,14 +23,13 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO />
         {/* About header */}
-        <section className={styles.aboutHeader}>
+        <section className={`${styles.aboutHeader}`}>
           <Container>
             <Row>
               <Col className="col-9 col-sm-7 mt-3">
                 <div className={styles.heading}>
-                  <Title className={`text-normal mt-5`}>
+                  <Title className={`mt-5 fw-bold `}>
                     We exist to help people pursue their definition of awesome.
                   </Title>
                   <Subtitle className={`fs-6 mt-2 mb-5`}>
@@ -39,16 +38,22 @@ const AboutPage = ({ data }) => {
                     technology or business. We strive to make Lexington a better place to live and
                     work.
                   </Subtitle>
-                  <BrandButton className={`text-nowrap`}>View Our Culture Book</BrandButton>
+                  <a href="/assets/culture-book.pdf">
+                    <BrandButton className={`text-nowrap`}>View Our Culture Book</BrandButton>
+                  </a>
+                  
                 </div>
               </Col>
             </Row>
             <Row>
               <Image className={`${styles.headerImg}`} src={coreValues} alt="core-values" />
               <Col className="col-sm-8 col-10">
+                <a href="/assets/core-values.pdf">
                 <BrandButton className={`text-nowrap`}>
                   Read About Our Core Values
                 </BrandButton>
+                </a>
+               
               </Col>
             </Row>
           </Container>
@@ -68,7 +73,7 @@ const AboutPage = ({ data }) => {
                     md={4}
                     sm={12}
                   >
-                    <a href="#" role="button">
+                    <a href="../workspace" role="button">
                       <GatsbyImage
                         objectFit="scale-down"
                         className={styles.imageLinks}
@@ -84,7 +89,7 @@ const AboutPage = ({ data }) => {
                     md={4}
                     sm={12}
                   >
-                    <a href="#" role="button">
+                    <a href="../fellowship" role="button">
                       <GatsbyImage
                         objectFit="scale-down"
                         className={styles.imageLinks}
@@ -100,7 +105,7 @@ const AboutPage = ({ data }) => {
                     md={4}
                     sm={12}
                   >
-                    <a href="#" role="button">
+                    <a href="../learn" role="button">
                       <GatsbyImage
                         objectFit="scale-down"
                         image={
@@ -131,6 +136,7 @@ const AboutPage = ({ data }) => {
                   subHeading="Coding School"
                   content="Awesome Inc U is our coding school. It is for both adults and children. We have taught over 1500 people to code with us."
                   btnText="Read More"
+                  to="../learn"
                 />
               </Col>
               <Col sm={12} md={6} lg={4}>
@@ -138,13 +144,16 @@ const AboutPage = ({ data }) => {
                   subHeading="Entrepreneurial Hub"
                   content="Our space and network and provide an opportunity for entrepreneurs to get connected to who they need to be successful."
                   btnText="Read More"
+                  to="../fellowship"
                 />
               </Col>
               <Col sm={12} md={6} lg={4}>
-                <OutlineDiv
+                <OutlineDiv 
                   subHeading="Apax Software"
                   content="Creating technology is one of our favorite things to do at Awesome Inc. Our software arm, APAX Software, can build enterprise solutions suited for anyone."
                   btnText="Visit Site"
+                  to="https://apaxsoftware.com/"
+                
                 />
               </Col>
               <Col sm={12} md={6} lg={4}>
@@ -152,6 +161,8 @@ const AboutPage = ({ data }) => {
                   subHeading="Workspace"
                   content="We have a space for you to do your best work at. You can also host events at our space."
                   btnText="Read More"
+                  to="../workspace"
+                 
                 />
               </Col>
               <Col sm={12} md={6} lg={4}>
@@ -159,6 +170,8 @@ const AboutPage = ({ data }) => {
                   subHeading="Innovation Incubated"
                   content="Helping KY companies discover, test, and implement innovative ideas."
                   btnText="Read More"
+                  to="https://www.awesomeinc.org/innovation-incubated"
+                 
                 />
               </Col>
               <Col sm={12} md={6} lg={4}>
@@ -166,6 +179,8 @@ const AboutPage = ({ data }) => {
                   subHeading="Culture"
                   content="Culture is so important to us. We want to share it with the community and invite everyone in on it."
                   btnText="Culture Book"
+                  to="https://www.awesomeinc.org/assets/culture-book.pdf"
+                
                 />
               </Col>
             </Row>
@@ -179,19 +194,22 @@ const AboutPage = ({ data }) => {
               <h2 className={`text-uppercase text-center ${styles.headingTitle}`}>Meet The Team</h2>
               <Col xs={{ span: 7, offset: 3}} sm={{ span: 6, offset: 3}} md={{ span: 10, offset: 2}} lg={{ span: 8, offset: 2}} >
                 <Row>
-                  {teamMembers.map((node) => (
+                  {teamMembers.map((node, i) => (
                     <Col
                       xs={5}
                       sm={6}
                       md={3}
                       lg={2}
                       className="mb-3 mt-3 mx-md-1 mx-lg-0 mt-lg-3 my-lg-1 mt-md-2 mb-md-2 mt-sm-4 mb-sm-4 mb-xs-3 mt-xs-3 d-flex justify-content-center"
+                      key={i}
                     >
                       <TeamMember
                         image={
                           node.picture.asset.gatsbyImageData
                         }
                         name={node.name}
+                        alt={node.name}
+                        
                       />
                     </Col>
                   ))}

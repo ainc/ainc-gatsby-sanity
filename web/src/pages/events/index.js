@@ -1,26 +1,17 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "../../components/Layout/Layout";
-import { Container, Col, Row, Image } from "react-bootstrap";
-import SEO from '../../components/seo'
-import { GatsbyImage } from "gatsby-plugin-image";
+import { Container, Col, Row } from "react-bootstrap";
 
-import * as styles from "./events.module.css";
-
-import SocialMedia from "../../components/SocialMedia/SocialMedia";
-import TeamMember from "../../components/TeamMember/TeamMember";
-import OutlineDiv from "../../components/DivOutline/DivOutline";
-import Title from "../../components/UI/Title/Title";
-import Subtitle from "../../components/UI/Subtitle/Subtitle";
-import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import Event from "../../components/Event/Event";
+import Layout from "../../components/Layout/Layout";
+import Subtitle from "../../components/UI/Subtitle/Subtitle";
+import Title from "../../components/UI/Title/Title";
 
 const EventsPage = ({ data }) => {
     const events = (data.allSanityEvents.edges || {})
 
     return (
         <Layout>
-            <SEO />
           {/* Heading */}
             <Container className="text-center my-5">
                 <Row>
@@ -60,7 +51,7 @@ const EventsPage = ({ data }) => {
 
 export const query_events = graphql`
   query($currentDate: Date!) {
-    allSanityEvents(sort: {fields: date, order: DESC}, filter: {date: {gte: $currentDate}}) {
+    allSanityEvents(sort: {date: DESC}, filter: {date: {gte: $currentDate}}) {
       edges {
         node {
           eventName

@@ -1,0 +1,62 @@
+:root{
+    --stripe-color: #323232;
+}
+
+.box{
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    margin: auto;
+    width: '75rem';
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+
+.box::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 14%;
+    height: 100%;
+    background-color: var(--stripe-color);
+    transform: skew(-41deg); /* Adjust the angle of the diagonal stripe */
+    transform-origin: 0 0;
+    z-index: 0; /* Place the stripe behind the card content */
+} 
+
+    
+.image-container{
+    display: block;
+    width: fit-content;
+    height: auto;
+    right: 2rem;
+    max-width: 100%;
+    position: relative;
+}
+
+.box-title{
+    text-align: left;
+    margin-left: 5%;
+    color: #C12029;
+}
+
+.box-description{
+    text-align: left;
+    margin-left: 5%;
+    position: relative;
+    font-size: 17px;
+}
+
+.designed-for {
+    position: absolute;
+    top: -24px;
+    right: 20px;
+    color: white;
+    background-color: var(--stripe-color);
+    font-size: 20px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+}

@@ -1,13 +1,10 @@
 import * as React from "react";
-import Title from "../../../components/UI/Title/Title";
-import Subtitle from "../../../components/UI/Subtitle/Subtitle";
-import BrandButton from "../../../components/UI/BrandButton/BrandButton";
 import { Container, Row, Col } from "react-bootstrap";
+import { StaticImage } from "gatsby-plugin-image";
 
-// Assets
-import RocketIcon from "../../../assets/svg/rocket-circle.svg";
-import BookIcon from "../../../assets/svg/book-circle.svg";
-import LightbulbIcon from "../../../assets/svg/lightbulb-circle.svg";
+import Subtitle from "../../../components/UI/Subtitle/Subtitle";
+import Title from "../../../components/UI/Title/Title";
+import { StaticQuery } from "gatsby";
 
 const Startups = () => {
   return (
@@ -18,8 +15,16 @@ const Startups = () => {
         <Row>
           <Col>
             <div className="h-100 my-5">
-              <LightbulbIcon className="d-block mx-auto w-50 m-5" />
-              {/* <img className="d-block mx-auto" src={pitch_your_idea} alt="Pitch your idea icon" /> */}
+            <a href='/idea'>
+                <StaticImage 
+                  className='d-block mx-auto w-50 m-5' 
+                  quality='100'
+                  objectFit="contain"
+                  style={{height:"150px", width: '150px'}}
+                  src='../../../images/startups-pitch.png' 
+                  alt="Lightbulb Icon" 
+                />
+              </a>
               <Subtitle className="text-center brand fw-bold">Pitch Your Idea</Subtitle>
               <p className="text-center">We offer outlets for your idea to be heard. Share your idea with us or learn more about events that promote entrepreneurship.</p>
             </div>
@@ -27,14 +32,34 @@ const Startups = () => {
           </Col>
           <Col>
             <div className="h-100 my-5">
-              <RocketIcon className="d-block mx-auto w-50 m-5" />
-              <Subtitle className="text-center brand fw-bold">Accelerate Your Startup</Subtitle>
-              <p className="text-center">Our Fellowship Program is mentor-driven, designed to accelerate your high-tech startup. Learn about the Fellowship Program as well as our other programs designed to foster your startup's growth.</p>
+              <a href='/fellowship'>
+              <StaticImage 
+                  className='d-block mx-auto m-5 bg--brand-light rounded-circle' 
+                  quality='100'
+                  objectFit="contain"
+                  height='150px'
+                  width='150px'
+                  style={{width: '150px', height: '150px'}}
+                  src='../../../images/accelerate-your-startup.png'
+                  alt="Rocket Icon"
+                />
+              </a>
+              <Subtitle className="text-center brand fw-bold ">Accelerate Your Startup</Subtitle>
+              <p className="text-center">Our <span className='fw-bold'>Fellowship Program</span> is mentor-driven, designed to accelerate your high-tech startup.</p>
             </div>
           </Col>
           <Col>
             <div className="h-100 my-5">
-              <BookIcon className="d-block mx-auto w-50 m-5" />
+              <a href='https://www.entrepreneurhof.com/'>
+                <StaticImage
+                  className='d-block mx-auto w-50 m-5' 
+                  quality='100'
+                  objectFit="contain"
+                  style={{height:"150px", width: '150px'}}
+                  src='../../../images/startups-showcase.png' 
+                  alt="Book Icon" 
+                />
+              </a>
               <Subtitle className="text-center brand fw-bold">Showcasing Kentucky Entrepreneurs</Subtitle>
               <p className="text-center">Discover the impact that Entrepreneurship has made in the Commonwealth.</p>
             </div>

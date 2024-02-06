@@ -42,6 +42,8 @@ import pageTitles from './documents/pageTitles'
 import bootcampClass from './documents/bootcampClass'
 import notes from './documents/notes'
 import bootcamp from './documents/bootcamp'
+import tutorials from './documents/tutorials'
+import internTestimonials from './documents/internTestimonials'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
@@ -88,5 +90,7 @@ export default [
     notes,
     teamAlpha,
     bootcamp,
+    tutorials,
+    internTestimonials
   ]
 

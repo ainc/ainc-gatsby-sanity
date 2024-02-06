@@ -20,7 +20,16 @@ export default {
     {
       name: 'picture',
       type: 'image',
-      title: 'Picture'
+      title: 'Picture',
+      options: {
+        hotspot: true, // Enable hotspot for fine-grained cropping control
+        metadata: ['location', 'palette'], // Include additional metadata
+        storeOriginalFilename: false, // Don't store the original filename
+        crop: 1/1, // Enable cropping
+        // Define cropping aspect ratio, e.g., 16:9
+        
+      }
+     
     },    
   ],
   preview: {

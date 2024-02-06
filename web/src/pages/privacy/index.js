@@ -11,7 +11,6 @@ const PrivacyPage = ({ data }) => {
   return (
     <Layout>
       {/* still need to fix heading levels to increase by one */}
-      <SEO />
     <Container>
       <section className="col-sm-offset-2">
         <Title className="my-4">Privacy Policy</Title>

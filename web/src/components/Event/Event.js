@@ -1,9 +1,6 @@
 import React from "react";
 import { GatsbyImage} from "gatsby-plugin-image";
 import * as styles from "./events.module.scss";
-import styled from "styled-components";
-import Title from "../../components/UI/Title/Title";
-import { Container, Col, Row, Image } from "react-bootstrap";
 
 const Event = (props) => {
   const host = (props.host != null) ? `Host: ${props.host}` : "Host: To Be Determined"
@@ -20,10 +17,10 @@ const Event = (props) => {
               />
             </div>
                 <div className="mx-3">
-                  <a href={props.link} className={`${styles.boldText} ${styles.redText} ${styles.linkHover}`}>{props.date}</a>
+                  <h2><a href={props.link} target="_blank" rel="noopener noreferrer" className={`${styles.boldText} ${styles.redText} ${styles.linkHover}`}>{props.date}</a></h2>
                   <h2 className={styles.smallText}>{host}</h2>
                   <h3 className={styles.smallText}>{location}</h3>
-                  <h3><a href={props.link} className={`${styles.boldText} ${styles.linkHover}`}>{props.name}</a></h3>
+                  <h3><a href={props.link} target="_blank" rel="noopener noreferrer" className={`${styles.boldText} ${styles.linkHover}`}>{props.name}</a></h3>
                 </div>
           </div>
         </a>

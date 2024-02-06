@@ -1,14 +1,10 @@
 import React from "react";
-import * as styles from "./coursetable.module.scss";
-import moment from 'moment';
 import { GatsbyImage } from "gatsby-plugin-image";
-import styled from "styled-components";
-import Title from "../../components/UI/Title/Title";
-import Subtitle from "../../components/UI/Subtitle/Subtitle";
-import { Container, Col, Row, Image } from "react-bootstrap";
-// import BrandButton from "../components/UI/BrandButton/BrandButton"
-import BrandButton from "../UI/BrandButton/BrandButton";
 
+import BrandButton from "../UI/BrandButton/BrandButton";
+import Subtitle from "../../components/UI/Subtitle/Subtitle";
+
+import * as styles from "./coursetable.module.scss";
 
 
 const CourseTable = ({ tableColumns, tableInfo }) => {

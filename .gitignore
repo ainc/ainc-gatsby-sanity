@@ -9,3 +9,7 @@
 
 # Local Netlify folder
 .netlify
+
+.vscode
+
+../yarn.lock

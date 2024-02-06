@@ -2,25 +2,29 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../../components/Layout/Layout'
 import Diagonal from '../../components/Layout/Diagonal/Diagonal'
-import ButtonAndImage from '../../components/ButtonAndImage/ButtonAndImage'
 import ImageOutline from '../../components/ImageOutline/ImageOutline'
 import { Container, Row, Col } from 'react-bootstrap'
 import SEO from '../../components/seo'
-import { StaticImage } from 'gatsby-plugin-image'
+import { StaticImage, getImage } from 'gatsby-plugin-image'
 import Title from '../../components/UI/Title/Title'
 import BrandButton from '../../components/UI/BrandButton/BrandButton'
-import { headerBackgroundAlignRight } from "./internships.module.css";
+import { headerBackgroundAlignRight, tbDiv, teamButton, diagonalBackground } from "./internships.module.scss";
 import '../../styles/main.scss'
 import internWhy from '/src/images/intern-why.jpg';
-import devTeamImage from '/src/images/intern-development.jpg'
-import designTeamImage from '/src/images/intern-design.jpg'
-import videoTeamImage from '/src/images/intern-video.jpg'
-import marketingTeamImage from '/src/images/intern-events-marketing.jpg'
+import { useState } from 'react'
+import ModalCustom from '../../components/Modal/ModalCustom'
+import ModalButton from '../../components/ModalButton/ModalButton'
+//import ButtonAndImage from '../../components/ButtonAndImage/ButtonAndImage'
 
 const InternshipsPage = ({ data }) => {
+  //define show and close functions for all of the modals- had to do it this way because ButtonAndImage was not displaying images correctly
+  const [lgShow, setLgShow] = useState(false);
+
+  const handleClose = () => setLgShow(false);
+  const handleShow = () => setLgShow(true);
+  
   return (
-    <Layout pageTitle="Internships">
-      <SEO />
+    <Layout>
       
       {/* Header section */}
       <Container fluid className={`mobile-hide-bg ${headerBackgroundAlignRight}`}>
@@ -31,14 +35,17 @@ const InternshipsPage = ({ data }) => {
               <p>
                 If you’re looking to build your skillset with real projects while building the tech and startup community in Lexington, we’d love to chat. Did we mention we eat a *lot* of Oreos.
               </p>
-              <BrandButton className='my-4'>Apply Now</BrandButton>
+              <a href="https://careers.awesomeinc.org/jobs/Careers/649925000000610353/Team-Alpha---Internship?source=CareerSite"
+                target ="_blank" rel="noopener noreferrer">
+                <BrandButton className='my-4'>Apply Now</BrandButton>
+              </a>
             </Col>
           </Row>
         </Container>
       </Container>
 
       {/* Why section */}
-      <Diagonal bgImage={{internWhy}}>
+      <div className={`${diagonalBackground}`}>
         <Container>
           <Row>      
             <Col md={8}>
@@ -49,7 +56,7 @@ const InternshipsPage = ({ data }) => {
             </Col>
           </Row>
         </Container>
-      </Diagonal>
+      </div>
 
       {/* Teams section */}
       <Container className='my-5'>
@@ -58,23 +65,47 @@ const InternshipsPage = ({ data }) => {
         </Row>
         <Row className='justify-content-center'>
           <Col md={6} lg={4}>
-            <ButtonAndImage img={ videoTeamImage } imgAlt="Video internship">Video</ButtonAndImage>
+          <div className={`${tbDiv}`}>
+            <ImageOutline>
+              <StaticImage className='img-red-outline' src='../../images/intern-video.jpg' alt='Video Intern'/>
+            </ImageOutline>
+            <ModalButton to="https://www.youtube.com/embed/Xhs6weqDvfg?si=VAty1-G7uhTV5JeU">Video</ModalButton>
+          </div>
           </Col>
           <Col md={6} lg={4}>
-            <ButtonAndImage img={ devTeamImage } imgAlt="Development internship">Development</ButtonAndImage>
+          <div className={`${tbDiv}`}>
+            <ImageOutline>
+              <StaticImage className='img-red-outline' src='../../images/intern-development.jpg' alt='Development Intern'/>
+            </ImageOutline>
+            <ModalButton to="https://www.youtube.com/embed/sflZ2tFXMIY?si=wYiNsRS6-4wJu8GV&amp;controls=0">Development</ModalButton>
+          </div>
           </Col>
         </Row>
         <Row className='justify-content-center'>
           <Col md={6} lg={4}>
-            <ButtonAndImage img={ marketingTeamImage } imgAlt="Events and Marketing internship">Events + Marketing</ButtonAndImage>
+          <div className={`${tbDiv}`}>
+            <ImageOutline>
+              <StaticImage className='img-red-outline' src='../../images/intern-events-marketing.jpg' alt='Events and Marketing Intern'/>
+            </ImageOutline>
+            <ModalButton to="https://www.youtube.com/embed/kyp3acHFCZA?si=quXJIkj8x57EL-3F">Events + Marketing</ModalButton>
+          </div>
           </Col>
           <Col md={6} lg={4}>
-            <ButtonAndImage img={ designTeamImage } imgAlt="Design internship">Design</ButtonAndImage>
+          <div className={`${tbDiv}`}>
+            <ImageOutline>
+              <StaticImage className='img-red-outline' src='../../images/intern-design.jpg' alt='Design Intern'/>
+            </ImageOutline>
+            <ModalButton to="https://www.youtube.com/embed/_t21lollr1c?si=fdXekYbyXoR6fXXJ">Design</ModalButton>
+          </div>
           </Col>
         </Row>
         <Row className='text-center'>
           <Col>
-            <BrandButton className='my-5'>Apply Now</BrandButton>
+          <a href="https://careers.awesomeinc.org/jobs/Careers/649925000000610353/Team-Alpha---Internship?source=CareerSite"
+            target="_blank" rel="noopener noreferrer">
+              <BrandButton className='my-5'>Apply Now</BrandButton>
+          </a>
+            
           </Col>
         </Row>
       </Container>
@@ -83,7 +114,10 @@ const InternshipsPage = ({ data }) => {
       <Container className='my-5'>
         <Row className='text-center'>
           <Col>
-            <BrandButton className='secondary mb-5'>Watch Video</BrandButton>
+            <a href="https://www.youtube.com/watch?v=OCG3FIviexc" target='_blank'>
+              <BrandButton className='secondary mb-5'>Watch Video</BrandButton>
+            </a>
+            
           </Col>
         </Row>
         <Row className='justify-content-center'>
@@ -115,7 +149,11 @@ const InternshipsPage = ({ data }) => {
           </Row>
           <Row className='text-center pt-5'>
             <Col>
-              <BrandButton>Apply Now</BrandButton>
+              <a href="https://careers.awesomeinc.org/jobs/Careers/649925000000610353/Team-Alpha---Internship?source=CareerSite" 
+                target="_blank" rel="noopener noreferrer">
+                <BrandButton>Apply Now</BrandButton>
+              </a>
+              
             </Col>
           </Row>
         </Container>
@@ -125,30 +163,40 @@ const InternshipsPage = ({ data }) => {
       <Container className='my-5'>
         <Row className='text-center'>
           <Col xs={6} md={3}>
+            <a href='/team-alpha'>
             <ImageOutline>
               <StaticImage objectFit='cover' src='../../images/emilywehrle-wall.jpg' alt="Headshot of Emily Wehrle" />
             </ImageOutline>
+            </a>
           </Col>
           <Col xs={6} md={3}>
+          <a href='/team-alpha'>
             <ImageOutline>
               <StaticImage objectFit='cover' src='../../images/kyleraney-wall.jpg' alt="Headshot of Kyle Raney" />
             </ImageOutline>
+          </a>
           </Col>
           <Col className='my-4 d-block d-md-none' xs={12}/>
           <Col xs={6} md={3}>
+          <a href='/team-alpha'>
             <ImageOutline>
               <StaticImage objectFit='cover' src='../../images/jacquelinebenson-wall.jpg' alt="Headshot of Jacqueline Benson" />
             </ImageOutline>
+          </a>
           </Col>
           <Col xs={6} md={3}>
+          <a href='/team-alpha'>
             <ImageOutline>
               <StaticImage objectFit='cover' src='../../images/garrettfahrbach-wall.jpg' alt="Headshot of GarrettFahrbach" />
             </ImageOutline>
+          </a>
           </Col>
         </Row>
         <Row className='text-center pt-5'>
           <Col>
-            <BrandButton>Meet the Team</BrandButton>
+            <a href="../team-alpha" target="_blank" rel="noopener noreferrer">
+              <BrandButton>Meet the Team</BrandButton>
+            </a>
           </Col>
         </Row>
       </Container>

@@ -1,10 +1,11 @@
 import React from "react";
-import { Modal, CloseButton, Row, Container } from "react-bootstrap";
-import BrandButton from '../UI/BrandButton/BrandButton'
-// import Title from "../components/UI/Title/Title";
+import { Modal, CloseButton } from "react-bootstrap";
+
 import Title from "..//UI/Title/Title"
-import Subtitle from "../UI/Subtitle/Subtitle";
+
 import * as styles from "./Modal.module.css";
+
+
 
 /*In order to use the ModalCustom Component (it was renamed to ModalCustom because Modal is a saved component name for react-bootstrap), state must be imported to whatever component it is used in:
 
@@ -28,6 +29,7 @@ const ModalCustom = (props) => {
         backdropClassName={styles.modal}
         contentClassName={styles.modal}
         scrollable
+        centered
       >
         {/* <Modal.Title>Test titlee</Modal.Title> */}
         {/* <div class="modal" tabindex="-1" role="dialog"> */}
@@ -40,7 +42,7 @@ const ModalCustom = (props) => {
           <CloseButton variant="white" className={styles.closeBtn} onClick={props.hide} />
         </Modal.Header>
 
-        <Modal.Body className={ props.bgDark === true  ? `` : `bg-white`}>
+        <Modal.Body className={ props.bgDark === true  ? `` : `bg-white`} style={{color:'black'}}>
           {props.content}
         </Modal.Body>
       </Modal>

@@ -8,7 +8,7 @@ import {
 const Ribbon = ({ position }) => {
   return (
     <div className={ribbon}>
-      <div className={ribbonContent}>
+      <div className={`${ribbonContent} `}>
         {position}
       </div>
     </div>

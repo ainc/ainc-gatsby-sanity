@@ -4,11 +4,11 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 import { FaPlay } from "react-icons/fa";
 import ModalCustom from "../../../../components/Modal/ModalCustom";
 import TourBtn from "../../../../images/schedule-a-tour-button-white.png";
-import Space from "../../../../images/awesome-inc-space-banner.jpeg";
+import Space from "../../../../images/awesome-inc-space-banner.jpg";
 import Arrow from "../../../../images/arrow.png";
 
 const SeeTheSpace = (props) => {
-  const videoLinkSrc = "https://www.youtube.com/watch?v=0YgGYadr7rk";
+  const videoLinkSrc = "https://www.youtube.com/watch?v=300C7ovyL0Y";
 
   const [lgShow, setLgShow] = useState(false);
   const handleClose = () => setLgShow(false);
@@ -26,7 +26,7 @@ const SeeTheSpace = (props) => {
             <div className={styles.videoThumbnail}>
               <img className={styles.videoArrow} src={Arrow} alt="'see the space' section arrow"/>
               {/* Youtube Link */}
-              <a href={videoLinkSrc}>
+              <a href={videoLinkSrc} target="_blank" rel="noopener noreferrer">
                 <Image
                   className={styles.videoFilter}
                   src={Space}
@@ -36,7 +36,14 @@ const SeeTheSpace = (props) => {
                   <FaPlay />
                 </i>
               </a>
-              {/* Tour Btn. Provide link to tour modal */}
+
+              <a role='button' href='https://calendly.com/awesometour/30min?' target='_blank' className={styles.tourBtn}>
+                <Image className={styles.tourIcon} src={TourBtn} alt="schedule a tour"/>
+              </a>
+              </div>
+          </div>
+        </Col>
+              {/* Tour Btn. Provide link to tour modal - if we want to use later
               <a role="button" onClick={handleShow} className={styles.tourBtn}>
                 <Image className={styles.tourIcon} src={TourBtn} alt="schedule a tour"/>
               </a>
@@ -48,7 +55,7 @@ const SeeTheSpace = (props) => {
 
 
           </ModalCustom>
-        </Col>
+        </Col> */}
       </Row>
     </Container>
   );

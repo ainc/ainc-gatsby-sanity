@@ -4,6 +4,7 @@
 
 .icon {
   max-width: 50%;
+  max-height: 90%
 }
 
 .header {
@@ -23,6 +24,9 @@
   max-width: 200px;
   font-size: 13px;
   line-height: 150%;
+  white-space: nowrap;
+  padding: 10px;
+  text-align: center;
 }
 
 .price:hover{

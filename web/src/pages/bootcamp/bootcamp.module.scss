@@ -1,7 +1,8 @@
 @import "../../styles/mixins.scss";
-@import "../../styles/variables.scss"; 
+@import "../../styles/variables.scss";
+
 .header {
-        background-image: url(https://www.awesomeinc.org/assets/img/bootcamp/hero-image-2-min.jpg);
+        background-image: url('/images/hero-image-2-min.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         @media (min-width: 992px){
@@ -20,9 +21,11 @@
         }
 
         @media (max-width: 480px){
-            background-position: center;
+            background-size: cover;
+            background-position: 20% 0;
             margin-top: 10px;
-            height: 75vh;
+            font-size: 0.75rem;
+            height: 90vh;
             width: 100%;
         }
        
@@ -46,9 +49,8 @@
             margin-top: 5vh ;
         }
         @include screen-md{
-            // margin-top: 5vh ;
-          
-            margin-bottom: 170px;
+           // margin-top: 5vh ;
+            
         }
         @include screen-sm{
             title{
@@ -58,9 +60,6 @@
         @include screen-xs{
             
         }
-       
-
-     
 
 
     .sideNav{
@@ -70,7 +69,6 @@
 
     }
 }
-
 
 .bootcampUpcomingdates{
     @media (min-width: 768px){
@@ -83,11 +81,10 @@
     .twoButtonsRow {
         padding-top: 50px;
         padding-bottom: 50px;
-        margin-left: 20px;
 
         .leftButtonCol{
             padding-right: 50px;
-            border-right: 1.75px solid white ;
+            border-right: 1.75px solid white;
             @include screen-sm{
               border-right: none;
               padding-right: none;
@@ -108,7 +105,7 @@
 
 
 .testimonials {
-    background-image: url(../../images/bootcamp/testimonials-bg.jpg);
+    background-image: url('../../images/bootcamp/testimonials-bg.jpg');
     background-size: cover;
     
 }
@@ -192,7 +189,7 @@
 }
 
 .whyAwesomeIncHeader {
-    background-image: url(https://www.awesomeinc.org/assets/img/bootcamp/awesome-inc-bg.jpg);
+    background-image: url('/images/awesome-inc-bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: 10%;
@@ -321,14 +318,6 @@
     padding-right: 100px;
     .languageIcons{
         justify-content: center;
-        @include screen-md{
-            flex-wrap: nowrap;
-            flex-shrink: 1;
-        }
-        @include screen-sm{
-            flex-wrap: nowrap;
-            flex-shrink: 2;
-        }
     }
 }
 
@@ -351,8 +340,8 @@
   
     .timelineTitle {
         left: 0;
-        margin-left: 15px;
-        margin-top: 400px;
+        margin-left: 10px;
+        margin-top: 440px;
         color: #C12029;
         font-size: 70px;
         letter-spacing: 4px;
@@ -408,6 +397,17 @@
 .questions {
     background-image: url(../../images/bootcamp/faq-bg.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
 }
 
+.special-link{
+    color: #a21b22;
+}
+
+.special-link:hover{
+    color: #de3640;
+}

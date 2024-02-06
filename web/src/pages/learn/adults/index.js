@@ -8,10 +8,13 @@ import { graphql } from "gatsby";
 import Title from '../../../components/UI/Title/Title'
 import "../../../styles/main.scss"
 import CourseTable from '../../../components/CourseTable/CourseTable'
-
+import CourseCardSmall from '../../../components/CourseCardSmall/CourseCardSmall'
+import * as styles from "./adults.module.scss"
+import CourseCardLong from '../../../components/CourseCardLong/CourseCardLong'
 // import Icon from '../../../assets/svg/book-circle.svg'
 import DottedLine from '/src/assets/svg/DottedLine.svg'
 import GreyTriangle from '/src/assets/svg/GreyTriangle.svg'
+import Subtitle from '../../../components/UI/Subtitle/Subtitle'
 // import { styles } from '../../../styles/Variables'
 
 const AdultsPage = ({ data }) => {
@@ -19,30 +22,32 @@ const AdultsPage = ({ data }) => {
     const FTCodingCourses = data.allSanityCourses.edges.filter((course) => course.node.timeRequirement === "full-time" && course.node.courseType === "coding")
     const PTCodingCourses = data.allSanityCourses.edges.filter((course) => course.node.timeRequirement === "part-time" && course.node.courseType === "coding")
     const otherCourses = data.allSanityCourses.edges.filter((course) => course.node.courseType === "other")
-   
-    
+    const adultCourses = data.allSanityCourses.edges.filter((course) => course.node.ageGroup === "adult")
+    const bootcampCourse = data.allSanityCourses.edges.filter((course) => course.node.courseTitle === "Web Developer Bootcamp")
+    const introToWebCourse = data.allSanityCourses.edges.filter((course) => course.node.courseTitle === "Intro To Web Development")
+    const salesforceCourse = data.allSanityCourses.edges.filter((course) => course.node.courseTitle === "SalesForce Career Accelerator")
+
     const tableColumns = ["COURSE", "FORMAT", "TOPICS", "TECHNOLOGIES", "SCHEDULE", "DESIGNED FOR", "LEARN MORE"]
 
     return (
         <Layout>
-            <SEO />
             <Container>
             
-                <Row className='pt-5 mt-5'>
-                    <Col sm="5" className={`my-5 all-padding`}>
+                <Row className={`${styles.box} pt-2 mt-3`}>
+                    <Col sm="5" className={`my-5 pt-3 all-padding`}>
                         <Row className={`justify-content-center`}>
                             <Col md={{span: 9, offset: 3}}>
-                                <Title>ADULT</Title>
-                                <h1 className='fs-5'><i>Coding Courses</i></h1>
+                                <Title className=''>ADULT</Title>
+                                <Subtitle className='fs-5 '><i>Coding Courses</i></Subtitle>
                             </Col>
                             <Col md="6">
-                                <h2 className='fs-6'><i>Full and Part-Time Courses for Career Switchers, Professionals, and Hobbyists</i></h2>
+                                <p className='fs-6'><i>Full and Part-Time Courses for Career Switchers, Professionals, and Hobbyists</i></p>
                             </Col>
                         </Row>
                     </Col>
                     
                     <Col col="6">
-                        <StaticImage quality="90" className="img-responsive" src='../../../images/mac-code.png' alt='computer with code' height={"400"} width={"400"}/>
+                        <StaticImage quality="90" className="img-responsive" src='../../../images/mac-code.png' alt='computer with code' height={"450"} width={"450"} style={{left: '20%'}}/>
                     </Col>
                 </Row>
                 </Container>
@@ -67,30 +72,39 @@ const AdultsPage = ({ data }) => {
                 
                 <Row className='mt-5'>
                     <Col className="mb-5 white-space-auto overflow-auto" lg="12">
-                        <Title className="text-center text--brand fs-2">BECOME A PROFESSIONAL DEVELOPER IN 16 WEEKS</Title>
                         {/* Add SVG's here */}
-                        <div className='d-flex justify-content-center'>
-                            <img src="../../../assets/svg/DottedLine.svg" style={{maxWidth: "10px", maxHeight: "55px"}} className='mb-3 mt-5' />
-                        </div>
-                        <CourseTable tableColumns={tableColumns} tableInfo={FTCodingCourses}/>
-                    </Col>
-                    <Col className="my-5 white-space-auto overflow-auto" lg="12">
-                        <Title className="text-center text--brand fs-2">LEARN TO CODE WITHOUT QUITTING YOUR JOB</Title>
-                        {/* Add SVG's here */}
-                        <div className='d-flex justify-content-center'>
-                        <img src="../../../assets/svg/DottedLine.svg" style={{maxWidth: "10px", maxHeight: "55px"}} className='mb-3 mt-5' />
-                        </div>
-                        <CourseTable tableColumns={tableColumns} tableInfo={PTCodingCourses}/>
-                    </Col>
-                    <Col className="my-5 white-space-auto overflow-auto" lg="12">
-                        <Title className="text-center text--brand fs-2">NON-CODING COURSES TO HELP YOU GROW YOUR CAREER</Title>
-                        {/* Add SVG's here */}
-                        <div className='d-flex justify-content-center'>
-                        <img src="../../../assets/svg/DottedLine.svg" style={{maxWidth: "10px", maxHeight: "55px"}} className='mb-3 mt-5' />
-                        </div>
-                        <CourseTable tableColumns={tableColumns} tableInfo={otherCourses}/>
+                        <CourseCardSmall courseInfo={adultCourses} />
                     </Col>
                 </Row>
+
+                <Container fluid className={`${styles.backgroundTop} mt-5`}>
+                    <Col className="my-5 white-space-auto overflow-auto" lg={{ offset: 1, span: 10 }}>
+                        <Title className='text-center text--brand fs-2 text-black pb-5 text-uppercase'>Become a Professional Developer In 16 Weeks</Title>
+                        {/* Add SVG's here */}
+                        {/*<Subtitle className={styles.cardTopper}>{bootcampCourse.map((course) => course.node.designedFor)}</Subtitle>*/}
+                        <CourseCardLong courseInfo={bootcampCourse} stripeColor='#323232'/>
+                    </Col>
+                </Container>
+
+                <Container fluid className = {styles.backgroundMid}>
+                    <Col className="my-5 white-space-auto overflow-auto" lg={{ offset: 1, span: 10 }} >
+                        <Title className="text-center text--brand fs-2 text-white align-text-top text-uppercase">Flexible Courses</Title>
+                        <Subtitle className="text-center text--brand fs-2 text-white align-text-top pb-5 text-uppercase">Learn To Code Without Quitting Your Job</Subtitle>
+                        {/* Add SVG's here */}
+                        {/*<Subtitle className={styles.cardTopper}>{introToWebCourse.map((course) => course.node.designedFor)}</Subtitle>*/}
+                        <CourseCardLong courseInfo={introToWebCourse} stripeColor='#939597'/>
+                    </Col>
+                </Container>
+
+                <Container fluid className = {styles.backgroundBottom}>
+                    <Col className="my-5 white-space-auto overflow-auto" lg={{ offset: 1, span: 10 }}>
+                        <Title className="text-center text--brand fs-2 text-white align-top text-uppercase">Non-Coding Courses</Title>
+                        <Subtitle className="text-center text--brand fs-2 text-white align-top pb-5 text-uppercase">To Help You Grow Your Career</Subtitle>
+                        {/* Add SVG's here */}
+                        {/*<Subtitle className={styles.cardTopper}>{salesforceCourse.map((course) => course.node.designedFor)}</Subtitle>*/}
+                        <CourseCardLong courseInfo={salesforceCourse} stripeColor='#C12029'/>
+                    </Col>
+                </Container>
             </Container>
         </Layout>
     )
@@ -107,11 +121,11 @@ query {
           timeRequirement
           description
           designedFor
-          startDate(formatString: "MMMM d, YYYY")
-          endDate(formatString: "MMMM d, YYYY")
+          startDate(formatString: "MMMM D, YYYY")
+          endDate(formatString: "MMMM D, YYYY")
           picture {
             asset {
-              gatsbyImageData
+              gatsbyImageData(height: 200)
             }
           }
           topics

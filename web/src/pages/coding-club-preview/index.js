@@ -1,16 +1,14 @@
 import * as React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+
 import Layout from '../../components/Layout/Layout';
-import { Container, Row, Col, CarouselItem } from 'react-bootstrap';
-import Title from '../../components/UI/Title/Title';
-import SEO from '../../components/seo';
-import * as styles from "./coding-club-preview.scss";
 import Table from 'react-bootstrap/Table';
+import Title from '../../components/UI/Title/Title';
 
 const CodingClubPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO/>
       <Container>
         <Row>
             <Col sm={7} className="Header my-5 mx-auto text-center">

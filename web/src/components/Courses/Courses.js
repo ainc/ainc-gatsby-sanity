@@ -1,10 +1,7 @@
 import React from "react";
-import * as styles from "./courses.module.scss";
-import moment from 'moment';
 import { GatsbyImage } from "gatsby-plugin-image";
-import styled from "styled-components";
-import Title from "../../components/UI/Title/Title";
-import { Container, Col, Row, Image } from "react-bootstrap";
+
+import * as styles from "./courses.module.scss";
 
 const Courses = ({ link, title, image, courseSeason, startDate, endDate, schedule, summary, format, technologies }) => {
     return (
