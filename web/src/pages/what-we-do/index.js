@@ -27,7 +27,7 @@ import coworking from "../../images/what-we-do/Logos/Coworking.png";
 import cherubFund from "../../images/what-we-do/Logos/Cherub-Fund-Logo.png";
 import hallOfFame from "../../images/what-we-do/Logos/KEHOF-Logo.png";
 // Technology
-import apax from "../../images/what-we-do/Logos/Apax-Logo.png";
+import apax from "../../images/what-we-do/Logos/Apax-logo.png";
 import codeLogo from "../../images/what-we-do/Logos/C.O.D.E.png";
 import codingClub from "../../images/what-we-do/Logos/Coding-Club.png";
 import graphicDesign from "../../images/what-we-do/Logos/Intro-to-Graphic-Design.png";
