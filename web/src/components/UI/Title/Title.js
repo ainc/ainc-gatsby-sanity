@@ -2,9 +2,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import './Title.scss'
 
-import * as styles from '../../../styles/Variables'
-
+/*
 const StyleTitle = styled.h1`
   font-family: ${styles.styles.fonts.headingFont};
   font-size: ${styles.styles.sizes.title};
@@ -38,12 +38,12 @@ const StyleTitle = styled.h1`
     font-size: ${styles.styles.sizes.subtitle};
   }
 `
-
+*/
 const Title = (props) => {
   return (
-    <StyleTitle {...props} >
+    <h1 {...props} className={`title ${props.className}`}>
       {props.children}
-    </StyleTitle>
+    </h1>
   )
 }
 

@@ -1,0 +1,6 @@
+.qabutton{
+    width: 30vw;
+    @media(max-width: 425px){
+        width: 70vw;
+    }
+}

@@ -9,6 +9,9 @@
   height: 50vh;
   background-size: cover;
   background-position: center;
+  @media (max-width: 425px){
+    height: 60vh;
+  }
 }
 
 .team-alpha-badge{

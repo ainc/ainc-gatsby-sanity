@@ -5,7 +5,7 @@ import './Subtitle.scss'
 
 const Subtitle = (props) => {
   return (
-    <h2 className={`subtitle ${props.className}`} {...props}>
+    <h2 {...props} className={`subtitle ${props.className}`}>
     {props.children}
     </h2>
   )
