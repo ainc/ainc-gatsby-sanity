@@ -228,13 +228,14 @@ const Header = () => {
             <Col className="desktop">
               <Nav.Link href="/about" className="text--white">Be Awesome <AiFillCaretDown size={10}/></Nav.Link>
               <div className='hover-options'>
-                <a href="/about" className='pt-0'>About</a>
-                <a href="/about">Core Values</a>
-                <a href="/blog/">Blog</a>
-                <a href="/press">Press</a>
-                <a href="/careers">Careers</a>
-                <a href="/internships">Internships</a>
-                <a href="/events">Events</a>
+                <Link to="/about" className='pt-0'>About</Link>
+                <Link to="/about">Core Values</Link>
+                <Link to="/what-we-do">What We Do</Link>
+                <Link to="/blog/">Blog</Link>
+                <Link to="/press">Press</Link>
+                <Link to="/careers">Careers</Link>
+                <Link to="/internships">Internships</Link>
+                <Link to="/events">Events</Link>
               </div>
             </Col>
 
@@ -249,13 +250,14 @@ const Header = () => {
                     <Nav>
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
                         <Col xs={{span: 10}} className={`d-flex flex-column py-2 border-0`}>
-                          <a href="/about">About</a>
-                          <a href="/about">Core Values</a>
-                          <a href="/blog/">Blog</a>
-                          <a href="/press">Press</a>
-                          <a href="/careers">Careers</a>
-                          <a href="/internships">Internships</a>
-                          <a href="/events">Events</a>
+                          <Link to="/about">About</Link>
+                          <Link to="/about">Core Values</Link>
+                          <Link to="/what-we-do">What We Do</Link>
+                          <Link to="/blog/">Blog</Link>
+                          <Link to="/press">Press</Link>
+                          <Link to="/careers">Careers</Link>
+                          <Link to="/internships">Internships</Link>
+                          <Link to="/events">Events</Link>
                         </Col>
                       </Row>
                     </Nav>
