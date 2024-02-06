@@ -1,14 +1,13 @@
 import * as React from 'react';
+import { Container } from 'react-bootstrap';
+
 import Layout from '../../components/Layout/Layout';
-import { Container, Row, Col, CarouselItem } from 'react-bootstrap';
-import SEO from '../../components/seo'
 import Title from '../../components/UI/Title/Title';
 
 const ContactPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO />
       <Container>
           <Title className="text-center my-5 text-uppercase">Contact us</Title>
           <div style={{marginTop: "100px"}} className="d-flex justify-content-center mb-5">

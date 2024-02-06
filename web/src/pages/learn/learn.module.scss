@@ -1,0 +1,110 @@
+* {
+    font-family: "Open Sans", sans-serif;
+    box-sizing: border-box;
+}
+.containter {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.heading-text {
+    font-size: 2.9rem;
+    line-height: 5.85rem;
+    font-weight: 900;
+    color: #323333;
+    text-transform: uppercase;
+    margin: 4%;
+    text-align: center;
+}
+/*  \/ \/ \/ \/     */
+.flex-container {
+    flex-wrap: wrap;
+    display: flex;
+    column-gap: 15px;
+    row-gap: 15px;
+}
+.flex-item {
+    flex: 49%; /* Changing this to 32% gives you three columns, 100% is one column */
+}
+.learn-press {
+    background-color: #fff;
+    padding-top: 20px;
+    padding-bottom: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+}
+
+.call-action{
+    margin-bottom: 20px;
+}
+.call-action p{
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+}
+.logos {
+    padding-top: 30px;
+    padding-bottom: 50px;
+    margin: 0;
+}
+
+
+.carousel {
+    text-align: left;
+    padding-left: 20px;
+    padding-top: 20px;
+    display: block;
+}
+
+.carousel p{
+    padding-top: 20pt;
+    padding-left: 20pt;
+    padding-bottom: 0;
+    padding-right: 10pt;
+}
+.carousel small{
+    padding-left: 20pt;
+}
+.carousel-item {
+    position: absolute;
+}
+
+.course-for-everyone::before{
+    content: '';
+    position: absolute;
+    left: 41%;
+    right: 45%;
+    bottom: 28%;
+    border: 1px solid #ed3742;
+    z-index: 1;
+}
+
+@media screen and (max-width: 1023px) {
+    .course-for-everyone::before {
+        display: none;
+    }
+}
+@media screen and (min-width: 1800px) {
+    .course-for-everyone::before {
+      left: 42%; /* Adjust the left position for lg screens */
+      right: 48%; /* Adjust the right position for lg screens */
+      bottom: 36%
+    }
+}
+.proven-background {
+    &::before {
+        content: ""; 
+        color: rgba(0,0,0,0);
+        background-image: url('../../images/phone-booth-abstract.jpg');
+        filter: opacity(50%) blur(1pt);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 450px;
+        text-align: left;
+        display: block;
+        z-index: -1;
+        position: absolute;
+    }
+}
+/*  ^^^^^^  */

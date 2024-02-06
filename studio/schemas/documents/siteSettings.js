@@ -1,7 +1,10 @@
+import { IoMdSettings } from "react-icons/io";
+
 export default {
   name: 'siteSettings',
   type: 'document',
   title: 'Site Settings',
+  icon: IoMdSettings,
   fields: [
     {
       name: 'title',

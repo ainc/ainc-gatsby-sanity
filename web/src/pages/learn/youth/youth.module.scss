@@ -68,12 +68,14 @@
         padding-left: 18px;
         height: 240px;
     }
+    @media (min-width: 769px){
+        margin-top: 30%;
+    }
 }
 
 .why-learn {
-    margin-top: 30%;
     text-transform: uppercase;
-
+    margin-top: 20%;
     @include screen-sm {
         margin-top: 10%;
     }
@@ -89,7 +91,7 @@
     }
 }
 .title-text {
-    margin-top: 30vh;
+    margin-top: 30%;
     @include screen-sm {
         margin-top: 10vh;
     }
@@ -100,10 +102,10 @@
 
 .course-description {
     font-size: 1rem;
-    margin-top: 20%;
+    margin-top: 10%;
     color: white;
     @include screen-md {
-        margin-top: 50%;
+        margin-top: 20%;
     }
     @include screen-sm {
         font-size: .9rem;
@@ -178,10 +180,9 @@
 .engaged {
     background-image: url(../../../images/learn/youth-engaged-bg.png);
     background-repeat: no-repeat;
-    position: center 15%;
+    background-position: center 10%;
+    background-size: 100% 100%;
     min-width: 100%;
-    background-size: 100%;
-    margin-top: 30px;
     color: white;
     @include screen-sm {
         color: $brand-color2;
@@ -218,8 +219,8 @@
 .list-text {
     font-size: 1rem;
     line-height: 1.6rem;
-    padding-left: inherit;
-    text-indent: -1.4rem;
+    //padding-left: inherit;
+    //text-indent: -1.4rem;
 
 }
 

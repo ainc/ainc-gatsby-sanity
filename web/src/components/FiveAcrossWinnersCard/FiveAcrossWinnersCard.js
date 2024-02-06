@@ -1,9 +1,8 @@
 import React from "react";
-import { GatsbyImage} from "gatsby-plugin-image";
-import { Container, Col, Row, Image } from "react-bootstrap";
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+import { Col, Row } from "react-bootstrap";
+
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
+
 import * as styles from './FiveAcrossWinnersCard.module.scss'
 
 
@@ -11,7 +10,7 @@ const FiveAcrossWinnersCard = (props) => {
 
     let d = new Date(props.fiveAcrossDate)
     let formattedDate = d.toLocaleDateString('en-GB', { //formats date as MMMM YYYY
-        month: 'long', year: 'numeric'
+        month: 'long', year: 'numeric', timeZone: 'UTC'
       });
     
     //if no video is set by sanity, then default link to 5Across playlist

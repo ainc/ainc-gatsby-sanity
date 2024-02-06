@@ -1,6 +1,6 @@
 import React from "react";
-import Subtitle from "../../components/UI/Subtitle/Subtitle";
-import { Container, Col, Row, Image, Card } from "react-bootstrap";
+
+import { Col, Row, Card } from "react-bootstrap";
 import Moment from 'moment';
 
 const HorizontalCard = (props) => {

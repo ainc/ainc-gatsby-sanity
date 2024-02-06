@@ -1,12 +1,11 @@
 import React from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
-import * as styles from "./FeatureCard.module.scss";
-import styled from "styled-components";
-import Title from "../../components/UI/Title/Title";
-import Subtitle from "../../components/UI/Subtitle/Subtitle";
-import { Container, Col, Row, Image, Card } from "react-bootstrap";
-import DateSquare from "../../components/DateSquare/DateSquare";
 import Moment from 'moment';
+import { Col, Row, Card } from "react-bootstrap";
+
+import DateSquare from "../../components/DateSquare/DateSquare";
+import Subtitle from "../../components/UI/Subtitle/Subtitle";
+
+import * as styles from "./FeatureCard.module.scss";
 
 
 const FeatureCard = (props) => {
@@ -17,7 +16,7 @@ const FeatureCard = (props) => {
     <Card className=''>
       <figure className={`card--gradient-bg position-relative`}>
       <Card.Img src={props.image?.images?.fallback.src || '../../images/ainc-logo-horizontal-white-text.png'} alt={props.title} className={`p-2 card__img--overlay object-fit-cover ${styles.cardImage}`} />
-        <a href="#">
+        <a href={props.link} target="_blank">
           <Card.ImgOverlay className="m-2">
             <div className="card__gradient-bg">
               <Row className='row row-cols-small'>

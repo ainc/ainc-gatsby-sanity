@@ -1,7 +1,10 @@
+import { FaR, FaRegNewspaper } from "react-icons/fa6";
+
 export default {
     name: 'press',
     type: 'document',
     title: 'Press',
+    icon: FaRegNewspaper,
     fields: [
         {
             name: 'date',

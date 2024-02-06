@@ -1,8 +1,10 @@
+import { FaChalkboardTeacher } from "react-icons/fa";
+
 export default {
     name: 'mentor',
     type: 'document',
     title: 'Mentors',
-
+    icon: FaChalkboardTeacher,
     fields: [
         {
             name: 'name',

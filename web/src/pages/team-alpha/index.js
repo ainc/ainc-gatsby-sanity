@@ -31,7 +31,6 @@ const TeamAlphaPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO />
         <Container>
           <Row>
             <Title className='text-center mt-3 mb-5 text-uppercase'>Team Alpha</Title>
@@ -44,8 +43,8 @@ const TeamAlphaPage = ({ data }) => {
         </Container>
         <Container>
           <Row className='justify-content-center'>
-            {allTeamAlpha.map((node) => (
-              <Col xs={12} sm={10} md={6} lg={4} xl={4} xxl={3} className='my-2'>
+            {allTeamAlpha.map((node, i) => (
+              <Col xs={12} sm={10} md={6} lg={4} xl={4} xxl={3} className='my-2' key={i}>
                 <Profile
                   variant="two"
                   name={node.name}
@@ -55,7 +54,7 @@ const TeamAlphaPage = ({ data }) => {
                   song={node.favoriteSong}
                   favoritePerson={node.favoritePerson}
                   image={node.picture.asset.gatsbyImageData}
-                ></Profile>
+                />
               </Col>
             ))}
           </Row>

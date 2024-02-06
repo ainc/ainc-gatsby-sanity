@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 import { graphql, Link } from "gatsby";
-import {
-  mapEdgesToNodes,
-  filterOutDocsWithoutSlugs,
-  filterOutDocsPublishedInTheFuture
-} from "../../lib/helpers";
+// import {
+//   mapEdgesToNodes,
+//   filterOutDocsWithoutSlugs,
+//   filterOutDocsPublishedInTheFuture
+// } from "../../lib/helpers";
 import { Col, Container, Row } from 'react-bootstrap';
+import { StaticImage } from "gatsby-plugin-image";
+
 import GraphQLErrorList from "../../components/graphql-error-list";
-import Profile from "../../components/Profile/Profile";
-import SEO from "../../components/seo";
 import Layout from "../../containers/layout";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from '../../components/UI/Subtitle/Subtitle';
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
-import * as styles from "./alumni.scss";
-import "../../styles/main.scss";
+import Profile from "../../components/Profile/Profile";
+
+import "./alumni.scss";
 
 export const query = graphql`
   query AlumniPageQuery {
-    allSanityBootcampAlumni {
+    allSanityBootcampAlumni{
       nodes {
         id
         name
@@ -37,7 +37,7 @@ export const query = graphql`
         }
       }
     }
-    allSanityBootcampClass(sort: { fields: date, order: DESC }) {
+    allSanityBootcampClass(sort: { date: DESC }) {
       edges {
         node {
           title
@@ -51,6 +51,7 @@ export const query = graphql`
 const AlumniPage = props => {
   const { data, errors } = props;
   const [selectedClass, setSelectedClass] = useState("");
+
 
   if (errors) {
     return (
@@ -71,16 +72,18 @@ const AlumniPage = props => {
         const bClass = data.allSanityBootcampClass.edges.find(({ node }) => node.title === b).node;
         return new Date(bClass.date) - new Date(aClass.date); // sort based on date in descending order
       })
-      .map((className) => (
+
+      .map((gradClass) => (
         <button
-          className={`classButton ${selectedClass === className ? "active" : ""}`}
-          key={className}
-          onClick={() => setSelectedClass(className)}
+          className={`classButton ${selectedClass === gradClass ? "active" : ""}`}
+          key={gradClass}
+          onClick={() => setSelectedClass(gradClass)}
         >
-          {className}
+          {gradClass}
         </button>
       ))
     : null;
+
 
   // Add an "All Cohorts" button to the class list
   const allCohortsButton = (
@@ -92,16 +95,37 @@ const AlumniPage = props => {
       All Cohorts
     </button>
   );
+
   classList.unshift(allCohortsButton);
 
   let filteredNodes = alumniNodes;
   if (selectedClass) {
     filteredNodes = alumniNodes.filter(node => node.class.title === selectedClass);
   }
+  else {
+    //sort based on class date and job for 'All Cohorts' button
+  filteredNodes.sort((a, b) => {
+  const dateA = new Date(a.class.date);
+  const dateB = new Date(b.class.date);
+  const dateComparison = dateB - dateA;  //sort based on date in descending order
+
+  if (dateComparison !== 0){
+    return dateComparison
+  }
+
+  const jobComparison = b.job ? 1 : a.job ? -1 : 0; // prioritize node with job
+
+  if (jobComparison !== 0) {
+    return jobComparison;
+  }  
+
+});
+
+  }
+
 
   return (
     <Layout>
-      <SEO /> {/* SEO is handled in the Page Titles Sanity document */}
       <Container>
         <Row>
           <Col>
@@ -126,7 +150,7 @@ const AlumniPage = props => {
                 linkedin={node.linkedin}
                 github={node.github}
                 website={node.portfolio}
-                position={node.job}
+                position={node.job} 
               />
             </Col>
           ))}
@@ -137,7 +161,7 @@ const AlumniPage = props => {
           </Col>
         </Row>
         <Row className="d-flex justify-content-center mb-5">
-          <Col sm={6} md={5} lg={5} xl={10} className="mb-4">
+          <Col sm={6} md={5} lg={5} xl={10} className={`card mb-4`}>
             <StaticImage quality='90' className="apax-logo me-3 mb-4" src="./images/apaxsoftware-logo.png" />
             <StaticImage quality='90' className="bigfans-logo me-3" src="./images/bigassfans-logo.png" />
             <StaticImage quality='90' className="blueframe-logo me-3" src="./images/blueframe-logo.png" />

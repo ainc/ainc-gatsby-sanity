@@ -20,13 +20,12 @@ const YouthPage = () => {
 
     return (
         <Layout>
-            <SEO/>
             <main>
                 <Container className={` ${styles.youth}`}>
-                    <Row className="h-100"> 
+                    <Row className="h-100">
                         <Col xs={12} sm={12} md={{ span: 7 }} lg={{ span: 6, offset: 1 }} xl={{ span: 5, offset: 1 }} className='px-0'>
                             <section className={styles.topSection}>
-                                <Title className={`mb-4 mt-5 text-start text-uppercase text-white ${styles.titleText}`}>youth</Title>
+                                <Title className={`mb-4 mt-5 text-start text--huge text-white ${styles.titleText}`}>Youth</Title>
                                 <Subtitle className='fst-italic ontext-start text-white'>Coding Courses</Subtitle>
                                 <Subtitle className='fst-italic ontext-start text-white'>Ages 9 - 16</Subtitle>
                             </section>
@@ -42,7 +41,7 @@ const YouthPage = () => {
                             </Container>
                             
                         </Col>
-                        <Col sm={6} md={{ span: 5 }} lg={{ span: 4, offset: 1 }} xl={{ span: 3, offset: 3 }} className='position-relative'>
+                        <Col sm={6} md={{ span: 5 }} lg={{ span: 4, offset: 1 }} xl={{ span: 0, offset: 7 }} className='position-relative'>
                             <div className={styles.programGuide}>
                                 <YouthProgramGuide/>
                             </div>
@@ -58,7 +57,7 @@ const YouthPage = () => {
                             <StaticImage className={styles.phone} src='../../../images/learn/header-phone.png' alt='phone'></StaticImage>
                         </Col>
                         <Col sm={12} md={8} lg={6} xl={6} className='mt-3'>
-                            <Title className={styles.whyLearn}>why should my child learn to code?</Title>
+                            <Title>Why should my child learn to code?</Title>
                             <p className='text-start'>Technology is all around us. Whether you are an app developer or an English professor, you will utilize technology in your daily work.
                                 Awesome Inc exists to take your child's screen time and turn it into career-skill time. Our courses increase communication, public speaking, organization,
                                 and social skills in a fun learning environment.</p>
@@ -85,10 +84,10 @@ const YouthPage = () => {
                             <StaticImage src='../../../images/learn/laptop.png' alt='laptop'></StaticImage>
                         </Col>
                         <Col sm={{ offset: 2, span: 8 }} md={{ span: 5 }} lg={{ span: 4, offset: 1 }} xl={{ span: 4, offset: 1 }}>
-                            <Title className={` ${styles.engagedTitle} mt-5 text-uppercase text-start`}>keep your kids engaged</Title>
+                            <Title className={` ${styles.engagedTitle} mt-5 text-uppercase ml-4 text-white`}>keep your kids engaged</Title>
                             <p className='text-start'>Your kids will have the support of our instructors - professional coders just a step, or a click away!</p>
                             <BrandButton onClick={handleShow} className='mb-5 text-uppercase'>meet the team</BrandButton>
-                            <Container className={styles.modalContainer}>
+                            <Container>
                                 <ModalCustom 
                                     lgShow={lgShow}
                                     hide={handleClose}
@@ -177,7 +176,7 @@ const YouthPage = () => {
                             <li className={` ${styles.listText} `} >Immersive environment</li>
                             <li className={` ${styles.listText} `} >Builds confidence</li>
                             <li className={` ${styles.listText} `} >Find new friends with similar interests</li>
-                            <li className={` pb-3 ${styles.listText} `} >From coding to outdoor activities and hilarious games</li>
+                            <li className={` pb-3 ${styles.listText} text-left`} >From coding to outdoor activities and hilarious games</li>
                             </ul>
                             <a href='https://www.awesomeinc.org/weekofcode'><BrandButton className='mb-3 text-uppercase'>find a camp</BrandButton></a>
                         </Col>
@@ -189,6 +188,10 @@ const YouthPage = () => {
                 <section id='join'>
                     <Container fluid='md' className={` ${styles.clubMembership}`}>
                         <Title className='text-center text-uppercase text-white pt-5'>coding club membership</Title>
+                        <p className='mb-5 text-white text-center'>The coding club is currently taking a break. If you have an interested student, please fill out this form and we will let you know if anything changes.</p>
+                        <iframe frameborder="0" style={{height:'500px', width:'99%', border:'none'}} src="https://forms.zohopublic.com/virtualoffice9155/form/YouthWaitlist/formperma/JYcInu3QDQ0CdIzfwqoouSab5htBYC95LprfIvNMozM?gclid=undefined"></iframe>
+                       {/* Saving for later if coding club comes back */}
+                        {/*
                         <p className='mb-5 text-white text-center'><strong>Note:</strong> The Coding Club runs from September - May, taking a break in the summer.
                             You can still sign up to reserve a spot if you are applying during the summer.</p>
                         <Row>
@@ -197,9 +200,9 @@ const YouthPage = () => {
                                     <Card.Body>
                                         <Card.Title className='mb-5 text-uppercase secondary text-center'>1 month plan</Card.Title>
                                         <StaticImage transformOptions={{ fit: 'contain' }} className={`mb-2 d-flex w-75 justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-1-month.png' alt='one-month-icon'></StaticImage>
-                                        <h1 className='mb-4 text-center fw-bold fs-3 '>$120</h1>
+                                        <h1 className='mb-4 mt-3 text-center fw-bold fs-3 '>$120</h1>
                                         <h2 className='text-center fs-6 fw-bold fst-italic'>Billed Monthly</h2>
-                                        <a href='https://subscriptions.zoho.com/subscribe/03ecd1f5f1714d3cb3ee018041d15410a7726ba08b65d6ccad482bf477cf719e/coding-club-membership'> <BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton></a>
+                                        <a href='https://subscriptions.zoho.com/subscribe/03ecd1f5f1714d3cb3ee018041d15410a7726ba08b65d6ccad482bf477cf719e/coding-club-membership'> <BrandButton className={`mb-0 mt-3 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton></a>
                                     </Card.Body>
                                 </Card>
                             </Col>
@@ -208,7 +211,7 @@ const YouthPage = () => {
                                     <Card.Body>
                                         <Card.Title className='mb-5 text-uppercase secondary text-center'>3 month plan</Card.Title>
                                         <StaticImage transformOptions={{ fit: 'contain' }} className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-3-month.png' alt='three-month-icon'></StaticImage>
-                                        <h1 className='mb-4 text-center fw-bold fs-3'>$329</h1>
+                                        <h1 className='mb-4 mt-3 text-center fw-bold fs-3'>$329</h1>
                                         <h2 className='fs-6 text-center fw-bold fst-italic'>Billed Quarterly</h2>
                                         <a href='https://subscriptions.zoho.com/subscribe/03ecd1f5f1714d3cb3ee018041d15410a7726ba08b65d6ccad482bf477cf719e/3-month'><BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton></a>
                                     </Card.Body>
@@ -241,6 +244,7 @@ const YouthPage = () => {
                                 </Card>
                             </Col>
                         </Row>
+                    */}
                     </Container>
                 </section>
                 <Container className={styles.questions}>

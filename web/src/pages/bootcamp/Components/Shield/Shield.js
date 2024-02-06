@@ -6,8 +6,8 @@ const Shield = ({text}) => {
 
         return (
             <div className={`${styles.shieldPanel}`}>
-                <div className={`${styles.shieldText} mt-5 pt-5 justify-content-center`}>
-                    <p style={{fontSize: "12px"}} className={`text-white fs-6`}>{text}</p>
+                <div className={`${styles.shieldDiv} justify-content-center`}>
+                    <p className={` ${styles.shieldText} text-white`}>{text}</p>
                 </div>
             </div>
         )

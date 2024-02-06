@@ -15,14 +15,13 @@ const SalesforcePage = ({ data }) => {
 
     return (
         <Layout>
-            <SEO />
             {/* Header section */}
             <section id="header">
                 <Container fluid>
                     <Row className="header-section">
                         <Col className="header-text mt-5">
                             <Title className="text-uppercase mt-5">Salesforce career accelerator</Title>
-                            <BrandButton className="mt-3 mb-1">Start your application</BrandButton>
+                            <a href='/salesforce/apply'><BrandButton className="mt-3 mb-1">Start your application</BrandButton></a>
                             <p>Get started now in 30 seconds or less</p>
                         </Col>
                     </Row>
@@ -40,23 +39,25 @@ const SalesforcePage = ({ data }) => {
             <section id="upcoming-program-dates">
                 <Container fluid className="background--grey pt-4">
                     <Row>
-                        <h1 className="title">UPCOMING PROGRAM DATES</h1>
+                        <Title className="text--large text-white text-center mt-3">UPCOMING PROGRAM DATES</Title>
                     </Row>
                     <Row className="dates">
                         <Col className="winter-dates">
-                            <h4 className="fw-bold">WINTER 2023</h4>
-                            <h4 className="fw-bold">2.15.23</h4>
-                            <h4>TO</h4>
-                            <h4 className="fw-bold">05.15.23</h4>
+                            <Subtitle className="fw-bold text-white">WINTER 2023</Subtitle>
+                            <Subtitle className="fw-bold text-white">2.15.23</Subtitle>
+                            <Subtitle className='text-white'>TO</Subtitle>
+                            <Subtitle className="fw-bold text-white">05.15.23</Subtitle>
                         </Col>
                         <Col className="spring-dates">
-                            <h4 className="fw-bold">SPRING 2023</h4>
-                            <h4 className="fw-bold">03.15.23</h4>
-                            <h4>TO</h4>
-                            <h4 className="fw-bold">06.15.23</h4>
+                            <Subtitle className="fw-bold text-white">SPRING 2023</Subtitle>
+                            <Subtitle className="fw-bold text-white">03.15.23</Subtitle>
+                            <Subtitle className='text-white'>TO</Subtitle>
+                            <Subtitle className="fw-bold text-white">06.15.23</Subtitle>
                         </Col>
-                        <div className="button">
-                            <BrandButton>Let's chat</BrandButton>
+                        <div>
+                            <Col>
+                            <a href='https://calendly.com/mack-hanes/salesforce-info-chat' target='_blank'><BrandButton>Let's chat</BrandButton></a>
+                            </Col>
                         </div>
                     </Row>
                 </Container>
@@ -77,7 +78,9 @@ const SalesforcePage = ({ data }) => {
                         <Col sm={{ span: 8, offset: 2 }} xs={12} className="d-flex justify-content-end">
                             <StaticImage quality='100' className="arrow-container me-3" src="./images/arrow-down-left.png" alt="Arrow Image" />
                             <div>
-                                <BrandButton>What is Salesforce?</BrandButton>
+                                <a href='https://www.youtube.com/embed/xx2sK-QiBjw?rel=0&controls=0'>
+                                    <BrandButton>What is Salesforce?</BrandButton>
+                                </a>
                             </div>
                         </Col>
                     </Row>
@@ -129,7 +132,7 @@ const SalesforcePage = ({ data }) => {
                                 <li className='list-item'>Online collaboration tools to thrive in remote or hybrid work environments</li>
                                 <li className='list-item'>Career coaching to connect with employers and stand out in the job application process</li>
                             </ol>
-                            <BrandButton>Let's chat</BrandButton>
+                                <a href='https://calendly.com/mack-hanes/salesforce-info-chat' target='_blank'><BrandButton>Let's chat</BrandButton></a>
                         </Col>
                         <Col xs={12} md={5} lg={{ span: 6 }} xl={{ span: 5, offset: 1 }}>
                             <StaticImage qualtiy='100' src="./images/salesforce-logo.png" alt="Salesforce Image" />
@@ -173,7 +176,9 @@ const SalesforcePage = ({ data }) => {
                     </p>
                 </Container>
                 <div className="my-5 d-flex justify-content-center">
+                    <a href='/salesforce/apply'>
                     <BrandButton>Apply now</BrandButton>
+                    </a>
                 </div>
             </section>
 

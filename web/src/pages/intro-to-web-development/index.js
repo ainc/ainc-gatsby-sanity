@@ -15,16 +15,14 @@ import { graphql } from 'gatsby';
 import laptopGIF from '../../images/animated-projects.gif'
 
 export const query = graphql` 
-query($currentDate: Date!) {
-        allSanityCourses(filter: {startDate: {gte: $currentDate}}) {
+query MyQuery {
+    allSanityCourses(filter: {courseTitle: {eq: "Intro To Web Development"}}) {
       nodes {
-        startDate(formatString: "MM.D.YYYY")
-        endDate(formatString: "MM.D.YYYY")
+        startDate(formatString: "MMMM DD")
+        endDate(formatString: "MMMM DD")
         courseSeason
         courseTitle
-        courseType
       }
-      max(field: courseTitle)
     }
   }
   `;
@@ -36,13 +34,12 @@ const IntroWebDevPage = ({ data }) => {
     
     return (
         <Layout>
-            <SEO />
                 <Container className={`py-5 ${styles.intro}`}>
                     <Col>
                     <Title className='pt-5 pb-2 text-center text-uppercase'>intro to web development</Title>
                     </Col>
                     <Col xs={{span:6, offset: 3}} sm={6} md={{offset:3}} lg={{offset: 3}} xl={{ offset: 3, span: 6 }}>
-                       <a className='d-flex justify-content-center' href='https://www.eventbrite.com/e/intro-to-web-development-remote-spring-2023-tickets-479978607937'><BrandButton className='px-3 text-uppercase mb-5'>register now</BrandButton></a> 
+                       <a className='d-flex justify-content-center' href='https://www.eventbrite.com/e/intro-to-web-development-remote-spring-2024-tickets-768626050207?aff=oddtdtcreator'><BrandButton className='px-3 text-uppercase mb-5'>register now</BrandButton></a> 
                     </Col>
                     </Container>
                     <Container className={`my-5 ${styles.bottomIntro}`}>
@@ -56,12 +53,12 @@ const IntroWebDevPage = ({ data }) => {
                 </Container>
                 <Container className={` ${styles.upcomingProgram}`}>
                     <Title className='text-white text-uppercase text-center pt-5 pb-5'>upcoming program dates</Title>
-                    {allSanityCourses.map((node) => (
-                        <div>
-                        <h2 className={`${styles.programText} fs-4 pt-3 text-uppercase text-white fw-bold text-center`}>{node.courseSeason}</h2>
-                        <h3 className={`${styles.programText} fs-5 text-white fw-bold text-center`}>{node.startDate}</h3>
-                        <h3 className='mb-1 text-uppercase fs-5 text-center text-white'>to</h3>
-                        <h3 className={`${styles.programText} fs-5 pb-5 text-white fw-bold text-center`}>{node.endDate}</h3>
+                    {allSanityCourses.map((node, i) => (
+                        <div key={i}>
+                            <h2 className={`${styles.programText} fs-4 pt-3 text-uppercase text-white fw-bold text-center`}>{node.courseSeason}</h2>
+                            <h3 className={`${styles.programText} fs-5 text-white fw-bold text-center`}>{node.startDate}</h3>
+                            <h3 className='mb-1 text-uppercase fs-5 text-center text-white'>to</h3>
+                            <h3 className={`${styles.programText} fs-5 pb-5 text-white fw-bold text-center`}>{node.endDate}</h3>
                         </div>
                         
                         
@@ -69,7 +66,7 @@ const IntroWebDevPage = ({ data }) => {
                    
                     </Container>
                   
-                <Container className={` ${styles.whyLearn}`}>
+                <Container className={``}>
                     <Col sm={12} md={{offset: 3, span:8}} lg={{ offset: 1, span: 9 }} xl={{ offset: 2, span: 8}}>
                         <Title className='text-uppercase mt-5 text-end'>why learn from awesome inc u?</Title>
                         <p className={`${styles.paragraphs} text-end`}>
@@ -108,7 +105,7 @@ const IntroWebDevPage = ({ data }) => {
                         </p>
                     </Col>
                 </Container>
-                <Container className={` ${styles.curriculum}`}>
+                <Container className={``}>
                 <Col md={12} lg={12} xl={{span: 8, offset: 1}}>
                     <Title className=' ps-2 mt-5 mb-3 text-uppercase text-start'>curriculum</Title>
                     <p className={` ${styles.curriculumList} mb-5 ps-2 fw-lighter fst-italic text-start`}>If reading this list makes your eyes glaze over... we get it. Maybe we can talk on the phone to explain the details.</p>
@@ -125,7 +122,7 @@ const IntroWebDevPage = ({ data }) => {
                             <li className={` ${styles.curriculumList} mb-2`}>Getting Data from APIs</li>
                             <li className={` ${styles.curriculumList} mb-2`}>Final Project</li>
                         </ol>
-                        <a className='d-flex justify-content-start' href='https://www.awesomeinc.org/'><BrandButton className='ms-3 mt-3 px-3 text-uppercase mb-5'>let's chat</BrandButton></a>
+                        <a className='d-flex justify-content-start' href='/contact'><BrandButton className='ms-3 mt-3 px-3 text-uppercase mb-5'>let's chat</BrandButton></a>
                     </Col>
                     <Col md={6} lg={{span: 6}} xl={{span: 5}}>
                         <StaticImage className='mb-3 pe-3' src='../../images/bootcamp/languages/languages-showcase.png'></StaticImage>
@@ -160,7 +157,7 @@ const IntroWebDevPage = ({ data }) => {
                     </Col>
                     
                 </Container>
-                <Container className={styles.faq}>
+                <Container>
                     <Title className='text-uppercase text-center my-5'>faq</Title>
                     <Col xl={{span: 10, offset: 1}}>
                         <Accordion className='mb-5 pb-4' >
@@ -190,8 +187,8 @@ const IntroWebDevPage = ({ data }) => {
                 </Container>
                 <Container className={`mobile-hide-bg ${styles.register}`}>
                     <Col  xs={{offset:3, span: 6}} sm={{offset: 3, span: 6}} md={{offset: 4, span: 4}} lg={{offset:4, span: 4}} xl={{ offset: 3, span: 6 }}>
-                        <a  className={` d-flex justify-content-center`} href='https://www.eventbrite.com/e/intro-to-web-development-remote-spring-2023-tickets-479978607937' >
-                            <BrandButton className={` ${styles.registerButton}  secondary text-uppercase px-3 my-5`}>register now</BrandButton></a>
+                        <a  className={` d-flex justify-content-center`} href='https://www.eventbrite.com/e/intro-to-web-development-remote-spring-2024-tickets-768626050207?aff=oddtdtcreator' >
+                            <BrandButton className={`secondary text-uppercase px-3 my-5`}>register now</BrandButton></a>
                             {/* still need to fit button between arrows for smaller screen sizes/fix button responsiveness for entire page */}
                     </Col>
                 </Container>

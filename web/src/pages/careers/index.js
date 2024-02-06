@@ -1,12 +1,14 @@
 import * as React from 'react'
-import { Col, Container, Row } from 'react-bootstrap';
-import SEO from '../../components/seo'
-import Layout from "../../components/Layout/Layout";
-import Title from "../../components/UI/Title/Title";
-import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import { graphql } from "gatsby";
-import * as styles from "./careers.scss";
+import { Col, Container, Row } from 'react-bootstrap';
 import BlockContent from '@sanity/block-content-to-react';
+
+import BrandButton from "../../components/UI/BrandButton/BrandButton";
+import Layout from "../../components/Layout/Layout";
+import Subtitle from '../../components/UI/Subtitle/Subtitle';
+import Title from "../../components/UI/Title/Title";
+
+import * as styles from "./careers.module.scss";
 
 const CareersPage = ({ data }) => {
   const allCareers = (data.allSanityCareers.nodes || {})
@@ -14,10 +16,9 @@ const CareersPage = ({ data }) => {
   
   return (
     <Layout>
-      <SEO />
       <Container fluid>
         <Row>
-            <Col className="header text-white text-center">
+            <Col className={`${styles.header} text-white text-center`}>
                 <Title className="text-uppercase text-white mt-4">Careers</Title>
                 <Col md={{ span: 6, offset: 3 }}>
                   <p>We're always looking for passionate, driven people who think they'd be a fit for our company! If you don't see what you're looking for on this page, reach out - we'd love to chat.</p>
@@ -26,10 +27,10 @@ const CareersPage = ({ data }) => {
         </Row>
         <Row>
             <Col md={{ span: 6, offset: 2 }}>
-              <h1>Open Roles</h1>
+              <Title className='mb-3'>Open Roles</Title>
               {allCareers.map((node) => (
                   <ul>
-                    <li className="open-role-links">
+                    <li className={styles.openRoleLinks}>
                         <a className={'link--brand'} href={`#${node.careerTitle}`}>{node.careerTitle}</a>
                     </li>
                   </ul>
@@ -40,11 +41,11 @@ const CareersPage = ({ data }) => {
             <Col md={{ span: 8, offset: 2 }}>
               {allCareers.map((node) => (
                 <section id={node.careerTitle} key={node.id}>
-                    <Title className="careerTitle mt-4">{node.careerTitle}</Title>
-                    <BlockContent className="careerBody" blocks={node._rawBody} />
-                    <a className={'link--brand manager_email'} href={`mailto:${node.manager_email}`}>Questions? Email {node.manager} {node.manager_email}</a>
+                    <Title className={`${styles.careerTitle} mt-4`}>{node.careerTitle}</Title>
+                    <BlockContent className={styles.careerBody} blocks={node._rawBody} />
+                    <a className={`${styles.managerEmail} link--brand`} href={`mailto:${node.manager_email}`}>Questions? Email: {node.manager} {node.manager_email}</a>
                     <div>
-                      <a className="brand-button" href={node.linkToForm}>
+                      <a className={`${styles.brandButton}`} href={node.linkToForm}>
                       <BrandButton>Apply here
                       </BrandButton>
                       </a>
@@ -54,9 +55,9 @@ const CareersPage = ({ data }) => {
             </Col>
         </Row>
         <Row>
-          <Col className="footer">
+          <Col className={`${styles.footer}`}>
             <Col md={{ span: 6, offset: 3 }}>
-              <h2>We're always looking for passionate, driven people who think they'd be a fit for our company! If you don't see what you're looking for on this page, reach out - we'd love to chat.</h2>
+              <Subtitle className='text-center fw-bold mt-4 mb-4'>We're always looking for passionate, driven people who think they'd be a fit for our company! If you don't see what you're looking for on this page, reach out - we'd love to chat.</Subtitle>
               <p><a className={'link--brand-dark'} href='mailto: careers@awesomeinc.org'>Email careers@awesomeinc.org</a></p>
               {/* ask about creating link--brand-bright to fix color contrast */}
             </Col>
@@ -70,7 +71,7 @@ export const query_careers = graphql`
   query {
     allSanityCareers(
       filter: { active: { eq: true } }
-      sort: { fields: careerTitle, order: DESC }
+      sort: { careerTitle: DESC }
     ) {
       nodes {
         active
