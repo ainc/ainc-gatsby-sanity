@@ -209,6 +209,7 @@ const Header = () => {
               <div className='hover-options'>
                 <Link to="/about" className='pt-0'>About</Link>
                 <Link to="/about">Core Values</Link>
+                <Link to="/what-we-do">What We Do</Link>
                 <Link to="/blog/">Blog</Link>
                 <Link to="/press">Press</Link>
                 <Link to="/careers">Careers</Link>
@@ -230,6 +231,7 @@ const Header = () => {
                         <Col xs={{span: 10}} className={`d-flex flex-column py-2 border-0`}>
                           <Link to="/about">About</Link>
                           <Link to="/about">Core Values</Link>
+                          <Link to="/what-we-do">What We Do</Link>
                           <Link to="/blog/">Blog</Link>
                           <Link to="/press">Press</Link>
                           <Link to="/careers">Careers</Link>
