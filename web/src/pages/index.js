@@ -279,6 +279,11 @@ const IndexPage = ({ data }) => {
         <Container className=''>
           <Row className="card__featured_mosaic gy-1  me-2">
             <Col className="card__featured" xs={12} sm={10} md={12} lg={7} xl={7}>
+              <motion.div className='h-100'
+                  initial={{ opacity: 0.5, y: -50 }}
+                  whileInView={{ opacity: 1 , y: 0}}
+                  transition={{ duration: 0.5 }} 
+              >
               <FeatureCard className='ms-0'
                 title={feature_event.eventName}
                 date={feature_event.date}
@@ -287,10 +292,16 @@ const IndexPage = ({ data }) => {
                 location={feature_event.location}
                 link={feature_event.linkToEvent}
               />
+              </motion.div>
             </Col>
             <Col className="card__secondary" xs={12} sm={10} md={8} lg={5} xl={5}>
               <Row className='bottom-0 me-2 ms-1'>
               {eventsNoFeature.map((node,i) => ( //map through the filtered list
+                <motion.div className='h-100'
+                  initial={{ opacity: 0.5, y: -50 }}
+                  whileInView={{ opacity: 1 , y: 0}}
+                  transition={{ duration: 0.5 }} 
+                >
                 <HorizontalCard className='ms-0'
                   title={node.eventName}
                   date={node.date}
@@ -300,6 +311,7 @@ const IndexPage = ({ data }) => {
                   link={node.linkToEvent}
                   key={i}
                 />
+                </motion.div>
               ))}
               </Row>
             </Col>
@@ -322,6 +334,11 @@ const IndexPage = ({ data }) => {
           <Row>
             {courses.map((node,i) => (
               <Col className='mb-3' md={4} lg={4} key={i}>
+                <motion.div className='h-100'
+                  initial={{ opacity: 0.5, y: -50 }}
+                  whileInView={{ opacity: 1 , y: 0}}
+                  transition={{ duration: 0.5 }} 
+                >
                 <Card className='h-100'>
                   <GatsbyImage 
                     image={node.picture.asset.gatsbyImageData} 
@@ -345,6 +362,7 @@ const IndexPage = ({ data }) => {
                     
                   </Card.Body>
                 </Card>
+                </motion.div>
               </Col>
             ))}
             
