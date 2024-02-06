@@ -2,7 +2,7 @@ import React, {useEffect, useState, useRef} from 'react'
 import { Container, Row, Col, Modal} from 'react-bootstrap'
 import Title from '../../../components/UI/Title/Title'
 import Subtitle from '../../../components/UI/Subtitle/Subtitle'
-
+import * as styles from './QAModal.module.scss'
 const QAModal = (props) => {
     const [QADiv, setQADiv] = useState(null);
     const handleQAOpen = () => setQADiv(true);
@@ -10,7 +10,7 @@ const QAModal = (props) => {
 
     return(
         <div className='my-3'>
-            <button onClick={handleQAOpen} className={`d-flex justify-content-center align-items-center`} style={{border: 'none', background: 'none', borderBottom: '2px solid white', width: '30vw'}}>
+            <button onClick={handleQAOpen} className={`${styles.qabutton} d-flex justify-content-center align-items-center`} style={{border: 'none', background: 'none', borderBottom: '2px solid white'}}>
                 <Subtitle className='text-white'>{props.title}</Subtitle><p className='ms-auto text-white' style={{fontSize: '2rem'}}>+</p>
             </button>
             <Modal show={QADiv} onHide={handleQAClose} centered size='lg'>
