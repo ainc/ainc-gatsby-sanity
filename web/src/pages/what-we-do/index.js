@@ -172,7 +172,7 @@ const WhatWeDoPage = ({ data }) => {
                 {/* Row 3 Logos */}
                 <Row className={`d-flex mb-5`}>
                     <Image className={`mb-5`} src={dotDivider} alt="Dot Divider" />
-                    <Col lg={4} md={12} className="d-flex flex-column justify-content-left align-items-center text-center ">
+                    <Col lg={4} md={12} className="d-flex flex-column justify-content-left align-items-center text-center">
                         <div className={styles.logoContainer}>
                             <Image className={`${styles.logo} mx-auto`} src={hallOfFame} alt="Hall of Fame" />
                         </div>
