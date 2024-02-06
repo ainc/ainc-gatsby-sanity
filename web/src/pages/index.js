@@ -172,8 +172,8 @@ const IndexPage = ({ data }) => {
         />
 
      
-      <StackIcon fill="blue" width="200px" />
-      <ToolsIcon fill ="purple"/>
+      {/* <StackIcon fill="blue" width="200px" /> */}
+      <ToolsIcon fill ="purple" width= "200px"/>
       
      
 
