@@ -2,7 +2,6 @@ import * as React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { StaticImage } from "gatsby-plugin-image";
 import { motion } from "framer-motion"
-
 import Subtitle from "../../../components/UI/Subtitle/Subtitle";
 import Title from "../../../components/UI/Title/Title";
 import { StaticQuery } from "gatsby";
@@ -20,8 +19,10 @@ const Startups = () => {
             <div className="h-100 my-5">
             <a href='/idea'>
                 <motion.div
-                  transition={{ duration: 1 }}
-                  whileHover={{ scale: 1.2 }} 
+                  initial={{ opacity: 0.5, y: -50 }}
+                  whileInView={{ opacity: 1 , y: 0}}
+                  transition={{ duration: 0.5 }}
+                  whileHover={{ scale: 1.1 }} 
                   whileTap={{ scale: 0.9 }}>
                 <StaticImage 
                   className='d-block mx-auto w-50 m-5' 
@@ -42,10 +43,11 @@ const Startups = () => {
             <div className="h-100 my-5">
               <a href='/fellowship'>
               <motion.div
-                  whileInView={{ rotate: [0, 0, 270, 270, 0] }}
-                  transition={{ duration: 1 }}
-                  whileHover={{ scale: 1.1 }} 
-                  whileTap={{ scale: 0.9 }}>
+                   initial={{ opacity: 0.5, y: 50 }}
+                   whileInView={{ opacity: 1 , y: 0}}
+                   transition={{ duration: 0.5 }}
+                   whileHover={{ scale: 1.1 }} 
+                   whileTap={{ scale: 0.9 }}>
               <StaticImage 
                   className='d-block mx-auto m-5 bg--brand-light rounded-circle' 
                   quality='100'
@@ -66,8 +68,10 @@ const Startups = () => {
             <div className="h-100 my-5">
               <a href='https://www.entrepreneurhof.com/'>
               <motion.div
-                  transition={{ duration: 1 }}
-                  whileHover={{ scale: 1.2 }} 
+                  initial={{ opacity: 0.5, y: -50 }}
+                  whileInView={{ opacity: 1 , y: 0}}
+                  transition={{ duration: 0.5 }}
+                  whileHover={{ scale: 1.1 }} 
                   whileTap={{ scale: 0.9 }}>
                 <StaticImage
                   className='d-block mx-auto w-50 m-5' 
