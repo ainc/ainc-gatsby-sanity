@@ -24,12 +24,12 @@ const AboutPage = ({ data }) => {
   return (
     <Layout>
         {/* About header */}
-        <section className={styles.aboutHeader}>
+        <section className={`${styles.aboutHeader}`}>
           <Container>
             <Row>
               <Col className="col-9 col-sm-7 mt-3">
                 <div className={styles.heading}>
-                  <Title className={`mt-5`}>
+                  <Title className={`mt-5 fw-bold `}>
                     We exist to help people pursue their definition of awesome.
                   </Title>
                   <Subtitle className={`fs-6 mt-2 mb-5`}>
@@ -38,7 +38,7 @@ const AboutPage = ({ data }) => {
                     technology or business. We strive to make Lexington a better place to live and
                     work.
                   </Subtitle>
-                  <a href="/culture-book.pdf">
+                  <a href="/assets/culture-book.pdf">
                     <BrandButton className={`text-nowrap`}>View Our Culture Book</BrandButton>
                   </a>
                   
@@ -48,7 +48,7 @@ const AboutPage = ({ data }) => {
             <Row>
               <Image className={`${styles.headerImg}`} src={coreValues} alt="core-values" />
               <Col className="col-sm-8 col-10">
-                <a href="https://www.awesomeinc.org/assets/core-values.pdf">
+                <a href="/assets/core-values.pdf">
                 <BrandButton className={`text-nowrap`}>
                   Read About Our Core Values
                 </BrandButton>
