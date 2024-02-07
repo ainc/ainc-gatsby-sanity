@@ -6,11 +6,14 @@
 .header-section {
   background-image: url("../../images/team-alpha-header.jpg");
   background-repeat: no-repeat;
-  height: 50vh;
   background-size: cover;
   background-position: center;
-  @media (max-width: 425px){
+  height: 50vh;
+  @media (max-width: 769px){
     height: 60vh;
+  }
+  @media (max-width: 426px){
+    height: 70vh;
   }
 }
 
@@ -24,42 +27,41 @@
   }
   @media (max-width: 1024px) {
     left: 5%; 
-    top: -20%; 
+    top: -5%; 
   }
   @media (max-width: 768px) {
     left: -5%; 
-    top: 0%; 
+    top: 10%; 
   }
-  @media (max-width: 425px) {
+  @media (max-width: 426px) {
   left: 0%; 
   top: -20%; 
   }
 }
 
 .looking-for-section{
-  background-image: url("../../images/wave-main.png");
+  background-image: url("../../images/wave-main-page.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   @media(max-width: 2000px) {
-    height: 60vh;
+    height: 70vh;
   }
   @media (max-width: 1024px) {
-    height: 85vh;
+    height: 100vh;
   }
   @media (max-width: 768px) {
-    height: 105vh;
+    height: 120vh;
   }
-  @media (max-width: 425px) {
-    height: 200vh;
+  @media (max-width: 426px) {
+    height: 220vh;
   }
 
 }
-
 .apply-section {
   background-image: url("../../images/team-alpha-apply.jpg");
   background-repeat: no-repeat;
-  height: 40vh;
+  height: 50vh;
   background-size: cover;
   background-position: center;
 }
@@ -105,16 +107,6 @@
   transform: translateX(-50%);
   min-width: 200px;
   padding: 0.8rem 2.4rem;
-  display: inline-block;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 22px;
-  font-weight: 600;
-  line-height: 33px;
-  letter-spacing: 3px;
-  background-color: $brand-color2;
-  color: $white-color;
-  overflow: hidden;
 }
 
 .team-images{
@@ -151,10 +143,10 @@
 
 .carousel-height{
   @media (min-width: 425px){
-    height: 100vh;
+    height: 125vh;
   }
   @media (min-width: 768px){
-    height: 75vh;
+    height: 90vh;
   }
   @media (min-width: 1024px){
     height: 55vh;

@@ -102,7 +102,7 @@ const InternshipsPage = ({ data }) => {
             </Col>  
             <Col className='my-3'>
               <Title className='text--bright-red text-uppercase mt-5'>What is Team Alpha?</Title>
-              <p className='my-5'>
+              <p className='my-5' style={{width: '65%'}}>
                 Team Alpha, Awesome Inc's internship program, is an integral part of helping accomplish our mission to make Lexington a better place
                 to live and work. Our goal is to equip each intern with skill sets while gaining real-world experience by working on one of four teams:
                 web development, design, videography, and marketing.
@@ -129,7 +129,7 @@ const InternshipsPage = ({ data }) => {
             <Col className='col-12 col-md-4 col-lg-2 mb-4 mx-4'>
                 <div className={styles.tbDiv}>
                   <StaticImage className={`${styles.teamImages} d-none d-sm-block`} style={{position: 'absolute', bottom: '-12%'}} src='../../images/team-alpha-design.jpg' alt='Design Intern'/>
-                  <button onClick={() => showTeamDiv('design')} className={`${styles.teamButton} text-center`}>Design</button>
+                  <BrandButton onClick={() => showTeamDiv('design')} className={`${styles.teamButton} secondary text-center`}>Design</BrandButton>
                   <TeamInfoModal
                   show={teamInfoDiv === 'design'}
                   onHide={hideTeamDiv}
@@ -142,7 +142,7 @@ const InternshipsPage = ({ data }) => {
             <Col className='col-12 mb-4 col-md-4 col-lg-2 mx-4'>
               <div className={styles.tbDiv}>
                 <StaticImage className={`${styles.teamImages} d-none d-sm-block`} style={{position: 'absolute', bottom: '-12%'}} src='../../images/team-alpha-marketing.jpg' alt='Events and Marketing Intern'/>
-                <button onClick={() => showTeamDiv('marketing')} className={`${styles.teamButton} text-center`}>Marketing</button>
+                <BrandButton onClick={() => showTeamDiv('marketing')} className={`${styles.teamButton} secondary text-center`}>Marketing</BrandButton>
                   <TeamInfoModal
                   show={teamInfoDiv === 'marketing'}
                   onHide={hideTeamDiv}
@@ -155,7 +155,7 @@ const InternshipsPage = ({ data }) => {
             <Col className='col-12 mb-4 col-md-4 col-lg-2 mx-4'>
               <div className={styles.tbDiv}>
                 <StaticImage className={`${styles.teamImages} d-none d-sm-block`} style={{ position: 'absolute', bottom: '-12%'}}  src='../../images/team-alpha-video.jpg' alt='Video Intern'/>
-                <button onClick={() => showTeamDiv('video')} className={`${styles.teamButton} text-center`}>Video</button>
+                <BrandButton onClick={() => showTeamDiv('video')} className={`${styles.teamButton} secondary text-center`}>Video</BrandButton>
                   <TeamInfoModal
                   show={teamInfoDiv === 'video'}
                   onHide={hideTeamDiv}
@@ -168,7 +168,7 @@ const InternshipsPage = ({ data }) => {
             <Col className='col-12 mb-4 col-md-4 col-lg-2 mx-4'>
             <div className={styles.tbDiv}>
                 <StaticImage className={`${styles.teamImages} d-none d-sm-block`} style={{position: 'absolute', bottom: '-12%'}} src='../../images/team-alpha-development.jpg' alt='Development Intern'/>
-                <button onClick={() => showTeamDiv('development')} className={`${styles.teamButton} text-center`}>Development</button>
+                <BrandButton onClick={() => showTeamDiv('development')} className={`${styles.teamButton} secondary text-center`}>Development</BrandButton>
                   <TeamInfoModal
                   show={teamInfoDiv === 'development'}
                   onHide={hideTeamDiv}
@@ -185,9 +185,9 @@ const InternshipsPage = ({ data }) => {
       {/* Why Awesome Inc section */}
       <Container className='mt-4'>
         <Row className='mt-4 flex-column flex-sm-row'>
-          <Col className='mt-5'>
+          <Col className='mt-5 '>
           <Title className='text--bright-red text-uppercase mt-5 pt-5' style={{textAlign: 'right'}}>Why Awesome Inc?</Title>
-          <p className='my-5' style={{textAlign: 'right'}}>
+          <p className={`${styles.paragraphAlign} my-5`} style={{textAlign: 'right', marginLeft: 'auto', width: '65%'}}>
           In addition to the free t-shirt and unlimited oreos, we'll provide you with an opportunity to improve your skills,
           portfolio, and network. Since 2009, Awesome Inc has built a work hard, play ahrd culture capable of accelerating you towards your definition
           of awesome. Our goal is to give you the best experience by helping you achieve your goals; whether that is getting into your dream school, working
@@ -195,7 +195,7 @@ const InternshipsPage = ({ data }) => {
           </p>
           </Col>
           <Col className='d-flex align-items-center justify-content-center my-5 py-5'>
-            <StaticImage src='../../images/garret-cam.jpg' alt='Team Alpha having fun' style={{maxWidth: '550px'}}/>
+            <StaticImage src='../../images/garret-cam.jpg' alt='Team Alpha having fun' style={{maxWidth: '550px'}} className='mt-lg-5 py-lg-4'/>
           </Col>
         </Row>
       </Container>
@@ -204,11 +204,11 @@ const InternshipsPage = ({ data }) => {
       <Container fluid className={styles.lookingForSection} >
         <Row className='flex-column flex-sm-row'>
           <Col className='d-flex align-items-center justify-content-center my-5 py-5'>
-            <StaticImage src='../../images/team-alpha-5across.jpg' alt='Team Alpha at 5Across' style={{maxWidth: '400px'}} className=' '/>
+            <StaticImage src='../../images/team-alpha-5across.jpg' alt='Team Alpha at 5Across' style={{maxWidth: '400px'}} className='my-4 '/>
           </Col>
           <Col className='mt-5 pt-5 text-left mx-md-5'>
             <Title className='text-uppercase text-white'>Who we're looking for</Title>
-            <p className='text-white my-3'>
+            <p className='text-white my-5' style={{width: '65%'}}>
             High school, college, and graduate students that are eager, coachable, and a good fit for Awesome Inc's culture.
             This immersive experience in Lexington, KY typically lasts for 1-2 semesters. To learn more about what our specific requirements are, click each
             team's profile above.
@@ -265,7 +265,7 @@ const InternshipsPage = ({ data }) => {
         <Row className='text-center'>
           <Title className='text-white text-uppercase mt-5'>Frequently Asked Questions</Title>
         </Row>
-        <Container>
+        <Container className='my-5 py-4'>
         <Row className='d-flex justify-content-center align-items-center flex-column flex-sm-row'>
             <Col className='d-flex justify-content-center align-items-center'>
               <QAModal 
@@ -298,15 +298,15 @@ const InternshipsPage = ({ data }) => {
               />
             </Col>
           </Row>
-          <Row className='d-flex justify-content-center align-items-center flex-column flex-sm-row'>
-            <Col className='d-flex justify-content-center align-items-center'>
+          <Row className='d-flex justify-content-center align-items-center flex-column flex-sm-row '>
+            <Col className='d-flex justify-content-center align-items-center mb-5 pb-4'>
               <QAModal 
               title='Is this a paid internship?'
               img={Payment}
               content="We do not pay our interns. Team Alpha will gain experience, knowledge, and eat lots of Oreos. We've found out interns learn how to work while being around our team and we help them transition to another internship or their first job. Our program lays a necessary foundation that interns build upon for their futures."
               />
             </Col>
-            <Col className='d-flex justify-content-center align-items-center'>
+            <Col className='d-flex justify-content-center align-items-center mb-5 pb-4'>
               <QAModal
               title="Is this internship in-person?"
               img={InPerson}
@@ -337,7 +337,10 @@ const InternshipsPage = ({ data }) => {
           </Row>
           <Row>
             <Col className='text-center'>
-            <BrandButton className='mb-3'>Add me to the fun bunch</BrandButton>
+            <a href="https://careers.awesomeinc.org/jobs/Careers/649925000000610353/Team-Alpha---Internship?source=CareerSite"
+                      target="_blank" rel="noopener noreferrer">
+            <BrandButton className='my-3'>Add me to the fun bunch</BrandButton>
+            </a>
             </Col>
           </Row>
         </Container>

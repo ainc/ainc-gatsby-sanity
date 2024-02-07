@@ -1,6 +1,16 @@
 .qabutton{
     width: 30vw;
-    @media(max-width: 425px){
+    border: none;
+    background: none;
+    border-bottom: 2px solid white;
+    @media(max-width: 426px){
         width: 70vw;
     }
 }
+
+/* hover only works for background color, not for text color
+.qabutton:hover{
+    color: red;
+    background-color: #323232;
+}
+*/
