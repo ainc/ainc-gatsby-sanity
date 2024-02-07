@@ -97,7 +97,7 @@ const InternshipsPage = ({ data }) => {
             <Col className='d-flex align-items-center justify-content-center my-5' style={{position: 'relative'}}>
               <StaticImage src='../../images/team-alpha-coffee.jpg' alt='Team Alpha getting coffee' style={{maxWidth: '350px'}}/>
               <div className={styles.teamAlphaBadge}>
-                <StaticImage src='../../images/Team_Alpha_Logo_Grey.png' alt='Team alpha logo' />
+                <StaticImage src='../../images/Team_Alpha_Logo_Grey.png' alt='Team alpha logo'/>
               </div>
             </Col>  
             <Col className='my-3'>
