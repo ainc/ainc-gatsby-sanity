@@ -13,7 +13,7 @@
     height: 60vh;
   }
   @media (max-width: 426px){
-    height: 70vh;
+    height: 75vh;
   }
 }
 
@@ -54,7 +54,7 @@
     height: 120vh;
   }
   @media (max-width: 426px) {
-    height: 220vh;
+    height: 230vh;
   }
 
 }
@@ -142,7 +142,7 @@
 }
 
 .carousel-height{
-  @media (min-width: 425px){
+  @media (min-width: 250px){
     height: 125vh;
   }
   @media (min-width: 768px){
