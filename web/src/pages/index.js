@@ -282,7 +282,7 @@ const IndexPage = ({ data }) => {
               <motion.div className='h-100'
                   initial={{ opacity: 0.5, y: -50 }}
                   whileInView={{ opacity: 1 , y: 0}}
-                  transition={{ duration: 0.5 }} 
+                  transition={{ duration: 1 }} 
               >
               <FeatureCard className='ms-0'
                 title={feature_event.eventName}
@@ -300,7 +300,7 @@ const IndexPage = ({ data }) => {
                 <motion.div className='h-100'
                   initial={{ opacity: 0.5, y: -50 }}
                   whileInView={{ opacity: 1 , y: 0}}
-                  transition={{ duration: 0.5 }} 
+                  transition={{ duration: 1 }} 
                 >
                 <HorizontalCard className='ms-0'
                   title={node.eventName}
@@ -337,7 +337,7 @@ const IndexPage = ({ data }) => {
                 <motion.div className='h-100'
                   initial={{ opacity: 0.5, y: -50 }}
                   whileInView={{ opacity: 1 , y: 0}}
-                  transition={{ duration: 0.5 }} 
+                  transition={{ duration: 1 }} 
                 >
                 <Card className='h-100'>
                   <GatsbyImage 
@@ -397,7 +397,7 @@ const IndexPage = ({ data }) => {
                 <motion.div
                   initial={{ opacity: 0.5, y: -50 }}
                   whileInView={{ opacity: 1 , y: 0}}
-                  transition={{ duration: 0.5 }}
+                  transition={{ delay: .2, duration: 0.5 }}
                   whileHover={{ scale: 1.1 }} 
                   whileTap={{ scale: 0.9 }}>
                 <div className="d-flex justify-content-center" >
@@ -414,7 +414,7 @@ const IndexPage = ({ data }) => {
                 <motion.div
                   initial={{ opacity: 0.5, y: 50 }}
                   whileInView={{ opacity: 1 , y: 0}}
-                  transition={{ duration: 0.5 }}
+                  transition={{ delay: .2, duration: 0.5 }}
                   whileHover={{ scale: 1.1 }} 
                   whileTap={{ scale: 0.9 }}>
                 <div className="d-flex justify-content-center mt-5 pt-5">
@@ -446,7 +446,7 @@ const IndexPage = ({ data }) => {
                   <motion.div
                     initial={{ opacity: 0.5, y: 50 }}
                     whileInView={{ opacity: 1 , y: 0}}
-                    transition={{ duration: 0.5 }}
+                    transition={{ delay: .2, duration: 0.5 }}
                     whileHover={{ scale: 1.1 }} 
                     whileTap={{ scale: 0.9 }}>
                   <StaticImage 
@@ -470,7 +470,7 @@ const IndexPage = ({ data }) => {
                 <motion.div
                     initial={{ opacity: 0.5, y: -50 }}
                     whileInView={{ opacity: 1 , y: 0}}
-                    transition={{ duration: 0.5 }}
+                    transition={{ delay: .2, duration: 0.5 }}
                     whileHover={{ scale: 1.1 }} 
                     whileTap={{ scale: 0.9 }}>
                 <StaticImage 
@@ -492,7 +492,7 @@ const IndexPage = ({ data }) => {
                 <motion.div
                   initial={{ opacity: 0.5, y: 50 }}
                   whileInView={{ opacity: 1 , y: 0}}
-                  transition={{ duration: 0.5 }}
+                  transition={{ delay: .2, duration: 0.5 }}
                   whileHover={{ scale: 1.1 }} 
                   whileTap={{ scale: 0.9 }}>
                 <StaticImage 
