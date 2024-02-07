@@ -21,10 +21,15 @@ const TeamInfoModal = (props) => {
                     <p className='my-3'>{props.content}</p>
                 </Col>
             </Row>
+            <Row>
+            <a className='link--brand' href={props.link} target="_blank">Click here to see if the {props.team} team is for you!</a>
+            </Row>
+            <Row>
             <a href="https://careers.awesomeinc.org/jobs/Careers/649925000000610353/Team-Alpha---Internship?source=CareerSite"
             target="_blank" rel="noopener noreferrer">
             <BrandButton className='white--red-text fw-bold my-3'>Apply Now</BrandButton>
             </a>
+            </Row>
         </Modal.Body>
         </Modal>
     )
