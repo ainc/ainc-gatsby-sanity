@@ -23,7 +23,7 @@ const CoreValue = (props) => {
                     <motion.div
                       initial={{ opacity: 0.5, y: -50 }}
                       whileInView={{ opacity: 1 , y: 0}}
-                      transition={{ duration: 0.5 }}
+                      transition={{ delay: 0.2, duration: 0.5 }}
                       whileHover={{ scale: 1.1 }} 
                       whileTap={{ scale: 0.9 }}>
                     <StaticImage quality='100' src='./video-button.png' alt="Core values video" />
@@ -36,7 +36,7 @@ const CoreValue = (props) => {
                     <motion.div
                       initial={{ opacity: 0.5, y: 50 }}
                       whileInView={{ opacity: 1 , y: 0}}
-                      transition={{ duration: 0.5 }}
+                      transition={{ delay: 0.2, duration: 0.5 }}
                       whileHover={{ scale: 1.1 }} 
                       whileTap={{ scale: 0.9 }}>
                     <StaticImage quality='100' src='./culture-book-button.png' alt="Core values video" />

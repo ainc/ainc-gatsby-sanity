@@ -21,7 +21,7 @@ const Startups = () => {
                 <motion.div
                   initial={{ opacity: 0.5, y: -50 }}
                   whileInView={{ opacity: 1 , y: 0}}
-                  transition={{ duration: 0.5 }}
+                  transition={{ delay: .2, duration: 0.5 }}
                   whileHover={{ scale: 1.1 }} 
                   whileTap={{ scale: 0.9 }}>
                 <StaticImage 
@@ -45,7 +45,7 @@ const Startups = () => {
               <motion.div
                    initial={{ opacity: 0.5, y: 50 }}
                    whileInView={{ opacity: 1 , y: 0}}
-                   transition={{ duration: 0.5 }}
+                   transition={{ delay: .2, duration: 0.5 }}
                    whileHover={{ scale: 1.1 }} 
                    whileTap={{ scale: 0.9 }}>
               <StaticImage 
@@ -70,7 +70,7 @@ const Startups = () => {
               <motion.div
                   initial={{ opacity: 0.5, y: -50 }}
                   whileInView={{ opacity: 1 , y: 0}}
-                  transition={{ duration: 0.5 }}
+                  transition={{ delay: .2, duration: 0.5 }}
                   whileHover={{ scale: 1.1 }} 
                   whileTap={{ scale: 0.9 }}>
                 <StaticImage
