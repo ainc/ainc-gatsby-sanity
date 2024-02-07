@@ -105,7 +105,7 @@ const BootcampApplyPage = ({data}) => {
                             <Title className="text-center py-4 fs-3 text--medium">Income Share Agreement</Title>
                         </Row>
                         <Row className="mx-5">
-                            <p  style={{fontSize:"0.75rem"}} className="text-justify">
+                            <p  style={{fontSize:"1rem"}} className="text-justify">
                             Fund your future with an Income Share Agreement. We're 
                             partnered with industry-leading ISA provider Meratas to 
                             allow students to enroll in our full-time program with no 
@@ -125,8 +125,8 @@ const BootcampApplyPage = ({data}) => {
                             <Title className="text-center py-5 ms-3 text--medium">Up-Front Payment</Title>
                         </Row>
                         <Row className="mx-5">
-                            <p style={{fontSize:"0.75rem"}} className="text-justify ">
-                            Students who choose to pay tuition up front are offered a discounted tuition rate of $13,500.
+                            <p style={{fontSize:"1rem"}} className="text-center">
+                            Students who choose to pay tuition up front are offered a discounted tuition rate of $15,500.
                             </p>
                         </Row>
                         </Col>

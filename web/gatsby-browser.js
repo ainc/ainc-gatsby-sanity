@@ -13,3 +13,4 @@ import "./src/styles/global.scss"
 import "@fontsource/open-sans"
 import "@fontsource/exo"
 import "@fontsource/exo-2"
+
