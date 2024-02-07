@@ -18,7 +18,7 @@ const Page = ({ data }) => {
         <Container>
          <Col md={{span: 12}}>
             <Row>
-                <h1>Bootcamp Application Received</h1>
+                <h1 className='mt-3'>Bootcamp Application Received</h1>
             <Col md={{span: 6}}>
                 <p className='mt-5'>Thanks for your interest in Awesome Inc's Web Developer Bootcamp.</p>
                 <iframe width="80%" height="315" src="https://www.youtube.com/embed/o12a29ivKTY?si=6TIWojVv8_lf3e-y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>

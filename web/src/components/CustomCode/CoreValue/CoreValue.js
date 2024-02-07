@@ -24,14 +24,16 @@ const CoreValue = (props) => {
                   
                 </Col>
                 <Col sm="4">
-                  <a id="culture-book-btn" href="/culture-book.pdf" target="_blank" rel="noopener">
+                  <a id="culture-book-btn" href="/assets/culture-book.pdf" target="_blank" rel="noopener">
                       <StaticImage quality='100' src='./culture-book-button.png' alt="Core values video" />
                   </a>
                 </Col>
               </Row>
             </Col>
             <Col sm="6" className="">
+              <a href='/assets/core-values.pdf' target="_blank">
                 <StaticImage quality='100' src='../../../images/about-core-values.png' alt="Core values video" />
+              </a>
             </Col>
           </div>
 
