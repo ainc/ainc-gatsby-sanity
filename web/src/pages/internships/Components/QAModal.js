@@ -10,8 +10,8 @@ const QAModal = (props) => {
 
     return(
         <div className='my-3'>
-            <button onClick={handleQAOpen} className={`${styles.qabutton} d-flex justify-content-center align-items-center`} style={{border: 'none', background: 'none', borderBottom: '2px solid white'}}>
-                <Subtitle className='text-white'>{props.title}</Subtitle><p className='ms-auto text-white' style={{fontSize: '2rem'}}>+</p>
+            <button onClick={handleQAOpen} className={`${styles.qabutton} d-flex justify-content-center align-items-center my-2`}>
+                <Subtitle className='text-white subtitle--small'>{props.title}</Subtitle><p className='ms-auto text-white ' style={{fontSize: '2rem'}}>+</p>
             </button>
             <Modal show={QADiv} onHide={handleQAClose} centered size='lg'>
                 <Row className='flex-column flex-sm-row flex-md-row'>
