@@ -258,7 +258,7 @@ export const query_accomplishments = graphql`
         }
       }
     }
-    allSanityTeamMember(sort: {_updatedAt: DESC}) {
+    allSanityTeamMember(sort: {_updatedAt: DESC}){
       nodes {
         name
         picture {
