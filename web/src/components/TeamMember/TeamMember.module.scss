@@ -17,12 +17,13 @@
   width: 150;
   height: 150%;
   padding-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .lgx-vertical {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
   color: #c12029;
   font-size: 14px;
   line-height: 2.4rem;
