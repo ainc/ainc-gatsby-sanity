@@ -2,11 +2,11 @@ import React, {useEffect, useState, useRef} from 'react'
 import { Container, Row, Col, Modal} from 'react-bootstrap'
 import Title from '../../../components/UI/Title/Title'
 import BrandButton from '../../../components/UI/BrandButton/BrandButton'
-
+import './teaminfo.scss'
 const TeamInfoModal = (props) => {
 
     return(
-        <Modal show={props.show} onHide={props.onHide} centered size='lg'>
+        <Modal show={props.show} onHide={props.onHide} centered dialogClassName="modal-dialog">
         <svg viewBox="0 0 500 125" preserveAspectRatio="xMinYMin meet" style={{backgroundColor: '#f2f2f2'}}>
           <g transform="scale(-1,1) translate(-500,0)">
             <path d="M0,100 C150,150 350,0 500,100 L500,00 L0,0 Z" style={{stroke: 'none', fill: props.color}}></path>
@@ -22,7 +22,7 @@ const TeamInfoModal = (props) => {
                 </Col>
             </Row>
             <Row>
-            <a className='link--brand' href={props.link} target="_blank">Click here to see if the {props.team} team is for you!</a>
+            <a className='link--brand' href={props.link} target="_blank">Click here to learn more and see if the {props.team} team is for you!</a>
             </Row>
             <Row>
             <a href="https://careers.awesomeinc.org/jobs/Careers/649925000000610353/Team-Alpha---Internship?source=CareerSite"
