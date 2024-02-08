@@ -3,7 +3,7 @@ import { graphql, Link, useStaticQuery } from 'gatsby'
 
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col, Carousel} from "react-bootstrap"
 
 import BrandButton from "../UI/BrandButton/BrandButton";
 import Subtitle from "../UI/Subtitle/Subtitle";
@@ -13,6 +13,7 @@ import Wrapper from "../UI/Wrapper/Wrapper";
 const HomepageSlider = (props) => {
   const {scrollToSection, sectionIds} = props
 
+  /* Old slider
   const  [sliderRef] = useKeenSlider(
     {
       loop: true,
@@ -47,7 +48,7 @@ const HomepageSlider = (props) => {
         slider.on("updated", nextTimeout)
       },
     ]
-  )
+  )*/
 
   const query = useStaticQuery(graphql`
     query imageSlider {
@@ -72,36 +73,37 @@ const HomepageSlider = (props) => {
 
   const slides = (query.sanityImageSlider.slides || {});
   return (
-    <>
-      <div ref={sliderRef} className={`keen-slider`}>
-      {slides.map((slide,i) => (
-        <div className={`keen-slider__slide number-slide${i}`} key={i}>
-          <div style={{ 
+    <Carousel>
+      {slides.map((slide, i) => (
+        <Carousel.Item key={i}>
+          <div
+            style={{
               backgroundAttachment: 'fixed',
               backgroundImage: `url(${slide.image.asset.url})`,
               backgroundRepeat: 'no-repeat',
               backgroundSize: 'cover',
-              backgroundAttachment: 'scroll', //for safari
+              backgroundAttachment: 'scroll', // for safari
               height: '100vh',
               backgroundPosition: 'center center',
             }}
           >
             <Wrapper>
-              <Container className="mb-3 d-flex align-content-center flex-wrap h-100">
+                <Container className="mb-5 d-flex align-content-center flex-wrap h-100">
                   <Row>
-                    <Subtitle className="text-white">{slide.subtitle}</Subtitle>
+                    <Subtitle className="text-white pl-3">{slide.subtitle}</Subtitle>
                     <Title className="mb-3 text-white">{slide.title}</Title>
                     <Col>
-                      <BrandButton onClick={() => scrollToSection(sectionIds[i])}  href='slide.cta.url' className="mt-3">Learn More</BrandButton>
+                      <BrandButton onClick={() => scrollToSection(sectionIds[i])} href={slide.cta.url} className="mt-3">
+                        Learn More
+                      </BrandButton>
                     </Col>
                   </Row>
-              </Container>
+                </Container>
             </Wrapper>
           </div>
-        </div>
+        </Carousel.Item>
       ))}
-      </div>
-    </>
+    </Carousel>
     
   );
 };
