@@ -4,6 +4,7 @@ import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Container, Row, Col } from 'react-bootstrap'
+import { motion } from "framer-motion";
 
 import ApplyNowModal from "./Components/ApplyNowModal";
 import Layout from '../../components/Layout/Layout'
@@ -73,14 +74,17 @@ const FellowshipPage = ({ data }) => {
       <Container>
         <Row>
           <Col className="m-auto" xs={12} sm={4} >
+            <motion.div initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.5, duration: 1 }}>
             <Title className="brand" >FELLOWSHIP</Title>
             <Subtitle className="fst-italic fw-lighter fs-4 text-lowercase">A mentor-driven program for Kentucky based startups</Subtitle>
-  
+            
             <ApplyNowModal
               title="Apply Now"
               link="https://forms.zohopublic.com/virtualoffice9155/form/AwesomeFellowshipApplication/formperma/r12Y7iQP0rWYHU33MvoA15j6wO4YlTVP02EuWMwJol8"
             />
-
+            </motion.div>
           </Col>
           <Col className="my-5 " xs={12} sm={8} >
             <ImageOutline style={{marginLeft: "7rem"}}>
@@ -110,6 +114,9 @@ const FellowshipPage = ({ data }) => {
             <Row>
               <Col className="m-auto text-center" xs={4}>
                 {/* <div > */}
+                <motion.div initial={{ opacity: 0, y: 50 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.5, duration: 1 }}>
                 <a href="/fellowship/perks" aria-label="Perks of the fellowship">
                 <StaticImage 
                   className='mx-auto d-block img-fluid' 
@@ -120,10 +127,14 @@ const FellowshipPage = ({ data }) => {
                 />
                 </a>
                 <Subtitle className={`${styles.iconTitle} text-center fw-bold mt-2`}>Perks</Subtitle>
+                </motion.div>
                 {/* </div> */}
               </Col>
               <Col className="m-auto text-center" xs={4}>
               {/* <div className="m-auto text-center text-wrap"> */}
+              <motion.div initial={{ opacity: 0, y: -50 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.5, duration: 1 }}>
               <a href="/mentors" aria-label="Mentors of the fellowship">
                 <StaticImage 
                   className='mx-auto d-block img-fluid' 
@@ -134,10 +145,14 @@ const FellowshipPage = ({ data }) => {
                 />
                 </a>
                 <Subtitle className={`${styles.iconTitle} text-center fw-bold mt-2`}>Mentors</Subtitle>
+                </motion.div>
                 {/* </div> */}
               </Col>
               <Col className="m-auto text-center" xs={4}>
               {/* <div className="m-auto text-center"> */}
+              <motion.div initial={{ opacity: 0, y: 50 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.5, duration: 1 }}>
                 <a href="/fellowship/portfolio" aria-label="Read our fellowship portfolio">
                   <StaticImage 
                     className='mx-auto d-block img-fluid' 
@@ -148,6 +163,7 @@ const FellowshipPage = ({ data }) => {
                   />
                 </a>
                 <Subtitle className={`${styles.iconTitle} text-center fw-bold mt-2`} >Portfolio</Subtitle>
+                </motion.div>
                 {/* </div> */}
               </Col>
 
@@ -191,7 +207,11 @@ const FellowshipPage = ({ data }) => {
           </Col>
           <Col xs={4} sm={6}>
             <Title>How it Works</Title>
+            <motion.div initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ delay: 0.5, duration: 1 }}>
             <StaticImage src="../../images/arrow-red.png" alt="red arrow"/>
+            </motion.div>
           </Col>
         </Row>
       </Container>
@@ -247,12 +267,16 @@ const FellowshipPage = ({ data }) => {
               </Row>
               <Row>
                 <div className="fs-6" style={{"letterSpacing": "0rem"}}>
+                  <motion.div initial={{ opacity: 0 }}
+                              whileInView={{ opacity: 1 }}
+                              transition={{ delay: 0.5, duration: 1 }}>
                   <ul>
                     <li className="my-2">Access to our network of over 85 mentors</li>
                     <li className="my-2">Web development, video, and graphic design services</li>
                     <li className="my-2">24/7 Access to Awesome Inc co-working space</li>
                     <li className="my-2">Access to pro bono legal and accounting services</li>
                   </ul>
+                  </motion.div>
                 </div>
               </Row>
             </Container>
@@ -271,7 +295,7 @@ const FellowshipPage = ({ data }) => {
       <div className={`${footerStyles.footerBackground} text-center pt-5 pb-1`}>
         <Col className="col-md-auto">
         <Title className="text-center text-white mb-5">FELLOWSHIP SPONSORS</Title>
-          <Row className={`mx-auto col-sm-6`} style={{"letterSpacing": "0rem"}}> {/*Change the "col-sm-6" higher or lower to change total column width*/}
+          <Row className={`mx-auto col-sm-6 d-flex justify-content-center`} style={{"letterSpacing": "0rem"}}> {/*Change the "col-sm-6" higher or lower to change total column width*/}
             {FellowshipSponsers.map((node,i) => {
               if ((node._rawSponserLogo) == null){
                 return(
