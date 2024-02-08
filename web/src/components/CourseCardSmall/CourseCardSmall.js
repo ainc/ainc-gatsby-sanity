@@ -18,7 +18,7 @@ const CourseCardSmall = ({ courseInfo }) => {
                         {/* I couldn't get Card.Img to work with GatsbyImage- next best thing*/}
                         <Card.Body>
                             <Card.Title className='text-uppercase fw-bold align-middle fs-2'>{course.node.courseTitle}</Card.Title>
-                            <Card.Text className={`${styles.descriptionText} fs-6`}>{course.node.description}</Card.Text>
+                            <Card.Text className={`${styles.descriptionText} fs-5`}>{course.node.description}</Card.Text>
                             <a href={course.node.courseLink}>
                                 <BrandButton>Learn More</BrandButton>
                             </a>

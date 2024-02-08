@@ -53,13 +53,13 @@ const AdultsPage = ({ data }) => {
                 </Container>
                 <Container>
                 <Row className='mt-5'>
-                    <Col lg={{span: 10, offset: 1}} className='text-center mb-5' >
+                    <Col lg={{span: 5, offset: 6}} className='text-center mb-5' >
                         <p>Learning to code is difficult, but so is learning to salsa dance or learning to play the guitar. Consistent practice, week after week, is how you become a great programmer.</p>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs="12" md="6">
-                        <a href="https://youtu.be/mL5h5DqhXjM">
+                        <a href="https://youtu.be/mL5h5DqhXjM" target="_blank">
                             <StaticImage src='../../../images/macbook-youtube-video.png' alt='macbook youtube' quality="90" />
                         </a>
                     </Col>

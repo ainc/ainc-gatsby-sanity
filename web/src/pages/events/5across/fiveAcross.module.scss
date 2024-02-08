@@ -56,15 +56,7 @@
 }
 
 .recent-winner-text {
-    font-size: 3.5vw;
-}
-
-.recent-winner-image {
-
-}
-
-.upcoming-event-card {
-
+    font-size: 3vw;
 }
 
 .past-pitches {
@@ -91,7 +83,7 @@
 
 .large-text {
     text-align: center !important;
-    font-size:3.5vw !important;
+    font-size:2.5vw !important;
     @include screen-sm {
         font-size:5vw !important;
     }
