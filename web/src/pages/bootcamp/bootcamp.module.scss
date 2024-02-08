@@ -60,6 +60,9 @@
         @include screen-xs{
             
         }
+        @media (max-width: 1000px) {
+            font-size: small;
+        }
 
 
     .sideNav{
@@ -83,22 +86,11 @@
         padding-bottom: 50px;
 
         .leftButtonCol{
-            padding-right: 50px;
-            border-right: 1.75px solid white;
-            @include screen-sm{
-              border-right: none;
-              padding-right: none;
+            @media (min-width: 768px){
+                border-right: 1.75px solid white;
             }
         }
     
-        .rightButtonCol{
-            padding-left: 50px;
-            @include screen-sm{
-                padding-left:none;
-                padding-right: none;
-            }
-            
-        }
 }
 }
 
@@ -127,13 +119,13 @@
         }
         @include screen-sm{
             width: 80vw;
-            text-align: justify;
+            text-align: center;
             p{
                 font-size: 18px;
             }
         }
         @include screen-xs{
-            text-align: justify;
+            text-align: center;
             width: 90vw;
             p{
                 font-size: 18px;
@@ -148,18 +140,27 @@
             margin-top: 100px;
         }
         @include screen-md{
-            margin-top: 150px;
+            margin-top: 100px;
         }
         @include screen-sm{
             margin-top: 50px;
         }
         @include screen-xs{
-           
+            align-items: center;
         }
     }
   
 }
 
+.whyAwesomeIncBorder {
+    border-right: 1.5px solid #C12029; 
+    line-height: 25px; 
+    padding-right: 2rem;
+    @media (max-width: 767px) {
+        border: none;
+        padding-right: 0;
+    }
+}
 
 
 .jobGuarantee {
@@ -180,8 +181,10 @@
 }
 
 .carousel{
+    
     .aincuTestimonial{
-        display: inline-block;
+        max-width: 60%;
+        display: inline;
         padding: 10px;
         box-shadow: rgba(0,0,0,0.23) 0px 1px 20px 0px ;
         border-radius: 4px;
@@ -226,7 +229,6 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
-            width: 200px;
         }
        
         @include screen-xs{
@@ -234,8 +236,8 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
-            width: 200px;
         }
+
 
         .arrowImg{
             @include screen-md{
@@ -319,6 +321,10 @@
     .languageIcons{
         justify-content: center;
     }
+    @media (max-width: 768px) {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
 }
 
 .timeline {
@@ -339,8 +345,6 @@
     }
   
     .timelineTitle {
-        left: 0;
-        margin-left: 10px;
         margin-top: 440px;
         color: #C12029;
         font-size: 70px;
@@ -355,7 +359,6 @@
           @include font-size(25);
           @include transform(rotate(0));
           top: -500px;
-          left: 150px;
           letter-spacing: 4px;
           flex: none;
           font-size: 25px;
@@ -366,7 +369,6 @@
             @include font-size(25);
             @include transform(rotate(0));
             top: -500px;
-            left: 120px;
             letter-spacing: 4px;
             flex: none;
           }

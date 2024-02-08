@@ -23,7 +23,7 @@ import Startups from "../components/Layout/Startups/Startups";
 import FeatureCard from "../components/FeatureCard/FeatureCard";
 import HorizontalCard from "../components/HorizontalCard/HorizontalCard";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 import ModalCustom from "../components/Modal/ModalCustom";
 
