@@ -1,8 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import * as styles from '../../../styles/Variables'
+import './Subtitle.scss'
 
+
+const Subtitle = (props) => {
+  return (
+    <h2 {...props} className={`subtitle ${props.className}`}>
+    {props.children}
+    </h2>
+  )
+}
+
+Subtitle.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+  ])
+}
+
+export default Subtitle;
+
+/* old styled.components
 const StyleSubtitle = styled.h2`
 
   @font-face {
@@ -37,19 +54,4 @@ const StyleSubtitle = styled.h2`
     font-size: ${styles.styles.sizes.subtitle_small};
   }
 `
-
-const Subtitle = (props) => {
-  return (
-    <StyleSubtitle {...props}>
-      {props.children}
-    </StyleSubtitle>
-  )
-}
-
-Subtitle.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.node,
-  ])
-}
-
-export default Subtitle;
+*/
