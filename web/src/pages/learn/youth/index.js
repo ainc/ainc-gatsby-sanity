@@ -57,7 +57,7 @@ const YouthPage = () => {
                             <StaticImage className={styles.phone} src='../../../images/learn/header-phone.png' alt='phone'></StaticImage>
                         </Col>
                         <Col sm={12} md={8} lg={6} xl={6} className=''>
-                            <Title>Why should my child learn to code?</Title>
+                            <Title className='text-uppercase'>Why should my child learn to code?</Title>
                             <p className='text-start'>Technology is all around us. Whether you are an app developer or an English professor, you will utilize technology in your daily work.
                                 Awesome Inc exists to take your child's screen time and turn it into career-skill time. Our courses increase communication, public speaking, organization,
                                 and social skills in a fun learning environment.</p>
@@ -189,7 +189,9 @@ const YouthPage = () => {
                     <Container fluid='md' className={` ${styles.clubMembership}`}>
                         <Title className='text-center text-uppercase text-white pt-5'>coding club membership</Title>
                         <p className='mb-5 text-white text-center'>The coding club is currently taking a break. If you have an interested student, please fill out this form and we will let you know if anything changes.</p>
-                        <iframe frameborder="0" style={{height:'500px', width:'99%', border:'none'}} src="https://forms.zohopublic.com/virtualoffice9155/form/YouthWaitlist/formperma/JYcInu3QDQ0CdIzfwqoouSab5htBYC95LprfIvNMozM?gclid=undefined"></iframe>
+                        <div className='d-flex justify-content-center align-items-center'>
+                            <iframe frameborder="0" className={styles.waitlistIframe} style={{height:'500px', border:'none', backgroundColor: 'transparent'}} src="https://forms.zohopublic.com/virtualoffice9155/form/YouthWaitlist/formperma/JYcInu3QDQ0CdIzfwqoouSab5htBYC95LprfIvNMozM?gclid=undefined"></iframe>
+                        </div>
                        {/* Saving for later if coding club comes back */}
                         {/*
                         <p className='mb-5 text-white text-center'><strong>Note:</strong> The Coding Club runs from September - May, taking a break in the summer.
