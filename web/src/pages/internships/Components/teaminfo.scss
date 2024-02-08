@@ -1,0 +1,10 @@
+.modal-dialog {
+  @media (max-width: 767px) {
+      max-width: 75% !important; /* Adjust the width for medium-sized screens */
+      margin: 0 auto !important; /* Center the modal horizontally */
+  }
+  
+  @media (min-width: 768px) {
+      max-width: 750px !important; /* Adjust the width for large screens */
+  }
+}
