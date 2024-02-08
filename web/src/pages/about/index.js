@@ -4,6 +4,7 @@ import Layout from "../../components/Layout/Layout";
 import { Container, Col, Row, Image } from "react-bootstrap";
 import SEO from '../../components/seo'
 import { GatsbyImage } from "gatsby-plugin-image";
+import { motion } from "framer-motion";
 
 import * as styles from "./about.module.css";
 
@@ -29,6 +30,9 @@ const AboutPage = ({ data }) => {
             <Row>
               <Col className="col-9 col-sm-7 mt-3">
                 <div className={styles.heading}>
+                 <motion.div initial={{ opacity: 0}}
+                      animate={{ opacity: 1}}
+                      transition={{ delay: 0.5, duration: 1 }}>
                   <Title className={`mt-5 fw-bold `}>
                     We exist to help people pursue their definition of awesome.
                   </Title>
@@ -42,11 +46,16 @@ const AboutPage = ({ data }) => {
                     <BrandButton className={`text-nowrap`}>View Our Culture Book</BrandButton>
                   </a>
                   
-                </div>
+                  </motion.div>
+                  </div>
               </Col>
             </Row>
             <Row>
+              <motion.div initial={{ opacity: 0, y: 50}}
+                      animate={{ opacity: 1, y: 0}}
+                      transition={{ delay: 0.5, duration: 1 }}>
               <Image className={`${styles.headerImg}`} src={coreValues} alt="core-values" />
+              </motion.div>
               <Col className="col-sm-8 col-10">
                 <a href="/assets/core-values.pdf">
                 <BrandButton className={`text-nowrap`}>
@@ -74,6 +83,9 @@ const AboutPage = ({ data }) => {
                     sm={12}
                   >
                     <a href="../workspace" role="button">
+                      <motion.div initial={{ opacity: 0, y: 50}}
+                        whileInView={{ opacity: 1, y: 0}}
+                        transition={{ delay: 0.5, duration: 1 }}>
                       <GatsbyImage
                         objectFit="scale-down"
                         className={styles.imageLinks}
@@ -82,6 +94,7 @@ const AboutPage = ({ data }) => {
                         }
                         alt="Accomplishment 1"
                       />
+                      </motion.div>
                     </a>
                   </Col>
                   <Col
@@ -90,6 +103,9 @@ const AboutPage = ({ data }) => {
                     sm={12}
                   >
                     <a href="../fellowship" role="button">
+                      <motion.div initial={{ opacity: 0, y: -50}}
+                                  whileInView={{ opacity: 1, y: 0}}
+                                  transition={{ delay: 0.5, duration: 1 }}>
                       <GatsbyImage
                         objectFit="scale-down"
                         className={styles.imageLinks}
@@ -98,6 +114,7 @@ const AboutPage = ({ data }) => {
                         }
                         alt="Accomplishment 2"
                       />
+                      </motion.div>
                     </a>
                   </Col>
                   <Col
@@ -106,6 +123,9 @@ const AboutPage = ({ data }) => {
                     sm={12}
                   >
                     <a href="../learn" role="button">
+                      <motion.div initial={{ opacity: 0, y: 50}}
+                                  whileInView={{ opacity: 1, y: 0}}
+                                  transition={{ delay: 0.5, duration: 1 }}>
                       <GatsbyImage
                         objectFit="scale-down"
                         image={
@@ -114,6 +134,7 @@ const AboutPage = ({ data }) => {
                         className={styles.imageLinks}
                         alt="Accomplishment 3"
                       />
+                      </motion.div>
                     </a>
                   </Col>
                 </Row>
