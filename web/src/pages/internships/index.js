@@ -1,5 +1,6 @@
 import React, {useEffect, useState, useRef} from 'react'
 import { graphql } from 'gatsby'
+import { motion } from 'framer-motion';
 import Layout from '../../components/Layout/Layout'
 import Diagonal from '../../components/Layout/Diagonal/Diagonal'
 import ImageOutline from '../../components/ImageOutline/ImageOutline'
@@ -78,14 +79,22 @@ const InternshipsPage = ({ data }) => {
             <Container fluid>
               <Row className={styles.headerSection}>
                   <Col className="mt-5 offset-md-2">
-                      <Title className="text--big mt-5 fw-bold text-white">Join Team Alpha</Title>
-                      <Subtitle className='text-uppercase text-white'>Gain Real experience.</Subtitle>
-                      <Subtitle className='text-uppercase text-white'>Meet Awesome People.</Subtitle>
-                      <Subtitle className='text-uppercase text-white'>Eat A Lot of Oreos.</Subtitle>
-                      <a href="https://careers.awesomeinc.org/jobs/Careers/649925000000610353/Team-Alpha---Internship?source=CareerSite"
-                      target="_blank" rel="noopener noreferrer">
-                      <BrandButton className="mt-3 mb-1">Apply Now</BrandButton>
-                      </a>
+                      <motion.div initial={{ opacity: 0, y: -50 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  transition={{ delay: 0.5, duration: 0.8 }}>
+                        <Title className="text--big mt-5 fw-bold text-white">Join Team Alpha</Title>
+                        <Subtitle className='text-uppercase text-white'>Gain Real experience.</Subtitle>
+                        <Subtitle className='text-uppercase text-white'>Meet Awesome People.</Subtitle>
+                        <Subtitle className='text-uppercase text-white'>Eat A Lot of Oreos.</Subtitle>
+                      </motion.div>
+                      <motion.div initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 1.0, duration: 0.6 }}>
+                        <a href="https://careers.awesomeinc.org/jobs/Careers/649925000000610353/Team-Alpha---Internship?source=CareerSite"
+                        target="_blank" rel="noopener noreferrer">
+                        <BrandButton className="mt-3 mb-1">Apply Now</BrandButton>
+                        </a>
+                      </motion.div>
                   </Col>
               </Row>
             </Container>
@@ -97,7 +106,11 @@ const InternshipsPage = ({ data }) => {
             <Col className='d-flex align-items-center justify-content-center my-5' style={{position: 'relative'}}>
               <StaticImage src='../../images/team-alpha-coffee.jpg' alt='Team Alpha getting coffee' style={{maxWidth: '350px'}}/>
               <div className={styles.teamAlphaBadge}>
+                <motion.div initial={{ opacity: 0, x: -50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 1.0, duration: 0.6 }}>
                 <StaticImage src='../../images/Team_Alpha_Logo_Grey.png' alt='Team alpha logo'/>
+                </motion.div>
               </div>
             </Col>  
             <Col className='my-3'>
@@ -121,10 +134,17 @@ const InternshipsPage = ({ data }) => {
             <p className='text-center text-white'>Find the team that's right for you and join our list of alumni.</p>
             <p className='text-center text-white' style={{fontStyle: 'italic'}}>(Some have gone on to work at places like Disney, Facebook, Google, Spotify, and more!)</p>
             <div className={`${styles.billiImage} d-none d-sm-block`}>
+              <motion.div initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.7, duration: 0.6 }}>
               <StaticImage src='../../images/billi.png' alt='billi'/>
+              </motion.div>
             </div>
           </div>
           </Row>
+          <motion.div initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3, duration: 0.6 }}>
           <Row className='justify-content-center ' style={{height: '21rem'}}>
             <Col className='col-12 col-md-4 col-lg-2 mb-4 mx-4'>
                 <div className={styles.tbDiv}>
@@ -187,6 +207,7 @@ const InternshipsPage = ({ data }) => {
             </div>
             </Col>
           </Row>
+          </motion.div>
         </Container>
       </section>
 
@@ -212,7 +233,11 @@ const InternshipsPage = ({ data }) => {
       <Container fluid className={styles.lookingForSection} >
         <Row className='flex-column flex-sm-row'>
           <Col className='d-flex align-items-center justify-content-center my-5 py-5'>
+            <motion.div initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3, duration: 1 }}>
             <StaticImage src='../../images/team-alpha-5across.jpg' alt='Team Alpha at 5Across' style={{maxWidth: '400px'}} className='my-4 '/>
+            </motion.div>
           </Col>
           <Col className='mt-5 pt-5 text-left mx-md-5'>
             <Title className='text-uppercase text-white'>Who we're looking for</Title>
@@ -235,6 +260,8 @@ const InternshipsPage = ({ data }) => {
             <Title className='text-center mt-5 text-uppercase text--red'>Intern Testimonials</Title>
         </Row>
       </Container>
+      <motion.div whileInView={{ x: [0, -10, 10, -10, 0] }}
+                  transition={{ delay: 0.3, duration: 0.6 }}>
       <Carousel indicators={false} className={`${styles.carouselHeight} my-3`}>
       {allSanityInternTestimonials.map((node, index) => (
         <Carousel.Item key={index}>
@@ -255,7 +282,8 @@ const InternshipsPage = ({ data }) => {
           </Row>
         </Carousel.Item>
       ))}
-    </Carousel>
+      </Carousel>
+      </motion.div>
 
       {/*Apply Now */}
       <Container fluid>
@@ -326,6 +354,9 @@ const InternshipsPage = ({ data }) => {
       </Container>
     </section>
       {/* Our Team section */}
+      <motion.div initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.6 }}>
       <Container>
           <Row className='d-flex justify-content-center mt-5'>
             {allTeamAlpha.map((node, i) => (
@@ -351,7 +382,8 @@ const InternshipsPage = ({ data }) => {
             </a>
             </Col>
           </Row>
-        </Container>
+      </Container>
+      </motion.div>
     </Layout>
   )
 }
