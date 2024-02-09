@@ -85,13 +85,11 @@ const Header = () => {
             <Col className="desktop">
               <Nav.Link href="/learn" className="text--white">Learn To Code  <AiFillCaretDown size={10}/></Nav.Link>
               <div className='hover-options'>
-
-                <a href="/learn/youth" className='pt-0'>Youth Courses</a>
+                <a href="/bootcamp" className='pt-0'>Web Dev Bootcamp</a>
+                <a href="/learn/youth" >Youth Courses</a>
                 <a href="/learn/adults">Adult Courses</a>
                 <a href="/weekofcode">Kids Camps</a>
-                <a href="/bootcamp">Web Dev Bootcamp</a>
                 <a href="/salesforce">Salesforce Career Accelerator</a>
-
               </div>
             </Col>
             
@@ -109,11 +107,10 @@ const Header = () => {
                     <Nav>
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
                         <Col xs={{span: 10}} className={`d-flex flex-column py-2 border-0`}>
-
+                          <a href="/bootcamp">Web Dev Bootcamp</a>
                           <a href="/learn/youth">Youth Courses</a>
                           <a href="/learn/adults">Adult Courses</a>
                           <a href="/learn">Kids Camps</a>
-                          <a href="/bootcamp">Web Dev Bootcamp</a>
                           <a href="/salesforce">Salesforce Career Accelerator</a>
 
                         </Col>
