@@ -14,7 +14,6 @@ import Title from "../../../components/UI/Title/Title";
 
 import "../../../styles/main.scss"
 import * as styles from "./fiveAcross.module.scss";
-import image from "../../../images/5across-banner.png"
 
 const fiveAcrossPage = ({ data }) => {
 
