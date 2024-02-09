@@ -53,7 +53,7 @@ const Profile = ({ variant, name, image, linkedin, github, website, position, oc
   const renderVariantTwo = () => (
 
     <React.Fragment>
-      <Card className={`rounded-0 mb-3 ${styles.profile}`}>
+      <Card className={`rounded-0 mb-3 ${styles.profile}`} style={{maxWidth: '300px'}}>
           <div className={styles.pictureDiv}>
             <GatsbyImage
               image={image}
