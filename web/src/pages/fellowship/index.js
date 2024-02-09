@@ -83,7 +83,7 @@ const FellowshipPage = ({ data }) => {
           </Col>
           <Col className="my-5" xs={12} sm={6} >
             <ImageOutline style={{marginLeft: "1rem"}}>
-              <StaticImage src="../../images/brainstorming.jpg" width={375} objectFit='cover' className='position-relative' alt="people brainstorming"/>
+              <StaticImage placeholder="blurred" src="../../images/brainstorming.jpg" width={375} objectFit='cover' className='position-relative' alt="people brainstorming"/>
             </ImageOutline>
           </Col>
 
@@ -110,7 +110,7 @@ const FellowshipPage = ({ data }) => {
               <Col className="m-auto text-center" xs={4}>
                 {/* <div > */}
                 <a href="/fellowship/perks" aria-label="Perks of the fellowship">
-                <StaticImage 
+                <StaticImage placeholder="blurred" 
                   className='mx-auto d-block img-fluid' 
                   quality='100' 
                   src='../../assets/svg/perks.svg' 
@@ -124,7 +124,7 @@ const FellowshipPage = ({ data }) => {
               <Col className="m-auto text-center" xs={4}>
               {/* <div className="m-auto text-center text-wrap"> */}
               <a href="/mentors" aria-label="Mentors of the fellowship">
-                <StaticImage 
+                <StaticImage placeholder="blurred" 
                   className='mx-auto d-block img-fluid' 
                   quality='100' 
                   src='../../assets/svg/mentors.svg' 
@@ -138,7 +138,7 @@ const FellowshipPage = ({ data }) => {
               <Col className="m-auto text-center" xs={4}>
               {/* <div className="m-auto text-center"> */}
                 <a href="/fellowship/portfolio" aria-label="Read our fellowship portfolio">
-                  <StaticImage 
+                  <StaticImage placeholder="blurred" 
                     className='mx-auto d-block img-fluid' 
                     quality='100' 
                     src='../../assets/svg/portfolio.svg' 
@@ -171,7 +171,7 @@ const FellowshipPage = ({ data }) => {
         <Row className="my-5">
           <Col xs={8} sm={6}>
           <a onClick={handleShow}  id="video-btn" href='#!'>
-            <StaticImage src="../../images/fellowship-video-macbook.png" className="position-relative" alt="Macbook with video"/>
+            <StaticImage placeholder="blurred" src="../../images/fellowship-video-macbook.png" className="position-relative" alt="Macbook with video"/>
           </a>
           <ModalCustom 
           lgShow = {lgShow} 
@@ -190,7 +190,7 @@ const FellowshipPage = ({ data }) => {
           </Col>
           <Col xs={4} sm={6}>
             <Title>How it Works</Title>
-            <StaticImage src="../../images/arrow-red.png" alt="red arrow"/>
+            <StaticImage placeholder="blurred" src="../../images/arrow-red.png" alt="red arrow"/>
           </Col>
         </Row>
       </Container>
@@ -237,7 +237,7 @@ const FellowshipPage = ({ data }) => {
         <Row>
           <Col className='col-md-auto mr-5 text-center'>
             <Title className='text-center mb-4'>Our Approach</Title>
-            <StaticImage className={styles.img} src='../../images/approach.png' alt="Fellowship approach diagram" />
+            <StaticImage placeholder="blurred" className={styles.img} src='../../images/approach.png' alt="Fellowship approach diagram" />
           </Col>
           <Col className="d-flex align-items-center mx-5">
             <Container>
