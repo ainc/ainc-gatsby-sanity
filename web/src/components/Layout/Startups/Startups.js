@@ -16,7 +16,7 @@ const Startups = () => {
           <Col>
             <div className="h-100 my-5">
             <a href='/idea'>
-                <StaticImage 
+                <StaticImage placeholder="blurred" 
                   className='d-block mx-auto w-50 m-5' 
                   quality='100'
                   objectFit="contain"
@@ -33,7 +33,7 @@ const Startups = () => {
           <Col>
             <div className="h-100 my-5">
               <a href='/fellowship'>
-              <StaticImage 
+              <StaticImage placeholder="blurred" 
                   className='d-block mx-auto m-5 bg--brand-light rounded-circle' 
                   quality='100'
                   objectFit="contain"
@@ -51,7 +51,7 @@ const Startups = () => {
           <Col>
             <div className="h-100 my-5">
               <a href='https://www.entrepreneurhof.com/'>
-                <StaticImage
+                <StaticImage placeholder="blurred"
                   className='d-block mx-auto w-50 m-5' 
                   quality='100'
                   objectFit="contain"

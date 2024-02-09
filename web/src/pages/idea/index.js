@@ -15,7 +15,7 @@ const IdeaPage = ({ data }) => {
             <Row className="justify-content-center" style={{marginTop: "150px", marginBottom: "100px"}}>
                 <Col md={{ span: 4 }}>
                     <a aria-label='Visit our 5 Across page here for more information' href='/events/5across'>
-                    <StaticImage className="mb-1" quality='100' style={{ maxWidth: "80%" }} src="./images/5-across-logo-black-text.png" />
+                    <StaticImage placeholder="blurred" className="mb-1" quality='100' style={{ maxWidth: "80%" }} src="./images/5-across-logo-black-text.png" />
                     </a>
                     <p>A Pitch Competition for Kentucky Entrepreneurs</p>
                 </Col>

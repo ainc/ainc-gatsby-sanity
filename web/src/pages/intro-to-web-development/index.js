@@ -82,7 +82,7 @@ const IntroWebDevPage = ({ data }) => {
                     <Row>
                         <Col xs={4} sm={4} md={{span:6}} lg={{offset:1, span: 5}} xl={{ offset: 2, span: 4 }}>
 
-                            <StaticImage className={`mt-0 mb-5 ${styles.arrow}`} src='../../images/arrow.png' alt='arrow'></StaticImage>
+                            <StaticImage placeholder="blurred" className={`mt-0 mb-5 ${styles.arrow}`} src='../../images/arrow.png' alt='arrow'></StaticImage>
                         </Col>
 
                     
@@ -91,7 +91,7 @@ const IntroWebDevPage = ({ data }) => {
                 </Container>
                 <Container className={styles.awesome}>
                     <Col xs={{offset:1, span: 10}} sm={{offset:1, span:10}} md={{offset:2, span:8}} lg={{ offset: 3, span: 6 }}>
-                        <a href='https://www.youtube.com/embed/8IryuzzI2DA?rel=0&controls=0' target="_blank"><StaticImage src='../../images/laptop-video.png' alt='laptop'></StaticImage></a>
+                        <a href='https://www.youtube.com/embed/8IryuzzI2DA?rel=0&controls=0' target="_blank"><StaticImage placeholder="blurred" src='../../images/laptop-video.png' alt='laptop'></StaticImage></a>
                     </Col>
                     <Title className='text-uppercase text-center text-white'>what makes it awesome?</Title>
                     <Col sm={12} md={12} lg={12} xl={{ offset: 1, span: 10 }}>
@@ -125,7 +125,7 @@ const IntroWebDevPage = ({ data }) => {
                         <a className='d-flex justify-content-start' href='/contact'><BrandButton className='ms-3 mt-3 px-3 text-uppercase mb-5'>let's chat</BrandButton></a>
                     </Col>
                     <Col md={6} lg={{span: 6}} xl={{span: 5}}>
-                        <StaticImage className='mb-3 pe-3' src='../../images/bootcamp/languages/languages-showcase.png'></StaticImage>
+                        <StaticImage placeholder="blurred" className='mb-3 pe-3' src='../../images/bootcamp/languages/languages-showcase.png'></StaticImage>
                         </Col>
                         </Row>
                 </Container>

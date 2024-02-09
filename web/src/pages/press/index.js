@@ -36,21 +36,21 @@ const PressPage = ({ data }) => {
                 </Row>
                 <Row className={styles.logos}>
                     <Col xs={12} sm={{ span: 2, offset: 1 }}>
-                    <StaticImage
+                    <StaticImage placeholder="blurred"
                         src="../../images/press/nbc-logo.png"
                         alt="NBC logo"
                         width={80}
                     />
                     </Col>
                     <Col xs={12} sm={2}>
-                    <StaticImage
+                    <StaticImage placeholder="blurred"
                         src="../../images/press/course_report.png"
                         alt="Course Report logo"
                         width={190}
                     />
                     </Col>
                     <Col xs={12} sm={2}>
-                    <StaticImage
+                    <StaticImage placeholder="blurred"
                         src="../../images/press/abc-logo.png"
                         alt="ABC logo"
                         width={80}
@@ -58,14 +58,14 @@ const PressPage = ({ data }) => {
                     </Col>
 
                     <Col xs={12} sm={2}>
-                    <StaticImage
+                    <StaticImage placeholder="blurred"
                         src="../../images/press/good_day_ky.png"
                         alt="Good Day Kentucky logo"
                         width={90}
                     />
                     </Col>
                     <Col xs={12} sm={2}>
-                    <StaticImage
+                    <StaticImage placeholder="blurred"
                         src="../../images/press/fox-logo.png"
                         alt="Fox logo"
                         width={150}

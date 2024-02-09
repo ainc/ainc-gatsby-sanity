@@ -63,7 +63,7 @@ const Header = () => {
       <Container>
         <Navbar.Brand className={navbarBrand}>
           <a href="/">
-            <StaticImage
+            <StaticImage placeholder="blurred"
               src="../../images/ainc-logo-horizontal-white-text.png"
               width={200}
               className="img-responsive d-inline-block align-top"
