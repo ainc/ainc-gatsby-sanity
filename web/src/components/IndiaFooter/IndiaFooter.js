@@ -15,7 +15,7 @@ const IndiaFooter = () => {
                 <Col xs md={7} lg={6}>
                     <Row className='justify-content-center'>
                     <a href='/india' className={styles.aincLogoGap} >
-                        <StaticImage src='../../images/ainc-logo-text-triangle-layer-red.png' alt='Awesome Inc Logo' role="img"/>
+                        <StaticImage placeholder="blurred" src='../../images/ainc-logo-text-triangle-layer-red.png' alt='Awesome Inc Logo' role="img"/>
                     </a>
                     </Row>
                     <Row className={styles.firstColRow}>

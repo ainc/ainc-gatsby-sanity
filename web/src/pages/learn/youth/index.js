@@ -54,7 +54,7 @@ const YouthPage = () => {
                 <Container>
                     <Row className='d-flex align-items-center'>
                         <Col sm={{ span: 4 }} md={{ offset: 0, span: 4 }} lg={{ span: 5, offset: 1 }} xl={{ offset: 1, span: 4 }} >
-                            <StaticImage className={styles.phone} src='../../../images/learn/header-phone.png' alt='phone'></StaticImage>
+                            <StaticImage placeholder="blurred" className={styles.phone} src='../../../images/learn/header-phone.png' alt='phone'></StaticImage>
                         </Col>
                         <Col sm={12} md={8} lg={6} xl={6} className=''>
                             <Title className='text-uppercase'>Why should my child learn to code?</Title>
@@ -74,14 +74,14 @@ const YouthPage = () => {
                             </a>
                         </Col>
                         <Col md={4} lg={4} xl={3}>.
-                            <StaticImage src='../../../images/learn/coding-fun.png' alt='fun'></StaticImage>
+                            <StaticImage placeholder="blurred" src='../../../images/learn/coding-fun.png' alt='fun'></StaticImage>
                         </Col>
                     </Row>
                 </Container>
                 <Container className={styles.engaged}>
                     <Row>
                         <Col sm={{ offset: 2, span: 8 }} md={{ offset: 1, span: 4 }} lg={{ span: 5, offset: 1 }} xl={{ span: 4, offset: 2 }}>
-                            <StaticImage src='../../../images/learn/laptop.png' alt='laptop'></StaticImage>
+                            <StaticImage placeholder="blurred" src='../../../images/learn/laptop.png' alt='laptop'></StaticImage>
                         </Col>
                         <Col sm={{ offset: 2, span: 8 }} md={{ span: 5 }} lg={{ span: 4, offset: 1 }} xl={{ span: 4, offset: 1 }}>
                             <Title className={` ${styles.engagedTitle} mt-5 text-uppercase ml-4 text-white`}>keep your kids engaged</Title>
@@ -138,7 +138,7 @@ const YouthPage = () => {
                             </a>
                         </Col>
                         <Col md={4} lg={4} xl={3}>
-                            <StaticImage className='mt-5' src='../../../images/learn/creative.png' alt='creative'></StaticImage>
+                            <StaticImage placeholder="blurred" className='mt-5' src='../../../images/learn/creative.png' alt='creative'></StaticImage>
                         </Col>
                     </Row>
                 </Container>
@@ -156,15 +156,15 @@ const YouthPage = () => {
 
                         </Col>
                         <Col md={4} lg={4} xl={4}>
-                            <StaticImage className='mt-5' src='../../../images/learn/youth_schedule.png' alt='schedule'></StaticImage>
+                            <StaticImage placeholder="blurred" className='mt-5' src='../../../images/learn/youth_schedule.png' alt='schedule'></StaticImage>
                         </Col>
                     </Row>
                     <Row>
                         <Col sm={{ offset: 2, span: 8 }} md={{ offset: 1, span: 4 }} lg={{ offset: 1, span: 4 }} xl={{ offset: 2, span: 3 }}>
-                            <StaticImage className='mb-5' src='../../../images/learn/youth_schedule_tuesday.png' alt='tuesday schedule'></StaticImage>
+                            <StaticImage placeholder="blurred" className='mb-5' src='../../../images/learn/youth_schedule_tuesday.png' alt='tuesday schedule'></StaticImage>
                         </Col>
                         <Col sm={{ span: 8, offset: 2 }} md={4} lg={4} xl={3}>
-                            <StaticImage className='mb-5' src='../../../images/learn/youth_schedule_thurssday.png' alt='thursday schedule'></StaticImage>
+                            <StaticImage placeholder="blurred" className='mb-5' src='../../../images/learn/youth_schedule_thurssday.png' alt='thursday schedule'></StaticImage>
                         </Col>
                     </Row>
                 </Container>
@@ -181,7 +181,7 @@ const YouthPage = () => {
                             <a href='https://www.awesomeinc.org/weekofcode'><BrandButton className='mb-3 text-uppercase'>find a camp</BrandButton></a>
                         </Col>
                         <Col md={5} lg={4} xl={4}>
-                            <StaticImage className='mt-5' src='../../../images/learn/camps.png' alt='camps'></StaticImage>
+                            <StaticImage placeholder="blurred" className='mt-5' src='../../../images/learn/camps.png' alt='camps'></StaticImage>
                         </Col>
                     </Row>
                 </Container>
@@ -201,7 +201,7 @@ const YouthPage = () => {
                                 <Card className={`mb-3 ${styles.membershipCards}`}>
                                     <Card.Body>
                                         <Card.Title className='mb-5 text-uppercase secondary text-center'>1 month plan</Card.Title>
-                                        <StaticImage transformOptions={{ fit: 'contain' }} className={`mb-2 d-flex w-75 justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-1-month.png' alt='one-month-icon'></StaticImage>
+                                        <StaticImage placeholder="blurred" transformOptions={{ fit: 'contain' }} className={`mb-2 d-flex w-75 justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-1-month.png' alt='one-month-icon'></StaticImage>
                                         <h1 className='mb-4 mt-3 text-center fw-bold fs-3 '>$120</h1>
                                         <h2 className='text-center fs-6 fw-bold fst-italic'>Billed Monthly</h2>
                                         <a href='https://subscriptions.zoho.com/subscribe/03ecd1f5f1714d3cb3ee018041d15410a7726ba08b65d6ccad482bf477cf719e/coding-club-membership'> <BrandButton className={`mb-0 mt-3 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton></a>
@@ -212,7 +212,7 @@ const YouthPage = () => {
                                 <Card className={`mb-3  ${styles.membershipCards}`}>
                                     <Card.Body>
                                         <Card.Title className='mb-5 text-uppercase secondary text-center'>3 month plan</Card.Title>
-                                        <StaticImage transformOptions={{ fit: 'contain' }} className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-3-month.png' alt='three-month-icon'></StaticImage>
+                                        <StaticImage placeholder="blurred" transformOptions={{ fit: 'contain' }} className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-3-month.png' alt='three-month-icon'></StaticImage>
                                         <h1 className='mb-4 mt-3 text-center fw-bold fs-3'>$329</h1>
                                         <h2 className='fs-6 text-center fw-bold fst-italic'>Billed Quarterly</h2>
                                         <a href='https://subscriptions.zoho.com/subscribe/03ecd1f5f1714d3cb3ee018041d15410a7726ba08b65d6ccad482bf477cf719e/3-month'><BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton></a>
@@ -223,7 +223,7 @@ const YouthPage = () => {
                                 <Card className={`mb-3  ${styles.membershipCards}`}>
                                     <Card.Body>
                                         <Card.Title className='mb-5 text-uppercase secondary text-center'>6 month plan</Card.Title>
-                                        <StaticImage transformOptions={{ fit: 'contain' }} className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-6-month.png' alt='six-month-icon'></StaticImage>
+                                        <StaticImage placeholder="blurred" transformOptions={{ fit: 'contain' }} className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-6-month.png' alt='six-month-icon'></StaticImage>
                                         <h1 className='fs-3 mb-4 text-center fw-bold '>$600</h1>
                                         <h2 className='fs-6 text-center fw-bold fst-italic'>Billed Bi-Yearly</h2>
                                         <a href='https://subscriptions.zoho.com/subscribe/03ecd1f5f1714d3cb3ee018041d15410a7726ba08b65d6ccad482bf477cf719e/6-month'><BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton></a>
@@ -236,7 +236,7 @@ const YouthPage = () => {
                                 <Card className={`mb-3  ${styles.membershipCards}`}>
                                     <Card.Body>
                                         <Card.Title className='mb-5 text-uppercase secondary text-center'>12 month plan</Card.Title>
-                                        <StaticImage transformOptions={{ fit: 'contain' }} className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-12-month.png' alt='twelve-month-icon'></StaticImage>
+                                        <StaticImage placeholder="blurred" transformOptions={{ fit: 'contain' }} className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-12-month.png' alt='twelve-month-icon'></StaticImage>
                                         <h1 className='fs-3 mb-4 text-center fw-bold '>$1080</h1>
                                         <h2 className='fs-6 text-center fw-bold fst-italic'>Billed every 12 months</h2>
                                         <a href='https://subscriptions.zoho.com/subscribe/03ecd1f5f1714d3cb3ee018041d15410a7726ba08b65d6ccad482bf477cf719e/12-month'><BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton></a>

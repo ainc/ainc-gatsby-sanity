@@ -113,6 +113,7 @@ const InternshipsPage = ({ data }) => {
         </Container>
 
       {/* Teams section */}
+
       <section id='team'>
         <Container fluid style={{backgroundColor: '#C12029'}}>
           <Row>

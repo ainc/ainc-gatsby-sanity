@@ -409,7 +409,7 @@ const IndexPage = ({ data }) => {
             <Col>
               <div className="h-100 my-5">
                 <a href="https://apaxsoftware.com/">
-                  <StaticImage 
+                  <StaticImage placeholder="blurred" 
                     className='mx-auto d-block img-fluid' 
                     quality='100' 
                     src='../assets/svg/devices.svg' 
@@ -426,7 +426,7 @@ const IndexPage = ({ data }) => {
             <Col>
               <div className="h-100 my-5">
               <a href="https://apaxsoftware.com/">
-                <StaticImage 
+                <StaticImage placeholder="blurred" 
                   className='mx-auto d-block img-fluid' 
                   quality='100' 
                   src='../assets/svg/stack.svg' 
@@ -441,7 +441,7 @@ const IndexPage = ({ data }) => {
             <Col>
               <div className="h-100 my-5">
               <a href="https://apaxsoftware.com/">
-              <StaticImage 
+              <StaticImage placeholder="blurred" 
                   className='mx-auto d-block img-fluid' 
                   quality='100' 
                   src='../assets/svg/tools.svg' 
