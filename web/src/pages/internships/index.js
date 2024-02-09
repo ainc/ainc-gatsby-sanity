@@ -67,7 +67,7 @@ const InternshipsPage = ({ data }) => {
           <Col md={6} lg={4}>
           <div className={`${tbDiv}`}>
             <ImageOutline>
-              <StaticImage className='img-red-outline' src='../../images/intern-video.jpg' alt='Video Intern'/>
+              <StaticImage placeholder="blurred" className='img-red-outline' src='../../images/intern-video.jpg' alt='Video Intern'/>
             </ImageOutline>
             <ModalButton to="https://www.youtube.com/embed/Xhs6weqDvfg?si=VAty1-G7uhTV5JeU">Video</ModalButton>
           </div>
@@ -75,7 +75,7 @@ const InternshipsPage = ({ data }) => {
           <Col md={6} lg={4}>
           <div className={`${tbDiv}`}>
             <ImageOutline>
-              <StaticImage className='img-red-outline' src='../../images/intern-development.jpg' alt='Development Intern'/>
+              <StaticImage placeholder="blurred" className='img-red-outline' src='../../images/intern-development.jpg' alt='Development Intern'/>
             </ImageOutline>
             <ModalButton to="https://www.youtube.com/embed/sflZ2tFXMIY?si=wYiNsRS6-4wJu8GV&amp;controls=0">Development</ModalButton>
           </div>
@@ -85,7 +85,7 @@ const InternshipsPage = ({ data }) => {
           <Col md={6} lg={4}>
           <div className={`${tbDiv}`}>
             <ImageOutline>
-              <StaticImage className='img-red-outline' src='../../images/intern-events-marketing.jpg' alt='Events and Marketing Intern'/>
+              <StaticImage placeholder="blurred" className='img-red-outline' src='../../images/intern-events-marketing.jpg' alt='Events and Marketing Intern'/>
             </ImageOutline>
             <ModalButton to="https://www.youtube.com/embed/kyp3acHFCZA?si=quXJIkj8x57EL-3F">Events + Marketing</ModalButton>
           </div>
@@ -93,7 +93,7 @@ const InternshipsPage = ({ data }) => {
           <Col md={6} lg={4}>
           <div className={`${tbDiv}`}>
             <ImageOutline>
-              <StaticImage className='img-red-outline' src='../../images/intern-design.jpg' alt='Design Intern'/>
+              <StaticImage placeholder="blurred" className='img-red-outline' src='../../images/intern-design.jpg' alt='Design Intern'/>
             </ImageOutline>
             <ModalButton to="https://www.youtube.com/embed/_t21lollr1c?si=fdXekYbyXoR6fXXJ">Design</ModalButton>
           </div>
@@ -135,7 +135,7 @@ const InternshipsPage = ({ data }) => {
         <Container>
           <Row className='justify-content-center'>
             <Col className='text-center my-auto' xs={12} md={5} lg={3}>
-              <StaticImage src='../../images/question.png' alt="Question mark logo" width={250} />
+              <StaticImage placeholder="blurred" src='../../images/question.png' alt="Question mark logo" width={250} />
             </Col>
             <Col className='my-2 d-block d-md-none' xs={12}/>
             <Col xs='auto'>
@@ -165,14 +165,14 @@ const InternshipsPage = ({ data }) => {
           <Col xs={6} md={3}>
             <a href='/team-alpha'>
             <ImageOutline>
-              <StaticImage objectFit='cover' src='../../images/emilywehrle-wall.jpg' alt="Headshot of Emily Wehrle" />
+              <StaticImage placeholder="blurred" objectFit='cover' src='../../images/emilywehrle-wall.jpg' alt="Headshot of Emily Wehrle" />
             </ImageOutline>
             </a>
           </Col>
           <Col xs={6} md={3}>
           <a href='/team-alpha'>
             <ImageOutline>
-              <StaticImage objectFit='cover' src='../../images/kyleraney-wall.jpg' alt="Headshot of Kyle Raney" />
+              <StaticImage placeholder="blurred" objectFit='cover' src='../../images/kyleraney-wall.jpg' alt="Headshot of Kyle Raney" />
             </ImageOutline>
           </a>
           </Col>
@@ -180,14 +180,14 @@ const InternshipsPage = ({ data }) => {
           <Col xs={6} md={3}>
           <a href='/team-alpha'>
             <ImageOutline>
-              <StaticImage objectFit='cover' src='../../images/jacquelinebenson-wall.jpg' alt="Headshot of Jacqueline Benson" />
+              <StaticImage placeholder="blurred" objectFit='cover' src='../../images/jacquelinebenson-wall.jpg' alt="Headshot of Jacqueline Benson" />
             </ImageOutline>
           </a>
           </Col>
           <Col xs={6} md={3}>
           <a href='/team-alpha'>
             <ImageOutline>
-              <StaticImage objectFit='cover' src='../../images/garrettfahrbach-wall.jpg' alt="Headshot of GarrettFahrbach" />
+              <StaticImage placeholder="blurred" objectFit='cover' src='../../images/garrettfahrbach-wall.jpg' alt="Headshot of GarrettFahrbach" />
             </ImageOutline>
           </a>
           </Col>

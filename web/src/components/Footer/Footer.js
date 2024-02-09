@@ -53,7 +53,7 @@ const Footer = () => {
           <Col xs md={4} aria-label="main-navigation" role="navigation">
             <Row className='justify-content-center'>
               <a className={styles.aincLogoGap} href='/'>
-                <StaticImage src='../../images/ainc-logo-text-triangle-layer-red.png' alt="Awesome Inc logo" />
+                <StaticImage placeholder="blurred" src='../../images/ainc-logo-text-triangle-layer-red.png' alt="Awesome Inc logo" />
               </a>
             </Row>
             <Row className={styles.firstColRow}>

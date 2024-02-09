@@ -41,7 +41,7 @@ const IndiaPage = () => {
                             </div>
                         </Col>
                         <Col sm={{ span: 4 }} md={{ offset: 0, span: 4 }} lg={{ span: 5, offset: 1 }} xl={{ offset: 1, span: 4 }} >
-                            <StaticImage className={styles.phone} src='../../../images/learn/header-phone.png' alt='phone'></StaticImage>
+                            <StaticImage placeholder="blurred" className={styles.phone} src='../../../images/learn/header-phone.png' alt='phone'></StaticImage>
                         </Col>
                     </Row>
                 </Row>
@@ -104,7 +104,7 @@ const IndiaPage = () => {
         <Container className={styles.engaged}>
             <Row>
                 <Col sm={{ offset: 2, span: 8 }} md={{ offset: 1, span: 4 }} lg={{ span: 5, offset: 1 }} xl={{ span: 5, offset: 1 }}>
-                    <StaticImage className='mt-3 mb-5' src='../../images/india/youth-computer-india.png' alt='laptop'></StaticImage>
+                    <StaticImage placeholder="blurred" className='mt-3 mb-5' src='../../images/india/youth-computer-india.png' alt='laptop'></StaticImage>
                 </Col>
                 <Col sm={{ offset: 2, span: 8 }} md={{ span: 5 }} lg={{ span: 4, offset: 1 }} xl={{ span: 4, offset: 1 }}>
                     <Title className={`text-uppercase mb-4 mt-5 ${styles.engagedTitle}`}>keep your kids engaged</Title>
