@@ -13,7 +13,7 @@ const ModalButton = (props) => {
 
   return (
     <div>
-      <button onClick={handleShow} {...props} className={`${teamButton}`}>
+      <button onClick={handleShow} {...props} className={`${teamButton} text-center`}>
         {props.children}
       </button>
 
