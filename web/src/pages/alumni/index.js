@@ -162,16 +162,16 @@ const AlumniPage = props => {
         </Row>
         <Row className="d-flex justify-content-center mb-5">
           <Col sm={6} md={5} lg={5} xl={10} className={`card mb-4`}>
-            <StaticImage quality='90' className="apax-logo me-3 mb-4" src="./images/apaxsoftware-logo.png" />
-            <StaticImage quality='90' className="bigfans-logo me-3" src="./images/bigassfans-logo.png" />
-            <StaticImage quality='90' className="blueframe-logo me-3" src="./images/blueframe-logo.png" />
-            <StaticImage quality='90' className="cabemtechnologies-logo me-3" src="./images/cabemtechnologies-logo.png" />
-            <StaticImage quality='90' className="infosys-logo" src="./images/infosys-logo.png" />
-            <StaticImage quality='90' className="lightwell-logo me-3" src="./images/lightwell-logo.png" />
-            <StaticImage quality='90' className="nymblsystems-logo me-3" src="./images/nymblsystems-logo.png" />
-            <StaticImage quality='90' className="prospecttrax-logo me-3" src="./images/prospecttrax-logo.png" />
-            <StaticImage quality='90' className="silverfern-logo me-3" src="./images/silverfern-logo.png" />
-            <StaticImage quality='90' className="vetdata-logo" src="./images/vetdata-logo.png" />
+            <StaticImage placeholder="blurred" quality='90' className="apax-logo me-3 mb-4" src="./images/apaxsoftware-logo.png" />
+            <StaticImage placeholder="blurred" quality='90' className="bigfans-logo me-3" src="./images/bigassfans-logo.png" />
+            <StaticImage placeholder="blurred" quality='90' className="blueframe-logo me-3" src="./images/blueframe-logo.png" />
+            <StaticImage placeholder="blurred" quality='90' className="cabemtechnologies-logo me-3" src="./images/cabemtechnologies-logo.png" />
+            <StaticImage placeholder="blurred" quality='90' className="infosys-logo" src="./images/infosys-logo.png" />
+            <StaticImage placeholder="blurred" quality='90' className="lightwell-logo me-3" src="./images/lightwell-logo.png" />
+            <StaticImage placeholder="blurred" quality='90' className="nymblsystems-logo me-3" src="./images/nymblsystems-logo.png" />
+            <StaticImage placeholder="blurred" quality='90' className="prospecttrax-logo me-3" src="./images/prospecttrax-logo.png" />
+            <StaticImage placeholder="blurred" quality='90' className="silverfern-logo me-3" src="./images/silverfern-logo.png" />
+            <StaticImage placeholder="blurred" quality='90' className="vetdata-logo" src="./images/vetdata-logo.png" />
           </Col>
         </Row>
       </Container>

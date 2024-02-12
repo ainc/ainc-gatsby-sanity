@@ -15,7 +15,6 @@ import Title from "../../../components/UI/Title/Title";
 import "../../../styles/main.scss"
 import * as styles from "./fiveAcross.module.scss";
 
-
 const fiveAcrossPage = ({ data }) => {
 
     const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes[1].titleSp.title || {});
@@ -63,7 +62,7 @@ const fiveAcrossPage = ({ data }) => {
                     <Col className="offset-sm-2" style={{ marginTop: "10%" }}>
                         <Row className="">
                             <Col sm="10" md="10" lg="6" className="">
-                                <StaticImage className="my-5 mw-100" src="../../../images/5across-banner.png" alt=''/>
+                                <StaticImage placeholder="blurred" className="my-5 mw-100" src="../../../images/5across-banner.png" alt=''/>
                             </Col>
                         </Row>
                         <Row>
@@ -84,19 +83,19 @@ const fiveAcrossPage = ({ data }) => {
                 <Subtitle className='text-center fw-bold'>5 Across has given over 250 founders a new platform and thousands of Kentuckians a fun place to engage with local startups.</Subtitle>
                 <Row className="mt-5 d-flex justify-content-center">
                     <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
-                        <StaticImage quality="100" src="../../../images/5across-pitches.png" alt=''/>
+                        <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-pitches.png" alt=''/>
                     </Col>
                     <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
-                        <StaticImage quality="100" src="../../../images/5across-time.png" alt='' />
+                        <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-time.png" alt='' />
                     </Col>
                     <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
-                        <StaticImage quality="100" src="../../../images/5across-prize.png" alt=''/>
+                        <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-prize.png" alt=''/>
                     </Col>
                     <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
-                        <StaticImage quality="100" src="../../../images/5across-start.png" alt=''/>
+                        <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-start.png" alt=''/>
                     </Col>
                     <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
-                        <StaticImage quality="100" src="../../../images/5across-entry.png" alt=''/>
+                        <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-entry.png" alt=''/>
                     </Col>
                 </Row>
                 <Row className="my-5 d-flex justify-content-center">
@@ -106,14 +105,10 @@ const fiveAcrossPage = ({ data }) => {
                 </Row>
             </Container>
             <Container fluid className={`mt-5 ${styles.pastPitches}`}>
-                <Row className="m-5 justify-content-center">
+                <Row className="mx-5 justify-content-center text-center">
                     <Col md="10" sm="12">
-                        <Title className={`${styles.largeText} text-white mt-5 mb-3 text-uppercase`}>Over 10 years of putting the spotlight on Kentucky Entrepreneurs</Title>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col className="mb-2 d-flex justify-content-center">
-                        <BrandButton onClick={() => scrollToSection(recentWinner)}> WATCH PAST PITCHES</BrandButton>
+                        <Title className={`${styles.largeText} text-white mt-5  text-uppercase`}>Over 10 years of putting the spotlight on Kentucky Entrepreneurs</Title>
+                        <BrandButton className='mt-3 mb-5' onClick={() => scrollToSection(recentWinner)}>WATCH PAST PITCHES</BrandButton>
                     </Col>
                 </Row>
             </Container>
@@ -136,21 +131,21 @@ const fiveAcrossPage = ({ data }) => {
                                 <a href={node.linkToEvent}>
                                     <Row className=''>
                                         <Col lg="4" md="4" sm="4" className="">
-                                            <Row className="justify-content-end">
+                                            <Row className="d-flex flex-column align-items-center">
                                                 <Col lg="10" className="d-none d-lg-block d-md-block">
-                                                    <StaticImage quality="100" src="../../../images/5across-banner.png" alt=''/>
+                                                    <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-banner.png" alt=''/>
                                                 </Col>
                                             </Row>
                                         </Col>
                                         {/* changed headings in this section from h6, font size utilities currently aren't working but should look normal once the utilities work */}
                                         <Col className="justify-content-start">
-                                            <h1 className="text--red fs-6">{node.date}</h1> {/*need to  */}
+                                            <h2 className="text--red fs-6 fw-bold">{node.date}</h2> {/*need to  */}
                                         </Col>
                                     </Row>
                                     <Row>
                                         <Col sm="4" lg="4"></Col>
                                         <Col>
-                                            <h2 className="text--black fw-light fs-6">Location: {node.location}</h2> {/*Location*/}
+                                            <h4 className="text--black fw-light fs-5">Location: {node.location}</h4> {/*Location*/}
                                         </Col>
                                     </Row>
                                     <Row>
@@ -169,7 +164,7 @@ const fiveAcrossPage = ({ data }) => {
                 </Row>
                 <Row className="mt-5">
                     <Col xs={{ span: 2, offset: 7 }} className="d-none d-md-block">
-                        <StaticImage quality="90" src="../../../images/5across-arrow.png" alt="5 across arrow" />
+                        <StaticImage placeholder="blurred" quality="90" src="../../../images/5across-arrow.png" alt="5 across arrow" />
                     </Col>
 
                 </Row>
@@ -189,10 +184,12 @@ const fiveAcrossPage = ({ data }) => {
                     </Col>
                     <Col className={`mt-5`}>
                         <h1 className={styles.recentWinnerText}>{previousWinner.companyTitle}</h1>
-                        <h1 className={`${styles.recentWinnerText} fs-1 fst-italic fw-light`}>Kentucky</h1>
+                        <Row className=''>
+                            <h1 className={`fs-1 fst-italic fw-light`} style={{fontSize: '2.5vw'}}>Kentucky</h1>
+                        </Row>
                         <Row>
-                            <Col sm="2" className="mb-5">
-                                <StaticImage src="../../../images/5across-banner.png" alt=''/>
+                            <Col sm="2" className="mt-3">
+                                <StaticImage placeholder="blurred" src="../../../images/5across-banner.png" alt=''/>
                             </Col>
                         </Row>
                     </Col>
@@ -232,7 +229,7 @@ const fiveAcrossPage = ({ data }) => {
                                 <Title className={`${styles.bringTheFun} text-uppercase`}>Fun</Title>
                             </div>
                         </div>
-                        <StaticImage className={`${styles.unicornImage}`} quality="100" src="../../../images/dabbing_unicorn.png" alt=''/>
+                        <StaticImage placeholder="blurred" className={`${styles.unicornImage}`} quality="100" src="../../../images/dabbing_unicorn.png" alt=''/>
                     </Col>
                 </Row>
             </Container>
@@ -245,18 +242,18 @@ const fiveAcrossPage = ({ data }) => {
                     </Col>
                 </Row>
                 <Row className="text-center my-5">
-                    <Col lg="12" className="my-5">
+                    <Col lg="12" className="my-3">
                         <Title className="fs-2">Title Sponsor</Title>
                     </Col>
-                    <Col lg="12" className="my-5">
+                    <Col lg="12" className="my-2">
                         <a href={titleSponsorLink}>
                             <GatsbyImage image={titleSponsorImage} alt={titleSponsorName} />
                         </a>
                     </Col>
-                    <Col lg="12" className="my-5">
+                    <Col lg="12" className="my-2">
                         <Title className="fs-2 my-5">Presenting Sponsor</Title>
                     </Col>
-                    <Col lg="12" className="my-5">
+                    <Col lg="12" className="my-2">
                         <a href={presentingSponsorLink}>
                             <GatsbyImage image={presentingSponsorImage} alt={presentingSponsorName} />
                         </a>

@@ -104,13 +104,14 @@ const InternshipsPage = ({ data }) => {
         <Container>
           <Row className='flex-column flex-sm-row my-5'>
             <Col className='d-flex align-items-center justify-content-center my-5' style={{position: 'relative'}}>
-              <StaticImage src='../../images/team-alpha-coffee.jpg' alt='Team Alpha getting coffee' style={{maxWidth: '350px'}}/>
+              <StaticImage placeholder="blurred" src='../../images/team-alpha-coffee.jpg' alt='Team Alpha getting coffee' style={{maxWidth: '350px'}}/>
               <div className={styles.teamAlphaBadge}>
                 <motion.div initial={{ opacity: 0, x: -50 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 1.0, duration: 0.6 }}>
-                <StaticImage src='../../images/Team_Alpha_Logo_Grey.png' alt='Team alpha logo'/>
+                <StaticImage placeholder="blurred" src='../../images/Team_Alpha_Logo_Grey.png' alt='Team alpha logo'/>
                 </motion.div>
+                <StaticImage src='../../images/Team_Alpha_Logo_Grey.png' alt='Team alpha logo'/>
               </div>
             </Col>  
             <Col className='my-3'>
@@ -126,6 +127,7 @@ const InternshipsPage = ({ data }) => {
         </Container>
 
       {/* Teams section */}
+
       <section id='team'>
         <Container fluid style={{backgroundColor: '#C12029'}}>
           <Row>
@@ -137,7 +139,7 @@ const InternshipsPage = ({ data }) => {
               <motion.div initial={{ opacity: 0, y: 50 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.7, duration: 0.6 }}>
-              <StaticImage src='../../images/billi.png' alt='billi'/>
+              <StaticImage placeholder="blurred" src='../../images/billi.png' alt='billi'/>
               </motion.div>
             </div>
           </div>
@@ -148,7 +150,7 @@ const InternshipsPage = ({ data }) => {
           <Row className='justify-content-center ' style={{height: '21rem'}}>
             <Col className='col-12 col-md-4 col-lg-2 mb-4 mx-4'>
                 <div className={styles.tbDiv}>
-                  <StaticImage className={`${styles.teamImages} d-none d-sm-block`} style={{position: 'absolute', bottom: '-12%'}} src='../../images/team-alpha-design.jpg' alt='Design Intern'/>
+                  <StaticImage placeholder="blurred" className={`${styles.teamImages} d-none d-sm-block`} style={{position: 'absolute', bottom: '-12%'}} src='../../images/team-alpha-design.jpg' alt='Design Intern'/>
                   <BrandButton onClick={() => showTeamDiv('design')} className={`${styles.teamButton} secondary text-center`}>Design</BrandButton>
                   <TeamInfoModal
                   show={teamInfoDiv === 'design'}
@@ -163,7 +165,7 @@ const InternshipsPage = ({ data }) => {
             </Col>
             <Col className='col-12 mb-4 col-md-4 col-lg-2 mx-4'>
               <div className={styles.tbDiv}>
-                <StaticImage className={`${styles.teamImages} d-none d-sm-block`} style={{position: 'absolute', bottom: '-12%'}} src='../../images/team-alpha-marketing.jpg' alt='Events and Marketing Intern'/>
+                <StaticImage placeholder="blurred" className={`${styles.teamImages} d-none d-sm-block`} style={{position: 'absolute', bottom: '-12%'}} src='../../images/team-alpha-marketing.jpg' alt='Events and Marketing Intern'/>
                 <BrandButton onClick={() => showTeamDiv('marketing')} className={`${styles.teamButton} secondary text-center`}>Marketing</BrandButton>
                   <TeamInfoModal
                   show={teamInfoDiv === 'marketing'}
@@ -178,7 +180,7 @@ const InternshipsPage = ({ data }) => {
             </Col>
             <Col className='col-12 mb-4 col-md-4 col-lg-2 mx-4'>
               <div className={styles.tbDiv}>
-                <StaticImage className={`${styles.teamImages} d-none d-sm-block`} style={{ position: 'absolute', bottom: '-12%'}}  src='../../images/team-alpha-video.jpg' alt='Video Intern'/>
+                <StaticImage placeholder="blurred" className={`${styles.teamImages} d-none d-sm-block`} style={{ position: 'absolute', bottom: '-12%'}}  src='../../images/team-alpha-video.jpg' alt='Video Intern'/>
                 <BrandButton onClick={() => showTeamDiv('video')} className={`${styles.teamButton} secondary text-center`}>Video</BrandButton>
                   <TeamInfoModal
                   show={teamInfoDiv === 'video'}
@@ -193,7 +195,7 @@ const InternshipsPage = ({ data }) => {
             </Col>
             <Col className='col-12 mb-4 col-md-4 col-lg-2 mx-4'>
             <div className={styles.tbDiv}>
-                <StaticImage className={`${styles.teamImages} d-none d-sm-block`} style={{position: 'absolute', bottom: '-12%'}} src='../../images/team-alpha-development.jpg' alt='Development Intern'/>
+                <StaticImage placeholder="blurred" className={`${styles.teamImages} d-none d-sm-block`} style={{position: 'absolute', bottom: '-12%'}} src='../../images/team-alpha-development.jpg' alt='Development Intern'/>
                 <BrandButton onClick={() => showTeamDiv('development')} className={`${styles.teamButton} secondary text-center`}>Development</BrandButton>
                   <TeamInfoModal
                   show={teamInfoDiv === 'development'}
@@ -224,7 +226,7 @@ const InternshipsPage = ({ data }) => {
           </p>
           </Col>
           <Col className='d-flex align-items-center justify-content-center my-5 py-5'>
-            <StaticImage src='../../images/garret-cam.jpg' alt='Team Alpha having fun' style={{maxWidth: '550px'}} className='mt-lg-5 py-lg-4'/>
+            <StaticImage placeholder="blurred" src='../../images/garret-cam.jpg' alt='Team Alpha having fun' style={{maxWidth: '550px'}} className='mt-lg-5 py-lg-4'/>
           </Col>
         </Row>
       </Container>
@@ -236,7 +238,7 @@ const InternshipsPage = ({ data }) => {
             <motion.div initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.3, duration: 1 }}>
-            <StaticImage src='../../images/team-alpha-5across.jpg' alt='Team Alpha at 5Across' style={{maxWidth: '400px'}} className='my-4 '/>
+            <StaticImage placeholder="blurred" src='../../images/team-alpha-5across.jpg' alt='Team Alpha at 5Across' style={{maxWidth: '400px'}} className='my-4 '/>
             </motion.div>
           </Col>
           <Col className='mt-5 pt-5 text-left mx-md-5'>

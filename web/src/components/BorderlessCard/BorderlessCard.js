@@ -30,9 +30,9 @@ const MemberOption = (props) => {
           </Col>
           <Col className={styles.header} xs={12}>
             {props.header}
-            <Col className={styles.info} xs={12}></Col>
+          </Col>
+          <Col className={styles.info} xs={12}>
             {props.infoOne}
-            {props.modalDialog}
           </Col>
           <Col className={styles.info} xs={12}>
             {props.infoTwo}

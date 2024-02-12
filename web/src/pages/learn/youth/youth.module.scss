@@ -267,3 +267,9 @@
 .modal {
     background-color: $brand-color2 !important;
 }
+
+.waitlist-iframe{
+    @media (min-width: 768px) {
+          width: 50%; /* Adjust the width for screens larger than md */
+    }
+}
