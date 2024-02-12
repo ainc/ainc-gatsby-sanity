@@ -111,7 +111,6 @@ const InternshipsPage = ({ data }) => {
                       transition={{ delay: 1.0, duration: 0.6 }}>
                 <StaticImage placeholder="blurred" src='../../images/Team_Alpha_Logo_Grey.png' alt='Team alpha logo'/>
                 </motion.div>
-                <StaticImage src='../../images/Team_Alpha_Logo_Grey.png' alt='Team alpha logo'/>
               </div>
             </Col>  
             <Col className='my-3'>
@@ -262,8 +261,6 @@ const InternshipsPage = ({ data }) => {
             <Title className='text-center mt-5 text-uppercase text--red'>Intern Testimonials</Title>
         </Row>
       </Container>
-      <motion.div whileInView={{ x: [0, -10, 10, -10, 0] }}
-                  transition={{ delay: 0.3, duration: 0.6 }}>
       <Carousel indicators={false} className={`${styles.carouselHeight} my-3`}>
       {allSanityInternTestimonials.map((node, index) => (
         <Carousel.Item key={index}>
@@ -285,7 +282,6 @@ const InternshipsPage = ({ data }) => {
         </Carousel.Item>
       ))}
       </Carousel>
-      </motion.div>
 
       {/*Apply Now */}
       <Container fluid>
@@ -360,7 +356,10 @@ const InternshipsPage = ({ data }) => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.6 }}>
       <Container>
-          <Row className='d-flex justify-content-center mt-5'>
+        <Row className='text-center'>
+        <Title className='text--bright-red text-uppercase mt-3'>Meet our Team ALpha Managers</Title>
+        </Row>
+        <Row className='d-flex justify-content-center mt-3'>
             {allTeamAlpha.map((node, i) => (
               <Col xs={12} sm={10} md={6} lg={4} xl={4} xxl={4} className={`my-3 d-flex ${i < 3 ? `${styles[`customCol${i % 3 + 1}`]}` : 'justify-content-center'}`} key={i}> {/*Applies conditional styling to the first three columns - do this because the profile card was not mind for 3 column rows in mind */}
                 <Profile

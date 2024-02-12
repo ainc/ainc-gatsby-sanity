@@ -6,9 +6,24 @@ import * as styles from './QAModal.module.scss'
 import './teaminfo.scss'
 const QAModal = (props) => {
     const [QADiv, setQADiv] = useState(null);
+    const [imageLoaded, setImageLoaded] = useState(false);
+
     const handleQAOpen = () => setQADiv(true);
     const handleQAClose = () => setQADiv(false);
 
+    useEffect(() => {
+        // Preload the image
+        const img = new Image();
+        img.onload = () => {
+            setImageLoaded(true);
+        };
+        img.src = props.img;
+        // Cleanup on unmount if needed
+        return () => {
+            img.onload = null;
+        };
+    }, [props.img]);
+    
     return(
         <div className='my-3'>
             <button onClick={handleQAOpen} className={`${styles.qabutton} d-flex justify-content-center align-items-center my-2`}>
@@ -20,7 +35,7 @@ const QAModal = (props) => {
                     <Col style={{backgroundColor: '#C12029', maxHeight: '80vh', overflowY: 'auto'}} className=''>
                         <Title className='text--huge text-white my-3 mx-3'>Q.</Title>
                         <Subtitle className='text-white mb-5 fw-bold mx-3'>{props.title}</Subtitle>
-                        <div className='mx-3' style={{borderBottom: '2px solid white'}} />
+                        <div className='mx-3' style={{borderBottom: '2px solid white'}}/>
                         <Title className='text--huge text-white my-3 mx-3'>A.</Title>
                         <p className='text-white my-4 mx-3'>{props.content}</p>
                     </Col>
