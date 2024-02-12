@@ -25,7 +25,7 @@ const ParkingPage = ({ data }) => {
                     </Col>
                 </Row>
                 <Col xs={{span: 12}} lg={{offset:3, span: 6}} xl={{offset: 3, span: 6}}>
-                    <StaticImage className='mb-4' src='../../images/parking-lot.png' alt='awesome inc parking lot'></StaticImage>
+                    <StaticImage placeholder="blurred" className='mb-4' src='../../images/parking-lot.png' alt='awesome inc parking lot'></StaticImage>
                 </Col>
                 
             

@@ -174,7 +174,19 @@ function SEO({ description, lang, meta, keywords, title, path, jsImports }) {
     {/*End Zoho Sales IQ */}
     
    <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v14.0&appId=405237331509908&autoLogAppEvents=1" nonce="CPsa0mSK"></script>
-
+    {/*Hotjar- unique to https://www.awesomeinc.org/bootcamp  */}
+    <script>
+      {`
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:2076715,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+      `}
+    </script>
     </Helmet>
   );
 }

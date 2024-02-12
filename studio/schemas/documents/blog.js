@@ -29,11 +29,12 @@ export default {
             name: 'slug',
             type: 'slug',
             title: 'Slug',
-            description: 'Some frontend will require a slug to be set to be able to show the person',
+            description: "You must click the 'generate' button after entering the title in order to create the url for the blog post",
             options: {
               source: 'title',
               maxLength: 96
-            }
+            },
+            validation: (Rule) => Rule.required(),
         },
         {
             name: 'previewText',

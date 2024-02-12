@@ -76,7 +76,7 @@ const SalesforcePage = ({ data }) => {
                             </div>
                         </Col>
                         <Col sm={{ span: 8, offset: 2 }} xs={12} className="d-flex justify-content-end">
-                            <StaticImage quality='100' className="arrow-container me-3" src="./images/arrow-down-left.png" alt="Arrow Image" />
+                            <StaticImage placeholder="blurred" quality='100' className="arrow-container me-3" src="./images/arrow-down-left.png" alt="Arrow Image" />
                             <div>
                                 <a href='https://www.youtube.com/embed/xx2sK-QiBjw?rel=0&controls=0'>
                                     <BrandButton>What is Salesforce?</BrandButton>
@@ -94,7 +94,7 @@ const SalesforcePage = ({ data }) => {
                         <Col>
                             <div className="d-flex justify-content-center">
                                 <a href="https://www.youtube.com/embed/xx2sK-QiBjw?rel=0&controls=0">
-                                    <StaticImage qualtiy='100' className="laptop-image" src="./images/laptop-video-salesforce.png" alt="Laptop Image" />
+                                    <StaticImage placeholder="blurred" qualtiy='100' className="laptop-image" src="./images/laptop-video-salesforce.png" alt="Laptop Image" />
                                 </a>
                             </div>
                         </Col>
@@ -135,7 +135,7 @@ const SalesforcePage = ({ data }) => {
                                 <a href='https://calendly.com/mack-hanes/salesforce-info-chat' target='_blank'><BrandButton>Let's chat</BrandButton></a>
                         </Col>
                         <Col xs={12} md={5} lg={{ span: 6 }} xl={{ span: 5, offset: 1 }}>
-                            <StaticImage qualtiy='100' src="./images/salesforce-logo.png" alt="Salesforce Image" />
+                            <StaticImage placeholder="blurred" qualtiy='100' src="./images/salesforce-logo.png" alt="Salesforce Image" />
                         </Col>
                     </Row>
                 </Container>
@@ -146,7 +146,7 @@ const SalesforcePage = ({ data }) => {
                 <Container>
                     <Row>
                         <Col className='mt-5' sm={12} md={6} lg={{ span: 6 }} xl={{ offset: 1, span: 5 }}>
-                            <StaticImage qualtiy='100' className="laptop-image" src="./images/salesforce-projects.png" alt="Laptop Image" />
+                            <StaticImage placeholder="blurred" qualtiy='100' className="laptop-image" src="./images/salesforce-projects.png" alt="Laptop Image" />
                         </Col>
                         <Col sm={12} md={6} lg={{ span: 6 }} xl={{ span: 5 }}>
                             <Title className="my-5 text-uppercase text-center">Course outcomes</Title>
@@ -164,7 +164,7 @@ const SalesforcePage = ({ data }) => {
             {/* Tuition Scholarship Section*/}
             <section id="tuition-scholarship">
                 <Container fluid className="background--grey py-5 text-center text-white">
-                    <StaticImage quality='100' className="cost-img" src="./images/cost.png" alt="Cost Image" />
+                    <StaticImage placeholder="blurred" quality='100' className="cost-img" src="./images/cost.png" alt="Cost Image" />
                     <Title className="my-4 text-white text-uppercase">Tuition and scholarship</Title>
                     <Col xs={9} className="mx-auto text-light">
                         <p>
