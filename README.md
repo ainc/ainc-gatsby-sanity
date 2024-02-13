@@ -20,9 +20,16 @@ Deployed from [sanity.io/create](https://www.sanity.io/create/?template=sanity-i
 4. `yarn run build` to build to production locally
 ** Note: You may have better success opening two separate terminals to and running `yarn run dev` in both `/studio` and `/web`
 
+
 ## Notes
 - Having troucble with `yarn install`?
 Verified Node versions: `14.xx`, `17.xx`
+
+## Animate SVG
+For simple SVG animation, pure css (@keyframes) can be applied directly to the svg file within the <style> tags but creating a React component for the svg then apply the css styling is recommended for multiple reasons. For more complicated animation, a library is needed. Check this link for a tutorial on using Framer Motion to animate an SVG: (https://www.youtube.com/watch?v=SrmTDrN1lkU)
+
+Note: Grouping SVG is important. This can be done by putting <path> elements that needed to be grouped within the same <g> tags. This can also be done by the design team when exporting the design to SVG file for convenience.
+
 
 ## Workflow to create new documents for production
 <details>
@@ -53,6 +60,8 @@ Create a backup of `production` dataset (Possible GitHub action)
 
 Import from `dev` into `production`
 - `sanity dataset import ./dev.tar.gz production --missing skip` (Import into `production` dataset)
+
+
 
 <br><br>
 </details>
