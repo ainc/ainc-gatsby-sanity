@@ -1,10 +1,12 @@
 @import "../../styles/mixins.scss";
 @import "../../styles/variables.scss";
 
+
 .header {
         background-image: url('/images/hero-image-2-min.jpg');
         background-size: cover;
         background-repeat: no-repeat;
+        overflow: hidden;
         @media (min-width: 992px){
             background-position: center;
             background-position: 79% 21%;
@@ -86,11 +88,22 @@
         padding-bottom: 50px;
 
         .leftButtonCol{
-            @media (min-width: 768px){
-                border-right: 1.75px solid white;
+            padding-right: 50px;
+            border-right: 1.75px solid white;
+            @include screen-sm{
+              border-right: none;
+              padding-right: none;
             }
         }
     
+        .rightButtonCol{
+            padding-left: 50px;
+            @include screen-sm{
+                padding-left:none;
+                padding-right: none;
+            }
+            
+        }
 }
 }
 
@@ -119,13 +132,13 @@
         }
         @include screen-sm{
             width: 80vw;
-            text-align: center;
+            text-align: justify;
             p{
                 font-size: 18px;
             }
         }
         @include screen-xs{
-            text-align: center;
+            text-align: justify;
             width: 90vw;
             p{
                 font-size: 18px;
@@ -181,10 +194,8 @@
 }
 
 .carousel{
-    
     .aincuTestimonial{
-        max-width: 60%;
-        display: inline;
+        display: inline-block;
         padding: 10px;
         box-shadow: rgba(0,0,0,0.23) 0px 1px 20px 0px ;
         border-radius: 4px;
@@ -200,7 +211,6 @@
 }
 
 .apply{
-
     .applyCol {
         @include screen-max{
             display: flex;

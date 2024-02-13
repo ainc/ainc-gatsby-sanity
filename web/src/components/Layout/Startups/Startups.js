@@ -48,7 +48,7 @@ const Startups = () => {
                    transition={{ delay: .2, duration: 0.5 }}
                    whileHover={{ scale: 1.1 }} 
                    whileTap={{ scale: 0.9 }}>
-              <StaticImage placeholder="blurred"
+              <StaticImage
                   className='d-block mx-auto m-5 bg--brand-light rounded-circle' 
                   quality='100'
                   objectFit="contain"
