@@ -1,0 +1,232 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic);
+@import "../../styles/main.scss";
+
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+.about-header {
+  background-image: url(../../images/what-we-do/workspace-gradient.png);
+  background-size: cover;
+  background-position:center;
+  height: 93vh;
+  @include screen-md {
+      height: 110vh;
+  } 
+}
+
+.heading {
+  margin-left: 50px;
+  float: left;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  padding-top: auto;
+}
+
+.heading-title {
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+  text-align: left;
+  text-transform: none;
+  line-height: 3.5rem;
+  font-weight: 900;
+  font-size: 50px;
+}
+
+.heading-subtitle {
+  font-size: 17px;
+  line-height: 25.5px;
+  font-weight: 400;
+  margin-bottom: 2.25rem;
+  max-width: 75%;
+}
+
+.header-container {
+  max-width: 80%;
+}
+
+.header-img {
+  padding-bottom: 2rem;
+  height: 400px;
+}
+
+.entrepreneurship {
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+.logo-container {
+  height: 100px; /* Adjust the height for mobile and other text boxes*/
+  width: 220px;
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.logo-container img {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.logo {
+  width: 200px;
+}
+
+.logo-description {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.header-border .heading-title {
+  margin-top: 1rem;
+  display: flex;
+  margin: 0 auto 0 auto;
+  justify-content: center;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.programs {
+  margin-bottom: 1rem;
+  margin-top: 0;
+  font-weight: 800;
+}
+
+.programs-subheader {
+  font-size: 20px;
+}
+
+.programs .heading-title {
+  margin-bottom: 1rem;
+  background-color: #fff;
+  margin-top: -30px;
+  position: relative;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px 30px;
+}
+
+.programs .heading-subtitle {
+  max-width: 50%;
+}
+
+.work-header {
+  padding-bottom: 8rem;
+  padding-top: 6rem;
+  background-color: rgba(230,231,232,255);
+}
+
+.work-header img {
+  max-width: 100%;
+}
+
+.logo-header {
+  padding-bottom: 6rem;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dot-divider {
+  width: 100%
+}
+
+.asterisk {
+  height: 25px !important;
+  width: 25px !important;
+  margin-right: 8px !important;
+  display: inline-block !important;
+}
+
+.two-logos {
+  margin: auto;
+}
+
+@media (min-width: 900px) {
+  .hall-of-fame {
+    max-width: 33%;
+  }
+  .logo-description {
+    height: 100px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .logo-header {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .whatWeDo .heading-title {
+    padding: 0px 10px;
+    
+  }
+  .logo-header {
+    max-width: 100%;
+  }
+  .hall-of-fame {
+    max-width: 100%;
+    margin: auto;
+  }
+  .hall-of-fame img {
+    margin: auto;
+  }
+}
+
+@media (max-width: 580px) {
+  .accomplishment .heading-title {
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .accomplishment img {
+    max-height: 500px;
+    max-width: 100%;
+  }
+
+  .heading-title {
+    line-height: 2rem;
+    font-size: 29px;
+  }
+
+  .accomplishment .heading-title {
+    font-size: 39px;
+    overflow-wrap: break-word;
+    text-transform: uppercase;
+    line-height: 2.6rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn {
+    font-size: 14px;
+    line-height: 15px;
+    padding: 0.6rem 1.5rem;
+  }
+
+  .heading {
+    margin-bottom: 3rem;
+  }
+
+  .gatsby-image {
+    height: 80%;
+    max-height: fit-content;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 350px) {
+  .logo-header {
+    margin: -15px;
+  }
+}

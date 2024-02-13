@@ -26,7 +26,6 @@ text-align: center;
     margin-left: auto;
     width: 75%;
     // display: flex;
-    font-size: 4.75vw;
     text-align: center;
     @include screen-lg {
         font-size: 2vw;
@@ -36,3 +35,11 @@ text-align: center;
     }
     letter-spacing: .5px;
 }
+
+.sponsor-background {
+    // width: 100vw;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    background-color: $brand-color;
+    color: white;
+  }

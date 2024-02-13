@@ -33,15 +33,15 @@ const AboutPage = ({ data }) => {
                  <motion.div initial={{ opacity: 0}}
                       animate={{ opacity: 1}}
                       transition={{ delay: 0.5, duration: 1 }}>
-                  <Title className={`mt-5 fw-bold `}>
+                  <Title className={`mt-5 fw-bold text--big`}>
                     We exist to help people pursue their definition of awesome.
                   </Title>
-                  <Subtitle className={`fs-6 mt-2 mb-5`}>
+                  <p className={`fs-6 mt-2 mb-5`}>
                     Awesome Inc was founded on the basis of the "give-first" mentality. Awesome Inc
                     started in 2009 and has grown to be the epicenter for anything related to
                     technology or business. We strive to make Lexington a better place to live and
                     work.
-                  </Subtitle>
+                  </p>
                   <a href="/assets/culture-book.pdf">
                     <BrandButton className={`text-nowrap`}>View Our Culture Book</BrandButton>
                   </a>
@@ -279,7 +279,7 @@ export const query_accomplishments = graphql`
         }
       }
     }
-    allSanityTeamMember {
+    allSanityTeamMember(sort: {_updatedAt: DESC}){
       nodes {
         name
         picture {

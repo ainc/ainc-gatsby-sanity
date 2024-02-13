@@ -26,7 +26,7 @@ const CoreValue = (props) => {
                       transition={{ delay: 0.2, duration: 0.5 }}
                       whileHover={{ scale: 1.1 }} 
                       whileTap={{ scale: 0.9 }}>
-                    <StaticImage quality='100' src='./video-button.png' alt="Core values video" />
+                    <StaticImage placeholder="blurred" quality='100' src='./video-button.png' alt="Core values video" />
                     </motion.div>
                   </a>
                   
@@ -39,7 +39,7 @@ const CoreValue = (props) => {
                       transition={{ delay: 0.2, duration: 0.5 }}
                       whileHover={{ scale: 1.1 }} 
                       whileTap={{ scale: 0.9 }}>
-                    <StaticImage quality='100' src='./culture-book-button.png' alt="Core values video" />
+                    <StaticImage placeholder="blurred" quality='100' src='./culture-book-button.png' alt="Core values video" />
                     </motion.div>
                   </a>
                 </Col>
@@ -47,7 +47,7 @@ const CoreValue = (props) => {
             </Col>
             <Col sm="6" className="">
               <a href='/assets/core-values.pdf' target="_blank">
-                <StaticImage quality='100' src='../../../images/about-core-values.png' alt="Core values video" />
+                <StaticImage placeholder="blurred" quality='100' src='../../../images/about-core-values.png' alt="Core values video" />
               </a>
             </Col>
           </div>

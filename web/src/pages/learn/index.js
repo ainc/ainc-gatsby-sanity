@@ -39,7 +39,7 @@ const LearnPage = ({ data }) => {
       <Container fluid>
         <Row>
           <Col>
-            <StaticImage src="../../images/macbook-code-learn.png" alt="Coding laptop" />
+            <StaticImage placeholder="blurred" src="../../images/macbook-code-learn.png" alt="Coding laptop" />
           </Col>
           <Col className="m-auto">
             <Title className="brand text-uppercase" >Learn to Code</Title>
@@ -72,14 +72,14 @@ const LearnPage = ({ data }) => {
           </Col>
           <Col xs={12} sm={{ span: 5}} md={{ span: 6 }}>
             <ImageOutline>
-              <StaticImage src='../../images/student-learn-to-code-shirt.jpg' alt='learn to code' />
+              <StaticImage placeholder="blurred" src='../../images/student-learn-to-code-shirt.jpg' alt='learn to code' />
             </ImageOutline>
           </Col>
         </Row>
         <Row className="mt-5">
           <Col xs={12} sm={{ span: 5}}>
             <ImageOutline>
-              <StaticImage src='../../images/student-learn-to-code-week-of-code.jpg' alt='learn to code youth classes' />
+              <StaticImage placeholder="blurred" src='../../images/student-learn-to-code-week-of-code.jpg' alt='learn to code youth classes' />
           </ImageOutline>
           </Col>
           <Col xs={12} sm={{ span: 5 }}>
@@ -110,7 +110,7 @@ const LearnPage = ({ data }) => {
           </Col>
           <Col xs={12} sm={{ span: 5}}>
             <ImageOutline>
-              <StaticImage src='../../images/learn/adult-coding-laptop.jpeg' alt='learn to code' />
+              <StaticImage placeholder="blurred" src='../../images/learn/adult-coding-laptop.jpeg' alt='learn to code' />
             </ImageOutline>
           </Col>
         </Row>
@@ -127,7 +127,7 @@ const LearnPage = ({ data }) => {
             <Row>
               <Col xs={12}> 
                 {/* Future Styling */}
-                {/*<StaticImage src='../../images/learn/Bootcamp-Helped100People.jpg' style={{maxWidth: '12%', position: 'absolute',  left: '31rem', top: '160%'}} alt='Who we have helped'/>*/}
+                {/*<StaticImage placeholder="blurred" src='../../images/learn/Bootcamp-Helped100People.jpg' style={{maxWidth: '12%', position: 'absolute',  left: '31rem', top: '160%'}} alt='Who we have helped'/>*/}
                 <Title className="brand test text-center normal text-end">Proven Success</Title>
               </Col>
             </Row>
@@ -200,11 +200,11 @@ const LearnPage = ({ data }) => {
                             </Col>
                         </Row>
                         <Row className={styles.logos}>
-                        <Col xs={12} sm={{span: 2, offset:1}} ><StaticImage src='../../images/press/nbc-logo.png' alt="NBC logo" width={80} /></Col>
-                        <Col xs={12} sm={2}><StaticImage src='../../images/press/course_report.png' alt="Course Report logo" width={190} /></Col>
-                        <Col xs={12} sm={2}><StaticImage src='../../images/press/abc-logo.png' alt="ABC logo" width={80}/></Col>                        
-                        <Col xs={12} sm={2}><StaticImage src='../../images/press/good_day_ky.png' alt="Good Day Kentucky logo" width={90}/></Col>
-                        <Col xs={12} sm={2}><StaticImage src='../../images/press/fox-logo.png' alt="Fox logo" width={150}/></Col>
+                        <Col xs={12} sm={{span: 2, offset:1}} ><StaticImage placeholder="blurred" src='../../images/press/nbc-logo.png' alt="NBC logo" width={80} /></Col>
+                        <Col xs={12} sm={2}><StaticImage placeholder="blurred" src='../../images/press/course_report.png' alt="Course Report logo" width={190} /></Col>
+                        <Col xs={12} sm={2}><StaticImage placeholder="blurred" src='../../images/press/abc-logo.png' alt="ABC logo" width={80}/></Col>                        
+                        <Col xs={12} sm={2}><StaticImage placeholder="blurred" src='../../images/press/good_day_ky.png' alt="Good Day Kentucky logo" width={90}/></Col>
+                        <Col xs={12} sm={2}><StaticImage placeholder="blurred" src='../../images/press/fox-logo.png' alt="Fox logo" width={150}/></Col>
                         </Row>
                         </Container>
       </section>

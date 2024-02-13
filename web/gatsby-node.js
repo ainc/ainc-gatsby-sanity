@@ -195,7 +195,7 @@ async function createTutorialsPages(graphql, actions) {
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createRedirect } = actions
   //internal
-  createRedirect({fromPath: `/5across`, toPath: `/events/5across`, isPermanent: true, force: true, redirectInBrowser: true})
+  createRedirect({fromPath: `/5across`, toPath: `/events/5across/`, isPermanent: true, force: true, redirectInBrowser: true})
   createRedirect({fromPath: `/5across/program`, toPath: `/program`, isPermanent: true, force: true, redirectInBrowser: true})
 
   //external

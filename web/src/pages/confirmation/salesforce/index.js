@@ -23,11 +23,11 @@ const Page = ({ data }) => {
             <Col md={{ span: 9, offset: 2 }}>
                 <div className="ms-5 my-5">
                     <img src="../../../assets/svg/Online-Application.svg" style={{width: "180px"}} />
-                    <StaticImage className="mt-5 mx-5" quality='100' src="./images/arrow-steps.png"/>
+                    <StaticImage placeholder="blurred" className="mt-5 mx-5" quality='100' src="./images/arrow-steps.png"/>
                     <img src="../../../assets/svg/Schedule-a-Call.svg" style={{width: "180px"}} />
-                    <StaticImage className="mt-5 mx-5" quality='100' src="./images/arrow-steps.png"/>
+                    <StaticImage placeholder="blurred" className="mt-5 mx-5" quality='100' src="./images/arrow-steps.png"/>
                     <img src="../../../assets/svg/FIO-Challenge.svg" style={{width: "180px"}} />
-                    <StaticImage className="mt-5 mx-5" quality='100' src="./images/arrow-steps.png"/>
+                    <StaticImage placeholder="blurred" className="mt-5 mx-5" quality='100' src="./images/arrow-steps.png"/>
                     
                 </div>
             </Col>
