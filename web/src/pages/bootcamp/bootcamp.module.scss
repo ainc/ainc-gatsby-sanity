@@ -1,10 +1,12 @@
 @import "../../styles/mixins.scss";
 @import "../../styles/variables.scss";
 
+
 .header {
         background-image: url('/images/hero-image-2-min.jpg');
         background-size: cover;
         background-repeat: no-repeat;
+        overflow: hidden;
         @media (min-width: 992px){
             background-position: center;
             background-position: 79% 21%;
@@ -59,6 +61,9 @@
         }
         @include screen-xs{
             
+        }
+        @media (max-width: 1000px) {
+            font-size: small;
         }
 
 
@@ -148,18 +153,27 @@
             margin-top: 100px;
         }
         @include screen-md{
-            margin-top: 150px;
+            margin-top: 100px;
         }
         @include screen-sm{
             margin-top: 50px;
         }
         @include screen-xs{
-           
+            align-items: center;
         }
     }
   
 }
 
+.whyAwesomeIncBorder {
+    border-right: 1.5px solid #C12029; 
+    line-height: 25px; 
+    padding-right: 2rem;
+    @media (max-width: 767px) {
+        border: none;
+        padding-right: 0;
+    }
+}
 
 
 .jobGuarantee {
@@ -197,7 +211,6 @@
 }
 
 .apply{
-
     .applyCol {
         @include screen-max{
             display: flex;
@@ -226,7 +239,6 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
-            width: 200px;
         }
        
         @include screen-xs{
@@ -234,8 +246,8 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
-            width: 200px;
         }
+
 
         .arrowImg{
             @include screen-md{
@@ -319,6 +331,10 @@
     .languageIcons{
         justify-content: center;
     }
+    @media (max-width: 768px) {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
 }
 
 .timeline {
@@ -339,8 +355,6 @@
     }
   
     .timelineTitle {
-        left: 0;
-        margin-left: 10px;
         margin-top: 440px;
         color: #C12029;
         font-size: 70px;
@@ -355,7 +369,6 @@
           @include font-size(25);
           @include transform(rotate(0));
           top: -500px;
-          left: 150px;
           letter-spacing: 4px;
           flex: none;
           font-size: 25px;
@@ -366,7 +379,6 @@
             @include font-size(25);
             @include transform(rotate(0));
             top: -500px;
-            left: 120px;
             letter-spacing: 4px;
             flex: none;
           }
