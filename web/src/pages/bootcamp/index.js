@@ -308,10 +308,10 @@ const BootcampPage = props => {
             </Col>  
           </Row>
           <Col className="d-flex align-contents-center justify-content-center">
-            <Row className="py-1 text-center">
-            <motion.div initial={{ opacity: 0, y: -50}}
+          <motion.div initial={{ opacity: 0, y: -50}}
                       whileInView={{ opacity: 1, y: 0}}
                       transition={{ delay: 0.3, duration: 1 }}>
+            <Row className="py-1 text-center">
               <ShieldsRow
                 text1="Do you ever think of changing careers?"
                 text2="Are you looking for a more meaningful career?"
@@ -319,8 +319,9 @@ const BootcampPage = props => {
                 text4="Do you want to gain a skill set that will set you up for success no matter your location?"
                 text5="Are you looking to explore a different life path?"
               />
-              </motion.div>
             </Row>
+          </motion.div>
+
           </Col>
           <Row>
             <Subtitle className="text-center brand fs-3 fancy-font fst-italic">Yes!</Subtitle>
