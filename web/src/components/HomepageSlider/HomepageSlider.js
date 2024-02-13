@@ -1,5 +1,6 @@
 import React, {useRef} from "react";
 import { graphql, Link, useStaticQuery } from 'gatsby'
+import { motion } from "framer-motion"
 
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
@@ -9,6 +10,7 @@ import BrandButton from "../UI/BrandButton/BrandButton";
 import Subtitle from "../UI/Subtitle/Subtitle";
 import Title from "../UI/Title/Title";
 import Wrapper from "../UI/Wrapper/Wrapper";
+
 
 const HomepageSlider = (props) => {
   const {scrollToSection, sectionIds} = props
@@ -88,17 +90,24 @@ const HomepageSlider = (props) => {
             }}
           >
             <Wrapper>
-                <Container className="mb-5 d-flex align-content-center flex-wrap h-100">
-                  <Row>
-                    <Subtitle className="text-white pl-3">{slide.subtitle}</Subtitle>
-                    <Title className="mb-3 text-white">{slide.title}</Title>
-                    <Col>
-                      <BrandButton onClick={() => scrollToSection(sectionIds[i])} href={slide.cta.url} className="mt-3">
-                        Learn More
-                      </BrandButton>
-                    </Col>
-                  </Row>
-                </Container>
+              <Container className="mb-3 d-flex align-content-center flex-wrap h-100">
+                    <Row>
+                      <motion.div initial={{ opacity: 0, y: -50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.5, duration: 0.8 }}>
+                      <Subtitle className="text-white">{slide.subtitle}</Subtitle>
+                      <Title className="mb-3 text-white">{slide.title}</Title>
+                      </motion.div>
+                      <motion.div initial={{ opacity: 0, scale: 0.5 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 1.0, duration: 0.6 }}>
+                      <Col>
+                        <BrandButton onClick={() => scrollToSection(sectionIds[i])}  href='slide.cta.url' className="mt-3">Learn More</BrandButton>
+                      </Col>
+                      </motion.div>
+                    </Row>
+                  
+              </Container>
             </Wrapper>
           </div>
         </Carousel.Item>

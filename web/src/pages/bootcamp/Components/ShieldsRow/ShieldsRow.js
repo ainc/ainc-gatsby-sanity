@@ -4,7 +4,7 @@ import Shield from '../Shield/Shield';
 
 function ShieldsRow(props) {
     return (
-        <div style={{width:"100vw"}}>
+        <div style={{width:"99vw"}}>
             <Row className='justify-content-center mx-auto me-auto'>
                
                 <Col xs={2} sm={1} lg={1} xl={1} className="col-2 me-5">

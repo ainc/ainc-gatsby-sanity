@@ -19,27 +19,9 @@
 }
 
 .bootcampGradImages {
-    // float: left;
-    @include screen-max{
-      flex: none;
-      // border: solid pink;
-    }
-    @include screen-lg{
-     flex: none;
-    //  border: solid white;
-    }
-    @include screen-md{
-      flex: none;
-      // border: dashed;
-    }
-    @include screen-sm{
-      flex: none;
-      // border: solid blue;
-
-    }
+    flex: none;
     @include screen-xs{
       display: flex;
-      
     }
     
     img {
@@ -59,6 +41,11 @@
     margin-top: 5px;
     padding-bottom: 40px;
     text-align: justify;
+
+    @media (max-width: 768px) {
+      text-align: center;
+    } 
+
     opacity: 0.9;
     
 
@@ -81,4 +68,11 @@
   @include screen-lg{
     height: 15rem;
   }
+}
+
+.author {
+  text-align: left;
+  @media (max-width: 768px) {
+    text-align: center;
+  } 
 }
