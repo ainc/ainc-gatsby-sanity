@@ -309,6 +309,9 @@ const BootcampPage = props => {
           </Row>
           <Col className="d-flex align-contents-center justify-content-center">
             <Row className="py-1 text-center">
+            <motion.div initial={{ opacity: 0, y: -50}}
+                      whileInView={{ opacity: 1, y: 0}}
+                      transition={{ delay: 0.3, duration: 1 }}>
               <ShieldsRow
                 text1="Do you ever think of changing careers?"
                 text2="Are you looking for a more meaningful career?"
@@ -316,6 +319,7 @@ const BootcampPage = props => {
                 text4="Do you want to gain a skill set that will set you up for success no matter your location?"
                 text5="Are you looking to explore a different life path?"
               />
+              </motion.div>
             </Row>
           </Col>
           <Row>
@@ -531,23 +535,27 @@ const BootcampPage = props => {
                 <Title className="text-uppercase text-center mt-4">Companies who have hired our graduates</Title>
               </Row>
               <Col>
-                <Row className="row-cols-lg-5 mt-lg-5 mb-lg-1 mx-lg-5">
-                  {employers.map((node,i) => (
-                    <div key={i} className="text-center" xs={12} >
-                      <GatsbyImage 
-                      style={{
-                        maxWidth: "40rem",
-                        marginTop: "1.5rem",
-                        marginLeft: "1.5rem",
-                        marginRight: "1.5rem",
-                        marginBottom: "1.5rem",
-                      }}
-                      image={node.picture.asset.gatsbyImageData}
-                      alt={node.company}
-                      />
-                    </div>
-                  ))}
-                </Row>
+                <motion.div initial={{ opacity: 0, y: -50}}
+                      whileInView={{ opacity: 1, y: 0}}
+                      transition={{ delay: 0.3, duration: 1 }}>
+                  <Row className="row-cols-lg-5 mt-lg-5 mb-lg-1 mx-lg-5">
+                    {employers.map((node,i) => (
+                      <div key={i} className="text-center" xs={12} >
+                        <GatsbyImage 
+                        style={{
+                          maxWidth: "40rem",
+                          marginTop: "1.5rem",
+                          marginLeft: "1.5rem",
+                          marginRight: "1.5rem",
+                          marginBottom: "1.5rem",
+                        }}
+                        image={node.picture.asset.gatsbyImageData}
+                        alt={node.company}
+                        />
+                      </div>
+                    ))}
+                  </Row>
+                </motion.div>
                 <div className="text-center">
                   <p style={{ marginTop: `0`, fontSize: `10px`}}>
                     <b>and over 50 more companies</b>
@@ -565,6 +573,9 @@ const BootcampPage = props => {
           <Row>
             <Subtitle style={{fontSize: "1.25rem"}} className="text-center fs-5 pb-3 mt-4"><b>With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using</b></Subtitle>
           </Row>
+          <motion.div initial={{ opacity: 0, y: -50}}
+                      whileInView={{ opacity: 1, y: 0}}
+                      transition={{ delay: 0.3, duration: 1 }}>
           <Container>
                 <Row className={`${styles.languageIcons} d-flex justify-content-center py-4`}>
                   <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
@@ -593,6 +604,7 @@ const BootcampPage = props => {
                   </Col>
               </Row>
           </Container>
+          </motion.div>
           <Container>
             <Row>
               <p style={{fontSize:"1rem"}} className="pt-5 text-center">
