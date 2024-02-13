@@ -91,6 +91,6 @@ export default [
     teamAlpha,
     bootcamp,
     tutorials,
-    internTestimonials
+    internTestimonials,
   ]
 

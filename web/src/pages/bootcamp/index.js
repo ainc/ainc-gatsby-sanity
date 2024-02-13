@@ -390,33 +390,33 @@ const BootcampPage = props => {
       <section id="carousel">
         <Container ref={sliderRef} className={`${styles.carousel} keen-slider pb-5 align-items-center`} > 
             <div className="keen-slider__slide number-slide1">
-              <div className="py-3 d-flex justify-content-center">
-                <StaticImage alt="Testimonial 1" className={`${styles.aincuTestimonial} pt-5 img-responsive`} src="../../images/bootcamp-testimonials/alyssa-holber-linkedin.png"/>
+              <div style={{width:"40%"}} className="justify-content-center mx-auto py-3">
+                <StaticImage placeholder="blurred" alt="Testimonial 1" className={`${styles.aincuTestimonial} px-5 pt-5`} src="../../images/bootcamp-testimonials/alyssa-holber-linkedin.png"/>
               </div>
             </div>
 
             <div  className="keen-slider__slide number-slide2">
-              <div style={{width: ""}} className="d-flex justify-content-center py-3">
-                <StaticImage alt="Testimonial 2" className={`${styles.aincuTestimonial} px-5 img-responsive`} src="../../images/bootcamp-testimonials/josh-dale-linkedin.png"/>
+              <div style={{width: "45%"}} className="justify-content-center mx-auto py-3">
+                <StaticImage placeholder="blurred" alt="Testimonial 2" className={`${styles.aincuTestimonial} px-5`} src="../../images/bootcamp-testimonials/josh-dale-linkedin.png"/>
               </div>
             </div>
 
             <div className="keen-slider__slide number-slide3">
-              <div style={{maxWidth: ""}} className="d-flex justify-content-center py-3">
-                <StaticImage alt="Testimonial 3" className={`${styles.aincuTestimonial} pt-5 img-responsive`} src="../../images/bootcamp-testimonials/mason-williams.png"/>
+              <div style={{maxWidth: "80%"}} className="justify-content-center mx-auto py-3">
+                <StaticImage placeholder="blurred" alt="Testimonial 3" className={`${styles.aincuTestimonial} pt-5`} src="../../images/bootcamp-testimonials/mason-williams.png"/>
               </div>
             </div>
             {/*
             <div className="keen-slider__slide number-slide4">
               <div style={{maxWidth: "40%"}}className=" justify-content-center mx-auto py-3">
-                <StaticImage alt="Tetimonial 4" className={`${styles.aincuTestimonial} px-5 pt-5`} src="../../images/bootcamp-testimonials/reic-sparks.png"/>
+                <StaticImage placeholder="blurred" alt="Tetimonial 4" className={`${styles.aincuTestimonial} px-5 pt-5`} src="../../images/bootcamp-testimonials/reic-sparks.png"/>
               </div>
             </div>
             */} 
 
             <div className="keen-slider__slide number-slide5">
-              <div style={{maxWidth: ""}} className="d-flex justify-content-center py-3">
-                <StaticImage alt="Tetimonial 5" className={`${styles.aincuTestimonial} px-5 mx-5 img-responsive`} src="../../images/bootcamp-testimonials/roger-mullins-linkedin.png"/>
+              <div style={{maxWidth: "50%"}} className="justify-content-center mx-auto px-5 py-3">
+                <StaticImage placeholder="blurred" alt="Tetimonial 5" className={`${styles.aincuTestimonial} px-5 mx-5`} src="../../images/bootcamp-testimonials/roger-mullins-linkedin.png"/>
               </div>
             </div>
               
@@ -478,7 +478,7 @@ const BootcampPage = props => {
               <motion.div initial={{ opacity: 0, y: -50 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.5, duration: 0.8 }}>
-              <StaticImage alt="Job Guarantee" src='../../images/bootcamp/job-guaranteed.png' style={{maxWidth: "275px"}} />
+              <StaticImage placeholder="blurred" alt="Job Guarantee" src='../../images/bootcamp/job-guaranteed.png' style={{maxWidth: "275px"}} />
               </motion.div>
             </Col>
           </Row>
@@ -579,28 +579,28 @@ const BootcampPage = props => {
           <Container>
                 <Row className={`${styles.languageIcons} d-flex justify-content-center py-4`}>
                   <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
-                    <StaticImage src="../../images/bootcamp/languages/html.png" alt="HTML" style={{maxWidth: "150px"}}/>
+                    <StaticImage placeholder="blurred" src="../../images/bootcamp/languages/html.png" alt="HTML" style={{maxWidth: "150px"}}/>
                   </Col>
                   <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
-                    <StaticImage src="../../images/bootcamp/languages/css.png" alt="CSS" style={{maxWidth: "150px"}}/>
+                    <StaticImage placeholder="blurred" src="../../images/bootcamp/languages/css.png" alt="CSS" style={{maxWidth: "150px"}}/>
                   </Col>
                   <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
-                    <StaticImage src="../../images/bootcamp/languages/javascript.png" alt="JavaScript" style={{maxWidth: "150px"}}/>
+                    <StaticImage placeholder="blurred" src="../../images/bootcamp/languages/javascript.png" alt="JavaScript" style={{maxWidth: "150px"}}/>
                   </Col>
                   <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center"> 
-                    <StaticImage src="https://d33wubrfki0l68.cloudfront.net/27b5922e90fa2d54a0c37d426870c849e8a41c72/b2845/assets/img/bootcamp/languages/python.png" alt="Python Programming language" style={{maxWidth: "150px"}}/>
+                    <StaticImage placeholder="blurred" src="https://d33wubrfki0l68.cloudfront.net/27b5922e90fa2d54a0c37d426870c849e8a41c72/b2845/assets/img/bootcamp/languages/python.png" alt="Python Programming language" style={{maxWidth: "150px"}}/>
                   </Col>
                   <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
-                   <StaticImage src="../../images/bootcamp/languages/git.png" alt="Git" style={{maxWidth: "150px"}}/>
+                   <StaticImage placeholder="blurred" src="../../images/bootcamp/languages/git.png" alt="Git" style={{maxWidth: "150px"}}/>
                   </Col>
                   <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center align-items-center">
-                    <StaticImage src="https://d33wubrfki0l68.cloudfront.net/4aa1ba4778ed686e1877a7c5ef5875e364033ca8/f7b05/assets/img/bootcamp/languages/django.png" alt="Django Framework" style={{maxWidth: "150px"}} className='mt-3'/>
+                    <StaticImage placeholder="blurred" src="https://d33wubrfki0l68.cloudfront.net/4aa1ba4778ed686e1877a7c5ef5875e364033ca8/f7b05/assets/img/bootcamp/languages/django.png" alt="Django Framework" style={{maxWidth: "150px"}} className='mt-3'/>
                   </Col>
                   <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
-                    <StaticImage src="https://d33wubrfki0l68.cloudfront.net/ee9d2a6ac7c95e3ee2695ce7a14627abeb797b0f/4631a/assets/img/bootcamp/languages/react.png" style={{maxWidth: "150px"}} alt="React Framework"/>
+                    <StaticImage placeholder="blurred" src="https://d33wubrfki0l68.cloudfront.net/ee9d2a6ac7c95e3ee2695ce7a14627abeb797b0f/4631a/assets/img/bootcamp/languages/react.png" style={{maxWidth: "150px"}} alt="React Framework"/>
                   </Col>
                   <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
-                    <StaticImage src="../../images/bootcamp/languages/agile.png" alt="Agile" style={{maxWidth: "150px"}}/>
+                    <StaticImage placeholder="blurred" src="../../images/bootcamp/languages/agile.png" alt="Agile" style={{maxWidth: "150px"}}/>
                   </Col>
               </Row>
           </Container>
@@ -635,49 +635,49 @@ const BootcampPage = props => {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3, duration: 0.8 }} className={`d-flex justify-content-center`}>
               <div>
-                <StaticImage alt="Bootcamp online application" src="../../images/bootcamp/online-application.png" className="" style={{maxWidth:"180px"}}/>
+                <StaticImage placeholder="blurred" alt="Bootcamp online application" src="../../images/bootcamp/online-application.png" className="" style={{maxWidth:"180px"}}/>
               </div>
               </motion.div>
               <motion.div initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.5, duration: 0.8 }} className={`${styles.applyCol} justify-content-center mb-5 mt-5`}>
               <div className="d-flex align-items-center">
-                <StaticImage alt="Arrow steps" src="../../images/bootcamp/arrow-steps.png" className={`${styles.arrowImg} `} style={{maxWidth:"180px"}}/>
+                <StaticImage placeholder="blurred" alt="Arrow steps" src="../../images/bootcamp/arrow-steps.png" className={`${styles.arrowImg} `} style={{maxWidth:"180px"}}/>
               </div>
               </motion.div>
               <motion.div initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.6, duration: 0.8 }} className={`d-flex justify-content-center`}>
               <div>
-                    <StaticImage alt="Basic challenges" src="../../images/bootcamp/basic-challenge.png" className="" style={{maxWidth:"180px"}}/>
+                    <StaticImage placeholder="blurred" alt="Basic challenges" src="../../images/bootcamp/basic-challenge.png" className="" style={{maxWidth:"180px"}}/>
               </div>
               </motion.div>
               <motion.div initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.7, duration: 0.8 }} className={`${styles.applyCol} justify-content-center mb-5 mt-5`}>
               <div className="d-flex align-items-center">
-                <StaticImage alt="Arrow steps" src="../../images/bootcamp/arrow-steps.png" className={`${styles.arrowImg}`} style={{maxWidth:"180px"}}/>
+                <StaticImage placeholder="blurred" alt="Arrow steps" src="../../images/bootcamp/arrow-steps.png" className={`${styles.arrowImg}`} style={{maxWidth:"180px"}}/>
               </div>
               </motion.div>
               <motion.div initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.8, duration: 0.8 }} className={`d-flex justify-content-center`}>
               <div>
-                    <StaticImage alt="in person interview" src="../../images/bootcamp/in-person-interview.png" className="" style={{maxWidth:"180px"}}/>
+                    <StaticImage placeholder="blurred" alt="in person interview" src="../../images/bootcamp/in-person-interview.png" className="" style={{maxWidth:"180px"}}/>
               </div>
               </motion.div>
               <motion.div initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: .9, duration: 0.8 }} className={`${styles.applyCol} justify-content-center mb-5 mt-5`}>
               <div className="d-flex align-items-center" >
-                <StaticImage alt="Arrow steps" src="../../images/bootcamp/arrow-steps.png" className={`${styles.arrowImg}`} style={{maxWidth:"180px"}}/>
+                <StaticImage placeholder="blurred" alt="Arrow steps" src="../../images/bootcamp/arrow-steps.png" className={`${styles.arrowImg}`} style={{maxWidth:"180px"}}/>
               </div>
               </motion.div>
               <motion.div initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: 1, duration: 0.8 }} className={`d-flex justify-content-center`}>
               <div>
-                    <StaticImage alt="Figure it out challenge" src="../../images/bootcamp/fio-challenge.png" className="" style={{maxWidth:"180px"}}/>
+                    <StaticImage placeholder="blurred" alt="Figure it out challenge" src="../../images/bootcamp/fio-challenge.png" className="" style={{maxWidth:"180px"}}/>
               </div>
               </motion.div>
           </Col>

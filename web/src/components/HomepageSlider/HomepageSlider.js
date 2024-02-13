@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col, Carousel} from "react-bootstrap"
 
 import BrandButton from "../UI/BrandButton/BrandButton";
 import Subtitle from "../UI/Subtitle/Subtitle";
@@ -15,6 +15,7 @@ import Wrapper from "../UI/Wrapper/Wrapper";
 const HomepageSlider = (props) => {
   const {scrollToSection, sectionIds} = props
 
+  /* Old slider
   const  [sliderRef] = useKeenSlider(
     {
       loop: true,
@@ -49,7 +50,7 @@ const HomepageSlider = (props) => {
         slider.on("updated", nextTimeout)
       },
     ]
-  )
+  )*/
 
   const query = useStaticQuery(graphql`
     query imageSlider {
@@ -74,16 +75,16 @@ const HomepageSlider = (props) => {
 
   const slides = (query.sanityImageSlider.slides || {});
   return (
-    <>
-      <div ref={sliderRef} className={`keen-slider`}>
-      {slides.map((slide,i) => (
-        <div className={`keen-slider__slide number-slide${i}`} key={i}>
-          <div style={{ 
+    <Carousel>
+      {slides.map((slide, i) => (
+        <Carousel.Item key={i}>
+          <div
+            style={{
               backgroundAttachment: 'fixed',
               backgroundImage: `url(${slide.image.asset.url})`,
               backgroundRepeat: 'no-repeat',
               backgroundSize: 'cover',
-              backgroundAttachment: 'scroll', //for safari
+              backgroundAttachment: 'scroll', // for safari
               height: '100vh',
               backgroundPosition: 'center center',
             }}
@@ -109,10 +110,9 @@ const HomepageSlider = (props) => {
               </Container>
             </Wrapper>
           </div>
-        </div>
+        </Carousel.Item>
       ))}
-      </div>
-    </>
+    </Carousel>
     
   );
 };

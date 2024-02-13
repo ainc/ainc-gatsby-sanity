@@ -36,7 +36,7 @@ const ProgramPage = ({ data }) => {
           </Row>
           <Row>
             <Col xs={{ offset: 1, span: 10 }}>
-              <StaticImage className='my-5 mw-100 w-75' src='../../images/5across-banner.png'></StaticImage>
+              <StaticImage placeholder="blurred" className='my-5 mw-100 w-75' src='../../images/5across-banner.png'></StaticImage>
             </Col>
           </Row>
           <Row>
@@ -97,7 +97,7 @@ const ProgramPage = ({ data }) => {
       <Container>
         <Row>
           <Col xs={{offset: 2, span: 10}} md={{offset: 1, span: 12}}>
-            <StaticImage className='my-4 mw-100 w-75' src='../../images/5across-banner.png'></StaticImage>
+            <StaticImage placeholder="blurred" className='my-4 mw-100 w-75' src='../../images/5across-banner.png'></StaticImage>
           </Col>
         </Row>
         <Row>
@@ -136,13 +136,13 @@ const ProgramPage = ({ data }) => {
         </Row>
         <Row>
           <Col xs={{offset: 2, span: 8}} md={{offset: 4, span: 12}}>
-            <StaticImage className='my-4' src='../../images/5across-logo-white.png'></StaticImage>
+            <StaticImage placeholder="blurred" className='my-4' src='../../images/5across-logo-white.png'></StaticImage>
           </Col>
         </Row>
         <Col xs={{offset: 2, span: 8}} md={{offset: 4, span: 3}}>
-          <StaticImage className='my-2 ms-5' src='../../images/ainc_podcast_logo.png'></StaticImage>
+          <StaticImage placeholder="blurred" className='my-2 ms-5' src='../../images/ainc_podcast_logo.png'></StaticImage>
           <p className={`mb-2 ms-3 text-center text-uppercase text-white ${styles.podcastText}`}>5 minute postgame recap</p>
-          <StaticImage className='my-2 ms-5' src='../../images/middle-tech.png'></StaticImage>
+          <StaticImage placeholder="blurred" className='my-2 ms-5' src='../../images/middle-tech.png'></StaticImage>
           <p className={`mb-4 ms-3 text-center text-uppercase text-white ${styles.podcastText}`}>5 Across deep dive</p>
         </Col>
       </Container>

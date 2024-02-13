@@ -449,7 +449,7 @@ const IndexPage = ({ data }) => {
                     transition={{ delay: .2, duration: 0.5 }}
                     whileHover={{ scale: 1.1 }} 
                     whileTap={{ scale: 0.9 }}>
-                  <StaticImage 
+                  <StaticImage placeholder="blurred" 
                     className='mx-auto d-block img-fluid' 
                     quality='100' 
                     src='../assets/svg/devices.svg' 
@@ -473,7 +473,7 @@ const IndexPage = ({ data }) => {
                     transition={{ delay: .2, duration: 0.5 }}
                     whileHover={{ scale: 1.1 }} 
                     whileTap={{ scale: 0.9 }}>
-                <StaticImage 
+                <StaticImage placeholder="blurred" 
                   className='mx-auto d-block img-fluid' 
                   quality='100' 
                   src='../assets/svg/stack.svg' 
@@ -495,7 +495,7 @@ const IndexPage = ({ data }) => {
                   transition={{ delay: .2, duration: 0.5 }}
                   whileHover={{ scale: 1.1 }} 
                   whileTap={{ scale: 0.9 }}>
-                <StaticImage 
+              <StaticImage placeholder="blurred" 
                   className='mx-auto d-block img-fluid' 
                   quality='100' 
                   src='../assets/svg/tools.svg' 
