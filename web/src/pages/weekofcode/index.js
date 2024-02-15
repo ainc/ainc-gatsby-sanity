@@ -7,36 +7,23 @@ import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import weekOfCodeRelayPicture from './images/week-of-code-relay.jpg';
 import Accordion from 'react-bootstrap/Accordion';
-import useEventbrite from 'react-eventbrite-popup-checkout';
+import EventBriteModal from '../../components/EventBriteModal/EventBriteModal';
 
 const Page = ({ data }) => {
 
-  const handleOrderCompleted = React.useCallback(() => {
-    console.log('Order completed successfully');
-  }, []);
 
-
-  const event_id = '801830545747' 
-  const iframeCheckout = useEventbrite({
-    eventId: event_id,
-    modal: true,
-    onOrderComplete: handleOrderCompleted,
-    iFrameHeight: 500, // optional
-    iFrameAutoAdapt: 100, // optional - The widget's viewport percentage (between 75-100)
-  });
-
-  const eventLink = 'https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-' + event_id
+  const eventLink = 'https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-801830545747'
 
   const ButtonRow = () => {
     return (
       <section className="mb-5">
         <h1 className="fs-6 fw-bold">2024 Dates</h1>
-        {iframeCheckout && (
-          <BrandButton id={iframeCheckout.id} className="px-4 mb-3" variant="primary">JUNE 10-13 {'>>'}</BrandButton>
-        )}
-        <a href={eventLink}>
-          <BrandButton href={eventLink} className="mx-4 px-4 mb-3" variant="primary">JULY 15-18 {'>>'}</BrandButton> 
-        </a>
+        <EventBriteModal id="801837556717">
+          <BrandButton className="px-4 mb-3 text-uppercase" variant="primary">JUNE 10-13 {'>>'}</BrandButton>
+        </EventBriteModal>
+        <EventBriteModal id="801837556717">
+          <BrandButton className="px-4 mb-3 text-uppercase" variant="primary">JULY 15-18 {'>>'}</BrandButton>
+        </EventBriteModal>
       </section>
     )
   }
@@ -52,7 +39,7 @@ const Page = ({ data }) => {
       </Col>
     </Row>
       
-      <h1 className="mb-4">2023 Summer Camps</h1>
+      <h1 className="mb-4">2024 Summer Camps</h1>
       <h2 className="fw-bold fs-4 mb-4">Ages: 9-16 | Beginner - Intermediate</h2>
       <p className="fst-italic mb-4">No experience required</p>
       <p className="mb-4">
@@ -118,11 +105,6 @@ const Page = ({ data }) => {
       </Col>
       </Row>
 
-    <Row>
-      {iframeCheckout && (
-        <div id={iframeCheckout.id}>Button</div>
-      )}
-    </Row>
 
 
     <h1 style={{fontSize: '50px'}}  className="fw-bold">FAQs</h1>

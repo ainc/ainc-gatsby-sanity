@@ -185,7 +185,6 @@ const fiveAcrossPage = ({ data }) => {
                                     </Row>
                                 </a>
                             </Container>
-
                         ))}
                     </Col>
                     <Col className="d-sm-none"></Col>
