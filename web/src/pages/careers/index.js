@@ -58,7 +58,7 @@ const CareersPage = ({ data }) => {
           </Col>
           <Col md="auto" className="d-flex justify-content-center align-items-center flex-column mx-5">
             <Row className='my-3'>
-              <Subtitle>Apax Software</Subtitle>
+              <Subtitle>APAX Software</Subtitle>
             </Row>
             <Row>
               <a href="https://apaxsoftware.com/careers"
