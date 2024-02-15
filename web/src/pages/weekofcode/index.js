@@ -19,7 +19,7 @@ const Page = ({ data }) => {
   const event_id = '801830545747' 
   const iframeCheckout = useEventbrite({
     eventId: event_id,
-    modal: false,
+    modal: true,
     onOrderComplete: handleOrderCompleted,
     iFrameHeight: 500, // optional
     iFrameAutoAdapt: 100, // optional - The widget's viewport percentage (between 75-100)
@@ -31,9 +31,9 @@ const Page = ({ data }) => {
     return (
       <section className="mb-5">
         <h1 className="fs-6 fw-bold">2024 Dates</h1>
-        <a href={eventLink}>
-          <BrandButton href={eventLink} className="px-4 mb-3" variant="primary">JUNE 10-13 {'>>'}</BrandButton> 
-        </a>
+        {iframeCheckout && (
+          <BrandButton id={iframeCheckout.id} className="px-4 mb-3" variant="primary">JUNE 10-13 {'>>'}</BrandButton>
+        )}
         <a href={eventLink}>
           <BrandButton href={eventLink} className="mx-4 px-4 mb-3" variant="primary">JULY 15-18 {'>>'}</BrandButton> 
         </a>
@@ -120,7 +120,7 @@ const Page = ({ data }) => {
 
     <Row>
       {iframeCheckout && (
-        <div id={iframeCheckout.id} role="form" title="eventbrite" />
+        <div id={iframeCheckout.id}>Button</div>
       )}
     </Row>
 

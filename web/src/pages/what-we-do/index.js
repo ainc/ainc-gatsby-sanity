@@ -251,7 +251,7 @@ const WhatWeDoPage = ({ data }) => {
                         </div>
                         <p className={`${styles.logoDescription} mt-3 mb-5`}>
                             The best way to launch a career in the rapdily growing Salesforce ecosystem is through becoming
-                            a certified Administrator for the world's most popular CRM platform. Thsi part time accelerator
+                            a certified Administrator for the world's most popular CRM platform. This part time accelerator
                             will prepare you for your new career.
                         </p>
                     </Col>
