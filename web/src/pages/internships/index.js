@@ -217,9 +217,9 @@ const InternshipsPage = ({ data }) => {
         <Row className='mt-4 flex-column flex-sm-row'>
           <Col className='mt-5 '>
           <Title className='text--bright-red text-uppercase mt-5 pt-5' style={{textAlign: 'right'}}>Why Awesome Inc?</Title>
-          <p className={`${styles.paragraphAlign} my-5`} style={{textAlign: 'right', marginLeft: 'auto', width: '65%'}}>
+          <p className={`my-5`} style={{textAlign: 'right', marginLeft: 'auto', width: '65%'}}>
           In addition to the free t-shirt and unlimited oreos, we'll provide you with an opportunity to improve your skills,
-          portfolio, and network. Since 2009, Awesome Inc has built a work hard, play ahrd culture capable of accelerating you towards your definition
+          portfolio, and network. Since 2009, Awesome Inc has built a work hard, play hard culture capable of accelerating you towards your definition
           of awesome. Our goal is to give you the best experience by helping you achieve your goals; whether that is getting into your dream school, working
           for your favorite company, or starting something of your own.
           </p>

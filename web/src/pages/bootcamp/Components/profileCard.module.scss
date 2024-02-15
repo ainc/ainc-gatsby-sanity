@@ -9,13 +9,11 @@
             width: 120px;
             border-radius: 50%;
             margin-top: 30px;
-            margin-left: 120px;
 
         }
         @include screen-lg{
             width: 150px;
             border-radius: 50%;
-            margin-left: 15px;
             margin-bottom: 30px;
 
         
@@ -23,20 +21,17 @@
         @include screen-md{
             width: 150px;
             border-radius: 50%;
-            margin-left: 65px;
             margin-bottom: 30px;
             
         }
         @include screen-sm{
             width: 150px;
             border-radius: 50%;
-            margin-left: -100px;
         }
         
         @include screen-xs{
             width: 150px;
             border-radius: 50%;
-            margin-left: -20px;
         }
     
 
