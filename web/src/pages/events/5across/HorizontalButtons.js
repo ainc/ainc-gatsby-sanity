@@ -6,7 +6,7 @@ import * as styles from "./fiveAcross.module.scss";
 const HorizontalButtons = ( props ) => {
   return (
     <>
-      <Col md="auto" className="d-flex justify-content-center">
+      <Col md="auto" className="d-flex justify-content-center mb-3">
           <a href="https://forms.zohopublic.com/virtualoffice9155/form/5AcrossApplication1/formperma/i3hM2QiFcJG1DM_nCW8jQvMplp5UUFgRbKc5Ev8kuiA"
             target="_blank"
             rel="noopener">

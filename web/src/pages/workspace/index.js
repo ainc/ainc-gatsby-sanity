@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
+import { motion } from "framer-motion";
 // import { graphql } from "gatsby";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import SEO from "../../components/seo";
@@ -38,14 +39,19 @@ const WorkspacePage = () => {
     <Layout>
       {/* Hero */}
       <section>
+        
         <div className={styles.headerWorkspace}>
           <Container>
             <Row>
               <Col className={` ${styles.lgxHeadingArea} ${styles.lgxHeading} `}>
+                <motion.div initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.5, duration: 0.8 }}>
                 <Title className={`${styles.headingTitle} ${styles.extraBold} text-white`}>Workspace</Title>
                 <Subtitle className={styles.headingSubtitle}>
                   <i className="text-white">Get your best work done here.</i>
                 </Subtitle>
+                </motion.div>
               </Col>
             </Row>
           </Container>
@@ -65,6 +71,7 @@ const WorkspacePage = () => {
               Become a member
             </Title>
           </Row>
+          
           <Row>
             <Col md={4} sm={12}>
               <BorderlessCard
