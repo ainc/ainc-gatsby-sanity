@@ -232,7 +232,7 @@ const WhatWeDoPage = ({ data }) => {
                         </div>
                         <p className={`${styles.logoDescription} mt-3 mb-5`}>
                             The Intro to Design course is created to focus on helping professionals in the marketing
-                            and events workspace. No prior design knowledge or experience is required, but basic computer skills.
+                            and events workspace. No prior design knowledge or experience is required but basic computer skills.
                         </p>
                     </Col>
                     <Col lg={4} md={12} className="mt-3 d-flex text-center flex-column align-items-center mb-5">
@@ -250,8 +250,8 @@ const WhatWeDoPage = ({ data }) => {
                             <Image className={`${styles.logo} img-fluid`} src={salesforce} alt="Salesforce Accelerator" />
                         </div>
                         <p className={`${styles.logoDescription} mt-3 mb-5`}>
-                            The best way to launch a career in the rapdily growing Salesforce ecosystem is through becoming
-                            a certified Administrator for the world's most popular CRM platform. Thsi part time accelerator
+                            The best way to launch a career in the rapidly growing Salesforce ecosystem is through becoming
+                            a certified Administrator for the world's most popular CRM platform. This part time accelerator
                             will prepare you for your new career.
                         </p>
                     </Col>
@@ -264,7 +264,7 @@ const WhatWeDoPage = ({ data }) => {
                             <Image className={`${styles.logo} mx-auto`} src={bootcamp} alt="Web Developer Bootcamp" />
                         </div>
                         <p className={`${styles.logoDescription} mt-3 mb-5 text-center`}>
-                            The Web Developer Bootcamp is an intenstive, hands-on program teachign web and
+                            The Web Developer Bootcamp is an intenstive, hands-on program teaching web and
                             software development, with a focus on job-ready skills. In just 16 weeks, we'll help
                             you achieve your goals and land your dream job as a developer.
                         </p>
@@ -346,7 +346,7 @@ const WhatWeDoPage = ({ data }) => {
                         </div>
                         <p className={`${styles.logoDescription} mt-3 mb-5 text-center`}>
                             UndrCvr Lex is a partnership between Awesome Inc, BaseHere, and the Lexington Chamber of Commerce
-                            that provides opportunity to introudce the community and college student talent to all of the tech organizations in Lexington.
+                            that provides opportunity to introduce the community and college student talent to all of the tech organizations in Lexington.
                         </p>
                     </Col>
                 </Row>
