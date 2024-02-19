@@ -33,7 +33,7 @@ const Startups = () => {
           <Col>
             <div className="h-100 my-5">
               <a href='/fellowship'>
-              <StaticImage placeholder="blurred" 
+              <StaticImage
                   className='d-block mx-auto m-5 bg--brand-light rounded-circle' 
                   quality='100'
                   objectFit="contain"
