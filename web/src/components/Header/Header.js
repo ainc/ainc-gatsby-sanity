@@ -63,6 +63,13 @@ const Header = () => {
       <Container>
         <Navbar.Brand className={navbarBrand}>
           <a href="/">
+          <StaticImage placeholder="blurred"
+              src="../../images/ainc-15-Full-Color-Horizontal.png"
+              width={200}
+              className="img-responsive d-inline-block align-top"
+              alt="Awesome Inc Logo"
+            />
+            {/* normal logo
             <StaticImage placeholder="blurred"
               src="../../images/ainc-logo-horizontal-white-text.png"
               width={200}
@@ -70,6 +77,7 @@ const Header = () => {
               alt="Awesome Inc Logo"
               loading="eager"
             />
+            */}
           </a>
         </Navbar.Brand>
 

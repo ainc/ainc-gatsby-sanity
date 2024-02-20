@@ -20,7 +20,7 @@ import coreValues from "../../images/about-core-values.png";
 const AboutPage = ({ data }) => {
 
   const teamMembers = (data.allSanityTeamMember.nodes || {})
-  const accomplishments = (data.sanityAccomplishments || {})
+  const accomplishments = (data.allSanityAccomplishments.nodes[1] || {})
 
   return (
     <Layout>
@@ -261,21 +261,23 @@ const AboutPage = ({ data }) => {
 
 export const query_accomplishments = graphql`
   query {
-    sanityAccomplishments {
-      header
-      accomplishment1 {
-        asset {
-          gatsbyImageData
+    allSanityAccomplishments {
+      nodes {
+        header
+        accomplishment1 {
+          asset {
+            gatsbyImageData
+          }
         }
-      }
-      accomplishment2 {
-        asset {
-          gatsbyImageData
+        accomplishment2 {
+          asset {
+            gatsbyImageData
+          }
         }
-      }
-      accomplishment3 {
-        asset {
-          gatsbyImageData
+        accomplishment3 {
+          asset {
+            gatsbyImageData
+          }
         }
       }
     }
