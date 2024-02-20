@@ -145,12 +145,16 @@ const AboutPage = ({ data }) => {
               </Col>
             </Row>
             <Row className="text-center d-flex justify-content-center mt-3 mb-3">
+            <motion.div initial={{ opacity: 0, y: 50}}
+                                  whileInView={{ opacity: 1, y: 0}}
+                                  transition={{ delay: 0.5, duration: 1 }}>
               <Col className=''>
                 <BrandButton onClick={handleShow} className='secondary px-3 mx-5 my-3'>Watch</BrandButton>
                 <a href="https://issuu.com/awesomeinclex/docs/awesomeinc_2023_impactreport?ff" target="_blank">
                   <BrandButton className='secondary px-3 mx-5'>Read</BrandButton>
                 </a>
               </Col>
+              </motion.div>
             </Row>
             <ModalCustom 
             lgShow = {lgShow} 
