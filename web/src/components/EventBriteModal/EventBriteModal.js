@@ -12,10 +12,8 @@ const EventBriteModal = (props) => {
 
     const modalButtonCheckout = useEventbrite({
         eventId: props.id,
-        modal: false,
+        modal: true,
         onOrderComplete: handleOrderCompleted,
-        iFrameHeight: 500, // optional
-        iFrameAutoAdapt: 100, // optional - The widget's viewport percentage (between 75-100)    
     });
     const handleClick = () => {
         setShowModal(true);
@@ -25,14 +23,33 @@ const EventBriteModal = (props) => {
         setShowModal(false);
       };
   return (
-    <>
-    <button onClick={handleClick} style={{background: 'none', border: 'none'}}>{props.children}</button>
-            <Modal show={showModal} onHide={handleCloseModal}>
-            {modalButtonCheckout && (
-                <div id={modalButtonCheckout.id} />
-            )}
-            </Modal>
-    </>
+    <div>
+      {modalButtonCheckout && (  
+        <button id={modalButtonCheckout.id} type="button" style={{background:'none', border:'none'}}>
+          {props.children}
+        </button>
+      )}
+    {/* one soluttion - iframe
+      <button onClick={handleClick} type="button">button</button>
+
+      <Modal show={showModal} onHide={handleCloseModal} centered>
+        <Modal.Body>
+        {modalButtonCheckout && (
+            <iframe 
+              src={props.link} 
+              title="Eventbrite Checkout" 
+              width="100%" 
+              height="500px" 
+              frameborder="0" 
+              allowtransparency="true" 
+              scrolling="auto" 
+              style={{ border: '1px solid #ddd' }}
+              ></iframe>
+        )}
+          </Modal.Body>
+      </Modal>
+        */}
+    </div>
   );
 };
 
