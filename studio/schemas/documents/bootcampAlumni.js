@@ -18,17 +18,17 @@ export default {
     },
     {
       name: 'github',
-      type: 'string',
+      type: 'url',
       title: 'GitHub'
     },
     {
       name: 'portfolio',
-      type: 'string',
+      type: 'url',
       title: 'Portfolio'
     },
     {
       name: 'linkedin',
-      type: 'string',
+      type: 'url',
       title: 'LinkedIn'
     },
     {
