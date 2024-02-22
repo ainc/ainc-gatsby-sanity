@@ -44,6 +44,7 @@ import notes from './documents/notes'
 import bootcamp from './documents/bootcamp'
 import tutorials from './documents/tutorials'
 import internTestimonials from './documents/internTestimonials'
+import bootcampProgramGuide from './documents/bootcampProgramGuide'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
@@ -82,6 +83,7 @@ export default [
     bootcampProfileCard,
     bootcampAlumni,
     bootcampClass,
+    bootcampProgramGuide,
     press,
     links,
     careers,
