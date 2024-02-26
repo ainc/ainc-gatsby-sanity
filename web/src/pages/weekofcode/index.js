@@ -9,47 +9,30 @@ import weekOfCodeRelayPicture from './images/week-of-code-relay.jpg';
 import Accordion from 'react-bootstrap/Accordion';
 import EventBriteModal from '../../components/EventBriteModal/EventBriteModal';
 import useEventbrite from 'react-eventbrite-popup-checkout';
+import { graphql } from "gatsby";
+
 
 const Page = ({ data }) => {
 
 
-  const eventLink = 'https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-801830545747'
-  const handleOrderCompleted = React.useCallback(() => {
-    console.log('Order completed successfully.');
-}, []);
-  const modalButtonCheckout1 = useEventbrite({
-    eventId: '801830545747',
-    modal: true,
-    onOrderComplete: handleOrderCompleted,
-    modalTriggerElementId: 'eventbrite-widget-modal-trigger-801830545747',
+  const event1Link = 'https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-801830545747'
+  const event2Link = 'https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-801837556717'
+  const event3Link = 'https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-837800292227'
 
-  });
-  const modalButtonCheckout2 = useEventbrite({
-    eventId: '801837556717',
-    modal: true,
-    onOrderComplete: handleOrderCompleted,
-    modalTriggerElementId: 'eventbrite-widget-modal-trigger-801837556717',
 
-  });
+
   const ButtonRow = () => {
     return (
       <section className="mb-5">
         <h1 className="fs-6 fw-bold">2024 Dates</h1>
-        {modalButtonCheckout1 && (  
-        <button id={`eventbrite-widget-modal-trigger-${modalButtonCheckout1.id}`} type="button" >
-          button1
-        </button>
-      )}      
-      {modalButtonCheckout2 && (  
-        <button id={`eventbrite-widget-modal-trigger-${modalButtonCheckout2.id}`} type="button" >
-          button2
-        </button>
-      )}
-        <EventBriteModal id="801830545747">
-          <BrandButton className="px-4 mb-3 text-uppercase" variant="primary">JUNE 10-13 {'>>'}</BrandButton>
+        <EventBriteModal link={event1Link}>
+          <BrandButton className="px-4 mb-3 mx-2 text-uppercase" variant="primary">JUNE 10-13 {'>>'}</BrandButton>
         </EventBriteModal>
-        <EventBriteModal id="801837556717" >
-          <BrandButton className="px-4 mb-3 text-uppercase" variant="primary">JULY 15-18 {'>>'}</BrandButton>
+        <EventBriteModal link={event2Link} >
+          <BrandButton className="px-4 mb-3 mx-1 text-uppercase" variant="primary">JULY 15-18 {'>>'}</BrandButton>
+        </EventBriteModal>
+        <EventBriteModal link={event3Link}>
+          <BrandButton className="px-4 mb-3 mx-2 text-uppercase" variant="primary">JULY 22-25 {'>>'}</BrandButton>
         </EventBriteModal>
       </section>
     )
