@@ -355,7 +355,7 @@ const WhatWeDoPage = ({ data }) => {
                     </Col>
                 </Row>
                 <Row className="align-items-center justify-content-center mb-5">
-                    <Col xs="auto" className="d-inline-flex align-items-center mb-5">
+                    <Col xs="auto" className="d-inline-flex align-items-center mb-5 mt-3 pt-4">
                         <Image className={`${styles.asterisk} mt-5`} src={redAsterisk} alt="Red asterisk"/>
                         <p className="text-center mb-0 ml-2 mt-5">Awesome Inc is a contributor of this program, not an owner</p>
                     </Col>
