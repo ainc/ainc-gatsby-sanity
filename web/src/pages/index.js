@@ -39,6 +39,7 @@ import DevicesIcon from "../assets/svg/devices.svg";
 import StackIcon from "../assets/svg/stack.svg";
 import ToolsIcon from "../assets/svg/tools.svg";
 import { withTheme } from "styled-components";
+import EventBriteModal from "../components/EventBriteModal/EventBriteModal";
 
 export const query = graphql`
 query IndexPageQuery($currentDate: Date!) { 
@@ -284,14 +285,14 @@ const IndexPage = ({ data }) => {
                   whileInView={{ opacity: 1 , y: 0}}
                   transition={{ duration: 1 }} 
               >
-              <FeatureCard className='ms-0'
-                title={feature_event.eventName}
-                date={feature_event.date}
-                image={feature_event.picture.asset.gatsbyImageData}
-                host={feature_event.host}
-                location={feature_event.location}
-                link={feature_event.linkToEvent}
-              />
+                <FeatureCard className='ms-0'
+                  title={feature_event.eventName}
+                  date={feature_event.date}
+                  image={feature_event.picture.asset.gatsbyImageData}
+                  host={feature_event.host}
+                  location={feature_event.location}
+                  link={feature_event.linkToEvent}
+                />
               </motion.div>
             </Col>
             <Col className="card__secondary" xs={12} sm={10} md={8} lg={5} xl={5}>
