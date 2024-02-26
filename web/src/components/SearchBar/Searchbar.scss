@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+@import "../../styles/mixins"; 
 .autocomplete-container {
     margin: 20px auto;
   }
@@ -10,7 +12,7 @@
     border-radius: 5px;
   }
   .autocomplete-input:focus {
-    color: styles.$brand-red-bright;
+    color: $brand-red-bright;
   }
   
   .autocomplete-list {

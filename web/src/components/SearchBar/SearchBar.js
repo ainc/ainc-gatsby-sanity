@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage } from 'gatsby-plugin-image'
-import * as styles from "./SearchBar.css";
+import * as styles from "./SearchBar.scss";
 
 const SearchBar = () => {
   const data = useStaticQuery(graphql`
@@ -81,7 +81,6 @@ const SearchItem = ({index, title, description, author, blogUrl}) => {
   return (
     <li key={index}>
       <a href={"/blog/" + blogUrl}>
-        
         <strong>{title}</strong> by {author}
         <p>{description}</p>
       </a>

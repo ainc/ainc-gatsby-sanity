@@ -94,7 +94,7 @@ const BlogPage = ({pageContext, data }) => {
                     <ModalCustom
                         lgShow={lgShowSearch}
                         hide={handleCloseSearch}
-                        title="Search our blogs"
+                        title="Search our blogs!"
                         content={
                             <Container fluid>
                                 <SearchBar/>
