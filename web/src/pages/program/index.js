@@ -22,7 +22,7 @@ const ProgramPage = ({ data }) => {
   const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[1].presentingSp.link || {});
   const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[1].presentingSp.image.asset.gatsbyImageData || {});
 
-  const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors || {});
+  const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes[1].suppourtingSponsors || {});
   const teams = (data.sanityProgram.teams || {});
   const judges = (data.sanityProgram.judges || {});
   const nextEventLink = (data.sanityProgram.next_event_link.url)
