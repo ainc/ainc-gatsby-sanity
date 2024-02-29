@@ -138,7 +138,7 @@ const LearnPage = ({ data }) => {
             </Row>
             <Row>
               <Col xs={12} md={{ offset: 2, span: 8}}>
-                <Carousel className={styles.carousel} indicators={false} controls={false} fade={true}>
+                <Carousel className={styles.carousel} indicators={false} controls={false} >
                 
                   <Carousel.Item interval={5000}>
                   <BlockQuote>

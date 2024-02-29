@@ -14,19 +14,21 @@ import ProgramLinkTree from './ProgramLinkTree';
 const ProgramPage = ({ data }) => {
   const allProgram = (data.sanityProgram || {});
   const allSanityFiveAcrossSponsors = (data.allSanityFiveAcrossSponsors.nodes || {});
-  const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes[1].titleSp.title || {});
-  const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[1].titleSp.link || {});
-  const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[1].titleSp.image.asset.gatsbyImageData || {});
+  const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes.at(-1).titleSp.title || {});
+  const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes.at(-1).titleSp.link || {});
+  const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes.at(-1).titleSp.image.asset.gatsbyImageData || {});
 
-  const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes[1].presentingSp.title || {});
-  const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[1].presentingSp.link || {});
-  const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[1].presentingSp.image.asset.gatsbyImageData || {});
+  const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes.at(-1).presentingSp.title || {});
+  const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes.at(-1).presentingSp.link || {});
+  const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes.at(-1).presentingSp.image.asset.gatsbyImageData || {});
 
-  const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes[1].suppourtingSponsors || {});
+  const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes.at(-1).suppourtingSponsors || {});
+
   const teams = (data.sanityProgram.teams || {});
   const judges = (data.sanityProgram.judges || {});
   const nextEventLink = (data.sanityProgram.next_event_link.url)
 
+  console.log(data.allSanityFiveAcrossSponsors.nodes.at(-1).titleSp.title)
   return (
     <Layout>
       {/* still need to fix heading levels to increase by one */}
