@@ -62,7 +62,7 @@ const SearchBar = () => {
     return (
       <div className="autocompleteContainer">
         <input
-          className="form-control autocomplete-input"
+          className="form-control"
           type="text"
           placeholder="Search by title or author"
           value={searchTerm}
@@ -70,9 +70,12 @@ const SearchBar = () => {
           fieldtype="7"
         />
         <ul className="autocomplete-list">
-          {searchResults.map((item, index) => (
-            <SearchItem key={index} title={item.title} description={item.description} author={item.author} blogUrl={item.blogURL} />
-          ))}
+        {searchResults.length > 0 || searchTerm == '' ? (
+          searchResults.map((item, index) => (
+              <SearchItem key={index} title={item.title} description={item.description} author={item.author} blogUrl={item.blogURL} />
+          ))
+          ) : (<h3 className='mt-3'>No blogs found.</h3>)
+        }
         </ul>
       </div>
     )
