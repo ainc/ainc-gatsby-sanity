@@ -1,5 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic);
 @import '../../styles/variables.scss';
+@import '../../styles/mixins';
+
 
 * {
     font-family: "Open Sans", sans-serif;
@@ -12,8 +14,22 @@
     border-color: rgba(119, 119, 119, 0.353);
     border-width: 1px;
     border-style: solid;
-    width: 26vw;
-    height: 20vh;
+    @include screen-xs{
+        width: 75vw;
+        height: 50vh;
+    }
+    @include screen-md{
+        width: 45vw;
+        height: 35vh;
+    }
+    @include screen-lg {
+        width: 32vw;
+        height: 35vh;
+    }
+    @include screen-max{
+        width: 26vw;
+        height: 25vh;
+    }
 }
 
 .box:hover {
