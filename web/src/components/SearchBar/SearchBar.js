@@ -42,7 +42,8 @@ const SearchBar = () => {
     author: node.reference.name,
     blogURL: node.slug.current,
     imageUrl: node.thumbnail.asset.url,
-    description: node.previewText
+    description: node.previewText,
+    date: node.date
     }));
 
     const [searchTerm, setSearchTerm] = useState('');
@@ -54,6 +55,7 @@ const SearchBar = () => {
         item.title.toLowerCase().includes(event.target.value.toLowerCase()) ||
         item.author.toLowerCase().includes(event.target.value.toLowerCase())
       );
+      results.sort((a, b) => new Date(b.date) - new Date(a.date));
       setSearchResults(results);
     };
   
@@ -69,17 +71,17 @@ const SearchBar = () => {
         />
         <ul className="autocomplete-list">
           {searchResults.map((item, index) => (
-            <SearchItem index={index} title={item.title} description={item.description} author={item.author} blogUrl={item.blogURL} />
+            <SearchItem key={index} title={item.title} description={item.description} author={item.author} blogUrl={item.blogURL} />
           ))}
         </ul>
       </div>
     )
 };
 
-const SearchItem = ({index, title, description, author, blogUrl}) => { 
+const SearchItem = ({key, title, description, author, blogUrl}) => { 
 
   return (
-    <li key={index}>
+    <li key={key}>
       <a href={"/blog/" + blogUrl}>
         <strong>{title}</strong> by {author}
         <p>{description}</p>
