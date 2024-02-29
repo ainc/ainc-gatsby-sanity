@@ -2,6 +2,7 @@ import React from 'react';
 import BrandButton from '../../../components/UI/BrandButton/BrandButton';
 import { Col } from "react-bootstrap";
 import * as styles from "./fiveAcross.module.scss";
+import EventBriteModal from '../../../components/EventBriteModal/EventBriteModal';
 
 const HorizontalButtons = ( props ) => {
   return (
@@ -14,12 +15,10 @@ const HorizontalButtons = ( props ) => {
             </a>
          
       </Col>
-      <Col md="auto" className="d-flex justify-content-center">
-        <a href={props.register}
-          target="_blank"
-          rel="noopener">
+      <Col md="auto" className={`${styles.customCol} justify-content-center`}>
+        <EventBriteModal link={props.register}>
           <BrandButton className={`secondary text-uppercase`}>Register to Attend</BrandButton>
-        </a>
+        </EventBriteModal>
       </Col>
     </>
   )

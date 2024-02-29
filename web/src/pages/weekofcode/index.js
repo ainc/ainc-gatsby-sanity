@@ -7,36 +7,30 @@ import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import weekOfCodeRelayPicture from './images/week-of-code-relay.jpg';
 import Accordion from 'react-bootstrap/Accordion';
+import EventBriteModal from '../../components/EventBriteModal/EventBriteModal';
 import useEventbrite from 'react-eventbrite-popup-checkout';
+import { graphql } from "gatsby";
+
 
 const Page = ({ data }) => {
 
-  const handleOrderCompleted = React.useCallback(() => {
-    console.log('Order completed successfully');
-  }, []);
-
-
-  const event_id = '801830545747' 
-  const iframeCheckout = useEventbrite({
-    eventId: event_id,
-    modal: false,
-    onOrderComplete: handleOrderCompleted,
-    iFrameHeight: 500, // optional
-    iFrameAutoAdapt: 100, // optional - The widget's viewport percentage (between 75-100)
-  });
-
-  const eventLink = 'https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-' + event_id
+  const event1Link = 'https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-801830545747'
+  const event2Link = 'https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-801837556717'
+  const event3Link = 'https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-837800292227'
 
   const ButtonRow = () => {
     return (
       <section className="mb-5">
-        <h3 className="fs-6 fw-bold">2024 Dates</h3>
-        <a href={eventLink}>
-          <BrandButton href={eventLink} className="px-4 mb-3" variant="primary">JUNE 10-13 {'>>'}</BrandButton> 
-        </a>
-        <a href={eventLink}>
-          <BrandButton href={eventLink} className="mx-4 px-4 mb-3" variant="primary">JULY 15-18 {'>>'}</BrandButton> 
-        </a>
+        <h1 className="fs-6 fw-bold">2024 Dates</h1>
+        <EventBriteModal link={event1Link}>
+          <BrandButton className="px-4 mb-3 mx-2 text-uppercase" variant="primary">JUNE 10-13 {'>>'}</BrandButton>
+        </EventBriteModal>
+        <EventBriteModal link={event2Link} >
+          <BrandButton className="px-4 mb-3 mx-1 text-uppercase" variant="primary">JULY 15-18 {'>>'}</BrandButton>
+        </EventBriteModal>
+        <EventBriteModal link={event3Link}>
+          <BrandButton className="px-4 mb-3 mx-2 text-uppercase" variant="primary">JULY 22-25 {'>>'}</BrandButton>
+        </EventBriteModal>
       </section>
     )
   }
@@ -51,8 +45,8 @@ const Page = ({ data }) => {
         <ButtonRow />
       </Col>
     </Row>
-      
-      <h3 className="fw-bold fs-4 mb-4">Ages: 9-16 | Beginner - Intermediate</h3>
+      <h1 className="mb-4">2024 Summer Camps</h1>
+      <h2 className="fw-bold fs-4 mb-4">Ages: 9-16 | Beginner - Intermediate</h2>
       <p className="fst-italic mb-4">No experience required</p>
       <p className="mb-4">
         Every parent today wants their kids to learn how to interact with 
@@ -117,11 +111,6 @@ const Page = ({ data }) => {
       </Col>
       </Row>
 
-    <Row>
-      {iframeCheckout && (
-        <div id={iframeCheckout.id} role="form" title="eventbrite" />
-      )}
-    </Row>
 
 
     <h1 className="fw-bold">FAQs</h1>

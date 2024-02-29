@@ -12,7 +12,7 @@ import Layout from "../../../components/Layout/Layout";
 import SocialMedia from "../../../components/SocialMedia/SocialMedia";
 import Subtitle from "../../../components/UI/Subtitle/Subtitle";
 import Title from "../../../components/UI/Title/Title";
-
+import EventBriteModal from "../../../components/EventBriteModal/EventBriteModal";
 import "../../../styles/main.scss"
 import * as styles from "./fiveAcross.module.scss";
 
@@ -157,7 +157,7 @@ const fiveAcrossPage = ({ data }) => {
                     <Col lg="4" xs="8" className="bg-white rounded-4">
                         {nextFiveAcross.map((node) => (
                             <Container fluid className="mt-2">
-                                <a href={node.linkToEvent}>
+                                <EventBriteModal link={node.linkToEvent}>
                                     <Row className=''>
                                         <Col lg="4" md="4" sm="4" className="">
                                             <Row className="d-flex flex-column align-items-center">
@@ -183,9 +183,8 @@ const fiveAcrossPage = ({ data }) => {
                                             <h3 className="text--black fs-6">{node.eventName}</h3>{/*title */}
                                         </Col>
                                     </Row>
-                                </a>
+                                </EventBriteModal>
                             </Container>
-
                         ))}
                     </Col>
                     <Col className="d-sm-none"></Col>
