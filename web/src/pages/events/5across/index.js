@@ -18,15 +18,15 @@ import * as styles from "./fiveAcross.module.scss";
 
 const fiveAcrossPage = ({ data }) => {
 
-    const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes[1].titleSp.title || {});
-    const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[1].titleSp.link || {});
-    const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[1].titleSp.image.asset.gatsbyImageData || {});
+    const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes.at(-1).titleSp.title || {});
+    const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes.at(-1).titleSp.link || {});
+    const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes.at(-1).titleSp.image.asset.gatsbyImageData || {});
 
-    const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes[1].presentingSp.title || {});
-    const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[1].presentingSp.link || {});
-    const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[1].presentingSp.image.asset.gatsbyImageData || {});
+    const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes.at(-1).presentingSp.title || {});
+    const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes.at(-1).presentingSp.link || {});
+    const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes.at(-1).presentingSp.image.asset.gatsbyImageData || {});
 
-    const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes[1].suppourtingSponsors || {});
+    const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes.at(-1).suppourtingSponsors || {});
     const nextFiveAcross = (data.allSanityEvents.nodes || {});
 
     const fiveAcrossWinners = (data.allSanityFiveAcrossWinners.edges || {});
