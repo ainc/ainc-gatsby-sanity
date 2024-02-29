@@ -2,7 +2,7 @@ import React from "react";
 
 import { Col, Row, Card } from "react-bootstrap";
 import Moment from 'moment';
-
+import EventBriteModal from "../EventBriteModal/EventBriteModal";
 const HorizontalCard = (props) => {
 
   const { data, error } = props;
@@ -10,10 +10,10 @@ const HorizontalCard = (props) => {
   const time = Moment(props.date).format('MMMM DD, YYYY')
 
   return (
-      <Card className={` mt-3 p-0 ms-1 ${props.className}`}>
-        <a href={props.link} className='link--brand-black' target="_blank">
+    <Card className={` mt-3 p-0 ms-1 ${props.className}`}>
+      <EventBriteModal link={props.link}>
         <Row className='row row-cols-6'>
-          <Col className='d-flex align-items-center 'xs={1} md={4} lg={5} xl={4}>
+          <Col className='d-flex align-items-center' xs={1} md={4} lg={5} xl={4}>
             <Card.Img src={props.image?.images?.fallback.src || '../../images/ainc-logo-horizontal-white-text.png'} alt={props.title} className={`p-2 card__img--overlay object-fit-cover`} />
           </Col>
           <Col xs={{span: 12, offset: 0}} md={{span: 5, offset: 0}} lg={7} xl={8}>
@@ -27,9 +27,9 @@ const HorizontalCard = (props) => {
               </p>
             </Card.Body>
           </Col>
-          </Row>
-        </a>
-      </Card>
+        </Row>
+      </EventBriteModal>
+    </Card>
   );
 };
 
