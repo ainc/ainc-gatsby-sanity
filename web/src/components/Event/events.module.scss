@@ -12,7 +12,7 @@
     border-color: rgba(119, 119, 119, 0.353);
     border-width: 1px;
     border-style: solid;
-    text-align: left;
+    justify-content: start;
 }
 
 .box:hover {
@@ -23,7 +23,7 @@
 .event-image {
     float: left;
     object-fit: contain;
-    width: 25%;
+    max-width: 125px;
     transition-duration: 400ms;
 }
 
