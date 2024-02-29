@@ -9,7 +9,7 @@ const Event = (props) => {
   return (
       <EventBriteModal link={props.link}>
         <div className={styles.box}>
-            <div className={`${styles.eventImage}`}>
+            <div className={`${styles.eventImage} d-flex align-items-center`}>
               <GatsbyImage
                 className={``}
                 image={props.image}
