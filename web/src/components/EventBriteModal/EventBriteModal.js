@@ -12,9 +12,15 @@ const EventBriteModal = (props) => {
     setShowModal(false);
   };
 
+  const isSmallScreen = window.innerWidth < 500; // Show the modal on large screens and link to an external site on small
+
   return (
     <>
-    <button onClick={handleClick} type="button"  style={{background: 'none', border: 'none', padding: '0', margin: '0'}}>{props.children}</button>
+      {isSmallScreen ? (
+        <a href={props.link} target='_blank' className='link--brand'><div style={{textAlign: 'left'}}>{props.children}</div></a>
+      ) : (
+      <button onClick={handleClick} type="button"  className='' style={{background: 'none', border: 'none', padding: '0', margin: '0'}}><div style={{textAlign: 'left'}}>{props.children}</div></button>
+      )}
       <Modal show={showModal} onHide={handleCloseModal} centered>
         <iframe
           src={props.link} 
@@ -24,6 +30,7 @@ const EventBriteModal = (props) => {
           allowtransparency="true" 
         />
       </Modal>
+     
     </>
   )}
 

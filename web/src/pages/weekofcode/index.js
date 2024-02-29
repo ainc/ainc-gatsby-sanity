@@ -14,12 +14,9 @@ import { graphql } from "gatsby";
 
 const Page = ({ data }) => {
 
-
   const event1Link = 'https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-801830545747'
   const event2Link = 'https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-801837556717'
   const event3Link = 'https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-837800292227'
-
-
 
   const ButtonRow = () => {
     return (
