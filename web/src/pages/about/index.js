@@ -21,7 +21,7 @@ import ModalCustom from "../../components/Modal/ModalCustom";
 const AboutPage = ({ data }) => {
 
   const teamMembers = (data.allSanityTeamMember.nodes || {})
-  const accomplishments = (data.allSanityAccomplishments.nodes[1] || {})
+  const accomplishments = (data.allSanityAccomplishments.nodes.at(-1) || {})
 
   const [lgShow, setLgShow] = useState(false)
   const handleShow = () => setLgShow(true)
