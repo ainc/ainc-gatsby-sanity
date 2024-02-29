@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Modal } from 'react-bootstrap';
 
 
 const EventBriteModal = (props) => {
   const [showModal, setShowModal] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   const handleClick = () => {
     setShowModal(true);
@@ -11,8 +12,20 @@ const EventBriteModal = (props) => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 500); // Change the breakpoint according to your needs
+    };
 
-  const isSmallScreen = window.innerWidth < 500; // Show the modal on large screens and link to an external site on small
+    handleResize(); // Call it once to set the initial value
+
+    window.addEventListener('resize', handleResize); // Listen for window resize events
+
+    return () => {
+      window.removeEventListener('resize', handleResize); // Cleanup
+    };
+  }, []); // Empty dependency array ensures this effect only runs once after initial render
 
   return (
     <>
