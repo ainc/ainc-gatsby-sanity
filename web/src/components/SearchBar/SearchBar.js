@@ -4,7 +4,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Col, Row } from 'react-bootstrap';
 
 
-import * as styles from "./SearchBar.scss";
+import * as styles from "./Searchbar.scss";
 
 const SearchBar = () => {
   const data = useStaticQuery(graphql`
@@ -86,12 +86,12 @@ const SearchItem = ({key, title, description, author, blogUrl, imageUrl}) => {
       
       <a href={"/blog/" + blogUrl}>
         <Row className="d-flex justify-content-center align-items-center">
-          <Col xl={2} >
-            <div className="shadow">
-              <GatsbyImage image={imageUrl} alt={title} />
-            </div>
+          <Col md={2} className="mt-3 mb-3 mb-md-0">
+              <div className="d-flex justify-content-center align-items-center">
+                <GatsbyImage image={imageUrl} alt={title} className="shadow"/>
+              </div>
           </Col>
-          <Col>
+          <Col md={10}>
             <strong>{title}</strong> | {author}
             <p>{description}</p>
           </Col>
