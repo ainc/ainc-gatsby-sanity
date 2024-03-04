@@ -49,7 +49,7 @@ const BlogPage = ({pageContext, data }) => {
                     </Col>
                     <Col xs={{ span: 4, offset: 4 }} className='d-flex justify-content-center'>
                         <a onClick={handleShowSubscribe}><FaBell size={40} className='link--brand' /></a>
-                        <a onClick={handleShowSearch} className='ms-5'><FaSearch size={40} className='link--brand' /></a>
+                        <a onClick={handleShowSearch} className='ms-2 ms-sm-5'><FaSearch size={40} className='link--brand' /></a>
                     </Col>
                     {/* Subscribe Modal */}
                     <ModalCustom
