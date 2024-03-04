@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { graphql, Link } from 'gatsby';
 import { Col, Container, Row } from 'react-bootstrap';
 import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image'
@@ -10,6 +10,7 @@ import Subtitle from '../../components/UI/Subtitle/Subtitle';
 import Markdown from '../../components/MarkDown/MarkDown';
 import Layout from '../../components/Layout/Layout'
 import SocialMediaIcons from '../../components/SocialMediaIcons/SocialMediaIcons';
+import { FacebookProvider, Comments } from 'react-facebook';
 
 import '../../styles/main.scss'
 
@@ -22,8 +23,14 @@ const Blog = ({ pageContext }) => {
 
     const blogInfo = pageContext.post;
 
-    const authorImage = getImage(blogInfo.reference.picture.asset.gatsbyImageData)
+    const authorImage = getImage(blogInfo.reference.picture.asset.gatsbyImageData);
 
+    useEffect(() => {
+        if (typeof window.FB !== 'undefined' && window.FB.XFBML) {
+            window.FB.XFBML.parse();
+        }
+      }, []);
+    
     return (
         <Layout>
             <SEO title={blogInfo.title} description={blogInfo.previewText} />
@@ -92,6 +99,11 @@ const Blog = ({ pageContext }) => {
                         <SocialMediaIcons text={`${blogInfo.title} | Awesome Inc`} link={`https://www.awesomeinc.org/blog/${blogInfo.slug.current}`}/>
                         <Container className="my-5 px-0">
                             <Markdown content={blogInfo.body}/>
+                        </Container>
+                        <Container>
+                            <FacebookProvider appId="405237331509908" >
+                                <Comments href={`https://www.awesomeinc.org/blog/${blogInfo.slug.current}`} />
+                            </FacebookProvider>
                         </Container>
                     </Col>
                 </Row>
