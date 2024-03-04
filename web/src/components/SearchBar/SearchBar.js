@@ -1,53 +1,52 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { graphql, useStaticQuery } from "gatsby";
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { Col, Row } from 'react-bootstrap';
+
+
 import * as styles from "./SearchBar.scss";
 
 const SearchBar = () => {
   const data = useStaticQuery(graphql`
     {
-        allSanityBlog {
-          totalCount
-          edges {
-            node {
-              date
-              slug {
-                current
-              }
-              title
-              previewText
-              body
-              thumbnail {
-                asset {
-                  url
-                }
-              }
-              reference {
-                name
-                picture {
-                  asset {
-                    gatsbyImageData(height: 54, width: 54, placeholder: DOMINANT_COLOR)
-                  }
-                }
-                title
+      allSanityBlog {
+        edges {
+          node {
+            title
+            reference {
+              name
+            }
+            slug {
+              current
+            }
+            previewText
+            date
+            thumbnail {
+              asset {
+                gatsbyImageData(placeholder: BLURRED, height: 120, width: 120)
               }
             }
           }
         }
       }
+    }
   `);
 
-  const blogs = data.allSanityBlog.edges.map(({ node }) => ({
-    title: node.title,
-    author: node.reference.name,
-    blogURL: node.slug.current,
-    imageUrl: node.thumbnail.asset.url,
-    description: node.previewText,
-    date: node.date
-    }));
+  const blogs = data.allSanityBlog.edges.map(({ node }) => {
+      const defaultBgImageUrl = '../images/logo.png'
+      const bgImage = node.thumbnail.asset !== null ? getImage(node.thumbnail.asset.gatsbyImageData) : defaultBgImageUrl;
+      return {
+        title: node.title,
+        author: node.reference.name,
+        blogURL: node.slug.current,
+        imageUrl: bgImage,
+        description: node.previewText,
+        date: node.date
+      };
+    });
 
     const [searchTerm, setSearchTerm] = useState('');
-    const [searchResults, setSearchResults] = useState([]);
+    const [searchResults, setSearchResults] = useState(blogs.sort((a, b) => new Date(b.date) - new Date(a.date)));
   
     const handleChange = event => {
       setSearchTerm(event.target.value);
@@ -55,7 +54,6 @@ const SearchBar = () => {
         item.title.toLowerCase().includes(event.target.value.toLowerCase()) ||
         item.author.toLowerCase().includes(event.target.value.toLowerCase())
       );
-      results.sort((a, b) => new Date(b.date) - new Date(a.date));
       setSearchResults(results);
     };
   
@@ -69,10 +67,10 @@ const SearchBar = () => {
           onChange={handleChange}
           fieldtype="7"
         />
-        <ul className="autocomplete-list">
+        <ul className="autocomplete-list mt-2">
         {searchResults.length > 0 || searchTerm == '' ? (
           searchResults.map((item, index) => (
-              <SearchItem key={index} title={item.title} description={item.description} author={item.author} blogUrl={item.blogURL} />
+              <SearchItem key={index} title={item.title} description={item.description} author={item.author} blogUrl={item.blogURL} imageUrl={item.imageUrl}/>
           ))
           ) : (<h3 className='mt-3'>No blogs found.</h3>)
         }
@@ -81,14 +79,25 @@ const SearchBar = () => {
     )
 };
 
-const SearchItem = ({key, title, description, author, blogUrl}) => { 
+const SearchItem = ({key, title, description, author, blogUrl, imageUrl}) => { 
 
   return (
     <li key={key}>
+      
       <a href={"/blog/" + blogUrl}>
-        <strong>{title}</strong> by {author}
-        <p>{description}</p>
+        <Row className="d-flex justify-content-center align-items-center">
+          <Col xl={2} >
+            <div className="shadow">
+              <GatsbyImage image={imageUrl} alt={title} />
+            </div>
+          </Col>
+          <Col>
+            <strong>{title}</strong> | {author}
+            <p>{description}</p>
+          </Col>
+        </Row>
       </a>
+      
     </li>
   )
 }
