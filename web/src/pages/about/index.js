@@ -149,9 +149,9 @@ const AboutPage = ({ data }) => {
                                   whileInView={{ opacity: 1, y: 0}}
                                   transition={{ delay: 0.5, duration: 1 }}>
               <Col className=''>
-                <BrandButton onClick={handleShow} className='secondary px-3 mx-5 my-3'>Watch</BrandButton>
+                <BrandButton onClick={handleShow} className='secondary px-3 mx-5 my-3'>Watch our year in review video</BrandButton>
                 <a href="https://issuu.com/awesomeinclex/docs/awesomeinc_2023_impactreport?ff" target="_blank">
-                  <BrandButton className='secondary px-3 mx-5'>Read</BrandButton>
+                  <BrandButton className='secondary px-3 mx-5'>Read our impact report</BrandButton>
                 </a>
               </Col>
               </motion.div>
