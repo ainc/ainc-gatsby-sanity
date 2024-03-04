@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { graphql, Link } from 'gatsby';
 import { Col, Container, Row } from 'react-bootstrap';
 import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image'
@@ -23,8 +23,14 @@ const Blog = ({ pageContext }) => {
 
     const blogInfo = pageContext.post;
 
-    const authorImage = getImage(blogInfo.reference.picture.asset.gatsbyImageData)
+    const authorImage = getImage(blogInfo.reference.picture.asset.gatsbyImageData);
 
+    useEffect(() => {
+        if (typeof window.FB !== 'undefined' && window.FB.XFBML) {
+            window.FB.XFBML.parse();
+        }
+      }, []);
+    
     return (
         <Layout>
             <SEO title={blogInfo.title} description={blogInfo.previewText} />
@@ -96,7 +102,7 @@ const Blog = ({ pageContext }) => {
                         </Container>
                         <Container>
                             <FacebookProvider appId="405237331509908" >
-                                <Comments href={`https://q1-website-updates--ainc-gatsby-sanity.netlify.app//blog/${blogInfo.slug.current}`} />
+                                <Comments href={`https://www.awesomeinc.org/blog/${blogInfo.slug.current}`} />
                             </FacebookProvider>
                         </Container>
                     </Col>
