@@ -96,7 +96,7 @@ const Blog = ({ pageContext }) => {
                         </Container>
                         <Container>
                             <FacebookProvider appId="405237331509908" >
-                                <Comments href={`https://www.awesomeinc.org/blog/${blogInfo.slug.current}`} />
+                                <Comments href={`https://q1-website-updates--ainc-gatsby-sanity.netlify.app//blog/${blogInfo.slug.current}`} />
                             </FacebookProvider>
                         </Container>
                     </Col>
