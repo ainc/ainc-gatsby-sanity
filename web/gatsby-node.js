@@ -11,7 +11,7 @@ async function createBlogPostPages(graphql, actions) {
       totalCount
       edges {
         node {
-          date
+          date(formatString: "MMMM DD, YYYY")
           slug {
             current
           }

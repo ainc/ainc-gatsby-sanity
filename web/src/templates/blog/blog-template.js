@@ -10,6 +10,7 @@ import Subtitle from '../../components/UI/Subtitle/Subtitle';
 import Markdown from '../../components/MarkDown/MarkDown';
 import Layout from '../../components/Layout/Layout'
 import SocialMediaIcons from '../../components/SocialMediaIcons/SocialMediaIcons';
+import { FacebookProvider, Comments } from 'react-facebook';
 
 import '../../styles/main.scss'
 
@@ -92,6 +93,11 @@ const Blog = ({ pageContext }) => {
                         <SocialMediaIcons text={`${blogInfo.title} | Awesome Inc`} link={`https://www.awesomeinc.org/blog/${blogInfo.slug.current}`}/>
                         <Container className="my-5 px-0">
                             <Markdown content={blogInfo.body}/>
+                        </Container>
+                        <Container>
+                            <FacebookProvider appId="405237331509908" >
+                                <Comments href={`https://www.awesomeinc.org/blog/${blogInfo.slug.current}`} />
+                            </FacebookProvider>
                         </Container>
                     </Col>
                 </Row>
