@@ -11,6 +11,14 @@
 
 }
 
+.link--brand-black {
+    color: $brand-color2;
+    &:hover {
+        color: $brand-red-bright;
+    }
+
+}
+
 .link--brand-dark {
     color: $color-red-dark;
     &:hover {

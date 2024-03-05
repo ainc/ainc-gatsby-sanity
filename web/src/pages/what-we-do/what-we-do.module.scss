@@ -28,7 +28,6 @@
 
 .heading-title {
   margin-top: 4rem;
-  margin-bottom: 1rem;
   text-align: left;
   text-transform: none;
   line-height: 3.5rem;
@@ -129,8 +128,16 @@
 }
 
 .logo-header {
-  padding-bottom: 6rem;
+  padding-bottom: 2rem;
   max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dot-divider {
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+  max-width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -162,6 +169,9 @@
 @media (max-width: 1200px) {
   .logo-header {
     max-width: 80%;
+  }
+  .logo-description {
+    font-size: 0.8rem;
   }
 }
 

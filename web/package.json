@@ -52,6 +52,7 @@
     "react-countdown-circle-timer": "^3.2.1",
     "react-dom": "^18.2.0",
     "react-eventbrite-popup-checkout": "^2.0.8",
+    "react-facebook": "^9.0.12",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.10.1",
     "react-markdown": "^8.0.7",

@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState} from "react";
 import { graphql } from "gatsby";
 import Layout from "../../components/Layout/Layout";
 import { Container, Col, Row, Image } from "react-bootstrap";
@@ -16,12 +16,16 @@ import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
 
 import coreValues from "../../images/about-core-values.png";
+import ModalCustom from "../../components/Modal/ModalCustom";
 
 const AboutPage = ({ data }) => {
 
   const teamMembers = (data.allSanityTeamMember.nodes || {})
-  const accomplishments = (data.sanityAccomplishments || {})
+  const accomplishments = (data.allSanityAccomplishments.nodes.at(-1) || {})
 
+  const [lgShow, setLgShow] = useState(false)
+  const handleShow = () => setLgShow(true)
+  const handleClose = () => setLgShow(false)
   return (
     <Layout>
         {/* About header */}
@@ -140,6 +144,32 @@ const AboutPage = ({ data }) => {
                 </Row>
               </Col>
             </Row>
+            <Row className="text-center d-flex justify-content-center mt-3 mb-3">
+            <motion.div initial={{ opacity: 0, y: 50}}
+                                  whileInView={{ opacity: 1, y: 0}}
+                                  transition={{ delay: 0.5, duration: 1 }}>
+              <Col className=''>
+                <BrandButton onClick={handleShow} className='secondary px-3 mx-5 my-3'>Watch our year in review video</BrandButton>
+                <a href="https://issuu.com/awesomeinclex/docs/awesomeinc_2023_impactreport?ff" target="_blank">
+                  <BrandButton className='secondary px-3 mx-5'>Read our impact report</BrandButton>
+                </a>
+              </Col>
+              </motion.div>
+            </Row>
+            <ModalCustom 
+            lgShow = {lgShow} 
+            hide = {handleClose}
+            bgDark = {false} 
+            centered
+            content = {
+              <iframe 
+              width="100%" 
+              height="500" 
+              src="https://www.youtube.com/embed/voYgKjTgNYE?si=g657OhP3aTm7agbo" 
+              title="YouTube video player"
+              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen></iframe>
+            }/>
           </Container>
         </section>
 
@@ -261,21 +291,23 @@ const AboutPage = ({ data }) => {
 
 export const query_accomplishments = graphql`
   query {
-    sanityAccomplishments {
-      header
-      accomplishment1 {
-        asset {
-          gatsbyImageData
+    allSanityAccomplishments {
+      nodes {
+        header
+        accomplishment1 {
+          asset {
+            gatsbyImageData
+          }
         }
-      }
-      accomplishment2 {
-        asset {
-          gatsbyImageData
+        accomplishment2 {
+          asset {
+            gatsbyImageData
+          }
         }
-      }
-      accomplishment3 {
-        asset {
-          gatsbyImageData
+        accomplishment3 {
+          asset {
+            gatsbyImageData
+          }
         }
       }
     }

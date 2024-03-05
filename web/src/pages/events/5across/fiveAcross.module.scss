@@ -116,3 +116,13 @@
 .grey-button:hover {
     color: $brand-grey-dark !important;
 }
+
+.custom-col{
+    position: 'relative';
+    @media (max-width: 767.98px) {
+        display: flex;
+    }
+    @media (min-width: 768px) {
+        display: 'inline-block';
+    }
+}

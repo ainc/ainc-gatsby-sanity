@@ -14,18 +14,21 @@ import ProgramLinkTree from './ProgramLinkTree';
 const ProgramPage = ({ data }) => {
   const allProgram = (data.sanityProgram || {});
   const allSanityFiveAcrossSponsors = (data.allSanityFiveAcrossSponsors.nodes || {});
-  const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes[1].titleSp.title || {});
-  const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[1].titleSp.link || {});
-  const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[1].titleSp.image.asset.gatsbyImageData || {});
+  const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes.at(-1).titleSp.title || {});
+  const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes.at(-1).titleSp.link || {});
+  const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes.at(-1).titleSp.image.asset.gatsbyImageData || {});
 
-  const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes[1].presentingSp.title || {});
-  const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[1].presentingSp.link || {});
-  const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[1].presentingSp.image.asset.gatsbyImageData || {});
+  const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes.at(-1).presentingSp.title || {});
+  const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes.at(-1).presentingSp.link || {});
+  const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes.at(-1).presentingSp.image.asset.gatsbyImageData || {});
 
-  const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors || {});
+  const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes.at(-1).suppourtingSponsors || {});
+
   const teams = (data.sanityProgram.teams || {});
   const judges = (data.sanityProgram.judges || {});
+  const nextEventLink = (data.sanityProgram.next_event_link.url)
 
+  console.log(data.allSanityFiveAcrossSponsors.nodes.at(-1).titleSp.title)
   return (
     <Layout>
       {/* still need to fix heading levels to increase by one */}
@@ -54,7 +57,8 @@ const ProgramPage = ({ data }) => {
           </Row>
         </Col>
       </Container>
-      <ProgramLinkTree />
+      <ProgramLinkTree nextEventLink={nextEventLink}/>
+      <section id='teams'>
       <Container className={styles.tonightsTeams}>
         <Subtitle className='text-center my-5 text-black text-uppercase'>Tonight's Teams</Subtitle>
         <Col xs={12}>
@@ -71,6 +75,8 @@ const ProgramPage = ({ data }) => {
           ))}
         </Col>
       </Container>
+      </section>
+      <section id='judges'>
       <Container className={styles.tonightsJudges}>
         <Subtitle className='text-center text-uppercase text-white pt-4 pb-2 mt-3'>Tonight's Judges</Subtitle>
         {/* TODO: Create this section similarly to how we did the team's section */}
@@ -92,8 +98,9 @@ const ProgramPage = ({ data }) => {
         
           ))}
         </Row>
-       
       </Container>
+      </section>
+      <section id='sponsors'>
       <Container>
         <Row>
           <Col xs={{offset: 2, span: 10}} md={{offset: 1, span: 12}}>
@@ -128,6 +135,8 @@ const ProgramPage = ({ data }) => {
           </Row>
         </Row>
       </Container>
+      </section>
+      <section id="podcasts">
       <Container className={styles.experienceMore}>
         <Row>
           <Col xs={12} md={12}>
@@ -140,25 +149,32 @@ const ProgramPage = ({ data }) => {
           </Col>
         </Row>
         <Col xs={{offset: 2, span: 8}} md={{offset: 4, span: 3}}>
-          <StaticImage placeholder="blurred" className='my-2 ms-5' src='../../images/ainc_podcast_logo.png'></StaticImage>
-          <p className={`mb-2 ms-3 text-center text-uppercase text-white ${styles.podcastText}`}>5 minute postgame recap</p>
+          <a href="https://podcasters.spotify.com/pod/show/awesomeinc" target='_blank'>
+            <StaticImage placeholder="blurred" className='my-2 ms-5' src='../../images/ainc_podcast_logo.png'></StaticImage>
+          </a>
+          <p className={`mb-2 ms-3 text-center text-uppercase text-white ${styles.podcastText}`}>Awesome Inc's Podcast</p>
           <StaticImage placeholder="blurred" className='my-2 ms-5' src='../../images/middle-tech.png'></StaticImage>
           <p className={`mb-4 ms-3 text-center text-uppercase text-white ${styles.podcastText}`}>5 Across deep dive</p>
         </Col>
       </Container>
+      </section>
+      <section id='mentor'>
       <Container className={styles.becomeMentor}>
         <Col xs={12}>
           <Subtitle className='fw-bold my-5 brand text-center text-uppercase'>Become a startup mentor</Subtitle>
           <Row>
             <Col xs={{offset: 2, span: 10}} md={{offset: 4, span: 5}}>
+              <a href="https://docs.google.com/forms/d/1azJ9L8NBpe-3KYMTgFOQ7l0Hn-0y26a2SrHI6SebNm8/viewform?edit_requested=true" target='_blank'>
               <BrandButton className={`secondary my-5 w-75 text-uppercase ${styles.buttons} `}>
                 Fill out this google form to apply
               </BrandButton>  
+              </a>
             </Col>
           </Row>
           
         </Col>
       </Container>
+      </section>
     </Layout>
   )
 };
@@ -186,6 +202,9 @@ query query_program {
       alt
       accolades
       names
+    }
+    next_event_link {
+      url
     }
   }
   allSanityFiveAcrossSponsors {
