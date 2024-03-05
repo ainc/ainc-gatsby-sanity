@@ -22,9 +22,15 @@ const Page = ({ data }) => {
     return (
       <section className="mb-5">
         <h1 className="fs-6 fw-bold">2024 Dates</h1>
+        <a href={event1Link} target='_blank'>
           <BrandButton className="px-4 mb-3 mx-2 text-uppercase" variant="primary">JUNE 10-13 {'>>'}</BrandButton>
+        </a>
+        <a href={event2Link} target='_blank'>
           <BrandButton className="px-4 mb-3 mx-1 text-uppercase" variant="primary">JULY 15-18 {'>>'}</BrandButton>
+        </a>
+        <a href={event3Link} target='_blank'>
           <BrandButton className="px-4 mb-3 mx-2 text-uppercase" variant="primary">JULY 22-25 {'>>'}</BrandButton>
+        </a>
       </section>
     )
   }
