@@ -12,21 +12,21 @@ import Layout from "../../../components/Layout/Layout";
 import SocialMedia from "../../../components/SocialMedia/SocialMedia";
 import Subtitle from "../../../components/UI/Subtitle/Subtitle";
 import Title from "../../../components/UI/Title/Title";
-
+import EventBriteModal from "../../../components/EventBriteModal/EventBriteModal";
 import "../../../styles/main.scss"
 import * as styles from "./fiveAcross.module.scss";
 
 const fiveAcrossPage = ({ data }) => {
 
-    const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes[1].titleSp.title || {});
-    const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[1].titleSp.link || {});
-    const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[1].titleSp.image.asset.gatsbyImageData || {});
+    const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes.at(-1).titleSp.title || {});
+    const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes.at(-1).titleSp.link || {});
+    const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes.at(-1).titleSp.image.asset.gatsbyImageData || {});
 
-    const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes[1].presentingSp.title || {});
-    const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[1].presentingSp.link || {});
-    const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[1].presentingSp.image.asset.gatsbyImageData || {});
+    const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes.at(-1).presentingSp.title || {});
+    const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes.at(-1).presentingSp.link || {});
+    const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes.at(-1).presentingSp.image.asset.gatsbyImageData || {});
 
-    const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors || {});
+    const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes.at(-1).suppourtingSponsors || {});
     const nextFiveAcross = (data.allSanityEvents.nodes || {});
 
     const fiveAcrossWinners = (data.allSanityFiveAcrossWinners.edges || {});
@@ -157,7 +157,7 @@ const fiveAcrossPage = ({ data }) => {
                     <Col lg="4" xs="8" className="bg-white rounded-4">
                         {nextFiveAcross.map((node) => (
                             <Container fluid className="mt-2">
-                                <a href={node.linkToEvent}>
+                                <EventBriteModal link={node.linkToEvent}>
                                     <Row className=''>
                                         <Col lg="4" md="4" sm="4" className="">
                                             <Row className="d-flex flex-column align-items-center">
@@ -183,9 +183,8 @@ const fiveAcrossPage = ({ data }) => {
                                             <h3 className="text--black fs-6">{node.eventName}</h3>{/*title */}
                                         </Col>
                                     </Row>
-                                </a>
+                                </EventBriteModal>
                             </Container>
-
                         ))}
                     </Col>
                     <Col className="d-sm-none"></Col>

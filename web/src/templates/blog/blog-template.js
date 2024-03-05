@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { graphql, Link } from 'gatsby';
 import { Col, Container, Row } from 'react-bootstrap';
 import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image'
@@ -10,6 +10,7 @@ import Subtitle from '../../components/UI/Subtitle/Subtitle';
 import Markdown from '../../components/MarkDown/MarkDown';
 import Layout from '../../components/Layout/Layout'
 import SocialMediaIcons from '../../components/SocialMediaIcons/SocialMediaIcons';
+import { FacebookProvider, Comments } from 'react-facebook';
 
 import '../../styles/main.scss'
 
@@ -22,8 +23,14 @@ const Blog = ({ pageContext }) => {
 
     const blogInfo = pageContext.post;
 
-    const authorImage = getImage(blogInfo.reference.picture.asset.gatsbyImageData)
+    const authorImage = getImage(blogInfo.reference.picture.asset.gatsbyImageData);
 
+    useEffect(() => {
+        if (typeof window.FB !== 'undefined' && window.FB.XFBML) {
+            window.FB.XFBML.parse();
+        }
+      }, []);
+    
     return (
         <Layout>
             <SEO title={blogInfo.title} description={blogInfo.previewText} />
@@ -51,25 +58,52 @@ const Blog = ({ pageContext }) => {
                         <BrandButton className="text-uppercase px-2 py-0 py-sm-1" onClick={handleShow}>Notify Me</BrandButton>
 
                         <ModalCustom 
-                            lgShow={lgShow} 
-                            hide={handleClose} 
-                            title="Subscribe to our blog" 
-                            content={
+                        lgShow={lgShow}
+                        hide={handleClose}
+                        title="Subscribe to our blog"
+                        centered
+                        content={
                             //Pass HTML here
-                                <Container>
-                                    <Row>
-                                        <Subtitle>Create form here</Subtitle>
-                                    </Row>
-                                    <Row>
-                                        <BrandButton>Hello</BrandButton>
-                                    </Row>
-                                </Container>
-                            }
+                            <Container fluid>
+                                <form action="https://forms.zohopublic.com/virtualoffice9155/form/Signup/formperma/oGBr66VPX7l_Drlh1scVwCic8K1-QgeS5bvJGtjwwik/htmlRecords/submit" 
+                                name="form" 
+                                id="form" 
+                                method="POST" 
+                                accept-charset="UTF-8" 
+                                enctype="multipart/form-data"
+                                >
+                                <input type="hidden" name="zf_referrer_name" value="" />{/*<!-- To Track referrals , place the referrer name within the " " in the above hidden input field -->*/}
+                                <input type="hidden" name="zf_redirect_url" value="" />{/*<!-- To redirect to a specific page after record submission , place the respective url within the " " in the above hidden input field -->*/}
+                                <input type="hidden" name="zc_gad" value="" />{/*<!-- If GCLID is enabled in Zoho CRM Integration, click details of AdWords Ads will be pushed to Zoho CRM -->*/}
+                                <Subtitle>You'll receive a monthly email with new blog info.</Subtitle>
+                                <Row>
+                                {/*<!--Name-->*/}
+                                    <label style={{marginLeft:'0px'}}>First Name</label>
+                                    <input type="text" maxlength="255" name="Name_First" fieldtype="7" placeholder="John" className='form-control' style={{marginLeft:'15px', width: '80%'}}/>
+                                </Row>
+                                <Row>
+                                    <label style={{marginLeft:'0px'}}>Last Name</label>
+                                    <input type="text" maxlength="255" name="Name_Last" fieldtype="7" placeholder="Hancock" className='form-control' style={{marginLeft:'15px', width: '80%'}}/>
+                                </Row>
+                                {/*<!--Email-->*/}
+                                <Row>
+                                    <label style={{marginLeft:'0px'}}> Email Address </label>
+                                    <input type="text" maxlength="255" name="Email" fieldtype="9" placeholder="john@123.com" className='form-control' style={{marginLeft:'15px', width: '80%'}}/>
+                                </Row>
+                                <BrandButton type="submit" className='mt-3' style={{marginRight: 'auto'}}><em>Submit</em></BrandButton>
+                                </form>
+                            </Container>
+                        }
                         />
 
                         <SocialMediaIcons text={`${blogInfo.title} | Awesome Inc`} link={`https://www.awesomeinc.org/blog/${blogInfo.slug.current}`}/>
                         <Container className="my-5 px-0">
                             <Markdown content={blogInfo.body}/>
+                        </Container>
+                        <Container>
+                            <FacebookProvider appId="405237331509908" >
+                                <Comments href={`https://www.awesomeinc.org/blog/${blogInfo.slug.current}`} />
+                            </FacebookProvider>
                         </Container>
                     </Col>
                 </Row>

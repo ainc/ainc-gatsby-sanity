@@ -7,36 +7,30 @@ import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import weekOfCodeRelayPicture from './images/week-of-code-relay.jpg';
 import Accordion from 'react-bootstrap/Accordion';
+import EventBriteModal from '../../components/EventBriteModal/EventBriteModal';
 import useEventbrite from 'react-eventbrite-popup-checkout';
+import { graphql } from "gatsby";
+
 
 const Page = ({ data }) => {
 
-  const handleOrderCompleted = React.useCallback(() => {
-    console.log('Order completed successfully');
-  }, []);
-
-
-  const event_id = '801830545747' 
-  const iframeCheckout = useEventbrite({
-    eventId: event_id,
-    modal: false,
-    onOrderComplete: handleOrderCompleted,
-    iFrameHeight: 500, // optional
-    iFrameAutoAdapt: 100, // optional - The widget's viewport percentage (between 75-100)
-  });
-
-  const eventLink = 'https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-' + event_id
+  const event1Link = 'https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-801830545747'
+  const event2Link = 'https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-801837556717'
+  const event3Link = 'https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-837800292227'
 
   const ButtonRow = () => {
     return (
       <section className="mb-5">
         <h1 className="fs-6 fw-bold">2024 Dates</h1>
-        <a href={eventLink}>
-          <BrandButton href={eventLink} className="px-4 mb-3" variant="primary">JUNE 10-13 {'>>'}</BrandButton> 
-        </a>
-        <a href={eventLink}>
-          <BrandButton href={eventLink} className="mx-4 px-4 mb-3" variant="primary">JULY 15-18 {'>>'}</BrandButton> 
-        </a>
+        <EventBriteModal link={event1Link}>
+          <BrandButton className="px-4 mb-3 mx-2 text-uppercase" variant="primary">JUNE 10-13 {'>>'}</BrandButton>
+        </EventBriteModal>
+        <EventBriteModal link={event2Link} >
+          <BrandButton className="px-4 mb-3 mx-1 text-uppercase" variant="primary">JULY 15-18 {'>>'}</BrandButton>
+        </EventBriteModal>
+        <EventBriteModal link={event3Link}>
+          <BrandButton className="px-4 mb-3 mx-2 text-uppercase" variant="primary">JULY 22-25 {'>>'}</BrandButton>
+        </EventBriteModal>
       </section>
     )
   }
@@ -51,8 +45,7 @@ const Page = ({ data }) => {
         <ButtonRow />
       </Col>
     </Row>
-      
-      <h1 className="mb-4">2023 Summer Camps</h1>
+      <h1 className="mb-4">2024 Summer Camps</h1>
       <h2 className="fw-bold fs-4 mb-4">Ages: 9-16 | Beginner - Intermediate</h2>
       <p className="fst-italic mb-4">No experience required</p>
       <p className="mb-4">
@@ -61,7 +54,7 @@ const Page = ({ data }) => {
         21st-century world, including getting into college and finding a 
         job they love and at which they will succeed. Week of Code Summer Camp does all of that.
       </p>
-      <h2 className="fw-bold fs-4 mb-4">Prepare Your Child For a 21st Century World</h2>
+      <h3 className="fw-bold fs-4 mb-4">Prepare Your Child For a 21st Century World</h3>
       <p className="mb-4">
         At Week of Code, you learn by doing - it’s hands-on, at your pace, and 
         balanced with fun, off-computer activities. You’ll design and develop 
@@ -97,7 +90,7 @@ const Page = ({ data }) => {
 
       <img className="mb-4 img-fluid" style={{width: '70rem'}}src={weekOfCodeRelayPicture} alt="Week of Code Relay" />
 
-      <h4 className="fw-bold mb-4">In this course, your student will:</h4>
+      <h3 className="fw-bold mb-4">In this course, your student will:</h3>
 
       <ul className="mb-4">
         <li style={{fontSize: '16px'}}>Create a video game, website, and a mobile app in one week</li>
@@ -107,7 +100,7 @@ const Page = ({ data }) => {
         <li style={{fontSize: '16px'}}>Develop computational thinking skills</li>
       </ul>
 
-      <h5 className="mb-5 fw-bold mb-4">Your student will take home:</h5>
+      <h3 className="mb-2 fw-bold">Your student will take home:</h3>
       <ul>
         <li className="mb-4" style={{fontSize: '16px'}}>Project files and portfolio</li>
       </ul>
@@ -118,14 +111,9 @@ const Page = ({ data }) => {
       </Col>
       </Row>
 
-    <Row>
-      {iframeCheckout && (
-        <div id={iframeCheckout.id} role="form" title="eventbrite" />
-      )}
-    </Row>
 
 
-    <h1 style={{fontSize: '50px'}}  className="fw-bold">FAQs</h1>
+    <h1 className="fw-bold">FAQs</h1>
 
     <Accordion className="mb-5" defaultActiveKey="0">
       <Accordion.Item eventKey="0">
