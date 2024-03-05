@@ -24,13 +24,13 @@ const Blog = ({ pageContext }) => {
     const blogInfo = pageContext.post;
 
     const authorImage = getImage(blogInfo.reference.picture.asset.gatsbyImageData);
-
+/*
     useEffect(() => {
         if (typeof window.FB !== 'undefined' && window.FB.XFBML) {
             window.FB.XFBML.parse();
         }
       }, []);
-    
+    */
     return (
         <Layout>
             <SEO title={blogInfo.title} description={blogInfo.previewText} />
@@ -101,9 +101,11 @@ const Blog = ({ pageContext }) => {
                             <Markdown content={blogInfo.body}/>
                         </Container>
                         <Container>
+                            {/*
                             <FacebookProvider appId="405237331509908" >
                                 <Comments href={`https://www.awesomeinc.org/blog/${blogInfo.slug.current}`} />
                             </FacebookProvider>
+                            */}
                         </Container>
                     </Col>
                 </Row>
