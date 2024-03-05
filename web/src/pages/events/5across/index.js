@@ -160,11 +160,7 @@ const fiveAcrossPage = ({ data }) => {
                                 <a href={node.linkToEvent}>
                                     <Row className=''>
                                         <Col lg="4" md="4" sm="4" className="">
-                                            <Row className="d-flex flex-column align-items-center">
-                                                <Col lg="10" className="d-none d-lg-block d-md-block">
-                                                    <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-banner.png" alt=''/>
-                                                </Col>
-                                            </Row>
+                                            <StaticImage placeholder="blurred" quality="100" className='img-fluid' src="../../../assets/svg/5_Across_White.svg" alt='5across logo'/>
                                         </Col>
                                         {/* changed headings in this section from h6, font size utilities currently aren't working but should look normal once the utilities work */}
                                         <Col className="justify-content-start">
