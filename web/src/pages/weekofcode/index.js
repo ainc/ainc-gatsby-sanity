@@ -67,7 +67,6 @@ const Page = ({ data }) => {
         src="https://www.youtube.com/embed/daWr1oOWd-Y"  
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
         title="Youtube video"
-        
         allowFullScreen>
       </iframe>
       </div>
