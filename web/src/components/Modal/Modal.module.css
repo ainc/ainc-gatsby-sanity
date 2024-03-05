@@ -4,6 +4,10 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+.modal-container {
+  max-height: 80vh;
+}
+
 .modal {
   background-color: #323333;
   color: #fff;
