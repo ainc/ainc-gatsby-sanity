@@ -77,34 +77,25 @@ const AdultsPage = ({ data }) => {
                     </Col>
                 </Row>
 
-                <Container fluid className={`${styles.backgroundTop} mt-5`}>
-                    <Col className="my-5 white-space-auto overflow-auto" lg={{ offset: 1, span: 10 }}>
-                        <Title className='text-center text--brand fs-2 text-black pb-5 text-uppercase'>Become a Professional Developer In 16 Weeks</Title>
-                        {/* Add SVG's here */}
-                        {/*<Subtitle className={styles.cardTopper}>{bootcampCourse.map((course) => course.node.designedFor)}</Subtitle>*/}
-                        <CourseCardLong courseInfo={bootcampCourse} stripeColor='#323232'/>
-                    </Col>
-                </Container>
+                <div className="mt-5">
+                    <CourseCardLong courseInfo={bootcampCourse} 
+                                    stripeColor='#323232' 
+                                    title={"Become a Professional Developer In 16 Weeks"} 
+                                    fontColor={"black"}/>
+                </div>
 
-                <Container fluid className = {styles.backgroundMid}>
-                    <Col className="my-5 white-space-auto overflow-auto" lg={{ offset: 1, span: 10 }} >
-                        <Title className="text-center text--brand fs-2 text-white align-text-top text-uppercase">Flexible Courses</Title>
-                        <Subtitle className="text-center text--brand fs-2 text-white align-text-top pb-5 text-uppercase">Learn To Code Without Quitting Your Job</Subtitle>
-                        {/* Add SVG's here */}
-                        {/*<Subtitle className={styles.cardTopper}>{introToWebCourse.map((course) => course.node.designedFor)}</Subtitle>*/}
-                        <CourseCardLong courseInfo={introToWebCourse} stripeColor='#939597'/>
-                    </Col>
-                </Container>
+                <CourseCardLong courseInfo={introToWebCourse} 
+                                stripeColor='#939597' 
+                                title={"Flexible Courses"} 
+                                description={"Learn To Code Without Quitting Your Job"} 
+                                fontColor={"white"}/>
 
-                <Container fluid className = {styles.backgroundBottom}>
-                    <Col className="my-5 white-space-auto overflow-auto" lg={{ offset: 1, span: 10 }}>
-                        <Title className="text-center text--brand fs-2 text-white align-top text-uppercase">Non-Coding Courses</Title>
-                        <Subtitle className="text-center text--brand fs-2 text-white align-top pb-5 text-uppercase">To Help You Grow Your Career</Subtitle>
-                        {/* Add SVG's here */}
-                        {/*<Subtitle className={styles.cardTopper}>{salesforceCourse.map((course) => course.node.designedFor)}</Subtitle>*/}
-                        <CourseCardLong courseInfo={salesforceCourse} stripeColor='#C12029'/>
-                    </Col>
-                </Container>
+                <CourseCardLong courseInfo={salesforceCourse} 
+                                stripeColor='#C12029' 
+                                title={"Non-Coding Courses"} 
+                                description={"To Help You Grow Your Career"} 
+                                fontColor={"white"}/>
+
             </Container>
         </Layout>
     )
@@ -126,6 +117,11 @@ query {
           picture {
             asset {
               gatsbyImageData(height: 200)
+            }
+          }
+          background {
+            asset {
+                url
             }
           }
           topics

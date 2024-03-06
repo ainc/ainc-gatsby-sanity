@@ -13,6 +13,9 @@ import BlockQuote from '../../components/BlockQuote/BlockQuote'
 import BackgroundPicture from '/src/images/phone-booth-abstract.jpg'
 import ImageOutline from '../../components/ImageOutline/ImageOutline'
 import ZohoSales from "../../components/Scripts/ZohoSales";
+import CourseCardLong from '../../components/CourseCardLong/CourseCardLong'
+import { graphql } from "gatsby";
+
 
 const ProvenBackground = styled.div`
 &::before {
@@ -32,6 +35,12 @@ const ProvenBackground = styled.div`
 `
 
 const LearnPage = ({ data }) => {
+  const adultCourses = data.allSanityCourses.edges.filter((course) => course.node.ageGroup === "adult")
+  const bootcampCourse = data.allSanityCourses.edges.filter((course) => course.node.courseTitle === "Web Developer Bootcamp")
+  const introToWebCourse = data.allSanityCourses.edges.filter((course) => course.node.courseTitle === "Intro To Web Development")
+  const salesforceCourse = data.allSanityCourses.edges.filter((course) => course.node.courseTitle === "SalesForce Career Accelerator")
+  const codingClub = data.allSanityCourses.edges.filter((course) => course.node.courseTitle === "Coding Club")
+
   return (
     <Layout jsImport={ZohoSales}>
       {/* Header section */}
@@ -208,7 +217,73 @@ const LearnPage = ({ data }) => {
                         </Row>
                         </Container>
       </section>
+
+      {/*Courses section*/}
+      <Container>
+        <CourseCardLong courseInfo={bootcampCourse} 
+                        stripeColor='#323232' 
+                        title={"Become a Professional Developer In 16 Weeks"} 
+                        fontColor={"black"}/>
+
+        <CourseCardLong courseInfo={introToWebCourse} 
+                        stripeColor='#939597' 
+                        title={"Flexible Courses"} 
+                        description={"Learn To Code Without Quitting Your Job"} 
+                        fontColor={"white"}/>
+
+        <CourseCardLong courseInfo={codingClub} 
+                        stripeColor='#323232' 
+                        title={"Coding Club Camps"} 
+                        description={"Learn how to code from professional software developers"} 
+                        fontColor={"black"}/>
+                        
+        <CourseCardLong courseInfo={salesforceCourse} 
+                        stripeColor='#C12029' 
+                        title={"Non-Coding Courses"} 
+                        description={"To Help You Grow Your Career"} 
+                        fontColor={"white"}/>
+                        
+        
+      </Container>
+
     </Layout>
   )
 }
+
+export const query = graphql`
+query {
+    allSanityCourses {
+      edges {
+        node {
+          courseTitle
+          courseType
+          courseSeason
+          timeRequirement
+          description
+          designedFor
+          startDate(formatString: "MMMM D, YYYY")
+          endDate(formatString: "MMMM D, YYYY")
+          picture {
+            asset {
+              gatsbyImageData(height: 200)
+            }
+          }
+          background {
+            asset {
+                url
+            }
+          }
+          topics
+          technologies
+          schedule
+          courseLink
+          ageGroup
+          format
+        }
+      }
+    }
+  }
+  
+`;
+
 export default LearnPage;
