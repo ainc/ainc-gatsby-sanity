@@ -56,3 +56,6 @@ Import from `dev` into `production`
 
 <br><br>
 </details>
+
+## [Algolia Documentation](https://docs.google.com/document/d/1sB_nA5skU5SWLJMCFQwWHw5sEfgyP8EAVu0xZj09RP4/edit)
+
