@@ -232,7 +232,7 @@ const LearnPage = ({ data }) => {
                         fontColor={"white"}/>
 
         <CourseCardLong courseInfo={codingClub} 
-                        stripeColor='#323232' 
+                        stripeColor='#EE3244' 
                         title={"Coding Club Camps"} 
                         description={"Learn how to code from professional software developers"} 
                         fontColor={"black"}/>
