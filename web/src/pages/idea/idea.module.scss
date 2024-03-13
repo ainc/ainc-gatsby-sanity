@@ -1,0 +1,34 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.header {
+    background-image: url('./images/idea-header-image.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    height: 65vh;
+}
+
+.background-break{
+    background-image: url('./images/startup.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    height: 30vh;
+}
+
+.border-right{
+    border-right: solid #C12029;
+    @include screen-sm{
+        border-right: none;
+    }
+    @include screen-xs{
+        border-right: none;
+    }
+}
+
+.testimonials{
+    background-color: #ED3742;
+}
