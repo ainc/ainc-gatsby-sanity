@@ -90,11 +90,16 @@ const Header = () => {
                 <a href='/bootcamp/apply' className='mt-3 mb-1'><BrandButton>Apply Now</BrandButton></a>
             </Row>
           )}
+          {useLocation().pathname === '/learn/youth/code/' && (
+            <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
+                <a href='#call' className='mt-3 mb-1'><BrandButton>Book a Call</BrandButton></a>
+            </Row>
+          )}
             <Col className="desktop">
               <Nav.Link href="/learn" className="text--white">Learn To Code  <AiFillCaretDown size={10}/></Nav.Link>
               <div className='hover-options'>
                 <a href="/bootcamp" className='pt-0'>Web Dev Bootcamp</a>
-                <a href="/learn/youth" >Youth Courses</a>
+                <a href="/learn/youth/code/" >Youth Courses</a>
                 <a href="/learn/adults">Adult Courses</a>
                 <a href="/weekofcode">Kids Camps</a>
                 <a href="/salesforce">Salesforce Career Accelerator</a>
@@ -116,7 +121,7 @@ const Header = () => {
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
                         <Col xs={{span: 10}} className={`d-flex flex-column py-2 border-0`}>
                           <a href="/bootcamp">Web Dev Bootcamp</a>
-                          <a href="/learn/youth">Youth Courses</a>
+                          <a href="/learn/youth/code">Youth Courses</a>
                           <a href="/learn/adults">Adult Courses</a>
                           <a href="/learn">Kids Camps</a>
                           <a href="/salesforce">Salesforce Career Accelerator</a>
@@ -276,7 +281,11 @@ const Header = () => {
                 <a href='/bootcamp/apply' className=""><BrandButton style={{padding: '1.5 rem 2 rem', fontSize: '1.25rem'}}>Apply Now</BrandButton></a>
             </Col>
           )}
-
+          {useLocation().pathname === '/learn/youth/code/' && (
+            <Col className="desktop" style={{paddingLeft: "8%",}}>
+                <a href='#call' className=""><BrandButton style={{padding: '1.5 rem 2 rem', fontSize: '1.25rem'}}>Book a Call</BrandButton></a>
+            </Col>
+          )}
           </Nav>
         </Navbar.Collapse>
       </Container>
