@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
+import { motion } from "framer-motion";
 
 import ModalCustom from "../Modal/ModalCustom";
 
@@ -19,20 +20,23 @@ const MemberOption = (props) => {
         <Row>
           <Col xs={12}>
             <a href={props.imgModal} data = {props.modalDialog} aria-label="Read more about this membership">
+              <motion.div initial={{ opacity: 0, y: -50}}
+                          whileInView={{ opacity: 1, y: 0}}
+                          transition={{ delay: 0.5, duration: 1 }}>
               <Image
                 onClick={handleShowModal1}
                 className={` ${styles.icon} ${props.classN}`}
                 src={props.imgSrc}
                 alt={props.imgAlt}
               />
-
+              </motion.div>
             </a>
           </Col>
           <Col className={styles.header} xs={12}>
             {props.header}
-            <Col className={styles.info} xs={12}></Col>
+          </Col>
+          <Col className={styles.info} xs={12}>
             {props.infoOne}
-            {props.modalDialog}
           </Col>
           <Col className={styles.info} xs={12}>
             {props.infoTwo}

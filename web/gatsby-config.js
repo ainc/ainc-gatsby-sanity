@@ -18,6 +18,7 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-gatsby-cloud',
+    'gatsby-plugin-netlify',
     { 
       resolve: 'gatsby-plugin-sharp',
       options: {

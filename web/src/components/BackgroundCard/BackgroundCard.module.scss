@@ -8,6 +8,7 @@
   box-shadow: inset 0 0 0 2px #323232;
   vertical-align: middle;
   transition: all 0.25s ease-out;
+  height: 275px;
   &:before {
     content: "";
     position: absolute;
@@ -35,4 +36,22 @@
 .card-text {
   font-size: .8rem;
   line-height: .9rem;
+}
+
+@media (max-width: 760px) {
+  .card-background-filter {
+    height: 300px;
+  }
+}
+
+@media (max-width: 365px) {
+  .card-background-filter {
+    height: 325px;
+  }
+}
+
+@media (max-width: 330px) {
+  .card-background-filter {
+    height: 350px;
+  }
 }

@@ -28,15 +28,15 @@ const EventsPage = ({ data }) => {
 
           {/* Events */}
             <Container className="">
-              <Row className="mx-5 mb-5 px-5">
+              <Row md={1} lg={2} className="mx-5 mb-5 px-5">
                   {events.map((edge) => (
-                    <Col sm="6" className="my-1">
+                    <Col sm="6" className="my-1 d-flex justify-content-center">
                       <Event
                         image={
                           edge.node.picture.asset.gatsbyImageData
                         }
                         date={edge.node.date}
-                        host={edge.node.host}
+                        host={edge.node.host} 
                         location={edge.node.location}
                         link={edge.node.linkToEvent}
                         name={edge.node.eventName}
@@ -51,7 +51,7 @@ const EventsPage = ({ data }) => {
 
 export const query_events = graphql`
   query($currentDate: Date!) {
-    allSanityEvents(sort: {date: DESC}, filter: {date: {gte: $currentDate}}) {
+    allSanityEvents(sort: {date: ASC}, filter: {date: {gte: $currentDate}}) {
       edges {
         node {
           eventName

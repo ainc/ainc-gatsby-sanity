@@ -34,13 +34,13 @@ const Profile = ({ variant, name, image, linkedin, github, website, position, oc
           <Card.Text className="text-center my-1 fs-6 fw-bold">{name}</Card.Text>
           {occupation && <p className='text-center text--micro mb-2'>{occupation}</p>}
           <ButtonGroup size="sm" className={`btn-group ${btnGroupFullWidth}`}>
-            {website && <Button href={website} variant="outline-dark">
+            {website && <Button href={website} variant="outline-dark" target='_blank'>
               Portfolio
             </Button>}
-            {linkedin && <Button href={linkedin} variant="outline-dark">
+            {linkedin && <Button href={linkedin} variant="outline-dark" target='_blank'>
               LinkedIn
             </Button>}
-            {github && <Button href={github} variant="outline-dark">
+            {github && <Button href={github} variant="outline-dark" target='_blank'>
               GitHub
             </Button>}
           </ButtonGroup>
@@ -53,7 +53,7 @@ const Profile = ({ variant, name, image, linkedin, github, website, position, oc
   const renderVariantTwo = () => (
 
     <React.Fragment>
-      <Card className={`rounded-0 mb-3 ${styles.profile}`}>
+      <Card className={`rounded-0 mb-3 ${styles.profile}`} style={{maxWidth: '300px'}}>
           <div className={styles.pictureDiv}>
             <GatsbyImage
               image={image}

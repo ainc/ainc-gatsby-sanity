@@ -27,33 +27,49 @@ const CareersPage = ({ data }) => {
         </Row>
         <Row>
             <Col md={{ span: 6, offset: 2 }}>
-              <Title className='mb-3'>Open Roles</Title>
-              {allCareers.map((node) => (
+              <Title className='mb-3'>About us</Title>
+              <p>We exist to help people pursue their definition of awesome.</p>
+              <p>Founded in 2009, Awesome Inc provides training and professional services in entrepreneurship and software development. Our offerings include:</p>
                   <ul>
-                    <li className={styles.openRoleLinks}>
-                        <a className={'link--brand'} href={`#${node.careerTitle}`}>{node.careerTitle}</a>
-                    </li>
+                    <li><p>Community events and management consulting for high-growth startups in Kentucky</p></li>
+                    <li><p>Co-working, private office, and meeting space</p></li>
+                    <li><p>Custom software development (web and mobile apps)</p></li>
+                    <li><p>Technical training (software development, CRM, youth coding)</p></li>
+                    <li><p>Corporate innovation facilitation</p></li>
                   </ul>
-              ))}
             </Col>
         </Row>
-        <Row>
-            <Col md={{ span: 8, offset: 2 }}>
-              {allCareers.map((node) => (
-                <section id={node.careerTitle} key={node.id}>
-                    <Title className={`${styles.careerTitle} mt-4`}>{node.careerTitle}</Title>
-                    <BlockContent className={styles.careerBody} blocks={node._rawBody} />
-                    <a className={`${styles.managerEmail} link--brand`} href={`mailto:${node.manager_email}`}>Questions? Email: {node.manager} {node.manager_email}</a>
-                    <div>
-                      <a className={`${styles.brandButton}`} href={node.linkToForm}>
-                      <BrandButton>Apply here
-                      </BrandButton>
-                      </a>
-                    </div>
-                </section>  
-              ))}
-            </Col>
+        <Row className='text-center my-3'>
+          <Title className=''>To see our open positions, click the buttons below:</Title>
         </Row>
+
+        <Row className='d-flex justify-content-center my-3'>
+          <Col md="auto" className="d-flex justify-content-center align-items-center flex-column mx-5">
+            <Row className='my-3'>
+              <Subtitle>Awesome Inc</Subtitle>
+            </Row>
+            <Row>
+              <a href="https://careers.awesomeinc.org/jobs/Careers"
+              target="_blank"
+              rel="noopener">
+                <BrandButton className={`text-uppercase`}>Click Here</BrandButton>
+              </a>
+            </Row> 
+          </Col>
+          <Col md="auto" className="d-flex justify-content-center align-items-center flex-column mx-5">
+            <Row className='my-3'>
+              <Subtitle>APAX Software</Subtitle>
+            </Row>
+            <Row>
+              <a href="https://apaxsoftware.com/careers"
+              target="_blank"
+              rel="noopener">
+                <BrandButton className={`text-uppercase`}>Click Here</BrandButton>
+              </a>
+            </Row> 
+          </Col>
+        </Row>
+
         <Row>
           <Col className={`${styles.footer}`}>
             <Col md={{ span: 6, offset: 3 }}>

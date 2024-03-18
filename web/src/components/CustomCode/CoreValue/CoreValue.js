@@ -2,7 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import { Row, Col } from "react-bootstrap";
-
+import { motion } from "framer-motion";
+ 
 import ModalCustom from "../../Modal/ModalCustom";
 
 import '../../../styles/main.scss'
@@ -19,20 +20,34 @@ const CoreValue = (props) => {
               <Row>
                 <Col sm="4">
                   <a onClick={handleShow}  id="video-btn" href='#!'>
-                      <StaticImage quality='100' src='./video-button.png' alt="Core values video" />
+                    <motion.div
+                      initial={{ opacity: 0.5, y: -50 }}
+                      whileInView={{ opacity: 1 , y: 0}}
+                      transition={{ delay: 0.2, duration: 0.5 }}
+                      whileHover={{ scale: 1.1 }} 
+                      whileTap={{ scale: 0.9 }}>
+                    <StaticImage placeholder="blurred" quality='100' src='./video-button.png' alt="Core values video" />
+                    </motion.div>
                   </a>
                   
                 </Col>
                 <Col sm="4">
                   <a id="culture-book-btn" href="/assets/culture-book.pdf" target="_blank" rel="noopener">
-                      <StaticImage quality='100' src='./culture-book-button.png' alt="Core values video" />
+                    <motion.div
+                      initial={{ opacity: 0.5, y: 50 }}
+                      whileInView={{ opacity: 1 , y: 0}}
+                      transition={{ delay: 0.2, duration: 0.5 }}
+                      whileHover={{ scale: 1.1 }} 
+                      whileTap={{ scale: 0.9 }}>
+                    <StaticImage placeholder="blurred" quality='100' src='./culture-book-button.png' alt="Core values video" />
+                    </motion.div>
                   </a>
                 </Col>
               </Row>
             </Col>
             <Col sm="6" className="">
               <a href='/assets/core-values.pdf' target="_blank">
-                <StaticImage quality='100' src='../../../images/about-core-values.png' alt="Core values video" />
+                <StaticImage placeholder="blurred" quality='100' src='../../../images/about-core-values.png' alt="Core values video" />
               </a>
             </Col>
           </div>

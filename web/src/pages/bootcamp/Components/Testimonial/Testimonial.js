@@ -4,13 +4,14 @@ import { Row, Col } from 'react-bootstrap'
 import Subtitle from '../../../../components/UI/Subtitle/Subtitle';
 import { GatsbyImage } from 'gatsby-plugin-image'
 import * as styles from '../testimonial.module.scss'
+import { motion } from "framer-motion";
 
 const TestimonialContent = (props) => {
     return (
         <div>
-            <Row className='mx-3'>
+            <Row className='mt-3'>
                 <Col>
-                    <h4 className="text-uppercase fw-bold mt-4" style={{float: "left"}}>{props.author}</h4>
+                    <h4 className="text-uppercase fw-bold mt-4">{props.author}</h4>
                 </Col>
                 <div>
                     <p  style={{fontSize:"15px"}}className="mt-4 lh-lg">{props.content}</p>
@@ -41,8 +42,8 @@ function Testimonial(props) {
     
     return (
         <div className={`mx-auto`}>
-            <Col className={styles.testimonial}>
-                <Col xs={10} xl={2} lg={2} md={2} sm={4} className={`${styles.bootcampGradImages} ms-auto`}>
+            <Row className={styles.testimonial}>
+                <Col xs={12} xl={2} lg={2} md={2} sm={4} className={`${styles.bootcampGradImages} ms-auto`}>
                     {/* <div className={styles.bootcampGradImages}> */}
                         <Col className="my-4">
                             <div onMouseEnter={() => handleTestimonialHover(props.name1, props.testimonial1, props.image1)}>
@@ -75,7 +76,7 @@ function Testimonial(props) {
                         </Col>
                     {/* </div> */}
                 </Col>
-                <Col xs={12} xl={6} lg={6} md={6} sm={8} className="me-auto">
+                <Col xs={12} xl={6} lg={6} md={6} sm={8} className="me-auto d-flex align-items-center">
                     <Row className="mt-3 mb-5">
                         <div className={`${styles.testimonialWindow} mx-auto`}>
                             <Row className="">
@@ -87,7 +88,7 @@ function Testimonial(props) {
                         </div>
                     </Row>
                 </Col>
-            </Col>
+            </Row>
         </div>
     )
 }

@@ -23,6 +23,7 @@ import Startups from "../components/Layout/Startups/Startups";
 import FeatureCard from "../components/FeatureCard/FeatureCard";
 import HorizontalCard from "../components/HorizontalCard/HorizontalCard";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import { motion } from "framer-motion";
 
 import ModalCustom from "../components/Modal/ModalCustom";
 
@@ -38,7 +39,7 @@ import DevicesIcon from "../assets/svg/devices.svg";
 import StackIcon from "../assets/svg/stack.svg";
 import ToolsIcon from "../assets/svg/tools.svg";
 import { withTheme } from "styled-components";
-
+import EventBriteModal from "../components/EventBriteModal/EventBriteModal";
 
 export const query = graphql`
 query IndexPageQuery($currentDate: Date!) { 
@@ -177,7 +178,7 @@ const IndexPage = ({ data }) => {
           <Row className='d-flex justify-content-center'>
             {/* <Col xs={12} sm={{ span: 10, offset: 1}} > */}
                 
-              <Row className={` row row-cols-5 justify-content-center my-3 px-1 gx-2`}>
+              <Row className={` row row-cols-5 justify-content-center my-3 px-1 gx-3`}>
                 {/* <Col md={3}> */}
                 <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3'>
                   <BackgroundCard
@@ -190,8 +191,10 @@ const IndexPage = ({ data }) => {
                   
                   />
                 </Col>
+                
                 {/* <Col md={3}> */}
-                <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
+                <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3'>
+
                   <BackgroundCard 
                     title="Rent Workspace"
                     text="Rent a desk or space for events, meetings, and more."
@@ -204,7 +207,7 @@ const IndexPage = ({ data }) => {
                    />
                 </Col>
                 {/* <Col md={3}> */}
-                  <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
+                  <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3'>
                   <BackgroundCard
                     title="Accelerate your startup"
                     text="We will help grow your business with a mentor-driven, accelerator program."
@@ -277,18 +280,29 @@ const IndexPage = ({ data }) => {
         <Container className=''>
           <Row className="card__featured_mosaic gy-1  me-2">
             <Col className="card__featured" xs={12} sm={10} md={12} lg={7} xl={7}>
-              <FeatureCard className='ms-0'
-                title={feature_event.eventName}
-                date={feature_event.date}
-                image={feature_event.picture.asset.gatsbyImageData}
-                host={feature_event.host}
-                location={feature_event.location}
-                link={feature_event.linkToEvent}
-              />
+              <motion.div className='h-100'
+                  initial={{ opacity: 0.5, y: -50 }}
+                  whileInView={{ opacity: 1 , y: 0}}
+                  transition={{ duration: 1 }} 
+              >
+                <FeatureCard className='ms-0'
+                  title={feature_event.eventName}
+                  date={feature_event.date}
+                  image={feature_event.picture.asset.gatsbyImageData}
+                  host={feature_event.host}
+                  location={feature_event.location}
+                  link={feature_event.linkToEvent}
+                />
+              </motion.div>
             </Col>
             <Col className="card__secondary" xs={12} sm={10} md={8} lg={5} xl={5}>
               <Row className='bottom-0 me-2 ms-1'>
               {eventsNoFeature.map((node,i) => ( //map through the filtered list
+                <motion.div className='h-100'
+                  initial={{ opacity: 0.5, y: -50 }}
+                  whileInView={{ opacity: 1 , y: 0}}
+                  transition={{ duration: 1 }} 
+                >
                 <HorizontalCard className='ms-0'
                   title={node.eventName}
                   date={node.date}
@@ -298,6 +312,7 @@ const IndexPage = ({ data }) => {
                   link={node.linkToEvent}
                   key={i}
                 />
+                </motion.div>
               ))}
               </Row>
             </Col>
@@ -320,6 +335,11 @@ const IndexPage = ({ data }) => {
           <Row>
             {courses.map((node,i) => (
               <Col className='mb-3' md={4} lg={4} key={i}>
+                <motion.div className='h-100'
+                  initial={{ opacity: 0.5, y: -50 }}
+                  whileInView={{ opacity: 1 , y: 0}}
+                  transition={{ duration: 1 }} 
+                >
                 <Card className='h-100'>
                   <GatsbyImage 
                     image={node.picture.asset.gatsbyImageData} 
@@ -343,6 +363,7 @@ const IndexPage = ({ data }) => {
                     
                   </Card.Body>
                 </Card>
+                </motion.div>
               </Col>
             ))}
             
@@ -374,6 +395,12 @@ const IndexPage = ({ data }) => {
           <div style={{backgroundImage: `url(${desk_background})`, backgroundRepeat: `no-repeat`, backgroundSize: `35%`, backgroundPosition: `50% 50%`, padding: `5rem 0`}}>
             <Row>
               <Col xs={12} sm={6}>
+                <motion.div
+                  initial={{ opacity: 0.5, y: -50 }}
+                  whileInView={{ opacity: 1 , y: 0}}
+                  transition={{ delay: .2, duration: 0.5 }}
+                  whileHover={{ scale: 1.1 }} 
+                  whileTap={{ scale: 0.9 }}>
                 <div className="d-flex justify-content-center" >
                   <a href="../workspace">
                     <Card className="card--equal-width bg-secondary p-4 mb-3" onMouseEnter={() => setIsWorkspaceButton1Hovered(true)} onMouseLeave={() =>setIsWorkspaceButton1Hovered(false)} style={{boxShadow: isWorkspaceButton1Hovered ? ' 0 5px 10px rgba(162, 27, 34, 0.75)' : 'inherit'}}>
@@ -382,8 +409,15 @@ const IndexPage = ({ data }) => {
                     </Card>
                   </a>
                 </div>
+                </motion.div>
               </Col>
               <Col xs={12} sm={6}>
+                <motion.div
+                  initial={{ opacity: 0.5, y: 50 }}
+                  whileInView={{ opacity: 1 , y: 0}}
+                  transition={{ delay: .2, duration: 0.5 }}
+                  whileHover={{ scale: 1.1 }} 
+                  whileTap={{ scale: 0.9 }}>
                 <div className="d-flex justify-content-center mt-5 pt-5">
                   <a href="../workspace">
                     <Card className="card--equal-width bg-secondary p-4" onMouseEnter={() => setIsWorkspaceButton2Hovered(true)} onMouseLeave={() =>setIsWorkspaceButton2Hovered(false)} style={{boxShadow: isWorkspaceButton2Hovered ? ' 0 5px 10px rgba(162, 27, 34, 0.75)' : 'inherit'}}>
@@ -392,6 +426,7 @@ const IndexPage = ({ data }) => {
                     </Card>
                   </a>
                 </div>    
+                </motion.div>
               </Col>
             </Row>
           </div>
@@ -409,15 +444,22 @@ const IndexPage = ({ data }) => {
             <Col>
               <div className="h-100 my-5">
                 <a href="https://apaxsoftware.com/">
-                  <StaticImage 
+                  <motion.div
+                    initial={{ opacity: 0.5, y: 50 }}
+                    whileInView={{ opacity: 1 , y: 0}}
+                    transition={{ delay: .2, duration: 0.5 }}
+                    whileHover={{ scale: 1.1 }} 
+                    whileTap={{ scale: 0.9 }}>
+                  <StaticImage placeholder="blurred" 
                     className='mx-auto d-block img-fluid' 
                     quality='100' 
                     src='../assets/svg/devices.svg' 
                     alt="Devices icon"
                     layout='fixed'
                   />
+                  </motion.div>
                   <Subtitle className="text-center fw-bolder mt-5 mb-3">Mobile Apps + Websites</Subtitle>
-
+                
                 </a>
                 
                 <p className="text-center">Our expert team of web developers build websites and mobile applications that are fast, secure, and easy to maintain.</p>
@@ -426,13 +468,20 @@ const IndexPage = ({ data }) => {
             <Col>
               <div className="h-100 my-5">
               <a href="https://apaxsoftware.com/">
-                <StaticImage 
+                <motion.div
+                    initial={{ opacity: 0.5, y: -50 }}
+                    whileInView={{ opacity: 1 , y: 0}}
+                    transition={{ delay: .2, duration: 0.5 }}
+                    whileHover={{ scale: 1.1 }} 
+                    whileTap={{ scale: 0.9 }}>
+                <StaticImage placeholder="blurred" 
                   className='mx-auto d-block img-fluid' 
                   quality='100' 
                   src='../assets/svg/stack.svg' 
                   alt="software stack icon"
                   layout='fixed'
                 />
+                </motion.div>
                 <Subtitle className="text-center fw-bolder mt-5 mb-3">Software Consulting</Subtitle>
                 </a>
                 <p className="text-center">We make clients part of our streamlined process by facilitating reviews and planning sessions during all parts of the development cycle.</p>
@@ -441,13 +490,20 @@ const IndexPage = ({ data }) => {
             <Col>
               <div className="h-100 my-5">
               <a href="https://apaxsoftware.com/">
-              <StaticImage 
+                <motion.div
+                  initial={{ opacity: 0.5, y: 50 }}
+                  whileInView={{ opacity: 1 , y: 0}}
+                  transition={{ delay: .2, duration: 0.5 }}
+                  whileHover={{ scale: 1.1 }} 
+                  whileTap={{ scale: 0.9 }}>
+              <StaticImage placeholder="blurred" 
                   className='mx-auto d-block img-fluid' 
                   quality='100' 
                   src='../assets/svg/tools.svg' 
                   alt="Tools icon"
                   layout='fixed'
                 />
+                </motion.div>
                 <Subtitle className="text-center fw-bolder mt-5 mb-3">Graphic Design</Subtitle>
               </a>
                 <p className="text-center">Our UI/UX design services transform your project, increasing user satisfaction, reducing development costs, and delivering a high ROI.</p>
