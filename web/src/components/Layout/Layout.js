@@ -1,6 +1,7 @@
- import React from "react";
+import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql } from 'gatsby';
 import { useLocation } from "@reach/router";
+//import { TransitionPortal } from "gatsby-plugin-transition-link"
 
 import Banner from '../Banner/Banner'
 import Footer from '../Footer/Footer'

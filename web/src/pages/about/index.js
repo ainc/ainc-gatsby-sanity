@@ -1,9 +1,10 @@
-import React from "react";
+import React , {useState} from "react";
 import { graphql } from "gatsby";
 import Layout from "../../components/Layout/Layout";
 import { Container, Col, Row, Image } from "react-bootstrap";
 import SEO from '../../components/seo'
 import { GatsbyImage } from "gatsby-plugin-image";
+import { motion } from "framer-motion";
 
 import * as styles from "./about.module.css";
 
@@ -15,12 +16,16 @@ import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
 
 import coreValues from "../../images/about-core-values.png";
+import ModalCustom from "../../components/Modal/ModalCustom";
 
 const AboutPage = ({ data }) => {
 
   const teamMembers = (data.allSanityTeamMember.nodes || {})
-  const accomplishments = (data.sanityAccomplishments || {})
+  const accomplishments = (data.allSanityAccomplishments.nodes.at(-1) || {})
 
+  const [lgShow, setLgShow] = useState(false)
+  const handleShow = () => setLgShow(true)
+  const handleClose = () => setLgShow(false)
   return (
     <Layout>
         {/* About header */}
@@ -29,24 +34,32 @@ const AboutPage = ({ data }) => {
             <Row>
               <Col className="col-9 col-sm-7 mt-3">
                 <div className={styles.heading}>
-                  <Title className={`mt-5 fw-bold `}>
+                 <motion.div initial={{ opacity: 0}}
+                      animate={{ opacity: 1}}
+                      transition={{ delay: 0.5, duration: 1 }}>
+                  <Title className={`mt-5 fw-bold text--big`}>
                     We exist to help people pursue their definition of awesome.
                   </Title>
-                  <Subtitle className={`fs-6 mt-2 mb-5`}>
+                  <p className={`fs-6 mt-2 mb-5`}>
                     Awesome Inc was founded on the basis of the "give-first" mentality. Awesome Inc
                     started in 2009 and has grown to be the epicenter for anything related to
                     technology or business. We strive to make Lexington a better place to live and
                     work.
-                  </Subtitle>
+                  </p>
                   <a href="/assets/culture-book.pdf">
                     <BrandButton className={`text-nowrap`}>View Our Culture Book</BrandButton>
                   </a>
                   
-                </div>
+                  </motion.div>
+                  </div>
               </Col>
             </Row>
             <Row>
+              <motion.div initial={{ opacity: 0, y: 50}}
+                      animate={{ opacity: 1, y: 0}}
+                      transition={{ delay: 0.5, duration: 1 }}>
               <Image className={`${styles.headerImg}`} src={coreValues} alt="core-values" />
+              </motion.div>
               <Col className="col-sm-8 col-10">
                 <a href="/assets/core-values.pdf">
                 <BrandButton className={`text-nowrap`}>
@@ -74,6 +87,9 @@ const AboutPage = ({ data }) => {
                     sm={12}
                   >
                     <a href="../workspace" role="button">
+                      <motion.div initial={{ opacity: 0, y: 50}}
+                        whileInView={{ opacity: 1, y: 0}}
+                        transition={{ delay: 0.5, duration: 1 }}>
                       <GatsbyImage
                         objectFit="scale-down"
                         className={styles.imageLinks}
@@ -82,6 +98,7 @@ const AboutPage = ({ data }) => {
                         }
                         alt="Accomplishment 1"
                       />
+                      </motion.div>
                     </a>
                   </Col>
                   <Col
@@ -90,6 +107,9 @@ const AboutPage = ({ data }) => {
                     sm={12}
                   >
                     <a href="../fellowship" role="button">
+                      <motion.div initial={{ opacity: 0, y: -50}}
+                                  whileInView={{ opacity: 1, y: 0}}
+                                  transition={{ delay: 0.5, duration: 1 }}>
                       <GatsbyImage
                         objectFit="scale-down"
                         className={styles.imageLinks}
@@ -98,6 +118,7 @@ const AboutPage = ({ data }) => {
                         }
                         alt="Accomplishment 2"
                       />
+                      </motion.div>
                     </a>
                   </Col>
                   <Col
@@ -106,6 +127,9 @@ const AboutPage = ({ data }) => {
                     sm={12}
                   >
                     <a href="../learn" role="button">
+                      <motion.div initial={{ opacity: 0, y: 50}}
+                                  whileInView={{ opacity: 1, y: 0}}
+                                  transition={{ delay: 0.5, duration: 1 }}>
                       <GatsbyImage
                         objectFit="scale-down"
                         image={
@@ -114,11 +138,38 @@ const AboutPage = ({ data }) => {
                         className={styles.imageLinks}
                         alt="Accomplishment 3"
                       />
+                      </motion.div>
                     </a>
                   </Col>
                 </Row>
               </Col>
             </Row>
+            <Row className="text-center d-flex justify-content-center mt-3 mb-3">
+            <motion.div initial={{ opacity: 0, y: 50}}
+                                  whileInView={{ opacity: 1, y: 0}}
+                                  transition={{ delay: 0.5, duration: 1 }}>
+              <Col className=''>
+                <BrandButton onClick={handleShow} className='secondary px-3 mx-5 my-3'>Watch our year in review video</BrandButton>
+                <a href="https://issuu.com/awesomeinclex/docs/awesomeinc_2023_impactreport?ff" target="_blank">
+                  <BrandButton className='secondary px-3 mx-5'>Read our impact report</BrandButton>
+                </a>
+              </Col>
+              </motion.div>
+            </Row>
+            <ModalCustom 
+            lgShow = {lgShow} 
+            hide = {handleClose}
+            bgDark = {false} 
+            centered
+            content = {
+              <iframe 
+              width="100%" 
+              height="500" 
+              src="https://www.youtube.com/embed/voYgKjTgNYE?si=g657OhP3aTm7agbo" 
+              title="YouTube video player"
+              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen></iframe>
+            }/>
           </Container>
         </section>
 
@@ -240,25 +291,27 @@ const AboutPage = ({ data }) => {
 
 export const query_accomplishments = graphql`
   query {
-    sanityAccomplishments {
-      header
-      accomplishment1 {
-        asset {
-          gatsbyImageData
+    allSanityAccomplishments {
+      nodes {
+        header
+        accomplishment1 {
+          asset {
+            gatsbyImageData
+          }
         }
-      }
-      accomplishment2 {
-        asset {
-          gatsbyImageData
+        accomplishment2 {
+          asset {
+            gatsbyImageData
+          }
         }
-      }
-      accomplishment3 {
-        asset {
-          gatsbyImageData
+        accomplishment3 {
+          asset {
+            gatsbyImageData
+          }
         }
       }
     }
-    allSanityTeamMember {
+    allSanityTeamMember(sort: {_updatedAt: DESC}){
       nodes {
         name
         picture {

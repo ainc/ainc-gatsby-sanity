@@ -25,7 +25,7 @@ const IndiaAbout = () => {
                 <Row>
                     <Subtitle className='text-center my-4'>Meet the team</Subtitle>
                     <Col sm={6} md={{span:5, offset:2}} lg={{span: 4, offset: 2}}>
-                        <StaticImage className={styles.images} src='../../../images/india/bryce.jpeg' alt='Bryce Anderson'/>
+                        <StaticImage placeholder="blurred" className={styles.images} src='../../../images/india/bryce.jpeg' alt='Bryce Anderson'/>
                         <p className='mt-2'>Bryce Anderson</p>
                         <p className='mb-4'>
                             Bryce Anderson is an entrepreneur based in Lexington, KY (USA). He has founded multiple companies and currently runs 
@@ -35,7 +35,7 @@ const IndiaAbout = () => {
                         </p>
                     </Col>
                     <Col sm={6} md={{span:5}} lg={{span:4, offset:1}}>
-                        <StaticImage className={styles.images} src='../../../images/india/ashlin.jpeg' alt='Ashlin Mathews'/>
+                        <StaticImage placeholder="blurred" className={styles.images} src='../../../images/india/ashlin.jpeg' alt='Ashlin Mathews'/>
                         <p className='mt-2'>Ashlin Mathews</p>
                         <p className='mb-4'>
                             Ashlin is a Senior Software Engineer and has worked for Bloomberg LP for the past 11 years. He currently lives in Dallas, TX (USA) 

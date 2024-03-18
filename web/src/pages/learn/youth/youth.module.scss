@@ -73,6 +73,30 @@
     }
 }
 
+.top-section-code {
+    @include screen-sm {
+        // background-color: $brand-red-bright;
+        background-size: cover;
+        min-width: 100%;
+        position: absolute;
+        margin-left: -16px;
+        padding-left: 18px;
+        height: 250px;
+    }
+    @include screen-xs {
+        // background-color: $brand-red-bright;
+        background-size: cover;
+        min-width: 100%;
+        position: absolute;
+        margin-left: -16px;
+        padding-left: 18px;
+        height: 240px;
+    }
+    @media (min-width: 769px){
+        margin-top: 5%;
+    }
+}
+
 .why-learn {
     text-transform: uppercase;
     margin-top: 20%;
@@ -266,4 +290,10 @@
 
 .modal {
     background-color: $brand-color2 !important;
+}
+
+.waitlist-iframe{
+    @media (min-width: 768px) {
+          width: 50%; /* Adjust the width for screens larger than md */
+    }
 }
