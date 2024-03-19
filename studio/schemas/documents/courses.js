@@ -14,6 +14,12 @@ export default {
             title: 'Course Picture'
         },
         {
+            name: 'background',
+            type: 'image',
+            title: 'Course Background Image',
+            validation: Rule => Rule.required()
+        },
+        {
             name: 'courseLink',
             type: 'url',
             title: 'Course Link',
