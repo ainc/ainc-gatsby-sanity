@@ -6,7 +6,8 @@
     background-color: #FFFFFF;
     border-radius: 15px;
     margin: auto;
-    width: 63rem;
+    height: auto;
+    width: 100%;
     position: relative;
     display: inline-block;
     overflow: hidden;
@@ -31,7 +32,6 @@
     display: block;
     width: fit-content;
     height: auto;
-    right: 2rem;
     max-width: 100%;
     position: relative;
 }
@@ -46,7 +46,7 @@
     text-align: left;
     margin-left: 5%;
     position: relative;
-    font-size: 17px;
+    font-size: 17px !important;
 }
 
 .designed-for {
@@ -59,4 +59,13 @@
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 
+}
+
+.background {
+    background-size: cover;
+    background-position: center;
+    padding-top: 40px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
