@@ -9,7 +9,7 @@ import imageLink from './objects/imageLink'
 import link from './objects/link'
 import sliderImage from './objects/sliderImage'
 import fiveAcrossJudges from './objects/fiveAcrossJudges'
-
+import imageTestimonials from './objects/imageTestimonials'
 // Document types
 import category from './documents/category'
 import teamMember from './documents/teamMember'
@@ -59,7 +59,7 @@ export default [
     imageLink,
     link,
     sliderImage,
-    imageSlider,
+    imageTestimonials,
     // The following are document types which will appear
     // in the studio.
     category,
@@ -98,5 +98,6 @@ export default [
     internTestimonials,
     whatWeDo,
     fiveAcrossTestimonials,
+    imageSlider
   ]
 
