@@ -15,7 +15,7 @@ import Title from "../../../components/UI/Title/Title";
 import EventBriteModal from "../../../components/EventBriteModal/EventBriteModal";
 import "../../../styles/main.scss"
 import * as styles from "./fiveAcross.module.scss";
-
+import TestimonialCarousel from "../../../components/TestimonialCarousel/TestimonialCarousel";
 const fiveAcrossPage = ({ data }) => {
 
     const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes.at(-1).titleSp.title || {});
@@ -32,6 +32,7 @@ const fiveAcrossPage = ({ data }) => {
     const fiveAcrossWinners = (data.allSanityFiveAcrossWinners.edges || {});
     const previousWinner = fiveAcrossWinners[fiveAcrossWinners.length - 1].node;
 
+    const testimonials = (data.allSanityFiveAcrossTestimonials.nodes.at(-1) || {});
 
     let years = [];
 
@@ -141,7 +142,10 @@ const fiveAcrossPage = ({ data }) => {
                     </Col>
                 </Row>
             </Container>
-
+            {/*Testimonials */}
+            <Container>
+                <TestimonialCarousel images={testimonials} />
+            </Container>
             {/* NEXT 5ACROSS SECTION */}
             <Container fluid className={`justify-content-center ${styles.upcomingEventCircle}`}>
                 <Row>
@@ -406,6 +410,18 @@ query fiveAcrossQuery($currentDate: Date!) {
             }
             link
             alt
+          }
+        }
+      }
+    allSanityFiveAcrossTestimonials {
+        nodes {
+          testimonials {
+            testimonials {
+              asset {
+                gatsbyImageData
+              }
+            }
+            title
           }
         }
       }
