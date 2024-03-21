@@ -134,6 +134,10 @@ const fiveAcrossPage = ({ data }) => {
                 ))}
                 </Row>
             </Container>
+            {/*Testimonials */}
+            <Container>
+                <TestimonialCarousel images={testimonials} />
+            </Container>
             <Container fluid className={`mt-5 ${styles.pastPitches}`}>
                 <Row className="mx-5 justify-content-center text-center">
                     <Col md="10" sm="12">
@@ -141,10 +145,6 @@ const fiveAcrossPage = ({ data }) => {
                         <BrandButton className='mt-3 mb-5' onClick={() => scrollToSection(recentWinner)}>WATCH PAST PITCHES</BrandButton>
                     </Col>
                 </Row>
-            </Container>
-            {/*Testimonials */}
-            <Container>
-                <TestimonialCarousel images={testimonials} />
             </Container>
             {/* NEXT 5ACROSS SECTION */}
             <Container fluid className={`justify-content-center ${styles.upcomingEventCircle}`}>
