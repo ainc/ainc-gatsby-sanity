@@ -79,7 +79,7 @@ const QRCodePage = () => {
                     <Subtitle className={styles.italics}>Network</Subtitle>
                     <Title className="pb-4">AWESOMENET</Title>
                     <Subtitle className={styles.italics}>Password</Subtitle>
-                    <Title>Awesomestuff</Title>
+                    <Title>awesomestuff</Title>
                 </Col>
             </Container>
 
@@ -162,7 +162,7 @@ const QRCodePage = () => {
                 <Container>
                     <Image src={calendar} alt="Calendar"/>
                     <p className="text-white mt-4 mb-4" style={{fontWeight: 'bold'}}>Take a look to see what's coming up</p>
-                    <a href="https://awesomeinc.org/events/">
+                    <a href="/events/">
                         <BrandButton >Get plugged in!</BrandButton>
                     </a>
                 </Container>
