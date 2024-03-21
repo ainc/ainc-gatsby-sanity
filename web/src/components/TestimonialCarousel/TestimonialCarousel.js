@@ -7,11 +7,13 @@ const TestimonialCarousel = ( props ) => {
     const testimonials = props.images.testimonials;
     
     return(
-        <Container>
+        <Container className="my-5">
             <Carousel>
                 {testimonials.map((node,index) => (
-                    <Carousel.Item key={index} className='d-flex justify-content-center align-items-center my-5'>
-                        <GatsbyImage image={node.testimonials.asset.gatsbyImageData} alt={node.testimonials.title} />
+                    <Carousel.Item key={index}>
+                        <div className='d-flex justify-content-center align-items-center my-5' style={{height: '25vh'}}>
+                        <GatsbyImage image={node.testimonials.asset.gatsbyImageData} alt={node.testimonials.title} style={{width: '650px'}}/>
+                        </div>
                     </Carousel.Item>   
                 ))}
             </Carousel>
