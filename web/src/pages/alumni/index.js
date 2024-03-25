@@ -5,19 +5,35 @@ import { graphql, Link } from "gatsby";
 //   filterOutDocsWithoutSlugs,
 //   filterOutDocsPublishedInTheFuture
 // } from "../../lib/helpers";
-import { Col, Container, Row } from 'react-bootstrap';
-import { StaticImage } from "gatsby-plugin-image";
+import { Col, Container, Row, Carousel, Button } from 'react-bootstrap';
+import { StaticImage, GatsbyImage } from "gatsby-plugin-image";
+import { FaCircle, FaRegCircle, FaArrowRight, FaArrowLeft } from "react-icons/fa";
+
 
 import GraphQLErrorList from "../../components/graphql-error-list";
 import Layout from "../../containers/layout";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from '../../components/UI/Subtitle/Subtitle';
 import Profile from "../../components/Profile/Profile";
+import Companies from "../../components/Companies/Companies";
+
 
 import "./alumni.scss";
+import { styles } from "../../styles/Variables";
+
 
 export const query = graphql`
   query AlumniPageQuery {
+    allSanityBootcampEmployers {
+      nodes {
+        company
+        picture {
+          asset {
+            gatsbyImageData
+          }
+        }
+      }
+    }
     allSanityBootcampAlumni{
       nodes {
         id
@@ -45,13 +61,75 @@ export const query = graphql`
         }
       }
     }
+    allSanityAlumniTestimonials {
+      nodes {
+        author
+        company
+        description
+        position
+        picture {
+          asset {
+            gatsbyImageData
+          }
+        }
+      }
+    }
   }
 `;
+
+export function TestimonialCarousel({ testimonials }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleClickRight = () => {
+    setCurrentIndex((currentIndex + 1) % testimonials.length);
+  };
+
+  const handleClickLeft = () => {
+    setCurrentIndex((currentIndex - 1 + testimonials.length) % testimonials.length);
+  };
+
+  return (
+    <div>
+      {testimonials.map((node, index) => (
+        <div key={index} className={`testimonial-div ${index === currentIndex ? 'd-flex' : 'd-none'}`}>
+          <Row>
+            <Col lg={4}>
+              
+            </Col>
+            <Col lg={6} className="offset-lg-2 test-info pt-3">
+              <GatsbyImage image={node.picture.asset.gatsbyImageData} alt={node.company} className="test-images"/> 
+              <Title className="text-white">HEAR FROM EMPLOYERS</Title>
+              <h2>{node.company}</h2>
+              <p style={{fontWeight: 'bold'}}>{node.author}</p>
+              <p style={{fontStyle: 'italic'}}>{node.position}</p>
+              <p className="description mb-0">{node.description}</p>
+              
+              <div className="navBar float-end">
+                <Button style={{background: 'none', border: 'white', color: 'white', paddingRight: '0.5rem'}} onClick={handleClickLeft}>
+                  <FaArrowLeft className="ms-1" />
+                </Button>
+                {testimonials.map((_, index) => (
+                  index === currentIndex ? <FaCircle key={index} className="ms-1" /> : <FaRegCircle key={index} className="ms-1" />
+                ))}
+                <Button style={{background: 'none', border: 'white', color: 'white', paddingLeft: '0.5rem', paddingRight: '0.5rem'}} onClick={handleClickRight}>
+                  <FaArrowRight className="ms-1" />
+                </Button>
+              </div>
+            </Col>
+          </Row>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 
 const AlumniPage = props => {
   const { data, errors } = props;
   const [selectedClass, setSelectedClass] = useState("");
 
+  const testimonials = (data.allSanityAlumniTestimonials.nodes || {})
+  const employers = (data.allSanityBootcampEmployers.nodes || {})
 
   if (errors) {
     return (
@@ -123,17 +201,23 @@ const AlumniPage = props => {
 
   }
 
-
   return (
     <Layout>
       <Container>
         <Row>
           <Col>
+          <Row>
             <Title className="my-4">Bootcamp Alumni</Title>
             <p>The <Link className="text--brand link--brand fw-bold" to="/bootcamp">Web Developer Bootcamp</Link> is a 16-week, intensive training program to help people launch careers in software development. It includes over 500 hours of hands-on training, gaining experience while building 10+ software projects in an Agile environment, using HTML, CSS, JavaScript, PHP, Laravel, React, cloud deployment, GitHub, and more.</p>
             <p>Bootcamp alumni have been hired by more than 50 employers. Initial job titles have included Software Engineer, Software Developer, Web Developer, Application Developer, QA Engineer, DevOps Analyst, Salesforce Consultant, and UX/UI Designer.</p>
-            <p className="fst-italic">Ribbons indicate an alum's first programming job following Bootcamp</p>
+          </Row>
+          <Row>
+            <TestimonialCarousel testimonials={testimonials}/>
+          </Row>
+          <Row>
+            <p className="fst-italic mt-3">Ribbons indicate an alum's first programming job following Bootcamp</p>
             <Subtitle>Alumni List</Subtitle>
+          </Row>
           </Col>
         </Row>
 
@@ -155,25 +239,8 @@ const AlumniPage = props => {
             </Col>
           ))}
         </Row>
-        <Row>
-          <Col className="d-flex justify-content-center my-5">
-            <Title>COMPANIES THAT HAVE HIRED OUR GRADUATES</Title>
-          </Col>
-        </Row>
-        <Row className="d-flex justify-content-center mb-5">
-          <Col sm={6} md={5} lg={5} xl={10} className={`card mb-4`}>
-            <StaticImage placeholder="blurred" quality='90' className="apax-logo me-3 mb-4" src="./images/apaxsoftware-logo.png" />
-            <StaticImage placeholder="blurred" quality='90' className="bigfans-logo me-3" src="./images/bigassfans-logo.png" />
-            <StaticImage placeholder="blurred" quality='90' className="blueframe-logo me-3" src="./images/blueframe-logo.png" />
-            <StaticImage placeholder="blurred" quality='90' className="cabemtechnologies-logo me-3" src="./images/cabemtechnologies-logo.png" />
-            <StaticImage placeholder="blurred" quality='90' className="infosys-logo" src="./images/infosys-logo.png" />
-            <StaticImage placeholder="blurred" quality='90' className="lightwell-logo me-3" src="./images/lightwell-logo.png" />
-            <StaticImage placeholder="blurred" quality='90' className="nymblsystems-logo me-3" src="./images/nymblsystems-logo.png" />
-            <StaticImage placeholder="blurred" quality='90' className="prospecttrax-logo me-3" src="./images/prospecttrax-logo.png" />
-            <StaticImage placeholder="blurred" quality='90' className="silverfern-logo me-3" src="./images/silverfern-logo.png" />
-            <StaticImage placeholder="blurred" quality='90' className="vetdata-logo" src="./images/vetdata-logo.png" />
-          </Col>
-        </Row>
+
+        <Companies employers={employers}/>
       </Container>
     </Layout>
   );

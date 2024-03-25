@@ -261,7 +261,7 @@ const InternshipsPage = ({ data }) => {
             <Title className='text-center mt-5 text-uppercase text--red'>Intern Testimonials</Title>
         </Row>
       </Container>
-      <Carousel indicators={false} className={`${styles.carouselHeight} my-3`}>
+      <Carousel indicators={true} className={`${styles.carouselHeight} my-3`}>
       {allSanityInternTestimonials.map((node, index) => (
         <Carousel.Item key={index}>
           <Row className='d-flex justify-content-center'>

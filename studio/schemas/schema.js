@@ -48,6 +48,7 @@ import bootcampProgramGuide from './documents/bootcampProgramGuide'
 import whatWeDo from './documents/whatWeDo'
 import fiveAcrossTestimonials from './documents/fiveAcrossTestimonials'
 import bootcampImageTestimonials from './documents/bootcampImageTestimonials'
+import alumniTestimonials from './documents/alumniTestimonials'
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
     bioPortableText,
@@ -100,5 +101,6 @@ export default [
     fiveAcrossTestimonials,
     imageSlider,
     bootcampImageTestimonials,
+    alumniTestimonials
   ]
 
