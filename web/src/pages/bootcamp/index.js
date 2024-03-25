@@ -20,6 +20,7 @@ import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import Testimonial from "./Components/Testimonial/Testimonial";
 import Title from "../../components/UI/Title/Title";
 import ZohoSales from "../../components/Scripts/ZohoSales";
+import TestimonialCarousel from "../../components/TestimonialCarousel/TestimonialCarousel";
 
 import "../../styles/main.scss"
 import * as styles from './bootcamp.module.scss'
@@ -83,6 +84,18 @@ export const query = graphql`
     upcomingEndDate(formatString: "MMMM DD, YYYY")
     upcomingStartDate(formatString: "MMMM DD, YYYY")
   }
+  allSanityBootcampImageTestimonials {
+    nodes {
+      testimonials {
+        title
+        testimonials {
+          asset {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+  }
 }
 `
 
@@ -96,6 +109,7 @@ const BootcampPage = props => {
   const testimonial2 = testimonials[1]
   const testimonial3 = testimonials[2]
 
+  const imageTestimonials = (data.allSanityBootcampImageTestimonials.nodes.at(-1) || {})
   const profCard = (data.sanityBootcampProfileCard || {})
 
   const gradStats = (data.allSanityBootcampGraduationStats.nodes || {})
@@ -387,45 +401,9 @@ const BootcampPage = props => {
           </Row>
         </Container>
       </section>
-
-      <section id="carousel">
-        <Container ref={sliderRef} className={`${styles.carousel} keen-slider pb-5 align-items-center`} > 
-            <div className="keen-slider__slide number-slide1">
-              <div style={{width:"40%"}} className="justify-content-center mx-auto py-3">
-                <StaticImage placeholder="blurred" alt="Testimonial 1" className={`${styles.aincuTestimonial} px-5 pt-5`} src="../../images/bootcamp-testimonials/alyssa-holber-linkedin.png"/>
-              </div>
-            </div>
-
-            <div  className="keen-slider__slide number-slide2">
-              <div style={{width: "45%"}} className="justify-content-center mx-auto py-3">
-                <StaticImage placeholder="blurred" alt="Testimonial 2" className={`${styles.aincuTestimonial} px-5`} src="../../images/bootcamp-testimonials/josh-dale-linkedin.png"/>
-              </div>
-            </div>
-
-            <div className="keen-slider__slide number-slide3">
-              <div style={{maxWidth: "80%"}} className="justify-content-center mx-auto py-3">
-                <StaticImage placeholder="blurred" alt="Testimonial 3" className={`${styles.aincuTestimonial} pt-5`} src="../../images/bootcamp-testimonials/mason-williams.png"/>
-              </div>
-            </div>
-            {/*
-            <div className="keen-slider__slide number-slide4">
-              <div style={{maxWidth: "40%"}}className=" justify-content-center mx-auto py-3">
-                <StaticImage placeholder="blurred" alt="Tetimonial 4" className={`${styles.aincuTestimonial} px-5 pt-5`} src="../../images/bootcamp-testimonials/reic-sparks.png"/>
-              </div>
-            </div>
-            */} 
-
-            <div className="keen-slider__slide number-slide5">
-              <div style={{maxWidth: "50%"}} className="justify-content-center mx-auto px-5 py-3">
-                <StaticImage placeholder="blurred" alt="Tetimonial 5" className={`${styles.aincuTestimonial} px-5 mx-5`} src="../../images/bootcamp-testimonials/roger-mullins-linkedin.png"/>
-              </div>
-            </div>
-              
-        </Container>
-        </section>
-
-
-        
+      <Container>
+        <TestimonialCarousel images={imageTestimonials} />
+      </Container>
 
       {/* Why Awesome Inc Header */}
       <section id="why-awesome-inc-header" className={styles.whyAwesomeIncHeader}>
