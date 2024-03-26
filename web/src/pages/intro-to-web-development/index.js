@@ -39,7 +39,7 @@ const IntroWebDevPage = ({ data }) => {
                     <Title className='pt-5 pb-2 text-center text-uppercase'>intro to web development</Title>
                     </Col>
                     <Col xs={{span:6, offset: 3}} sm={6} md={{offset:3}} lg={{offset: 3}} xl={{ offset: 3, span: 6 }}>
-                       <a className='d-flex justify-content-center' href='https://www.eventbrite.com/e/intro-to-web-development-remote-spring-2024-tickets-768626050207?aff=oddtdtcreator'><BrandButton className='px-3 text-uppercase mb-5'>register now</BrandButton></a> 
+                       <a className='d-flex justify-content-center' href='https://www.eventbrite.com/e/858985728437?aff=oddtdtcreator' target='_blank'><BrandButton className='px-3 text-uppercase mb-5'>register now</BrandButton></a> 
                     </Col>
                     </Container>
                     <Container className={`my-5 ${styles.bottomIntro}`}>
@@ -187,7 +187,7 @@ const IntroWebDevPage = ({ data }) => {
                 </Container>
                 <Container className={`mobile-hide-bg ${styles.register}`}>
                     <Col  xs={{offset:3, span: 6}} sm={{offset: 3, span: 6}} md={{offset: 4, span: 4}} lg={{offset:4, span: 4}} xl={{ offset: 3, span: 6 }}>
-                        <a  className={` d-flex justify-content-center`} href='https://www.eventbrite.com/e/intro-to-web-development-remote-spring-2024-tickets-768626050207?aff=oddtdtcreator' >
+                        <a  className={` d-flex justify-content-center`} href='https://www.eventbrite.com/e/858985728437?aff=oddtdtcreator' target='_blank'>
                             <BrandButton className={`secondary text-uppercase px-3 my-5`}>register now</BrandButton></a>
                             {/* still need to fit button between arrows for smaller screen sizes/fix button responsiveness for entire page */}
                     </Col>
