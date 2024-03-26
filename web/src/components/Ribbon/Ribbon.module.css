@@ -1,34 +1,8 @@
 .ribbon {
   margin-top: 11px;
   margin-right: 25px;
+  float: right;
 }
-
-
-@media screen and (max-width: 1200px) {
-  .ribbon {
-      margin-right: 173px;
-  }
-}
-
-@media screen and (max-width: 1199px) {
-  .ribbon {
-      margin-right: 174px;
-  }
-}
-
-@media screen and (max-width: 991px) {
-  .ribbon {
-      margin-right: 120px;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .ribbon {
-      display: none;
-  }
-}
-
-
 
 .ribbon {
   width: 150px;
