@@ -9,7 +9,7 @@ import imageLink from './objects/imageLink'
 import link from './objects/link'
 import sliderImage from './objects/sliderImage'
 import fiveAcrossJudges from './objects/fiveAcrossJudges'
-
+import imageTestimonials from './objects/imageTestimonials'
 // Document types
 import category from './documents/category'
 import teamMember from './documents/teamMember'
@@ -46,8 +46,8 @@ import tutorials from './documents/tutorials'
 import internTestimonials from './documents/internTestimonials'
 import bootcampProgramGuide from './documents/bootcampProgramGuide'
 import whatWeDo from './documents/whatWeDo'
-
-
+import fiveAcrossTestimonials from './documents/fiveAcrossTestimonials'
+import bootcampImageTestimonials from './documents/bootcampImageTestimonials'
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
     bioPortableText,
@@ -59,7 +59,7 @@ export default [
     imageLink,
     link,
     sliderImage,
-    imageSlider,
+    imageTestimonials,
     // The following are document types which will appear
     // in the studio.
     category,
@@ -97,5 +97,8 @@ export default [
     tutorials,
     internTestimonials,
     whatWeDo,
+    fiveAcrossTestimonials,
+    imageSlider,
+    bootcampImageTestimonials,
   ]
 
