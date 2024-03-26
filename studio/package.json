@@ -20,7 +20,7 @@
     "@sanity/dashboard": "^3.1.5",
     "@sanity/structure": "^2.36.2",
     "@sanity/studio-hints": "^2.35.3",
-    "@sanity/ui": "^1.8.2",
+    "@sanity/ui": "^2.0.12",
     "@sanity/vision": "^3.16.2",
     "date-fns": "^2.27.0",
     "easymde": "^2.18.0",
