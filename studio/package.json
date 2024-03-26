@@ -34,13 +34,13 @@
     "react-markdown": "^8.0.7",
     "rehype-raw": "^6.1.1",
     "remark-gfm": "^3.0.1",
-    "sanity": "^3.36.0",
+    "sanity": "^3.15.1",
     "sanity-plugin-autocomplete-tags": "^1.0.2",
     "sanity-plugin-dashboard-widget-document-list": "^0.0.13",
     "sanity-plugin-dashboard-widget-netlify": "^1.2.1",
     "sanity-plugin-markdown": "^4.1.0",
     "sanity-plugin-tags": "^2.0.1",
-    "styled-components": "^5.3.3"
+    "styled-components": "^6.1.8"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
