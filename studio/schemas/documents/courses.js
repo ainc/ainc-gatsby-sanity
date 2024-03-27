@@ -25,6 +25,11 @@ export default {
             title: 'Course Link',
         },
         {
+            name: 'externalLink',
+            type: 'url',
+            title: 'External Link',
+        },
+        {
             name: 'courseSeason',
             type: 'string',
             title: 'Course Season'
