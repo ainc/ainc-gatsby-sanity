@@ -94,7 +94,7 @@ const QRCodePage = () => {
                     </Row>
                     <Row className="d-flex align-items-center justify-content-center text-center text-white ms-auto mt-3">
                         <Col lg={3} md={6}>
-                            <a href="https://calendar.google.com/calendar/u/0?cid=YXYxcnNwdTljbnNvdHUwdGNkbmNvY3FzZWdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">
+                            <a href="https://calendar.google.com/calendar/u/0?cid=YXYxcnNwdTljbnNvdHUwdGNkbmNvY3FzZWdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ" target="_blank">
                                 <Image src={people} alt="Lee Todd" className={styles.conferenceLogo}/>
                                 <h3>Lee Todd</h3>
                                 <p>(Smaller)</p>
@@ -103,7 +103,7 @@ const QRCodePage = () => {
                             </a>
                         </Col>
                         <Col lg={3} md={6}>
-                            <a href="https://calendar.google.com/calendar/u/0?cid=bzd2aG11czlyYzRxOHJlM240am1oZ3Y5bWtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">
+                            <a href="https://calendar.google.com/calendar/u/0?cid=bzd2aG11czlyYzRxOHJlM240am1oZ3Y5bWtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ" target="_blank">
                                 <Image src={thinkingRoom} alt="Upstairs Thinking Room" className={styles.conferenceLogo}/>
                                 <h3>Upstairs</h3>
                                 <br/>
@@ -112,7 +112,7 @@ const QRCodePage = () => {
                             </a>
                         </Col>
                         <Col lg={3} md={6}>
-                            <a href="https://calendar.google.com/calendar/u/0?cid=bzVhcWE2OHE1MjdoZHQyb2dybm82bTc3cWNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">
+                            <a href="https://calendar.google.com/calendar/u/0?cid=bzVhcWE2OHE1MjdoZHQyb2dybm82bTc3cWNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ" target="_blank">
                                 <Image src={cv3} alt="350 Large" className={styles.conferenceLogo}/>
                                 <h3>350 Large</h3>
                                 <br/>
@@ -121,7 +121,7 @@ const QRCodePage = () => {
                             </a>
                         </Col>
                         <Col lg={3} md={6}>
-                            <a href="https://calendar.google.com/calendar/u/0?cid=cGdiZWczZTVsdXE5ZDBtYTNmMzI2czRnMWNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">
+                            <a href="https://calendar.google.com/calendar/u/0?cid=cGdiZWczZTVsdXE5ZDBtYTNmMzI2czRnMWNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ" target="_blank">
                                 <Image src={table} alt="350 Small" className={styles.conferenceLogo}/>
                                 <h3>350 Small</h3>
                                 <br/>
