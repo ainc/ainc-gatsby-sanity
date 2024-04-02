@@ -59,3 +59,5 @@ Import from `dev` into `production`
 
 ## [Algolia Documentation](https://docs.google.com/document/d/1sB_nA5skU5SWLJMCFQwWHw5sEfgyP8EAVu0xZj09RP4/edit)
 
+## [Sanity Workflow for concurrent development](https://docs.google.com/document/d/1_khZ0dVesPTH5e3NeRyLRVA5EiNLV94VhygWetIMERo/edit)
+
