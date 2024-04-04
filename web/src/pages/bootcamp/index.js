@@ -204,7 +204,7 @@ const BootcampPage = props => {
                     <h4 className= "text-start white mt-4 fw-lighter d-none d-md-block"><b>Hate your job? Our in-person 16-week bootcamp helps you master full stack development, get access to 1:1 mentorship, and land a job in 6 moths or we'll refund your tuition.</b></h4>
                 </motion.div>
             </Col>
-            <Col md={7} className='d-flex justify-content-end'>
+            <Col md={7} className='d-flex justify-content-center justify-content-md-end'>
               <ApplyForm />
             </Col>
           </Row>
