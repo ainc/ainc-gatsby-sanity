@@ -7,16 +7,15 @@
         background-size: cover;
         background-repeat: no-repeat;
         overflow: hidden;
+        padding-bottom: 5rem;
         @media (min-width: 992px){
             background-position: center;
             background-position: 79% 21%;
-            height: 90vh;
             width: 100%;
 
         }
         @media (min-width: 481px) and (max-width: 991px){
             background-position: 50% 0;
-            height: 85vh;
             width: 100%;
             background-size: cover;
             background-color: #323232;
@@ -36,7 +35,6 @@
             background-size: contain;
             background-color: #323232;
             background-position: 50% 0;
-            height: 130vh;
             width: 100%;
             h1{
                 font-size: 1.4rem;
