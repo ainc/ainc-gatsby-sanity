@@ -60,7 +60,7 @@ function SideNav() {
                         <a href="#still-unsure" className="nav-link text-uppercase text-body text--micro">FAQs</a>
                     </li>
                     <li className="nav-item">
-                         <a href="" className="nav-link text-uppercase fw-bold text-body text--micro">Apply Now</a>
+                         <a href="#header" className="nav-link text-uppercase fw-bold text-body text--micro">Apply Now</a>
                     </li>
                 </ul>
             </nav>

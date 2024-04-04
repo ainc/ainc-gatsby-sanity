@@ -248,7 +248,7 @@ const BootcampPage = props => {
                 <Title className="text-center text--medium brand fw-bolder">{data.sanityBootcamp.upcomingStartDate}</Title>
                 <h4 className="brand">TO</h4>
                 <Title className="text-center text--medium brand fw-bolder">{data.sanityBootcamp.upcomingEndDate}</Title>
-                <a href="/bootcamp/apply"><BrandButton className="justify-content-center btn--small my-2" disabled="">APPLY NOW</BrandButton></a>
+                <a href="#header"><BrandButton className="justify-content-center btn--small my-2" disabled="">APPLY NOW</BrandButton></a>
               </Col>
           </Row>
 
@@ -655,7 +655,7 @@ const BootcampPage = props => {
           </Row>
           <Row className={`${styles.applyButtons} justify-content-center`}>
             <div xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-3 col-lg-3 offset-lg-1 col-xl-2 offset-xl-1 mb-3 d-flex justify-content-center">
-              <a href="/bootcamp/apply"><BrandButton>Apply Now</BrandButton></a>
+              <a href="#header"><BrandButton>Apply Now</BrandButton></a>
             </div>
           
             <div  xs={12} sm={12} md={4} lg={4} xl={3}  className="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 mb-3 d-flex justify-content-center ">
