@@ -57,8 +57,6 @@ Import from `dev` into `production`
 <br><br>
 </details>
 
-## [Algolia Documentation](https://docs.google.com/document/d/1sB_nA5skU5SWLJMCFQwWHw5sEfgyP8EAVu0xZj09RP4/edit)
-
 ## Sanity Workflow
 
 Sanity runs into issues with overwriting work when trying to update schemas simultaneously on different branches. The ideal workflow for updating schema is as follows:
@@ -76,4 +74,6 @@ The entire goal is to eliminate concurrent development of Sanity schema since th
 Other potential solutions:
 
 -   Sanity migration command
+
+## [Algolia Documentation](https://docs.google.com/document/d/1sB_nA5skU5SWLJMCFQwWHw5sEfgyP8EAVu0xZj09RP4/edit)
 
