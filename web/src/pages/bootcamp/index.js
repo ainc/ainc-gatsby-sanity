@@ -21,6 +21,7 @@ import Testimonial from "./Components/Testimonial/Testimonial";
 import Title from "../../components/UI/Title/Title";
 import ZohoSales from "../../components/Scripts/ZohoSales";
 import TestimonialCarousel from "../../components/TestimonialCarousel/TestimonialCarousel";
+import MobileNavigation from "./Components/MobileNavigation/MobileNavigation";
 
 import "../../styles/main.scss"
 import * as styles from './bootcamp.module.scss'
@@ -193,6 +194,11 @@ const BootcampPage = props => {
       
       {/* Header section */}
       {/* https://www.awesomeinc.org/assets/img/bootcamp/hero-image-2-min.jpg */}
+
+      <section id="navMenu">
+        <MobileNavigation/>
+      </section>
+
       <section id="header">
         <Container fluid className={`${styles.header} overflow-hidden`}>
         <Container>
@@ -215,7 +221,7 @@ const BootcampPage = props => {
               </div>
 
             </Col>
-            <Col className= "mt-5 col-2 pt-5 d-none d-sm-block"> {/* Hidden on mobile */}
+            <Col className= "mt-5 col-2 pt-5 d-none d-lg-block"> {/* Hidden on mobile */}
                 <motion.div initial={{ opacity: 0}}
                       animate={{ opacity: 1}}
                       transition={{ delay: 0.5, duration: 1 }}>

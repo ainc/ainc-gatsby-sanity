@@ -10,14 +10,12 @@
         @media (min-width: 992px){
             background-position: center;
             background-position: 79% 21%;
-            margin-top: 17px;
             height: 90vh;
             width: 100%;
 
         }
         @media (min-width: 481px) and (max-width: 991px){
             background-position: center bottom;
-            margin-top: 10px;
             height: 75vh;
             width: 100%;
         }
@@ -25,7 +23,6 @@
         @media (max-width: 480px){
             background-size: cover;
             background-position: 20% 0;
-            margin-top: 10px;
             font-size: 0.75rem;
             height: 90vh;
             width: 100%;
