@@ -1,0 +1,29 @@
+.avatar {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+.avatarContainer {
+    background-color: #ED3742;
+    border-radius: 50%;
+    border: 5px solid #ED3742;
+    height: 80px;
+    width: 80px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    transform: translate(0, -60px);
+}
+
+.block {
+    background-color: #E6E7E8;
+    border-radius: 20px;
+    padding: 20px;
+    height: 100%;
+    max-width: 70%;
+
+    @media (max-width: 992px) {
+        padding: 10px;
+    }
+}
