@@ -18,7 +18,7 @@ import {
 
 
 import "../../styles/main.scss"
-import { navbarBrand } from './Header.module.scss'
+import { navbarBrand, navButton, show} from './Header.module.scss'
 import "./header.scss"
 
 const Header = () => {
@@ -58,6 +58,32 @@ const Header = () => {
   }, [active, open]);
   console.log(active, open)
 
+  React.useEffect(() => {
+    const handleScroll = () => {
+        const bootcampSection = document.getElementById('two-buttons');
+        const buttonNav = document.querySelector(`.${navButton}`);
+        
+        // Get the position of the bootcamp section relative to the viewport
+        const bootcampSectionPosition = bootcampSection.getBoundingClientRect().top;
+
+        // If the bootcamp section is in the viewport
+        if (bootcampSectionPosition < window.innerHeight) {
+            // Show the button nav
+            buttonNav.classList.add(show);
+        } else {
+            // Hide the button nav
+            buttonNav.classList.remove(show);
+        }
+    };
+
+    // Attach scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup function
+    return () => {
+        window.removeEventListener('scroll', handleScroll);
+    };
+}, []);
   return (
     <Navbar className="sticky-top navbar" variant="dark" expand="lg">
       <Container>
@@ -278,11 +304,6 @@ const Header = () => {
               </Navbar>
             </Row>
 
-          {useLocation().pathname === '/bootcamp/' && (
-            <Col className="desktop" style={{paddingLeft: "8%",}}>
-                <a href='/bootcamp/apply' className=""><BrandButton style={{padding: '1.5 rem 2 rem', fontSize: '1.25rem'}}>Apply Now</BrandButton></a>
-            </Col>
-          )}
           {useLocation().pathname === '/learn/youth/code/' && (
             <Col className="desktop" style={{paddingLeft: "8%",}}>
                 <a href='#call' className=""><BrandButton style={{padding: '1.5 rem 2 rem', fontSize: '1.25rem'}}>Book a Call</BrandButton></a>
@@ -291,6 +312,19 @@ const Header = () => {
           </Nav>
         </Navbar.Collapse>
       </Container>
+      {useLocation().pathname === '/bootcamp/' && (
+      <Container className={`${navButton} d-lg-none`}>
+        <Row className='d-flex justify-content-center align-items-center text-center'>
+          <Col>
+            <BrandButton>Jump To <AiFillCaretDown size={12} /></BrandButton>
+          </Col>
+          <Col>
+            <BrandButton href="#apply">Apply Now</BrandButton>
+          </Col>
+        </Row>
+      </Container>
+      )}
+
     </Navbar>
   );
 };

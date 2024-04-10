@@ -1,0 +1,11 @@
+.nav-button {
+    position: fixed;
+    top: -500px;
+    z-index: 999;
+    transition: top 0.3s ease; /* Smooth transition */
+
+}
+.show {
+    position: relative;
+    top: 0px; /* Bring it into view */
+}

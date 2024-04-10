@@ -196,7 +196,7 @@ const BootcampPage = props => {
       {/* https://www.awesomeinc.org/assets/img/bootcamp/hero-image-2-min.jpg */}
 
       <section id="navMenu">
-        <MobileNavigation/>
+        <MobileNavigation />
       </section>
 
       <section id="header">
