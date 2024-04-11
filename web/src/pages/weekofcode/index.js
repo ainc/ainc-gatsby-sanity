@@ -37,7 +37,7 @@ const Page = ({ data }) => {
 
           <Title className="text-white">Prepare Your Child for a 21st Century World</Title>
 
-          <BrandButton>Secure Your Spot</BrandButton>
+          <BrandButton className="week-of-code">Secure Your Spot</BrandButton>
         </Col>
       </Container>
     </section>
@@ -48,17 +48,17 @@ const Page = ({ data }) => {
           <Title>No Experience Required!</Title>
           <p className="px-5">Week of Code Camp is Designed for Children Ages 9-16, at Beginner to Intermediate Levels</p>
 
-          <p className='pt-5 fst-italic' style={{fontSize: '13px'}}>Sign Up For One Of Our 2024 Camp Dates</p>
+          <p className='fst-italic' style={{fontSize: '13px'}}>Sign Up For One Of Our 2024 Camp Dates</p>
 
           <Row className='px-5'>
             <Col md={4} className={`d-flex ${styles.leftButton} pb-3`}>
-              <BrandButton className="py-2 px-4">June 10-13</BrandButton>
+              <BrandButton className="week-of-code py-2 px-4">June 10-13</BrandButton>
             </Col>
             <Col md={4} className="pb-3">
-              <BrandButton className="py-2 px-4">July 15-18</BrandButton>
+              <BrandButton className="week-of-code py-2 px-4">July 15-18</BrandButton>
             </Col>
             <Col md={4} className={`d-flex ${styles.rightButton} pb-3`}>
-              <BrandButton className="py-2 px-4">June 10-13</BrandButton>
+              <BrandButton className="week-of-code py-2 px-4">June 10-13</BrandButton>
             </Col>
           </Row>
         </Col>
@@ -66,11 +66,11 @@ const Page = ({ data }) => {
     </section>
 
     <section id="review" className={styles.review}>
-        <Row className={`d-flex align-items-center ${styles.reviewContainer}`}> 
-          <Col md={4}>
+        <Row className={`d-flex align-items-center`}> 
+          <Col md={6} className="d-flex justify-content-center">
             <Image src={ChipGif} alt="Chip Latop Gif" className={styles.chipImg}/>
           </Col>
-          <Col md={8} className={styles.reviewText}>
+          <Col md={6} className={`${styles.reviewText}`}>
             <StaticImage src="./images/5_Stars.png" alt="5 Stars" className={styles.stars}/>
             <p className={`fw-bold text-white ${styles.reviewQuote}`}>“The way the classes are structured and the one-on-one attention the kids get from the teachers is amazing. My kids absolutely love these classes.”</p>
             <p className='fst-italic text-white'>Coding Club Parent</p>
@@ -87,7 +87,7 @@ const Page = ({ data }) => {
           <Col md={4} className={`d-flex justify-content-center ${styles.projectCard}`}>
             <ProjectCard image={Games} description={"ENJOY UNPLUGGED ACTIVITIES AND MAKE FRIENDS"}/>
           </Col>
-          <Col md={4} className={`d-flex justify-content-center ${styles.projectCard} pb-0`}>
+          <Col md={4} className={`d-flex justify-content-center ${styles.projectCard}`}>
             <ProjectCard image={Microphone} description={"PRACTICE YOUR PRESENTATION SKILLS AND SHOW YOUR PROJECT"}/>
           </Col>      
         </Row>
@@ -102,7 +102,7 @@ const Page = ({ data }) => {
           <Title className="pb-3">More Than Just Coding</Title>
 
           <p className='pb-3' style={{width: '60%', margin: 'auto', textAlign: 'center'}}>Week of Code boosts creativity, logical thinking skills, and brain power. The camp is kept small to ensure everyone gets focused attention.</p>
-          <BrandButton className="py-2 px-4">Join the Fun</BrandButton>
+          <BrandButton className="week-of-code py-2 px-4">Join the Fun</BrandButton>
         </Col>
       </Container>
 
@@ -112,24 +112,34 @@ const Page = ({ data }) => {
       <Container className='pb-5'>
         <Col className='justify-conent-center text-center'>
           <Title className="pb-3">Students Take Home</Title>
-          <h3>Project Files • Portfolio to Share • Week of Code T-Shirt</h3> 
-          <h3 className='pb-5'>Certificate of Completion • Memories with New Friends!</h3>
-        
+          { /* Desktop Display */ }
+          <Col className="pb-3 d-none d-md-block">
+            <h3>Project Files <p className='d-inline'>•</p> Portfolio to Share <p className='d-inline'>•</p> Week of Code T-Shirt</h3> 
+            <h3>Certificate of Completion <p className='d-inline'>•</p> Memories with New Friends!</h3>
+          </Col>
+          { /* Mobile Display */ }
+          <Col className="d-block d-md-none pb-3">
+            <Row><h3>Project Files</h3></Row>
+            <Row><h3>Portfolio to Share</h3></Row>
+            <Row><h3>Week of Code T-Shirt</h3></Row>
+            <Row><h3>Certificate of Completion</h3></Row>
+            <Row><h3>Memories with New Friends!</h3></Row>
+          </Col>
           <p className='fst-italic'>Sign Up For One Of Our 2024 Camp Dates</p>
 
           <Row className='pb-5 px-5'>
             <Col md={4} className={`d-flex ${styles.leftButton} pb-3`}>
-              <BrandButton className="py-2 px-4">June 10-13</BrandButton>
+              <BrandButton className="week-of-code py-2 px-4">June 10-13</BrandButton>
             </Col>
             <Col md={4} className="pb-3">
-              <BrandButton className="py-2 px-4">July 15-18</BrandButton>
+              <BrandButton className="week-of-code py-2 px-4">July 15-18</BrandButton>
             </Col>
             <Col md={4} className={`d-flex ${styles.rightButton} pb-3`}>
-              <BrandButton className="py-2 px-4">June 10-13</BrandButton>
+              <BrandButton className="week-of-code py-2 px-4">June 10-13</BrandButton>
             </Col>
           </Row>
 
-          <Row className={styles.pictures}>
+          <Row className={styles.pictures} style={{padding: 'auto'}}>
             <Col style={{width: '60%', height: '100%', paddingRight: '5px'}}>
               <Image src={MaskGroup8} alt={"Group 8"} style={{width: '100%', height: '50%', paddingBottom: '5px'}}/>
               <Image src={MaskGroup9} alt={"Group 9"} style={{width: '100%', height: '50%', paddingTop: '5px'}}/>
@@ -146,7 +156,7 @@ const Page = ({ data }) => {
     <section id="FAQs" style={{backgroundColor: '#ED3742'}}>
       <Container className={`${styles.FAQ} text-center p-5`}>
           <Title className="text-white mb-5 ">Have Questions?</Title>
-          <Accordion className="mb-5" defaultActiveKey="0">
+          <Accordion className="mb-5">
               <Accordion.Item eventKey="0" className="px-3 py-4">
                   <Accordion.Header>Where is the best place to park at Awesome Inc?</Accordion.Header>
                   <Accordion.Body style={{textAlign: 'left'}}>
