@@ -1,7 +1,33 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import * as styles from "../sideNav.module.scss"
 
 function SideNav() {
+    useEffect(() => {
+        const handleScroll = () => {
+            const bootcampSection = document.getElementById('two-buttons');
+            const sideNav = document.querySelector(`.${styles.navContainer}`);
+            
+            // Get the position of the bootcamp section relative to the viewport
+            const bootcampSectionPosition = bootcampSection.getBoundingClientRect().top;
+
+            // If the bootcamp section is in the viewport
+            if (bootcampSectionPosition < window.innerHeight) {
+                // Show the side nav
+                sideNav.classList.add(styles.show);
+            } else {
+                // Hide the side nav
+                sideNav.classList.remove(styles.show);
+            }
+        };
+
+        // Attach scroll event listener
+        window.addEventListener('scroll', handleScroll);
+
+        // Cleanup function
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
     return (
         <div className={styles.navContainer}>
             <nav aria-label="side-navigation">
@@ -34,7 +60,7 @@ function SideNav() {
                         <a href="#still-unsure" className="nav-link text-uppercase text-body text--micro">FAQs</a>
                     </li>
                     <li className="nav-item">
-                         <a href="#apply" className="nav-link text-uppercase fw-bold text-body text--micro">Apply Now</a>
+                         <a href="#header" className="nav-link text-uppercase fw-bold text-body text--micro">Apply Now</a>
                     </li>
                 </ul>
             </nav>
