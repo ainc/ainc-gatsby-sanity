@@ -56,7 +56,9 @@
   background-color: $brand-color2;
   opacity: 0.9;
   z-index: 9999;
-  
+  @media(max-width: 768px){
+    --bs-navbar-padding-y: 0rem;
+  }
   .sub-navbar {
     padding-top: 2%;
     padding-bottom: 0%;
@@ -201,4 +203,12 @@
     opacity: 1;
   }
  }
- 
+ .dropdown-menu {
+  min-width: auto !important;
+  font-size: 12px;
+}
+
+#lang-nav-dropdown {
+  width: fit-content;
+}
+
