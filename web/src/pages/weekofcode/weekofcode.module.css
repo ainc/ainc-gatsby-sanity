@@ -10,10 +10,11 @@ a:hover {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center;
-  padding: 100px 0;
+  padding: 200px 0;
 
   @media (max-width: 768px) {
     background-image: url("./images/Hero_BG_Mobile.png");
+    padding: 100px 0px;;
   }
 }
 
@@ -38,6 +39,7 @@ a:hover {
 
   @media (max-width: 768px) {
     padding-top: 150px;
+    font-size: medium;
   }
   @media (max-width: 425px) {
     padding-top: 110px;
@@ -49,7 +51,7 @@ a:hover {
 }
 
 .chipImg {
-  max-width: 100%;
+  max-width: 60%;
 }
 
 .stars {
@@ -82,9 +84,6 @@ a:hover {
   }
 }
 
-.project-section {
-  padding: 100px 0px;
-}
 
 .left-button {
   justify-content: center;
@@ -112,6 +111,13 @@ a:hover {
 
 .project-card {
   @media (max-width: 768px) {
-    padding-bottom: 3rem;;
+    padding-bottom: 3rem;
+  }
+}
+
+.project-section {
+  padding: 100px 0px;
+  @media (max-width: 768px) {
+    padding-bottom: 0px;
   }
 }
