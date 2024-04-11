@@ -275,7 +275,7 @@ const Header = () => {
             </Row>
           {useLocation().pathname === '/bootcamp/' && (
             <Col className="desktop" style={{paddingLeft: "8%",}}>
-                <a href='#apply' className=""><BrandButton style={{padding: '1.5 rem 2 rem', fontSize: '1.25rem'}}>Apply Now</BrandButton></a>
+                <a href='#header' className=""><BrandButton style={{padding: '1.5 rem 2 rem', fontSize: '1.25rem'}}>Apply Now</BrandButton></a>
             </Col>
           )}
           {useLocation().pathname === '/learn/youth/code/' && (
@@ -303,7 +303,7 @@ const Header = () => {
             <Dropdown.Item href="#still-unsure">FAQs</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <a href='#apply'><BrandButton className='mx-1 my-1' style={{width: '45vw'}}>Apply Now</BrandButton></a>
+        <a href='#header'><BrandButton className='mx-1 my-1' style={{width: '45vw'}}>Apply Now</BrandButton></a>
         </div>
       </Container>
       )}
