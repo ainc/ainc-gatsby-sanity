@@ -141,12 +141,12 @@ const Page = ({ data }) => {
 
           <Row className={styles.pictures} style={{padding: 'auto'}}>
             <Col style={{width: '60%', height: '100%', paddingRight: '5px'}}>
-              <Image src={MaskGroup8} alt={"Group 8"} style={{width: '100%', height: '50%', paddingBottom: '5px'}}/>
-              <Image src={MaskGroup9} alt={"Group 9"} style={{width: '100%', height: '50%', paddingTop: '5px'}}/>
+              <Image src={MaskGroup8} alt={"Group 8"} style={{height: '50%', paddingBottom: '5px'}} className={styles.galleryPhoto}/>
+              <Image src={MaskGroup9} alt={"Group 9"} style={{height: '50%', paddingTop: '5px'}} className={styles.galleryPhoto}/>
             </Col>
             <Col style={{width: '40%', height: '100%', paddingLeft: '5px'}}>
-              <Image src={MaskGroup7} alt={"Group 7"} style={{width: '100%', height: '70%', paddingBottom: '5px'}}/>
-              <Image src={MaskGroup10} alt={"Group 10"} style={{width: '100%', height: '30%', paddingTop: '5px'}}/>
+              <Image src={MaskGroup7} alt={"Group 7"} style={{height: '70%', paddingBottom: '5px'}} className={styles.galleryPhoto}/>
+              <Image src={MaskGroup10} alt={"Group 10"} style={{height: '30%', paddingTop: '5px'}} className={styles.galleryPhoto}/>
             </Col>
           </Row>
         </Col>
@@ -154,7 +154,7 @@ const Page = ({ data }) => {
     </section>
 
     <section id="FAQs" style={{backgroundColor: '#ED3742'}}>
-      <Container className={`${styles.FAQ} text-center p-5`}>
+      <Container className={`text-center p-5`}>
           <Title className="text-white mb-5 ">Have Questions?</Title>
           <Accordion className="mb-5">
               <Accordion.Item eventKey="0" className="px-3 py-4">
