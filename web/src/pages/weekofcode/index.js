@@ -27,6 +27,30 @@ import * as styles from './weekofcode.module.scss';
 
 
 const Page = ({ data }) => {
+  const ButtonRow = () => {
+    return(
+    <>
+      <p className='fst-italic'>Sign Up For One Of Our 2024 Camp Dates</p>
+      <Row className='px-5'>
+        <Col md={4} className={`d-flex ${styles.leftButton} pb-3`}>
+          <a href='https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-801830545747' target='_blank'>
+            <BrandButton className="week-of-code py-2 px-4">June 10-13</BrandButton>
+          </a>
+        </Col>
+        <Col md={4} className="pb-3">
+          <a href='https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-801837556717' target='_blank'>
+            <BrandButton className="week-of-code py-2 px-4">July 15-18</BrandButton>
+          </a>
+        </Col>
+        <Col md={4} className={`d-flex ${styles.rightButton} pb-3`}>
+          <a href='https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-837800292227' target='_blank'>
+            <BrandButton className="week-of-code py-2 px-4">June 10-13</BrandButton>
+          </a>
+        </Col>
+      </Row>
+    </>
+    )
+  }
   return(
     <Layout>
     <section id="header" className={`d-flex align-items-center ${styles.headerSection}`}>
@@ -48,19 +72,8 @@ const Page = ({ data }) => {
           <Title>No Experience Required!</Title>
           <p className="px-5">Week of Code Camp is Designed for Children Ages 9-16, at Beginner to Intermediate Levels</p>
 
-          <p className='fst-italic' style={{fontSize: '13px'}}>Sign Up For One Of Our 2024 Camp Dates</p>
+          <ButtonRow />
 
-          <Row className='px-5'>
-            <Col md={4} className={`d-flex ${styles.leftButton} pb-3`}>
-              <BrandButton className="week-of-code py-2 px-4">June 10-13</BrandButton>
-            </Col>
-            <Col md={4} className="pb-3">
-              <BrandButton className="week-of-code py-2 px-4">July 15-18</BrandButton>
-            </Col>
-            <Col md={4} className={`d-flex ${styles.rightButton} pb-3`}>
-              <BrandButton className="week-of-code py-2 px-4">June 10-13</BrandButton>
-            </Col>
-          </Row>
         </Col>
       </Container>
     </section>
@@ -127,19 +140,8 @@ const Page = ({ data }) => {
             <Row><h3>Certificate of Completion</h3></Row>
             <Row><h3>Memories with New Friends!</h3></Row>
           </Col>
-          <p className='fst-italic'>Sign Up For One Of Our 2024 Camp Dates</p>
 
-          <Row className='pb-5 px-5'>
-            <Col md={4} className={`d-flex ${styles.leftButton} pb-3`}>
-              <BrandButton className="week-of-code py-2 px-4">June 10-13</BrandButton>
-            </Col>
-            <Col md={4} className="pb-3">
-              <BrandButton className="week-of-code py-2 px-4">July 15-18</BrandButton>
-            </Col>
-            <Col md={4} className={`d-flex ${styles.rightButton} pb-3`}>
-              <BrandButton className="week-of-code py-2 px-4">June 10-13</BrandButton>
-            </Col>
-          </Row>
+          <ButtonRow />
 
           <Row className={styles.pictures} style={{padding: 'auto'}}>
             <Col style={{width: '60%', height: '100%', paddingRight: '5px'}}>
