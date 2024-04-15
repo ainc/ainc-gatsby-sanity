@@ -118,7 +118,9 @@ const Page = ({ data }) => {
           <Title className="pb-3">More Than Just Coding</Title>
 
           <p className='pb-3' style={{width: '60%', margin: 'auto', textAlign: 'center'}}>Week of Code boosts creativity, logical thinking skills, and brain power. The camp is kept small to ensure everyone gets focused attention.</p>
-          <BrandButton className="week-of-code py-2 px-4">Join the Fun</BrandButton>
+          <a href='https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-801830545747' target='_blank'>
+            <BrandButton className="week-of-code py-2 px-4">Join the Fun</BrandButton>
+          </a>
         </Col>
       </Container>
 
