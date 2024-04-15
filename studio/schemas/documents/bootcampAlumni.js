@@ -41,6 +41,24 @@ export default {
       name: 'job',
       type: 'string',
       title: 'Job'
+    },
+    {
+      name: 'featuredAlumni',
+      type: 'boolean',
+      title: 'Featured Alumni',
+      description: "By checking this box, this alumni will be featured on the bootcamp page. Ensure that a corresponding 'company logo' is included below."
+    },
+    {
+      name: 'jobTitle',
+      type: 'string',
+      title: 'Job Tile',
+      validation: rule => rule.required().when(data => data.featuredAlumni === true)
+    },
+    {
+      name: 'companyLogo',
+      type: 'image',
+      title: 'Company Logo',
+      validation: rule => rule.required().when(data => data.featuredAlumni === true)
     }
   ],
   orderings: [
