@@ -52,14 +52,27 @@ export default {
       name: 'jobTitle',
       type: 'string',
       title: 'Job Tile',
-      validation: rule => rule.required().when(data => data.featuredAlumni === true)
+      validation: Rule => Rule.custom((value, context) => {
+        // Check if isRequired is true and conditionalField is empty
+        if (context.document.featuredAlumni && !value) {
+          return 'This field is required when Is Required is true';
+        }
+        // Return true if validation passes
+        return true;
+      })
     },
     {
       name: 'companyLogo',
       type: 'image',
       title: 'Company Logo',
-      validation: rule => rule.required().when(data => data.featuredAlumni === true)
-    }
+      validation: Rule => Rule.custom((value, context) => {
+        // Check if isRequired is true and conditionalField is empty
+        if (context.document.featuredAlumni && !value) {
+          return 'This field is required when Is Required is true';
+        }
+        // Return true if validation passes
+        return true;
+      })    }
   ],
   orderings: [
     {
