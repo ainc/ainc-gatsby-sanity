@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby'
-import * as React from 'react'
+import React, { useState, useEffect } from 'react';
 import * as styles from './Banner.module.scss'
+import { useLocation } from "@reach/router";
 
 const Banner = () => {
 
@@ -36,9 +37,11 @@ const Banner = () => {
   const showUpcoming = currentDate > upcoming ? null : <p>Sign up <a href={upcoming[0].linkToEvent}>here</a> for 5 Across - {upcoming[0].date} </p>; 
 
   return (
-    <div role="banner" className={`${styles.banner}`}>
+    useLocation().pathname !== '/bootcamp/' && (
+      <div role="banner" className={`${styles.banner}`}>
       { showUpcoming }
     </div>
+    )
   )
 }
 
