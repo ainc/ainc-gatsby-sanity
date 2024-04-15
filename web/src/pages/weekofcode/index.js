@@ -60,8 +60,9 @@ const Page = ({ data }) => {
           <Subtitle className="text-white fw-bold pb-5">SUMMER CAMP</Subtitle>
 
           <Title className="text-white">Prepare Your Child for a 21st Century World</Title>
-
-          <BrandButton className="week-of-code">Secure Your Spot</BrandButton>
+          <a href='https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-801830545747' target='_blank'>
+            <BrandButton className="week-of-code">Secure Your Spot</BrandButton>
+          </a>
         </Col>
       </Container>
     </section>
