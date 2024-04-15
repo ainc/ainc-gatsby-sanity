@@ -23,7 +23,7 @@ import MaskGroup8 from "./images/Mask_Group_8.png";
 import MaskGroup9 from "./images/Mask_Group_9.png";
 import MaskGroup10 from "./images/Mask_Group_10.png";
 
-import * as styles from './weekofcode.module.css';
+import * as styles from './weekofcode.module.scss';
 
 
 const Page = ({ data }) => {
@@ -66,7 +66,8 @@ const Page = ({ data }) => {
     </section>
 
     <section id="review" className={styles.review}>
-        <Row className={`d-flex align-items-center`}> 
+      <Container>
+        <Row className={`d-flex align-items-center justify-content-center`}> 
           <Col md={6} className="d-flex justify-content-center">
             <Image src={ChipGif} alt="Chip Latop Gif" className={styles.chipImg}/>
           </Col>
@@ -76,10 +77,11 @@ const Page = ({ data }) => {
             <p className='fst-italic text-white'>Coding Club Parent</p>
           </Col>
         </Row>
+      </Container>
     </section>
 
     <secton id="projects" >
-      <Container className={styles.projectSection}>
+      <Container className={`${styles.projectSection} mt-5 mb-5`}>
         <Row> 
           <Col md={4} className={`d-flex justify-content-center ${styles.projectCard}`}>
             <ProjectCard image={Devices} description={"CREATE A VIDEO GAME, WEBSITE, AND A MOBILE APP IN ONE WEEK"}/>
@@ -160,19 +162,19 @@ const Page = ({ data }) => {
               <Accordion.Item eventKey="0" className="px-3 py-4">
                   <Accordion.Header>Where is the best place to park at Awesome Inc?</Accordion.Header>
                   <Accordion.Body style={{textAlign: 'left'}}>
-                  Free Parking is available for drop-off/pickup. The best location is the parking lot to the east side of our building, in spaces 1-19. See <a href="http://www.awesomeinc.org/parking/">parking map</a> for more details.
+                  Free Parking is available for drop-off/pickup. The best location is the parking lot to the east side of our building, in spaces 1-19. See <a className='link--brand' href="http://www.awesomeinc.org/parking/">parking map</a> for more details.
                   </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="1" className="px-3 py-4">
                   <Accordion.Header>Do students need their own computer for this course?</Accordion.Header>
                   <Accordion.Body style={{textAlign: 'left'}}>
-                    Yes, each student will need to provide his/her own laptop for the course. Either Microsoft Windows-based PC's, Apple macOS computers, and Chromebooks will work, but iPads will not work for this course. We recommend a laptop made within the past 3-4 years. Computers should be free from viruses/malware. We have a limited number of <a href="https://squareup.com/market/awesome-inc/laptop-rental">rental laptops available for $25/day.</a>
+                    Yes, each student will need to provide his/her own laptop for the course. Either Microsoft Windows-based PC's, Apple macOS computers, and Chromebooks will work, but iPads will not work for this course. We recommend a laptop made within the past 3-4 years. Computers should be free from viruses/malware. We have a limited number of <a href="https://squareup.com/market/awesome-inc/laptop-rental" className='link--brand'>rental laptops available for $25/day.</a>
                   </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="2" className="px-3 py-4">
                   <Accordion.Header>Are scholarships available for this course?</Accordion.Header>
                   <Accordion.Body style={{textAlign: 'left'}}>
-                    Yes, thanks we have scholarships available thanks to our sponsor, Verizon. You can <a href="https://goo.gl/forms/sZpc22S1jdeoZ7Fk2">apply here.</a>
+                    Yes, thanks we have scholarships available thanks to our sponsor, Verizon. You can <a href="https://goo.gl/forms/sZpc22S1jdeoZ7Fk2" className='link--brand'>apply here.</a>
                   </Accordion.Body>
               </Accordion.Item>
           </Accordion>

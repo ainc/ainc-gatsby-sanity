@@ -1,15 +1,9 @@
-a {
-  color: #ED3742;
-}
-a:hover {
-  color: #ed374397
-}
 
 .header-section {
   background-image: url("./images/Hero_BG_Desktop.png");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: center;
+  background-size: cover;
+  background-position: bottom;
   padding: 200px 0;
 
   @media (max-width: 768px) {
@@ -70,8 +64,8 @@ a:hover {
   @media (max-width: 768px) {
     padding: 50px 0px;
   }
-  
 }
+
 .review-text {
   @media (max-width: 768px) {
     margin: auto;
@@ -109,7 +103,6 @@ a:hover {
   margin: auto;
   @media (max-width: 768px) {
     height: 40vh;
-    margin: -20px;
   }
 }
 
@@ -120,7 +113,6 @@ a:hover {
 }
 
 .project-section {
-  padding: 100px 0px;
   @media (max-width: 768px) {
     padding-bottom: 0px;
   }
