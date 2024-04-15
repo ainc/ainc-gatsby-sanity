@@ -25,7 +25,7 @@ import TestimonialCarousel from "../../components/TestimonialCarousel/Testimonia
 import "../../styles/main.scss"
 import * as styles from './bootcamp.module.scss'
 
-
+import ApplyForm from "./Components/ApplyForm/ApplyForm";
 
 export const query = graphql`
  query BootcampPageQuery {
@@ -192,44 +192,33 @@ const BootcampPage = props => {
       {/* Add SEO Component Here?? */}
       
       {/* Header section */}
-      {/* https://www.awesomeinc.org/assets/img/bootcamp/hero-image-2-min.jpg */}
       <section id="header">
         <Container fluid className={`${styles.header} overflow-hidden`}>
-        <Container>
-
-          <Row className={`${styles.titleBlock} mt-5 ms-5`}>
-            <Col xs={{span: 12, offset: 0}} sm={{span: 8, offset: 4}} md={8} lg={6} xl={5}>
-              <div className={`${styles.titleBlock} align-items-end d-flex flex-column`}>
+          <Container>
+          <Row className={`${styles.titleBlock} mt-5 d-flex`}>
+            <Col md={5}>
                 <motion.div initial={{ opacity: 0, x: -50 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.5, duration: 0.8 }} className={`${styles.titleBlock} ms-5 align-items-end d-flex flex-column`}>
-                <Title className='white text-uppercase text--big'> Launch your <br/> tech career</Title>
-                <h4 className= "w-75 text-end lh-md white mt-4 fw-lighter"><b>A 16 week immersive Bootcamp where you'll learn Full Stack coding skills to land a tech job... or your money back.</b></h4>
-                </motion.div>
-                <motion.div initial={{ opacity: 0, scale: 0.5 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 1.0, duration: 0.6 }} className={`mt-3 ms-5 align-items-end d-flex flex-column`}>
-                <a href="/bootcamp/apply"><BrandButton className="">Get Started</BrandButton></a>
-                <p className="fst-italic">Start your application in less than 30 seconds</p>
-                </motion.div>
-              </div>
-
-            </Col>
-            <Col className= "mt-5 col-2 pt-5 d-none d-sm-block"> {/* Hidden on mobile */}
-                <motion.div initial={{ opacity: 0}}
-                      animate={{ opacity: 1}}
-                      transition={{ delay: 0.5, duration: 1 }}>
-                <SideNav/>
+                      transition={{ delay: 0.5, duration: 0.8 }} className={`${styles.titleBlock} align-items-center text-left d-flex flex-column`}>
+                    <Title className='white text-uppercase'>Land your dream tech job, guaranteed</Title>
+                    <h4 className= "text-start white mt-4 fw-lighter d-none d-md-block"><b>Hate your job? Our in-person 16-week bootcamp helps you master full stack development, get access to 1:1 mentorship, and land a job in 6 moths or we'll refund your tuition.</b></h4>
                 </motion.div>
             </Col>
-            
+            <Col md={7} className='d-flex justify-content-center justify-content-md-end'>
+              <ApplyForm />
+            </Col>
           </Row>
-          
           </Container>
-
         </Container>
       </section>
 
+      <Container>
+        <Row>
+          <Col className= "mt-5 col-1 pt-5 d-none d-sm-block"> {/* Hidden on mobile */}
+              <SideNav/>
+          </Col>
+          </Row>
+      </Container>
 
 
       <section id ="bootcamp-upcoming-dates">
@@ -259,7 +248,7 @@ const BootcampPage = props => {
                 <Title className="text-center text--medium brand fw-bolder">{data.sanityBootcamp.upcomingStartDate}</Title>
                 <h4 className="brand">TO</h4>
                 <Title className="text-center text--medium brand fw-bolder">{data.sanityBootcamp.upcomingEndDate}</Title>
-                <a href="/bootcamp/apply"><BrandButton className="justify-content-center btn--small my-2" disabled="">APPLY NOW</BrandButton></a>
+                <a href="#header"><BrandButton className="justify-content-center btn--small my-2" disabled="">APPLY NOW</BrandButton></a>
               </Col>
           </Row>
 
@@ -666,7 +655,7 @@ const BootcampPage = props => {
           </Row>
           <Row className={`${styles.applyButtons} justify-content-center`}>
             <div xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-3 col-lg-3 offset-lg-1 col-xl-2 offset-xl-1 mb-3 d-flex justify-content-center">
-              <a href="/bootcamp/apply"><BrandButton>Apply Now</BrandButton></a>
+              <a href="#header"><BrandButton>Apply Now</BrandButton></a>
             </div>
           
             <div  xs={12} sm={12} md={4} lg={4} xl={3}  className="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 mb-3 d-flex justify-content-center ">

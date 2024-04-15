@@ -1,0 +1,22 @@
+.oval-container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0px;
+}
+
+.oval-title {
+    width: 300px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    background-color: red;
+    border-radius: 60px; /* This makes the div round, giving it the appearance of an oval */
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.oval-block {
+    border: 2px solid red; /* Border color red and thickness 2px */
+    border-radius: 60px; /* This makes the border circular */
+    padding: 40px; /* Adjust padding as needed */
+    position: relative;
+    top: -10px;
+}
