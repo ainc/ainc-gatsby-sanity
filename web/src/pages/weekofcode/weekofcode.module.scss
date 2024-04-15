@@ -1,0 +1,124 @@
+
+.header-section {
+  background-image: url("./images/Hero_BG_Desktop.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  padding: 200px 0;
+
+  @media (max-width: 768px) {
+    background-image: url("./images/Hero_BG_Mobile.png");
+    padding: 100px 0px;;
+  }
+}
+
+.more-than-section {
+  background-image: url("./images/More_Than_Code_BG.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0px;
+
+  @media (max-width: 768px) {
+    background-image: url("./images/More_Than_Code_BG_Mobile.png");
+  }
+}
+
+.take-home-section {
+  background-image: url("./images/Confetti.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top;
+  padding-top: 250px;
+
+  @media (max-width: 768px) {
+    padding-top: 150px;
+    font-size: medium;
+  }
+  @media (max-width: 425px) {
+    padding-top: 110px;
+  }
+}
+
+.logo {
+  max-width: 275px;
+}
+
+.chipImg {
+  max-width: 60%;
+}
+
+.stars {
+  height: 50px;
+  width: 310px;
+  margin-bottom: 20px;
+}
+
+.review {
+  background-color: #6EC8BF;
+  padding: 50px 200px;
+
+  @media (max-width: 1024px) {
+    padding: 50px 100px;
+  }
+  @media (max-width: 768px) {
+    padding: 50px 0px;
+  }
+}
+
+.review-text {
+  @media (max-width: 768px) {
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+.review-quote {
+  width: 70%;
+  @media (max-width: 768px) {
+    margin: auto;
+    text-align: center;
+  }
+}
+
+
+.left-button {
+  justify-content: center;
+  @media (min-width: 768px) {
+    justify-content: end;
+  }
+}
+
+.right-button {
+  justify-content: center;
+  @media (min-width: 768px) {
+    justify-content: start;
+  }
+}
+
+.pictures {
+  height: 600px;
+  max-width: 800px;
+  margin: auto;
+  @media (max-width: 768px) {
+    height: 40vh;
+  }
+}
+
+.project-card {
+  @media (max-width: 768px) {
+    padding-bottom: 3rem;
+  }
+}
+
+.project-section {
+  @media (max-width: 768px) {
+    padding-bottom: 0px;
+  }
+}
+
+.gallery-photo {
+  object-fit: cover;
+  width: 100%;
+}
