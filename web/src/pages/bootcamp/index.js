@@ -358,7 +358,7 @@ const BootcampPage = props => {
         <Container fluid className={`${styles.testimonials}`}>
           <Row className="py-3 justify-content-center">
             <Row className="">
-              <Title className="text-center text-white text-uppercase mt-5">Hear From Our Alumni</Title>
+              <Title className="text-center text-white text-uppercase mt-5">Alumni Stories</Title>
             </Row>
             <Row className="text-center">
               <Testimonial 
@@ -387,8 +387,22 @@ const BootcampPage = props => {
         </Container>
       </section>
 
+      {/* Motivational Quote */}
+      <section id="motivational">
+        <Container className={`py-2 text-center `}>
+          <Row className="py-lg-4 mx-lg-5 px-lg-5">
+            <Col className="mx-auto py-2">
+              <Title className={`text-center brand fs-5 text-uppercase`}>Hear from our Alumni</Title>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+      <Container>
+        <TestimonialCarousel images={imageTestimonials} />
+      </Container>
+
       {/*What to expect video */}
-      <Container fluid className={`mt-5`}>
+      <Container fluid className={`my-5`}>
         <Row className="align-items-center">
           {/* Title and Arrow */}
           <Col xs={12} md={3} className="text-center mb-3 mb-md-0">
@@ -439,19 +453,6 @@ const BootcampPage = props => {
           }/>
           <Col md={3} className="d-none d-md-block"></Col>
         </Row>
-      </Container>
-      {/* Motivational Quote */}
-      <section id="motivational">
-        <Container className={`py-4 text-center `}>
-          <Row className="py-lg-4 mx-lg-5 px-lg-5">
-            <Col className="mx-auto py-2">
-              <Title className={`text-center brand fs-5 text--medium `}>"You don't have to feel trapped. Earn your freedom, work when & where you want. Earn a living in just 40 hours a week."</Title>
-            </Col>
-          </Row>
-        </Container>
-      </section>
-      <Container>
-        <TestimonialCarousel images={imageTestimonials} />
       </Container>
 
       {/* Why Awesome Inc Header */}
