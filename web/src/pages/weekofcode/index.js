@@ -44,7 +44,7 @@ const Page = ({ data }) => {
         </Col>
         <Col md={4} className={`d-flex ${styles.rightButton} pb-3`}>
           <a href='https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-837800292227' target='_blank'>
-            <BrandButton className="week-of-code py-2 px-4">June 10-13</BrandButton>
+            <BrandButton className="week-of-code py-2 px-4">July 22-25</BrandButton>
           </a>
         </Col>
       </Row>
