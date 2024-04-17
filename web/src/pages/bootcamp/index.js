@@ -25,6 +25,7 @@ import Arrow from "../../images/arrow.png";
 import { FaPlay } from "react-icons/fa";
 import Thumbnail from '../../images/bootcamp-video-thumbnail.jpg'
 import ModalCustom from "../../components/Modal/ModalCustom";
+import AlumniCard from "./Components/AlumniCard/AlumniCard";
 
 import "../../styles/main.scss"
 import * as styles from './bootcamp.module.scss'
@@ -360,14 +361,31 @@ const BootcampPage = props => {
             <Title>Join 175+ graduates who have changed careers with Awesome Inc</Title>
           </Row>
           <Row className="my-3">
-            <Col className='text-center'>
+            <Col className='d-flex align-items-right justify-content-end'>
+              <StaticImage src='../../images/melo.jpg' alt='Melo in the mountains' style={{width: '400px'}}/>
             </Col>
-            <Col className='text-center'>
-              <Subtitle className='subtitle--small'>With a graphic design background, I swiftly transitioned into a developer role just a week after Bootcamp graduation. 
+            <Col className=''>
+              <Subtitle className='subtitle--small' style={{lineHeight: '24px'}}>
+              With a graphic design background, I swiftly transitioned into a developer role just a week after Bootcamp graduation. 
               This milestone was just the beginning. Earning the freedom to work remotely, I now travel the world, making any placei with a WiFi connection my office.
               Can't thank Awesome Inc Enough!
               </Subtitle>
-            </Col>          </Row>
+              <StaticImage />
+              <Subtitle className='fw-bold subtitle--small' style={{lineHeight: '24px'}}>Melanie Stoeckle, Software Developer</Subtitle>
+            </Col>          
+          </Row>
+          <Row>
+            <Col>
+              <AlumniCard />
+            </Col>
+          </Row>
+          <Row>
+            <Col className='d-flex justify-content-center'>
+            <a href='/alumni'>
+              <BrandButton>See More Alumni</BrandButton>
+            </a>
+            </Col>
+          </Row>
         </Container>
       </section>
 

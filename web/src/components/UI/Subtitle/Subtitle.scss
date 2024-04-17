@@ -24,6 +24,9 @@
     letter-spacing: 1px;
     &.subtitle--small {
       font-size: 1.4rem;
+      @include screen-xs{
+        font-size: 16px;
+      }        
     }
     &.subtitle--tiny{
       font-size: 0.7rem;

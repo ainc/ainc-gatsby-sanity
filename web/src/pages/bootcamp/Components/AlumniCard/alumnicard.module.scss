@@ -1,0 +1,19 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/variables.scss";
+
+.name-text{
+    font-size: 20px;
+    @include screen-xs{
+        font-size: 15px;
+    }
+}
+.job-text{
+    font-size: 16px;
+    @include screen-xs{
+        font-size: 12px;
+    }
+}
+.card-body .card-title,
+.card-body .card-text {
+  margin-bottom: 0; /* Adjust as needed */
+}
