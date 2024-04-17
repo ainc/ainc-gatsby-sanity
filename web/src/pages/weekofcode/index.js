@@ -179,7 +179,7 @@ const Page = ({ data }) => {
               <Accordion.Item eventKey="2" className="px-3 py-4">
                   <Accordion.Header>Are scholarships available for this course?</Accordion.Header>
                   <Accordion.Body style={{textAlign: 'left'}}>
-                    Yes, thanks we have scholarships available thanks to our sponsor, Verizon. You can <a href="https://goo.gl/forms/sZpc22S1jdeoZ7Fk2" className='link--brand'>apply here.</a>
+                    Yes, we have scholarships available thanks to our sponsor, Verizon. You can <a href="https://goo.gl/forms/sZpc22S1jdeoZ7Fk2" className='link--brand'>apply here.</a>
                   </Accordion.Body>
               </Accordion.Item>
           </Accordion>
