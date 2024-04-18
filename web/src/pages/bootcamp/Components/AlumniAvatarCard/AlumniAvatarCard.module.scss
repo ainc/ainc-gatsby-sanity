@@ -1,0 +1,29 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/variables.scss"; 
+
+.alumni-image {
+    max-height: 200px;
+    max-width: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 0px;
+    margin-top: 5px;
+}
+
+.job {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+
+}
+
+.companyLogo {
+    max-width: 150px;
+    max-height: 50px;
+    object-fit: cover;
+}

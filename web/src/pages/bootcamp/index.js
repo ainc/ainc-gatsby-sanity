@@ -6,7 +6,7 @@ import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import {InlineWidget} from 'react-calendly'
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
-import { motion } from "framer-motion";
+import { motion, useMotionValue } from "framer-motion";
 
 import ApplyNowModal from "../fellowship/Components/ApplyNowModal";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
@@ -21,6 +21,8 @@ import Testimonial from "./Components/Testimonial/Testimonial";
 import Title from "../../components/UI/Title/Title";
 import ZohoSales from "../../components/Scripts/ZohoSales";
 import TestimonialCarousel from "../../components/TestimonialCarousel/TestimonialCarousel";
+import AlumniTestimonials from "./Components/AlumniTestimonials/AlumniTestimonials";
+import AlumniAvatarCardCarousel from "./Components/AlumniAvatarCard/AlumniAvatarCardCarousel";
 
 import "../../styles/main.scss"
 import * as styles from './bootcamp.module.scss'
@@ -96,6 +98,23 @@ export const query = graphql`
       }
     }
   }
+  allSanityBootcampAlumni {
+    nodes {
+      featuredAlumni
+      companyLogo {
+        asset {
+          gatsbyImageData
+        }
+      }
+      jobTitle
+      name
+      picture {
+        asset {
+          gatsbyImageData
+        }
+      }
+    }
+  }
 }
 `
 
@@ -103,7 +122,10 @@ const BootcampPage = props => {
 
   const { data, errors } = props;
 
+
   const testimonials = (data.allSanityBootcampTestimonials.nodes || {})
+  
+  const featuredAlumni = (data.allSanityBootcampAlumni.nodes.filter(node => node.featuredAlumni === true) || {});
 
   const testimonial1 = testimonials[0]
   const testimonial2 = testimonials[1]
@@ -176,6 +198,7 @@ const BootcampPage = props => {
       },
     ]
   )
+
   const[showWidget, setShowWidget] = useState(false);
   const[showFAQ, setShowFAQ] = useState(false);
 
@@ -379,6 +402,13 @@ const BootcampPage = props => {
           </Row>
         </Container>
       </section>
+
+      {/* New Alumni Testimonials */}
+      <AlumniTestimonials/>
+      
+      {/* Alumni Avatar Bar */}
+      <AlumniAvatarCardCarousel featuredAlumni={featuredAlumni}/>
+
 
       {/* Motivational Quote */}
       <section id="motivational">
