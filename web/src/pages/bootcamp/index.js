@@ -370,41 +370,7 @@ const BootcampPage = props => {
       </section>
 
       {/* Alumni Testimonials */}
-      <section id="testimonials">
-        <Container fluid className={`${styles.testimonials}`}>
-          <Row className="py-3 justify-content-center">
-            <Row className="">
-              <Title className="text-center text-white text-uppercase mt-5">Hear From Our Alumni</Title>
-            </Row>
-            <Row className="text-center">
-              <Testimonial 
-                name1={testimonial1.name}
-                image1={testimonial1.picture.asset.gatsbyImageData}
-                testimonial1={testimonial1.testimonial}
-
-                name2={testimonial2.name}
-                image2={testimonial2.picture.asset.gatsbyImageData}
-                testimonial2={testimonial2.testimonial}
-
-                name3={testimonial3.name}
-                image3={testimonial3.picture.asset.gatsbyImageData}
-                testimonial3={testimonial3.testimonial}
-              />
-            </Row>
-            <Row className="pt-4 pb-5">
-              <Col className="text-center">
-                <a href="../alumni">
-                  <BrandButton className="text-center brand">More Alumni</BrandButton>
-                </a>
-                
-              </Col>
-            </Row>
-          </Row>
-        </Container>
-      </section>
-
-      {/* New Alumni Testimonials */}
-      <AlumniTestimonials/>
+      <AlumniTestimonials />
       
       {/* Alumni Avatar Bar */}
       <AlumniAvatarCardCarousel featuredAlumni={featuredAlumni}/>

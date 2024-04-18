@@ -27,3 +27,8 @@
     max-height: 50px;
     object-fit: cover;
 }
+.horizontal-carousel {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
