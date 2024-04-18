@@ -1,7 +1,6 @@
 @import "../../styles/mixins.scss";
 @import "../../styles/variables.scss";
 
-
 .header {
         background:linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(/images/bootcamp-hero.jpg);
         background-size: cover;
@@ -90,6 +89,37 @@
     }
 }
 
+.rating-container {
+  background-color: #f2f2f2;
+  border-radius: 30px;
+  padding: 15px 30px;
+  margin-left: 0px;
+  opacity: 70%;
+
+  @media (max-width: 1200px){
+    padding: 10px 20px;
+  }
+}
+.review-text {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.header-stats {
+    padding: 50px 0px;
+    max-width: 80%;
+}
+
+.header-stats-title {
+    font-size: 56px;
+    font-weight: 700;
+}
+
+.header-stats-subtitle {
+    font-size: 20px;
+    font-weight: 600;
+}
+
 .bootcampUpcomingdates{
     @media (min-width: 768px){
         border-right: 2px solid #C12029;
@@ -131,60 +161,11 @@
 }
 
 
-.whyAwesomeinc {
-    p{
-        text-align: justify;
-    }
-    .leftCol{
-        @include screen-max{
-            max-width: 410px;
-        }
-        @include screen-lg{
-            
-        }
-        @include screen-md{
-            
-        }
-        @include screen-sm{
-            width: 80vw;
-            text-align: justify;
-            p{
-                font-size: 18px;
-            }
-        }
-        @include screen-xs{
-            text-align: justify;
-            width: 90vw;
-            p{
-                font-size: 18px;
-            }
-        }
-
-    }
-    .rightCol{
-        @include screen-max{
-        }
-        @include screen-lg{
-            margin-top: 100px;
-        }
-        @include screen-md{
-            margin-top: 100px;
-        }
-        @include screen-sm{
-            margin-top: 50px;
-        }
-        @include screen-xs{
-            align-items: center;
-        }
-    }
-  
-}
-
 .whyAwesomeIncBorder {
     border-right: 1.5px solid #C12029; 
     line-height: 25px; 
     padding-right: 2rem;
-    @media (max-width: 767px) {
+    @media (max-width: 992px) {
         border: none;
         padding-right: 0;
     }
@@ -437,4 +418,27 @@
 
 .special-link:hover{
     color: #de3640;
+}
+
+.gallery {
+    height: 600px;
+    margin: auto;
+    @media (max-width: 768px) {
+        height: 40vh;
+        margin: -15px;
+    }
+}
+
+.gallery-photo {
+    object-fit: cover;
+    height: 100%;
+}
+
+.learn-header {
+    max-width: 100%;
+    @media (min-width: 1024px) {
+        max-width: 60%;
+    }
+    margin: 0px auto;
+    margin-top: 40px;
 }
