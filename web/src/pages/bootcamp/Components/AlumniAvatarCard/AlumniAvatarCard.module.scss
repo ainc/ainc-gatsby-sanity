@@ -13,13 +13,32 @@
     font-weight: 700;
     margin-bottom: 0px;
     margin-top: 5px;
+    @media (max-width: 1120px){
+        height: 16px;
+    }
 }
+
+.name-container {
+    @media (max-width: 1120px){
+        height: 50px;
+    }
+
+}
+
 
 .job {
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 10px;
+}
 
+.job-container {
+    @media (max-width: 1240px){
+        height: 50px;
+    }
+    @media (max-width: 850px){
+        height: 90px;
+    }
 }
 
 .companyLogo {
@@ -31,4 +50,4 @@
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
-  }
+}
