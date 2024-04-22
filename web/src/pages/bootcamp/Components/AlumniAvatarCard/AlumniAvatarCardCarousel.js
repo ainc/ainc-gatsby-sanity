@@ -3,11 +3,11 @@ import AlumniAvatarCard from "./AlumniAvatarCard";
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import BrandButton from "../../../../components/UI/BrandButton/BrandButton";
 
 export const SwipeCarousel = ({ featuredAlumni }) => {
 
   const settings = {
-    className: "center",
     dots: false,
     infinite: true,
     swipeToSlide: true,
@@ -18,8 +18,13 @@ export const SwipeCarousel = ({ featuredAlumni }) => {
         settings: {
           slidesToShow: 5,
           slidesToScroll: 1,
-          infinite: true,
-          dots: true
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
         }
       },
       {
@@ -33,10 +38,10 @@ export const SwipeCarousel = ({ featuredAlumni }) => {
   };
 
   return (
-    <div className="relative overflow-hidden slider-container" style={{ backgroundColor: '#e6e7e8' }}>
+    <div className='overflow-hidden' style={{ backgroundColor: '#e6e7e8', }}>
       <Slider {...settings}>
           {featuredAlumni.map((alumni, idx) => (
-          <div key={idx} className='p-3' style={{ display: 'inline-block' }}>
+          <div key={idx} className='p-3' style={{ display: 'inline-block'}}>
             <AlumniAvatarCard
                 key={idx}
                 alumniImage={alumni.picture.asset.gatsbyImageData}
@@ -47,6 +52,11 @@ export const SwipeCarousel = ({ featuredAlumni }) => {
           </div>
           ))}
       </Slider>
+      <div className="text-center">
+        <a href='/alumni' target='_blank'>
+          <BrandButton className='my-3'>See More Alumni</BrandButton>
+        </a>
+      </div>
     </div>
   );
 };
