@@ -1,6 +1,15 @@
 @import "../../../../styles/mixins.scss";
 @import "../../../../styles/variables.scss"; 
 
+
+.card{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    object-fit: contain;
+    height: 50vh;
+}
+
 .alumni-image {
     max-height: 200px;
     max-width: 200px;
@@ -11,10 +20,10 @@
 .name {
     font-size: 20px;
     font-weight: 700;
-    margin-bottom: 0px;
     margin-top: 5px;
-    @media (max-width: 1120px){
-        height: 16px;
+    @media(max-width: 425px){
+        line-height: 20px;
+        margin-bottom: 5px;
     }
 }
 
@@ -30,6 +39,9 @@
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 10px;
+    @media(max-width: 425px){
+        line-height: 20px;
+    }
 }
 
 .job-container {
@@ -45,9 +57,4 @@
     max-width: 150px;
     max-height: 50px;
     object-fit: cover;
-}
-.horizontal-carousel {
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
 }

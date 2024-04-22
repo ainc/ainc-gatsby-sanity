@@ -370,11 +370,12 @@ const BootcampPage = props => {
       </section>
 
       {/* Alumni Testimonials */}
+      <section id="testimonials">
       <AlumniTestimonials />
       
       {/* Alumni Avatar Bar */}
       <AlumniAvatarCardCarousel featuredAlumni={featuredAlumni}/>
-
+      </section>
 
       {/* Motivational Quote */}
       <section id="motivational">

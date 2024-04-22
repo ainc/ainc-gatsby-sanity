@@ -40,7 +40,6 @@ export default function AlumniTestimonialsComponent (){
     ]
 
     return (
-        <section id="testimonials">
         <Container className="mt-5">
           <Row>
             <Title className={`text-center mb-4`}>Join 175+ graduates that have changed careers with Awesome Inc.</Title>
@@ -77,10 +76,7 @@ export default function AlumniTestimonialsComponent (){
             </div>
           ))}
           </Col>
-          
-
         </Container>
-      </section>
     )
 
 }
