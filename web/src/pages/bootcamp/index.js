@@ -490,8 +490,8 @@ const BootcampPage = props => {
               <p className="fw-bold text-white">past alumni</p>
             </Col>
             <Col md={4}>
-              <Title className="text-white">32+</Title>
-              <p className="fw-bold text-white">bootcamp retreats</p>
+              <Title className="text-white">50+</Title>
+              <p className="fw-bold text-white">bootcamp meetups</p>
             </Col>
             <Col md={4}>
               <Title className="brand text-white">86%</Title>
