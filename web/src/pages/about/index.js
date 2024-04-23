@@ -17,6 +17,7 @@ import BrandButton from "../../components/UI/BrandButton/BrandButton";
 
 import coreValues from "../../images/about-core-values.png";
 import ModalCustom from "../../components/Modal/ModalCustom";
+import Accomplishments from "../../components/Accomplishments/Accomplishments";
 
 const AboutPage = ({ data }) => {
 
@@ -73,105 +74,7 @@ const AboutPage = ({ data }) => {
         </section>
 
         {/* Accomplishments */}
-        <section className={styles.accomplishment}>
-          <Container>
-            <Row>
-              <Title className={`text-white text-center my-5`}>
-                {accomplishments.header}
-              </Title>
-              <Col lg={{ span: 8, offset: 2 }}>
-                <Row>
-                  <Col
-                    className={`align-items-md-end mb-sm-4 d-flex justify-content-md-center justify-content-sm-center ${styles.imageLinks}`}
-                    md={4}
-                    sm={12}
-                  >
-                    <a href="../workspace" role="button">
-                      <motion.div initial={{ opacity: 0, y: 50}}
-                        whileInView={{ opacity: 1, y: 0}}
-                        transition={{ delay: 0.5, duration: 1 }}>
-                      <GatsbyImage
-                        objectFit="scale-down"
-                        className={styles.imageLinks}
-                        image={
-                          accomplishments.accomplishment1.asset.gatsbyImageData
-                        }
-                        alt="Accomplishment 1"
-                      />
-                      </motion.div>
-                    </a>
-                  </Col>
-                  <Col
-                    className={`align-items-md-end mb-sm-4 d-flex justify-content-md-center justify-content-sm-center ${styles.imageLinks}`}
-                    md={4}
-                    sm={12}
-                  >
-                    <a href="../fellowship" role="button">
-                      <motion.div initial={{ opacity: 0, y: -50}}
-                                  whileInView={{ opacity: 1, y: 0}}
-                                  transition={{ delay: 0.5, duration: 1 }}>
-                      <GatsbyImage
-                        objectFit="scale-down"
-                        className={styles.imageLinks}
-                        image={
-                          accomplishments.accomplishment2.asset.gatsbyImageData
-                        }
-                        alt="Accomplishment 2"
-                      />
-                      </motion.div>
-                    </a>
-                  </Col>
-                  <Col
-                    className={`align-items-md-start mb-sm-2 d-flex justify-content-md-top justify-content-sm-center ${styles.imageLinks}`}
-                    md={4}
-                    sm={12}
-                  >
-                    <a href="../learn" role="button">
-                      <motion.div initial={{ opacity: 0, y: 50}}
-                                  whileInView={{ opacity: 1, y: 0}}
-                                  transition={{ delay: 0.5, duration: 1 }}>
-                      <GatsbyImage
-                        objectFit="scale-down"
-                        image={
-                          accomplishments.accomplishment3.asset.gatsbyImageData
-                        }
-                        className={styles.imageLinks}
-                        alt="Accomplishment 3"
-                      />
-                      </motion.div>
-                    </a>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-            <Row className="text-center d-flex justify-content-center mt-3 mb-3">
-            <motion.div initial={{ opacity: 0, y: 50}}
-                                  whileInView={{ opacity: 1, y: 0}}
-                                  transition={{ delay: 0.5, duration: 1 }}>
-              <Col className=''>
-                <BrandButton onClick={handleShow} className='secondary px-3 mx-5 my-3'>Watch our year in review video</BrandButton>
-                <a href="https://issuu.com/awesomeinclex/docs/awesomeinc_2023_impactreport?ff" target="_blank">
-                  <BrandButton className='secondary px-3 mx-5'>Read our impact report</BrandButton>
-                </a>
-              </Col>
-              </motion.div>
-            </Row>
-            <ModalCustom 
-            lgShow = {lgShow} 
-            hide = {handleClose}
-            bgDark = {false} 
-            centered
-            content = {
-              <iframe 
-              width="100%" 
-              height="500" 
-              src="https://www.youtube.com/embed/voYgKjTgNYE?si=g657OhP3aTm7agbo" 
-              title="YouTube video player"
-              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              allowfullscreen></iframe>
-            }/>
-          </Container>
-        </section>
+        <Accomplishments />
 
         {/* What We Do */}
         <section className="mt-5">

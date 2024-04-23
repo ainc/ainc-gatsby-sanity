@@ -26,7 +26,7 @@ const FellowshipCompanyCard = (props) => {
             }}>
             <Container className={`${styles.overlayText} p-3`}>
                 <div className="d-flex justify-content-between mb-2">
-                    <a href={props.url}>
+                    <a href={props.url} target='_blank'>
                         <Title className={`link--red fs-6`} style={{letterSpacing: "0rem"}}>{props.name}</Title>
                     </a>
                     <Title className={`text--red fs-6 fst-italic`} style={{letterSpacing: "0rem"}}>{year}</Title>
@@ -37,7 +37,7 @@ const FellowshipCompanyCard = (props) => {
                 </div>
 
                 <div className="text-end px-3 ">
-                    <a href={props.url}>
+                    <a href={props.url} target="_blank">
                         <i className={`link--bright-red text--red bi bi-arrow-right-square-fill fs-3`}></i>
                     </a>
                 </div>

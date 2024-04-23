@@ -20,11 +20,16 @@ import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import Testimonial from "./Components/Testimonial/Testimonial";
 import Title from "../../components/UI/Title/Title";
 import ZohoSales from "../../components/Scripts/ZohoSales";
+import TestimonialCarousel from "../../components/TestimonialCarousel/TestimonialCarousel";
+import Arrow from "../../images/arrow.png";
+import { FaPlay } from "react-icons/fa";
+import Thumbnail from '../../images/bootcamp-video-thumbnail.jpg'
+import ModalCustom from "../../components/Modal/ModalCustom";
 
 import "../../styles/main.scss"
 import * as styles from './bootcamp.module.scss'
 
-
+import ApplyForm from "./Components/ApplyForm/ApplyForm";
 
 export const query = graphql`
  query BootcampPageQuery {
@@ -83,6 +88,18 @@ export const query = graphql`
     upcomingEndDate(formatString: "MMMM DD, YYYY")
     upcomingStartDate(formatString: "MMMM DD, YYYY")
   }
+  allSanityBootcampImageTestimonials {
+    nodes {
+      testimonials {
+        title
+        testimonials {
+          asset {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+  }
 }
 `
 
@@ -96,6 +113,7 @@ const BootcampPage = props => {
   const testimonial2 = testimonials[1]
   const testimonial3 = testimonials[2]
 
+  const imageTestimonials = (data.allSanityBootcampImageTestimonials.nodes.at(-1) || {})
   const profCard = (data.sanityBootcampProfileCard || {})
 
   const gradStats = (data.allSanityBootcampGraduationStats.nodes || {})
@@ -171,6 +189,9 @@ const BootcampPage = props => {
   const handleShow = () => setShowWidget(true);
   const handleClose = () => setShowWidget(false);
 
+  const [videoShow, setVideoShow] = useState(false)
+  const handleVideoShow = () => setVideoShow(true)
+  const handleVideoClose = () => setVideoShow(false)
 
   return ( 
     <Layout jsImport={ZohoSales}>
@@ -178,44 +199,33 @@ const BootcampPage = props => {
       {/* Add SEO Component Here?? */}
       
       {/* Header section */}
-      {/* https://www.awesomeinc.org/assets/img/bootcamp/hero-image-2-min.jpg */}
       <section id="header">
         <Container fluid className={`${styles.header} overflow-hidden`}>
-        <Container>
-
-          <Row className={`${styles.titleBlock} mt-5 ms-5`}>
-            <Col xs={{span: 12, offset: 0}} sm={{span: 8, offset: 4}} md={8} lg={6} xl={5}>
-              <div className={`${styles.titleBlock} align-items-end d-flex flex-column`}>
+          <Container>
+          <Row className={`${styles.titleBlock} mt-5 d-flex`}>
+            <Col md={5}>
                 <motion.div initial={{ opacity: 0, x: -50 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.5, duration: 0.8 }} className={`${styles.titleBlock} ms-5 align-items-end d-flex flex-column`}>
-                <Title className='white text-uppercase text--big'> Launch your <br/> tech career</Title>
-                <h4 className= "w-75 text-end lh-md white mt-4 fw-lighter"><b>A 16 week immersive Bootcamp where you'll learn Full Stack coding skills to land a tech job... or your money back.</b></h4>
-                </motion.div>
-                <motion.div initial={{ opacity: 0, scale: 0.5 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 1.0, duration: 0.6 }} className={`mt-3 ms-5 align-items-end d-flex flex-column`}>
-                <a href="/bootcamp/apply"><BrandButton className="">Get Started</BrandButton></a>
-                <p className="fst-italic">Start your application in less than 30 seconds</p>
-                </motion.div>
-              </div>
-
-            </Col>
-            <Col className= "mt-5 col-2 pt-5 d-none d-sm-block"> {/* Hidden on mobile */}
-                <motion.div initial={{ opacity: 0}}
-                      animate={{ opacity: 1}}
-                      transition={{ delay: 0.5, duration: 1 }}>
-                <SideNav/>
+                      transition={{ delay: 0.5, duration: 0.8 }} className={`${styles.titleBlock} align-items-center text-left d-flex flex-column`}>
+                    <Title className='white text-uppercase'>Land your dream tech job, guaranteed</Title>
+                    <h4 className= "text-start white mt-4 fw-lighter d-none d-md-block"><b>Hate your job? Our in-person 16-week bootcamp helps you master full stack development, get access to 1:1 mentorship, and land a job in 6 moths or we'll refund your tuition.</b></h4>
                 </motion.div>
             </Col>
-            
+            <Col md={7} className='d-flex justify-content-center justify-content-md-end'>
+              <ApplyForm />
+            </Col>
           </Row>
-          
           </Container>
-
         </Container>
       </section>
 
+      <Container>
+        <Row>
+          <Col className= "mt-5 col-1 pt-5 d-none d-sm-block"> {/* Hidden on mobile */}
+              <SideNav/>
+          </Col>
+          </Row>
+      </Container>
 
 
       <section id ="bootcamp-upcoming-dates">
@@ -245,7 +255,7 @@ const BootcampPage = props => {
                 <Title className="text-center text--medium brand fw-bolder">{data.sanityBootcamp.upcomingStartDate}</Title>
                 <h4 className="brand">TO</h4>
                 <Title className="text-center text--medium brand fw-bolder">{data.sanityBootcamp.upcomingEndDate}</Title>
-                <a href="/bootcamp/apply"><BrandButton className="justify-content-center btn--small my-2" disabled="">APPLY NOW</BrandButton></a>
+                <a href="#header"><BrandButton className="justify-content-center btn--small my-2" disabled="">APPLY NOW</BrandButton></a>
               </Col>
           </Row>
 
@@ -348,7 +358,7 @@ const BootcampPage = props => {
         <Container fluid className={`${styles.testimonials}`}>
           <Row className="py-3 justify-content-center">
             <Row className="">
-              <Title className="text-center text-white text-uppercase mt-5">Hear From Our Alumni</Title>
+              <Title className="text-center text-white text-uppercase mt-5">Alumni Stories</Title>
             </Row>
             <Row className="text-center">
               <Testimonial 
@@ -379,53 +389,71 @@ const BootcampPage = props => {
 
       {/* Motivational Quote */}
       <section id="motivational">
-        <Container className={`py-4 text-center `}>
+        <Container className={`py-2 text-center `}>
           <Row className="py-lg-4 mx-lg-5 px-lg-5">
             <Col className="mx-auto py-2">
-              <Title className={`text-center brand fs-5 text--medium `}>"You don't have to feel trapped. Earn your freedom, work when & where you want. Earn a living in just 40 hours a week."</Title>
+              <Title className={`text-center brand fs-5 text-uppercase`}>Hear from our Alumni</Title>
             </Col>
           </Row>
         </Container>
       </section>
+      <Container>
+        <TestimonialCarousel images={imageTestimonials} />
+      </Container>
 
-      <section id="carousel">
-        <Container ref={sliderRef} className={`${styles.carousel} keen-slider pb-5 align-items-center`} > 
-            <div className="keen-slider__slide number-slide1">
-              <div style={{width:"40%"}} className="justify-content-center mx-auto py-3">
-                <StaticImage placeholder="blurred" alt="Testimonial 1" className={`${styles.aincuTestimonial} px-5 pt-5`} src="../../images/bootcamp-testimonials/alyssa-holber-linkedin.png"/>
-              </div>
+      {/*What to expect video */}
+      <Container fluid className={`my-5`}>
+        <Row className="align-items-center">
+          {/* Title and Arrow */}
+          <Col xs={12} md={3} className="text-center mb-3 mb-md-0">
+            <motion.div initial={{ opacity: 0}} animate={{ opacity: 1}} transition={{ delay: 0.5, duration: 1 }}>
+              <h3 className={styles.videoTitle}>Curious about the process?</h3>
+              <img className={`${styles.videoArrow} d-none d-md-block`} src={Arrow} alt="'what to expect' section arrow" />
+            </motion.div>
+          </Col>
+          {/* Video */}
+          {/* For small screens, display external link */}
+          <Col xs={12} className="text-center d-md-none">
+          <div className={styles.videoThumbnail}>
+            <a href="https://www.youtube.com/watch?v=xmZ6jVn0QWM" target="_blank" rel="noopener noreferrer">
+              <Image className={styles.videoFilter} src={Thumbnail} alt="Awesome Inc video link img" />
+              <i className={styles.playIcon}>
+                <FaPlay />
+              </i>
+            </a>
             </div>
-
-            <div  className="keen-slider__slide number-slide2">
-              <div style={{width: "45%"}} className="justify-content-center mx-auto py-3">
-                <StaticImage placeholder="blurred" alt="Testimonial 2" className={`${styles.aincuTestimonial} px-5`} src="../../images/bootcamp-testimonials/josh-dale-linkedin.png"/>
-              </div>
+          </Col>
+          {/* For large screens, display modal */}
+          <Col md={6} lg={7} className="text-center justify-content-center d-none d-md-flex">
+              <div className={styles.videoThumbnail}>
+                <motion.div initial={{ opacity: 0}} animate={{ opacity: 1}} transition={{ delay: 0.5, duration: 1 }}>
+                  {/* Youtube Link */}
+                  <a onClick={handleVideoShow} target="_blank" rel="noopener noreferrer">
+                    <Image className={styles.videoFilter} src={Thumbnail} alt="Awesome Inc video link img" />
+                    <i className={styles.playIcon}>
+                      <FaPlay />
+                    </i>
+                  </a>
+                </motion.div>
             </div>
-
-            <div className="keen-slider__slide number-slide3">
-              <div style={{maxWidth: "80%"}} className="justify-content-center mx-auto py-3">
-                <StaticImage placeholder="blurred" alt="Testimonial 3" className={`${styles.aincuTestimonial} pt-5`} src="../../images/bootcamp-testimonials/mason-williams.png"/>
-              </div>
-            </div>
-            {/*
-            <div className="keen-slider__slide number-slide4">
-              <div style={{maxWidth: "40%"}}className=" justify-content-center mx-auto py-3">
-                <StaticImage placeholder="blurred" alt="Tetimonial 4" className={`${styles.aincuTestimonial} px-5 pt-5`} src="../../images/bootcamp-testimonials/reic-sparks.png"/>
-              </div>
-            </div>
-            */} 
-
-            <div className="keen-slider__slide number-slide5">
-              <div style={{maxWidth: "50%"}} className="justify-content-center mx-auto px-5 py-3">
-                <StaticImage placeholder="blurred" alt="Tetimonial 5" className={`${styles.aincuTestimonial} px-5 mx-5`} src="../../images/bootcamp-testimonials/roger-mullins-linkedin.png"/>
-              </div>
-            </div>
-              
-        </Container>
-        </section>
-
-
-        
+          </Col>
+          <ModalCustom 
+          lgShow = {videoShow} 
+          hide = {handleVideoClose}
+          bgDark = {false} 
+          centered
+          content = {
+            <iframe 
+            width="100%" 
+            height="500" 
+            src="https://www.youtube.com/embed/xmZ6jVn0QWM?si=fadOfcz6mpNiL-jd" 
+            title="YouTube video player"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen></iframe>
+          }/>
+          <Col md={3} className="d-none d-md-block"></Col>
+        </Row>
+      </Container>
 
       {/* Why Awesome Inc Header */}
       <section id="why-awesome-inc-header" className={styles.whyAwesomeIncHeader}>
@@ -688,7 +716,7 @@ const BootcampPage = props => {
           </Row>
           <Row className={`${styles.applyButtons} justify-content-center`}>
             <div xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-3 col-lg-3 offset-lg-1 col-xl-2 offset-xl-1 mb-3 d-flex justify-content-center">
-              <a href="/bootcamp/apply"><BrandButton>Apply Now</BrandButton></a>
+              <a href="#header"><BrandButton>Apply Now</BrandButton></a>
             </div>
           
             <div  xs={12} sm={12} md={4} lg={4} xl={3}  className="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 mb-3 d-flex justify-content-center ">
