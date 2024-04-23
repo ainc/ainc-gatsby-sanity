@@ -1,7 +1,7 @@
 
 import React from "react";
 
-export function TestimonialCarousel({ testimonials }) {
+export default function TestimonialCarousel({ testimonials }) {
     const [currentIndex, setCurrentIndex] = useState(0);
   
     const handleClickRight = () => {
