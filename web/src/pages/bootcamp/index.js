@@ -6,7 +6,7 @@ import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import {InlineWidget} from 'react-calendly'
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
-import { motion } from "framer-motion";
+import { motion, useMotionValue } from "framer-motion";
 
 import ApplyNowModal from "../fellowship/Components/ApplyNowModal";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
@@ -21,6 +21,8 @@ import Testimonial from "./Components/Testimonial/Testimonial";
 import Title from "../../components/UI/Title/Title";
 import ZohoSales from "../../components/Scripts/ZohoSales";
 import TestimonialCarousel from "../../components/TestimonialCarousel/TestimonialCarousel";
+import AlumniTestimonials from "./Components/AlumniTestimonials/AlumniTestimonials";
+import AlumniAvatarCardCarousel from "./Components/AlumniAvatarCard/AlumniAvatarCardCarousel";
 
 import { FaStar } from 'react-icons/fa';
 
@@ -104,6 +106,23 @@ export const query = graphql`
       }
     }
   }
+  allSanityBootcampAlumni {
+    nodes {
+      featuredAlumni
+      companyLogo {
+        asset {
+          gatsbyImageData
+        }
+      }
+      jobTitle
+      name
+      picture {
+        asset {
+          gatsbyImageData
+        }
+      }
+    }
+  }
 }
 `
 
@@ -111,7 +130,10 @@ const BootcampPage = props => {
 
   const { data, errors } = props;
 
+
   const testimonials = (data.allSanityBootcampTestimonials.nodes || {})
+  
+  const featuredAlumni = (data.allSanityBootcampAlumni.nodes.filter(node => node.featuredAlumni === true) || {});
 
   const testimonial1 = testimonials[0]
   const testimonial2 = testimonials[1]
@@ -184,6 +206,7 @@ const BootcampPage = props => {
       },
     ]
   )
+
   const[showWidget, setShowWidget] = useState(false);
   const[showFAQ, setShowFAQ] = useState(false);
 
@@ -384,36 +407,10 @@ const BootcampPage = props => {
 
       {/* Alumni Testimonials */}
       <section id="testimonials">
-        <Container fluid className={`${styles.testimonials}`}>
-          <Row className="py-3 justify-content-center">
-            <Row className="">
-              <Title className="text-center text-white text-uppercase mt-5">Hear From Our Alumni</Title>
-            </Row>
-            <Row className="text-center">
-              <Testimonial 
-                name1={testimonial1.name}
-                image1={testimonial1.picture.asset.gatsbyImageData}
-                testimonial1={testimonial1.testimonial}
-
-                name2={testimonial2.name}
-                image2={testimonial2.picture.asset.gatsbyImageData}
-                testimonial2={testimonial2.testimonial}
-
-                name3={testimonial3.name}
-                image3={testimonial3.picture.asset.gatsbyImageData}
-                testimonial3={testimonial3.testimonial}
-              />
-            </Row>
-            <Row className="pt-4 pb-5">
-              <Col className="text-center">
-                <a href="../alumni">
-                  <BrandButton className="text-center brand">More Alumni</BrandButton>
-                </a>
-                
-              </Col>
-            </Row>
-          </Row>
-        </Container>
+      <AlumniTestimonials />
+      
+      {/* Alumni Avatar Bar */}
+      <AlumniAvatarCardCarousel featuredAlumni={featuredAlumni}/>
       </section>
 
       {/* Motivational Quote */}

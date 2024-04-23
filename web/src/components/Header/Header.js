@@ -119,7 +119,7 @@ const Header = () => {
                           <a href="/bootcamp">Web Dev Bootcamp</a>
                           <a href="/learn/youth/code">Youth Courses</a>
                           <a href="/learn/adults">Adult Courses</a>
-                          <a href="/learn">Kids Camps</a>
+                          <a href="/weekofcode">Kids Camps</a>
                           <a href="/salesforce">Salesforce Career Accelerator</a>
 
                         </Col>
