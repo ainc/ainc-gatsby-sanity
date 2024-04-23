@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import BrandButton from "../../../../components/UI/BrandButton/BrandButton";
 
-export const SwipeCarousel = ({ featuredAlumni }) => {
+export const AlumniAvatarCardCarousel = ({ featuredAlumni }) => {
 
   const settings = {
     dots: false,
@@ -64,4 +64,4 @@ export const SwipeCarousel = ({ featuredAlumni }) => {
 
 
 
-export default SwipeCarousel;
+export default AlumniAvatarCardCarousel;
