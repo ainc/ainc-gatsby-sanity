@@ -11,8 +11,14 @@ export const AlumniAvatarCardCarousel = ({ featuredAlumni }) => {
     dots: false,
     infinite: true,
     swipeToSlide: true,
-    slidesToShow: 5,
+    slidesToShow: 7,
     responsive: [
+      {
+        breakpoint: 1440,
+        settings: {
+          slidesToShow: 7,
+        }
+      },
       {
         breakpoint: 1024,
         settings: {
@@ -38,10 +44,10 @@ export const AlumniAvatarCardCarousel = ({ featuredAlumni }) => {
   };
 
   return (
-    <div className='overflow-hidden' style={{ backgroundColor: '#e6e7e8', }}>
-      <Slider {...settings}>
+    <div className='overflow-hidden' style={{ backgroundColor: '#e6e7e8' }}>
+      <Slider {...settings} className=''>
           {featuredAlumni.map((alumni, idx) => (
-          <div key={idx} className='p-3' style={{ display: 'inline-block'}}>
+          <div key={idx} className='p-3'  style={{ display: 'inline-block'}}>
             <AlumniAvatarCard
                 key={idx}
                 alumniImage={alumni.picture.asset.gatsbyImageData}

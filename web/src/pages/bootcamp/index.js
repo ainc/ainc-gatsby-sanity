@@ -254,21 +254,34 @@ const BootcampPage = props => {
       </section>
 
       {/* Header stats */}
-      <section style={{backgroundColor: '#323232'}}>
-        <Row className={`${styles.headerStats} d-flex justify-content-center text-center mx-auto`}>
-            <Col md={4} className="my-auto">
-              <Title className={`${styles.headerStatsTitle} text-white mb-0`}>$18,000</Title>
-              <p className={`${styles.headerStatsSubtitle} fw-bold text-white mb-0`}>Average Salary Increase</p>
-            </Col>
-            <Col md={4} className="my-auto">
-              <Title className={`${styles.headerStatsTitle} text-white mb-0`}>86%</Title>
-              <p className={`${styles.headerStatsSubtitle} fw-bold text-white mb-0`}>Job Placement Rate</p>
-            </Col>
-            <Col md={4} className="my-auto">
-              <Title className={`${styles.headerStatsTitle} text-white mb-0`}>90%</Title>
-              <p className={`${styles.headerStatsSubtitle} fw-bold text-white mb-0`}>Graduation Rate</p>
-            </Col>
-          </Row>
+      <section id="stats" style={{backgroundColor: "#323232"}} className="background--brand">
+        <Container fluid className={`${styles.stats}`}>
+          <div className=" py-5">
+            <Row className="pz-0 py-0 justify-content-center">
+              <Col className={`${styles.statsCol} justify-content-center`} >
+              {gradStats.map((node,i) => (
+                <div key={i} className={`${styles.statsRow}`}>
+                  <GradStat
+                    image={node.picture.asset.gatsbyImageData}
+                    alt={node.title}
+                    stat={node.stat}
+                    subtitle={node.title}
+                    subtext={node.subtitle}
+                  ></GradStat>
+                </div>
+              ))}
+              </Col>
+              <Row className="mt-0">
+                <Col className="d-flex justify-content-center pb-4">
+                        <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
+                        title="Download Program Guide"
+                        className="button mt-3"
+                        />
+                </Col>
+              </Row>
+            </Row>
+          </div>
+        </Container>
       </section>
 
       <Container>
@@ -279,6 +292,13 @@ const BootcampPage = props => {
           </Row>
       </Container>
 
+      {/* Alumni Testimonials */}
+      <section id="testimonials">
+      <AlumniTestimonials />
+      
+      {/* Alumni Avatar Bar */}
+      <AlumniAvatarCardCarousel featuredAlumni={featuredAlumni}/>
+      </section>
 
       <section id ="bootcamp-upcoming-dates">
         <Container className={`pt-4 pb-4`}>
@@ -310,8 +330,6 @@ const BootcampPage = props => {
                 <a href="#header"><BrandButton className="justify-content-center btn--small my-2" disabled="">APPLY NOW</BrandButton></a>
               </Col>
           </Row>
-
-
         </Container>
       </section>
        
@@ -360,72 +378,6 @@ const BootcampPage = props => {
         </Container>
       </section>
 
-      {/* Answer Honestly */}
-      <section id="answer-honestly">
-        <Container fluid className="py-5">
-          <Row>
-            <Col>
-              <Title className="text-center brand fs-3 text--large">Answer honestly...</Title>
-              <Subtitle className="text-center brand fst-italic fw-light fs-6 subtitle--small mb-5">(your answer is safe with us, we promise.)</Subtitle>
-            </Col>  
-          </Row>
-          <Col className="d-flex align-contents-center justify-content-center">
-          <motion.div initial={{ opacity: 0, y: -50}}
-                      whileInView={{ opacity: 1, y: 0}}
-                      transition={{ delay: 0.3, duration: 1 }}>
-            <Row className="py-1 text-center">
-              <ShieldsRow
-                text1="Do you ever think of changing careers?"
-                text2="Are you looking for a more meaningful career?"
-                text3="Do you enjoy learning new ideas and solving problems?"
-                text4="Do you want to gain a skill set that will set you up for success no matter your location?"
-                text5="Are you looking to explore a different life path?"
-              />
-            </Row>
-          </motion.div>
-
-          </Col>
-          <Row>
-            <Subtitle className="text-center brand fs-3 fancy-font fst-italic">Yes!</Subtitle>
-            <br />
-            <br />
-            <Subtitle className="text-center pt-3 fs-6 subtitle--small pb-3"><b>If you answered yes to any of these, our Web Developer Bootcamp could be your next move.</b></Subtitle>
-            <br />
-            <br />
-            <Subtitle className="text-center fs-6 subtitle--small">The Web Developer Bootcamp is a 16-week, intensive training program for aspiring software developers.</Subtitle>
-          </Row>
-          <Row className="pt-5 pb-3">
-            <Col className="d-flex justify-content-center">
-              
-              <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
-              title="Download Program Guide"/>
-
-            </Col>
-          </Row>
-        </Container>
-      </section>
-
-      {/* Alumni Testimonials */}
-      <section id="testimonials">
-      <AlumniTestimonials />
-      
-      {/* Alumni Avatar Bar */}
-      <AlumniAvatarCardCarousel featuredAlumni={featuredAlumni}/>
-      </section>
-
-      {/* Motivational Quote */}
-      <section id="motivational">
-        <Container className={`py-4 text-center `}>
-          <Row className="py-lg-4 mx-lg-5 px-lg-5">
-            <Col className="mx-auto py-2">
-              <Title className={`text-center brand fs-5 text--medium `}>"You don't have to feel trapped. Earn your freedom, work when & where you want. Earn a living in just 40 hours a week."</Title>
-            </Col>
-          </Row>
-        </Container>
-      </section>
-      <Container>
-        <TestimonialCarousel images={imageTestimonials} />
-      </Container>
 
       {/* Why Awesome Inc Header */}
       <section id="why-awesome-inc-header" className={styles.whyAwesomeIncHeader}>
@@ -531,41 +483,6 @@ const BootcampPage = props => {
           </Row>
         </Container>
       </section>
-
-      {/* Stats */}
- 
-      <section id="stats" style={{backgroundColor: "#ED3742"}} className="background--brand">
-        <Container fluid className={`${styles.stats}`}>
-          <div className=" py-5">
-            <Row className="pz-0 py-0 justify-content-center">
-              <Col className={`${styles.statsCol} justify-content-center`} >
-              {gradStats.map((node,i) => (
-                //  <Col className={`${styles.statsCol} mt-2`}>
-                    <div key={i} className={`${styles.statsRow}`}>
-                    <GradStat
-                    image={node.picture.asset.gatsbyImageData}
-                    alt={node.title}
-                    stat={node.stat}
-                    subtitle={node.title}
-                    subtext={node.subtitle}
-                    ></GradStat>
-                    </div>
-                //  </Col>
-              ))}
-              </Col>
-              <Row className="mt-0">
-                <Col className="d-flex justify-content-center pb-4">
-                        <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
-                        title="Download Program Guide"
-                        className="button secondary mt-3"
-                        secondary={true}/>
-                </Col>
-              </Row>
-            </Row>
-          </div>
-        </Container>
-      </section>
-
 
 
       {/* Employers */}
