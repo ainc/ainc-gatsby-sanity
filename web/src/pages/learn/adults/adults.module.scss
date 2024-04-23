@@ -65,6 +65,11 @@
     }
 } 
 
+.mac-image{
+    @media (min-width: 768px){
+        left: 20%
+    }
+}
 /* This was taken out of each of the backgrounds - leaving in comments in case something breaks
 .headerTitle {
     @media (min-width: 992px) {
