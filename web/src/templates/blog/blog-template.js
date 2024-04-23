@@ -30,7 +30,7 @@ const Blog = ({ pageContext }) => {
             window.FB.XFBML.parse();
         }
       }, []);
-    
+
     return (
         <Layout>
             <SEO title={blogInfo.title} description={blogInfo.previewText} />
