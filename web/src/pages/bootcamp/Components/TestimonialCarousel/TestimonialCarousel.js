@@ -1,5 +1,9 @@
 
-import React from "react";
+import React, {useState} from "react";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { Row, Col, Button } from "react-bootstrap";
+import Title from "../../../../components/UI/Title/Title";
+import { FaArrowLeft, FaArrowRight, FaCircle, FaRegCircle } from "react-icons/fa";
 
 export default function TestimonialCarousel({ testimonials }) {
     const [currentIndex, setCurrentIndex] = useState(0);
