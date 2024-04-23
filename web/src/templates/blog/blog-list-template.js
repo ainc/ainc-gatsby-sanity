@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react'
 import { graphql, Link } from "gatsby";
 import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image'
@@ -10,7 +8,8 @@ import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import ModalCustom from '../../components/Modal/ModalCustom';
-import { FaBell } from "react-icons/fa";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import { FaBell, FaSearch } from "react-icons/fa";
 import BlogPreview from './BlogPreview';
 import  '../../styles/main.scss'; 
 import * as styles from "./blog-list-template.module.scss";
@@ -18,9 +17,12 @@ import * as styles from "./blog-list-template.module.scss";
 
 
 const BlogPage = ({pageContext, data }) => {
-    const [lgShow, setLgShow] = useState(false);
-    const handleClose = () => setLgShow(false);
-    const handleShow = () => setLgShow(true);
+    const [lgShowSub, setLgShowSub] = useState(false);
+    const [lgShowSearch, setLgShowSearch] = useState(false);
+    const handleCloseSubscribe = () => setLgShowSub(false);
+    const handleShowSubscribe = () => setLgShowSub(true);
+    const handleShowSearch = () => setLgShowSearch(true);
+    const handleCloseSearch = () => setLgShowSearch(false);
     const [blogData, setBlogData] = useState([]);
 
     const defaultBgImageUrl = '/web/src/images/logo.png'
@@ -35,8 +37,6 @@ const BlogPage = ({pageContext, data }) => {
 
     React.useEffect(() => {
         setBlogData(data.allSanityBlog.edges)
-        // console.log("hihi", pageContext)
-
     })
 
     return (
@@ -48,11 +48,13 @@ const BlogPage = ({pageContext, data }) => {
                         <Title className="text-uppercase">Blog</Title>
                     </Col>
                     <Col xs={{ span: 4, offset: 4 }} className='d-flex justify-content-center'>
-                        <a onClick={handleShow}><FaBell size={40} className='link--brand' /></a>
+                        <a onClick={handleShowSubscribe}><FaBell size={40} className='link--brand' /></a>
+                        <a onClick={handleShowSearch} className='ms-2 ms-sm-5'><FaSearch size={40} className='link--brand' /></a>
                     </Col>
+                    {/* Subscribe Modal */}
                     <ModalCustom
-                        lgShow={lgShow}
-                        hide={handleClose}
+                        lgShow={lgShowSub}
+                        hide={handleCloseSubscribe}
                         title="Subscribe to our blog"
                         centered
                         content={
@@ -87,6 +89,17 @@ const BlogPage = ({pageContext, data }) => {
                                 </form>
                             </Container>
                         }
+                    />
+                    {/* Search Modal */}
+                    <ModalCustom
+                        lgShow={lgShowSearch}
+                        hide={handleCloseSearch}
+                        title="Search our blogs!"
+                        content={
+                            <Container fluid>
+                                <SearchBar/>
+                            </Container>
+                        } 
                     />
                 </Row>
             </Container>
@@ -178,5 +191,6 @@ export const query = graphql`
 `
 
 export default BlogPage;
+
 
 

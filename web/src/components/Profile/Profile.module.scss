@@ -33,6 +33,13 @@
   width: 100%;
   justify-content: center;
   margin-bottom: -12px;
+
+  @media (max-width: 1400px){
+    font-size: 1rem;
+  }
+  @media (max-width: 990px){
+    font-size: 0.75rem;
+  }
 }
 
 .attribute-button {

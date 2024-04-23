@@ -36,7 +36,7 @@ const EventsPage = ({ data }) => {
                           edge.node.picture.asset.gatsbyImageData
                         }
                         date={edge.node.date}
-                        host={edge.node.host}
+                        host={edge.node.host} 
                         location={edge.node.location}
                         link={edge.node.linkToEvent}
                         name={edge.node.eventName}
