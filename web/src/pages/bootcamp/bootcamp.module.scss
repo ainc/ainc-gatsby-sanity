@@ -3,32 +3,48 @@
 
 
 .header {
-        background-image: url('/images/hero-image-2-min.jpg');
+        background:linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(/images/bootcamp-hero.jpg);
         background-size: cover;
         background-repeat: no-repeat;
         overflow: hidden;
+        padding-bottom: 5rem;
         @media (min-width: 992px){
             background-position: center;
             background-position: 79% 21%;
-            margin-top: 17px;
-            height: 90vh;
             width: 100%;
 
         }
         @media (min-width: 481px) and (max-width: 991px){
-            background-position: center bottom;
-            margin-top: 10px;
-            height: 75vh;
+            background-position: 50% 0;
             width: 100%;
+            background-size: cover;
+            background-color: #323232;
+            h1{
+                font-size: 1.4rem;
+            }
+            h2{
+                font-size: 1rem;
+            }
+            p{
+                font-size: 0.65rem;
+            }
+
         }
 
         @media (max-width: 480px){
-            background-size: cover;
-            background-position: 20% 0;
-            margin-top: 10px;
-            font-size: 0.75rem;
-            height: 90vh;
+            background-size: contain;
+            background-color: #323232;
+            background-position: 50% 0;
             width: 100%;
+            h1{
+                font-size: 1.4rem;
+            }
+            h2{
+                font-size: 1rem;
+            }
+            p{
+                font-size: 0.5rem;
+            }
         }
        
 
@@ -43,20 +59,20 @@
 
     .titleBlock {   
         color: white;
-        text-align: right;
+        text-align: left;
         @include screen-max{
-            margin-top: 5vh;
+            margin-top: 30vh;
         }
         @include screen-lg{
-            margin-top: 5vh ;
+            margin-top: 25vh ;
         }
         @include screen-md{
-           // margin-top: 5vh ;
+           margin-top: 25vh ;
             
         }
         @include screen-sm{
             title{
-                font-size: small;
+                font-size: medium;
             }
         }
         @include screen-xs{
@@ -69,7 +85,6 @@
 
     .sideNav{
         margin-top: 100px;
-        margin-left: 100px;
     }
 
     }
@@ -112,9 +127,55 @@
 .testimonials {
     background-image: url('../../images/bootcamp/testimonials-bg.jpg');
     background-size: cover;
-    
 }
 
+
+.video-title{
+    font-size: 32px;
+    text-transform: uppercase;
+    /* float: right; */
+    font-weight: 900;
+    color: #323333;
+    line-height: 50px;
+    margin-top: 0px;
+}
+.video-thumbnail{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.video-filter {
+    filter: opacity(0.5);
+    max-width: 100%;
+    height: auto;
+    /* margin: auto; */
+}
+.play-icon {
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    background: #323232;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    font-size: 42px;
+    line-height: 100px;
+    padding-left: 10px;
+    color: white;
+    z-index: 99;
+    -moz-transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+.video-arrow {
+    width: 60%;
+    margin-left: 10vw;
+}
 
 .whyAwesomeinc {
     p{

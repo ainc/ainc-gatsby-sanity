@@ -56,8 +56,8 @@ section .header-workspace {
   color: #fff;
 }
 
-.see-the-space {
-  font-size: 32px;
+.video-title {
+  font-size: 30px;
   text-transform: uppercase;
   /* float: right; */
   font-weight: 900;
@@ -70,7 +70,6 @@ section .header-workspace {
   position: relative;
   padding-top: 20px;
   text-align: center;
-  padding-bottom: 100px;
 }
 
 .spotlight-adult .lgx-inner {
@@ -131,10 +130,8 @@ section .header-workspace {
 }
 
 .video-arrow {
-  position: absolute;
   width: 60%;
-  top: 25%;
-  left: -50%;
+  margin-left: 10vw;
 }
 
 .tour-btn {

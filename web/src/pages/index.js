@@ -40,6 +40,7 @@ import StackIcon from "../assets/svg/stack.svg";
 import ToolsIcon from "../assets/svg/tools.svg";
 import { withTheme } from "styled-components";
 import EventBriteModal from "../components/EventBriteModal/EventBriteModal";
+import Accomplishments from "../components/Accomplishments/Accomplishments";
 
 export const query = graphql`
 query IndexPageQuery($currentDate: Date!) { 
@@ -120,6 +121,7 @@ const IndexPage = ({ data }) => {
 
   const courses = (data.allSanityCourses.nodes || {})
 
+  
   const section1Ref = useRef(null);
   const section2Ref = useRef(null);
   const section3Ref = useRef(null);
@@ -251,6 +253,8 @@ const IndexPage = ({ data }) => {
           
         </Container>
       </section>
+      {/*ACCOMPLISHMENTS */}
+      <Accomplishments />
 
       {/* CORE VALUES */}
       <section  id="core-values">

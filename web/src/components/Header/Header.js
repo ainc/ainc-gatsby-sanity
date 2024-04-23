@@ -13,12 +13,13 @@ import {
   Nav,
   Container,
   Row,
-  Col
+  Col,
+  Dropdown,
 } from 'react-bootstrap'
 
 
 import "../../styles/main.scss"
-import { navbarBrand } from './Header.module.scss'
+import { navbarBrand, navButton, show} from './Header.module.scss'
 import "./header.scss"
 
 const Header = () => {
@@ -85,16 +86,16 @@ const Header = () => {
         <Navbar.Toggle aria-controls="learn-to-code-navbar" className='text-white shadow-none border-white'/>
         <Navbar.Collapse id="learn-to-code-navbar">
           <Nav>
-          {useLocation().pathname === '/bootcamp/' && (
+          {useLocation().pathname === '/learn/youth/code/' && (
             <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
-                <a href='/bootcamp/apply' className='mt-3 mb-1'><BrandButton>Apply Now</BrandButton></a>
+                <a href='#call' className='mt-3 mb-1'><BrandButton>Book a Call</BrandButton></a>
             </Row>
           )}
             <Col className="desktop">
               <Nav.Link href="/learn" className="text--white">Learn To Code  <AiFillCaretDown size={10}/></Nav.Link>
               <div className='hover-options'>
                 <a href="/bootcamp" className='pt-0'>Web Dev Bootcamp</a>
-                <a href="/learn/youth" >Youth Courses</a>
+                <a href="/learn/youth/code/" >Youth Courses</a>
                 <a href="/learn/adults">Adult Courses</a>
                 <a href="/weekofcode">Kids Camps</a>
                 <a href="/salesforce">Salesforce Career Accelerator</a>
@@ -116,9 +117,9 @@ const Header = () => {
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
                         <Col xs={{span: 10}} className={`d-flex flex-column py-2 border-0`}>
                           <a href="/bootcamp">Web Dev Bootcamp</a>
-                          <a href="/learn/youth">Youth Courses</a>
+                          <a href="/learn/youth/code">Youth Courses</a>
                           <a href="/learn/adults">Adult Courses</a>
-                          <a href="/learn">Kids Camps</a>
+                          <a href="/weekofcode">Kids Camps</a>
                           <a href="/salesforce">Salesforce Career Accelerator</a>
 
                         </Col>
@@ -135,6 +136,7 @@ const Header = () => {
                 <a href="/idea" className='pt-0'>I Have an Idea</a>
                 <a href="/fellowship">Startup Accelerator</a>
                 <a href="/events/5across">5 Across</a>
+                <a href="/events">Events</a>
                 <a href="/assets/community-yearbook.pdf" target="_blank" rel="_noopener">Community Yearbook</a> {/*Need to add yearbooks and possibly other assets*/}
               </div>
             </Col>
@@ -155,6 +157,7 @@ const Header = () => {
                           <a href="/idea">I Have an Idea</a>
                           <a href="/fellowship">Startup Accelerator</a>
                           <a href="/events/5across">5 Across</a>
+                          <a href="/events">Events</a>
                           <a href="/assets/community-yearbook.pdf"
                             target="_blank"
                             rel="noopener">
@@ -270,16 +273,40 @@ const Header = () => {
                 </Container>
               </Navbar>
             </Row>
-
           {useLocation().pathname === '/bootcamp/' && (
             <Col className="desktop" style={{paddingLeft: "8%",}}>
-                <a href='/bootcamp/apply' className=""><BrandButton style={{padding: '1.5 rem 2 rem', fontSize: '1.25rem'}}>Apply Now</BrandButton></a>
+                <a href='#header' className=""><BrandButton style={{padding: '1.5 rem 2 rem', fontSize: '1.25rem'}}>Apply Now</BrandButton></a>
             </Col>
           )}
-
+          {useLocation().pathname === '/learn/youth/code/' && (
+            <Col className="desktop" style={{paddingLeft: "8%",}}>
+                <a href='#call' className=""><BrandButton style={{padding: '1.5 rem 2 rem', fontSize: '1.25rem'}}>Book a Call</BrandButton></a>
+            </Col>
+          )}
           </Nav>
         </Navbar.Collapse>
       </Container>
+      {useLocation().pathname === '/bootcamp/' && (
+      <Container className={`${navButton} d-md-none d-flex justify-content-center`}>
+        <div className='d-flex justify-content-center'>
+        <Dropdown  className='mx-1 my-1'>
+          <Dropdown.Toggle as={BrandButton} className='' style={{width: '45vw', border: '1px solid #323232', backgroundColor: 'white', color: '#323232'}}>Jump To</Dropdown.Toggle>
+          <Dropdown.Menu align="start">
+            <Dropdown.Item href="#bootcamp-upcoming-dates">Program Dates</Dropdown.Item>
+            <Dropdown.Item href="#testimonials">Hear From Our Alumni</Dropdown.Item>
+            <Dropdown.Item href="#why-awesome-inc-header">Why Awesome Inc?</Dropdown.Item>
+            <Dropdown.Item href="#job-guarantee">Job Guarantee</Dropdown.Item>
+            <Dropdown.Item href="#employers">Hiring Partners</Dropdown.Item>
+            <Dropdown.Item href="#languages">Our Tech Stack</Dropdown.Item>
+            <Dropdown.Item href="#timeline">Application Timeline</Dropdown.Item>
+            <Dropdown.Item href="#cost">The Cost</Dropdown.Item>
+            <Dropdown.Item href="#still-unsure">FAQs</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        <a href='#header'><BrandButton className='mx-1 my-1' style={{width: '45vw'}}>Apply Now</BrandButton></a>
+        </div>
+      </Container>
+      )}
     </Navbar>
   );
 };

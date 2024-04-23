@@ -27,14 +27,45 @@ export default {
       title: 'Accomplishment 1'
     },
     {
+      name: 'accomplishment1Link',
+      type: 'url',
+      title: 'Link for Accomplishment 1'
+    },
+    {
       name: 'accomplishment2',
       type: 'image',
       title: 'Accomplishment 2'
     },
     {
+      name: 'accomplishment2Link',
+      type: 'url',
+      title: 'Link for Accomplishment 2'
+    },
+    {
       name: 'accomplishment3',
       type: 'image',
       title: 'Accomplishment 3'
-    }
+    },
+    {
+      name: 'accomplishment3Link',
+      type: 'url',
+      title: 'Link for Accomplishment 3'
+    },
+    {
+      name: 'reviewVideo',
+      type: 'url',
+      title: 'Link to Year in Review Video',
+      description: 'Must be the youtube embed link'
+    },
+    {
+      name: 'impactReport',
+      type: 'url',
+      title: 'Link to Impact Report'
+    },
+    {
+      name: 'reviewPoster',
+      type: 'url',
+      title: 'Link to Year in Review Poster'
+    },
   ]
 }

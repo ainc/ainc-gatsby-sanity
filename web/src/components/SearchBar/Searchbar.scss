@@ -1,0 +1,44 @@
+@import '../../styles/variables.scss';
+@import "../../styles/mixins"; 
+.autocomplete-container {
+    margin: 20px auto;
+  }
+  
+.autocomplete-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.autocomplete-input:focus {
+  color: $brand-red-bright;
+}
+
+.autocomplete-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.autocomplete-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  transition: background-color 0.3s;
+}
+
+.autocomplete-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.autocomplete-list li:last-child {
+  border-bottom: none;
+}
+
+.autocomplete-list li a {
+  color: inherit; 
+  text-decoration: none; 
+}
+
+.autocomplete-list li a:hover {
+  background-color: transparent; 
+}
