@@ -46,8 +46,8 @@ const AdultsPage = ({ data }) => {
                         </Row>
                     </Col>
                     
-                    <Col col="6">
-                        <StaticImage placeholder="blurred" quality="90" className="img-responsive" src='../../../images/mac-code.png' alt='computer with code' height={"450"} width={"450"} style={{left: '20%'}}/>
+                    <Col md={6}>
+                        <StaticImage placeholder="blurred" quality="90" className={`${styles.macImage} img-responsive`} src='../../../images/mac-code.png' alt='computer with code' height={"450"} width={"450"}/>
                     </Col>
                 </Row>
                 </Container>
