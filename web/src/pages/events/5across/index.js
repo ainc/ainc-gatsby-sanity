@@ -18,21 +18,21 @@ import * as styles from "./fiveAcross.module.scss";
 import TestimonialCarousel from "../../../components/TestimonialCarousel/TestimonialCarousel";
 const fiveAcrossPage = ({ data }) => {
 
-    const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes.at(-1).titleSp.title || {});
-    const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes.at(-1).titleSp.link || {});
-    const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes.at(-1).titleSp.image.asset.gatsbyImageData || {});
+    const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes.at(0).titleSp.title || {});
+    const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes.at(0).titleSp.link || {});
+    const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes.at(0).titleSp.image.asset.gatsbyImageData || {});
 
-    const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes.at(-1).presentingSp.title || {});
-    const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes.at(-1).presentingSp.link || {});
-    const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes.at(-1).presentingSp.image.asset.gatsbyImageData || {});
+    const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes.at(0).presentingSp.title || {});
+    const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes.at(0).presentingSp.link || {});
+    const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes.at(0).presentingSp.image.asset.gatsbyImageData || {});
 
-    const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes.at(-1).suppourtingSponsors || {});
+    const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes.at(0).suppourtingSponsors || {});
     const nextFiveAcross = (data.allSanityEvents.nodes || {});
 
     const fiveAcrossWinners = (data.allSanityFiveAcrossWinners.edges || {});
     const previousWinner = fiveAcrossWinners[fiveAcrossWinners.length - 1].node;
 
-    const testimonials = (data.allSanityFiveAcrossTestimonials.nodes.at(-1) || {});
+    const testimonials = (data.allSanityFiveAcrossTestimonials.nodes.at(0) || {});
 
     let years = [];
 
