@@ -46,7 +46,8 @@ export const AlumniAvatarCardCarousel = ({ featuredAlumni }) => {
   return (
     <div className='overflow-hidden' style={{ backgroundColor: '#e6e7e8' }}>
       <Slider {...settings} className=''>
-          {featuredAlumni.map((alumni, idx) => (
+        {console.log(featuredAlumni)}
+          {featuredAlumni?.map((alumni, idx) => (
           <div key={idx} className='p-3'  style={{ display: 'inline-block'}}>
             <AlumniAvatarCard
                 key={idx}
