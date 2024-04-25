@@ -299,39 +299,6 @@ const BootcampPage = props => {
       {/* Alumni Avatar Bar */}
       <AlumniAvatarCardCarousel featuredAlumni={featuredAlumni}/>
       </section>
-
-      <section id ="bootcamp-upcoming-dates">
-        <Container className={`pt-4 pb-4`}>
-          <Row>
-              <Col>
-                <Title className="text-center my-2">UPCOMING PROGRAM DATES</Title>
-                {/* <Subtitle className="text-center brand fst-italic fw-light fs-6">(your answer is safe with us, we promise.)</Subtitle> */}
-              </Col>
-          </Row>
-          <Row>
-              <Col>
-                <Title className="text-center text--medium mt-3">Early Application Deadline </Title>
-                <CountdownTimer date={earlyApplicationDeadline}/>
-                <Title className="text-center text--small fw-bold fst-italic"> Guarantees open spots for next class</Title>
-              </Col>
-          </Row>
-          <Row>
-              <Col xs={12} sm ={12}  md={4} lg={3} xl={3}  className={` ${styles.bootcampUpcomingdates} text-center ms-auto my-4 d-none d-sm-block`}> {/*Hidden on mobile*/}
-                <Title className="text-center text--medium fw-bolder">{data.sanityBootcamp.previousStartDate}</Title>
-                <h4>TO</h4>
-                <Title className="text-center text--medium fw-bolder">{data.sanityBootcamp.previousEndDate}</Title>
-                <BrandButton className="secondary btn--small my-2" disabled="">APPLICATIONS CLOSED</BrandButton>
-
-              </Col>
-              <Col xs={12} sm={12} md={4} lg={3} xl={3} className="text-center  me-auto my-4">
-                <Title className="text-center text--medium brand fw-bolder">{data.sanityBootcamp.upcomingStartDate}</Title>
-                <h4 className="brand">TO</h4>
-                <Title className="text-center text--medium brand fw-bolder">{data.sanityBootcamp.upcomingEndDate}</Title>
-                <a href="#header"><BrandButton className="justify-content-center btn--small my-2" disabled="">APPLY NOW</BrandButton></a>
-              </Col>
-          </Row>
-        </Container>
-      </section>
        
 
       {/* Two Buttons Section */}
@@ -440,7 +407,7 @@ const BootcampPage = props => {
             </Col>
             <Col md={4}>
               <Title className="text-white">50+</Title>
-              <p className="fw-bold text-white">bootcamp meetups</p>
+              <p className="fw-bold text-white">alumni meetups</p>
             </Col>
             <Col md={4}>
               <Title className="brand text-white">86%</Title>
@@ -527,7 +494,7 @@ const BootcampPage = props => {
       </section>
 
       {/* Languages */}
-<section id="languages">
+      <section id="languages">
         <Container fluid className={`${styles.languages}`}>
           <Row>
             <Subtitle style={{fontSize: "1.25rem"}} className="text-center fs-5 pb-3 mt-4"><b>With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using</b></Subtitle>
@@ -660,9 +627,42 @@ const BootcampPage = props => {
                      title="Download Program Guide"/>
             </div>
           </Row>
-
         </Container>
     </section>
+
+      {/*Upcoming dates */}
+      <section id ="bootcamp-upcoming-dates">
+        <Container className={`pt-4 pb-4`}>
+          <Row>
+              <Col>
+                <Title className="text-center my-2">UPCOMING PROGRAM DATES</Title>
+                {/* <Subtitle className="text-center brand fst-italic fw-light fs-6">(your answer is safe with us, we promise.)</Subtitle> */}
+              </Col>
+          </Row>
+          <Row>
+              <Col>
+                <Title className="text-center text--medium mt-3">Early Application Deadline </Title>
+                <CountdownTimer date={earlyApplicationDeadline}/>
+                <Title className="text-center text--small fw-bold fst-italic"> Guarantees open spots for next class</Title>
+              </Col>
+          </Row>
+          <Row>
+              <Col xs={12} sm ={12}  md={4} lg={3} xl={3}  className={` ${styles.bootcampUpcomingdates} text-center ms-auto my-4 d-none d-sm-block`}> {/*Hidden on mobile*/}
+                <Title className="text-center text--medium fw-bolder">{data.sanityBootcamp.previousStartDate}</Title>
+                <h4>TO</h4>
+                <Title className="text-center text--medium fw-bolder">{data.sanityBootcamp.previousEndDate}</Title>
+                <BrandButton className="secondary btn--small my-2" disabled="">APPLICATIONS CLOSED</BrandButton>
+
+              </Col>
+              <Col xs={12} sm={12} md={4} lg={3} xl={3} className="text-center  me-auto my-4">
+                <Title className="text-center text--medium brand fw-bolder">{data.sanityBootcamp.upcomingStartDate}</Title>
+                <h4 className="brand">TO</h4>
+                <Title className="text-center text--medium brand fw-bolder">{data.sanityBootcamp.upcomingEndDate}</Title>
+                <a href="#header"><BrandButton className="justify-content-center btn--small my-2" disabled="">APPLY NOW</BrandButton></a>
+              </Col>
+          </Row>
+        </Container>
+      </section>
 
       {/* Timeline */}
       <section id="timeline" style={{backgroundColor: "#e6e7e8"}} className="pt-5 mb-3">
