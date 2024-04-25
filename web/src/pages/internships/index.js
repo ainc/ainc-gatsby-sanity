@@ -185,7 +185,7 @@ const InternshipsPage = ({ data }) => {
                   show={teamInfoDiv === 'video'}
                   onHide={hideTeamDiv}
                   title="VIDEO"
-                  content="We are looking for tech-savvy, organized, and creative individual who has expeirence using a digital camera, and a video editing (Premiere Pro is preferred). Applicants must have an understanding of how to storyboard in preparation for shoots and know basic camera settings: aperture, shutter speed, ISO, and white balance."
+                  content="We are looking for a tech-savvy, organized, and creative individual who has experience using a digital camera, and a video editing (Premiere Pro is preferred). Applicants must have an understanding of how to storyboard in preparation for shoots and know basic camera settings: aperture, shutter speed, ISO, and white balance."
                   color='#939597'
                   team="video"
                   link="https://www.youtube.com/watch?v=Xhs6weqDvfg"

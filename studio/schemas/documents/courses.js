@@ -7,11 +7,13 @@ export default {
             name: 'courseTitle',
             type: 'string',
             title: 'Course Title',
+            validation: Rule => Rule.required()
         },
         {
             name: 'picture',
             type: 'image',
-            title: 'Course Picture'
+            title: 'Course Picture',
+            validation: Rule => Rule.required()
         },
         {
             name: 'background',
