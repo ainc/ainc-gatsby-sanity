@@ -17,10 +17,8 @@ import ProfileCard from "./Components/ProfileCard/ProfileCard";
 import ShieldsRow from "./Components/ShieldsRow/ShieldsRow";
 import SideNav from "./Components/SideNav/SideNav"
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
-import Testimonial from "./Components/Testimonial/Testimonial";
 import Title from "../../components/UI/Title/Title";
 import ZohoSales from "../../components/Scripts/ZohoSales";
-import TestimonialCarousel from "../../components/TestimonialCarousel/TestimonialCarousel";
 import Arrow from "../../images/arrow.png";
 import { FaPlay } from "react-icons/fa";
 import Thumbnail from '../../images/bootcamp-video-thumbnail.jpg'
