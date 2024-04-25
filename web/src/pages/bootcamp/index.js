@@ -444,7 +444,9 @@ const BootcampPage = props => {
                     Having in-demand tech skills is just one piece of the puzzle. At Awesome Inc, you’ll get one-on-one guidance through a dedicated career coach to learn hands on skills to ace your job search and land a role you love. We pride ourselves on instructors who really&nbsp;care. 
                   </p>
                   <div className="d-flex justify-content-center">
-                    <BrandButton className={`my-3`} style={{marginLeft: "0rem"}} onClick={handleShow}>Apply Now</BrandButton>
+                    <a href='#header'>
+                      <BrandButton className={`my-3`} style={{marginLeft: "0rem"}} >Apply Now</BrandButton>
+                    </a>
                   </div>
                 </div>
                 </motion.div>
@@ -459,7 +461,9 @@ const BootcampPage = props => {
                   Have a question? Stuck on a problem? Support is just one room away with our in-person program. We bring students and instructors together in a dynamic setting all while building a network of peers that will support you whenever you need&nbsp;it. 
                   </p>
                   <div className="d-flex justify-content-center">
-                    <BrandButton className={`my-3`} style={{marginLeft: "0rem"}} onClick={handleShow}>Apply Now</BrandButton>
+                  <a href='#header'>
+                    <BrandButton className={`my-3`} style={{marginLeft: "0rem"}}>Apply Now</BrandButton>
+                  </a>
                   </div>
                 </div>
                 </motion.div>
