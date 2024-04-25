@@ -298,7 +298,25 @@ const BootcampPage = props => {
           </Col>
           </Row>
       </Container>
-
+      {/* Job Guarantee */}
+      <section id="job-guarantee">
+        <Container fluid className={`${styles.jobGuarantee}`}>
+          <Row className={styles.imgRow}>
+            <Col className="d-flex justify-content-center">
+              <motion.div initial={{ opacity: 0, y: -50 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.5, duration: 0.8 }}>
+              <StaticImage placeholder="blurred" alt="Job Guarantee" src='../../images/bootcamp/job-guaranteed.png' style={{maxWidth: "275px"}} />
+              </motion.div>
+            </Col>
+          </Row>
+          <Row className="mx-3">
+            <Col className="d-flex justify-content-center">
+              <Subtitle style={{fontSize:"1rem", width:"750px", lineHeight:"25px"}} className={`text-white text-center fs-6`}>We only succeed when you succeed. We guarantee that all students who complete the 16-week Bootcamp program and uphold the job search requirements will receive a job offer within six months of their graduation date, or we'll refund your tuition. See our Student Agreement for details.</Subtitle>
+            </Col>
+          </Row>
+        </Container>
+      </section>
       {/* Alumni Testimonials */}
       <section id="testimonials">
       <AlumniTestimonials />
@@ -352,9 +370,62 @@ const BootcampPage = props => {
         </Container>
       </section>
 
+      {/*What to expect video */}
+      <Container fluid className={`my-5`}>
+        <Row className="align-items-center">
+          {/* Title and Arrow */}
+          <Col xs={12} md={3} className="text-center mb-3 mb-md-0">
+            <motion.div initial={{ opacity: 0}} animate={{ opacity: 1}} transition={{ delay: 0.5, duration: 1 }}>
+              <h3 className={styles.videoTitle}>Curious about the process?</h3>
+              <img className={`${styles.videoArrow} d-none d-md-block`} src={Arrow} alt="'what to expect' section arrow" />
+            </motion.div>
+          </Col>
+          {/* Video */}
+          {/* For small screens, display external link */}
+          <Col xs={12} className="text-center d-md-none">
+          <div className={styles.videoThumbnail}>
+            <a href="https://www.youtube.com/watch?v=xmZ6jVn0QWM" target="_blank" rel="noopener noreferrer">
+              <Image className={styles.videoFilter} src={Thumbnail} alt="Awesome Inc video link img" />
+              <i className={styles.playIcon}>
+                <FaPlay />
+              </i>
+            </a>
+            </div>
+          </Col>
+          {/* For large screens, display modal */}
+          <Col md={6} lg={7} className="text-center justify-content-center d-none d-md-flex">
+              <div className={styles.videoThumbnail}>
+                <motion.div initial={{ opacity: 0}} animate={{ opacity: 1}} transition={{ delay: 0.5, duration: 1 }}>
+                  {/* Youtube Link */}
+                  <a onClick={handleVideoShow} target="_blank" rel="noopener noreferrer">
+                    <Image className={styles.videoFilter} src={Thumbnail} alt="Awesome Inc video link img" />
+                    <i className={styles.playIcon}>
+                      <FaPlay />
+                    </i>
+                  </a>
+                </motion.div>
+            </div>
+          </Col>
+          <ModalCustom 
+          lgShow = {videoShow} 
+          hide = {handleVideoClose}
+          bgDark = {false} 
+          centered
+          content = {
+            <iframe 
+            width="100%" 
+            height="500" 
+            src="https://www.youtube.com/embed/xmZ6jVn0QWM?si=fadOfcz6mpNiL-jd" 
+            title="YouTube video player"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen></iframe>
+          }/>
+          <Col md={3} className="d-none d-md-block"></Col>
+        </Row>
+      </Container>
 
       {/* Why Awesome Inc Header */}
-      <section id="why-awesome-inc-header" className={styles.whyAwesomeIncHeader}>
+      <section id="why-awesome-inc-header" className={`${styles.whyAwesomeIncHeader} d-none d-md-block`}>
       </section>
 
       {/* Learn skills */}
@@ -436,26 +507,6 @@ const BootcampPage = props => {
           
         </Container>
         
-      </section>
-
-      {/* Job Guarantee */}
-      <section id="job-guarantee">
-        <Container fluid className={`${styles.jobGuarantee}`}>
-          <Row className={styles.imgRow}>
-            <Col className="d-flex justify-content-center">
-              <motion.div initial={{ opacity: 0, y: -50 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.5, duration: 0.8 }}>
-              <StaticImage placeholder="blurred" alt="Job Guarantee" src='../../images/bootcamp/job-guaranteed.png' style={{maxWidth: "275px"}} />
-              </motion.div>
-            </Col>
-          </Row>
-          <Row className="mx-3">
-            <Col className="d-flex justify-content-center">
-              <Subtitle style={{fontSize:"1rem", width:"750px", lineHeight:"25px"}} className={`text-white text-center fs-6`}>We only succeed when you succeed. We guarantee that all students who complete the 16-week Bootcamp program and uphold the job search requirements will receive a job offer within six months of their graduation date, or we'll refund your tuition. See our Student Agreement for details.</Subtitle>
-            </Col>
-          </Row>
-        </Container>
       </section>
 
 
