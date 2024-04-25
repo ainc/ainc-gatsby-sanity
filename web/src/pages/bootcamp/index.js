@@ -21,6 +21,10 @@ import Testimonial from "./Components/Testimonial/Testimonial";
 import Title from "../../components/UI/Title/Title";
 import ZohoSales from "../../components/Scripts/ZohoSales";
 import TestimonialCarousel from "../../components/TestimonialCarousel/TestimonialCarousel";
+import Arrow from "../../images/arrow.png";
+import { FaPlay } from "react-icons/fa";
+import Thumbnail from '../../images/bootcamp-video-thumbnail.jpg'
+import ModalCustom from "../../components/Modal/ModalCustom";
 import AlumniTestimonials from "./Components/AlumniTestimonials/AlumniTestimonials";
 import AlumniAvatarCardCarousel from "./Components/AlumniAvatarCard/AlumniAvatarCardCarousel";
 
@@ -216,6 +220,9 @@ const BootcampPage = props => {
   const handleShow = () => setShowWidget(true);
   const handleClose = () => setShowWidget(false);
 
+  const [videoShow, setVideoShow] = useState(false)
+  const handleVideoShow = () => setVideoShow(true)
+  const handleVideoClose = () => setVideoShow(false)
   const stars = Array(5).fill(null).map((_, index) => (
     <FaStar key={index} />
   ));
@@ -242,7 +249,7 @@ const BootcampPage = props => {
                       </div>
                     </Row>
                     <Title className='white text-uppercase'>Land your dream tech job, guaranteed</Title>
-                    <h4 className= "text-start white mt-4 fw-lighter d-none d-md-block"><b>Hate your job? Our in-person 16-week bootcamp helps you master full stack development, get access to 1:1 mentorship, and land a job in 6 moths or we'll refund your tuition.</b></h4>
+                    <h4 className= "text-start white mt-4 fw-lighter d-none d-md-block"><b>Hate your job? Our in-person 16-week bootcamp helps you master full stack development, get access to 1:1 mentorship, and land a job in 6 months or we'll refund your tuition.</b></h4>
                 </motion.div>
             </Col>
             <Col md={7} className='d-flex justify-content-center justify-content-md-end'>
