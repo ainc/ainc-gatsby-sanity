@@ -6,7 +6,7 @@ import * as styles from './AlumniAvatarCard.module.scss'
 
 export default function AlumniAvatarCard ({ alumniImage, name, jobTitle, companyLogo }) {
     return (
-    <Card className={styles.card} style={{width: 'fit-content', backgroundColor: '#d1d3d4'}}>
+    <Card className={styles.card} style={{width: 'fit-content', backgroundColor: '#e6e7e8'}}>
         <div>
             <GatsbyImage className={styles.alumniImage} image={alumniImage} alt={name}/>
             <h3 className={styles.name}>{name}</h3>

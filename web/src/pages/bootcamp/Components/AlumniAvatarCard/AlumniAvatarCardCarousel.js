@@ -59,7 +59,7 @@ export const AlumniAvatarCardCarousel = ({ featuredAlumni }) => {
           </div>
           ))}
       </Slider>
-      <div className="text-center">
+      <div className="text-center py-4">
         <a href='/alumni' target='_blank'>
           <BrandButton className='my-3'>See More Alumni</BrandButton>
         </a>

@@ -235,20 +235,15 @@ const BootcampPage = props => {
         <Container fluid className={`${styles.header} overflow-hidden`}>
           <Container>
           <Row className={`${styles.titleBlock} mt-5 d-flex`}>
-            <Col md={5}>
-                <motion.div initial={{ opacity: 0, x: -50 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.5, duration: 0.8 }} 
-                      className={`${styles.titleBlock} align-items-start text-left d-flex flex-column`}>
-                    <Row className={`${styles.ratingContainer} d-none d-md-flex align-items-center mb-3`}>
-                      <div className="d-flex flex-row align-items-center">
-                        <div className='d-flex' style={{color: '#C12029'}}>{stars}</div>
-                        <p className={`${styles.reviewText} d-flex text-black mb-0 ms-3`}>4.8/5 - 100+ reviews</p>
-                      </div>
-                    </Row>
-                    <Title className='white text-uppercase'>Land your dream tech job, guaranteed</Title>
-                    <h4 className= "text-start white mt-4 fw-lighter d-none d-md-block"><b>Hate your job? Our in-person 16-week bootcamp helps you master full stack development, get access to 1:1 mentorship, and land a job in 6 months or we'll refund your tuition.</b></h4>
-                </motion.div>
+            <Col md={5} className={`${styles.titleBlock} align-items-start text-left d-flex flex-column`}>
+              <Row className={`${styles.ratingContainer} d-none d-md-flex align-items-center mb-3`}>
+                <div className="d-flex flex-row align-items-center">
+                    <div className='d-flex' style={{color: '#C12029'}}>{stars}</div>
+                    <p className={`${styles.reviewText} d-flex text-black mb-0 ms-3`}>4.8/5 - 100+ reviews</p>
+                </div>
+              </Row>
+              <Title className='white text-uppercase'>Land your dream tech job, guaranteed</Title>
+              <h4 className= "text-start white mt-4 fw-lighter d-none d-md-block"><b>Hate your job? Our in-person 16-week bootcamp helps you master full stack development, get access to 1:1 mentorship, and land a job in 6 months or we'll refund your tuition.</b></h4>
             </Col>
             <Col md={7} className='d-flex justify-content-center justify-content-md-end'>
               <ApplyForm />
@@ -260,12 +255,10 @@ const BootcampPage = props => {
 
       {/* Header stats */}
       <section id="stats" style={{backgroundColor: "#323232"}} className="background--brand">
-        <Container fluid className={`${styles.stats}`}>
-          <div className=" py-5">
-            <Row className="pz-0 py-0 justify-content-center">
-              <Col className={`${styles.statsCol} justify-content-center`} >
+        <Container className={`${styles.stats}`}> 
+            <Row className="py-5 justify-content-center mx-5">
               {gradStats.map((node,i) => (
-                <div key={i} className={`${styles.statsRow}`}>
+                <Col key={i} className={`${styles.statsRow} justify-content-center text-center`}>
                   <GradStat
                     image={node.picture.asset.gatsbyImageData}
                     alt={node.title}
@@ -273,10 +266,10 @@ const BootcampPage = props => {
                     subtitle={node.title}
                     subtext={node.subtitle}
                   ></GradStat>
-                </div>
+                </Col>
               ))}
-              </Col>
-              <Row className="mt-0">
+            </Row>
+            <Row className="mt-4">
                 <Col className="d-flex justify-content-center pb-4">
                         <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
                         title="Download Program Guide"
@@ -284,8 +277,6 @@ const BootcampPage = props => {
                         />
                 </Col>
               </Row>
-            </Row>
-          </div>
         </Container>
       </section>
 
@@ -370,14 +361,11 @@ const BootcampPage = props => {
 
       {/*What to expect video */}
       <Container fluid className={`my-5`}>
-        <Row className="align-items-center">
-          {/* Title and Arrow */}
-          <Col xs={12} md={3} className="text-center mb-3 mb-md-0">
-            <motion.div initial={{ opacity: 0}} animate={{ opacity: 1}} transition={{ delay: 0.5, duration: 1 }}>
-              <h3 className={styles.videoTitle}>Curious about the process?</h3>
-              <img className={`${styles.videoArrow} d-none d-md-block`} src={Arrow} alt="'what to expect' section arrow" />
-            </motion.div>
-          </Col>
+        <Row className='text-center'>
+          <h3 className={styles.videoTitle}>Curious about the process?</h3>
+        </Row>
+        <Row className="d-flex justify-content-center align-items-center">
+          
           {/* Video */}
           {/* For small screens, display external link */}
           <Col xs={12} className="text-center d-md-none">
@@ -393,7 +381,6 @@ const BootcampPage = props => {
           {/* For large screens, display modal */}
           <Col md={6} lg={7} className="text-center justify-content-center d-none d-md-flex">
               <div className={styles.videoThumbnail}>
-                <motion.div initial={{ opacity: 0}} animate={{ opacity: 1}} transition={{ delay: 0.5, duration: 1 }}>
                   {/* Youtube Link */}
                   <a onClick={handleVideoShow} target="_blank" rel="noopener noreferrer">
                     <Image className={styles.videoFilter} src={Thumbnail} alt="Awesome Inc video link img" />
@@ -401,7 +388,6 @@ const BootcampPage = props => {
                       <FaPlay />
                     </i>
                   </a>
-                </motion.div>
             </div>
           </Col>
           <ModalCustom 
@@ -422,10 +408,6 @@ const BootcampPage = props => {
         </Row>
       </Container>
 
-      {/* Why Awesome Inc Header */}
-      <section id="why-awesome-inc-header" className={`${styles.whyAwesomeIncHeader} d-none d-md-block`}>
-      </section>
-
       {/* Learn skills */}
       <section id="learn-skills">
         <Container className="mt-3 px-5">
@@ -435,9 +417,6 @@ const BootcampPage = props => {
           </Row>
           <Row className="py-3 align-items-top">
             <Col lg={6} className={`d-flex justify-content-center`}>
-                <motion.div initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.3, duration: 0.8 }}>
                 <div className={`justify-content-center`}>
                   <Title className="py-3 text-center" style={{marginLeft: ""}}>Access to full-time career coach for support&nbsp;24/7</Title>
                   <p className={`mb-3 ${styles.whyAwesomeIncBorder} d-flex align-items-center text-center`} style={{minHeight: '16vh'}}>
@@ -449,12 +428,8 @@ const BootcampPage = props => {
                     </a>
                   </div>
                 </div>
-                </motion.div>
             </Col>
             <Col lg={6} className={`d-flex justify-content-center`}>
-                <motion.div initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.3, duration: 0.8 }}>
                 <div className={``}>
                   <Title className="py-3 text-center" style={{marginLeft: "0px"}}>In-person learning for direct mentorship & collaboration</Title>
                   <p className={`mb-3 d-flex align-items-center text-center`} style={{minHeight: '16vh'}}>
@@ -466,7 +441,6 @@ const BootcampPage = props => {
                   </a>
                   </div>
                 </div>
-                </motion.div>
             </Col>
           </Row>
         </Container>
@@ -753,9 +727,6 @@ const BootcampPage = props => {
               <Row>
                 
                 <Col className={`${styles.costCol} text-center`}>
-                  <motion.div initial={{ opacity: 0, y: -50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5, duration: 0.8 }}>
                   <Row>
                     <div className="text-center">
                       <img style={{maxWidth: "100px"}} src={require('/src/images/bootcamp/cost.png').default} alt="Piggy Bank" />
@@ -774,14 +745,10 @@ const BootcampPage = props => {
                       more? Schedule a call today!
                     </p>
                   </Row>
-                  </motion.div>
                 </Col>
                 
                 
                 <Col>
-                  <motion.div initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5, duration: 0.8 }}>
                   <Row className="">
                     <div className="text-center ms-auto">
                       <img style={{maxWidth: "100px"}} src={require('/src/images/bootcamp/Money_in_Hand.svg').default} alt="Moeny In Hand" />
@@ -795,7 +762,6 @@ const BootcampPage = props => {
                       Students who choose to pay tuition up front are offered a discounted tuition rate of $15,500.
                     </p>
                   </Row>
-                  </motion.div>
                 </Col>
               </Row>
             </Col>
