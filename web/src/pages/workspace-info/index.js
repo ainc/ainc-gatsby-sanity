@@ -17,7 +17,7 @@ import nick from "../../images/qr-code/nick-garnett.jpg";
 import conner from "../../images/qr-code/conner-jones.jpg";
 import calendar from "../../images/qr-code/Calendar.png";
 
-export function FAQCard ({question, answer}) {
+function FAQCard ({question, answer}) {
     let answerParagraphs;
     let linkParagraph;
     const renderAnswer = () => {
@@ -48,7 +48,7 @@ export function FAQCard ({question, answer}) {
 }
 
 
-const QRCodePage = () => {
+const  QRCodePage = () => {
     return (
         <Layout>
             {/* Header */}
