@@ -5,13 +5,18 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import BrandButton from "../../../../components/UI/BrandButton/BrandButton";
 
-export const AlumniAvatarCardCarousel = ({ featuredAlumni }) => {
+const AlumniAvatarCardCarousel = ({ featuredAlumni }) => {
 
   const settings = {
     dots: false,
     infinite: true,
     swipeToSlide: true,
+    autoplay: true,
     slidesToShow: 7,
+    autoplaySpeed: 2000,
+    slidesToScroll: 1,
+    cssEase: "linear",
+    speed: 2000,
     responsive: [
       {
         breakpoint: 1440,

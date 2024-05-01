@@ -269,11 +269,11 @@ const BootcampPage = props => {
                 </Col>
               ))}
             </Row>
-            <Row className="mt-4">
-                <Col className="d-flex justify-content-center pb-4">
+            <Row className="">
+                <Col className="d-flex justify-content-center py-3">
                         <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
                         title="Download Program Guide"
-                        className="button mt-3"
+                        className="button "
                         />
                 </Col>
               </Row>
