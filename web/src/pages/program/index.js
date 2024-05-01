@@ -14,15 +14,15 @@ import ProgramLinkTree from './ProgramLinkTree';
 const ProgramPage = ({ data }) => {
   const allProgram = (data.sanityProgram || {});
   const allSanityFiveAcrossSponsors = (data.allSanityFiveAcrossSponsors.nodes || {});
-  const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes.at(0).titleSp.title || {});
-  const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes.at(0).titleSp.link || {});
-  const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes.at(0).titleSp.image.asset.gatsbyImageData || {});
+  const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].titleSp.title || {});
+  const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].titleSp.link || {});
+  const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].titleSp.image.asset.gatsbyImageData || {});
 
-  const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes.at(0).presentingSp.title || {});
-  const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes.at(0).presentingSp.link || {});
-  const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes.at(0).presentingSp.image.asset.gatsbyImageData || {});
+  const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.title || {});
+  const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.link || {});
+  const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.image.asset.gatsbyImageData || {});
 
-  const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes.at(0).suppourtingSponsors || {});
+  const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors || {});
 
   const teams = (data.sanityProgram.teams || {});
   const judges = (data.sanityProgram.judges || {});
@@ -207,7 +207,7 @@ query query_program {
       url
     }
   }
-  allSanityFiveAcrossSponsors {
+  allSanityFiveAcrossSponsors(sort: {_createdAt: DESC}) {
     nodes {
       presentingSp {
         link

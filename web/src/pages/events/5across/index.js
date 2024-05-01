@@ -18,21 +18,21 @@ import * as styles from "./fiveAcross.module.scss";
 import TestimonialCarousel from "../../../components/TestimonialCarousel/TestimonialCarousel";
 const fiveAcrossPage = ({ data }) => {
 
-    const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes.at(0).titleSp.title || {});
-    const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes.at(0).titleSp.link || {});
-    const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes.at(0).titleSp.image.asset.gatsbyImageData || {});
+    const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].titleSp.title || {});
+    const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].titleSp.link || {});
+    const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].titleSp.image.asset.gatsbyImageData || {});
 
-    const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes.at(0).presentingSp.title || {});
-    const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes.at(0).presentingSp.link || {});
-    const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes.at(0).presentingSp.image.asset.gatsbyImageData || {});
+    const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.title || {});
+    const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.link || {});
+    const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.image.asset.gatsbyImageData || {});
 
-    const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes.at(0).suppourtingSponsors || {});
+    const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors || {});
     const nextFiveAcross = (data.allSanityEvents.nodes || {});
 
     const fiveAcrossWinners = (data.allSanityFiveAcrossWinners.edges || {});
     const previousWinner = fiveAcrossWinners[fiveAcrossWinners.length - 1].node;
 
-    const testimonials = (data.allSanityFiveAcrossTestimonials.nodes.at(0) || {});
+    const testimonials = (data.allSanityFiveAcrossTestimonials.nodes[0] || {});
 
     let years = [];
 
@@ -382,7 +382,7 @@ query fiveAcrossQuery($currentDate: Date!) {
             }
         }
     }
-    allSanityFiveAcrossSponsors {
+    allSanityFiveAcrossSponsors(sort: {_createdAt: DESC}) {
         nodes {
           presentingSp {
             title
@@ -413,7 +413,7 @@ query fiveAcrossQuery($currentDate: Date!) {
           }
         }
       }
-    allSanityFiveAcrossTestimonials {
+    allSanityFiveAcrossTestimonials(sort: {_createdAt: DESC}) {
         nodes {
           testimonials {
             testimonials {
