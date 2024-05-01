@@ -97,7 +97,7 @@ const Page = ({ data }) => {
     <secton id="projects" >
       <Container className={`${styles.projectSection} my-5 py-4`}>
         <Row> 
-          <Col md={4} className={`d-flex justify-content-center ${styles.projectCard}`}>
+          <Col md={4} className={`d-flex justify-content-center py-sm-3 ${styles.projectCard}`}>
             <ProjectCard image={Devices} description={"CREATE A VIDEO GAME, WEBSITE, AND A MOBILE APP IN ONE WEEK"}/>
           </Col>
           <Col md={4} className={`d-flex justify-content-center ${styles.projectCard}`}>
