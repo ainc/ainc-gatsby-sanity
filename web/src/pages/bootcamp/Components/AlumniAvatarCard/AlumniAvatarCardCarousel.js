@@ -13,10 +13,10 @@ const AlumniAvatarCardCarousel = ({ featuredAlumni }) => {
     swipeToSlide: true,
     autoplay: true,
     slidesToShow: 7,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 1500,
     slidesToScroll: 1,
     cssEase: "linear",
-    speed: 2000,
+    speed: 1500,
     responsive: [
       {
         breakpoint: 1440,
@@ -51,7 +51,6 @@ const AlumniAvatarCardCarousel = ({ featuredAlumni }) => {
   return (
     <div className='overflow-hidden' style={{ backgroundColor: '#e6e7e8' }}>
       <Slider {...settings} className=''>
-        {console.log(featuredAlumni)}
           {featuredAlumni?.map((alumni, idx) => (
           <div key={idx} className='p-3'  style={{ display: 'inline-block'}}>
             <AlumniAvatarCard

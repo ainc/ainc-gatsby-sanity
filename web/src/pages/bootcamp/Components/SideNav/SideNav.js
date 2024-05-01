@@ -4,7 +4,7 @@ import * as styles from "../sideNav.module.scss"
 function SideNav() {
     useEffect(() => {
         const handleScroll = () => {
-            const bootcampSection = document.getElementById('two-buttons');
+            const bootcampSection = document.getElementById('job-guarantee');
             const sideNav = document.querySelector(`.${styles.navContainer}`);
             
             // Get the position of the bootcamp section relative to the viewport

@@ -38,7 +38,9 @@ import bootcamp2 from "../../images/bootcamp/bootcamp2.jpg"
 import bootcamp3 from "../../images/bootcamp/bootcamp3.png"
 import bootcamp4 from "../../images/bootcamp/bootcamp4.png"
 import bootcamp5 from "../../images/bootcamp/bootcamp5.png"
-
+import Slider from "react-slick";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 export const query = graphql`
  query BootcampPageQuery {
   allSanityBootcampTestimonials(limit: 3) {
@@ -165,49 +167,7 @@ const BootcampPage = props => {
   }
 
 
-  //Scroll to section 'Cost'
-  const sectionCost = useRef(null);
-  const scrollToSection = (ref) => {
-    if (ref.current) {
-      ref.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
-  const [sliderRef] = useKeenSlider(
-    {
-      loop: true,
-    },
-    [
-      (slider) => {
-        let timeout;
-        let mouseOver = false;
-        function clearNextTimeout() {
-          clearTimeout(timeout);
-        }
-        function nextTimeout() {
-          clearTimeout(timeout);
-          if (mouseOver) return;
-          timeout = setTimeout(() => {
-            slider.next();
-          }, 2000);
-        }
-        slider.on("created", () => {
-          slider.container.addEventListener("mouseover", () => {
-            mouseOver = true;
-            clearNextTimeout();
-          });
-          slider.container.addEventListener("mouseout", () => {
-            mouseOver = false;
-            nextTimeout();
-          });
-          nextTimeout();
-        });
-        slider.on("dragStarted", clearNextTimeout);
-        slider.on("animationEnded", nextTimeout);
-        slider.on("updated", nextTimeout);
-      },
-    ]
-  )
 
   const[showWidget, setShowWidget] = useState(false);
   const[showFAQ, setShowFAQ] = useState(false);
@@ -224,7 +184,54 @@ const BootcampPage = props => {
   const stars = Array(5).fill(null).map((_, index) => (
     <FaStar key={index} />
   ));
-
+  const settings = {
+    dots: false,
+    infinite: true,
+    swipeToSlide: true,
+    autoplay: true,
+    slidesToShow: 7,
+    autoplaySpeed: 3500,
+    slidesToScroll: 1,
+    cssEase: "linear",
+    speed: 3500,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1440,
+        settings: {
+          slidesToShow: 7,
+        }
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      }
+    ]
+  };
+    //Scroll to section 'Cost'
+    const sectionCost = useRef(null);
+    const scrollToSection = (ref) => {
+      if (ref.current) {
+        ref.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
   return ( 
     <Layout jsImport={ZohoSales}>
 
@@ -273,7 +280,7 @@ const BootcampPage = props => {
                 <Col className="d-flex justify-content-center py-3">
                         <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
                         title="Download Program Guide"
-                        className="button "
+                        className="button mt-3"
                         />
                 </Col>
               </Row>
@@ -301,7 +308,7 @@ const BootcampPage = props => {
           </Row>
           <Row className="mx-3">
             <Col className="d-flex justify-content-center">
-              <Subtitle style={{fontSize:"1rem", width:"750px", lineHeight:"25px"}} className={`text-white text-center fs-6`}>We only succeed when you succeed. We guarantee that all students who complete the 16-week Bootcamp program and uphold the job search requirements will receive a job offer within six months of their graduation date, or we'll refund your tuition. See our Student Agreement for details.</Subtitle>
+              <p className='text-center text-white'>We only succeed when you succeed. We guarantee that all students who complete the 16-week Bootcamp program and uphold the job search requirements will receive a job offer within six months of their graduation date, or we'll refund your tuition. See our Student Agreement for details.</p>
             </Col>
           </Row>
         </Container>
@@ -453,7 +460,7 @@ const BootcampPage = props => {
         <Container className="pt-5">
           <Title className={`text-center text-white`}>More than a bootcamp.</Title>
           <Title className={`text-center text-white`}>Join a tech network for life.</Title>
-          <Subtitle className={`text-center m-auto mb-5 text-white`} style={{fontSize: '1rem', maxWidth: '60%'}}>At Awesome Inc, you’re part of a supportive community of tech enthusiasts who are just as passionate as you are. Enjoy frequent events & build lifelong friendships worth more than anything. </Subtitle>
+          <h4 className={`text-center m-auto mb-5 text-white`} style={{ maxWidth: '60%'}}>At Awesome Inc, you’re part of a supportive community of tech enthusiasts who are just as passionate as you are. Enjoy frequent events & build lifelong friendships worth more than anything. </h4>
           <Row className="d-flex justify-content-center text-center" style={{color: '#C12029'}}>
             <Col md={4}>
               <Title className="text-white">175+</Title>
@@ -495,29 +502,27 @@ const BootcampPage = props => {
                 <Title className="text-uppercase text-center mt-4">Companies who have hired our graduates</Title>
               </Row>
               <Col>
-                <motion.div initial={{ opacity: 0, y: -50}}
-                      whileInView={{ opacity: 1, y: 0}}
-                      transition={{ delay: 0.3, duration: 1 }}>
-                  <Row className="row-cols-lg-5 mt-lg-5 mb-lg-1 mx-lg-5">
+                    <div className='overflow-hidden' >
+                      <Slider {...settings} className=''>
                     {employers.map((node,i) => (
-                      <div key={i} className="text-center" xs={12} >
-                        <GatsbyImage 
-                        style={{
-                          maxWidth: "40rem",
-                          marginTop: "1.5rem",
-                          marginLeft: "1.5rem",
-                          marginRight: "1.5rem",
-                          marginBottom: "1.5rem",
-                        }}
-                        image={node.picture.asset.gatsbyImageData}
-                        alt={node.company}
-                        />
-                      </div>
-                    ))}
-                  </Row>
-                </motion.div>
+                        <div key={i} className="text-center" xs={12} >
+                          <GatsbyImage 
+                          style={{
+                            maxWidth: "40rem",
+                            marginTop: "1.5rem",
+                            marginLeft: "1.5rem",
+                            marginRight: "1.5rem",
+                            marginBottom: "1.5rem",
+                          }}
+                          image={node.picture.asset.gatsbyImageData}
+                          alt={node.company}
+                          />
+                        </div>
+                      ))}
+                      </Slider>
+                  </div>
                 <div className="text-center">
-                  <p style={{ marginTop: `0`, fontSize: `10px`}}>
+                  <p>
                     <b>and over 50 more companies</b>
                   </p>
                 </div>
@@ -531,46 +536,46 @@ const BootcampPage = props => {
       <section id="languages">
         <Container fluid className={`${styles.languages}`}>
           <Row>
-            <Subtitle style={{fontSize: "1.25rem"}} className="text-center fs-5 pb-3 mt-4"><b>With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using</b></Subtitle>
+            <Subtitle style={{fontSize: "1.25rem"}} className="text-center fs-5 pb-3 mt-4"><b>With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using:</b></Subtitle>
           </Row>
-          <motion.div initial={{ opacity: 0, y: -50}}
-                      whileInView={{ opacity: 1, y: 0}}
-                      transition={{ delay: 0.3, duration: 1 }}>
           <Container>
-                <Row className={`${styles.languageIcons} d-flex justify-content-center py-4`}>
-                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
-                    <StaticImage placeholder="blurred" src="../../images/bootcamp/languages/html.png" alt="HTML" style={{maxWidth: "150px"}}/>
-                  </Col>
-                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
-                    <StaticImage placeholder="blurred" src="../../images/bootcamp/languages/css.png" alt="CSS" style={{maxWidth: "150px"}}/>
-                  </Col>
-                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
-                    <StaticImage placeholder="blurred" src="../../images/bootcamp/languages/javascript.png" alt="JavaScript" style={{maxWidth: "150px"}}/>
-                  </Col>
-                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center"> 
-                    <StaticImage placeholder="blurred" src="https://d33wubrfki0l68.cloudfront.net/27b5922e90fa2d54a0c37d426870c849e8a41c72/b2845/assets/img/bootcamp/languages/python.png" alt="Python Programming language" style={{maxWidth: "150px"}}/>
-                  </Col>
-                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
-                   <StaticImage placeholder="blurred" src="../../images/bootcamp/languages/git.png" alt="Git" style={{maxWidth: "150px"}}/>
-                  </Col>
-                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center align-items-center">
-                    <StaticImage placeholder="blurred" src="https://d33wubrfki0l68.cloudfront.net/4aa1ba4778ed686e1877a7c5ef5875e364033ca8/f7b05/assets/img/bootcamp/languages/django.png" alt="Django Framework" style={{maxWidth: "150px"}} className='mt-3'/>
-                  </Col>
-                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
-                    <StaticImage placeholder="blurred" src="https://d33wubrfki0l68.cloudfront.net/ee9d2a6ac7c95e3ee2695ce7a14627abeb797b0f/4631a/assets/img/bootcamp/languages/react.png" style={{maxWidth: "150px"}} alt="React Framework"/>
-                  </Col>
-                  <Col xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
-                    <StaticImage placeholder="blurred" src="../../images/bootcamp/languages/agile.png" alt="Agile" style={{maxWidth: "150px"}}/>
-                  </Col>
-              </Row>
+              <Row className={`${styles.languageIcons} d-flex justify-content-center py-4`}>
+                <div className='overflow-hidden' >
+              <Slider {...settings} className=''>
+                    <div className="d-flex justify-content-center">
+                      <StaticImage placeholder="blurred" src="../../images/bootcamp/languages/html.png" alt="HTML" style={{maxWidth: "150px"}}/>
+                    </div>
+                    <div className=" d-flex justify-content-center">
+                      <StaticImage placeholder="blurred" src="../../images/bootcamp/languages/css.png" alt="CSS" style={{maxWidth: "150px"}}/>
+                    </div>
+                    <div className=" d-flex justify-content-center">
+                      <StaticImage placeholder="blurred" src="../../images/bootcamp/languages/javascript.png" alt="JavaScript" style={{maxWidth: "150px"}}/>
+                    </div>
+                    <div  className="d-flex justify-content-center"> 
+                      <StaticImage placeholder="blurred" src="https://d33wubrfki0l68.cloudfront.net/27b5922e90fa2d54a0c37d426870c849e8a41c72/b2845/assets/img/bootcamp/languages/python.png" alt="Python Programming language" style={{maxWidth: "150px"}}/>
+                    </div>
+                    <div className=" d-flex justify-content-center">
+                    <StaticImage placeholder="blurred" src="../../images/bootcamp/languages/git.png" alt="Git" style={{maxWidth: "150px"}}/>
+                    </div>
+                    <div className=" d-flex justify-content-center align-items-center">
+                      <StaticImage placeholder="blurred" src="https://d33wubrfki0l68.cloudfront.net/4aa1ba4778ed686e1877a7c5ef5875e364033ca8/f7b05/assets/img/bootcamp/languages/django.png" alt="Django Framework" style={{maxWidth: "150px"}} className='mt-3'/>
+                    </div>
+                    <div  className="d-flex justify-content-center">
+                      <StaticImage placeholder="blurred" src="https://d33wubrfki0l68.cloudfront.net/ee9d2a6ac7c95e3ee2695ce7a14627abeb797b0f/4631a/assets/img/bootcamp/languages/react.png" style={{maxWidth: "150px"}} alt="React Framework"/>
+                    </div>
+                    <div className="d-flex justify-content-center">
+                      <StaticImage placeholder="blurred" src="../../images/bootcamp/languages/agile.png" alt="Agile" style={{maxWidth: "150px"}}/>
+                    </div>
+                </Slider>
+              </div>
+            </Row>
           </Container>
-          </motion.div>
           <Container>
             <Row>
-              <p style={{fontSize:"1rem"}} className="pt-5 text-center">
+              <p className="pt-5 text-center">
                 With over 500 hours of hands-on training, you'll gain experience while building 10+ projects using HTML, CSS, JavaScript, web frameworks, GitHub, Agile, and more.
               </p>
-              <p style={{fontSize:"1rem"}} className="pb-5 text-justify text-center">
+              <p  className="pb-5 text-justify text-center">
                 Students begin with a part-time Prework phase, with 4 weeks of remote lessons covering the basics of web development. After that, we kick it into high gear for 12 weeks of full-time, in-person training. We've designed Bootcamp to feel less like school, and more like you first 3 months on the job. By the conclusion of the combined 16-week program, our alumni are ready to interview with regional and national employers for the opportunity to earn a full-time position at a competitive junior developer's salary.
               </p>
             </Row>
@@ -591,71 +596,33 @@ const BootcampPage = props => {
           <h6 className="text-center fsw-lighter mt-4">There is a four-step, competitive application process for the Bootcamp program:</h6>
           </Row>
           <Col className={`${styles.applyCol} mb-5 justify-content-center`}>
-              <motion.div initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3, duration: 0.8 }} className={`d-flex justify-content-center`}>
-              <div>
+              <div className={`d-flex justify-content-center`}>
                 <StaticImage placeholder="blurred" alt="Bootcamp online application" src="../../images/bootcamp/online-application.png" className="" style={{maxWidth:"180px"}}/>
               </div>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.5, duration: 0.8 }} className={`${styles.applyCol} justify-content-center mb-5 mt-5`}>
-              <div className="d-flex align-items-center">
+              <div className={`${styles.applyCol} d-flex align-items-center justify-content-center`}>
                 <StaticImage placeholder="blurred" alt="Arrow steps" src="../../images/bootcamp/arrow-steps.png" className={`${styles.arrowImg} `} style={{maxWidth:"180px"}}/>
               </div>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.6, duration: 0.8 }} className={`d-flex justify-content-center`}>
-              <div>
-                    <StaticImage placeholder="blurred" alt="Basic challenges" src="../../images/bootcamp/basic-challenge.png" className="" style={{maxWidth:"180px"}}/>
+              <div className={`d-flex justify-content-center`}>
+                  <StaticImage placeholder="blurred" alt="Basic challenges" src="../../images/bootcamp/basic-challenge.png" className="" style={{maxWidth:"180px"}}/>
               </div>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.7, duration: 0.8 }} className={`${styles.applyCol} justify-content-center mb-5 mt-5`}>
-              <div className="d-flex align-items-center">
+              <div className={`${styles.applyCol} d-flex align-items-center justify-content-center`}>
                 <StaticImage placeholder="blurred" alt="Arrow steps" src="../../images/bootcamp/arrow-steps.png" className={`${styles.arrowImg}`} style={{maxWidth:"180px"}}/>
               </div>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.8, duration: 0.8 }} className={`d-flex justify-content-center`}>
-              <div>
-                    <StaticImage placeholder="blurred" alt="in person interview" src="../../images/bootcamp/in-person-interview.png" className="" style={{maxWidth:"180px"}}/>
+              <div className={`d-flex justify-content-center`}>
+                <StaticImage placeholder="blurred" alt="in person interview" src="../../images/bootcamp/in-person-interview.png" className="" style={{maxWidth:"180px"}}/>
               </div>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: .9, duration: 0.8 }} className={`${styles.applyCol} justify-content-center mb-5 mt-5`}>
-              <div className="d-flex align-items-center" >
+              <div className={`${styles.applyCol} d-flex align-items-center justify-content-center`}>
                 <StaticImage placeholder="blurred" alt="Arrow steps" src="../../images/bootcamp/arrow-steps.png" className={`${styles.arrowImg}`} style={{maxWidth:"180px"}}/>
               </div>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 1, duration: 0.8 }} className={`d-flex justify-content-center`}>
-              <div>
+              <div className={`d-flex justify-content-center`}>
                     <StaticImage placeholder="blurred" alt="Figure it out challenge" src="../../images/bootcamp/fio-challenge.png" className="" style={{maxWidth:"180px"}}/>
               </div>
-              </motion.div>
           </Col>
           <Row className="justify-content-center">
-          <p style={{fontSize:"1rem", width:"900px"}} className="text-justify">This process helps us to find top-quality applicants for the Bootcamp. We continue to be surprised and inspired by the variety of different educational and professional backgrounds rfom which our students come to Bootcamp. Contrary to stereotypes about software developers, there's not just on archetype that's a good fit for this career. Our goal throughout the application process is to find people who, in their own unique way, are ready to dive into a software development career through the accelerated learning environment we provide. For more on this, check out our blog post 
+          <p className="text-justify">This process helps us to find top-quality applicants for the Bootcamp. We continue to be surprised and inspired by the variety of different educational and professional backgrounds rfom which our students come to Bootcamp. Contrary to stereotypes about software developers, there's not just on archetype that's a good fit for this career. Our goal throughout the application process is to find people who, in their own unique way, are ready to dive into a software development career through the accelerated learning environment we provide. For more on this, check out our blog post 
           <a href='https://www.awesomeinc.org/blog/what-we-look-for-in-a-bootcamp-student' className='link--brand' target='_blank'> What We Look For In A Bootcamp Student.</a></p>
           </Row>
           <Row className={`${styles.applyButtons} justify-content-center`}>
-            <div xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-3 col-lg-3 offset-lg-1 col-xl-2 offset-xl-1 mb-3 d-flex justify-content-center">
-              <a href="#header"><BrandButton>Apply Now</BrandButton></a>
-            </div>
-          
-            <div  xs={12} sm={12} md={4} lg={4} xl={3}  className="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 mb-3 d-flex justify-content-center ">
-            <BrandButton onClick={handleShow}>Schedule Call or Visit</BrandButton>
-                <Modal show={showWidget} onHide={handleClose} centered>
-                    <InlineWidget url="https://calendly.com/ainc/awesome-inc-call" />
-                </Modal>
-            </div>
             <div xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-3 mb-3 d-flex justify-content-center ">
                     <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
                      title="Download Program Guide"/>
@@ -736,7 +703,7 @@ const BootcampPage = props => {
                     <Title className="text-center py-4 fs-3 text--medium">Income Share Agreement</Title>
                   </Row>
                   <Row className="mx-5">
-                    <p  style={{fontSize:"1rem"}} className="text-justify text-center">
+                    <p className="text-justify text-center">
                       Fund your future with an Income Share Agreement. We're 
                       partnered with industry-leading ISA provider Meratas to 
                       allow students to enroll in our full-time program with no 
@@ -758,7 +725,7 @@ const BootcampPage = props => {
                     <Title className="text-center py-4 ms-auto text--medium">Up-Front Payment</Title>
                   </Row>
                   <Row className="mx-5">
-                    <p style={{fontSize:"1rem"}} className="text-justify text-center">
+                    <p className="text-justify text-center">
                       Students who choose to pay tuition up front are offered a discounted tuition rate of $15,500.
                     </p>
                   </Row>
