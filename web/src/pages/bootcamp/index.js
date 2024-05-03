@@ -684,7 +684,7 @@ const BootcampPage = props => {
 
       {/* Cost */}
 
-      <section ref = {sectionCost} id="cost" className="py-5">
+      <section ref = {sectionCost} id="cost" className="py-3">
         <Container className={`${styles.cost}`}>
           <Row>
             <Col>
@@ -733,6 +733,11 @@ const BootcampPage = props => {
               </Row>
             </Col>
           </Row>
+          <Row className='mt-4 text-center'>
+            <a href='#header'>
+              <BrandButton>Apply Now</BrandButton>
+            </a>
+          </Row>
         </Container>
       </section>
 
@@ -747,17 +752,12 @@ const BootcampPage = props => {
              </a>
           </div>
         </Container>
-
       </section>
 
        {/* Questions */}
-      <section id="questions" className={`${styles.questions}`}>
-        <Container className=''>
-          <div className="text-center">
+      <section id="FAQs"  style={{backgroundColor: '#C02129'}}>
+        <Container className='text-center p-5'>
             <Title className="text-white pb-3">Still have questions?</Title>
-            <BrandButton onClick={handleFAQshow} className="">See our Faqs</BrandButton>
-            <Modal show={showFAQ} onHide={handleFAQhide} centered size='lg' scrollable>
-              <Modal.Body>
               <Accordion>
                 <Accordion.Item eventKey='0' className='px-3 py-4'>
                 <Accordion.Header>What is Developer Bootcamp?</Accordion.Header>
@@ -847,9 +847,6 @@ const BootcampPage = props => {
                 </Accordion.Body>
                 </Accordion.Item>
               </Accordion>
-              </Modal.Body>
-            </Modal>
-          </div>
         </Container>
       </section>
 
