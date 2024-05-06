@@ -28,7 +28,6 @@ const ProgramPage = ({ data }) => {
   const judges = (data.sanityProgram.judges || {});
   const nextEventLink = (data.sanityProgram.next_event_link.url)
 
-  console.log(data.allSanityFiveAcrossSponsors.nodes.at(0).titleSp.title)
   return (
     <Layout>
       {/* still need to fix heading levels to increase by one */}

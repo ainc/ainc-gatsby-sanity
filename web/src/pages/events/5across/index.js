@@ -290,7 +290,7 @@ const fiveAcrossPage = ({ data }) => {
                         <Title className="fs-2">Title Sponsor</Title>
                     </Col>
                     <Col lg="12" className="my-2">
-                        <a href={titleSponsorLink}>
+                        <a href={titleSponsorLink} target='_blank'>
                             <motion.div initial={{ opacity: 0 }}
                                         whileInView={{ opacity: 1 }}
                                         transition={{ delay: 0.3, duration: 0.6 }}>
@@ -302,7 +302,7 @@ const fiveAcrossPage = ({ data }) => {
                         <Title className="fs-2 my-5">Presenting Sponsor</Title>
                     </Col>
                     <Col lg="12" className="my-2">
-                        <a href={presentingSponsorLink}>
+                        <a href={presentingSponsorLink} target='_blank'>
                             <motion.div initial={{ opacity: 0 }}
                                         whileInView={{ opacity: 1 }}
                                         transition={{ delay: 0.3, duration: 0.6 }}>
@@ -321,7 +321,7 @@ const fiveAcrossPage = ({ data }) => {
                         <Row className="align-items-center justify-content-center">
                             {suppourtingSponsors.map((sponsor) => (
                                 <Col lg="3" className="my-3">
-                                    <a href={sponsor.link}>
+                                    <a href={sponsor.link} target='_blank'>
                                         <motion.div initial={{ opacity: 0 }}
                                             whileInView={{ opacity: 1 }}
                                             transition={{ delay: 0.3, duration: 0.6 }}>

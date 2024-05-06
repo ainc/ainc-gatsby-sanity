@@ -31,7 +31,7 @@ const Page = ({ data }) => {
     return(
     <>
       <p className='fst-italic'>Sign Up For One Of Our 2024 Camp Dates</p>
-      <Row className='px-5'>
+      <Row className='px-5 py-3'>
         <Col md={4} className={`d-flex ${styles.leftButton} pb-3`}>
           <a href='https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-801830545747' target='_blank'>
             <BrandButton className="week-of-code py-2 px-4">June 10-13</BrandButton>
@@ -59,7 +59,7 @@ const Page = ({ data }) => {
           <Image src={WOCLogo} alt="WOC Logo" className={`${styles.logo}`}/>
           <Subtitle className="text-white fw-bold pb-5">SUMMER CAMP</Subtitle>
 
-          <Title className="text-white">Prepare Your Child for a 21st Century World</Title>
+          <Title className="text-white py-3">Prepare Your Child for a 21st Century World</Title>
           <a href='https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-801830545747' target='_blank'>
             <BrandButton className="week-of-code">Secure Your Spot</BrandButton>
           </a>
@@ -70,7 +70,7 @@ const Page = ({ data }) => {
     <section id="Experience">
       <Container className="py-5">
         <Col className="text-center justify-content-center">
-          <Title>No Experience Required!</Title>
+          <Title className='py-2'>No Experience Required!</Title>
           <p className="px-5">Week of Code Camp is Designed for Children Ages 9-16, at Beginner to Intermediate Levels</p>
 
           <ButtonRow />
@@ -83,11 +83,11 @@ const Page = ({ data }) => {
       <Container>
         <Row className={`d-flex align-items-center justify-content-center`}> 
           <Col md={6} className="d-flex justify-content-center">
-            <Image src={ChipGif} alt="Chip Latop Gif" className={styles.chipImg}/>
+            <Image src={ChipGif} alt="Chip Laptop Gif" className={styles.chipImg}/>
           </Col>
           <Col md={6} className={`${styles.reviewText}`}>
             <StaticImage src="./images/5_Stars.png" alt="5 Stars" className={styles.stars}/>
-            <p className={`fw-bold text-white ${styles.reviewQuote}`}>“The way the classes are structured and the one-on-one attention the kids get from the teachers is amazing. My kids absolutely love these classes.”</p>
+            <p className={`fw-bold text-white py-3 ${styles.reviewQuote}`}>“The way the classes are structured and the one-on-one attention the kids get from the teachers is amazing. My kids absolutely love these classes.”</p>
             <p className='fst-italic text-white'>Coding Club Parent</p>
           </Col>
         </Row>
@@ -95,9 +95,9 @@ const Page = ({ data }) => {
     </section>
 
     <secton id="projects" >
-      <Container className={`${styles.projectSection} mt-5 mb-5`}>
+      <Container className={`${styles.projectSection} my-5 py-4`}>
         <Row> 
-          <Col md={4} className={`d-flex justify-content-center ${styles.projectCard}`}>
+          <Col md={4} className={`d-flex justify-content-center py-sm-3 ${styles.projectCard}`}>
             <ProjectCard image={Devices} description={"CREATE A VIDEO GAME, WEBSITE, AND A MOBILE APP IN ONE WEEK"}/>
           </Col>
           <Col md={4} className={`d-flex justify-content-center ${styles.projectCard}`}>
@@ -117,9 +117,9 @@ const Page = ({ data }) => {
 
           <Title className="pb-3">More Than Just Coding</Title>
 
-          <p className='pb-3' style={{width: '60%', margin: 'auto', textAlign: 'center'}}>Week of Code boosts creativity, logical thinking skills, and brain power. The camp is kept small to ensure everyone gets focused attention.</p>
+          <p className='py-4' style={{width: '60%', margin: 'auto', textAlign: 'center'}}>Week of Code boosts creativity, logical thinking skills, and brain power. The camp is kept small to ensure everyone gets focused attention.</p>
           <a href='https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-801830545747' target='_blank'>
-            <BrandButton className="week-of-code py-2 px-4">Join the Fun</BrandButton>
+            <BrandButton className="week-of-code  px-4">Join the Fun</BrandButton>
           </a>
         </Col>
       </Container>
@@ -129,7 +129,7 @@ const Page = ({ data }) => {
     <section id="takeHome" className={`${styles.takeHomeSection}`}>
       <Container className='pb-5'>
         <Col className='justify-conent-center text-center'>
-          <Title className="pb-3">Students Take Home</Title>
+          <Title className="py-4">Students Take Home</Title>
           { /* Desktop Display */ }
           <Col className="pb-3 d-none d-md-block">
             <h3>Project Files <p className='d-inline'>•</p> Portfolio to Share <p className='d-inline'>•</p> Week of Code T-Shirt</h3> 
