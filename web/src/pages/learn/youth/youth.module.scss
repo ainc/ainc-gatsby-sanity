@@ -22,7 +22,6 @@
         // background-image:none;
     }
     @include screen-xs {
-        font-size: .7rem;
         height: 600px;
         background-size: cover;    
     }
@@ -78,7 +77,7 @@
         // background-color: $brand-red-bright;
         background-size: cover;
         min-width: 100%;
-        position: absolute;
+        position: relative;
         margin-left: -16px;
         padding-left: 18px;
         height: 250px;
@@ -115,34 +114,32 @@
     }
 }
 .title-text {
-    margin-top: 30%;
+    
     @include screen-sm {
         margin-top: 10vh;
     }
     @include screen-xs {
-        margin-top: 5vh;
+        
     }
 }
 
 .course-description {
-    font-size: 1rem;
-    margin-top: 10%;
+
     color: white;
     @include screen-md {
         margin-top: 20%;
     }
     @include screen-sm {
-        font-size: .9rem;
         line-height: 1.2rem;
         margin-top: 260px;
         color: black;
     }
     @include screen-xs {
         color: white;
-        font-size: .5rem;
         line-height: .9rem;
-        margin-top: 350px;
+        width: 65%;
         margin-bottom: 1px;
+        margin-left: 8px;
     }
 }
 
@@ -204,15 +201,18 @@
 .engaged {
     background-image: url(../../../images/learn/youth-engaged-bg.png);
     background-repeat: no-repeat;
-    background-position: center 10%;
+    background-position: center;
     background-size: 100% 100%;
     min-width: 100%;
     color: white;
-    @include screen-sm {
-        color: $brand-color2;
+    @include screen-lg{
+        height: 35vh;
+    }
+    @include screen-md{
+        height: 40vh;
     }
     @include screen-xs {
-        color: $brand-color2;
+        height: 60vh;
     }
 }
 
@@ -227,9 +227,16 @@
 }
 
 .fun {
-    margin-bottom: 120px;
+    @media (min-width: 768px){
+        margin-bottom: 120px;
+    }
 }
-
+.logo{
+    @include screen-xs{
+        display: flex;
+        justify-content: center;
+    }
+}
 .creative {
     margin-bottom: 100px;
 }

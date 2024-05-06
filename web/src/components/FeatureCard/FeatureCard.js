@@ -27,7 +27,7 @@ const FeatureCard = (props) => {
                         date={props.date}
                       />
                     </Col>
-                    <Col xs={{span: 8, offset: 6 }} md={{span: 7, offset: 4}} lg={{span: 7, offset: 5}} xl={8} className="ps-1 end-0 bottom-0 mb-5">
+                    <Col xs={{span: 8, offset: 6 }} md={{span: 7, offset: 4}} lg={{span: 7, offset: 5}} xl={8} className="ps-1 end-0 bottom-0 mb-md-5">
                       <div className={`me-3 ${styles.cardText}`}>
                         <div className="mb-1 text-white ">
                           {time} <br />
