@@ -389,7 +389,7 @@ const IndexPage = ({ data }) => {
       </section>  
         
       {/* WORKSPACE */}
-      <section ref={section1Ref} id="workspace" style={{backgroundColor: `#D1D1D1`, borderColor: `black`, backgroundImage: isLargeScreen ? `url(${workspace_background})`: 'inherit', backgroundRepeat: 'no-repeat', backgroundPosition: 'center 80%', backgroundSize: '85% 85%'}}>
+      <section ref={section1Ref} id="workspace" style={{backgroundColor: `#D1D1D1`, borderColor: `black`, backgroundImage: isLargeScreen ? `url(${workspace_background})`: '', backgroundRepeat: 'no-repeat', backgroundPosition: 'center 80%', backgroundSize: '85% 85%'}}>
         <Title className="pt-5 mb-2 text-uppercase text-center">Workspace</Title>
         <Subtitle className=" text-uppercase text-center">Join Our Workspace</Subtitle>
         <a style={{position:'relative', top: isLargeScreen ? '-6rem' : 'inherit', left: isLargeScreen ? '90%' : 'inherit', justifyContent: isLargeScreen ? 'inherit' : 'center'}} href="https://calendly.com/awesometour/30min?" target="_blank">
