@@ -76,7 +76,7 @@ const FellowshipPage = ({ data }) => {
             <motion.div initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.5, duration: 1 }}>
-            <Title className="brand pl-5">FELLOWSHIP</Title>
+            <Title className="brand pl-5 mt-3">FELLOWSHIP</Title>
             <Subtitle className="fst-italic fw-lighter fs-4 text-lowercase">A mentor-driven program for Kentucky based startups</Subtitle>
             
             <ApplyNowModal

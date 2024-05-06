@@ -23,21 +23,15 @@ const YouthPage = () => {
             <main>
                 <Container className={` ${styles.youth}`}>
                     <Row className="h-100">
-                        <Col xs={12} sm={12} md={{ span: 7 }} lg={{ span: 6, offset: 1 }} xl={{ span: 5, offset: 1 }} className='px-0'>
+                        <Col xs={12} sm={12} md={{ span: 7 }} lg={{ span: 6, offset: 1 }} xl={{ span: 5, offset: 1 }} className=''>
                             <section className={styles.topSectionCode}>
-                              <div className="image-container" style={{ backgroundColor: 'white', borderRadius: '50%', width: '15rem'  }}>
+                              <div className="image-container d-flex justify-content-center" style={{ backgroundColor: 'white', borderRadius: '50%', width: '15rem'  }}>
                                 <StaticImage placeholder="blurred" alt="CODE" src='https://cdn.sanity.io/images/y716vocf/production/a862ad7a373bd8343fca0a34a638c626db427a61-720x720.png?w=2000&fit=max&auto=format' style={{maxWidth: "275px"}} />
                               </div>
-                                <Title className={`mb-4 mt-5 text-start text--huge text-white ${styles.titleText}`}>C.O.D.E.</Title>
-                                <Subtitle className='fst-italic ontext-start text-white'>Community Oriented Developer Education</Subtitle>
+                                <Title className={`mt-3 text-start text--huge text-white pt-lg-5 ${styles.titleText}`}>C.O.D.E.</Title>
+                                <Subtitle className='fst-italic text-start text-white w-sm-75'>Community Oriented Developer Education</Subtitle>
+                                <p className={` ${styles.courseDescription} `}>Transforming high school education and empowering students for success in the tech-driven world</p>
                             </section>
-                            <Container>
-                                <Row>
-                                    <Col xs={9} md={10} lg={10} xl={10} className='p-0'>
-                                      <p className={` ${styles.courseDescription} text-start`}>Transforming high school education and empowering students for success in the tech-driven world</p>
-                                    </Col>
-                                </Row>
-                            </Container>
                         </Col>
                     </Row>
                 </Container>
@@ -46,7 +40,7 @@ const YouthPage = () => {
                         <Col sm={{ span: 4 }} md={{ offset: 0, span: 4 }} lg={{ span: 5, offset: 1 }} xl={{ offset: 1, span: 4 }} >
                             <StaticImage placeholder="blurred" className={styles.phone} src='../../../images/learn/header-phone.png' alt='phone'></StaticImage>
                         </Col>
-                        <Col sm={12} md={8} lg={6} xl={6} className=''>
+                        <Col sm={12} md={8} lg={6} xl={6} className='mt-5'>
                             <Title className='text-uppercase'>Why is coding important?</Title>
                             <p className='text-start'>Technology is all around us. Whether you are an app developer or an English professor, you will utilize technology in your daily work.
                                 Awesome Inc exists to take student's screen time and turn it into career-skill time. Our courses increase communication, public speaking, organization,
@@ -63,8 +57,8 @@ const YouthPage = () => {
                                 <BrandButton className='mb-3 text-uppercase'>Book a call</BrandButton>
                             </a>
                         </Col>
-                        <Col md={4} lg={4} xl={3}>.
-                        <StaticImage placeholder="blurred" alt="CODE" src='https://cdn.sanity.io/images/y716vocf/production/a862ad7a373bd8343fca0a34a638c626db427a61-720x720.png?w=2000&fit=max&auto=format' style={{maxWidth: "275px"}} />
+                        <Col md={4} lg={4} xl={3} className={styles.logo}>
+                            <StaticImage placeholder="blurred" alt="CODE" src='https://cdn.sanity.io/images/y716vocf/production/a862ad7a373bd8343fca0a34a638c626db427a61-720x720.png?w=2000&fit=max&auto=format' style={{maxWidth: "275px"}} />
                         </Col>
                     </Row>
                 </Container>
