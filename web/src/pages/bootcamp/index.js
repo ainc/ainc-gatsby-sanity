@@ -798,8 +798,8 @@ const BootcampPage = props => {
                 <Accordion.Item eventKey='4' className='px-3 py-3'>
                 <Accordion.Header>When is the next class?</Accordion.Header>
                 <Accordion.Body>
-                Our next Bootcamp cohort (Spring 2024, i.e. S24) begins Onboarding on Monday, March 4, 
-                then moves to intensive classes from Monday, March 4 - Friday, June 21. The application deadline for the S24 cohort is Friday, January 19.
+                Our next Bootcamp cohort (Fall 2024, i.e. F24) begins Onboarding on Monday, August 19, 
+                then moves to intensive classes from Monday, August 19 - Friday, December 13. The application deadline for the S24 cohort is Friday, July 19.
                 </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey='5' className='px-3 py-3'>
