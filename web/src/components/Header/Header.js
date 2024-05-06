@@ -292,12 +292,13 @@ const Header = () => {
         <Dropdown  className='mx-1 my-1'>
           <Dropdown.Toggle as={BrandButton} className='' style={{width: '45vw', border: '1px solid #323232', backgroundColor: 'white', color: '#323232'}}>Jump To</Dropdown.Toggle>
           <Dropdown.Menu align="start">
-            <Dropdown.Item href="#bootcamp-upcoming-dates">Program Dates</Dropdown.Item>
-            <Dropdown.Item href="#testimonials">Hear From Our Alumni</Dropdown.Item>
-            <Dropdown.Item href="#why-awesome-inc-header">Why Awesome Inc?</Dropdown.Item>
             <Dropdown.Item href="#job-guarantee">Job Guarantee</Dropdown.Item>
+            <Dropdown.Item href="#testimonials">Hear From Our Alumni</Dropdown.Item>
+            <Dropdown.Item href="#learn-skills">What we offer</Dropdown.Item>
+            <Dropdown.Item href="#more-than-bootcamp">More than a bootcamp</Dropdown.Item>
             <Dropdown.Item href="#employers">Hiring Partners</Dropdown.Item>
             <Dropdown.Item href="#languages">Our Tech Stack</Dropdown.Item>
+            <Dropdown.Item href="#bootcamp-upcoming-dates">Program Dates</Dropdown.Item>
             <Dropdown.Item href="#timeline">Application Timeline</Dropdown.Item>
             <Dropdown.Item href="#cost">The Cost</Dropdown.Item>
             <Dropdown.Item href="#still-unsure">FAQs</Dropdown.Item>

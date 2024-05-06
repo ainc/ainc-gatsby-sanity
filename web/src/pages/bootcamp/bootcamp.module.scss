@@ -1,7 +1,6 @@
 @import "../../styles/mixins.scss";
 @import "../../styles/variables.scss";
 
-
 .header {
         background:linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(/images/bootcamp-hero.jpg);
         background-size: cover;
@@ -90,6 +89,37 @@
     }
 }
 
+.rating-container {
+  background-color: #f2f2f2;
+  border-radius: 30px;
+  padding: 15px 30px;
+  margin-left: 0px;
+  opacity: 70%;
+
+  @media (max-width: 1200px){
+    padding: 10px 20px;
+  }
+}
+.review-text {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.header-stats {
+    padding: 50px 0px;
+    max-width: 80%;
+}
+
+.header-stats-title {
+    font-size: 56px;
+    font-weight: 700;
+}
+
+.header-stats-subtitle {
+    font-size: 20px;
+    font-weight: 600;
+}
+
 .bootcampUpcomingdates{
     @media (min-width: 768px){
         border-right: 2px solid #C12029;
@@ -101,21 +131,23 @@
     .twoButtonsRow {
         padding-top: 50px;
         padding-bottom: 50px;
-
+        margin-left: auto;
+        margin-right: auto;
         .leftButtonCol{
             padding-right: 50px;
             border-right: 1.75px solid white;
-            @include screen-sm{
+            @include screen-xs{
               border-right: none;
-              padding-right: none;
+              padding-right: 0;
+              padding-left: 0;
             }
         }
     
         .rightButtonCol{
             padding-left: 50px;
-            @include screen-sm{
-                padding-left:none;
-                padding-right: none;
+            @include screen-xs{
+                padding-left: 0;
+                padding-right: 0;
             }
             
         }
@@ -230,7 +262,7 @@
     border-right: 1.5px solid #C12029; 
     line-height: 25px; 
     padding-right: 2rem;
-    @media (max-width: 767px) {
+    @media (max-width: 992px) {
         border: none;
         padding-right: 0;
     }
@@ -382,10 +414,7 @@
 }
 
 .languages {
-    background-image: url(../../images/bootcamp/languages-bg.jpg);
-    background-position: center;
-    background-repeat: none;
-    background-position: 79% 21%;
+    background-color: #e6e7e8;
     width: 100%;
     padding-left: 100px;
     padding-right: 100px;
@@ -467,15 +496,6 @@
 
 }
 
-.questions {
-    background-image: url(../../images/bootcamp/faq-bg.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-}
 
 .special-link{
     color: #a21b22;
@@ -483,4 +503,27 @@
 
 .special-link:hover{
     color: #de3640;
+}
+
+.gallery {
+    height: 600px;
+    margin: auto;
+    @media (max-width: 768px) {
+        height: 40vh;
+        margin: -15px;
+    }
+}
+
+.gallery-photo {
+    object-fit: cover;
+    height: 100%;
+}
+
+.learn-header {
+    max-width: 100%;
+    @media (min-width: 1024px) {
+        max-width: 60%;
+    }
+    margin: 0px auto;
+    margin-top: 40px;
 }

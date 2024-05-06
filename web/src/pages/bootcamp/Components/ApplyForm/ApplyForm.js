@@ -53,7 +53,7 @@ const ApplyForm = () => {
 
                 <div className="form-group mb-3 mt-3">
                     <input type="number" compname="PhoneNumber" name="PhoneNumber_countrycode" placeholder='Phone Number' 
-                    phoneformat="1" iscountrycodeenabled="false" maxLength="20" defaultValue="" fieldtype="11" id="international_PhoneNumber_countrycode" className="form-control input-lg w-100" />
+                    phoneformat="1" iscountrycodeenabled="false" maxLength="20" defaultValue="" fieldtype="11" id="international_PhoneNumber_countrycode" className="form-control input-lg w-100" onkeydown="return false" onwheel="return false"/>
                 </div>
 
                 <div className="form-group mt-3 mb-3">
