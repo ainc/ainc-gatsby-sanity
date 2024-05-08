@@ -54,10 +54,10 @@ const LearnPage = ({ data }) => {
             <Title className="brand text-uppercase" >Learn to Code</Title>
             <p className="fst-italic">with Awesome Inc</p>
             <a href="../learn/youth">
-              <BrandButton className="secondary mr-3">Youth</BrandButton>
+              <BrandButton className="secondary mr-3 my-3">Youth</BrandButton>
             </a>
             <a href="../learn/adults">
-              <BrandButton className="secondary mx-3">Adult</BrandButton>
+              <BrandButton className="secondary mx-3 ">Adult</BrandButton>
             </a>
            
           </Col>
@@ -113,7 +113,7 @@ const LearnPage = ({ data }) => {
               If you can write an email, we can help you learn to code. Great for aspiring entrepreneurs and career switchers.
             </p>
             <a href="../learn/adults">
-              <BrandButton className="secondary btn--small text-end float-end">Learn More</BrandButton>
+              <BrandButton className="secondary btn--small text-end float-end my-3">Learn More</BrandButton>
             </a>
            
           </Col>

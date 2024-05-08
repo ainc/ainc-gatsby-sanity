@@ -18,6 +18,7 @@
 .autocomplete-list {
   list-style-type: none;
   padding: 0;
+  overflow: hidden;
 }
 
 .autocomplete-list li {
@@ -41,4 +42,9 @@
 
 .autocomplete-list li a:hover {
   background-color: transparent; 
+}
+.form-control{
+  @include screen-xs{
+    font-size: 16px;
+  }
 }

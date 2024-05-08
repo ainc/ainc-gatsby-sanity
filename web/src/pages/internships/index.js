@@ -114,13 +114,13 @@ const InternshipsPage = ({ data }) => {
               </div>
             </Col>  
             <Col className='my-3'>
-              <Title className='text--bright-red text-uppercase mt-5'>What is Team Alpha?</Title>
+              <Title className='text--bright-red text-uppercase mt-md-5'>What is Team Alpha?</Title>
               <p className='my-5' style={{width: '65%'}}>
                 Team Alpha, Awesome Inc's internship program, is an integral part of helping accomplish our mission to make Lexington a better place
                 to live and work. Our goal is to equip each intern with skill sets while gaining real-world experience by working on one of four teams:
                 web development, design, videography, and marketing.
               </p>
-            <a href='#team'><BrandButton className='secondary mb-5'>Find your team</BrandButton></a>
+            <a href='#team'><BrandButton className='secondary mb-md-5'>Find your team</BrandButton></a>
             </Col>
           </Row>
         </Container>
@@ -216,15 +216,15 @@ const InternshipsPage = ({ data }) => {
       <Container className='mt-4'>
         <Row className='mt-4 flex-column flex-sm-row'>
           <Col className='mt-5 '>
-          <Title className='text--bright-red text-uppercase mt-5 pt-5' style={{textAlign: 'right'}}>Why Awesome Inc?</Title>
-          <p className={`my-5`} style={{textAlign: 'right', marginLeft: 'auto', width: '65%'}}>
+          <Title className='text--bright-red text-uppercase mt-md-5 pt-md-5' style={{textAlign: 'right'}}>Why Awesome Inc?</Title>
+          <p className={`my-md-5`} style={{textAlign: 'right', marginLeft: 'auto', width: '65%'}}>
           In addition to the free t-shirt and unlimited oreos, we'll provide you with an opportunity to improve your skills,
           portfolio, and network. Since 2009, Awesome Inc has built a work hard, play hard culture capable of accelerating you towards your definition
           of awesome. Our goal is to give you the best experience by helping you achieve your goals; whether that is getting into your dream school, working
           for your favorite company, or starting something of your own.
           </p>
           </Col>
-          <Col className='d-flex align-items-center justify-content-center my-5 py-5'>
+          <Col className='d-flex align-items-center justify-content-center my-5 py-md-5'>
             <StaticImage placeholder="blurred" src='../../images/garret-cam.jpg' alt='Team Alpha having fun' style={{maxWidth: '550px'}} className='mt-lg-5 py-lg-4'/>
           </Col>
         </Row>
@@ -233,14 +233,14 @@ const InternshipsPage = ({ data }) => {
       {/*Who we're looking for section */}
       <Container fluid className={styles.lookingForSection} >
         <Row className='flex-column flex-sm-row'>
-          <Col className='d-flex align-items-center justify-content-center my-5 py-5'>
+          <Col className='d-flex align-items-center justify-content-center my-md-5 py-md-5'>
             <motion.div initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.3, duration: 1 }}>
             <StaticImage placeholder="blurred" src='../../images/team-alpha-5across.jpg' alt='Team Alpha at 5Across' style={{maxWidth: '400px'}} className='my-4 '/>
             </motion.div>
           </Col>
-          <Col className='mt-5 pt-5 text-left mx-md-5'>
+          <Col className='mt-md-5 pt-md-5 text-left mx-md-5'>
             <Title className='text-uppercase text-white'>Who we're looking for</Title>
             <p className='text-white my-5' style={{width: '65%'}}>
             High school, college, and graduate students that are eager, coachable, and a good fit for Awesome Inc's culture.
@@ -258,7 +258,7 @@ const InternshipsPage = ({ data }) => {
       {/*Intern Testimonals */}
       <Container>
         <Row>
-            <Title className='text-center mt-5 text-uppercase text--red'>Intern Testimonials</Title>
+            <Title className='text-center mt-md-5 text-uppercase text--red'>Intern Testimonials</Title>
         </Row>
       </Container>
       <Carousel indicators={false} className={`${styles.carouselHeight} my-3`}>
@@ -333,7 +333,7 @@ const InternshipsPage = ({ data }) => {
             </Col>
           </Row>
           <Row className='d-flex justify-content-center align-items-center flex-column flex-sm-row '>
-            <Col className='d-flex justify-content-center align-items-center mb-5 pb-4'>
+            <Col className='d-flex justify-content-center align-items-center mb-md-5 pb-md-4'>
               <QAModal 
               title='Is this a paid internship?'
               img={Payment}
@@ -344,7 +344,7 @@ const InternshipsPage = ({ data }) => {
               <QAModal
               title="Is this internship in-person?"
               img={InPerson}
-              content="We strongly encourage in-person so one can take full advantage of our office culture and experience. Rarely, do we make exceptions for fully remote interns. We want to be your friend, and it's much easier to do that when you're with us at the space!"
+              content="We strongly encourage in-person so one can take full advantage of our office culture and experience. Rarely, we do make exceptions for fully remote interns. We want to be your friend, and it's much easier to do that when you're with us at the space!"
               />
             </Col>
           </Row>

@@ -207,7 +207,7 @@ const fiveAcrossPage = ({ data }) => {
             <Container ref={recentWinner} className="mb-5 pb-5">
                 <Row>
                     <Col className="my-5 text-center">
-                        <Title className={`${styles.largeText} text-uppercase py-5`}>Our most recent winner</Title>
+                        <Title className={`${styles.largeText} text-uppercase py-lg-5`}>Our most recent winner</Title>
                     </Col>
                 </Row>
                 <Row className={`${styles.recentWinner} p-5`}>
