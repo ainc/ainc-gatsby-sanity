@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Col, Row } from 'react-bootstrap';
-
+import './Searchbar.scss'
 
 import * as styles from "./Searchbar.scss";
 
@@ -58,7 +58,7 @@ const SearchBar = () => {
     };
   
     return (
-      <div className="autocompleteContainer">
+      <div className="">
         <input
           className="form-control"
           type="text"

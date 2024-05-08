@@ -52,7 +52,7 @@ const WhatWeDoPage = ({ data }) => {
             <section className={styles.workHeader}>
                 <Container className={styles.whatWeDo}>
                     <Row>
-                        <Col className="mx-auto my-5" xs={12} sm={{ offset: 1, span: 10}} lg={6}>
+                        <Col className="mx-auto mb-5" xs={12} sm={{ offset: 1, span: 10}} lg={6}>
                             <Title className={`${styles.programs} mb-5 text-danger text-center text-uppercase`}>Our programs</Title>
                             <p className={`${styles.programsSubheader} text-center mt-3`}>
                                 Awesome Inc was founded on the basis of the "give-first" mentality.
