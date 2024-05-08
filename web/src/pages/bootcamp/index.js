@@ -63,7 +63,7 @@ export const query = graphql`
       stat
       picture {
         asset {
-          gatsbyImageData
+          gatsbyImageData(height: 80)
         }
       }
     }
@@ -263,7 +263,7 @@ const BootcampPage = props => {
       {/* Header stats */}
       <section id="stats" style={{backgroundColor: "#323232"}} className="background--brand">
         <Container className={`${styles.stats}`}> 
-            <Row className="py-5 justify-content-center mx-5">
+            <Row className="pt-5 justify-content-center mx-5">
               {gradStats.map((node,i) => (
                 <Col key={i} className={`${styles.statsRow} justify-content-center text-center`}>
                   <GradStat
@@ -277,7 +277,7 @@ const BootcampPage = props => {
               ))}
             </Row>
             <Row className="">
-                <Col className="d-flex justify-content-center py-3">
+                <Col className="d-flex justify-content-center py-5">
                         <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
                         title="Download Program Guide"
                         className="button mt-3"
@@ -306,8 +306,8 @@ const BootcampPage = props => {
               </motion.div>
             </Col>
           </Row>
-          <Row className="mx-3">
-            <Col className="d-flex justify-content-center">
+          <Row className="mx-lg-5 px-lg-5">
+            <Col className="d-flex justify-content-center mx-lg-5 px-lg-5">
               <p className='text-center text-white'>We only succeed when you succeed. We guarantee that all students who complete the 16-week Bootcamp program and uphold the job search requirements will receive a job offer within six months of their graduation date, or we'll refund your tuition. See our Student Agreement for details.</p>
             </Col>
           </Row>
@@ -367,7 +367,7 @@ const BootcampPage = props => {
       </section>
 
       {/*What to expect video */}
-      <Container fluid className={`my-5`}>
+      <Container fluid className={`my-5 py-3`}>
         <Row className='text-center'>
           <h3 className={styles.videoTitle}>Curious about the process?</h3>
         </Row>
@@ -424,7 +424,12 @@ const BootcampPage = props => {
           </Row>
           <Row className="py-3 align-items-top">
             <Col lg={6} className={`d-flex justify-content-center`}>
-                <div className={`justify-content-center`}>
+                <div className={``}>
+                  <div className='d-flex justify-content-center'>
+                  <div className='' style={{maxWidth: '100px', maxHeight: '100px', objectFit: 'contain'}} >
+                    <StaticImage placeholder='blurred' src='../../images/bootcamp/Career-Coach.svg' style={{width: '100%'}}/>
+                  </div>
+                  </div>
                   <Title className="py-3 text-center" style={{marginLeft: ""}}>Access to full-time career coach for support&nbsp;24/7</Title>
                   <p className={`mb-3 ${styles.whyAwesomeIncBorder} d-flex align-items-center text-center`} style={{minHeight: '16vh'}}>
                     Having in-demand tech skills is just one piece of the puzzle. At Awesome Inc, you’ll get one-on-one guidance through a dedicated career coach to learn hands on skills to ace your job search and land a role you love. We pride ourselves on instructors who really&nbsp;care. 
@@ -438,6 +443,11 @@ const BootcampPage = props => {
             </Col>
             <Col lg={6} className={`d-flex justify-content-center`}>
                 <div className={``}>
+                  <div className='d-flex justify-content-center' >
+                    <div className='' style={{maxWidth: '100px', maxHeight: '100px', objectFit: 'contain'}} >
+                      <StaticImage placeholder='blurred' src='../../images/bootcamp/In-Person-Learning.svg' style={{width: '100%'}}/>
+                    </div>
+                  </div>
                   <Title className="py-3 text-center" style={{marginLeft: "0px"}}>In-person learning for direct mentorship & collaboration</Title>
                   <p className={`mb-3 d-flex align-items-center text-center`} style={{minHeight: '16vh'}}>
                   Have a question? Stuck on a problem? Support is just one room away with our in-person program. We bring students and instructors together in a dynamic setting all while building a network of peers that will support you whenever you need&nbsp;it. 
@@ -733,7 +743,7 @@ const BootcampPage = props => {
               </Row>
             </Col>
           </Row>
-          <Row className='mt-4 text-center'>
+          <Row className='mt-5 mb-2 text-center'>
             <a href='#header'>
               <BrandButton>Apply Now</BrandButton>
             </a>
