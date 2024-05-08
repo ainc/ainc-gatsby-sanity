@@ -63,7 +63,7 @@ export const query = graphql`
       stat
       picture {
         asset {
-          gatsbyImageData(height: 80)
+          gatsbyImageData(height: 60)
         }
       }
     }
@@ -633,7 +633,7 @@ const BootcampPage = props => {
           <a href='https://www.awesomeinc.org/blog/what-we-look-for-in-a-bootcamp-student' className='link--brand' target='_blank'> What We Look For In A Bootcamp Student.</a></p>
           </Row>
           <Row className={`${styles.applyButtons} justify-content-center`}>
-            <div xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-3 mb-3 d-flex justify-content-center ">
+            <div xs={12} sm={12} md={4} lg={4} xl={3} className="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-3 my-3 d-flex justify-content-center ">
                     <ApplyNowModal link="https://forms.zohopublic.com/virtualoffice9155/form/EmailSubscription/formperma/DpCKAlyxEJ-dLzdhzYuvhtQ8sCUVAbu4fE3JEMuAPqI"
                      title="Download Program Guide"/>
             </div>
