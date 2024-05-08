@@ -7,7 +7,9 @@ import { motion } from "framer-motion";
 function GradStat(props) {
     return (
         <div className='d-flex flex-column justify-content-center align-items-center text-center'>
-            <GatsbyImage image={props.image} alt={props.alt} style={{ maxWidth: "160px", height: "130px", objectFit: 'contain'}}/>
+            <div style={{ maxWidth: "70px", maxHeight: "80px"}}>
+                <GatsbyImage image={props.image} alt={props.alt} />
+            </div>
             <div className='mt-3'>
                 <h2 className="text-white fw-bolder">{props.stat}</h2>
             </div>
