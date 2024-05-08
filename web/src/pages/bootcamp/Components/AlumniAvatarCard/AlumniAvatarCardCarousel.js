@@ -65,7 +65,7 @@ const AlumniAvatarCardCarousel = ({ featuredAlumni }) => {
       </Slider>
       <div className="text-center py-4">
         <a href='/alumni' target='_blank'>
-          <BrandButton className='my-3'>See More Alumni</BrandButton>
+          <BrandButton className='my-4'>See More Alumni</BrandButton>
         </a>
       </div>
     </div>

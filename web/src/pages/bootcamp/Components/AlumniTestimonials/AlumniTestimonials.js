@@ -52,7 +52,7 @@ export default function AlumniTestimonialsComponent (){
     return (
         <Container className="mt-5">
           <Row>
-            <Title className={`text-center mb-4`}>Join 175+ graduates that have changed careers with Awesome Inc.</Title>
+            <Title className={`text-center mb-4`}>Join 175+ graduates that have changed careers with Awesome Inc</Title>
           </Row>
           <Col className="d-flex justify-content-center mx-auto" style={{maxWidth: '70%'}}>
           {testimonials.map((node, index) => (
