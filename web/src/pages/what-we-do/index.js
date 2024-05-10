@@ -27,9 +27,9 @@ const WhatWeDoPage = ({ data }) => {
             {/* What We Do header */}
             <section className={styles.aboutHeader}>
             <Container>
-                <Row> 
-                <Col xs={12} md={9} lg={7} className="mt-3">
-                    <div className={styles.heading}>
+                <Row className=''> 
+                <Col  md={9} lg={7} className="mt-3 ">
+                    <div className={`{${styles.heading} pt-5 mt-lg-5`}>
                     <Title className={` ${styles.headingTitle} text-uppercase text-white mt-5`}>
                         Why awesome inc exists
                     </Title>

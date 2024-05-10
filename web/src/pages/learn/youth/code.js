@@ -25,11 +25,11 @@ const YouthPage = () => {
                     <Row className="h-100">
                         <Col xs={12} sm={12} md={{ span: 7 }} lg={{ span: 6, offset: 1 }} xl={{ span: 5, offset: 1 }} className=''>
                             <section className={styles.topSectionCode}>
-                              <div className="image-container d-flex justify-content-center" style={{ backgroundColor: 'white', borderRadius: '50%', width: '15rem'  }}>
+                              <div className="image-container d-flex justify-content-center mb-md-5 " style={{ backgroundColor: 'white', borderRadius: '50%', width: '15rem',  }}>
                                 <StaticImage placeholder="blurred" alt="CODE" src='https://cdn.sanity.io/images/y716vocf/production/a862ad7a373bd8343fca0a34a638c626db427a61-720x720.png?w=2000&fit=max&auto=format' style={{maxWidth: "275px"}} />
                               </div>
-                                <Title className={`mt-3 text-start text--huge text-white pt-lg-5 ${styles.titleText}`}>C.O.D.E.</Title>
-                                <Subtitle className='fst-italic text-start text-white w-sm-75'>Community Oriented Developer Education</Subtitle>
+                                <Title className={`mt-3 text-start text--huge text-white pt-5 ${styles.titleText}`}>C.O.D.E.</Title>
+                                <Subtitle className='fst-italic text-start text-white '>Community Oriented Developer Education</Subtitle>
                                 <p className={` ${styles.courseDescription} `}>Transforming high school education and empowering students for success in the tech-driven world</p>
                             </section>
                         </Col>

@@ -11,6 +11,7 @@ import EventBriteModal from "../EventBriteModal/EventBriteModal";
 const FeatureCard = (props) => {
 
   const time = Moment(props.date).format('h:mm a')
+  const date = Moment(props.date).format('MMMM DD, YYYY')
 
 
   return (
@@ -22,15 +23,15 @@ const FeatureCard = (props) => {
               <div className="card__gradient-bg">
                 <Row className='row row-cols-small'>
                   <div className="position-absolute bottom-0">
-                    <Col xs={2} md={{span: 4, offset: 1}}  className="bottom-0 mb-5 position-absolute px-1 ">
-                      <DateSquare className={` ${styles.square}`}
+                    <Col xs={2} md={{span: 4, offset: 1}}  className="bottom-0 mb-5 position-absolute px-1 d-none d-sm-block">
+                      <DateSquare className={``}
                         date={props.date}
                       />
                     </Col>
-                    <Col xs={{span: 8, offset: 6 }} md={{span: 7, offset: 4}} lg={{span: 7, offset: 5}} xl={8} className="ps-1 end-0 bottom-0 mb-md-5">
-                      <div className={`me-3 ${styles.cardText}`}>
+                    <Col  md={{span: 7, offset: 4}} lg={{span: 7, offset: 5}} xl={8} className=" end-0 bottom-0 mb-md-5">
+                      <div className={`me-md-3 ${styles.cardText}`}>
                         <div className="mb-1 text-white ">
-                          {time} <br />
+                          <div className='d-block d-sm-none'>{date}</div> {time} <br />
                           <small>{props.location}</small>
                         </div>
                         <Subtitle className={`fw-bolder text-white ${styles.cardSubtitle}`}>
