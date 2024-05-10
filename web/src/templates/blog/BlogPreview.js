@@ -17,7 +17,7 @@ export default function BlogPreview({blog}) {
 
   return (
     <Col xs={12} md={6}  className="mt-4 px-0 px-sm-2" key={edge.id}>
-      <Container className='blog-card border border-2 rounded-1' style={{ height: "540px" }}>
+      <Container className='blog-card border border-2 rounded-1' style={{height: '60vh'}}>
         <Row className='p-3 h-100'>
           <Col xs={12} className='p-0'>
             {/* <Container className="blog-image d-flex align-items-end relative" style={{  */}
@@ -52,7 +52,7 @@ export default function BlogPreview({blog}) {
 
             </Container>
           </Col>
-          <Col xs={12} className='' style={{ height: "230px" }}>
+          <Col xs={12} className='' >
             <Container className='p-0 d-flex flex-column justify-content-between h-100'>
               <Row>
                 <div className='pt-3'>
@@ -60,14 +60,12 @@ export default function BlogPreview({blog}) {
                     <Title className="title fs-6 text-break link--red">{edge.node.title}</Title>
                   </a>
                 </div>
-                <div className='pb-3'>
+                <div className=''>
                   <p className="description text-break">{edge.node.previewText}</p>
                 </div>
               </Row>
               <Row>
-                <div className=' pb-0'>
                   <a href={`/blog/${edge.node.slug.current}`}><p className='text--brand fs-6 link--brand'> Read More <FaLongArrowAltRight size="25" /></p></a>
-                </div>
               </Row>
             </Container>
           </Col>
