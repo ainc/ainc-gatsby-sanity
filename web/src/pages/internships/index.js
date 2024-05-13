@@ -159,6 +159,8 @@ const InternshipsPage = ({ data }) => {
                   color='#C12029'
                   team="design"
                   link="https://www.youtube.com/watch?v=_t21lollr1c"
+                  autoFocus={false} 
+                  returnFocusOnClose={false}
                   />
                 </div>
             </Col>
@@ -174,6 +176,8 @@ const InternshipsPage = ({ data }) => {
                   color='#ED3742'
                   team="marketing"
                   link="https://www.youtube.com/watch?v=kyp3acHFCZA"
+                  autoFocus={false} 
+                  returnFocusOnClose={false}
                   />
               </div>
             </Col>
@@ -189,6 +193,8 @@ const InternshipsPage = ({ data }) => {
                   color='#939597'
                   team="video"
                   link="https://www.youtube.com/watch?v=Xhs6weqDvfg"
+                  autoFocus={false} 
+                  returnFocusOnClose={false}
                   />              
               </div>
             </Col>
@@ -204,6 +210,8 @@ const InternshipsPage = ({ data }) => {
                   color='#323232'
                   team="web development"
                   link="https://www.youtube.com/watch?v=sflZ2tFXMIY&t=1s"
+                  autoFocus={false} 
+                  returnFocusOnClose={false}
                   />             
             </div>
             </Col>
