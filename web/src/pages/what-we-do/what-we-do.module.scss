@@ -9,7 +9,10 @@
   background-image: url(../../images/what-we-do/workspace-gradient.png);
   background-size: cover;
   background-position:center;
-  height: 70vh;
+  height: 60vh;
+  @include screen-xs{
+    height: 80vh;
+  }
 }
 
 .heading {
