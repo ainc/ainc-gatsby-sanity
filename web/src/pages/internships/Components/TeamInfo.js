@@ -6,7 +6,7 @@ import './teaminfo.scss'
 const TeamInfoModal = (props) => {
 
     return(
-        <Modal show={props.show} onHide={props.onHide} autoFocus={false} returnFocusOnClose={false} centered dialogClassName="modal-dialog">
+        <Modal show={props.show} onHide={props.onHide} centered dialogClassName="modal-dialog">
         <svg viewBox="0 0 500 125" preserveAspectRatio="xMinYMin meet" style={{backgroundColor: '#f2f2f2'}}>
           <g transform="scale(-1,1) translate(-500,0)">
             <path d="M0,100 C150,150 350,0 500,100 L500,00 L0,0 Z" style={{stroke: 'none', fill: props.color}}></path>

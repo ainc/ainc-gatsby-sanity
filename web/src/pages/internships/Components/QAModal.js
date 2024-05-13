@@ -29,7 +29,7 @@ const QAModal = (props) => {
             <button onClick={handleQAOpen} className={`${styles.qabutton} d-flex justify-content-center align-items-center my-2`}>
                 <Subtitle className='text-white subtitle--small'>{props.title}</Subtitle><p className='ms-auto text-white ' style={{fontSize: '2rem'}}>+</p>
             </button>
-            <Modal show={QADiv} onHide={handleQAClose} centered dialogClassName="modal-dialog" autoFocus={false} returnFocusOnClose={false}>
+            <Modal show={QADiv} onHide={handleQAClose} centered dialogClassName="modal-dialog">
                 <Row className='flex-column flex-sm-row flex-md-row'>
                     <Col className='p-0' style={{backgroundImage: `url(${props.img})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}} />
                     <Col style={{backgroundColor: '#C12029', maxHeight: '80vh', overflowY: 'auto'}} className=''>
