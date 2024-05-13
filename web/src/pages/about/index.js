@@ -146,15 +146,15 @@ const AboutPage = ({ data }) => {
           <Container className="mb-5">
             <Row>
               <h2 className={`text-uppercase text-center ${styles.headingTitle}`}>Meet The Team</h2>
-              <Col xs={{ span: 7, offset: 3}} sm={{ span: 6, offset: 3}} md={{ span: 10, offset: 2}} lg={{ span: 8, offset: 2}} >
+              <Col  md={{ span: 10, offset: 2}} lg={{ span: 8, offset: 2}} >
                 <Row>
                   {teamMembers.map((node, i) => (
                     <Col
-                      xs={5}
-                      sm={6}
+                      xs={4}
+                      sm={4}
                       md={3}
                       lg={2}
-                      className="mb-3 mt-3 mx-md-1 mx-lg-0 mt-lg-3 my-lg-1 mt-md-2 mb-md-2 mt-sm-4 mb-sm-4 mb-xs-3 mt-xs-3 d-flex justify-content-center"
+                      className="mb-3 mt-3 mx-md-1 mx-lg-0 mt-lg-3 my-lg-1 mt-md-2 mb-md-2 mt-sm-4 mb-sm-4 mb-xs-3 mt-xs-3 d-flex justify-content-center align-items-center"
                       key={i}
                     >
                       <TeamMember

@@ -76,7 +76,7 @@ const FellowshipPage = ({ data }) => {
             <motion.div initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.5, duration: 1 }}>
-            <Title className="brand pl-5">FELLOWSHIP</Title>
+            <Title className="brand pl-5 mt-3">FELLOWSHIP</Title>
             <Subtitle className="fst-italic fw-lighter fs-4 text-lowercase">A mentor-driven program for Kentucky based startups</Subtitle>
             
             <ApplyNowModal
@@ -97,7 +97,7 @@ const FellowshipPage = ({ data }) => {
       {/* What is the fellowship */}
       <Container>
         <Row>
-          <Col className="mx-auto my-5" xs={12} sm={{ offset: 1, span: 10}} lg={6}>
+          <Col className="mx-auto my-3" xs={12} sm={{ offset: 1, span: 10}} lg={6}>
             <Title className="text-center text-uppercase">What is the Fellowship?</Title>
             <p className='text-center mt-3'>
               A mentor-driven program designed to accelerate your high tech startup. The program is tailored to your startup's needs and runs on a flexible timeline unique to your team, supporting your startup for up to one year.
@@ -301,7 +301,7 @@ const FellowshipPage = ({ data }) => {
                   <Col xs="5" sm="3" className={`${styles.sponsor} text-center`} key={i}>
                     <a href={node.sponserWebsite} aria-label="Visit {node.sponser}'s site">
                       <div className='m-2'>
-                        <h3 className='fs-4'>{node.sponser}</h3>
+                        <h4 className=''>{node.sponser}</h4>
                       </div>
                     </a>
                   </Col>

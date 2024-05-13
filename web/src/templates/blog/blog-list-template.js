@@ -70,7 +70,7 @@ const BlogPage = ({pageContext, data }) => {
                                 <input type="hidden" name="zf_referrer_name" value="" />{/*<!-- To Track referrals , place the referrer name within the " " in the above hidden input field -->*/}
                                 <input type="hidden" name="zf_redirect_url" value="" />{/*<!-- To redirect to a specific page after record submission , place the respective url within the " " in the above hidden input field -->*/}
                                 <input type="hidden" name="zc_gad" value="" />{/*<!-- If GCLID is enabled in Zoho CRM Integration, click details of AdWords Ads will be pushed to Zoho CRM -->*/}
-                                <Subtitle>You'll receive a monthly email with new blog info.</Subtitle>
+                                <h4>You'll receive a monthly email with new blog info.</h4>
                                 <Row>
                                 {/*<!--Name-->*/}
                                     <label style={{marginLeft:'0px'}}>First Name</label>
@@ -125,7 +125,7 @@ const BlogPage = ({pageContext, data }) => {
                             </a>
                         )}
                     </Col>
-                    <Col>
+                    <Col className='d-none d-sm-block'>
                         {Array.from({ length: numBlogs }, (_, i) => (
                                 <a href = {`/blog/${i === 0 ? "" : i + 1}`} className={styles.page} key={`pagination-number${i + 1}`}  style={{
                                     textDecoration: 'none',

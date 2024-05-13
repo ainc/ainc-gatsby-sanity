@@ -32,7 +32,7 @@ const YouthPage = () => {
                             <Container>
                                 <Row>
                                     <Col xs={9} md={10} lg={10} xl={10} className='p-0'>
-                                    <p className={` ${styles.courseDescription} text-start`}>The coding club offers students an oppurtunity to learn how to code from professional software developers and to do it with like-minded peers.</p>
+                                    <p className={` ${styles.courseDescription} text-start`}>The coding club offers students an opportunity to learn how to code from professional software developers and to do it with like-minded peers.</p>
                                     <p className={` ${styles.otherDescription} text-start`}>We inspire kids by introducing them to the awesome power of coding! Our students experience the joy of building their own games and apps
                                         in an engaging and safe space, whether in-person or online. And you'll love it too, knowing your kids are developing a practical skill, building a creative portfolio,
                                         and making great friends along the way.</p>

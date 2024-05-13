@@ -10,9 +10,7 @@
     margin: 0 .5rem;
     font-weight: 900;
     color: styles.$brand-color;
-    @include screen-xs {
-        font-size: 5vw;
-    }
+
 }
 
 .page-number-single {
@@ -24,10 +22,6 @@
 
 .page-number-all {
     margin: 0;
-    @include screen-xs {
-        display: none;
-       
-    }
 }
 
 .page:hover {
