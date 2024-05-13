@@ -33,13 +33,13 @@ const IdeaPage = ({ data }) => {
                     </a>
                 </Col>
             </Row>
-            {/* still need to find a solution for form accessibility */}
         </Container>
         <Container fluid className={styles.backgroundBreak} />
+        {/* still need to find a solution for form accessibility 
         <Container fluid className={styles.testimonials}>
             <h1>test</h1>
             <Carousel></Carousel>
-        </Container>
+        </Container> */}
         <Container className='mt-3'>
             <iframe src="https://forms.zohopublic.com/virtualoffice9155/form/Ihaveanidea/formperma/30hj1gQf-u3TTxMYOytfjzUJhtBJgqYeim-yn04e1Tw?gclid=undefined" title="I have an idea form" width="100%" height="1000px"></iframe>
         </Container>
