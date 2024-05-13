@@ -12,7 +12,7 @@ const IdeaPage = ({ data }) => {
   return (
     <Layout>
         <Container fluid className={`${styles.header} d-flex justify-content-center align-items-center`}>
-            <StaticImage src='./images/idea-header-text.png' style={{width: '600px'}} />
+            <StaticImage placeholder='blurred' src='./images/idea-header-text.png' style={{width: '600px'}} />
         </Container>
         <Container>
             <Row className="justify-content-center flex-column flex-md-row" style={{marginTop: "150px", marginBottom: "40px"}}>
