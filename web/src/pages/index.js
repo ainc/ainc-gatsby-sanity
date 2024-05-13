@@ -231,7 +231,6 @@ const IndexPage = ({ data }) => {
                     link="/learn"
                     alt="brackets"
                     sectionRef = {section4Ref}
-                    
                   />
                 </Col>
               </Row>
@@ -282,7 +281,7 @@ const IndexPage = ({ data }) => {
         <Title className="mt-5 mb-3 text-uppercase text-center">Upcoming Events</Title>
         <p className='text-center'>Join us and be apart of the startup community!</p>
         <Container className=''>
-          <Row className="card__featured_mosaic gy-1  me-2">
+          <Row className="card__featured_mosaic gy-1  me-2 mx-auto">
             <Col className="card__featured" xs={12} sm={10} md={12} lg={7} xl={7}>
               <motion.div className='h-100'
                   initial={{ opacity: 0.5, y: -50 }}
@@ -299,10 +298,10 @@ const IndexPage = ({ data }) => {
                 />
               </motion.div>
             </Col>
-            <Col className="card__secondary" xs={12} sm={10} md={8} lg={5} xl={5}>
-              <Row className='bottom-0 me-2 ms-1'>
+            <Col className="card__secondary " xs={12} sm={10} md={8} lg={5} xl={5}>
+              <Row className='bottom-0 me-2 ms-1 '>
               {eventsNoFeature.map((node,i) => ( //map through the filtered list
-                <motion.div className='h-100'
+                <motion.div className='h-100 '
                   initial={{ opacity: 0.5, y: -50 }}
                   whileInView={{ opacity: 1 , y: 0}}
                   transition={{ duration: 1 }} 
@@ -386,13 +385,13 @@ const IndexPage = ({ data }) => {
 
       <section ref={section3Ref} id="startup">
         <Startups />
-      </section>  
+      </section>
         
       {/* WORKSPACE */}
       <section ref={section1Ref} id="workspace" style={{backgroundColor: `#D1D1D1`, borderColor: `black`, backgroundImage: isLargeScreen ? `url(${workspace_background})`: '', backgroundRepeat: 'no-repeat', backgroundPosition: 'center 80%', backgroundSize: '85% 85%'}}>
         <Title className="pt-5 mb-2 text-uppercase text-center">Workspace</Title>
         <Subtitle className=" text-uppercase text-center">Join Our Workspace</Subtitle>
-        <a style={{position:'relative', top: isLargeScreen ? '-6rem' : 'inherit', left: isLargeScreen ? '90%' : 'inherit', justifyContent: isLargeScreen ? 'inherit' : 'center'}} href="https://calendly.com/awesometour/30min?" target="_blank">
+        <a className=''style={{position:'relative', top: isLargeScreen ? '-6rem' : 'inherit', left: isLargeScreen ? '90%' : 'inherit', justifyContent: isLargeScreen ? 'inherit' : 'center', display: isLargeScreen ? 'inherit' : 'flex'}} href="https://calendly.com/awesometour/30min?" target="_blank">
           <img src="https://d33wubrfki0l68.cloudfront.net/223738930eb44ab59015db4d33febf500d9da8f1/0ab2a/images/icons/schedule-a-tour-button-red.png" width='100' height='100' id="tour-button" alt="tour button" />
         </a>
         <Container>

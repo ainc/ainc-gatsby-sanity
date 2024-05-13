@@ -8,7 +8,7 @@ const TestimonialCarousel = ( props ) => {
     
     return(
         <Container className="my-5">
-            <Carousel>
+            <Carousel controls={false}>
                 {testimonials.map((node,index) => (
                     <Carousel.Item key={index}>
                         <div className='d-flex justify-content-center align-items-center my-5' style={{height: '25vh'}}>

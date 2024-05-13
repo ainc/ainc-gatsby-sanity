@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { StaticImage } from "gatsby-plugin-image";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
 import { motion } from "framer-motion";
  
 import ModalCustom from "../../Modal/ModalCustom";
@@ -14,11 +14,9 @@ const CoreValue = (props) => {
   const handleShow = () => setLgShow(true)
   const handleClose = () => setLgShow(false)
   return (
-        <div className="">
-          <div className="d-flex justify-content-center align-items-center">
-            <Col sm="6">
-              <Row>
-                <Col sm="4">
+        <Container className="">
+              <Row className="d-flex align-items-center justify-content-lg-between">
+                <Col xs={6} md={2}>
                   <a onClick={handleShow}  id="video-btn" href='#!'>
                     <motion.div
                       initial={{ opacity: 0.5, y: -50 }}
@@ -29,9 +27,9 @@ const CoreValue = (props) => {
                     <StaticImage placeholder="blurred" quality='100' src='./video-button.png' alt="Core values video" />
                     </motion.div>
                   </a>
-                  
+                
                 </Col>
-                <Col sm="4">
+                <Col xs={6} md={2}>
                   <a id="culture-book-btn" href="/assets/culture-book.pdf" target="_blank" rel="noopener">
                     <motion.div
                       initial={{ opacity: 0.5, y: 50 }}
@@ -43,16 +41,14 @@ const CoreValue = (props) => {
                     </motion.div>
                   </a>
                 </Col>
+                <Col xs={10} md={6} className="mx-5 ">
+                  <a href='/assets/core-values.pdf' target="_blank">
+                    <StaticImage placeholder="blurred" quality='100' src='../../../images/about-core-values.png' alt="Core values video" />
+                  </a>
+                </Col>
               </Row>
-            </Col>
-            <Col sm="6" className="">
-              <a href='/assets/core-values.pdf' target="_blank">
-                <StaticImage placeholder="blurred" quality='100' src='../../../images/about-core-values.png' alt="Core values video" />
-              </a>
-            </Col>
-          </div>
 
-        <ModalCustom 
+        <ModalCustom
         lgShow = {lgShow} 
         hide = {handleClose}
         bgDark = {false} 
@@ -76,7 +72,7 @@ const CoreValue = (props) => {
       
 
 
-        </div>
+        </Container>
 
 
         

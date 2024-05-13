@@ -75,7 +75,7 @@ const HomepageSlider = (props) => {
 
   const slides = (query.sanityImageSlider.slides || {});
   return (
-    <Carousel>
+    <Carousel controls={false}>
       {slides.map((slide, i) => (
         <Carousel.Item key={i}>
           <div
