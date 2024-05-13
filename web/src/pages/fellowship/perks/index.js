@@ -5,7 +5,7 @@ import BrandButton from "../../../components/UI/BrandButton/BrandButton"
 import Layout from '../../../components/Layout/Layout'
 import Title from '../../../components/UI/Title/Title'
 import SEO from '../../../components/seo'
-
+import ApplyNowModal from '../Components/ApplyNowModal'
 
 import "../../../styles/main.scss"
 import "./perks.scss";
@@ -47,10 +47,13 @@ const PerksPage = ({ data }) => {
                         </Col>
                     </Row>
                 </section>
-
-                <div className="d-flex justify-content-center mb-5">
-                    <BrandButton className="mb-5">Apply Now</BrandButton>
-                </div>
+                <Row >
+                    <Col className="d-flex justify-content-center mb-5">
+                        <ApplyNowModal 
+                        title="Apply Now"
+                        link="https://forms.zohopublic.com/virtualoffice9155/form/AwesomeFellowshipApplication/formperma/r12Y7iQP0rWYHU33MvoA15j6wO4YlTVP02EuWMwJol8"/> 
+                    </Col>
+                </Row>
             </Container>
         </Layout>
     )
