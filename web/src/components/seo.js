@@ -160,6 +160,9 @@ function SEO({ description, lang, meta, keywords, title, path, jsImports }) {
         })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
       `}
     </script>
+    {/* Zoho PageSense */}
+    
+    <script src="https://cdn.pagesense.io/js/awesomeinc/617258c649af414b86fee0936d14ed09.js"></script>
     </Helmet>
   );
 }
