@@ -15,7 +15,7 @@ const IdeaPage = ({ data }) => {
             <StaticImage placeholder='blurred' src='./images/idea-header-text.png' style={{width: '600px'}} />
         </Container>
         <Container>
-            <Row className="justify-content-center flex-column flex-md-row" style={{marginTop: "150px", marginBottom: "40px"}}>
+            <Row className="justify-content-center flex-column flex-md-row my-5 py-4" >
                 <Col className={`d-flex flex-column justify-content-between ${styles.borderRight}  text-center`}>
                     <a href='/events/5across'>
                         <StaticImage placeholder="blurred" className="mb-3" quality='100' style={{ maxWidth: "250px" }} src="./images/5-across-logo-black-text.png" />
@@ -26,10 +26,10 @@ const IdeaPage = ({ data }) => {
                     </a>
                 </Col>
                 <Col className=" d-flex flex-column justfy-content-between align-items-center text-center mt-4">
-                    <Subtitle className="mb-4 text-uppercase" style={{ fontWeight: 800 }}>Startup weekend</Subtitle>
+                    <Subtitle className="mb-4 text-uppercase" style={{ fontWeight: 800 }}>Have an idea?</Subtitle>
                     <p className='mt-3' style={{width: '70%'}}>Do you have an idea you'd like to pursue or a problem you'd like to solve but don't know where to start or who to start with?</p>
-                    <a href='https://www.swlex.org' className='link--brand' target='_blank'>
-                        <BrandButton className='secondary my-4'>Sign me up!</BrandButton>
+                    <a href='#form' className='link--brand'>
+                        <BrandButton className='secondary my-4'>We can help</BrandButton>
                     </a>
                 </Col>
             </Row>
@@ -40,9 +40,11 @@ const IdeaPage = ({ data }) => {
             <h1>test</h1>
             <Carousel></Carousel>
         </Container> */}
+        <section id='form'>
         <Container className='mt-3'>
             <iframe src="https://forms.zohopublic.com/virtualoffice9155/form/Ihaveanidea/formperma/30hj1gQf-u3TTxMYOytfjzUJhtBJgqYeim-yn04e1Tw?gclid=undefined" title="I have an idea form" width="100%" height="1000px"></iframe>
         </Container>
+        </section>
     </Layout>
 
   )

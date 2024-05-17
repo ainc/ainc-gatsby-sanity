@@ -90,7 +90,7 @@ query IndexPageQuery($currentDate: Date!) {
       designedFor
       picture {
         asset {
-          gatsbyImageData(height: 300)
+          gatsbyImageData(height: 200, width: 250)
           url
         }
       }

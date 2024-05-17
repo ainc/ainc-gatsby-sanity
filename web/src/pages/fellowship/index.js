@@ -204,7 +204,7 @@ const FellowshipPage = ({ data }) => {
             <motion.div initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: 0.5, duration: 1 }}>
-            <StaticImage placeholder="blurred" src="../../images/arrow-red.png" alt="red arrow"/>
+            <StaticImage placeholder="blurred" src="../../images/arrow-red.png" alt="red arrow" width={150}/>
             </motion.div>
           </Col>
         </Row>

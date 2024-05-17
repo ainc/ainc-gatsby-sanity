@@ -110,7 +110,7 @@ const fiveAcrossPage = ({ data }) => {
                         <motion.div initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3, duration: 0.6 }}>
-                        <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-prize.png" alt=''/>
+                        <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-prize.png" alt='' />
                         </motion.div>
                     </Col>
                     <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
@@ -163,8 +163,8 @@ const fiveAcrossPage = ({ data }) => {
                             <Container fluid className="mt-2">
                                 <EventBriteModal link={node.linkToEvent}>
                                     <Row className=''>
-                                        <Col lg="4" md="4" sm="4" className="">
-                                            <StaticImage placeholder="blurred" quality="100" className='img-fluid' src="../../../assets/svg/5_Across_White.svg" alt='5across logo'/>
+                                        <Col className="">
+                                            <StaticImage placeholder="blurred" quality="100" className='img-fluid' src="../../../assets/svg/5_Across_White.svg" alt='5across logo' height={500} />
                                         </Col>
                                         {/* changed headings in this section from h6, font size utilities currently aren't working but should look normal once the utilities work */}
                                         <Col className="justify-content-start">
