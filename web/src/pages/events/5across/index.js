@@ -110,7 +110,7 @@ const fiveAcrossPage = ({ data }) => {
                         <motion.div initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3, duration: 0.6 }}>
-                        <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-prize.png" alt='' />
+                        <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-prize.png" alt='' h/>
                         </motion.div>
                     </Col>
                     <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
@@ -162,24 +162,14 @@ const fiveAcrossPage = ({ data }) => {
                         {nextFiveAcross.map((node) => (
                             <Container fluid className="mt-2">
                                 <EventBriteModal link={node.linkToEvent}>
-                                    <Row className=''>
+                                    <Row >
                                         <Col className="">
-                                            <StaticImage placeholder="blurred" quality="100" className='img-fluid' src="../../../assets/svg/5_Across_White.svg" alt='5across logo' height={500} />
+                                            <StaticImage placeholder="blurred" quality="100" className='img-fluid ' src="../../../assets/svg/5_Across_White.svg" alt='5across logo' />
                                         </Col>
                                         {/* changed headings in this section from h6, font size utilities currently aren't working but should look normal once the utilities work */}
-                                        <Col className="justify-content-start">
+                                        <Col className="" lg="8">
                                             <h2 className="text--red fs-6 fw-bold">{node.date}</h2> {/*need to  */}
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col sm="4" lg="4"></Col>
-                                        <Col>
                                             <h4 className="text--black fw-light fs-5">Location: {node.location}</h4> {/*Location*/}
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col sm="4" lg="4"></Col>
-                                        <Col>
                                             <h3 className="text--black fs-6">{node.eventName}</h3>{/*title */}
                                         </Col>
                                     </Row>
