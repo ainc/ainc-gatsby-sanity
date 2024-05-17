@@ -53,7 +53,7 @@ const LearnPage = ({ data }) => {
           <Col className="m-auto">
             <Title className="brand text-uppercase" >Learn to Code</Title>
             <p className="fst-italic">with Awesome Inc</p>
-            <a href="../learn/youth">
+            <a href="../learn/youth/code">
               <BrandButton className="secondary mr-3 my-3">Youth</BrandButton>
             </a>
             <a href="../learn/adults">
