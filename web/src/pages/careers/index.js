@@ -17,8 +17,8 @@ const CareersPage = ({ data }) => {
   return (
     <Layout>
       <Container fluid>
-        <Row>
-            <Col className={`${styles.header} text-white text-center`}>
+        <Row className=''>
+            <Col className={`${styles.header} text-white text-center py-5`}>
                 <Title className="text-uppercase text-white mt-4">Careers</Title>
                 <Col md={{ span: 6, offset: 3 }}>
                   <p>We're always looking for passionate, driven people who think they'd be a fit for our company! If you don't see what you're looking for on this page, reach out - we'd love to chat.</p>
@@ -72,8 +72,8 @@ const CareersPage = ({ data }) => {
 
         <Row>
           <Col className={`${styles.footer}`}>
-            <Col md={{ span: 6, offset: 3 }}>
-              <Subtitle className='text-center fw-bold mt-4 mb-4'>We're always looking for passionate, driven people who think they'd be a fit for our company! If you don't see what you're looking for on this page, reach out - we'd love to chat.</Subtitle>
+            <Col className='py-5' md={{ span: 6, offset: 3 }}>
+              <Subtitle className='text-center fw-bold '>We're always looking for passionate, driven people who think they'd be a fit for our company! If you don't see what you're looking for on this page, reach out - we'd love to chat.</Subtitle>
               <h5 className='text-center'><a className={'link--brand-dark'} href='mailto: careers@awesomeinc.org'>Email careers@awesomeinc.org</a></h5>
               {/* ask about creating link--brand-bright to fix color contrast */}
             </Col>
