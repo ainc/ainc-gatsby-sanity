@@ -92,39 +92,44 @@ const fiveAcrossPage = ({ data }) => {
             <Container className="my-5 pt-2">
                 <Subtitle className='text-center fw-bold'>5 Across has given over 250 founders a new platform and thousands of Kentuckians a fun place to engage with local startups.</Subtitle>
                 <Row className="mt-5 d-flex justify-content-center">
-                    <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
+                    <Col md="2" sm="6" className="mt-2 d-flex justify-content-center text-center mx-3" style={{backgroundColor: '#F7F7F7'}}>
                         <motion.div initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3, duration: 0.6 }}>
                         <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-pitches.png" alt=''/>
+                        <Subtitle className='' >5 Pitches</Subtitle>
                         </motion.div>
                     </Col>
-                    <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
+                    <Col md="2" sm="6" className="mt-2 d-flex justify-content-center text-center mx-3" style={{backgroundColor: '#F7F7F7'}}>
                         <motion.div initial={{ opacity: 0, y: -50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3, duration: 0.6 }}>
                         <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-time.png" alt='' />
+                        <Subtitle className=''>5 Minutes</Subtitle>
                         </motion.div>
                     </Col>
-                    <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
+                    <Col md="2" sm="6" className="mt-2 d-flex justify-content-center text-center mx-3" style={{backgroundColor: '#F7F7F7'}}>
                         <motion.div initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3, duration: 0.6 }}>
                         <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-prize.png" alt='' h/>
+                        <Subtitle className=''>$500 Cash Prize</Subtitle>
                         </motion.div>
                     </Col>
-                    <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
+                    <Col md="2" sm="6" className="mt-2 d-flex justify-content-center text-center mx-3" style={{backgroundColor: '#F7F7F7'}}>
                         <motion.div initial={{ opacity: 0, y: -50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3, duration: 0.6 }}>
                         <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-start.png" alt=''/>
+                        <Subtitle className=''>5:00pm Start</Subtitle>
                         </motion.div>
                     </Col>
-                    <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
+                    <Col md="2" sm="6" className="mt-2 d-flex justify-content-center text-center mx-3" style={{backgroundColor: '#F7F7F7'}}>
                         <motion.div initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3, duration: 0.6 }}>
                         <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-entry.png" alt=''/>
+                        <Subtitle className=''>$5 Entry Fee</Subtitle>
                         </motion.div>
                     </Col>
                 </Row>
