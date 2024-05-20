@@ -153,32 +153,27 @@ const fiveAcrossPage = ({ data }) => {
                         <Title className="text-white pt-5 mt-5 fs-2 text-uppercase">Join us at the next 5 Across</Title>
                     </Col>
                 </Row>
-                <Row className="mt-5 justify-content-center">
-                    <Col className={`d-sm-none`}></Col>
-                    <Col sm="2" className={`d-none d-sm-block`}></Col>
-
+                <Row className="mt-5 justify-content-center align-items-center">
                     {/* White box */}
-                    <Col lg="4" xs="8" className="bg-white rounded-4">
+                    <Col lg="6" md="6" xs="8" className="bg-white rounded-4">
                         {nextFiveAcross.map((node) => (
                             <Container fluid className="mt-2">
                                 <EventBriteModal link={node.linkToEvent}>
                                     <Row >
-                                        <Col className="">
-                                            <StaticImage placeholder="blurred" quality="100" className='img-fluid ' src="../../../assets/svg/5_Across_White.svg" alt='5across logo' />
+                                        <Col className="d-flex justify-content-center align-items-center">
+                                            <StaticImage placeholder="blurred" quality="100" className='img-fluid' src="../../../images/5across-banner.png" alt='5across logo' />
                                         </Col>
                                         {/* changed headings in this section from h6, font size utilities currently aren't working but should look normal once the utilities work */}
                                         <Col className="" lg="8">
-                                            <h2 className="text--red fs-6 fw-bold">{node.date}</h2> {/*need to  */}
-                                            <h4 className="text--black fw-light fs-5">Location: {node.location}</h4> {/*Location*/}
-                                            <h3 className="text--black fs-6">{node.eventName}</h3>{/*title */}
+                                            <h2 className="text--red  fw-bold">{node.date}</h2> {/*need to  */}
+                                            <h4 className="text--black fw-light ">Location: {node.location}</h4> {/*Location*/}
+                                            <h3 className="text--black ">{node.eventName}</h3>{/*title */}
                                         </Col>
                                     </Row>
                                 </EventBriteModal>
                             </Container>
                         ))}
                     </Col>
-                    <Col className="d-sm-none"></Col>
-                    <Col sm="2" className={`d-none d-sm-block`}></Col>
                 </Row>
                 <Row className="mt-5">
                     <Col xs={{ span: 2, offset: 7 }} className="d-none d-md-block">
