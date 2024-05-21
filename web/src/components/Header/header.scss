@@ -55,7 +55,7 @@
 .navbar {
   background-color: $brand-color2;
   opacity: 0.9;
-  z-index: 9999;
+  z-index: 999;
   @media(max-width: 768px){
     --bs-navbar-padding-y: 0rem;
   }
