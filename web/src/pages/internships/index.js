@@ -158,7 +158,7 @@ const InternshipsPage = ({ data }) => {
                   content="The Design Team is responsible for keeping visual elements aligned with the overall mission, message, and branding at Awesome Inc. We look for eager-to-learn individuals who have experience in Adobe Creative Suite and design principles showcasing layout, typography, and effective communication."
                   color='#C12029'
                   team="design"
-                  link="https://www.youtube.com/watch?v=aSpd8iBKanE"
+                  link="https://www.youtube.com/embed/aSpd8iBKanE?si=exp4GXbFi6mX531V"
                   autoFocus={false} 
                   returnFocusOnClose={false}
                   />
@@ -175,7 +175,7 @@ const InternshipsPage = ({ data }) => {
                   content="The Marketing Team's mission is to reach and inform our target audiences about Awesome Inc, our initiatives, and events. We accomplish this through many avenues, including our website, newsletters, Google Ads and Analytics, podcasts, blogs, and CRMs. Typically, we look for interns with strengths in copywriting, social media management, data analytics, and video content production."
                   color='#ED3742'
                   team="marketing"
-                  link="https://www.youtube.com/watch?v=nLdRQmCYa3k"
+                  link="https://www.youtube.com/embed/nLdRQmCYa3k?si=6mNd6CHi8qlklu8U"
                   autoFocus={false} 
                   returnFocusOnClose={false}
                   />
@@ -192,7 +192,7 @@ const InternshipsPage = ({ data }) => {
                   content="We are looking for a tech-savvy, organized, and creative individual who has experience using a digital camera, and a video editing (Premiere Pro is preferred). Applicants must have an understanding of how to storyboard in preparation for shoots and know basic camera settings: aperture, shutter speed, ISO, and white balance."
                   color='#939597'
                   team="video"
-                  link="https://www.youtube.com/watch?v=ZOAK62fAnUA"
+                  link="https://www.youtube.com/embed/ZOAK62fAnUA?si=72BB3izAtve-QOx_"
                   autoFocus={false} 
                   returnFocusOnClose={false}
                   />              
@@ -209,7 +209,7 @@ const InternshipsPage = ({ data }) => {
                   content="Create innovative software for growing businesses. Work with Lexington's most talented developers to find tune your coding skills. Get involved with Awesome Inc U to further your knowledge and learn to develop your own apps, video games, and more!"
                   color='#323232'
                   team="web development"
-                  link="https://www.youtube.com/watch?v=Ju34XWP2UMc"
+                  link="https://www.youtube.com/embed/Ju34XWP2UMc?si=Tv_RPPubykOqn6NG"
                   autoFocus={false} 
                   returnFocusOnClose={false}
                   />             
