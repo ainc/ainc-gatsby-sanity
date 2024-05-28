@@ -850,9 +850,9 @@ const BootcampPage = props => {
                 <Accordion.Body>
                 Yes, students are required to furnish their own laptop computer for the Bootcamp program. The minimum requirements are:
                 <ul>
-                  <li>Operating System: the latest version of macOS (recommended), Windows, or Ubuntu</li>
-                  <li>Processor: Intel Core i5 or faster (recommended: <a href='https://browser.geekbench.com/mac-benchmarks' className='link--brand'>Geekbench score</a> &gt;600)</li>
-                  <li>RAM: 8 GB</li>
+                  <li>Operating System: able to run the latest version of macOS (recommended), Windows, or Ubuntu</li>
+                  <li>Processor: Intel Core i7, Apple M1 chip, or faster (recommended: <a href='https://browser.geekbench.com/mac-benchmarks' className='link--brand'>Geekbench score</a> &gt;1200)</li>
+                  <li>RAM: 16 GB</li>
                 </ul>
                 </Accordion.Body>
                 </Accordion.Item>
