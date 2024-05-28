@@ -93,11 +93,11 @@ export function TestimonialCarousel({ testimonials }) {
       {testimonials.map((node, index) => (
         <div key={index} className={`testimonial-div ${index === currentIndex ? 'd-flex' : 'd-none'}`}>
           <Row>
-            <Col lg={4}>
-              
-            </Col>
+            <Col lg={4}></Col>
             <Col lg={6} className="offset-lg-2 test-info pt-3">
-              <GatsbyImage image={node.picture.asset.gatsbyImageData} alt={node.company} className="test-images"/> 
+              <div className="test-images">
+                <GatsbyImage image={node.picture.asset.gatsbyImageData} alt={node.company}/> 
+              </div>
               <Title className="text-white">HEAR FROM EMPLOYERS</Title>
               <h2>{node.company}</h2>
               <p style={{fontWeight: 'bold'}}>{node.author}</p>
