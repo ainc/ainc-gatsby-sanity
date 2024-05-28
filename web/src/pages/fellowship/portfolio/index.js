@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { Container, Row, Col } from 'react-bootstrap'
-
+import ApplyNowModal from '../Components/ApplyNowModal'
 import BrandButton from "../../../components/UI/BrandButton/BrandButton"
 import FellowshipCompanyCard from '../../../components/FellowshipCompanyCard/FellowshipCompanyCard'
 import Layout from '../../../components/Layout/Layout'
@@ -32,16 +32,22 @@ const PortfolioPage = ({ data }) => {
                     <h6 className='d-inline px-0 text--red'>PORTFOLIO</h6>
                     
                 </Row>
-                <Row>
-                    <BrandButton className='col-md-auto px-4 mb-2'>
-                        Apply Now
-                    </BrandButton>
+                <Row className='d-flex justify-content-center  text-center align-items-center my-3'>
+                    <Col md={4} className='my-3 d-flex align-items-center justify-content-center'>
+                        <ApplyNowModal 
+                        title="Apply Now"
+                        link="https://forms.zohopublic.com/virtualoffice9155/form/AwesomeFellowshipApplication/formperma/r12Y7iQP0rWYHU33MvoA15j6wO4YlTVP02EuWMwJol8"/>
+                    </Col>
+                    <Col md={4} className='my-3 d-flex align-items-center justify-content-center text-center'>
+                        <a href='/fellowship/perks'>
+                        <BrandButton className=''>
+                            Perks
+                        </BrandButton>
+                        </a>
+                    </Col>
                 </Row>
-                <Row>
-                    <BrandButton className='col-md-auto px-4 mb-5'>
-                        Perks
-                    </BrandButton>
-                </Row>
+        
+            
             </Container>
             
             <Container>

@@ -6,12 +6,13 @@
 .navContainer {
     background-color:whitesmoke;
     position: fixed;
-    right: 0;
+    right: -200px;
+    top: 25%;
     margin-top: -6rem;
     z-index: 999;
     max-width: 250px;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    border-radius: 8px;
+    transition: right 0.3s ease; /* Smooth transition */
 
     nav {
         padding-top: 5px;
@@ -24,4 +25,7 @@
             @include font-size(6);
         }
     }
+}
+.show {
+    right: 10px; /* Bring it into view */
 }

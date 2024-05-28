@@ -1,4 +1,3 @@
-
 export default {
     name: 'whatWeDo',
     type: 'document',
@@ -43,3 +42,4 @@ export default {
         }
     ]
 }
+

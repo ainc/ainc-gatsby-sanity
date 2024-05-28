@@ -22,7 +22,7 @@ const TeamInfoModal = (props) => {
                 </Col>
             </Row>
             <Row>
-            <a className='link--brand' href={props.link} target="_blank">Click here to learn more and see if the {props.team} team is for you!</a>
+            <a className='link--brand link' href={props.link} target="_blank">Click here to learn more and see if the {props.team} team is for you!</a>
             </Row>
             <Row>
             <a href="https://careers.awesomeinc.org/jobs/Careers/649925000000610353/Team-Alpha---Internship?source=CareerSite"
@@ -31,7 +31,7 @@ const TeamInfoModal = (props) => {
             </a>
             </Row>
         </Modal.Body>
-        </Modal>
+      </Modal>
     )
 }
 

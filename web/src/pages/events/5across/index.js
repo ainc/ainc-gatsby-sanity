@@ -18,21 +18,21 @@ import * as styles from "./fiveAcross.module.scss";
 import TestimonialCarousel from "../../../components/TestimonialCarousel/TestimonialCarousel";
 const fiveAcrossPage = ({ data }) => {
 
-    const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes.at(-1).titleSp.title || {});
-    const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes.at(-1).titleSp.link || {});
-    const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes.at(-1).titleSp.image.asset.gatsbyImageData || {});
+    const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].titleSp.title || {});
+    const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].titleSp.link || {});
+    const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].titleSp.image.asset.gatsbyImageData || {});
 
-    const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes.at(-1).presentingSp.title || {});
-    const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes.at(-1).presentingSp.link || {});
-    const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes.at(-1).presentingSp.image.asset.gatsbyImageData || {});
+    const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.title || {});
+    const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.link || {});
+    const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.image.asset.gatsbyImageData || {});
 
-    const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes.at(-1).suppourtingSponsors || {});
+    const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors || {});
     const nextFiveAcross = (data.allSanityEvents.nodes || {});
 
     const fiveAcrossWinners = (data.allSanityFiveAcrossWinners.edges || {});
     const previousWinner = fiveAcrossWinners[fiveAcrossWinners.length - 1].node;
 
-    const testimonials = (data.allSanityFiveAcrossTestimonials.nodes.at(-1) || {});
+    const testimonials = (data.allSanityFiveAcrossTestimonials.nodes[0] || {});
 
     let years = [];
 
@@ -92,39 +92,44 @@ const fiveAcrossPage = ({ data }) => {
             <Container className="my-5 pt-2">
                 <Subtitle className='text-center fw-bold'>5 Across has given over 250 founders a new platform and thousands of Kentuckians a fun place to engage with local startups.</Subtitle>
                 <Row className="mt-5 d-flex justify-content-center">
-                    <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
+                    <Col md="2" sm="6" className="mt-2 d-flex justify-content-center text-center mx-3" style={{backgroundColor: '#F7F7F7'}}>
                         <motion.div initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3, duration: 0.6 }}>
                         <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-pitches.png" alt=''/>
+                        <h4 className='' >5 Pitches</h4>
                         </motion.div>
                     </Col>
-                    <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
+                    <Col md="2" sm="6" className="mt-2 d-flex justify-content-center text-center mx-3" style={{backgroundColor: '#F7F7F7'}}>
                         <motion.div initial={{ opacity: 0, y: -50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3, duration: 0.6 }}>
                         <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-time.png" alt='' />
+                        <h4 className=''>5 Minutes</h4>
                         </motion.div>
                     </Col>
-                    <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
+                    <Col md="2" sm="6" className="mt-2 d-flex justify-content-center text-center mx-3" style={{backgroundColor: '#F7F7F7'}}>
                         <motion.div initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3, duration: 0.6 }}>
-                        <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-prize.png" alt=''/>
+                        <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-prize.png" alt='' h/>
+                        <h4 className=''>$500 Cash Prize</h4>
                         </motion.div>
                     </Col>
-                    <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
+                    <Col md="2" sm="6" className="mt-2 d-flex justify-content-center text-center mx-3" style={{backgroundColor: '#F7F7F7'}}>
                         <motion.div initial={{ opacity: 0, y: -50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3, duration: 0.6 }}>
                         <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-start.png" alt=''/>
+                        <h4 className=''>5:00pm Start</h4>
                         </motion.div>
                     </Col>
-                    <Col md="2" sm="6" className="mt-2 d-flex justify-content-center">
+                    <Col md="2" sm="6" className="mt-2 d-flex justify-content-center text-center mx-3" style={{backgroundColor: '#F7F7F7'}}>
                         <motion.div initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3, duration: 0.6 }}>
                         <StaticImage placeholder="blurred" quality="100" src="../../../images/5across-entry.png" alt=''/>
+                        <h4 className=''>$5 Entry Fee</h4>
                         </motion.div>
                     </Col>
                 </Row>
@@ -153,42 +158,27 @@ const fiveAcrossPage = ({ data }) => {
                         <Title className="text-white pt-5 mt-5 fs-2 text-uppercase">Join us at the next 5 Across</Title>
                     </Col>
                 </Row>
-                <Row className="mt-5 justify-content-center">
-                    <Col className={`d-sm-none`}></Col>
-                    <Col sm="2" className={`d-none d-sm-block`}></Col>
-
+                <Row className="mt-5 justify-content-center align-items-center">
                     {/* White box */}
-                    <Col lg="4" xs="8" className="bg-white rounded-4">
+                    <Col lg="6" md="6" xs="8" className="bg-white rounded-4">
                         {nextFiveAcross.map((node) => (
                             <Container fluid className="mt-2">
                                 <EventBriteModal link={node.linkToEvent}>
-                                    <Row className=''>
-                                        <Col lg="4" md="4" sm="4" className="">
-                                            <StaticImage placeholder="blurred" quality="100" className='img-fluid' src="../../../assets/svg/5_Across_White.svg" alt='5across logo'/>
+                                    <Row >
+                                        <Col className="d-flex justify-content-center align-items-center">
+                                            <StaticImage placeholder="blurred" quality="100" className='img-fluid' src="../../../images/5across-banner.png" alt='5across logo' />
                                         </Col>
                                         {/* changed headings in this section from h6, font size utilities currently aren't working but should look normal once the utilities work */}
-                                        <Col className="justify-content-start">
-                                            <h2 className="text--red fs-6 fw-bold">{node.date}</h2> {/*need to  */}
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col sm="4" lg="4"></Col>
-                                        <Col>
-                                            <h4 className="text--black fw-light fs-5">Location: {node.location}</h4> {/*Location*/}
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col sm="4" lg="4"></Col>
-                                        <Col>
-                                            <h3 className="text--black fs-6">{node.eventName}</h3>{/*title */}
+                                        <Col className="" lg="8">
+                                            <h2 className="text--red  fw-bold">{node.date}</h2> {/*need to  */}
+                                            <h4 className="text--black fw-light ">Location: {node.location}</h4> {/*Location*/}
+                                            <h3 className="text--black ">{node.eventName}</h3>{/*title */}
                                         </Col>
                                     </Row>
                                 </EventBriteModal>
                             </Container>
                         ))}
                     </Col>
-                    <Col className="d-sm-none"></Col>
-                    <Col sm="2" className={`d-none d-sm-block`}></Col>
                 </Row>
                 <Row className="mt-5">
                     <Col xs={{ span: 2, offset: 7 }} className="d-none d-md-block">
@@ -207,7 +197,7 @@ const fiveAcrossPage = ({ data }) => {
             <Container ref={recentWinner} className="mb-5 pb-5">
                 <Row>
                     <Col className="my-5 text-center">
-                        <Title className={`${styles.largeText} text-uppercase py-5`}>Our most recent winner</Title>
+                        <Title className={`${styles.largeText} text-uppercase py-lg-5`}>Our most recent winner</Title>
                     </Col>
                 </Row>
                 <Row className={`${styles.recentWinner} p-5`}>
@@ -290,7 +280,7 @@ const fiveAcrossPage = ({ data }) => {
                         <Title className="fs-2">Title Sponsor</Title>
                     </Col>
                     <Col lg="12" className="my-2">
-                        <a href={titleSponsorLink}>
+                        <a href={titleSponsorLink} target='_blank'>
                             <motion.div initial={{ opacity: 0 }}
                                         whileInView={{ opacity: 1 }}
                                         transition={{ delay: 0.3, duration: 0.6 }}>
@@ -302,7 +292,7 @@ const fiveAcrossPage = ({ data }) => {
                         <Title className="fs-2 my-5">Presenting Sponsor</Title>
                     </Col>
                     <Col lg="12" className="my-2">
-                        <a href={presentingSponsorLink}>
+                        <a href={presentingSponsorLink} target='_blank'>
                             <motion.div initial={{ opacity: 0 }}
                                         whileInView={{ opacity: 1 }}
                                         transition={{ delay: 0.3, duration: 0.6 }}>
@@ -321,7 +311,7 @@ const fiveAcrossPage = ({ data }) => {
                         <Row className="align-items-center justify-content-center">
                             {suppourtingSponsors.map((sponsor) => (
                                 <Col lg="3" className="my-3">
-                                    <a href={sponsor.link}>
+                                    <a href={sponsor.link} target='_blank'>
                                         <motion.div initial={{ opacity: 0 }}
                                             whileInView={{ opacity: 1 }}
                                             transition={{ delay: 0.3, duration: 0.6 }}>
@@ -382,7 +372,7 @@ query fiveAcrossQuery($currentDate: Date!) {
             }
         }
     }
-    allSanityFiveAcrossSponsors {
+    allSanityFiveAcrossSponsors(sort: {_createdAt: DESC}) {
         nodes {
           presentingSp {
             title
@@ -413,7 +403,7 @@ query fiveAcrossQuery($currentDate: Date!) {
           }
         }
       }
-    allSanityFiveAcrossTestimonials {
+    allSanityFiveAcrossTestimonials(sort: {_createdAt: DESC}) {
         nodes {
           testimonials {
             testimonials {

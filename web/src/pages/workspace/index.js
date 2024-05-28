@@ -190,7 +190,7 @@ const WorkspacePage = () => {
               </Row>
             </Col>
           </Row>
-          <Container fluid>
+          <Container fluid className='my-3'>
             <Row>
               <Col>
               

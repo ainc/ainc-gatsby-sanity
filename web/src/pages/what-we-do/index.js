@@ -27,9 +27,9 @@ const WhatWeDoPage = ({ data }) => {
             {/* What We Do header */}
             <section className={styles.aboutHeader}>
             <Container>
-                <Row> 
-                <Col xs={12} md={9} lg={7} className="mt-3">
-                    <div className={styles.heading}>
+                <Row className=''> 
+                <Col  md={9} lg={7} className="mt-3 ">
+                    <div className={`{${styles.heading} pt-5 mt-lg-5`}>
                     <Title className={` ${styles.headingTitle} text-uppercase text-white mt-5`}>
                         Why awesome inc exists
                     </Title>
@@ -52,7 +52,7 @@ const WhatWeDoPage = ({ data }) => {
             <section className={styles.workHeader}>
                 <Container className={styles.whatWeDo}>
                     <Row>
-                        <Col className="mx-auto my-5" xs={12} sm={{ offset: 1, span: 10}} lg={6}>
+                        <Col className="mx-auto mb-5" xs={12} sm={{ offset: 1, span: 10}} lg={6}>
                             <Title className={`${styles.programs} mb-5 text-danger text-center text-uppercase`}>Our programs</Title>
                             <p className={`${styles.programsSubheader} text-center mt-3`}>
                                 Awesome Inc was founded on the basis of the "give-first" mentality.

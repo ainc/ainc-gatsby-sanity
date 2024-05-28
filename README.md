@@ -57,5 +57,23 @@ Import from `dev` into `production`
 <br><br>
 </details>
 
+## Sanity Workflow
+
+Sanity runs into issues with overwriting work when trying to update schemas simultaneously on different branches. The ideal workflow for updating schema is as follows:
+
+1.  Plan out all necessary schema for development.
+    
+2.  Add schema and push to the main branch on Github before any changes are made by other users.
+    
+3.  Other users should pull your schema changes before adding any new schema.
+    
+4.  Continue development on the front-end accessing the already committed schema.
+   
+The entire goal is to eliminate concurrent development of Sanity schema since they will overwrite each other.
+
+Other potential solutions:
+
+-   Sanity migration command
+
 ## [Algolia Documentation](https://docs.google.com/document/d/1sB_nA5skU5SWLJMCFQwWHw5sEfgyP8EAVu0xZj09RP4/edit)
 

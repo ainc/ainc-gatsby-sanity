@@ -5,7 +5,7 @@ import './BrandButton.scss';
 
 const BrandButton = (props) => {
     return (
-       <button {...props} className={`button ${props.className}`}>
+       <button {...props}  className={`button ${props.className}`}>
             {props.children}
        </button>
     ) 
