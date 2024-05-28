@@ -5,7 +5,7 @@ import { useKeenSlider } from 'keen-slider/react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Container, Row, Col } from 'react-bootstrap'
 import { motion } from "framer-motion";
-
+import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import ApplyNowModal from "./Components/ApplyNowModal";
 import Layout from '../../components/Layout/Layout'
 import ImageOutline from '../../components/ImageOutline/ImageOutline'
@@ -76,7 +76,7 @@ const FellowshipPage = ({ data }) => {
             <motion.div initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.5, duration: 1 }}>
-            <Title className="brand pl-5">FELLOWSHIP</Title>
+            <Title className="brand pl-5 mt-3">FELLOWSHIP</Title>
             <Subtitle className="fst-italic fw-lighter fs-4 text-lowercase">A mentor-driven program for Kentucky based startups</Subtitle>
             
             <ApplyNowModal
@@ -97,7 +97,7 @@ const FellowshipPage = ({ data }) => {
       {/* What is the fellowship */}
       <Container>
         <Row>
-          <Col className="mx-auto my-5" xs={12} sm={{ offset: 1, span: 10}} lg={6}>
+          <Col className="mx-auto my-3" xs={12} sm={{ offset: 1, span: 10}} lg={6}>
             <Title className="text-center text-uppercase">What is the Fellowship?</Title>
             <p className='text-center mt-3'>
               A mentor-driven program designed to accelerate your high tech startup. The program is tailored to your startup's needs and runs on a flexible timeline unique to your team, supporting your startup for up to one year.
@@ -110,8 +110,8 @@ const FellowshipPage = ({ data }) => {
       <Container>
         <Row>
           <Col className="mx-auto my-2" xs={12} sm={{ offset: 1, span: 10}} lg={{ offset: 3, span: 6}} >
-            <Row>
-              <Col className="m-auto text-center" xs={4}>
+            <Row className=''>
+              <Col className="m-auto text-center" >
                 {/* <div > */}
                 <motion.div initial={{ opacity: 0, y: 50 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -125,11 +125,13 @@ const FellowshipPage = ({ data }) => {
                   layout='fixed'
                 />
                 </a>
-                <Subtitle className={`${styles.iconTitle} text-center fw-bold mt-2`}>Perks</Subtitle>
+                <a href="/fellowship/perks" aria-label="Perks of the fellowship">
+                  <BrandButton className={`text-center mt-2`}>Perks</BrandButton>
+                </a>
                 </motion.div>
                 {/* </div> */}
               </Col>
-              <Col className="m-auto text-center" xs={4}>
+              <Col className="m-auto text-center" >
               {/* <div className="m-auto text-center text-wrap"> */}
               <motion.div initial={{ opacity: 0, y: -50 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -143,11 +145,13 @@ const FellowshipPage = ({ data }) => {
                   layout='fixed'
                 />
                 </a>
-                <Subtitle className={`${styles.iconTitle} text-center fw-bold mt-2`}>Mentors</Subtitle>
+                <a href="/mentors" aria-label="Mentors of the fellowship">
+                  <BrandButton className={` text-center mt-2`}>Mentors</BrandButton>
+                </a>
                 </motion.div>
                 {/* </div> */}
               </Col>
-              <Col className="m-auto text-center" xs={4}>
+              <Col className="m-auto text-center" >
               {/* <div className="m-auto text-center"> */}
               <motion.div initial={{ opacity: 0, y: 50 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -161,24 +165,15 @@ const FellowshipPage = ({ data }) => {
                     layout='fixed'
                   />
                 </a>
-                <Subtitle className={`${styles.iconTitle} text-center fw-bold mt-2`} >Portfolio</Subtitle>
+                <a href="/fellowship/portfolio" aria-label="Read our fellowship portfolio">
+                  <BrandButton className={`text-center mt-2`} >Portfolio</BrandButton>
+                </a>
                 </motion.div>
                 {/* </div> */}
               </Col>
 
             </Row>
           </Col>
-        </Row>
-      </Container>
-
-      <Container>
-        <Row className="mb-5 mt-4">
-          <Col className="d-flex justify-content-center">
-          <ApplyNowModal
-          title="Apply Now"
-          link="https://forms.zohopublic.com/virtualoffice9155/form/AwesomeFellowshipApplication/formperma/r12Y7iQP0rWYHU33MvoA15j6wO4YlTVP02EuWMwJol8"/>
-          </Col>
-
         </Row>
       </Container>
 
@@ -209,7 +204,7 @@ const FellowshipPage = ({ data }) => {
             <motion.div initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: 0.5, duration: 1 }}>
-            <StaticImage placeholder="blurred" src="../../images/arrow-red.png" alt="red arrow"/>
+            <StaticImage placeholder="blurred" src="../../images/arrow-red.png" alt="red arrow" width={150}/>
             </motion.div>
           </Col>
         </Row>
@@ -301,7 +296,7 @@ const FellowshipPage = ({ data }) => {
                   <Col xs="5" sm="3" className={`${styles.sponsor} text-center`} key={i}>
                     <a href={node.sponserWebsite} aria-label="Visit {node.sponser}'s site">
                       <div className='m-2'>
-                        <h3 className='fs-4'>{node.sponser}</h3>
+                        <h4 className=''>{node.sponser}</h4>
                       </div>
                     </a>
                   </Col>

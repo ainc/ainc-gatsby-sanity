@@ -42,7 +42,7 @@
 .parallax {
   background-attachment: fixed;
 }
-$image-path: '/static/awesome-inc-space-banner-ae4a4687dceb6d81adbae43de6c2a774.jpg';
+$image-path: '/images/awesome-inc-space-banner.jpg';
 $bg-filter-blur: blur(2px) grayscale(0.8);
 .bg-filter-mute {
   background-image: url($image-path);

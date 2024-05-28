@@ -12,8 +12,8 @@ const CourseCardSmall = ({ courseInfo }) => {
         <Container fluid className = 'd-flex align-items-stretch'>
             <Row>
         {courseInfo.map((course) => (
-                <Col>
-                    <Card className={`${styles.box}`}>
+                <Col className='my-3'>
+                    <Card className={`${styles.box} `}>
                         <GatsbyImage alt={course.node.courseTitle} image={course.node.picture.asset.gatsbyImageData} className={`${styles.imageContainer} mt-3`}/>
                         {/* I couldn't get Card.Img to work with GatsbyImage- next best thing*/}
                         <Card.Body>

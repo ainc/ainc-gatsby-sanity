@@ -79,7 +79,7 @@ const Footer = () => {
             <Row className={styles.firstColRow}>
 
               {/*Newsletter Form*/}
-              <BrandButton onClick={handleShow}>Newsletter Sign Up</BrandButton>
+              <BrandButton onClick={handleShow} className='my-3'>Newsletter Sign Up</BrandButton>
               <Modal show={show} onHide={handleClose} centered size='lg' aria-labelledby='contained-modal-title-vcenter'>
               <form
                 action="https://forms.zohopublic.com/virtualoffice9155/form/AwesomeIncNewsletterSignup2023/formperma/ZflzBD0xW1Q8eO4jlDWQZZsk1Icbxxwtl6FTQMbZNl8/htmlRecords/submit"

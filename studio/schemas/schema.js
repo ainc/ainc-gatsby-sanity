@@ -101,6 +101,6 @@ export default [
     fiveAcrossTestimonials,
     imageSlider,
     bootcampImageTestimonials,
-    alumniTestimonials
+    alumniTestimonials,
   ]
 

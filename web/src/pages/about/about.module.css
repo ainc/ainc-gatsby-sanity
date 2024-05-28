@@ -11,6 +11,7 @@
 .about-header {
   background-image: url(../../images/about-page-bg.jpg);
   background-repeat: no-repeat;
+  background-position: center; /* Center the background */
   background-size: cover;
   padding-bottom: 50px;
 }

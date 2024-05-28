@@ -145,33 +145,6 @@ function SEO({ description, lang, meta, keywords, title, path, jsImports }) {
     {/*Facebook pixel code */}
     <script type="text/javascript" src="/facebook-pixel-code.js"></script>
 
-    {/*Zoho Sales IQ */}
-    {includeSalesIQ && 
-    <script>
-    {`
-      var $zoho = $zoho || {};
-      $zoho.salesiq = $zoho.salesiq || {
-        widgetcode: "77464144f0307e5d43de560d9806d2fdd98dbf1a8dba0fb4a61a9630fe7d7d5c1e92507c13fa0fac71e5ac4fb3822ca1",
-        values: {},
-        ready: function () {}
-      };
-
-      var d = document;
-      var s = d.createElement("script");
-      s.id = "zsiqscript";
-      s.defer = true;
-      s.src = "https://salesiq.zoho.com/widget";
-      
-      var t = d.getElementsByTagName("script")[0];
-      t.parentNode.insertBefore(s, t);
-
-      var widgetContainer = d.createElement("div");
-      widgetContainer.id = "zsiqwidget";
-      d.body.appendChild(widgetContainer);
-    `}
-    </script>
-    }
-    {/*End Zoho Sales IQ */}
     
    <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v14.0&appId=405237331509908&autoLogAppEvents=1" nonce="CPsa0mSK"></script>
     {/*Hotjar- unique to https://www.awesomeinc.org/bootcamp  */}
@@ -187,6 +160,9 @@ function SEO({ description, lang, meta, keywords, title, path, jsImports }) {
         })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
       `}
     </script>
+    {/* Zoho PageSense */}
+    
+    <script src="https://cdn.pagesense.io/js/awesomeinc/617258c649af414b86fee0936d14ed09.js"></script>
     </Helmet>
   );
 }

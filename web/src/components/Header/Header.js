@@ -8,17 +8,18 @@ import { ImPlus } from "react-icons/im";
 
 import BrandButton from '../UI/BrandButton/BrandButton';
 
-import { 
+import {
   Navbar,
   Nav,
   Container,
   Row,
-  Col
+  Col,
+  Dropdown,
 } from 'react-bootstrap'
 
 
 import "../../styles/main.scss"
-import { navbarBrand } from './Header.module.scss'
+import { navbarBrand, navButton, show} from './Header.module.scss'
 import "./header.scss"
 
 const Header = () => {
@@ -85,11 +86,6 @@ const Header = () => {
         <Navbar.Toggle aria-controls="learn-to-code-navbar" className='text-white shadow-none border-white'/>
         <Navbar.Collapse id="learn-to-code-navbar">
           <Nav>
-          {useLocation().pathname === '/bootcamp/' && (
-            <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
-                <a href='/bootcamp/apply' className='mt-3 mb-1'><BrandButton>Apply Now</BrandButton></a>
-            </Row>
-          )}
           {useLocation().pathname === '/learn/youth/code/' && (
             <Row className='d-sm-none d-flex flex-row justify-content-between gx-0 ps-2'>
                 <a href='#call' className='mt-3 mb-1'><BrandButton>Book a Call</BrandButton></a>
@@ -123,7 +119,7 @@ const Header = () => {
                           <a href="/bootcamp">Web Dev Bootcamp</a>
                           <a href="/learn/youth/code">Youth Courses</a>
                           <a href="/learn/adults">Adult Courses</a>
-                          <a href="/learn">Kids Camps</a>
+                          <a href="/weekofcode">Kids Camps</a>
                           <a href="/salesforce">Salesforce Career Accelerator</a>
 
                         </Col>
@@ -277,10 +273,9 @@ const Header = () => {
                 </Container>
               </Navbar>
             </Row>
-
           {useLocation().pathname === '/bootcamp/' && (
             <Col className="desktop" style={{paddingLeft: "8%",}}>
-                <a href='/bootcamp/apply' className=""><BrandButton style={{padding: '1.5 rem 2 rem', fontSize: '1.25rem'}}>Apply Now</BrandButton></a>
+                <a href='#header' className=""><BrandButton style={{padding: '1.5 rem 2 rem', fontSize: '1.25rem'}}>Apply Now</BrandButton></a>
             </Col>
           )}
           {useLocation().pathname === '/learn/youth/code/' && (
@@ -291,6 +286,28 @@ const Header = () => {
           </Nav>
         </Navbar.Collapse>
       </Container>
+      {useLocation().pathname === '/bootcamp/' && (
+      <Container className={`${navButton} d-md-none d-flex justify-content-center`}>
+        <div className='d-flex justify-content-center'>
+        <Dropdown  className='mx-1 my-1'>
+          <Dropdown.Toggle as={BrandButton} className='' style={{width: '45vw', border: '1px solid #323232', backgroundColor: 'white', color: '#323232'}}>Jump To</Dropdown.Toggle>
+          <Dropdown.Menu align="start">
+            <Dropdown.Item href="#job-guarantee">Job Guarantee</Dropdown.Item>
+            <Dropdown.Item href="#testimonials">Hear From Our Alumni</Dropdown.Item>
+            <Dropdown.Item href="#learn-skills">What we offer</Dropdown.Item>
+            <Dropdown.Item href="#more-than-bootcamp">More than a bootcamp</Dropdown.Item>
+            <Dropdown.Item href="#employers">Hiring Partners</Dropdown.Item>
+            <Dropdown.Item href="#languages">Our Tech Stack</Dropdown.Item>
+            <Dropdown.Item href="#bootcamp-upcoming-dates">Program Dates</Dropdown.Item>
+            <Dropdown.Item href="#timeline">Application Timeline</Dropdown.Item>
+            <Dropdown.Item href="#cost">The Cost</Dropdown.Item>
+            <Dropdown.Item href="#still-unsure">FAQs</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        <a href='#header'><BrandButton className='mx-1 my-1' style={{width: '45vw'}}>Apply Now</BrandButton></a>
+        </div>
+      </Container>
+      )}
     </Navbar>
   );
 };

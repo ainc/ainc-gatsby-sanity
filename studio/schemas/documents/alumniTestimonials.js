@@ -33,5 +33,4 @@ export default {
             title: 'Picture',
             validation: Rule => Rule.required()
         },
-        
 ]}
