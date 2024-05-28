@@ -1,7 +1,7 @@
 export default {
     name: "alumniTestimonials",
     type: "document",
-    title: "Alumni Testimonials",
+    title: "Bootcamp Employer Testimonials",
     fields: [
         {
             name: 'company',
@@ -33,5 +33,4 @@ export default {
             title: 'Picture',
             validation: Rule => Rule.required()
         },
-
 ]}
