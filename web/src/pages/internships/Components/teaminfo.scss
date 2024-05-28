@@ -12,6 +12,7 @@
 }
 
 .link{
+  cursor: pointer;
   @include screen-xs{
     font-size: 16px;
   }
