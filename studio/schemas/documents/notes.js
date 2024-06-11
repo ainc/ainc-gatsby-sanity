@@ -45,11 +45,39 @@ export default {
             description: 'Body content',
             of: [
               {
-                type: 'block'
+                type: 'block',
+                marks: {
+                  annotations: [
+                    {
+                      name: 'internalLink',
+                      type: 'object',
+                      title: 'Internal Link',
+                      fields: [
+                        {
+                          title: 'Anchor ID',
+                          name: 'anchorId',
+                          type: 'string'
+                        }
+                      ]
+                    }
+                  ]
+                }
               },
               {
                 type: 'image',
               },
+              {
+                type: 'object',
+                name: 'anchor',
+                title: 'Anchor',
+                fields: [
+                  {
+                    title: 'ID',
+                    name: 'id',
+                    type: 'string'
+                  }
+                ]
+              }
             ]
         },
     ],
