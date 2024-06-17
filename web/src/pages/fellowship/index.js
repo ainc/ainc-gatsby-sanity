@@ -78,7 +78,7 @@ const FellowshipPage = ({ data }) => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.5, duration: 1 }}>
             <Title className="brand pl-5 mt-3">FELLOWSHIP</Title>
-            <Subtitle className="fst-italic fw-lighter fs-4 text-lowercase">A one year, mentor-driven program designed to accelerate your high tech startup.</Subtitle>
+            <Subtitle className="fw-lighter fs-4">A one year, mentor-driven program designed to accelerate your high tech startup.</Subtitle>
             
             <ApplyNowModal
               title="Apply Now"
