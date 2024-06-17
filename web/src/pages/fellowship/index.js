@@ -12,7 +12,7 @@ import ImageOutline from '../../components/ImageOutline/ImageOutline'
 import ModalCustom from "../../components/Modal/ModalCustom";
 import Subtitle from '../../components/UI/Subtitle/Subtitle'
 import Title from '../../components/UI/Title/Title'
-
+import KPIBoxes from "./Components/KPIBox/KPIBox";
 import "../../styles/main.scss"
 import * as styles from './fellowship.module.scss'
 
@@ -176,7 +176,9 @@ const FellowshipPage = ({ data }) => {
           </Col>
         </Row>
       </Container>
-
+      <Container>
+        <KPIBoxes title='title' subtitle='subtitle' />
+      </Container>
       {/* how it works */}
       <Container>
         <Row className="my-5">
