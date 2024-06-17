@@ -78,7 +78,7 @@ const FellowshipPage = ({ data }) => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.5, duration: 1 }}>
             <Title className="brand pl-5 mt-3">FELLOWSHIP</Title>
-            <Subtitle className="fst-italic fw-lighter fs-4 text-lowercase">A mentor-driven program for Kentucky based startups</Subtitle>
+            <Subtitle className="fst-italic fw-lighter fs-4 text-lowercase">A one year, mentor-driven program designed to accelerate your high tech startup.</Subtitle>
             
             <ApplyNowModal
               title="Apply Now"
@@ -86,7 +86,7 @@ const FellowshipPage = ({ data }) => {
             />
             </motion.div>
           </Col>
-          <Col className="my-5" xs={12} sm={6} >
+          <Col className="my-4" xs={12} sm={6} >
             <ImageOutline style={{marginLeft: "1rem"}}>
               <StaticImage placeholder="blurred" src="../../images/fellowship_header.jpg" width={400} objectFit='cover' className='position-relative' alt="people brainstorming"/>
             </ImageOutline>
@@ -94,27 +94,18 @@ const FellowshipPage = ({ data }) => {
 
         </Row>
       </Container>
-      
-      {/* What is the fellowship */}
-      <Container>
-        <Row>
-          <Col className="mx-auto my-3" xs={12} sm={{ offset: 1, span: 10}} lg={6}>
-            <Title className="text-center text-uppercase">What is the Fellowship?</Title>
-            <p className='text-center mt-3'>
-              A mentor-driven program designed to accelerate your high tech startup. The program is tailored to your startup's needs and runs on a flexible timeline unique to your team, supporting your startup for up to one year.
-            </p>
-          </Col>
-        </Row>
-      </Container>
+    
 
       {/*KPI's */}
       <Container className='my-5'>
         <Row className='d-flex justify-content-center align-items-center flex-sm-column flex-md-row'>
+          <Title className="text-center text-uppercase">Fellowship Metrics</Title>
+
           <Col className='d-flex justify-content-center align-items-center py-2'>
-            <KPIBoxes title={fellowshipKPIs.companiesServed} subtitle='Companies Served' />
+            <KPIBoxes title={fellowshipKPIs.companiesServed} subtitle='Portfolio Companies' />
           </Col>
           <Col className='d-flex justify-content-center align-items-center py-2'>
-            <KPIBoxes className='' title={fellowshipKPIs.investmentRaised} subtitle='Investment Raised' />
+            <KPIBoxes className='' title={fellowshipKPIs.investmentRaised} subtitle=' Outside Investment Raised' />
           </Col>
           <Col className='d-flex justify-content-center align-items-center py-2'>
             <KPIBoxes className='' title={fellowshipKPIs.jobsCreated} subtitle='Jobs Created' />
