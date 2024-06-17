@@ -24,7 +24,8 @@ import * as styles from './fellowship.module.scss'
 const FellowshipPage = ({ data }) => {
   
   const FellowshipSponsers = (data.allSanityFellowshipSponsers.nodes || {})
-
+  const fellowshipKPIs = (data.allSanityFellowshipKpIs.nodes[0] || {} )
+  console.log(fellowshipKPIs)
   const [refCallback] = useKeenSlider(
     {
       rtl: true,
@@ -87,7 +88,7 @@ const FellowshipPage = ({ data }) => {
           </Col>
           <Col className="my-5" xs={12} sm={6} >
             <ImageOutline style={{marginLeft: "1rem"}}>
-              <StaticImage placeholder="blurred" src="../../images/brainstorming.jpg" width={375} objectFit='cover' className='position-relative' alt="people brainstorming"/>
+              <StaticImage placeholder="blurred" src="../../images/fellowship_header.jpg" width={400} objectFit='cover' className='position-relative' alt="people brainstorming"/>
             </ImageOutline>
           </Col>
 
@@ -106,11 +107,62 @@ const FellowshipPage = ({ data }) => {
         </Row>
       </Container>
 
+      {/*KPI's */}
+      <Container className='my-5'>
+        <Row className='d-flex justify-content-center align-items-center flex-sm-column flex-md-row'>
+          <Col className='d-flex justify-content-center align-items-center py-2'>
+            <KPIBoxes title={fellowshipKPIs.companiesServed} subtitle='Companies Served' />
+          </Col>
+          <Col className='d-flex justify-content-center align-items-center py-2'>
+            <KPIBoxes className='' title={fellowshipKPIs.investmentRaised} subtitle='Investment Raised' />
+          </Col>
+          <Col className='d-flex justify-content-center align-items-center py-2'>
+            <KPIBoxes className='' title={fellowshipKPIs.jobsCreated} subtitle='Jobs Created' />
+          </Col>
+        </Row>
+      </Container>
+
+
+      {/* testimonials */}
+      <Container fluid className="background--grey">
+        <Row className="my-5">
+          <Col xs={12} className="m-auto">
+            <Container className="double-border--brand my-5">
+              <div ref={refCallback} className="keen-slider d-flex align-items-center">
+                <div className="keen-slider__slide">
+                  <p className="text-center text--white mb-1 mt-3">
+                    Our company took advantage of all of the services. They were incredibly helpful and well-timed for us.
+                  </p>
+                  <p className='text-center fst-italic text-white mb-3'> 
+                  {/* changed text from grey to white for better contrast, but lighter grey is probably better */}
+                    Kirsten Moorefield
+                  </p>
+                </div>
+                <div className="keen-slider__slide">
+                  <p className="text-center text--white mb-1 mt-3">
+                    The Fellowship Program has been an incredible resource in Kentucky as WeatherCheck grows. Our team utilized many of the resources offered while we were in the program.
+                  </p>
+                  <p className='text-center fst-italic text-white mb-3'>
+                    Demetrius Gray
+                  </p>
+                </div>
+                <div className="keen-slider__slide">
+                  <p className='text-center text--white mb-1 mt-3'>
+                    The network I've developed through the Fellowship program includes some of my most trusted advisors as well as my lead investors.
+                  </p>
+                  <p className='text-center fst-italic text-white mb-3'>
+                    Josh Lau
+                  </p>
+                </div>
+              </div>
+            </Container>
+          </Col>
+        </Row>
+      </Container>
+      
       {/* perks, portfolio and mentors */}
-      <Container>
-        <Row>
-          <Col className="mx-auto my-2" xs={12} sm={{ offset: 1, span: 10}} lg={{ offset: 3, span: 6}} >
-            <Row className=''>
+      <Container className='py-5'>
+        <Row className=''>
               <Col className="m-auto text-center" >
                 {/* <div > */}
                 <motion.div initial={{ opacity: 0, y: 50 }}
@@ -172,15 +224,11 @@ const FellowshipPage = ({ data }) => {
                 {/* </div> */}
               </Col>
 
-            </Row>
-          </Col>
         </Row>
       </Container>
-      <Container>
-        <KPIBoxes title='title' subtitle='subtitle' />
-      </Container>
+
       {/* how it works */}
-      <Container>
+      <Container fluid className='py-3 d-flex justify-content-center align-items-center' style={{backgroundColor: '#E6E7E8'}}>
         <Row className="my-5">
           <Col xs={8} sm={6}>
           <a onClick={handleShow}  id="video-btn" href='#!'>
@@ -208,43 +256,6 @@ const FellowshipPage = ({ data }) => {
                         transition={{ delay: 0.5, duration: 1 }}>
             <StaticImage placeholder="blurred" src="../../images/arrow-red.png" alt="red arrow" width={150}/>
             </motion.div>
-          </Col>
-        </Row>
-      </Container>
-
-      {/* testimonials */}
-      <Container fluid className="background--grey">
-        <Row className="my-5">
-          <Col xs={12} className="m-auto">
-            <Container className="double-border--brand my-5">
-              <div ref={refCallback} className="keen-slider d-flex align-items-center">
-                <div className="keen-slider__slide">
-                  <p className="text-center text--white mb-1 mt-3">
-                    Our company took advantage of all of the services. They were incredibly helpful and well-timed for us.
-                  </p>
-                  <p className='text-center fst-italic text-white mb-3'> 
-                  {/* changed text from grey to white for better contrast, but lighter grey is probably better */}
-                    Kirsten Moorefield
-                  </p>
-                </div>
-                <div className="keen-slider__slide">
-                  <p className="text-center text--white mb-1 mt-3">
-                    The Fellowship Program has been an incredible resource in Kentucky as WeatherCheck grows. Our team utilized many of the resources offered while we were in the program.
-                  </p>
-                  <p className='text-center fst-italic text-white mb-3'>
-                    Demetrius Gray
-                  </p>
-                </div>
-                <div className="keen-slider__slide">
-                  <p className='text-center text--white mb-1 mt-3'>
-                    The network I've developed through the Fellowship program includes some of my most trusted advisors as well as my lead investors.
-                  </p>
-                  <p className='text-center fst-italic text-white mb-3'>
-                    Josh Lau
-                  </p>
-                </div>
-              </div>
-            </Container>
           </Col>
         </Row>
       </Container>
@@ -329,6 +340,13 @@ query {
       sponser
       sponserWebsite
       _rawSponserLogo(resolveReferences: {maxDepth: 10})
+    }
+  }
+  allSanityFellowshipKpIs(sort: {_updatedAt: DESC}) {
+    nodes {
+      companiesServed
+      investmentRaised
+      jobsCreated
     }
   }
 }
