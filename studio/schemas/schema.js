@@ -13,7 +13,6 @@ import imageTestimonials from './objects/imageTestimonials'
 // Document types
 import category from './documents/category'
 import teamMember from './documents/teamMember'
-import sampleProject from './documents/sampleProject'
 import siteSettings from './documents/siteSettings'
 import bootcampAlumni from './documents/bootcampAlumni'
 import events from './documents/events'
@@ -64,9 +63,7 @@ export default [
     imageTestimonials,
     // The following are document types which will appear
     // in the studio.
-    category,
     teamMember,
-    sampleProject,
     siteSettings,
     blog,
     blogAuthor,
