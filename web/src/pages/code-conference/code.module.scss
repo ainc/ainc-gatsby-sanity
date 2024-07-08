@@ -91,3 +91,35 @@
     width: 95%;
     text-align: center;
 }
+
+li {
+    font-size: 16px;
+}
+
+.questions {
+    background: url(../../images/bootcamp/faq-bg.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    min-width: 100%;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    min-height: 45vh;
+}
+
+.waitlist-iframe{
+    @media (min-width: 768px) {
+          width: 50%; /* Adjust the width for screens larger than md */
+    }
+}
+
+
+.phone {
+    width: 50%;
+    @include screen-sm {
+        display:none;
+    }
+    @include screen-xs {
+        display: none;
+    }
+}
