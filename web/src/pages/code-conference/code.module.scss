@@ -6,6 +6,18 @@
     background-size: cover;
     position: relative;
     min-width: 100%;
+
+    @include screen-sm {
+        min-height: 650px;
+    }
+    @include screen-xs {
+        min-height: 680px;
+        background-position: center;
+    }
+    @include screen-md {
+        background-position: center;
+    }
+    
 }
 
 .course-description {
@@ -67,7 +79,7 @@
     min-width: 100%;
     padding-top: 60px;
     @include screen-sm {
-        background-position: bottom;
+        //background-position: bottom;
         background-size: 100%;
     }
     @include screen-xs {
@@ -76,5 +88,6 @@
 }
 
 .card {
-    width: fit-content;
+    width: 95%;
+    text-align: center;
 }
