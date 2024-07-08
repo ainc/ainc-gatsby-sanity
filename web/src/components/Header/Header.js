@@ -95,7 +95,7 @@ const Header = () => {
               <Nav.Link href="/learn" className="text--white">Learn To Code  <AiFillCaretDown size={10}/></Nav.Link>
               <div className='hover-options'>
                 <a href="/bootcamp" className='pt-0'>Web Dev Bootcamp</a>
-                <a href="/learn/youth/code/" >Youth Courses</a>
+                <a href="/learn/youth/code/">Youth Courses</a>
                 <a href="/learn/adults">Adult Courses</a>
                 <a href="/weekofcode">Kids Camps</a>
                 <a href="/salesforce">Salesforce Career Accelerator</a>
