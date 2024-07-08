@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import Title from '../../components/UI/Title/Title';
-import Subtitle from '../../components/UI/Subtitle/Subtitle';
+import Title from '../../components/UI/Title/Title.js';
+import Subtitle from '../../components/UI/Subtitle/Subtitle.js';
 import { StaticImage } from 'gatsby-plugin-image'
-import Layout from "../../components/Layout/Layout";
+import Layout from "../../components/Layout/Layout.js";
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import * as styles from "./code.module.scss"
