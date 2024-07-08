@@ -1,7 +1,7 @@
-@import '../../styles/mixins.scss';
+@import '../../../styles/mixins.scss';
 
 .header {
-    background-image: url(../../images/learn/youth-header.png);
+    background-image: url(../../../images/learn/youth-header.png);
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -72,7 +72,7 @@
 }
 
 .club-membership {
-    background-image: url(../../images/learn/Youth_Membership_BG.png);
+    background-image: url(../../../images/learn/Youth_Membership_BG.png);
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -97,7 +97,7 @@ li {
 }
 
 .questions {
-    background: url(../../images/bootcamp/faq-bg.jpg);
+    background: url(../../../images/bootcamp/faq-bg.jpg);
     background-repeat: no-repeat;
     background-size:cover;
     background-position: center;
