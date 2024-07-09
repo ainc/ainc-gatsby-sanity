@@ -1,4 +1,5 @@
 // Load variables from `.env` as soon as possible
+console.log(process.env.NODE_ENV)
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV || 'production'}`
 })
@@ -23,6 +24,28 @@ module.exports = {
       resolve: 'gatsby-plugin-sharp',
       options: {
         placeholder: `dominantColor`,
+      }
+    },
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        "projectId": "y716vocf",
+        "dataset": "development",
+
+        token,
+        watchMode: !isProd,
+        overlayDrafts: !isProd && token,
+      }
+    },
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        "projectId": "y716vocf",
+        "dataset": "production",
+
+        token,
+        watchMode: !isProd,
+        overlayDrafts: !isProd && token,
       }
     },
     {
