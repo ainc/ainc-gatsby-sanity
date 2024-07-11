@@ -29,28 +29,6 @@ module.exports = {
     {
       resolve: 'gatsby-source-sanity',
       options: {
-        "projectId": "y716vocf",
-        "dataset": "development",
-
-        token,
-        watchMode: !isProd,
-        overlayDrafts: !isProd && token,
-      }
-    },
-    {
-      resolve: 'gatsby-source-sanity',
-      options: {
-        "projectId": "y716vocf",
-        "dataset": "production",
-
-        token,
-        watchMode: !isProd,
-        overlayDrafts: !isProd && token,
-      }
-    },
-    {
-      resolve: 'gatsby-source-sanity',
-      options: {
         ...clientConfig.sanity,
         token,
         watchMode: !isProd,
