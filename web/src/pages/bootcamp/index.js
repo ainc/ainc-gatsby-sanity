@@ -255,7 +255,7 @@ const BootcampPage = props => {
               <h4 className= "text-start white mt-4 fw-lighter d-none d-md-block"><b>Hate your job? Our in-person 16-week bootcamp helps you master full stack development, get access to 1:1 mentorship, and land a job in 6 months or we'll refund your tuition.</b></h4>
             </Col>
             <Col md={7} className='d-flex justify-content-center justify-content-md-end'>
-              {/*<ApplyForm />*/}
+              <ApplyForm />
             </Col>
           </Row>
           </Container>
@@ -660,13 +660,13 @@ const BootcampPage = props => {
               </Col>
           </Row>
           <Row>
-              <Col /* xs={12} sm ={12}  md={4} lg={3} xl={3} */ className={` ${styles.bootcampUpcomingdates} text-center ms-auto my-4 d-none d-sm-block`}> {/*Hidden on mobile*/}
+              <Col xs={12} sm ={12}  md={4} lg={3} xl={3}  className={` ${styles.bootcampUpcomingdates} text-center ms-auto my-4 d-none d-sm-block`}> {/*Hidden on mobile*/}
                 <Title className="text-center text--medium fw-bolder">{data.sanityBootcamp.previousStartDate}</Title>
                 <h4>TO</h4>
                 <Title className="text-center text--medium fw-bolder">{data.sanityBootcamp.previousEndDate}</Title>
                 <BrandButton className="secondary btn--small my-2" disabled="">APPLICATIONS CLOSED</BrandButton>
               </Col>
-              {/*
+              
 
               <Col xs={12} sm={12} md={4} lg={3} xl={3} className="text-center  me-auto my-4">
                 <Title className="text-center text--medium brand fw-bolder">{data.sanityBootcamp.upcomingStartDate}</Title>
@@ -674,7 +674,7 @@ const BootcampPage = props => {
                 <Title className="text-center text--medium brand fw-bolder">{data.sanityBootcamp.upcomingEndDate}</Title>
                 <a href="#header"><BrandButton className="justify-content-center btn--small my-2" disabled="">APPLY NOW</BrandButton></a>
               </Col>
-              */}
+              
           </Row>
         </Container>
       </section>

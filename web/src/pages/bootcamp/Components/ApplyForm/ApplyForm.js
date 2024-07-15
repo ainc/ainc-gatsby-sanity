@@ -71,7 +71,7 @@ const ApplyForm = () => {
                     </select>
                 </div>
                 <Row className='mt-3 mx-1' style={{display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
-                    <BrandButton type='submit'>Apply Now</BrandButton>
+                    <BrandButton type='submit'>Join the Waitlist</BrandButton>
                 </Row>
                 </form>
                 <Row className='d-flex justify-content-center align-items-center my-3'>
