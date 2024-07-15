@@ -1,4 +1,5 @@
 // Load variables from `.env` as soon as possible
+console.log(process.env.NODE_ENV)
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV || 'production'}`
 })

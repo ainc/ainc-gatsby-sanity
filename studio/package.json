@@ -8,6 +8,7 @@
     "dev": "sanity dev",
     "build": "sanity build",
     "start": "sanity start",
+    "clone": "sanity dataset export production production && sanity dataset import production/production.tar.gz development --replace",
     "format": "prettier-eslint --write \"**/*.js\" \"!node_modules/**\"",
     "graphql-deploy": "sanity graphql deploy --playground",
     "lint": "eslint .",
