@@ -67,5 +67,3 @@ yarn.lock
 # Yarn Integrity file
 .yarn-integrity
 
-# Secrets
-.env.development
