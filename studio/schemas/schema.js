@@ -13,7 +13,6 @@ import imageTestimonials from './objects/imageTestimonials'
 // Document types
 import category from './documents/category'
 import teamMember from './documents/teamMember'
-import sampleProject from './documents/sampleProject'
 import siteSettings from './documents/siteSettings'
 import bootcampAlumni from './documents/bootcampAlumni'
 import events from './documents/events'
@@ -49,6 +48,7 @@ import whatWeDo from './documents/whatWeDo'
 import fiveAcrossTestimonials from './documents/fiveAcrossTestimonials'
 import bootcampImageTestimonials from './documents/bootcampImageTestimonials'
 import alumniTestimonials from './documents/alumniTestimonials'
+import fellowshipKPIs from './documents/fellowshipKPIs'
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
     bioPortableText,
@@ -63,9 +63,7 @@ export default [
     imageTestimonials,
     // The following are document types which will appear
     // in the studio.
-    category,
     teamMember,
-    sampleProject,
     siteSettings,
     blog,
     blogAuthor,
@@ -102,5 +100,6 @@ export default [
     imageSlider,
     bootcampImageTestimonials,
     alumniTestimonials,
+    fellowshipKPIs
   ]
 

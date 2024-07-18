@@ -665,14 +665,16 @@ const BootcampPage = props => {
                 <h4>TO</h4>
                 <Title className="text-center text--medium fw-bolder">{data.sanityBootcamp.previousEndDate}</Title>
                 <BrandButton className="secondary btn--small my-2" disabled="">APPLICATIONS CLOSED</BrandButton>
-
               </Col>
+              
+
               <Col xs={12} sm={12} md={4} lg={3} xl={3} className="text-center  me-auto my-4">
                 <Title className="text-center text--medium brand fw-bolder">{data.sanityBootcamp.upcomingStartDate}</Title>
                 <h4 className="brand">TO</h4>
                 <Title className="text-center text--medium brand fw-bolder">{data.sanityBootcamp.upcomingEndDate}</Title>
                 <a href="#header"><BrandButton className="justify-content-center btn--small my-2" disabled="">APPLY NOW</BrandButton></a>
               </Col>
+              
           </Row>
         </Container>
       </section>

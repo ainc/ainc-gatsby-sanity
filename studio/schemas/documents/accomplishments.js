@@ -13,7 +13,7 @@ export default {
       name: 'title',
       type: 'string',
       title: 'Title',
-      initialValue: 'Accomplishments Header',
+      initialValue: 'Accomplishments',
       hidden: true
     },
     {
