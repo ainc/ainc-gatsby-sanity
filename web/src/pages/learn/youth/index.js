@@ -41,14 +41,6 @@ const YouthPage = () => {
                             </Container>
                             
                         </Col>
-                        <Col sm={6} md={{ span: 5 }} lg={{ span: 4, offset: 1 }} xl={{ span: 0, offset: 7 }} className='position-relative'>
-                            <div className={styles.programGuide}>
-                                <YouthProgramGuide />
-                            </div>
-                        </Col>
-                        <Row className='px-auto'>
-                            <BrandButton className={`d-block d-md-none ${styles.otherButton}`} onClick={() => lgShow === true ? setLgShow(false) : setLgShow(true)}>program guide</BrandButton>
-                        </Row>
                     </Row>
                 </Container>
                 <Container>
@@ -69,7 +61,7 @@ const YouthPage = () => {
                         <Col className={styles.fun} md={{ offset: 1, span: 6 }} lg={{ offset: 2, span: 5 }} xl={{ offset: 2, span: 5 }}>
                             <Title className='mt-5 text-uppercase text-start'>coding should be fun!</Title>
                             <p className='text-start'>Your kids will love learning to code while building video games, mobile apps, and websites!</p>
-                            <a href='#join'>
+                            <a href='https://www.eventbrite.com/e/coding-club-fall-2024-code-your-own-video-game-tickets-944545831007'>
                                 <BrandButton className='mb-3 text-uppercase'>join the club</BrandButton>
                             </a>
                         </Col>
@@ -87,39 +79,7 @@ const YouthPage = () => {
                             <Title className={` ${styles.engagedTitle} mt-5 text-uppercase ml-4 text-white`}>keep your kids engaged</Title>
                             <p className='text-start'>Your kids will have the support of our instructors - professional coders just a step, or a click away!</p>
                             <BrandButton onClick={handleShow} className='mb-5 text-uppercase'>meet the team</BrandButton>
-                            <Container>
-                                <ModalCustom 
-                                    lgShow={lgShow}
-                                    hide={handleClose}
-                                    title="Coding Club Program Guide"
-                                    bgDark={true}
-                                    content={
-                                        <Container>
-                                            <Form>
-                                                <Container className={styles.modal}>
-                                                    <Row className=''>
-                                                        <Form.Group className='pt-3 ' constrolId='formFirstName'>
-                                                            <Form.Control type='text' placeholder="First Name" required/>
-                                                        </Form.Group>
-                                                        <Col>
-                                                            <Form.Group className='pt-3 mb-3' constrolId='formLastName'>
-                                                                <Form.Control className='mb-3' type='text' placeholder="Last Name" required/>
-                                                            </Form.Group>
-                                                        </Col>
-                                                    </Row>
-                                                    <Form.Group className='mb-3' constrolId='formPhoneNumber'>
-                                                        <Form.Control className='mb-3' type='text' placeholder="Phone Number" required/>
-                                                    </Form.Group>
-                                                    <Form.Group className='mb-3' constrolId='formInputEmail'>
-                                                        <Form.Control className='mb-3' type='email' placeholder="Email Address" required/>
-                                                    </Form.Group>
-                                                    <BrandButton className='mb-3 text-uppercase'>Download</BrandButton>
-                                                </Container>
-                                            </Form>
-                                        </Container>
-                                    }
-                                />
-                            </Container>
+                            
                         </Col>
                     </Row>
                 </Container>
@@ -131,7 +91,7 @@ const YouthPage = () => {
                                 Coding is like a choose-your-own-adventure for kids who love technology! They'll have a blast
                                 developing their skills as they move through the specially designed pathways our team has created.
                             </p>
-                            <a href='#join'>
+                            <a href='https://www.eventbrite.com/e/coding-club-fall-2024-code-your-own-video-game-tickets-944545831007'>
                                 <BrandButton className='mb-3 text-uppercase'>
                                     join the club
                                 </BrandButton>
@@ -151,7 +111,7 @@ const YouthPage = () => {
                             </p>
                             <p><strong>Note:</strong> The Coding Club runs from September - May, taking a break during the summer.
                                 You can still sign up to reserve a spot if you are applying during the summer.</p>
-                            <a href='#join'>
+                            <a href='https://www.eventbrite.com/e/coding-club-fall-2024-code-your-own-video-game-tickets-944545831007'>
                                 <BrandButton className='mb-3 text-uppercase'>join the club</BrandButton></a>
 
                         </Col>
@@ -185,13 +145,13 @@ const YouthPage = () => {
                         </Col>
                     </Row>
                 </Container>
-                <section id='join'>
+                {/* <section id='join'>
                     <Container fluid='md' className={` ${styles.clubMembership}`}>
                         <Title className='text-center text-uppercase text-white pt-5'>coding club membership</Title>
                         <p className='mb-5 text-white text-center'>The coding club is currently taking a break. If you have an interested student, please fill out this form and we will let you know if anything changes.</p>
                         <div className='d-flex justify-content-center align-items-center'>
                             <iframe frameborder="0" className={styles.waitlistIframe} style={{height:'500px', border:'none', backgroundColor: 'transparent'}} src="https://forms.zohopublic.com/virtualoffice9155/form/YouthWaitlist/formperma/JYcInu3QDQ0CdIzfwqoouSab5htBYC95LprfIvNMozM?gclid=undefined"></iframe>
-                        </div>
+                        </div> */}
                        {/* Saving for later if coding club comes back */}
                         {/*
                         <p className='mb-5 text-white text-center'><strong>Note:</strong> The Coding Club runs from September - May, taking a break in the summer.
@@ -247,8 +207,8 @@ const YouthPage = () => {
                             </Col>
                         </Row>
                     */}
-                    </Container>
-                </section>
+                    {/* </Container>
+                </section> */}
                 <Container className={styles.questions}>
                     <Title className='text-white text-center mt-5 pt-5 pb-4'>Still have questions?</Title>
                     <Col xs={{ offset: 3, span: 6 }} sm={{ offset: 3, span: 6 }} md={{ offset: 4, span: 4 }} lg={{ offset: 3, span: 6 }}>
