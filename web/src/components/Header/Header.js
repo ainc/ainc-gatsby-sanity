@@ -274,12 +274,12 @@ const Header = () => {
               </Navbar>
             </Row>
           {useLocation().pathname === '/bootcamp/' && (
-            <Col className="desktop" style={{paddingLeft: "8%",}}>
+            <Col className="desktop" style={{paddingLeft: "4%",}}>
                 <a href='#header' className=""><BrandButton style={{padding: '1.5 rem 2 rem', fontSize: '1.25rem'}}>Apply Now</BrandButton></a>
             </Col>
           )}
           {useLocation().pathname === '/learn/youth/code/' && (
-            <Col className="desktop" style={{paddingLeft: "8%",}}>
+            <Col className="desktop" style={{paddingLeft: "4%",}}>
                 <a href='#call' className=""><BrandButton style={{padding: '1.5 rem 2 rem', fontSize: '1.25rem'}}>Book a Call</BrandButton></a>
             </Col>
           )}
