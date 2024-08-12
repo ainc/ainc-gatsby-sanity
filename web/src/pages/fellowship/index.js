@@ -267,7 +267,9 @@ const FellowshipPage = ({ data }) => {
             <Title className='text-center mb-4'>Our Approach</Title>
             <StaticImage placeholder="blurred" className={styles.img} src='../../images/approach.png' alt="Fellowship approach diagram" />
           </Col>
-          <Col className="d-flex align-items-center mx-5">
+          
+          {/* For larger screens, more spacing */}
+          <Col className="d-flex align-items-center mx-5 d-none d-md-flex">
             <Container>
               <Row className='my-4'>
                   <Title className="fs-5" style={{"letterSpacing": "0rem"}}>Our Fellowship program provides:</Title>
@@ -288,6 +290,30 @@ const FellowshipPage = ({ data }) => {
               </Row>
             </Container>
           </Col>
+
+          {/* For Smaller screens, less spacing */}
+          <Col className="d-flex align-items-center mx-0 d-md-none">
+            <Container>
+              <Row className='my-4'>
+                  <Title className="fs-5" style={{"letterSpacing": "0rem"}}>Our Fellowship program provides:</Title>
+              </Row>
+              <Row>
+                <div className="fs-6" style={{"letterSpacing": "0rem"}}>
+                  <motion.div initial={{ opacity: 0 }}
+                              whileInView={{ opacity: 1 }}
+                              transition={{ delay: 0.5, duration: 1 }}>
+                  <ul>
+                    <li className="my-2">Access to our network of over 85 mentors</li>
+                    <li className="my-2">Web development, video, and graphic design services</li>
+                    <li className="my-2">24/7 Access to Awesome Inc co-working space</li>
+                    <li className="my-2">Access to pro bono legal and accounting services</li>
+                  </ul>
+                  </motion.div>
+                </div>
+              </Row>
+            </Container>
+          </Col>
+
         </Row>
         <Row className="mt-5">
           <Col className="d-flex justify-content-center">
