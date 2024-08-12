@@ -5,6 +5,7 @@ import { useKeenSlider } from 'keen-slider/react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Container, Row, Col } from 'react-bootstrap'
 import { motion } from "framer-motion";
+import { FaPlay } from "react-icons/fa";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import ApplyNowModal from "./Components/ApplyNowModal";
 import Layout from '../../components/Layout/Layout'
@@ -221,7 +222,15 @@ const FellowshipPage = ({ data }) => {
       {/* how it works */}
       <Container fluid className='py-3 d-flex justify-content-center align-items-center' style={{backgroundColor: '#E6E7E8'}}>
         <Row className="my-5">
-          <Col xs={8} sm={6}>
+          {/* For Small Screens/Mobile, External Link*/}
+          <Col xs={8} sm={6} className="d-md-none">
+            <a href="https://www.youtube.com/watch?v=IlLYF7VwiD8"  target="_blank" rel="noopener noreferrer">
+              <StaticImage placeholder="blurred" src="../../images/fellowship-video-macbook.png" className="position-relative" alt="Macbook with video"/>  
+            </a>
+          </Col>
+
+          {/* For Larger Screens, Display Modal */}
+          <Col xs={8} sm={6} className="d-none d-md-flex">
           <a onClick={handleShow}  id="video-btn" href='#!'>
             <StaticImage placeholder="blurred" src="../../images/fellowship-video-macbook.png" className="position-relative" alt="Macbook with video"/>
           </a>
