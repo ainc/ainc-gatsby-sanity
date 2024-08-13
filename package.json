@@ -7,6 +7,7 @@
     "export-db": "cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN sanity dataset export production ./production.tar.gz",
     "import-db": "cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN sanity dataset import ./production.tar.gz dev --replace",
     "deploy-graphql": "cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN sanity graphql deploy",
+    "clone": "sanity dataset export production production && sanity dataset import production/production.tar.gz development --replace",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
