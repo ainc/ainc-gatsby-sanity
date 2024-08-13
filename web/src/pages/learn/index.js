@@ -45,7 +45,7 @@ const LearnPage = ({ data }) => {
     <Layout jsImport={ZohoSales}>
       {/* Header section */}
      
-      <Container fluid>
+      <Container fluid className="py-3">
         <Row>
           <Col>
             <StaticImage placeholder="blurred" src="../../images/macbook-code-learn.png" alt="Coding laptop" />
@@ -87,7 +87,7 @@ const LearnPage = ({ data }) => {
           <Col xs={{span: 10, offset: 1 }}>
           
         <Row>
-          <Col xs={12} sm={6} md={{ span: 6 }}>
+          <Col xs={12} sm={6} md={{ span: 6 }} className="pb-3">
             {/* Future styling */}
             <Title className={` brand text-center`}>A Course For Everyone</Title>
             <p className="text-black subtitle fw-bold text-uppercase text-center">Join one now</p>
@@ -95,19 +95,19 @@ const LearnPage = ({ data }) => {
               Whether you are an adult looking to make a career change or have a child that wants to learn how to build apps and video games, we have a class for you. You don't need to be a genius to learn how to code. All you need is determination. Our courses have helped launch people into new careers in tech and prepared students to study Computer Science through college and beyond.
             </p>
           </Col>
-          <Col xs={12} sm={{ span: 5}} md={{ span: 6 }}>
+          <Col xs={12} sm={{ span: 5}} md={{ span: 6 }} className="py-3">
             <ImageOutline>
               <StaticImage placeholder="blurred" src='../../images/student-learn-to-code-shirt.jpg' alt='learn to code' />
             </ImageOutline>
           </Col>
         </Row>
         <Row className="mt-5">
-          <Col xs={12} sm={{ span: 5}}>
+          <Col xs={12} sm={{ span: 5}} className="pb-3">
             <ImageOutline>
               <StaticImage placeholder="blurred" src='../../images/student-learn-to-code-week-of-code.jpg' alt='learn to code youth classes' />
           </ImageOutline>
           </Col>
-          <Col xs={12} sm={{ span: 5 }}>
+          <Col xs={12} sm={{ span: 5 }} className="pt-3">
             <Title className="brand text-normal text-left">Youth</Title>
             <p className="text-black subtitle--small fw-bold text-left">Build apps, games, and websites with friends.</p>
             <p className="text-left mb-2">
@@ -120,7 +120,7 @@ const LearnPage = ({ data }) => {
           </Col>
         </Row>
         <Row className="mt-5">
-          <Col xs={12} sm={{ span: 6}}>
+          <Col xs={12} sm={{ span: 6}} className="py-3">
             <Title className="brand text-normal text-end">Adult</Title>
             <p className="text-black fw-bold text-end">
               Launch your new career or learn a new skill.
@@ -133,7 +133,7 @@ const LearnPage = ({ data }) => {
             </a>
            
           </Col>
-          <Col xs={12} sm={{ span: 5}}>
+          <Col xs={12} sm={{ span: 5}} className="py-3">
             <ImageOutline>
               <StaticImage placeholder="blurred" src='../../images/learn/adult-coding-laptop.jpeg' alt='learn to code' />
             </ImageOutline>
@@ -218,7 +218,7 @@ const LearnPage = ({ data }) => {
       
       <section className={styles.learnPress}>
 
-      <Container fluid="md">
+      <Container fluid="md" className="py-3">
                         <Row>
                             <Col>
                             <Title className="brand text-center text-uppercase">As Seen On</Title>
