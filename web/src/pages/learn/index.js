@@ -54,13 +54,29 @@ const LearnPage = ({ data }) => {
             <Title className="brand text-uppercase" >Learn to Code</Title>
             <p className="fst-italic">with Awesome Inc</p>
             <a href="../learn/youth/code">
-              <BrandButton className="secondary mr-3 my-3">Youth</BrandButton>
+              <BrandButton className="secondary mr-3 my-3 d-none d-md-inline-flex">Youth</BrandButton>
             </a>
-            <a href="../learn/adults">
-              <BrandButton className="secondary mx-3 ">Adult</BrandButton>
+
+            {/* For larger screens */}
+            <a href="../learn/adults" className="d-none d-md-inline-flex">
+              <BrandButton className="secondary mx-3">Adult</BrandButton>
             </a>
-           
           </Col>
+
+        </Row>
+        {/* For smaller screens*/}
+        <Row className="d-md-none pb-3">
+          <Col className="d-flex justify-content-center">
+            <a href="../learn/youth/code" className='d-inline-block'>
+              <BrandButton className="secondary pl-3">Youth</BrandButton>
+            </a>
+          </Col>
+          <Col className="d-flex justify-content-center">
+            <a href="../learn/adults" className='d-inline-block'>
+              <BrandButton className="secondary ">Adult</BrandButton>
+            </a>
+          </Col>
+
         </Row>
       </Container>
 
