@@ -38,7 +38,12 @@ const AboutPage = ({ data }) => {
                  <motion.div initial={{ opacity: 0}}
                       animate={{ opacity: 1}}
                       transition={{ delay: 0.5, duration: 1 }}>
-                  <Title className={`mt-5 fw-bold text--big`}>
+                  {/* Large Screens */}
+                  <Title className={`mt-5 fw-bold fs-1 text--big d-none d-md-flex`}>
+                    We exist to help people pursue their definition of awesome.
+                  </Title>
+                  {/* Mobile/Small Screens */}
+                  <Title className={`mt-2 fw-bold fs-1 d-md-none`}>
                     We exist to help people pursue their definition of awesome.
                   </Title>
                   <p className={`fs-6 mt-2 mb-5`}>
