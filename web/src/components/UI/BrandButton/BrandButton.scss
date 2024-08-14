@@ -19,7 +19,7 @@
   border-radius: 4px;
   position: relative;
   @media only screen and (max-width: $screen-xs) {
-    font-size: 0.6rem/* use the mobile font size variable here */;
+    font-size: 0.75rem/* use the mobile font size variable here */;
     padding: 0.3rem 1rem;
   }
   &.disabled,

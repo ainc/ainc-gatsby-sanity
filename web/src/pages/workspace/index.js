@@ -191,13 +191,19 @@ const WorkspacePage = () => {
             </Col>
           </Row>
           <Container fluid className='my-3'>
+            {/* Larger Screens*/}
             <Row>
               <Col>
               
                 <a href='https://calendly.com/awesometour/30min?' target="_blank">
-                <Button className={styles.btnCustom}>
-                  Schedule A Tour
-                </Button>
+                  {/* Large Screens*/ }
+                  <Button className={`${styles.btnCustom} d-none d-md-inline`}>
+                    Schedule A Tour
+                  </Button>
+
+                  {/* Small Screens */}
+                  <BrandButton className="d-md-none fs-5">Schedule A Tour</BrandButton>
+              
                 </a>
               </Col>
 
@@ -224,6 +230,8 @@ const WorkspacePage = () => {
                 />
                 */}
             </Row>
+            
+            
           </Container>
         </Container>
       </section>
