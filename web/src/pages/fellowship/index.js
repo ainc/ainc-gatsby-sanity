@@ -153,7 +153,8 @@ const FellowshipPage = ({ data }) => {
       </Container>
       
       {/* perks, portfolio and mentors */}
-      <Container className='py-5'>
+      {/* Conatiner for large screens */}
+      <Container className='py-5 d-none d-md-block'>
         <Row className=''>
               <Col className="m-auto text-center" >
                 {/* <div > */}
@@ -217,6 +218,70 @@ const FellowshipPage = ({ data }) => {
               </Col>
 
         </Row>
+      </Container>
+
+      {/* Perks, Mentors, Portfolio Container for smaller screens */}
+      <Container className="d-md-none pb-5">
+          <Row className="m-auto text-center mb-1" >
+                {/* <div > */}
+                <motion.div initial={{ opacity: 0, y: 50 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.5, duration: 1 }}>
+                <a href="/fellowship/perks" aria-label="Perks of the fellowship">
+                <StaticImage placeholder="blurred" 
+                  className='mx-auto d-block img-fluid' 
+                  quality='100' 
+                  src='../../assets/svg/perks.svg' 
+                  alt="Devices icon"
+                  layout='fixed'
+                />
+                </a>
+                <a href="/fellowship/perks" aria-label="Perks of the fellowship">
+                  <BrandButton className={`text-center mt-2`}>Perks</BrandButton>
+                </a>
+                </motion.div>
+                {/* </div> */}
+              </Row>
+              <Row className="m-auto text-center mb-3" >
+              {/* <div className="m-auto text-center text-wrap"> */}
+              <motion.div initial={{ opacity: 0, y: -50 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.5, duration: 1 }}>
+              <a href="/mentors" aria-label="Mentors of the fellowship">
+                <StaticImage placeholder="blurred" 
+                  className='mx-auto d-block img-fluid' 
+                  quality='100' 
+                  src='../../assets/svg/mentors.svg' 
+                  alt="Devices icon"
+                  layout='fixed'
+                />
+                </a>
+                <a href="/mentors" aria-label="Mentors of the fellowship">
+                  <BrandButton className={` text-center mt-2`}>Mentors</BrandButton>
+                </a>
+                </motion.div>
+                {/* </div> */}
+              </Row>
+              <Row className="m-auto text-center" >
+              {/* <div className="m-auto text-center"> */}
+              <motion.div initial={{ opacity: 0, y: 50 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.5, duration: 1 }}>
+                <a href="/fellowship/portfolio" aria-label="Read our fellowship portfolio">
+                  <StaticImage placeholder="blurred" 
+                    className='mx-auto d-block img-fluid' 
+                    quality='100' 
+                    src='../../assets/svg/portfolio.svg' 
+                    alt="Devices icon"
+                    layout='fixed'
+                  />
+                </a>
+                <a href="/fellowship/portfolio" aria-label="Read our fellowship portfolio">
+                  <BrandButton className={`text-center mt-2`} >Portfolio</BrandButton>
+                </a>
+                </motion.div>
+                {/* </div> */}
+              </Row>
       </Container>
 
       {/* how it works */}
