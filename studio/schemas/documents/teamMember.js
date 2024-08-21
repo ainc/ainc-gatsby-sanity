@@ -31,7 +31,21 @@ export default {
       name: 'teamInfo',
       title: 'Team Member Info',
       type: 'internalTeamMember'
-    }
+    },
+    {
+      name: 'Member Priority',
+      type: 'array',
+      title: 'priority',
+      of: [{type: 'string'}],
+      options: {
+        layout: 'checkbox',
+        list: [
+          {title: 'High', value: 'high'},
+          {title: 'Middle', value: 'mid'},
+          {title: 'Intern', value: 'intern'}
+        ]
+      }
+    },
   ],
   preview: {
     select: {
