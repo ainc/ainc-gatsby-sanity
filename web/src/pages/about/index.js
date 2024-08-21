@@ -66,7 +66,7 @@ const AboutPage = ({ data }) => {
                       transition={{ delay: 0.5, duration: 1 }}>
               <Image className={`${styles.headerImg}`} src={coreValues} alt="core-values" />
               </motion.div>
-              <Col className="col-sm-8 col-10">
+              <Col className="d-flex justify-content-center">
                 <a href="/assets/core-values.pdf">
                 <BrandButton className={`text-nowrap`}>
                   Read About Our Core Values
