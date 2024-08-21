@@ -33,9 +33,10 @@ export default {
       type: 'internalTeamMember'
     },
     {
-      name: 'Member Priority',
+      name: 'MemberPriority',
       type: 'array',
       title: 'priority',
+      validation: Rule => Rule.required(),
       of: [{type: 'string'}],
       options: {
         layout: 'checkbox',
