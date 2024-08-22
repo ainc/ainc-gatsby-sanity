@@ -166,7 +166,7 @@ const AboutPage = ({ data }) => {
                         image={
                           node.picture.asset.gatsbyImageData
                         }
-                        name={node.name}
+                        name={node.name + " " + node.priority}
                         alt={node.name}
                         
                       />
@@ -219,9 +219,10 @@ export const query_accomplishments = graphql`
         }
       }
     }
-    allSanityTeamMember(sort: {_updatedAt: DESC}){
+    allSanityTeamMember(sort: {fields: priority, order: ASC}){
       nodes {
         name
+        priority
         picture {
           asset {
             gatsbyImageData(width: 200, fit: FILL)
