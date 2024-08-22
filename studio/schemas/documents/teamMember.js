@@ -31,7 +31,23 @@ export default {
       name: 'teamInfo',
       title: 'Team Member Info',
       type: 'internalTeamMember'
-    }
+    },
+    {
+      name: 'priority',
+      type: 'array',
+      title: 'Member Priority',
+      validation: Rule => Rule.required(),
+      of: [{type: 'string'}],
+      options:{
+        layout: 'checkbox',
+        list: [
+          {title: 'High', value: '0'},
+          {title: 'Middle', value: '1'},
+          {title: 'Intern', value: '3'}
+
+        ]
+      }
+    },
   ],
   preview: {
     select: {
