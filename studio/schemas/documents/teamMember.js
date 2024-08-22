@@ -38,12 +38,13 @@ export default {
       title: 'Member Priority',
       validation: Rule => Rule.required(),
       of: [{type: 'string'}],
-      options: {
+      options:{
         layout: 'checkbox',
         list: [
           {title: 'High', value: '0'},
           {title: 'Middle', value: '1'},
-          {title: 'Intern', value: '2'}
+          {title: 'Intern', value: '3'}
+
         ]
       }
     },
