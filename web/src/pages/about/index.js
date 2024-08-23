@@ -166,7 +166,7 @@ const AboutPage = ({ data }) => {
                         image={
                           node.picture.asset.gatsbyImageData
                         }
-                        name={node.name + " " + node.priority}
+                        name={node.name}
                         alt={node.name}
                         
                       />
