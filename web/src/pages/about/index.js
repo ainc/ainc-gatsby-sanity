@@ -38,7 +38,12 @@ const AboutPage = ({ data }) => {
                  <motion.div initial={{ opacity: 0}}
                       animate={{ opacity: 1}}
                       transition={{ delay: 0.5, duration: 1 }}>
-                  <Title className={`mt-5 fw-bold text--big`}>
+                  {/* Large Screens */}
+                  <Title className={`mt-5 fw-bold fs-1 text--big d-none d-md-flex`}>
+                    We exist to help people pursue their definition of awesome.
+                  </Title>
+                  {/* Mobile/Small Screens */}
+                  <Title className={`mt-2 fw-bold fs-1 d-md-none`}>
                     We exist to help people pursue their definition of awesome.
                   </Title>
                   <p className={`fs-6 mt-2 mb-5`}>
@@ -61,7 +66,7 @@ const AboutPage = ({ data }) => {
                       transition={{ delay: 0.5, duration: 1 }}>
               <Image className={`${styles.headerImg}`} src={coreValues} alt="core-values" />
               </motion.div>
-              <Col className="col-sm-8 col-10">
+              <Col className="d-flex justify-content-center">
                 <a href="/assets/core-values.pdf">
                 <BrandButton className={`text-nowrap`}>
                   Read About Our Core Values
@@ -214,9 +219,10 @@ export const query_accomplishments = graphql`
         }
       }
     }
-    allSanityTeamMember(sort: {_updatedAt: DESC}){
+    allSanityTeamMember(sort: {fields: priority, order: ASC}){
       nodes {
         name
+        priority
         picture {
           asset {
             gatsbyImageData(width: 200, fit: FILL)

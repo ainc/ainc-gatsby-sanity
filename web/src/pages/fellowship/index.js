@@ -5,6 +5,7 @@ import { useKeenSlider } from 'keen-slider/react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Container, Row, Col } from 'react-bootstrap'
 import { motion } from "framer-motion";
+import { FaPlay } from "react-icons/fa";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import ApplyNowModal from "./Components/ApplyNowModal";
 import Layout from '../../components/Layout/Layout'
@@ -152,7 +153,8 @@ const FellowshipPage = ({ data }) => {
       </Container>
       
       {/* perks, portfolio and mentors */}
-      <Container className='py-5'>
+      {/* Conatiner for large screens */}
+      <Container className='py-5 d-none d-md-block'>
         <Row className=''>
               <Col className="m-auto text-center" >
                 {/* <div > */}
@@ -218,10 +220,82 @@ const FellowshipPage = ({ data }) => {
         </Row>
       </Container>
 
+      {/* Perks, Mentors, Portfolio Container for smaller screens */}
+      <Container className="d-md-none pb-5">
+          <Row className="m-auto text-center mb-1" >
+                {/* <div > */}
+                <motion.div initial={{ opacity: 0, y: 50 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.5, duration: 1 }}>
+                <a href="/fellowship/perks" aria-label="Perks of the fellowship">
+                <StaticImage placeholder="blurred" 
+                  className='mx-auto d-block img-fluid' 
+                  quality='100' 
+                  src='../../assets/svg/perks.svg' 
+                  alt="Devices icon"
+                  layout='fixed'
+                />
+                </a>
+                <a href="/fellowship/perks" aria-label="Perks of the fellowship">
+                  <BrandButton className={`text-center mt-2`}>Perks</BrandButton>
+                </a>
+                </motion.div>
+                {/* </div> */}
+              </Row>
+              <Row className="m-auto text-center mb-3" >
+              {/* <div className="m-auto text-center text-wrap"> */}
+              <motion.div initial={{ opacity: 0, y: -50 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.5, duration: 1 }}>
+              <a href="/mentors" aria-label="Mentors of the fellowship">
+                <StaticImage placeholder="blurred" 
+                  className='mx-auto d-block img-fluid' 
+                  quality='100' 
+                  src='../../assets/svg/mentors.svg' 
+                  alt="Devices icon"
+                  layout='fixed'
+                />
+                </a>
+                <a href="/mentors" aria-label="Mentors of the fellowship">
+                  <BrandButton className={` text-center mt-2`}>Mentors</BrandButton>
+                </a>
+                </motion.div>
+                {/* </div> */}
+              </Row>
+              <Row className="m-auto text-center" >
+              {/* <div className="m-auto text-center"> */}
+              <motion.div initial={{ opacity: 0, y: 50 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.5, duration: 1 }}>
+                <a href="/fellowship/portfolio" aria-label="Read our fellowship portfolio">
+                  <StaticImage placeholder="blurred" 
+                    className='mx-auto d-block img-fluid' 
+                    quality='100' 
+                    src='../../assets/svg/portfolio.svg' 
+                    alt="Devices icon"
+                    layout='fixed'
+                  />
+                </a>
+                <a href="/fellowship/portfolio" aria-label="Read our fellowship portfolio">
+                  <BrandButton className={`text-center mt-2`} >Portfolio</BrandButton>
+                </a>
+                </motion.div>
+                {/* </div> */}
+              </Row>
+      </Container>
+
       {/* how it works */}
       <Container fluid className='py-3 d-flex justify-content-center align-items-center' style={{backgroundColor: '#E6E7E8'}}>
         <Row className="my-5">
-          <Col xs={8} sm={6}>
+          {/* For Small Screens/Mobile, External Link*/}
+          <Col xs={8} sm={6} className="d-md-none">
+            <a href="https://www.youtube.com/watch?v=IlLYF7VwiD8"  target="_blank" rel="noopener noreferrer">
+              <StaticImage placeholder="blurred" src="../../images/fellowship-video-macbook.png" className="position-relative" alt="Macbook with video"/>  
+            </a>
+          </Col>
+
+          {/* For Larger Screens, Display Modal */}
+          <Col xs={8} sm={6} className="d-none d-md-flex">
           <a onClick={handleShow}  id="video-btn" href='#!'>
             <StaticImage placeholder="blurred" src="../../images/fellowship-video-macbook.png" className="position-relative" alt="Macbook with video"/>
           </a>
@@ -258,7 +332,9 @@ const FellowshipPage = ({ data }) => {
             <Title className='text-center mb-4'>Our Approach</Title>
             <StaticImage placeholder="blurred" className={styles.img} src='../../images/approach.png' alt="Fellowship approach diagram" />
           </Col>
-          <Col className="d-flex align-items-center mx-5">
+          
+          {/* For larger screens, more spacing */}
+          <Col className="d-flex align-items-center mx-5 d-none d-md-flex">
             <Container>
               <Row className='my-4'>
                   <Title className="fs-5" style={{"letterSpacing": "0rem"}}>Our Fellowship program provides:</Title>
@@ -279,6 +355,30 @@ const FellowshipPage = ({ data }) => {
               </Row>
             </Container>
           </Col>
+
+          {/* For Smaller screens, less spacing */}
+          <Col className="d-flex align-items-center mx-0 d-md-none">
+            <Container>
+              <Row className='my-4'>
+                  <Title className="fs-5" style={{"letterSpacing": "0rem"}}>Our Fellowship program provides:</Title>
+              </Row>
+              <Row>
+                <div className="fs-6" style={{"letterSpacing": "0rem"}}>
+                  <motion.div initial={{ opacity: 0 }}
+                              whileInView={{ opacity: 1 }}
+                              transition={{ delay: 0.5, duration: 1 }}>
+                  <ul>
+                    <li className="my-2">Access to our network of over 85 mentors</li>
+                    <li className="my-2">Web development, video, and graphic design services</li>
+                    <li className="my-2">24/7 Access to Awesome Inc co-working space</li>
+                    <li className="my-2">Access to pro bono legal and accounting services</li>
+                  </ul>
+                  </motion.div>
+                </div>
+              </Row>
+            </Container>
+          </Col>
+
         </Row>
         <Row className="mt-5">
           <Col className="d-flex justify-content-center">

@@ -205,7 +205,7 @@ const Footer = () => {
           </Col>
 
           {/* Quicklinks column */}
-          <Col xs={6} sm={6} md={2} aria-label="quicklinks-navigation" role="navigation">
+          <Col xs={6} sm={6} md={2} aria-label="quicklinks-navigation" role="navigation" className={styles.footerColumn}>
             <h2 className={styles.infoListTitle}>Quicklinks</h2>
             <ul className={styles.infoList}>
               {
@@ -221,7 +221,7 @@ const Footer = () => {
           </Col>
 
           {/* Courses column */}
-          <Col xs={6} sm={6} md={2} aria-label="courses-navigation" role="navigation">
+          <Col xs={6} sm={6} md={2} aria-label="courses-navigation" role="navigation" className={styles.footerColumn}>
             <h2 className={styles.infoListTitle}>Courses</h2>
             <ul className={styles.infoList}>
               {
@@ -237,7 +237,7 @@ const Footer = () => {
           </Col>
 
           {/* Sponsors column */}
-          <Col xs sm={6} md={4} aria-label="sponsors-navigation" role="navigation">
+          <Col xs sm={6} md={4} aria-label="sponsors-navigation" role="navigation" className={styles.footerColumn}>
             <h2 className={styles.infoListTitle}>Sponsors</h2>
             <Row className={styles.sponsorsRow}>
               {

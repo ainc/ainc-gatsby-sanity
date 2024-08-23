@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import ModalCustom from "../Modal/ModalCustom";
 
 import * as styles from "./BorderlessCard.module.css";
+import BrandButton from "../UI/BrandButton/BrandButton";
 
 const MemberOption = (props) => {
   const [showModal1, setShowModal1] = useState(false);
@@ -46,9 +47,10 @@ const MemberOption = (props) => {
           </Col>
           <Col>
             <a href={props.priceModal}>
-
-              <Button onClick = {handleShowModal2} className={styles.price}>{props.price}</Button>
-
+              {/* Large Screen Button */}
+              <Button onClick = {handleShowModal2} className={`${styles.price} d-none d-md-inline`}>{props.price}</Button>
+              {/* Mobile Screen Button */}
+              <BrandButton onClick = {handleShowModal2} className={`d-md-none`}>{props.price}</BrandButton>
             </a>
           </Col>
         </Row>

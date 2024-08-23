@@ -62,11 +62,28 @@ a {
 
 .copyright-inline-list {
   padding-left: 0;
+  margin-right: 2rem;
+  display: block;
   
   li {
     display: inline;
     padding: 0 8px;
     font-size: 0.8rem;
+  }
+
+  @media (max-width:767px){
+    li {
+      
+      font-size: 0.7rem;
+      display: flex;
+    }
+    a {
+      white-space: nowrap;
+      color: $white-color;
+      &:hover {
+        color: $brand-color;
+    }
+    }
   }
 
   a {
@@ -92,5 +109,29 @@ a {
     &:hover {
       color: $white-color;
     }
+  }
+}
+
+.footer-column{
+
+  @media (max-width: 767px){
+    
+    margin-bottom: 15px;
+
+    .info-list-title{
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      color: $white-color;
+    }
+
+    li{
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+
   }
 }

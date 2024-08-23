@@ -43,7 +43,7 @@ export default {
         list: [
           {title: 'High', value: '0'},
           {title: 'Middle', value: '1'},
-          {title: 'Intern', value: '3'}
+          {title: 'Intern', value: '2'}
 
         ]
       }
