@@ -134,8 +134,9 @@ const Header = () => {
               <Nav.Link href="/fellowship" className="text--white">Startups <AiFillCaretDown size={10}/></Nav.Link>
               <div className={`hover-options`}>
                 <a href="/idea" className='pt-0'>I Have an Idea</a>
-                <a href="/fellowship">Startup Accelerator</a>
                 <a href="/events/5across">5 Across</a>
+                <a href="/fellowship">Startup Accelerator</a>
+                <a href="https://www.awesomefund.vc/" className=''>Awesome Fund</a>
                 <a href="/events">Events</a>
                 <a href="/assets/community-yearbook.pdf" target="_blank" rel="_noopener">Community Yearbook</a> {/*Need to add yearbooks and possibly other assets*/}
               </div>
@@ -155,8 +156,9 @@ const Header = () => {
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
                         <Col xs={{span: 10}} className={`d-flex flex-column py-2 border-0`}>
                           <a href="/idea">I Have an Idea</a>
-                          <a href="/fellowship">Startup Accelerator</a>
                           <a href="/events/5across">5 Across</a>
+                          <a href="/fellowship">Startup Accelerator</a>
+                          <a href="https://www.awesomefund.vc/" className=''>Awesome Fund</a>
                           <a href="/events">Events</a>
                           <a href="/assets/community-yearbook.pdf"
                             target="_blank"
