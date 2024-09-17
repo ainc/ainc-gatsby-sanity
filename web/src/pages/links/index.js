@@ -5,8 +5,10 @@ import Layout from "../../components/Layout/Layout";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import { graphql, Link } from "gatsby";
 import * as styles from "./links.scss";
+import { StaticImage } from "gatsby-plugin-image";
 import '../../styles/main.scss'
 import { FaTwitter, FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { motion } from "framer-motion";
 
 const LinksPage = ({ data }) => {
     const allLinks = (data.allSanityLinks.nodes || {})
@@ -15,8 +17,15 @@ const LinksPage = ({ data }) => {
       <Container>
         <SEO />
         <Row>
-          <Col className="header d-flex justify-content-center align-items-center">
-            <img src="../../assets/svg/square_gray.svg" className="logo" />
+          <Col className="header d-flex justify-content-center align-items-center">  
+              <StaticImage placeholder="blurred" 
+                className='mx-auto d-block img-fluid' 
+                quality='100' 
+                src='../../assets/svg/logo-grey.svg'
+                alt="Awesome Inc Logo"
+                // layout="fullWidth"
+                style={{zIndex:'1'}}
+              />
           </Col>
         </Row>
 
