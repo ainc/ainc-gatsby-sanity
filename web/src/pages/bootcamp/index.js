@@ -25,6 +25,7 @@ import Arrow from "../../images/arrow.png";
 import { FaPlay } from "react-icons/fa";
 import Thumbnail from '../../images/bootcamp-video-thumbnail.jpg'
 import ModalCustom from "../../components/Modal/ModalCustom";
+import ModalPopup from "../../components/ModalPopup/ModalPopup"
 import AlumniTestimonials from "./Components/AlumniTestimonials/AlumniTestimonials";
 import AlumniAvatarCardCarousel from "./Components/AlumniAvatarCard/AlumniAvatarCardCarousel";
 
@@ -35,6 +36,7 @@ import * as styles from './bootcamp.module.scss'
 
 import ApplyForm from "./Components/ApplyForm/ApplyForm";
 
+import logo from "../../images/logo.png"
 import bootcamp1 from "../../images/bootcamp/bootcamp1.jpg"
 import bootcamp2 from "../../images/bootcamp/bootcamp2.jpg"
 import bootcamp3 from "../../images/bootcamp/bootcamp3.png"
@@ -236,6 +238,20 @@ const BootcampPage = props => {
     };
   return ( 
     <Layout jsImport={ZohoSales}>
+
+      <ModalPopup
+        content={
+          <div>
+            <h3> We're not taking applications at this time. </h3>
+            <p> Thank you for your interest. <br></br>
+              Please view our other offerings <a href="/events"> here</a>.
+            </p>
+            <div className={`${styles.modalLogoDiv}`}>
+              <Image src={logo} alt="" className={`${styles.logo}`} />
+            </div>
+          </div>
+        }
+      />
 
       {/* Add SEO Component Here?? */}
       
