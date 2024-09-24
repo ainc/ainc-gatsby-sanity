@@ -19,7 +19,7 @@ const LinksPage = ({ data }) => {
         <Row>
           <Col className="header d-flex justify-content-center align-items-center">  
               <StaticImage placeholder="blurred" 
-                className='mx-auto d-block img-fluid' 
+                className='logo mx-auto d-block img-fluid' 
                 quality='100' 
                 src='../../assets/svg/logo-grey.svg'
                 alt="Awesome Inc Logo"
