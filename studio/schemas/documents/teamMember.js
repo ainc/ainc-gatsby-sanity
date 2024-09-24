@@ -34,13 +34,13 @@ export default {
     },
     {
       name: 'priority',
-      type: 'array',
+      type: 'string',
       title: 'Member Priority',
       validation: Rule => Rule.required(),
-      of: [{type: 'string'}],
       options:{
-        layout: 'checkbox',
+        layout: 'radio',
         list: [
+          {title: 'Highest', value: '-1'},
           {title: 'High', value: '0'},
           {title: 'Middle', value: '1'},
           {title: 'Intern', value: '3'}
