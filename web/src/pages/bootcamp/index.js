@@ -244,7 +244,7 @@ const BootcampPage = props => {
           <div>
             <h3> We're not taking applications at this time. </h3>
             <p> Thank you for your interest. <br></br>
-              Please view our other offerings <a href="/events"> here</a>.
+              Please view our other offerings <a className={`${styles.link}`} href="/events"> here</a>.
             </p>
             <div className={`${styles.modalLogoDiv}`}>
               <Image src={logo} alt="" className={`${styles.logo}`} />
