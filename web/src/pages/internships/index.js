@@ -44,7 +44,7 @@ query MyQuery {
       }
     }
   }
-  allSanityTeamAlpha(filter: {name: {in: ["Kyle Raney", "Cam Sloss", "Garrett Fahrbach", "Jacqueline Benson", "Liam Chesser"]}} sort: {name:ASC}) {
+  allSanityTeamAlpha(filter: {name: {in: ["Kyle Raney", "Cam Sloss", "Nick Garnett", "Jacqueline Benson", "Liam Chesser"]}} sort: {name:ASC}) {
     nodes {
       name
       favoritePerson
@@ -384,11 +384,16 @@ const InternshipsPage = ({ data }) => {
             ))}
           </Row>
           <Row>
-            <Col className='text-center'>
+            <Col style={{textAlign: 'right'}}>
             <a href="https://careers.awesomeinc.org/jobs/Careers/649925000000610353/Team-Alpha---Internship?source=CareerSite"
                       target="_blank" rel="noopener noreferrer">
             <BrandButton className='my-3'>Add me to the fun bunch</BrandButton>
             </a>
+            </Col>
+            <Col style={{textAlign: 'left'}}>
+              <a href="../team-alpha">
+                <BrandButton className='my-3'> Meet the team </BrandButton>
+              </a>
             </Col>
           </Row>
       </Container>
