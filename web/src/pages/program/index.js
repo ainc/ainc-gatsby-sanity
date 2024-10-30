@@ -46,7 +46,7 @@ const ProgramPage = ({ data }) => {
           </Row>
           <Row>
             <Col xs={{offset: 3, span: 6}} >
-              <StaticImage className='mt-3' src='../../images/kinetic-logo.png'></StaticImage>
+              <StaticImage className='mt-3' src='../../images/kinetic_logowhite.png'></StaticImage>
             </Col>
           </Row>
           <Row>
