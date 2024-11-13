@@ -8,6 +8,7 @@ import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import Title from "../../components/UI/Title/Title";
 
 const EventsPage = ({ data }) => {
+  console.log("events", data.allSanityEvents)
   const events = data.allSanityEvents.edges || {};
 
   return (
