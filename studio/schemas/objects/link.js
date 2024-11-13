@@ -1,25 +1,41 @@
+import {FaLink} from 'react-icons/fa6';
 
- export default {
-  title: 'Link',
+export default {
   name: 'link',
   type: 'object',
+  title: 'Link',
+  icon: FaLink,
   fields: [
     {
-      title: 'Link',
-      name: 'url',
-      type: 'url'
-    },
-    {
-      title: 'Title',
       name: 'title',
       type: 'string',
-      description: 'This is the text for the link'
+      title: 'Title',
+      description: 'The text that will be displayed for the link.',
+      validation: (Rule) => Rule.required()
     },
     {
-      title: 'Does this link open in a new window?',
-      name: 'behavior',
-      type: 'boolean',
-      initialValue: false
+      name: 'linkToPage',
+      type: 'url',
+      title: 'Link To Page',
+      description: 'The URL to which the link will navigate.',
+      validation: (Rule) =>
+        Rule.uri({
+          allowRelative: false,
+          scheme: ['http', 'https']
+        })
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      url: 'linkToPage'
+    },
+    prepare (selection) {
+      const {title, url} = selection
+      return {
+        title: title,
+        subtitle: url
+      }
+    }
+  }
 }

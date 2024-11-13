@@ -13,7 +13,7 @@ const Event = props => {
         <div className={`${styles.eventImage}`}>
           <GatsbyImage image={props.image} alt={props.alt} />
         </div>
-        <div className="mx-3">
+        <div className="ms-3">
           <h2>
             <a
               href={props.link}
