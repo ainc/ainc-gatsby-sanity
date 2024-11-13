@@ -67,15 +67,20 @@ const LinksPage = ({ data }) => {
       
     )
 }
+
 export const query_links = graphql`
-query {
+  query {
     allSanityLinks {
       nodes {
-        title
-        linkToPage
+        links {
+          title
+          linkToPage
+        }
       }
     }
-  }`;
+  }
+`;
+
 
 
 export default LinksPage;
