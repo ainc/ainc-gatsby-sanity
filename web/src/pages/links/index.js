@@ -11,7 +11,6 @@ import { FaTwitter, FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube } from 're
 import { motion } from "framer-motion";
 
 const LinksPage = ({ data }) => {
-  console.log(data)
     const allLinks = (data.allSanityLinks.nodes || {})
 
     return (
