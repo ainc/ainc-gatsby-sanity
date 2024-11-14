@@ -1,4 +1,4 @@
-import {FaLink} from 'react-icons/fa6';
+import {FaLink} from 'react-icons/fa6'
 
 export default {
   name: 'link',
@@ -28,13 +28,13 @@ export default {
   preview: {
     select: {
       title: 'title',
-      url: 'linkToPage'
+      linkToPage: 'linkToPage'
     },
     prepare (selection) {
-      const {title, url} = selection
+      const {title, linkToPage} = selection
       return {
         title: title,
-        subtitle: url
+        subtitle: linkToPage
       }
     }
   }
