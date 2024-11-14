@@ -11,8 +11,7 @@ import { FaTwitter, FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube } from 're
 import { motion } from "framer-motion";
 
 const LinksPage = ({ data }) => {
-  console.log(data)
-    const allLinks = (data.allSanityLinks.nodes || {})
+    const allLinks = (data.allSanityLinks.nodes[0].links || {})
 
     return (
       <Container>
@@ -33,7 +32,7 @@ const LinksPage = ({ data }) => {
         <Row className='pt-3' style={{marginTop: "30%"}}>
           {allLinks.map((node) => (
             <Col md={{span: 8, offset: 2}}>
-              <a href={node.linkToPage}>
+              <a href={node.url}>
                 <BrandButton className="hover--black mb-4 py-0 w-100 ">       
                   {node.title}       
                 </BrandButton>
@@ -68,14 +67,18 @@ const LinksPage = ({ data }) => {
     )
 }
 export const query_links = graphql`
-query {
+  query {
     allSanityLinks {
       nodes {
-        title
-        linkToPage
+        links {
+          title
+          url
+        }
       }
     }
-  }`;
+  }
+`;
+
 
 
 export default LinksPage;

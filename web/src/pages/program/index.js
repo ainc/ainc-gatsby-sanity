@@ -42,16 +42,16 @@ const ProgramPage = ({ data }) => {
             </Col>
           </Row>
           <Row>
-          
-                <Subtitle className='text-center'>    {allProgram.date} </Subtitle>
-          
+            <Subtitle className='text-center'>    {allProgram.date} </Subtitle>
           </Row>
           <Row>
-            <Col xs={6}>
-              <GatsbyImage image={titleSponsorImage}></GatsbyImage>
+            <Col xs={{offset: 3, span: 6}} >
+              <StaticImage className='mt-3' src='../../images/kinetic_logowhite.png'></StaticImage>
             </Col>
-            <Col xs={6}>
-              <GatsbyImage className='mt-3' image={presentingSponsorImage}></GatsbyImage>
+          </Row>
+          <Row>
+            <Col xs={{offset: 4, span: 4}} className='mb-3'>
+              <StaticImage className='mb-3' src='../../images/vultr-white.png'></StaticImage>
             </Col>
           </Row>
         </Col>
