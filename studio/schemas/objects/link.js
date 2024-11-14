@@ -22,7 +22,21 @@ export default {
         Rule.uri({
           allowRelative: false,
           scheme: ['http', 'https']
-        })
+        }).required()
+    },
+    {
+      name: 'behavior',
+      type: 'string',
+      title: 'Behavior',
+      description: 'Specifies how the link should behave (e.g., open in new tab).',
+      options: {
+        list: [
+          {title: 'Same Tab', value: 'same_tab'},
+          {title: 'New Tab', value: 'new_tab'}
+        ],
+        layout: 'radio'
+      },
+      validation: (Rule) => Rule.required()
     }
   ],
   preview: {
