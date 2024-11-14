@@ -1,4 +1,4 @@
-import {FaLink} from 'react-icons/fa6'
+import {FaLink} from 'react-icons/fa6';
 
 export default {
   name: 'link',
@@ -11,18 +11,18 @@ export default {
       type: 'string',
       title: 'Title',
       description: 'The text that will be displayed for the link.',
-      validation: (Rule) => Rule.required()
+      validation: (Rule) => Rule.required().error('Title is required.')
     },
     {
-      name: 'linkToPage',
+      name: 'url',
       type: 'url',
-      title: 'Link To Page',
+      title: 'URL',
       description: 'The URL to which the link will navigate.',
       validation: (Rule) =>
         Rule.uri({
           allowRelative: false,
           scheme: ['http', 'https']
-        }).required()
+        }).required().error('A valid URL is required.')
     },
     {
       name: 'behavior',
@@ -36,19 +36,19 @@ export default {
         ],
         layout: 'radio'
       },
-      validation: (Rule) => Rule.required()
+      validation: (Rule) => Rule.required().error('Behavior selection is required.')
     }
   ],
   preview: {
     select: {
       title: 'title',
-      linkToPage: 'linkToPage'
+      url: 'url'
     },
     prepare (selection) {
-      const {title, linkToPage} = selection
+      const {title, url} = selection
       return {
         title: title,
-        subtitle: linkToPage
+        subtitle: url
       }
     }
   }
