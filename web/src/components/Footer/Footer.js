@@ -22,12 +22,12 @@ const Footer = () => {
         courses {
           behavior
           title
-          linkToPage
+          url
         }
         quicklinks {
           behavior
           title
-          linkToPage
+          url
         }
         sponsors {
           link
@@ -211,7 +211,7 @@ const Footer = () => {
               {
                 footerData.quicklinks.map((node,i) => (
                   <li key={i}>
-                    <a href={node.linkToPage} target={node.behavior ? '_blank' : '_self'} key={i}>
+                    <a href={node.url} target={node.behavior ? '_blank' : '_self'} key={i}>
                       {node.title}
                     </a>
                   </li>
@@ -227,7 +227,7 @@ const Footer = () => {
               {
                 footerData.courses.map((node,i) => (
                   <li key={i}>
-                    <a href={node.linkToPage} target={node.behavior ? '_blank' : '_self'} key={i}>
+                    <a href={node.url} target={node.behavior ? '_blank' : '_self'} key={i}>
                       {node.title}
                     </a>
                   </li>

@@ -73,7 +73,7 @@ export const query_links = graphql`
       nodes {
         links {
           title
-          linkToPage
+          url
         }
       }
     }
