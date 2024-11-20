@@ -11,24 +11,38 @@ export default {
       type: 'string',
       title: 'Title',
       description: 'The text that will be displayed for the link.',
-      validation: (Rule) => Rule.required()
+      validation: (Rule) => Rule.required().error('Title is required.')
     },
     {
-      name: 'linkToPage',
+      name: 'url',
       type: 'url',
-      title: 'Link To Page',
+      title: 'URL',
       description: 'The URL to which the link will navigate.',
       validation: (Rule) =>
         Rule.uri({
           allowRelative: false,
           scheme: ['http', 'https']
-        })
+        }).required().error('A valid URL is required.')
+    },
+    {
+      name: 'behavior',
+      type: 'string',
+      title: 'Behavior',
+      description: 'Specifies how the link should behave (e.g., open in new tab).',
+      options: {
+        list: [
+          {title: 'Same Tab', value: 'same_tab'},
+          {title: 'New Tab', value: 'new_tab'}
+        ],
+        layout: 'radio'
+      },
+      validation: (Rule) => Rule.required().error('Behavior selection is required.')
     }
   ],
   preview: {
     select: {
       title: 'title',
-      url: 'linkToPage'
+      url: 'url'
     },
     prepare (selection) {
       const {title, url} = selection
