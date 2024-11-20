@@ -6,6 +6,7 @@ import Event from "../../components/Event/Event";
 import Layout from "../../components/Layout/Layout";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import Title from "../../components/UI/Title/Title";
+import * as styles from "./events.module.scss";
 
 const EventsPage = ({ data }) => {
     const events = (data.allSanityEvents.edges || {})
@@ -27,10 +28,10 @@ const EventsPage = ({ data }) => {
             </Container>
 
           {/* Events */}
-            <Container className="">
-              <Row md={1} lg={2} className="mx-5 mb-5 px-5">
+            <Container className={`${styles.container} d-flex align-items-center justify-content-center`}>
+              <Row md={1} lg={2} className={`${styles.row}`}>
                   {events.map((edge) => (
-                    <Col sm="6" className="my-1 d-flex justify-content-center">
+                    <Col sm="6" className={`${styles.column} my-1 d-flex justify-content-center`}>
                       <Event
                         image={
                           edge.node.picture.asset.gatsbyImageData
