@@ -17,10 +17,12 @@ const ProgramPage = ({ data }) => {
   const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].titleSp.title || {});
   const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].titleSp.link || {});
   const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].titleSp.image.asset.gatsbyImageData || {});
+  const titleSponsorSecondaryImage = (data.allSanityFiveAcrossSponsors.nodes[0].titleSp.secondaryImage.asset.gatsbyImageData || {});
 
   const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.title || {});
   const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.link || {});
   const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.image.asset.gatsbyImageData || {});
+  const presentingSponsorSecondaryImage = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.secondaryImage.asset.gatsbyImageData || {});
 
   const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors || {});
 
@@ -46,12 +48,12 @@ const ProgramPage = ({ data }) => {
           </Row>
           <Row>
             <Col xs={{offset: 3, span: 6}} >
-              <StaticImage className='mt-3' src='../../images/kinetic_logowhite.png'></StaticImage>
+              <GatsbyImage image={titleSponsorSecondaryImage} alt={titleSponsorName} className="mt-3" />
             </Col>
           </Row>
           <Row>
             <Col xs={{offset: 4, span: 4}} className='mb-3'>
-              <StaticImage className='mb-3' src='../../images/vultr-white.png'></StaticImage>
+              <GatsbyImage image={presentingSponsorSecondaryImage} alt={presentingSponsorName} className="mt-3" />
             </Col>
           </Row>
         </Col>

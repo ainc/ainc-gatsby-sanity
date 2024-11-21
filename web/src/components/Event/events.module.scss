@@ -43,10 +43,14 @@
 }
 
 .event-image {
-    float: left;
     object-fit: contain;
     max-width: 125px;
     transition-duration: 400ms;
+    display: flex;
+    align-items: center;
+    @media (max-width: 510px) {
+        display: none;
+    }
 }
 
 .box:hover .event-image{
