@@ -66,7 +66,6 @@ const LinksPage = ({ data }) => {
       
     )
 }
-
 export const query_links = graphql`
   query {
     allSanityLinks {

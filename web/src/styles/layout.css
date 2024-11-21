@@ -1,4 +1,4 @@
-@import './custom-properties.css';
+@import "./custom-properties.css";
 
 html {
   font-family: var(--font-family-sans);
@@ -18,4 +18,13 @@ body,
 body > div,
 body > div > div {
   height: 100%;
+}
+
+#query-on-demand-indicator-element {
+  height: auto;
+}
+
+#fb-root {
+  height: auto;
+  overflow: hidden;
 }
