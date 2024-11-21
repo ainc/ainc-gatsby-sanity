@@ -32,7 +32,7 @@ const EventBriteModal = (props) => {
       {isSmallScreen ? (
         <a href={props.link} target='_blank' className='link--brand'><div style={{textAlign: 'left'}}>{props.children}</div></a>
       ) : (
-      <button onClick={handleClick} type="button"  className='' style={{background: 'none', border: 'none', padding: '0', margin: '0'}}><div style={{textAlign: 'left'}}>{props.children}</div></button>
+      <button onClick={handleClick} type="button"  className='' style={{background: 'none', border: 'none', width: '100%', padding: '0', margin: '0'}}><div style={{textAlign: 'left'}}>{props.children}</div></button>
       )}
       <Modal show={showModal} onHide={handleCloseModal} centered>
         <iframe
