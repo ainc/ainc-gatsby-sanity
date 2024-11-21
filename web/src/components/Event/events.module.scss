@@ -14,21 +14,26 @@
     border-color: rgba(119, 119, 119, 0.353);
     border-width: 1px;
     border-style: solid;
+    overflow: hidden;
     @include screen-xs{
-        width: 75vw;
-        height: 60vh;
+        width: 100%;
+        min-height: 170px;
+    }
+    @include screen-sm{
+        width: 100%;
+        min-height: 170px;
     }
     @include screen-md{
-        width: 45vw;
-        height: 40vh;
+        width: 100%;
+        min-height: 160px;
     }
     @include screen-lg {
-        width: 32vw;
-        height: 40vh;
+        width: 100%;
+        min-height: 160px;
     }
     @include screen-max{
-        width: 27vw;
-        height: 24vh;
+        width: 100%;
+        min-height: 160px;
     }
 }
 
@@ -38,10 +43,14 @@
 }
 
 .event-image {
-    float: left;
     object-fit: contain;
     max-width: 125px;
     transition-duration: 400ms;
+    display: flex;
+    align-items: center;
+    @media (max-width: 510px) {
+        display: none;
+    }
 }
 
 .box:hover .event-image{
@@ -62,9 +71,15 @@
 }
 
 .red-text {
-    color: $brand-color;
+  color: $brand-color;
 }
 
 .link-hover:hover {
     color: rgb(255, 0, 0);
 }
+
+.text-div {
+  position: relative;
+  overflow: auto;
+}
+
