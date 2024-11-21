@@ -58,7 +58,7 @@ const  QRCodePage = () => {
                 <Col className="d-flex justify-content-center text-center">
                     <div className={styles.heading}>
                     <Title className={`${styles.headingTitle} text-uppercase text-grey mt-5`} >
-                        Welcome to Awesome Space
+                        Welcome to Awesome Inc
                     </Title>
                     <Subtitle className={` ${styles.headingSubtitle} mt-3 mb-4`}>
                         Here are some need to knows.
