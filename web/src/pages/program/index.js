@@ -44,7 +44,7 @@ const ProgramPage = ({ data }) => {
             <Title className="text-uppercase text-center text-white mt-5">Welcome to</Title>
           </Row>
           <Row>
-            <Col xs={{ offset: 1, span: 10 }}>
+            <Col xs={{ offset: 1, span: 10 }} className="text-center">
               <StaticImage
                 placeholder="blurred"
                 className="my-5 mw-100 w-75"
@@ -52,6 +52,7 @@ const ProgramPage = ({ data }) => {
               ></StaticImage>
             </Col>
           </Row>
+
           <Row>
             <Subtitle className="text-center"> {allProgram.date} </Subtitle>
           </Row>
