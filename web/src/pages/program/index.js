@@ -218,11 +218,21 @@ query query_program {
             gatsbyImageData
           }
         }
+        secondaryImage {
+          asset {
+            gatsbyImageData
+          }
+        }
       }
       titleSp {
         link
         title
         image {
+          asset {
+            gatsbyImageData
+          }
+        }
+        secondaryImage {
           asset {
             gatsbyImageData
           }
