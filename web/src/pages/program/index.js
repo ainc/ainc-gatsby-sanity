@@ -17,12 +17,12 @@ const ProgramPage = ({ data }) => {
   const titleSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].titleSp.title || {});
   const titleSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].titleSp.link || {});
   const titleSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].titleSp.image.asset.gatsbyImageData || {});
-  const titleSponsorSecondaryImage = (data.allSanityFiveAcrossSponsors.nodes[0].titleSp.secondaryImage.asset.gatsbyImageData || {});
+  const titleSponsorSecondaryImage = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.secondaryImage?.asset.gatsbyImageData || {});
 
   const presentingSponsorName = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.title || {});
   const presentingSponsorLink = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.link || {});
   const presentingSponsorImage = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.image.asset.gatsbyImageData || {});
-  const presentingSponsorSecondaryImage = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.secondaryImage.asset.gatsbyImageData || {});
+  const presentingSponsorSecondaryImage = (data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.secondaryImage?.asset.gatsbyImageData || {});
 
   const suppourtingSponsors = (data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors || {});
 
