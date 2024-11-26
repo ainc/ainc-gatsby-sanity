@@ -5,22 +5,19 @@ import { graphql, Link } from "gatsby";
 //   filterOutDocsWithoutSlugs,
 //   filterOutDocsPublishedInTheFuture
 // } from "../../lib/helpers";
-import { Col, Container, Row, Carousel, Button } from 'react-bootstrap';
+import { Col, Container, Row, Carousel, Button } from "react-bootstrap";
 import { StaticImage, GatsbyImage } from "gatsby-plugin-image";
 import { FaCircle, FaRegCircle, FaArrowRight, FaArrowLeft } from "react-icons/fa";
-
 
 import GraphQLErrorList from "../../components/graphql-error-list";
 import Layout from "../../containers/layout";
 import Title from "../../components/UI/Title/Title";
-import Subtitle from '../../components/UI/Subtitle/Subtitle';
+import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import Profile from "../../components/Profile/Profile";
 import Companies from "../../components/Companies/Companies";
 
-
 import "./alumni.scss";
 import { styles } from "../../styles/Variables";
-
 
 export const query = graphql`
   query AlumniPageQuery {
@@ -34,7 +31,7 @@ export const query = graphql`
         }
       }
     }
-    allSanityBootcampAlumni{
+    allSanityBootcampAlumni {
       nodes {
         id
         name
@@ -91,27 +88,51 @@ export function TestimonialCarousel({ testimonials }) {
   return (
     <div>
       {testimonials.map((node, index) => (
-        <div key={index} className={`testimonial-div ${index === currentIndex ? 'd-flex' : 'd-none'}`}>
+        <div
+          key={index}
+          className={`testimonial-div ${index === currentIndex ? "d-flex" : "d-none"}`}
+        >
           <Row>
             <Col lg={4}></Col>
             <Col lg={6} className="offset-lg-2 test-info pt-3">
               <div className="test-images">
-                <GatsbyImage image={node.picture.asset.gatsbyImageData} alt={node.company}/> 
+                <GatsbyImage image={node.picture.asset.gatsbyImageData} alt={node.company} />
               </div>
               <Title className="text-white">HEAR FROM EMPLOYERS</Title>
               <h2>{node.company}</h2>
-              <p style={{fontWeight: 'bold'}}>{node.author}</p>
-              <p style={{fontStyle: 'italic'}}>{node.position}</p>
+              <p style={{ fontWeight: "bold" }}>{node.author}</p>
+              <p style={{ fontStyle: "italic" }}>{node.position}</p>
               <p className="description mb-0">{node.description}</p>
-              
+
               <div className="navBar float-end">
-                <Button style={{background: 'none', border: 'white', color: 'white', paddingRight: '0.5rem'}} onClick={handleClickLeft}>
+                <Button
+                  style={{
+                    background: "none",
+                    border: "white",
+                    color: "white",
+                    paddingRight: "0.5rem"
+                  }}
+                  onClick={handleClickLeft}
+                >
                   <FaArrowLeft className="ms-1" />
                 </Button>
-                {testimonials.map((_, index) => (
-                  index === currentIndex ? <FaCircle key={index} className="ms-1" /> : <FaRegCircle key={index} className="ms-1" />
-                ))}
-                <Button style={{background: 'none', border: 'white', color: 'white', paddingLeft: '0.5rem', paddingRight: '0.5rem'}} onClick={handleClickRight}>
+                {testimonials.map((_, index) =>
+                  index === currentIndex ? (
+                    <FaCircle key={index} className="ms-1" />
+                  ) : (
+                    <FaRegCircle key={index} className="ms-1" />
+                  )
+                )}
+                <Button
+                  style={{
+                    background: "none",
+                    border: "white",
+                    color: "white",
+                    paddingLeft: "0.5rem",
+                    paddingRight: "0.5rem"
+                  }}
+                  onClick={handleClickRight}
+                >
                   <FaArrowRight className="ms-1" />
                 </Button>
               </div>
@@ -123,13 +144,12 @@ export function TestimonialCarousel({ testimonials }) {
   );
 }
 
-
 const AlumniPage = props => {
   const { data, errors } = props;
   const [selectedClass, setSelectedClass] = useState("");
 
-  const testimonials = (data.allSanityAlumniTestimonials.nodes || {})
-  const employers = (data.allSanityBootcampEmployers.nodes || {})
+  const testimonials = data.allSanityAlumniTestimonials.nodes || {};
+  const employers = data.allSanityBootcampEmployers.nodes || {};
 
   if (errors) {
     return (
@@ -139,37 +159,35 @@ const AlumniPage = props => {
     );
   }
 
-  const alumniNodes = (data.allSanityBootcampAlumni.nodes || {})
+  const alumniNodes = data.allSanityBootcampAlumni.nodes || {};
 
-  const classList = data.allSanityBootcampAlumni && data.allSanityBootcampAlumni.nodes
-    ? data.allSanityBootcampAlumni.nodes
-      .map((node) => node.class.title)
-      .filter((className, index, arr) => arr.indexOf(className) === index)
-      .sort((a, b) => {
-        const aClass = data.allSanityBootcampClass.edges.find(({ node }) => node.title === a).node;
-        const bClass = data.allSanityBootcampClass.edges.find(({ node }) => node.title === b).node;
-        return new Date(bClass.date) - new Date(aClass.date); // sort based on date in descending order
-      })
+  const classList =
+    data.allSanityBootcampAlumni && data.allSanityBootcampAlumni.nodes
+      ? data.allSanityBootcampAlumni.nodes
+          .map(node => node.class.title)
+          .filter((className, index, arr) => arr.indexOf(className) === index)
+          .sort((a, b) => {
+            const aClass = data.allSanityBootcampClass.edges.find(({ node }) => node.title === a)
+              .node;
+            const bClass = data.allSanityBootcampClass.edges.find(({ node }) => node.title === b)
+              .node;
+            return new Date(bClass.date) - new Date(aClass.date); // sort based on date in descending order
+          })
 
-      .map((gradClass) => (
-        <button
-          className={`classButton ${selectedClass === gradClass ? "active" : ""}`}
-          key={gradClass}
-          onClick={() => setSelectedClass(gradClass)}
-        >
-          {gradClass}
-        </button>
-      ))
-    : null;
-
+          .map(gradClass => (
+            <button
+              className={`classButton ${selectedClass === gradClass ? "active" : ""}`}
+              key={gradClass}
+              onClick={() => setSelectedClass(gradClass)}
+            >
+              {gradClass}
+            </button>
+          ))
+      : null;
 
   // Add an "All Cohorts" button to the class list
   const allCohortsButton = (
-    <button
-      className="classButton"
-      key="All Cohorts"
-      onClick={() => setSelectedClass("")}
-    >
+    <button className="classButton" key="All Cohorts" onClick={() => setSelectedClass("")}>
       All Cohorts
     </button>
   );
@@ -179,26 +197,23 @@ const AlumniPage = props => {
   let filteredNodes = alumniNodes;
   if (selectedClass) {
     filteredNodes = alumniNodes.filter(node => node.class.title === selectedClass);
-  }
-  else {
+  } else {
     //sort based on class date and job for 'All Cohorts' button
-  filteredNodes.sort((a, b) => {
-  const dateA = new Date(a.class.date);
-  const dateB = new Date(b.class.date);
-  const dateComparison = dateB - dateA;  //sort based on date in descending order
+    filteredNodes.sort((a, b) => {
+      const dateA = new Date(a.class.date);
+      const dateB = new Date(b.class.date);
+      const dateComparison = dateB - dateA; //sort based on date in descending order
 
-  if (dateComparison !== 0){
-    return dateComparison
-  }
+      if (dateComparison !== 0) {
+        return dateComparison;
+      }
 
-  const jobComparison = b.job ? 1 : a.job ? -1 : 0; // prioritize node with job
+      const jobComparison = b.job ? 1 : a.job ? -1 : 0; // prioritize node with job
 
-  if (jobComparison !== 0) {
-    return jobComparison;
-  }  
-
-});
-
+      if (jobComparison !== 0) {
+        return jobComparison;
+      }
+    });
   }
 
   return (
@@ -206,27 +221,37 @@ const AlumniPage = props => {
       <Container>
         <Row>
           <Col>
-          <Row>
-            <Title className="my-4">Bootcamp Alumni</Title>
-            <p>The <Link className="text--brand link--brand fw-bold" to="/bootcamp">Web Developer Bootcamp</Link> is a 16-week, intensive training program to help people launch careers in software development. It includes over 500 hours of hands-on training, gaining experience while building 10+ software projects in an Agile environment, using HTML, CSS, JavaScript, PHP, Laravel, React, cloud deployment, GitHub, and more.</p>
-            <p>Bootcamp alumni have been hired by more than 50 employers. Initial job titles have included Software Engineer, Software Developer, Web Developer, Application Developer, QA Engineer, DevOps Analyst, Salesforce Consultant, and UX/UI Designer.</p>
-          </Row>
-          <Row>
-            <TestimonialCarousel testimonials={testimonials}/>
-          </Row>
-          <Row>
-            <p className="fst-italic mt-3">Ribbons indicate an alum's first programming job following Bootcamp</p>
-            <Subtitle>Alumni List</Subtitle>
-          </Row>
+            <Row>
+              <Title className="my-4">Bootcamp Alumni</Title>
+              <p>
+                The Web Developer Bootcamp is a 16-week, intensive training program to help people
+                launch careers in software development. It includes over 500 hours of hands-on
+                training, gaining experience while building 10+ software projects in an Agile
+                environment, using HTML, CSS, JavaScript, PHP, Laravel, React, cloud deployment,
+                GitHub, and more.
+              </p>
+              <p>
+                Bootcamp alumni have been hired by more than 50 employers. Initial job titles have
+                included Software Engineer, Software Developer, Web Developer, Application
+                Developer, QA Engineer, DevOps Analyst, Salesforce Consultant, and UX/UI Designer.
+              </p>
+            </Row>
+            <Row>
+              <TestimonialCarousel testimonials={testimonials} />
+            </Row>
+            <Row>
+              <p className="fst-italic mt-3">
+                Ribbons indicate an alum's first programming job following Bootcamp
+              </p>
+              <Subtitle>Alumni List</Subtitle>
+            </Row>
           </Col>
         </Row>
 
-        <div>
-          {classList}
-        </div>
+        <div>{classList}</div>
 
         <Row>
-          {filteredNodes.map((node) => (
+          {filteredNodes.map(node => (
             <Col sm={10} md={5} lg={5} xl={3} className="mb-4" key={node.id}>
               <Profile
                 name={node.name}
@@ -234,13 +259,13 @@ const AlumniPage = props => {
                 linkedin={node.linkedin}
                 github={node.github}
                 website={node.portfolio}
-                position={node.job} 
+                position={node.job}
               />
             </Col>
           ))}
         </Row>
 
-        <Companies employers={employers}/>
+        <Companies employers={employers} />
       </Container>
     </Layout>
   );
