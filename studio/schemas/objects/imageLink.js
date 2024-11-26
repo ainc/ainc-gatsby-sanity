@@ -9,6 +9,12 @@ export default {
       title: 'Image'
     },
     {
+      name: 'secondaryImage',
+      type: 'image',
+      title: 'Secondary Image',
+      description: 'Optional logo specifically designed for optimal visibility on dark backgrounds.'
+    },
+    {
       name: 'alt',
       type: 'string',
       title: 'Alternative text',
