@@ -27,6 +27,13 @@ const AboutPage = ({ data }) => {
   const [lgShow, setLgShow] = useState(false)
   const handleShow = () => setLgShow(true)
   const handleClose = () => setLgShow(false)
+
+  const sortedTeamMembers = teamMembers.sort((a, b) => {
+    if (a.name === "Brian" && b.name !== "Brian") return -1; // "Brian" comes first
+    if (b.name === "Brian" && a.name !== "Brian") return 1; 
+    return 0; 
+  });
+
   return (
     <Layout>
         {/* About header */}
@@ -55,19 +62,18 @@ const AboutPage = ({ data }) => {
                   </div>
               </Col>
             </Row>
-            <Row>
-              <motion.div initial={{ opacity: 0, y: 50}}
-                      animate={{ opacity: 1, y: 0}}
-                      transition={{ delay: 0.5, duration: 1 }}>
-              <Image className={`${styles.headerImg}`} src={coreValues} alt="core-values" />
+            <Row className="justify-content-center align-items-center text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 1 }}
+              >
+                <Image className={`${styles.headerImg}`} src={coreValues} alt="core-values" />
               </motion.div>
-              <Col className="col-sm-8 col-10">
+              <Col className="col-sm-8 col-10 d-flex justify-content-center">
                 <a href="/assets/core-values.pdf">
-                <BrandButton className={`text-nowrap`}>
-                  Read About Our Core Values
-                </BrandButton>
+                  <BrandButton className={`text-nowrap`}>Read About Our Core Values</BrandButton>
                 </a>
-               
               </Col>
             </Row>
           </Container>
@@ -81,21 +87,13 @@ const AboutPage = ({ data }) => {
           <Container className={styles.whatWeDo}>
             <div>
               <h2 className={`text-uppercase text-center ${styles.headingTitle}`}>
-                Learn More About What We Do
+                What We Do
               </h2>
             </div>
             <Row>
               <Col sm={12} md={6} lg={4}>
                 <OutlineDiv
-                  subHeading="Coding School"
-                  content="Awesome Inc U is our coding school. It is for both adults and children. We have taught over 1500 people to code with us."
-                  btnText="Read More"
-                  to="../learn"
-                />
-              </Col>
-              <Col sm={12} md={6} lg={4}>
-                <OutlineDiv
-                  subHeading="Entrepreneurial Hub"
+                  subHeading="Accelerator Program"
                   content="Our space and network and provide an opportunity for entrepreneurs to get connected to who they need to be successful."
                   btnText="Read More"
                   to="../fellowship"
@@ -113,7 +111,7 @@ const AboutPage = ({ data }) => {
               <Col sm={12} md={6} lg={4}>
                 <OutlineDiv
                   subHeading="Workspace"
-                  content="We have a space for you to do your best work at. You can also host events at our space."
+                  content="An 18,000 square foot space to get your best work done. Offering private office space, coworking memberships, conference rooms, event space, and many more amenities."
                   btnText="Read More"
                   to="../workspace"
                  
@@ -121,23 +119,36 @@ const AboutPage = ({ data }) => {
               </Col>
               <Col sm={12} md={6} lg={4}>
                 <OutlineDiv
-                  subHeading="Innovation Incubated"
-                  content="Helping KY companies discover, test, and implement innovative ideas."
+                  subHeading="Awesome Fund"
+                  content="A $5 Million pre-seed and seed stage fund that invests in tech startups in and near Kentucky, bringing new capital and resources to the region."
+                  btnText="Visit Site"
+                  to="https://www.awesomefund.vc/"
+                
+                />
+              </Col>
+              <Col sm={12} md={6} lg={4}>
+                <OutlineDiv
+                  subHeading="Coding School"
+                  content="Awesome Inc U teaches people of all ages and experiences levels how to code through a wide range of programming, courses, and events."
+                  btnText="Read More"
+                  to="../learn"
+                />
+              </Col>
+              <Col sm={12} md={6} lg={4}>
+                <OutlineDiv
+                  subHeading="Corporate Innovation"
+                  content="Helping Kentucky companies discover, test, and implement innovative ideas through workshops, leadership development, and mentorship."
                   btnText="Read More"
                   to="https://www.awesomeinc.org/innovation-incubated"
                  
                 />
               </Col>
-              <Col sm={12} md={6} lg={4}>
-                <OutlineDiv
-                  subHeading="Culture"
-                  content="Culture is so important to us. We want to share it with the community and invite everyone in on it."
-                  btnText="Culture Book"
-                  to="https://www.awesomeinc.org/assets/culture-book.pdf"
-                
-                />
-              </Col>
             </Row>
+            <Col className="col-12 d-flex justify-content-center">
+              <a href="/what-we-do/">
+                <BrandButton className={`text-nowrap`}>See More Initiatives</BrandButton>
+              </a>
+            </Col>
           </Container>
         </section>
 
@@ -148,7 +159,7 @@ const AboutPage = ({ data }) => {
               <h2 className={`text-uppercase text-center ${styles.headingTitle}`}>Meet The Team</h2>
               <Col  md={{ span: 10, offset: 2}} lg={{ span: 8, offset: 2}} >
                 <Row>
-                  {teamMembers.map((node, i) => (
+                  {sortedTeamMembers.map((node, i) => (
                     <Col
                       xs={4}
                       sm={4}
