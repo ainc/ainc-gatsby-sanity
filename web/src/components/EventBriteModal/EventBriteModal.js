@@ -1,50 +1,76 @@
 import React, { useState, useEffect } from "react";
-import { Modal } from 'react-bootstrap';
+import { Modal } from "react-bootstrap";
 
-
-const EventBriteModal = (props) => {
+const EventBriteModal = props => {
   const [showModal, setShowModal] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   const handleClick = () => {
     setShowModal(true);
   };
+
   const handleCloseModal = () => {
     setShowModal(false);
   };
-  
+
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 500); // Change the breakpoint according to your needs
+      setIsSmallScreen(window.innerWidth < 500);
     };
 
-    handleResize(); // Call it once to set the initial value
+    handleResize();
 
-    window.addEventListener('resize', handleResize); // Listen for window resize events
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize); // Cleanup
+      window.removeEventListener("resize", handleResize);
     };
-  }, []); // Empty dependency array ensures this effect only runs once after initial render
+  }, []);
 
   return (
     <>
       {isSmallScreen ? (
-        <a href={props.link} target='_blank' className='link--brand'><div style={{textAlign: 'left'}}>{props.children}</div></a>
+        <a href={props.link} target="_blank" rel="noopener noreferrer" className="link--brand">
+          <div style={{ textAlign: "left" }}>{props.children}</div>
+        </a>
       ) : (
-      <button onClick={handleClick} type="button"  className='' style={{background: 'none', border: 'none', width: '100%', padding: '0', margin: '0'}}><div style={{textAlign: 'left'}}>{props.children}</div></button>
+        <button
+          onClick={handleClick}
+          type="button"
+          className=""
+          style={{ background: "none", border: "none", width: "100%", padding: "0", margin: "0" }}
+          aria-label={`Open details for ${props.children.props.name}`}
+        >
+          <div style={{ textAlign: "left" }}>{props.children}</div>
+        </button>
       )}
-      <Modal show={showModal} onHide={handleCloseModal} centered>
-        <iframe
-          src={props.link} 
-          title="Eventbrite Checkout" 
-          width="100%" 
-          height="750px" 
-          allowtransparency="true" 
-        />
+
+      <Modal
+        show={showModal}
+        onHide={handleCloseModal}
+        centered
+        size="lg"
+        dialogClassName={isSmallScreen ? "modal-90w" : "modal-80w"}
+        aria-labelledby="eventbrite-modal-title"
+        scrollable
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="eventbrite-modal-title">
+            {props.children.props.name} - {props.children.props.date}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <iframe
+            src={props.link}
+            title="Eventbrite Checkout"
+            width="100%"
+            style={{ height: "80vh", border: "none" }}
+            allowTransparency="true"
+          />
+        </Modal.Body>
       </Modal>
-     
     </>
-  )}
+  );
+};
 
 export default EventBriteModal;
