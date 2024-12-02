@@ -16,6 +16,7 @@
   display: flex;
   flex-wrap: wrap;
   margin: auto;
+  justify-content: center;
 }
 
 .flex-item {
@@ -30,6 +31,15 @@
   @media (min-width: 992px) {
     flex: 1 1 33.333%;
   }
+}
+
+.contentWrapper {
+  display: flex;
+  width: 100%;
+  max-width: 40vw;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .custom-container {
