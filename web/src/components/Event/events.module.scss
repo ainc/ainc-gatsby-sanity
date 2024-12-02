@@ -1,73 +1,82 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic);
-@import '../../styles/variables.scss';
-@import '../../styles/mixins';
-
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic");
+@import "../../styles/variables.scss";
+@import "../../styles/mixins";
 
 * {
-    font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .box {
-    display: flex;
-    padding: 3%;
-    border-radius: 6px;
-    border-color: rgba(119, 119, 119, 0.353);
-    border-width: 1px;
-    border-style: solid;
-    overflow: hidden;
-    @include screen-xs{
-        width: 100%;
-        min-height: 170px;
-    }
-    @include screen-sm{
-        width: 100%;
-        min-height: 170px;
-    }
-    @include screen-md{
-        width: 100%;
-        min-height: 160px;
-    }
-    @include screen-lg {
-        width: 100%;
-        min-height: 160px;
-    }
-    @include screen-max{
-        width: 100%;
-        min-height: 160px;
-    }
-}
+  display: flex;
+  padding: 3%;
+  border-radius: 6px;
+  border-color: rgba(119, 119, 119, 0.353);
+  border-width: 1px;
+  border-style: solid;
+  overflow: hidden;
+  width: 100%;
+  max-width: 40vw;
+  flex-direction: row;
+  cursor: pointer; // Indicates the card is clickable
+  transition: box-shadow 0.3s, border-color 0.3s;
 
-.box:hover {
+  @media (max-width: 768px) {
+    flex-direction: column; // Stack vertically on small screens
+    align-items: center;
+    max-width: 100vw;
+  }
+
+  &:hover {
     border-color: $brand-color;
-    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  }
 }
 
 .event-image {
-    object-fit: contain;
-    max-width: 125px;
-    transition-duration: 400ms;
-    display: flex;
-    align-items: center;
-    @media (max-width: 510px) {
-        display: none;
-    }
+  object-fit: contain;
+  max-width: 125px;
+  width: 100%;
+  transition-duration: 400ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 510px) {
+    max-width: 100%;
+  }
 }
 
-.box:hover .event-image{
-    transition-duration: 400ms;
-    transform: scale(1.07);
+.box:hover .event-image {
+  transform: scale(1.07);
+  transition-duration: 400ms;
 }
 
 .small-text {
-    color: $brand-color2;
-    font-size: 13px;
-    margin-top: 0.5rem;
+  color: $brand-color2;
+  font-size: 13px;
+  margin-top: 0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    text-align: center;
+  }
 }
 
 .bold-text {
-    color: $brand-color2;
-    font-size: 15px;
-    font-weight: 900;
+  color: $brand-color2;
+  font-size: 15px;
+  font-weight: 900;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    text-align: center;
+  }
 }
 
 .red-text {
@@ -75,11 +84,22 @@
 }
 
 .link-hover:hover {
-    color: rgb(255, 0, 0);
+  color: rgb(255, 0, 0);
 }
 
 .text-div {
   position: relative;
   overflow: auto;
+  margin-left: 1rem;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    margin-top: 1rem;
+    text-align: center;
+  }
 }
 
+.text-div h2,
+.text-div h3 {
+  margin: 0.5rem 0;
+}
