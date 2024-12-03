@@ -23,7 +23,7 @@ import Startups from "../components/Layout/Startups/Startups";
 import FeatureCard from "../components/FeatureCard/FeatureCard";
 import HorizontalCard from "../components/HorizontalCard/HorizontalCard";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 import ModalCustom from "../components/Modal/ModalCustom";
 
@@ -149,6 +149,7 @@ const IndexPage = ({ data }) => {
 
   const [isWorkspaceButton1Hovered, setIsWorkspaceButton1Hovered] = useState(false);
   const [isWorkspaceButton2Hovered, setIsWorkspaceButton2Hovered] = useState(false);
+  const isInView = useInView(ref, { once: true });
 
   return (
     <Layout>
@@ -269,6 +270,7 @@ const IndexPage = ({ data }) => {
               <motion.div className='h-100'
                   initial={{ opacity: 0.5, y: -50 }}
                   whileInView={{ opacity: 1 , y: 0}}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 1 }} 
               >
                 <FeatureCard className='ms-0'
