@@ -1,6 +1,6 @@
 import React, {useRef} from "react";
 import { graphql, Link, useStaticQuery } from 'gatsby'
-import { motion, useInView } from "framer-motion"
+import { motion, useInView } from "framer-motion";
 
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
@@ -11,11 +11,10 @@ import Subtitle from "../UI/Subtitle/Subtitle";
 import Title from "../UI/Title/Title";
 import Wrapper from "../UI/Wrapper/Wrapper";
 
+const isSSR = typeof window === "undefined";
 
 const HomepageSlider = (props) => {
   const {scrollToSection, sectionIds} = props
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
 
   /* Old slider
   const  [sliderRef] = useKeenSlider(
@@ -76,10 +75,18 @@ const HomepageSlider = (props) => {
   `);
 
   const slides = (query.sanityImageSlider.slides || {});
+
   return (
     <Carousel controls={false}>
-      {slides.map((slide, i) => (
-        <Carousel.Item key={i}>
+      {slides.map((slide, i) => {
+        const contentRef = useRef(null);
+        const isContentInView = useInView(contentRef, { once: true });
+
+        const buttonRef = useRef(null);
+        const isButtonInView = useInView(buttonRef, { once: true });
+
+        return (
+          <Carousel.Item key={i}>
           <div
             style={{
               backgroundAttachment: 'fixed',
@@ -94,28 +101,39 @@ const HomepageSlider = (props) => {
             <Wrapper>
               <Container className="mb-3 d-flex align-content-center flex-wrap h-100">
                     <Row>
-                      <motion.div initial={{ opacity: 0, y: -50 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ delay: 0.5, duration: 0.8 }}>
-                      <Subtitle className="text-white">{slide.subtitle}</Subtitle>
-                      <Title className="mb-3 text-white">{slide.title}</Title>
+                      <motion.div
+                        ref={buttonRef}
+                        initial={isSSR ? false : { opacity: 0, scale: 0.5 }}
+                        animate={isButtonInView ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ delay: 1.0, duration: 0.6 }}
+                      >
+                        <Subtitle className="text-white">{slide.subtitle}</Subtitle>
+                        <Title className="mb-3 text-white">{slide.title}</Title>
                       </motion.div>
-                      <motion.div initial={{ opacity: 0, scale: 0.5 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ delay: 1.0, duration: 0.6 }}>
+                      
+                      <motion.div
+                        ref={buttonRef}
+                        initial={isSSR ? false : { opacity: 0, scale: 0.5 }}
+                        animate={isButtonInView ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ delay: 1.0, duration: 0.6 }}
+                      > 
                       <Col>
-                        <BrandButton onClick={() => scrollToSection(sectionIds[i])}  href='slide.cta.url' className="mt-3">Learn More</BrandButton>
+                        <BrandButton
+                          onClick={() => scrollToSection(sectionIds[i])}
+                          href={slide.cta.url}
+                          className="mt-3"
+                        >
+                          Learn More
+                        </BrandButton>
                       </Col>
                       </motion.div>
-                    </Row>
-                  
+                    </Row>          
               </Container>
             </Wrapper>
           </div>
-        </Carousel.Item>
-      ))}
+          </Carousel.Item>
+        )  
+      })}
     </Carousel>
     
   );
