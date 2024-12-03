@@ -29,6 +29,7 @@ const Header = () => {
     }
     return false;
   });
+  const [shouldAnimate, setShouldAnimate] = React.useState(false);
 
   function handleClick(activeValue) {
     if (active === activeValue) {
@@ -49,8 +50,16 @@ const Header = () => {
   }, [active, open]);
   console.log(active, open);
 
+  React.useEffect(() => {
+    setShouldAnimate(true)
+  }, [])
+
   return (
-    <Navbar className="sticky-top navbar" variant="dark" expand="lg">
+    <Navbar
+      className={`sticky-top navbar${shouldAnimate ? ' animate' : ''}`}
+      variant="dark"
+      expand="lg"
+    >
       <Container>
         <Navbar.Brand className={navbarBrand}>
           <a href="/">
