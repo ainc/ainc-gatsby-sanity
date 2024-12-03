@@ -149,6 +149,7 @@ const IndexPage = ({ data }) => {
 
   const [isWorkspaceButton1Hovered, setIsWorkspaceButton1Hovered] = useState(false);
   const [isWorkspaceButton2Hovered, setIsWorkspaceButton2Hovered] = useState(false);
+  const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   return (
