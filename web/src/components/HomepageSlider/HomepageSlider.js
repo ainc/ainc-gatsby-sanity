@@ -1,6 +1,6 @@
 import React, {useRef} from "react";
 import { graphql, Link, useStaticQuery } from 'gatsby'
-import { motion } from "framer-motion"
+import { motion, useInView } from "framer-motion"
 
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
@@ -14,6 +14,8 @@ import Wrapper from "../UI/Wrapper/Wrapper";
 
 const HomepageSlider = (props) => {
   const {scrollToSection, sectionIds} = props
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   /* Old slider
   const  [sliderRef] = useKeenSlider(
@@ -94,12 +96,14 @@ const HomepageSlider = (props) => {
                     <Row>
                       <motion.div initial={{ opacity: 0, y: -50 }}
                       whileInView={{ opacity: 1, y: 0 }}
+                      animate={isInView ? { opacity: 1, y: 0 } : {}}
                       transition={{ delay: 0.5, duration: 0.8 }}>
                       <Subtitle className="text-white">{slide.subtitle}</Subtitle>
                       <Title className="mb-3 text-white">{slide.title}</Title>
                       </motion.div>
                       <motion.div initial={{ opacity: 0, scale: 0.5 }}
                       whileInView={{ opacity: 1, scale: 1 }}
+                      animate={isInView ? { opacity: 1, y: 0 } : {}}
                       transition={{ delay: 1.0, duration: 0.6 }}>
                       <Col>
                         <BrandButton onClick={() => scrollToSection(sectionIds[i])}  href='slide.cta.url' className="mt-3">Learn More</BrandButton>
