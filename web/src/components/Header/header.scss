@@ -54,22 +54,27 @@
 
 .navbar {
   background-color: $brand-color2;
-  opacity: 0.9;
+  opacity: 0;
+  transition: opacity 0s ease-in;
   z-index: 999;
+
   @media (max-width: 768px) {
     --bs-navbar-padding-y: 0rem;
   }
+
   .sub-navbar {
     padding-top: 2%;
     padding-bottom: 0%;
   }
+}
 
-  &.animate > .container {
-    -webkit-animation-name: fadeInRight;
-    animation-name: fadeInRight;
-    animation-duration: 600ms;
-    animation-timing-function: ease-in;
-  }
+.navbar.animate {
+  opacity: 1;
+  transition: opacity 0.6s ease-in;
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+  animation-duration: 600ms;
+  animation-timing-function: ease-in;
 }
 
 .navbar > .container {
