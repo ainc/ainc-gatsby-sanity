@@ -128,6 +128,7 @@ const IndexPage = ({ data }) => {
   const section2Ref = useRef(null);
   const section3Ref = useRef(null);
   const section4Ref = useRef(null);
+  const ref = useRef(null);
 
   //Scroll to a section when button is clicked (HomepageSlider component)
   const scrollToSection = (sectionId) => {
@@ -149,7 +150,6 @@ const IndexPage = ({ data }) => {
 
   const [isWorkspaceButton1Hovered, setIsWorkspaceButton1Hovered] = useState(false);
   const [isWorkspaceButton2Hovered, setIsWorkspaceButton2Hovered] = useState(false);
-  const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   return (
