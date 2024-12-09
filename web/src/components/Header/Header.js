@@ -43,9 +43,24 @@ const Header = () => {
   }
 
   React.useEffect(() => {
+    const navbar_selected = window.localStorage.getItem("navbar_selected") !== null;
+    const open_selected = window.localStorage.getItem("open") !== null;
+    if (navbar_selected) {
+      setActive(JSON.parse(navbar_selected !== null ? navbar_selected : ""));
+    }
+    if (open_selected) {
+      setOpen(JSON.parse(open_selected !== null ? open_selected : false));
+    }
+  }, []);
+
+  React.useEffect(() => {
     window.localStorage.setItem("navbar_selected", JSON.stringify(active));
     window.localStorage.setItem("open", JSON.stringify(open));
   }, [active, open]);
+
+  React.useEffect(() => {
+    setShouldAnimate(true);
+  }, []);
 
   React.useEffect(() => {
     setShouldAnimate(true);
