@@ -14,7 +14,7 @@ const Event = props => {
   const eventIsEventBrite = isEventBriteEvent(props.link);
 
   const eventContent = (
-    <div className={styles.eventContentWrapper}>
+    <div className={styles.box}>
       <div className={styles.eventImage}>
         <GatsbyImage image={props.image} alt={props.alt || (props.name ?? "Untitled Event")} />
       </div>
@@ -28,24 +28,27 @@ const Event = props => {
   );
 
   return eventIsEventBrite ? (
-    <div className={styles.box}>
-      <EventBriteModal link={props.link}>
-        <div
-          className={styles.contentWrapper}
-          role="button"
-          tabIndex={0}
-          onKeyPress={e => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-            }
-          }}
-        >
-          {eventContent}
-        </div>
-      </EventBriteModal>
-    </div>
+    <EventBriteModal link={props.link}>
+      <div
+        className={styles.contentWrapper}
+        role="button"
+        tabIndex={0}
+        onKeyPress={e => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+          }
+        }}
+      >
+        {eventContent}
+      </div>
+    </EventBriteModal>
   ) : (
-    <a className={styles.box} href={props.link} target="_blank" rel="noopener noreferrer">
+    <a
+      className={styles.contentWrapper}
+      href={props.link}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {eventContent}
     </a>
   );

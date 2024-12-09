@@ -18,7 +18,9 @@ const EventsPage = ({ data }) => {
           <Title className="text-uppercase">Upcoming Events</Title>
         </Row>
         <Row>
-          <Subtitle className="fs-5">Join us and be a part of the startup community!</Subtitle>
+          <Subtitle className="fs-5">
+            Join us and be a part of the startup community!
+          </Subtitle>
         </Row>
       </Container>
 
@@ -48,7 +50,10 @@ const EventsPage = ({ data }) => {
 
 export const query_events = graphql`
   query($currentDate: Date!) {
-    allSanityEvents(sort: { date: ASC }, filter: { date: { gte: $currentDate } }) {
+    allSanityEvents(
+      sort: { date: ASC }
+      filter: { date: { gte: $currentDate } }
+    ) {
       edges {
         node {
           eventName
