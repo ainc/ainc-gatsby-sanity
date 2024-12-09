@@ -28,7 +28,7 @@ const EventsPage = ({ data }) => {
           {events.map(edge => (
             <div
               className={`${styles.flexItem} ${styles.contentWrapper}`}
-              key={edge.node.eventName}
+              key={edge.node.eventName ?? edge.node.id}
             >
               <Event
                 image={edge.node.picture.asset.gatsbyImageData}
@@ -36,7 +36,7 @@ const EventsPage = ({ data }) => {
                 host={edge.node.host}
                 location={edge.node.location}
                 link={edge.node.linkToEvent}
-                name={edge.node.eventName}
+                name={edge.node.eventName ?? "Untitled Event"}
               />
             </div>
           ))}
