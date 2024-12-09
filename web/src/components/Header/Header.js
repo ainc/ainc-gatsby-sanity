@@ -16,15 +16,15 @@ import "./header.scss";
 
 const Header = () => {
   const [active, setActive] = React.useState(() => {
-    if (typeof window !== 'undefined') {
-      const storedActive = window.localStorage.getItem('navbar_selected');
-      return storedActive ? JSON.parse(storedActive) : '';
+    if (typeof window !== "undefined") {
+      const storedActive = window.localStorage.getItem("navbar_selected");
+      return storedActive ? JSON.parse(storedActive) : "";
     }
-    return '';
+    return "";
   });
   const [open, setOpen] = React.useState(() => {
-    if (typeof window !== 'undefined') {
-      const storedOpen = window.localStorage.getItem('open');
+    if (typeof window !== "undefined") {
+      const storedOpen = window.localStorage.getItem("open");
       return storedOpen ? JSON.parse(storedOpen) : false;
     }
     return false;
@@ -44,8 +44,8 @@ const Header = () => {
   }
 
   React.useEffect(() => {
-    window.localStorage.setItem('navbar_selected', JSON.stringify(active));
-    window.localStorage.setItem('open', JSON.stringify(open));
+    window.localStorage.setItem("navbar_selected", JSON.stringify(active));
+    window.localStorage.setItem("open", JSON.stringify(open));
   }, [active, open]);
   console.log(active, open);
 
