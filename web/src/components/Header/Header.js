@@ -15,20 +15,9 @@ import { navbarBrand, navButton, show } from "./Header.module.scss";
 import "./header.scss";
 
 const Header = () => {
-  const [active, setActive] = React.useState(() => {
-    if (typeof window !== "undefined") {
-      const storedActive = window.localStorage.getItem("navbar_selected");
-      return storedActive ? JSON.parse(storedActive) : "";
-    }
-    return "";
-  });
-  const [open, setOpen] = React.useState(() => {
-    if (typeof window !== "undefined") {
-      const storedOpen = window.localStorage.getItem("open");
-      return storedOpen ? JSON.parse(storedOpen) : false;
-    }
-    return false;
-  });
+  const [active, setActive] = React.useState("");
+  const [open, setOpen] = React.useState(false);
+  const [shouldAnimate, setShouldAnimate] = React.useState(false);
 
   function handleClick(activeValue) {
     if (active === activeValue) {
@@ -44,13 +33,32 @@ const Header = () => {
   }
 
   React.useEffect(() => {
+    const navbar_selected = window.localStorage.getItem("navbar_selected") !== null;
+    const open_selected = window.localStorage.getItem("open") !== null;
+    if (navbar_selected) {
+      setActive(JSON.parse(navbar_selected !== null ? navbar_selected : ""));
+    }
+    if (open_selected) {
+      setOpen(JSON.parse(open_selected !== null ? open_selected : false));
+    }
+  }, []);
+
+  React.useEffect(() => {
     window.localStorage.setItem("navbar_selected", JSON.stringify(active));
     window.localStorage.setItem("open", JSON.stringify(open));
   }, [active, open]);
   console.log(active, open);
 
+  React.useEffect(() => {
+    setShouldAnimate(true);
+  }, []);
+
   return (
-    <Navbar className="sticky-top navbar" variant="dark" expand="lg">
+    <Navbar
+      className={`sticky-top navbar${shouldAnimate ? " animate" : ""}`}
+      variant="dark"
+      expand="lg"
+    >
       <Container>
         <Navbar.Brand className={navbarBrand}>
           <a href="/">
