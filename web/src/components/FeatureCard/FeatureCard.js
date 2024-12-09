@@ -17,7 +17,7 @@ const FeatureCard = (props) => {
   return (
     <Card className=''>
       <figure className={`card--gradient-bg position-relative`}>
-      <Card.Img src={props.image?.images?.fallback.src || '../../images/ainc-logo-horizontal-white-text.png'} alt={props.title} className={`p-2 card__img--overlay object-fit-cover ${styles.cardImage}`} />
+      <Card.Img src={props.image?.images?.fallback.src || '../../images/ainc-logo-horizontal-white-text.png'} alt={props.title ?? "Untitled Event"} className={`p-2 card__img--overlay object-fit-cover ${styles.cardImage}`} />
          <EventBriteModal link={props.link}>
             <Card.ImgOverlay className="m-2">
               <div className="card__gradient-bg">
@@ -35,7 +35,7 @@ const FeatureCard = (props) => {
                           <small>{props.location}</small>
                         </div>
                         <Subtitle className={`fw-bolder text-white ${styles.cardSubtitle}`}>
-                          {props.title}
+                          {props.title ?? "Untitled Event"}
                         </Subtitle>
                       </div>
                     </Col>

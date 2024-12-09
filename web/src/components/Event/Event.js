@@ -16,13 +16,13 @@ const Event = props => {
   const eventContent = (
     <div className={styles.box}>
       <div className={styles.eventImage}>
-        <GatsbyImage image={props.image} alt={props.alt || props.name} />
+        <GatsbyImage image={props.image} alt={props.alt || (props.name ?? "Untitled Event")} />
       </div>
       <div className={`${styles.textDiv} mx-3`}>
         <h2 className={styles.boldText}>{props.date}</h2>
         <h2 className={styles.smallText}>{host}</h2>
         <h3 className={styles.smallText}>{location}</h3>
-        <h3 className={styles.boldText}>{props.name}</h3>
+        <h3 className={styles.boldText}>{props.name ?? "Untitled Event"}</h3>
       </div>
     </div>
   );
