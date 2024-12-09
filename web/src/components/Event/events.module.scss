@@ -6,7 +6,14 @@
   font-family: "Open Sans", sans-serif;
 }
 
+.contentWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .box {
+  display: flex;
   padding: 3%;
   border-radius: 6px;
   border-color: rgba(119, 119, 119, 0.353);
@@ -14,12 +21,13 @@
   border-style: solid;
   overflow: hidden;
   width: 100%;
-  max-width: 35vw;
-  cursor: pointer;
+  max-width: 40vw;
+  flex-direction: row;
+  cursor: pointer; // Indicates the card is clickable
   transition: box-shadow 0.3s, border-color 0.3s;
 
   @media (max-width: 768px) {
-    flex-direction: column;
+    flex-direction: column; // Stack vertically on small screens
     align-items: center;
     max-width: 100vw;
   }
@@ -28,12 +36,6 @@
     border-color: $brand-color;
     box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
   }
-}
-
-.event-content-wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
 }
 
 .event-image {
