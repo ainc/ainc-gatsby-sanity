@@ -198,7 +198,7 @@ const fiveAcrossPage = ({ data }) => {
                                         <Col className="" lg="8">
                                             <h2 className="text--red  fw-bold">{node.date}</h2> {/*need to  */}
                                             <h4 className="text--black fw-light ">Location: {node.location}</h4> {/*Location*/}
-                                            <h3 className="text--black ">{node.eventName}</h3>{/*title */}
+                                            <h3 className="text--black ">{node.eventName ?? "Untitled Event"}</h3> {/*title */}
                                         </Col>
                                     </Row>
                                 </EventBriteModal>
