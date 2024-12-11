@@ -279,7 +279,7 @@ const fiveAcrossPage = ({ data }) => {
                   titleColor: '#C12029',
                   titleColorActive: '#C12029',
                   cardTitleColor: '#C12029',
-                  cardSubtitleColor: '#323232'
+                  cardSubtitleColor: '#323232' 
                 }}
               />
             </div>
