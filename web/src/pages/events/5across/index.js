@@ -4,6 +4,7 @@ import { graphql, Link } from "gatsby";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import { Container, Col, Row, Image } from "react-bootstrap";
 import { motion } from "framer-motion";
+import { Chrono } from "react-chrono";
 
 import BrandButton from "../../../components/UI/BrandButton/BrandButton";
 import DropdownDataDisplay from "../../../components/DropdownDataDisplay/DropdownDataDisplay";
@@ -39,6 +40,8 @@ const fiveAcrossPage = ({ data }) => {
     let pastWinnerDate = ""
     let pastWinnerYear = ""
 
+    let items = [];
+    
     for (let pastWinner in fiveAcrossWinners) {
         // console.log(fiveAcrossWinners[pastWinner].node)
         pastWinnerDate = fiveAcrossWinners[pastWinner].node.WinningDate
@@ -54,6 +57,29 @@ const fiveAcrossPage = ({ data }) => {
       ref.current.scrollIntoView({ behavior: 'smooth' });
     }
     };
+
+    for (let pastWinner in fiveAcrossWinners) {
+      let item = {
+        date: fiveAcrossWinners[pastWinner].node.WinningDate,
+        cardTitle: fiveAcrossWinners[pastWinner].node.companyTitle,
+        cardSubtitle: fiveAcrossWinners[pastWinner].node.FounderNames,
+        timelineContent:
+          <div className={`${styles.pastWinnerCardContainer}`}>
+            <div className={styles.imgContainer}>
+              <GatsbyImage image={fiveAcrossWinners[pastWinner].node.image.asset.gatsbyImageData} className={`${styles.pastWinnerImg}`} />
+            </div>
+            <div className={styles.videoButton}>
+              <a href={fiveAcrossWinners[pastWinner].node.founderVideo}>
+                <BrandButton>Watch Video</BrandButton>
+              </a>
+            </div>
+          </div>
+      }
+      items.push(item);
+
+    }
+
+    
 
     return (
     
@@ -235,6 +261,30 @@ const fiveAcrossPage = ({ data }) => {
                 </Row>
             </Container>
 
+            {/* TIMELINE SECTION */}
+            <div style={{ width: "80%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto" }}>
+          <Chrono
+              mode="HORIZONTAL"
+              items={items}
+              lineWidth="5"
+              contentDetailsHeight="500"
+              cardWidth="300"
+              titleDateFormat='MMM YYYY'
+              enableLayoutSwitch={false}
+              showAllCardsHorizontal={true}
+                activeItemIndex={items.length - 1}
+                theme={{
+                  primary: '#C12029',
+                  secondary: '#E6E7E8',
+                  titleColor: '#C12029',
+                  titleColorActive: '#C12029',
+                  cardTitleColor: '#C12029',
+                  cardSubtitleColor: '#323232'
+                }}
+              />
+            </div>
+
+
             {/* BRING THE FUN SECTION */}
             <Container className="my-5">
                 <Row>
@@ -366,7 +416,7 @@ query fiveAcrossQuery($currentDate: Date!) {
                 founderVideo
                 image {
                     asset {
-                        gatsbyImageData(aspectRatio: 1, height: 300)
+                        gatsbyImageData(height: 300)
                     }
                 }
             }
