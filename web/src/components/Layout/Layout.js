@@ -36,7 +36,7 @@ const Layout = ({ pageTitle, children, onHideNav, onShowNav, showNav, siteTitle,
   }
 
   return (
-    <Container fluid className="d-flex flex-column min-vh-100">
+    <Container fluid className="d-flex flex-column min-vh-100 p-0">
       <SEO title={titleOfPage} imports={jsImports} />
       <Banner />
       <Header />
