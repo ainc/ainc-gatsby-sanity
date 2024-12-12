@@ -1,50 +1,49 @@
-import React, { useState, useEffect } from "react"
-import { useStaticQuery, graphql } from 'gatsby';
-import { useLocation } from "@reach/router";
-//import { TransitionPortal } from "gatsby-plugin-transition-link"
-
-import Banner from '../Banner/Banner'
-import Footer from '../Footer/Footer'
-import Header from '../Header/Header'
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import Banner from "../Banner/Banner";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 import SEO from "../seo";
 
 import "../../styles/layout.css";
+import { Container } from "react-bootstrap";
 
-const Layout = ({ pageTitle, children, onHideNav, onShowNav, showNav, siteTitle, jsImports}) => {
+const Layout = ({ pageTitle, children, onHideNav, onShowNav, showNav, siteTitle, jsImports }) => {
   const query = useStaticQuery(graphql`
-  query {
-    allSanityPageTitles {
-      edges {
-        node {
-          filePath
-          pageTitle
+    query {
+      allSanityPageTitles {
+        edges {
+          node {
+            filePath
+            pageTitle
+          }
         }
       }
     }
-  }
   `);
 
-  var titleOfPage
+  const isBrowser = typeof window !== "undefined";
+  const currentPath = isBrowser ? window.location.pathname : "/";
+
+  let titleOfPage = "Awesome Inc"; // Default title
   try {
-    titleOfPage = query.allSanityPageTitles.edges.find((page) => page.node.filePath === useLocation().pathname).node.pageTitle
-  } catch(error) {
-    console.error(error)
+    const matchedPage = query?.allSanityPageTitles?.edges?.find(
+      page => page?.node?.filePath === currentPath
+    );
+    titleOfPage = matchedPage?.node?.pageTitle || titleOfPage;
+  } catch (error) {
+    console.error("Error finding page title:", error);
   }
-  
-  return(
-  <div>
-    <SEO title={titleOfPage ? titleOfPage : 'Awesome Inc'} imports={jsImports}/>
-    <Banner />
-    <Header />
-    <main>
-    <div>
-      {children}
-    </div>
-    </main>
-    <Footer />
-  </div>
+
+  return (
+    <Container fluid className="d-flex flex-column min-vh-100 p-0">
+      <SEO title={titleOfPage} imports={jsImports} />
+      <Banner />
+      <Header />
+      <main className="flex-grow-1">{children}</main>
+      <Footer />
+    </Container>
   );
 };
-
 
 export default Layout;

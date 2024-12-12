@@ -1,5 +1,5 @@
-@import '../../styles/variables.scss';
-@import '../../styles/mixins.scss';
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
 
 .desktop {
   display: block;
@@ -56,7 +56,7 @@
   background-color: $brand-color2;
   opacity: 0.9;
   z-index: 999;
-  @media(max-width: 768px){
+  @media (max-width: 768px) {
     --bs-navbar-padding-y: 0rem;
   }
   .sub-navbar {
@@ -65,26 +65,35 @@
   }
 }
 
-.navbar > .container {
+.navbar-contents {
+  opacity: 0;
+  transition: opacity 0.6s ease-in;
+}
+
+/* When animate class is added, show and animate contents */
+.navbar.animate .navbar-contents {
+  opacity: 1;
   -webkit-animation-name: fadeInRight;
   animation-name: fadeInRight;
-  -webkit-transform-origin: center;
-  transform-origin: center;
   animation-duration: 600ms;
   animation-timing-function: ease-in;
+}
+
+.navbar > .container {
+  -webkit-transform-origin: center;
+  transform-origin: center;
 
   line-height: 1rem;
 
-  >.navbar-collapse > .navbar-nav > .row {
-
+  > .navbar-collapse > .navbar-nav > .row {
     .dropdown {
       display: flex;
-        flex-direction: column;
-        margin-left: auto;
-        width: 50px;
-        >button {
-          border: none;
-        }
+      flex-direction: column;
+      margin-left: auto;
+      width: 50px;
+      > button {
+        border: none;
+      }
     }
 
     a {
@@ -95,17 +104,17 @@
         color: $brand-color;
       }
     }
-  
+
     > div {
-      div a{          
+      div a {
         @include font-size(7);
         &:hover {
           padding: 0px 20px;
           color: $brand-color;
-        }  
+        }
       }
-      
-      &:hover > .nav-link{
+
+      &:hover > .nav-link {
         color: $brand-color;
       }
       @include screen-tablet-max {
@@ -129,7 +138,7 @@
           @include font-size(7);
           &:hover {
             color: $brand-color;
-          }  
+          }
         }
       }
     }
@@ -151,7 +160,7 @@
     border-radius: 2px;
     height: 40px;
     width: 50px;
-    
+
     &:active {
       background-color: $brand-color;
       border: 1px solid $brand-color;
@@ -165,9 +174,7 @@
   }
 }
 
-
 /*Animation*/
-
 
 @keyframes fadeInRight {
   from {
@@ -190,8 +197,8 @@
   to {
     opacity: 1;
   }
- }
- .dropdown-menu {
+}
+.dropdown-menu {
   min-width: auto !important;
   font-size: 12px;
 }
@@ -199,4 +206,3 @@
 #lang-nav-dropdown {
   width: fit-content;
 }
-

@@ -11,7 +11,7 @@ import { FaTwitter, FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube } from 're
 import { motion } from "framer-motion";
 
 const LinksPage = ({ data }) => {
-    const allLinks = (data.allSanityLinks.nodes || {})
+    const allLinks = (data.allSanityLinks.nodes[0].links || {})
 
     return (
       <Container>
@@ -19,7 +19,7 @@ const LinksPage = ({ data }) => {
         <Row>
           <Col className="header d-flex justify-content-center align-items-center">  
               <StaticImage placeholder="blurred" 
-                className='mx-auto d-block img-fluid' 
+                className='logo mx-auto d-block img-fluid' 
                 quality='100' 
                 src='../../assets/svg/logo-grey.svg'
                 alt="Awesome Inc Logo"
@@ -32,7 +32,7 @@ const LinksPage = ({ data }) => {
         <Row className='pt-3' style={{marginTop: "30%"}}>
           {allLinks.map((node) => (
             <Col md={{span: 8, offset: 2}}>
-              <a href={node.linkToPage}>
+              <a href={node.url}>
                 <BrandButton className="hover--black mb-4 py-0 w-100 ">       
                   {node.title}       
                 </BrandButton>
@@ -66,16 +66,19 @@ const LinksPage = ({ data }) => {
       
     )
 }
-
 export const query_links = graphql`
-query {
-    allSanityLinks(sort: {title: DESC}) {
+  query {
+    allSanityLinks {
       nodes {
-        title
-        linkToPage
+        links {
+          title
+          url
+        }
       }
     }
-  }`;
+  }
+`;
+
 
 
 export default LinksPage;

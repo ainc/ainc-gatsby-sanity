@@ -6,11 +6,16 @@
 
 .banner {
   text-align: center;
-  padding: 5px;
+  padding: 5px; // Default padding
   background-color: #f2dede;
   color: #842029;
   position: relative;
   z-index: 10;
+
+  &.no-padding {
+    padding: 0; // No padding when there's no upcoming event
+  }
+
   p {
     @include screen-tablet-max {
       font-size: 14px;
@@ -18,13 +23,14 @@
     margin: 0;
     font-weight: normal;
   }
-  
+
   a {
     font-weight: normal;
     color: #842029;
     text-decoration: underline;
     transition: color 0.3s;
   }
+
   a:hover {
     color: #de3640;
     // animation: color-change;
