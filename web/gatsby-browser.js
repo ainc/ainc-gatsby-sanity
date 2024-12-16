@@ -14,3 +14,4 @@ import "@fontsource/open-sans"
 import "@fontsource/exo"
 import "@fontsource/exo-2"
 
+import "./src/styles/preloader.scss"
