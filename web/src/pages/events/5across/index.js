@@ -263,26 +263,28 @@ const fiveAcrossPage = ({ data }) => {
 
             {/* TIMELINE SECTION */}
             <div style={{ width: "80%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto" }}>
-          <Chrono
-              mode="HORIZONTAL"
-              items={items}
-              lineWidth="5"
-              contentDetailsHeight="500"
-              cardWidth="300"
-              titleDateFormat='MMM YYYY'
-              enableLayoutSwitch={false}
-              showAllCardsHorizontal={true}
-                activeItemIndex={items.length - 1}
-                theme={{
-                  primary: '#C12029',
-                  secondary: '#E6E7E8',
-                  titleColor: '#C12029',
-                  titleColorActive: '#C12029',
-                  cardTitleColor: '#C12029',
-                  cardSubtitleColor: '#323232' 
-                }}
+              <Chrono
+                  mode="HORIZONTAL"
+                  items={items}
+                  lineWidth="5"
+                  contentDetailsHeight="500"
+                  cardWidth="300"
+                  titleDateFormat='MMM YYYY'
+                  enableLayoutSwitch={false}
+                  showAllCardsHorizontal={true}
+                    activeItemIndex={items.length - 1}
+                    theme={{
+                      primary: '#C12029',
+                      secondary: '#E6E7E8',
+                      titleColor: '#C12029',
+                      titleColorActive: '#C12029',
+                      cardTitleColor: '#C12029',
+                      cardSubtitleColor: '#323232' 
+                    }}
               />
             </div>
+            
+
 
 
             {/* BRING THE FUN SECTION */}
