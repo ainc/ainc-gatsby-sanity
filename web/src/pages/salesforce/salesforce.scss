@@ -231,3 +231,17 @@
     background-repeat: no-repeat;
 
 }
+
+.modalLogoDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalLogo{
+    max-width: 30%;
+}
+
+.link{
+    color: $brand-color;
+}
