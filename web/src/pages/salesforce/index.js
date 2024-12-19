@@ -8,13 +8,35 @@ import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import "../../styles/main.scss"
 import styled from "styled-components";
+import logo from "../../images/logo.png";
 import Accordion from 'react-bootstrap/Accordion';
 import * as styles from "./salesforce.scss";
+import ModalPopup from "../../components/ModalPopup/ModalPopup";
 
 const SalesforcePage = ({ data }) => {
 
     return (
         <Layout>
+            <ModalPopup
+                content={
+                <div>
+                    <h3> We're not taking applications at this time. </h3>
+                    <p>
+                        {" "}
+                        Thank you for your interest. <br></br>
+                        Please view our other offerings{" "}
+                        <a className={`link`} href="/events">
+                            {" "}
+                            here
+                        </a>
+                        .
+                    </p>
+                    <div className={`modalLogoDiv`}>
+                        <Image src={logo} alt="" className={`modalLogo`} />
+                    </div>
+                </div>
+                }
+            />
             {/* Header section */}
             <section id="header">
                 <Container fluid>
