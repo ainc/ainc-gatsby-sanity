@@ -4,7 +4,7 @@
 
 .icon {
   max-width: 50%;
-  max-height: 90%
+  max-height: 90%;
 }
 
 .header {
@@ -21,7 +21,6 @@
 .price {
   margin-top: 25px;
   border: #a21b22;
-  max-width: 200px;
   font-size: 13px;
   line-height: 150%;
   white-space: nowrap;
@@ -29,9 +28,9 @@
   text-align: center;
 }
 
-.price:hover{
+.price:hover {
   color: #000;
-  background-color: #C12029;
+  background-color: #c12029;
   transition: 0.5s;
 }
 
@@ -44,13 +43,11 @@
   box-shadow: none;
 }
 
-
-
 @media (max-width: 992px) {
   .icon {
     max-width: 100%;
   }
-  
+
   .price {
     margin-bottom: 60px;
   }
@@ -61,5 +58,6 @@
   }
   .price {
     margin-bottom: 60px;
+    max-width: 200px;
   }
 }
