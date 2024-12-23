@@ -1,7 +1,5 @@
 @use 'sass:math';
-@import '../../styles/variables.scss';
-
-
+@import "../../styles/variables.scss";
 
 .header-section {
   background-image: url("../../images/team-alpha-header.jpg");
@@ -9,42 +7,42 @@
   background-size: cover;
   background-position: center;
   height: 50vh;
-  @media (max-width: 769px){
+  @media (max-width: 769px) {
     height: 60vh;
   }
-  @media (max-width: 426px){
+  @media (max-width: 426px) {
     height: 75vh;
   }
 }
 
-.team-alpha-badge{
+.team-alpha-badge {
   max-width: 175px;
-  position: absolute; 
+  position: absolute;
   transform: rotate(-20deg);
   @media (max-width: 2000px) {
-    left: 15%; 
+    left: 15%;
     top: -20%;
   }
   @media (max-width: 1024px) {
-    left: 5%; 
-    top: -5%; 
+    left: 5%;
+    top: -5%;
   }
   @media (max-width: 768px) {
-    left: -5%; 
-    top: 10%; 
+    left: -5%;
+    top: 10%;
   }
   @media (max-width: 426px) {
-  left: 0%; 
-  top: -20%; 
+    left: 0%;
+    top: -20%;
   }
 }
 
-.looking-for-section{
+.looking-for-section {
   background-image: url("../../images/wave-main-page.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  @media(max-width: 2000px) {
+  @media (max-width: 2000px) {
     height: 70vh;
   }
   @media (max-width: 1024px) {
@@ -56,7 +54,6 @@
   @media (max-width: 426px) {
     height: 150vh;
   }
-
 }
 .apply-section {
   background-image: url("../../images/team-alpha-apply.jpg");
@@ -75,7 +72,7 @@
   align-items: center;
 }
 
-.billiImage{
+.billiImage {
   width: 200px;
   position: absolute;
   @media (max-width: 2000px) {
@@ -94,9 +91,7 @@
     right: 5%;
     top: -50%;
   }
-
 }
-
 
 .team-button {
   padding-left: 10px !important;
@@ -109,7 +104,7 @@
   padding: 0.8rem 2.4rem;
 }
 
-.team-images{
+.team-images {
   height: 100%;
   @media (max-width: 768px) {
     width: 40vw;
@@ -121,9 +116,9 @@
 
 .custom-col-1 {
   @media (min-width: 992px) {
-  justify-content: flex-end;
+    justify-content: flex-end;
   }
-  @media (max-width: 991px){
+  @media (max-width: 991px) {
     justify-content: center;
   }
 }
@@ -136,22 +131,22 @@
   @media (min-width: 992px) {
     justify-content: flex-start;
   }
-  @media (max-width: 991px){
+  @media (max-width: 991px) {
     justify-content: center;
   }
 }
 
-.carousel-height{
-  @media (min-width: 250px){
+.carousel-height {
+  @media (min-width: 250px) {
     height: 100vh;
   }
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     height: 90vh;
   }
-  @media (min-width: 1024px){
-    height: 55vh;
+  @media (min-width: 1024px) {
+    height: 72vh;
   }
-  @media (min-width: 1440px){
-    height: 40vh;
+  @media (min-width: 1440px) {
+    height: 50vh;
   }
 }
