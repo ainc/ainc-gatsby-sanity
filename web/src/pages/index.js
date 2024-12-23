@@ -377,14 +377,14 @@ const IndexPage = ({ data }) => {
           >
             <Row>
               <Col xs={12} sm={6}>
-                <motion.div
-                  initial={{ opacity: 0.5, y: -50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2, duration: 0.5 }}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <div className="d-flex justify-content-center">
+                <div className="d-flex justify-content-center">
+                  <motion.div
+                    initial={{ opacity: 0.5, y: -50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0, duration: 0.4 }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
                     <a href="../workspace">
                       <Card
                         className="card--equal-width bg-secondary p-4 mb-3"
@@ -404,18 +404,18 @@ const IndexPage = ({ data }) => {
                         </p>
                       </Card>
                     </a>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </div>
               </Col>
               <Col xs={12} sm={6}>
-                <motion.div
-                  initial={{ opacity: 0.5, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2, duration: 0.5 }}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <div className="d-flex justify-content-center mt-5 pt-5">
+                <div className="d-flex justify-content-center mt-5 pt-5">
+                  <motion.div
+                    initial={{ opacity: 0.5, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0, duration: 0.4 }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
                     <a href="../workspace">
                       <Card
                         className="card--equal-width bg-secondary p-4"
@@ -436,8 +436,8 @@ const IndexPage = ({ data }) => {
                         </p>
                       </Card>
                     </a>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </div>
               </Col>
             </Row>
           </div>
