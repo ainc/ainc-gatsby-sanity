@@ -1,127 +1,129 @@
 @import "../../styles/main.scss";
 
-.inner-text a, a:hover {
-    color: blue;
-    text-decoration: underline;
+.inner-text a,
+a:hover {
+  color: blue;
+  text-decoration: underline;
 }
 
-.conference-container a, a:hover {
+.conference-container a,
+a:hover {
   color: inherit;
   text-decoration: inherit;
 }
 
 .image-header {
-    background-image: url(../../images/qr-code/qr-code-header.jpg);
-    background-size: cover;
-    background-position:center;
+  background-image: url(../../images/qr-code/qr-code-header.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .heading {
-    padding: 75px 0px;
+  padding: 75px 0px;
 }
 
 .heading-title {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
 .heading-subtitle {
-    color: #C02129;
-    font-weight: bold;
-    font-style: italic;
-    font-size: 2rem;
+  color: #c02129;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 2rem;
 }
 
 .wifi-container {
-    padding-top: 50px;
-    padding-bottom: 70px;
+  padding-top: 50px;
+  padding-bottom: 70px;
 }
 
 .wifi {
-    padding-bottom: 30px;
+  padding-bottom: 30px;
 }
 
 .wifi h1 {
-    color: #C02129;
+  color: #c02129;
 }
 
 .wifi img {
-    width: 150px;
-    height: 150px;
+  width: 150px;
+  height: 150px;
 }
 
 .italics {
-    font-style: italic;
+  font-style: italic;
 }
 
 .conference-image {
-    background-image: url(../../images/qr-code/conferenceroom.jpg);
-    background-size: cover;
-    background-position:center;
+  background-image: url(../../images/qr-code/conferenceroom.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .conference-container {
-    padding: 50px 0px;
-    max-width: 60%;
+  padding: 50px 0px;
+  max-width: 60%;
 }
 
 .conference-logo {
-    height: 100px;
-    width: 100px;
-    margin-bottom: 20px;
+  height: 100px;
+  width: 100px;
+  margin-bottom: 20px;
 }
 
 .help-text {
-    color: #C02129;
+  color: #c02129;
 }
 
 .portrait {
-    height: 150px;
-    width: 150px;
-    border-radius: 100%;
-    object-fit: cover;
-    margin-left: 40px;
-    margin-right: 40px;
+  height: 150px;
+  width: 150px;
+  border-radius: 100%;
+  object-fit: cover;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .calendar {
-    background-color: #323232;
-    padding: 75px 0px;
+  background-color: #323232;
+  padding: 75px 0px;
 }
 
 .calendar img {
-    height: 150px;
-    width: 150px;
+  height: 150px;
+  width: 150px;
 }
 
 .outer-box {
-    border: 1px solid #ccc; /* Grey border */
-    border-radius: 10px; /* Rounded corners */
-    padding: 25px; /* Optional: Add padding as needed */
-    max-width: 80%;
-    margin: auto;
+  border: 1px solid #ccc; /* Grey border */
+  border-radius: 10px; /* Rounded corners */
+  padding: 25px; /* Optional: Add padding as needed */
+  max-width: 80%;
+  margin: auto;
 }
 
 .inner-box {
-    border-radius: 10px;
-    background-color: #E6E7E8;
-    margin: auto;
-    padding: 25px;
-    color: #C02129;
+  border-radius: 10px;
+  background-color: #e6e7e8;
+  margin: auto;
+  padding: 25px;
+  color: #c02129;
 }
 
 .inner-text {
-    margin-left: 25px;
-    margin-right: 25px;
-    padding-top: 25px;
-    padding-bottom: 0px;
-    font-weight: 20;
+  margin-left: 25px;
+  margin-right: 25px;
+  padding-top: 25px;
+  padding-bottom: 0px;
+  font-weight: 20;
 }
 
 @media (max-width: 1200px) {
-    .heading-title {
-        font-size: 2rem;
-    }
-    .heading-subtitle {
-        font-size: 1.5rem;
-    }
+  .heading-title {
+    font-size: 2rem;
+  }
+  .heading-subtitle {
+    font-size: 1.5rem;
+  }
 }

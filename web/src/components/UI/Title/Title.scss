@@ -1,37 +1,36 @@
 // -----------------------------------------------------------------------------
 @import "../../../styles/variables";
-@import "../../../styles/mixins"; 
+@import "../../../styles/mixins";
 // -----------------------------------------------------------------------------
 .title {
-    font-family: $heading-font;
-    font-size: 2rem;
-    font-weight: 900;
-    color: $brand-color2;
-    letter-spacing: 2px;
-    &.brand {
-      color: $brand-color;
-    }
-    &.white {
-      color: white;
-    }
-    &.text--huge {
-      font-size: 3.2rem;
-  
-    }
-    &.text--big {
-      font-size: 2.5rem;
-    }
-    &.text--medium {
-      font-size: 1.2rem;
-    }
-    &.text--small {
-      font-size: 0.8rem;
-    }
-    &.text--tiny {
-      font-size: 0.5rem;
-    }
-  
-    @media only screen and (max-width: $screen-xs) {
-      font-size: 1.5rem;
-    }
+  font-family: $heading-font;
+  font-size: 2rem;
+  font-weight: 900;
+  color: $brand-color2;
+  letter-spacing: 2px;
+  &.brand {
+    color: $brand-color;
+  }
+  &.white {
+    color: white;
+  }
+  &.text--huge {
+    font-size: 3.2rem;
+  }
+  &.text--big {
+    font-size: 2.5rem;
+  }
+  &.text--medium {
+    font-size: 1.2rem;
+  }
+  &.text--small {
+    font-size: 0.8rem;
+  }
+  &.text--tiny {
+    font-size: 0.5rem;
+  }
+
+  @media only screen and (max-width: $screen-xs) {
+    font-size: 1.5rem;
+  }
 }

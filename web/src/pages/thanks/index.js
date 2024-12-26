@@ -11,10 +11,11 @@ const ThanksPage = () => (
     <Container>
       <Title className="text-center my-5 text-uppercase">Thank you</Title>
       <Row className="mb-5 d-flex justify-content-center">
-        
-        <Row className={` row row-cols-5 justify-content-center my-3 px-1 gx-2`}>
-          <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
-            <BackgroundCard 
+        <Row
+          className={` row row-cols-5 justify-content-center my-3 px-1 gx-2`}
+        >
+          <Col xs={6} sm={6} md={6} lg={3} xl={3} className="mt-3 ">
+            <BackgroundCard
               title="Learn to Code"
               text="Everybody can and should learn to code, start today."
               backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
@@ -22,8 +23,8 @@ const ThanksPage = () => (
               link="/learn"
             />
           </Col>
-          <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
-            <BackgroundCard 
+          <Col xs={6} sm={6} md={6} lg={3} xl={3} className="mt-3 ">
+            <BackgroundCard
               title="Rent Workspace"
               text="Rent a desk or space for events, meetings, and more."
               backgroundImage="https://www.awesomeinc.org/images/awesome-inc-space-panel.jpg"
@@ -31,8 +32,8 @@ const ThanksPage = () => (
               link="/workspace"
             />
           </Col>
-          <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
-            <BackgroundCard 
+          <Col xs={6} sm={6} md={6} lg={3} xl={3} className="mt-3 ">
+            <BackgroundCard
               title="Accelerate your startup"
               text="We will help grow your business with a mentor-driven, accelerator program."
               backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
@@ -40,8 +41,8 @@ const ThanksPage = () => (
               link="/learn"
             />
           </Col>
-          <Col xs={6} sm={6} md={6} lg={3} xl={3} className='mt-3 '>
-            <BackgroundCard 
+          <Col xs={6} sm={6} md={6} lg={3} xl={3} className="mt-3 ">
+            <BackgroundCard
               title="Software Development"
               text="Let us create custom software for your business."
               backgroundImage="https://www.awesomeinc.org/images/student-learning-to-code-panel.jpg"
@@ -50,7 +51,7 @@ const ThanksPage = () => (
             />
           </Col>
         </Row>
-    </Row>
+      </Row>
     </Container>
   </Layout>
 );

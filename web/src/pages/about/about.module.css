@@ -1,5 +1,4 @@
-@import url(
-  https://fonts.googleapis.com/css?family=Open+Sans:300,
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,
   regular,
   500,
   600,
@@ -10,8 +9,7 @@
   500italic,
   600italic,
   700italic,
-  800italic
-);
+  800italic);
 
 * {
   font-family: "Open Sans", sans-serif;
@@ -91,7 +89,9 @@
   border-top: none;
   margin-top: 4em;
   background-color: #fff;
-  box-shadow: #fff 11px 0px 0px, #fff -13px 0px 0px;
+  box-shadow:
+    #fff 11px 0px 0px,
+    #fff -13px 0px 0px;
 }
 
 .header-border::before {

@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 @import "../../../styles/variables";
-@import "../../../styles/mixins"; 
+@import "../../../styles/mixins";
 // -----------------------------------------------------------------------------
 
 #home {
@@ -107,7 +107,6 @@
         height: 450px;
       }
       @include screen-tablet-max {
-        
       }
     }
   }
@@ -230,12 +229,12 @@
 
 #lgx-startups {
   position: relative;
-	.lgx-heading {
-		margin-bottom: 3.3rem;
-	}
-	h4 {
-		font-weight: 600;
-		@include font-size(22);
+  .lgx-heading {
+    margin-bottom: 3.3rem;
+  }
+  h4 {
+    font-weight: 600;
+    @include font-size(22);
   }
   td h4 {
     color: $brand-color2;
@@ -251,7 +250,7 @@
   background-position: 50%;
   background-color: $brand-grey;
   .lgx-inner {
-    background-image: url('./workspace-border.png');
+    background-image: url("./workspace-border.png");
     background-position: center 80%;
     background-size: 85% 85%;
     background-repeat: no-repeat;
@@ -317,19 +316,19 @@
   }
 }
 
-#lgx-podcast{
-  h2{
+#lgx-podcast {
+  h2 {
     @include font-size(46);
-    font-weight: 600
+    font-weight: 600;
   }
-  h3{
-    margin-top:5rem;
+  h3 {
+    margin-top: 5rem;
     @include font-size(30);
-    font-weight: 600
+    font-weight: 600;
   }
-  h4{
+  h4 {
     color: #337ab7;
     @include font-size(30);
-    font-weight: 600
+    font-weight: 600;
   }
 }

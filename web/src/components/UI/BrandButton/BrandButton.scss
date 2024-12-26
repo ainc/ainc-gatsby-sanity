@@ -3,7 +3,6 @@
 @import "../../../styles/mixins";
 // -----------------------------------------------------------------------------
 
-
 .button {
   font-family: $heading-font;
   font-weight: 600;
@@ -19,7 +18,7 @@
   border-radius: 4px;
   position: relative;
   @media only screen and (max-width: $screen-xs) {
-    font-size: 0.6rem/* use the mobile font size variable here */;
+    font-size: 0.6rem /* use the mobile font size variable here */;
     padding: 0.3rem 1rem;
   }
   &.disabled,
@@ -32,25 +31,25 @@
   }
   .hover--black {
     &:hover {
-        color: $brand-color2;
+      color: $brand-color2;
     }
   }
   &.secondary {
     background-color: $brand-color2;
     border-color: $brand-color2;
     &:hover {
-        color: $brand-grey-dark;
+      color: $brand-grey-dark;
     }
   }
-  &.white--dark-text{
+  &.white--dark-text {
     background-color: white;
     border-color: white;
     color: $brand-color2;
     &:hover {
       color: $brand-color;
+    }
   }
-  }
-  &.white--red-text{
+  &.white--red-text {
     background-color: white;
     border-color: white;
     color: $brand-red-bright;
@@ -61,16 +60,15 @@
   &.btn--small {
     font-size: 1rem;
     padding: 0.4rem 1.4rem;
-}
-
-  &.small--text{
-      font-size: 0.7rem;
-      letter-spacing: 3px;
   }
 
+  &.small--text {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+  }
 }
 
 .week-of-code {
-  background-color: #ED3742;
-  border-color: #ED3742;
+  background-color: #ed3742;
+  border-color: #ed3742;
 }

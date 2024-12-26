@@ -1,114 +1,114 @@
 // -----------------------------------------------------------------------------
 @import "../../styles/variables.scss";
-@import "../../styles/mixins.scss"; 
+@import "../../styles/mixins.scss";
 // -----------------------------------------------------------------------------
 
 .text {
-    line-height: 2rem;
-    font-size: 1.2rem;
+  line-height: 2rem;
+  font-size: 1.2rem;
 }
 
 .intro {
-    background: url(../../images/intro-to-web-hero.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position:bottom center;
-    position:relative;
-    min-width: 100%;
-    min-height: 60vh;
+  background: url(../../images/intro-to-web-hero.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+  position: relative;
+  min-width: 100%;
+  min-height: 60vh;
 }
 
 .bottom-intro {
-    background-color: white;
-    background-size: cover;
-    min-width: 100%;
+  background-color: white;
+  background-size: cover;
+  min-width: 100%;
 }
 
 .upcomingProgram {
-    background-color: #323232;
-    min-width: 100%;
+  background-color: #323232;
+  min-width: 100%;
 }
 
 .program-text {
-    letter-spacing: -1px;
+  letter-spacing: -1px;
 }
 
 .arrow {
-    transform: rotate(97deg);
-    width: 30%;
-    float: right;
+  transform: rotate(97deg);
+  width: 30%;
+  float: right;
 }
 
 .awesome {
-    background: url(../../images/red-wavy-bg.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top center;
-    position: relative;
-    min-width: 100%;
+  background: url(../../images/red-wavy-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  position: relative;
+  min-width: 100%;
 }
 
 .tuition-credit {
-    background-color: #323333;
-    min-width: 100%;
+  background-color: #323333;
+  min-width: 100%;
 }
 
 .questions {
-    background: url(../../images/bootcamp/faq-bg.jpg);
-    background-repeat: no-repeat;
-    background-size:cover;
-    background-position: center;
-    min-width: 100%;
-    padding-top: 20px;
-    padding-bottom: 40px;
-    min-height: 45vh;
+  background: url(../../images/bootcamp/faq-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-width: 100%;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  min-height: 45vh;
 }
 
 .course-outcomes {
-    background: url(../../images/intro-to-web-hero-square.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-width: 100%;
+  background: url(../../images/intro-to-web-hero-square.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 100%;
 }
 
 .outcome-list {
-    font-size: .9rem;
-    line-height: 1.3rem;
+  font-size: 0.9rem;
+  line-height: 1.3rem;
 }
 .register {
-    background-image: url(../../images/two-arrows.png);
-    background-color: $brand-color;
-    background-position: center center;
-    background-size: 120%;
-    background-repeat: no-repeat;
-    min-width: 100%;
-    @include screen-lg {
-        background-size: 140%;
-    }
-    @include screen-md {
-        background-size: 170%;
-    }
-    @include screen-sm {
-        background-size: 140%;
-    }
-    @include screen-xs {
-        background-size: 140%;
-    }
+  background-image: url(../../images/two-arrows.png);
+  background-color: $brand-color;
+  background-position: center center;
+  background-size: 120%;
+  background-repeat: no-repeat;
+  min-width: 100%;
+  @include screen-lg {
+    background-size: 140%;
+  }
+  @include screen-md {
+    background-size: 170%;
+  }
+  @include screen-sm {
+    background-size: 140%;
+  }
+  @include screen-xs {
+    background-size: 140%;
+  }
 }
 
 .accordion:hover {
-    background-color: blue;
+  background-color: blue;
 }
 
 .curriculum-list {
-    font-size: .9rem;
-    line-height: 1.3rem;
-    font-weight: 500;
+  font-size: 0.9rem;
+  line-height: 1.3rem;
+  font-weight: 500;
 }
 
 .paragraphs {
-    font-size: 1rem;
-    line-height: 1.6rem;
+  font-size: 1rem;
+  line-height: 1.6rem;
 }
 /* .curriculum {
     margin-left: 80px;

@@ -1,7 +1,7 @@
-import React from "react"
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import * as styles from '../../../styles/Variables';
+import * as styles from "../../../styles/Variables";
 
 const Rotation = -5;
 const width = 100;
@@ -17,35 +17,38 @@ const DiagonalDiv = styled.div`
   padding: ${SkewPadding}vw 0;
   margin-top: -1px;
   &::before {
-    content: "a"; 
-    color: rgba(0,0,0,0);
+    content: "a";
+    color: rgba(0, 0, 0, 0);
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
     background-color: ${styles.styles.colors.brandGreyLight};
-    background-image: ${props => (props.bgImage !== undefined) ? `url( ${Object.values(props.bgImage)[0]} )` : undefined};
+    background-image: ${(props) =>
+      props.bgImage !== undefined
+        ? `url( ${Object.values(props.bgImage)[0]} )`
+        : undefined};
     background-size: cover;
     background-position: center;
     transform: skewY(${Rotation}deg);
     transform-origin: 50% 0;
     backface-visibility: hidden;
   }
-`
+`;
 
 const ContentDiv = styled.div`
   max-width: 100vw;
   margin: 0 auto;
   padding: 1.5em;
   position: relative;
-`
+`;
 const Diagonal = (props) => {
   return (
-    <DiagonalDiv {...props} >
+    <DiagonalDiv {...props}>
       <ContentDiv>{props.children}</ContentDiv>
     </DiagonalDiv>
-  )
-}
+  );
+};
 
-export default Diagonal
+export default Diagonal;

@@ -1,13 +1,14 @@
 // -----------------------------------------------------------------------------
 @import "variables";
-@import "mixins"; 
+@import "mixins";
 // -----------------------------------------------------------------------------
 
 .text-normal {
   text-transform: none !important;
 }
 
-.text--grey, .text--gray {
+.text--grey,
+.text--gray {
   color: $brand-grey-dark;
 }
 
@@ -59,11 +60,11 @@
 }
 
 .text--huge {
-  @include font-size(40)
+  @include font-size(40);
 }
 
 .text--extra-huge {
-  @include font-size(55)
+  @include font-size(55);
 }
 
 .text--aside {
