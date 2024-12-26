@@ -1,21 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import './Subtitle.scss'
-
+import React from "react";
+import PropTypes from "prop-types";
+import "./Subtitle.scss";
 
 const Subtitle = (props) => {
   return (
     <h2 {...props} className={`subtitle ${props.className}`}>
-    {props.children}
+      {props.children}
     </h2>
-  )
-}
+  );
+};
 
 Subtitle.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.node,
-  ])
-}
+  children: PropTypes.oneOfType([PropTypes.node]),
+};
 
 export default Subtitle;
 

@@ -11,7 +11,7 @@ export const styles = {
     headingFont: `'Open Sans', sans-serif`,
     subheadingFont: `'Open Sans', sans-serif`,
     baseFont: `'Open Sans', sans-serif`,
-    fancyFont: `'The-Bohemian-Regular', serif`
+    fancyFont: `'The-Bohemian-Regular', serif`,
   },
   sizes: {
     title: `2.0rem`,
@@ -32,5 +32,5 @@ export const styles = {
     tablet: `768px`,
     laptop: `1024px`,
     desktop: `1200px`,
-  }
-}
+  },
+};

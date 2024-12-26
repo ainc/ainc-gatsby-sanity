@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 a {
   color: $brand-grey;
@@ -10,88 +10,86 @@ a {
 }
 
 .footer-background {
-  
-    // width: 100vw;
-    padding-top: 10rem;
-    padding-bottom: 5rem;
-    background-color: $brand-color2;
-    color: $brand-grey;
+  // width: 100vw;
+  padding-top: 10rem;
+  padding-bottom: 5rem;
+  background-color: $brand-color2;
+  color: $brand-grey;
+}
+
+.ainc-logo-gap {
+  margin-bottom: 3.9rem;
+  width: 55%;
+}
+
+.first-col-row {
+  max-width: 65%;
+  margin: 0 auto;
+}
+
+.info-list-title {
+  margin-bottom: 2.4rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  color: $white-color;
+}
+.info-list {
+  padding-left: 0;
+  list-style: none;
+  font-size: 0.9rem;
+}
+
+.main-line {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.red-icon {
+  margin-right: 10px;
+  color: $brand-color;
+}
+
+.sponsors-row {
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.bottom-row {
+  padding-top: 2.4rem;
+}
+
+.copyright-inline-list {
+  padding-left: 0;
+
+  li {
+    display: inline;
+    padding: 0 8px;
+    font-size: 0.8rem;
   }
 
-  .ainc-logo-gap {
-    margin-bottom: 3.9rem;
-    width:55%;
-  }
-  
-  .first-col-row {
-    max-width: 65%;
-    margin: 0 auto;
-  }
-  
-  .info-list-title {
-    margin-bottom: 2.4rem;
-    text-transform: uppercase;
-    font-size: 1rem;
-    letter-spacing: 1px;
+  a {
     color: $white-color;
-  }
-  .info-list {
-    padding-left: 0;
-    list-style: none;
-    font-size: 0.9rem;
-  }
-    
-    .main-line {
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
-    }
-    
-    .red-icon {
-      margin-right: 10px;
+    &:hover {
       color: $brand-color;
     }
-  
-  
-  .sponsors-row {
-    margin-bottom: 15px;
-    align-items: center;
   }
-  
-  .bottom-row {
-    padding-top: 2.4rem;
+}
+
+.socials-inline-list {
+  text-align: right;
+
+  li {
+    display: inline;
+    padding-left: 10px;
+    padding-right: 5px;
+    font-size: 1.4rem;
   }
-  
-  .copyright-inline-list {
-    padding-left: 0;
-    
-    li {
-      display: inline;
-      padding: 0 8px;
-      font-size: 0.8rem;
-    }
-  
-    a {
+
+  a {
+    color: $brand-grey-dark;
+    &:hover {
       color: $white-color;
-      &:hover {
-        color: $brand-color;
-      }
     }
   }
-  
-  .socials-inline-list {
-    text-align: right;
-  
-    li {
-      display: inline;
-      padding-left: 10px;
-      padding-right: 5px;
-      font-size: 1.4rem;
-    }
-  
-    a {
-      color: $brand-grey-dark;
-      &:hover {
-        color: $white-color;
-      }
-    }
-  }
+}

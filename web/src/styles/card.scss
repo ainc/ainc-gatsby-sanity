@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 @import "variables";
-@import "mixins"; 
+@import "mixins";
 // -----------------------------------------------------------------------------
 
 .card-body--background-card {
@@ -17,20 +17,20 @@
   @include screen-xs {
     height: 100px;
     width: 100px;
-}
+  }
 }
 
 .card__img--overlay {
   color: white;
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     // width: 100%;
     // height: 100%;
-    background: -webkit-linear-gradient(left, rgba(255,0,0,0), #141823);
-    background: -o-linear-gradient(bottom, rgba(255,0,0,0), #141823);
-    background: -moz-linear-gradient(bottom, rgba(255,0,0,0), #141823);
-    background: linear-gradient(to bottom, rgba(255,0,0,0), #141823);
+    background: -webkit-linear-gradient(left, rgba(255, 0, 0, 0), #141823);
+    background: -o-linear-gradient(bottom, rgba(255, 0, 0, 0), #141823);
+    background: -moz-linear-gradient(bottom, rgba(255, 0, 0, 0), #141823);
+    background: linear-gradient(to bottom, rgba(255, 0, 0, 0), #141823);
   }
   // @include screen-xs {
   //   height: 25%;
@@ -49,17 +49,16 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: -webkit-linear-gradient(left, rgba(255,0,0,0), #141823);
-  background: -o-linear-gradient(bottom, rgba(255,0,0,0), #141823);
-  background: -moz-linear-gradient(bottom, rgba(255,0,0,0), #141823);
-  background: linear-gradient(to bottom, rgba(255,0,0,0), #141823);
+  background: -webkit-linear-gradient(left, rgba(255, 0, 0, 0), #141823);
+  background: -o-linear-gradient(bottom, rgba(255, 0, 0, 0), #141823);
+  background: -moz-linear-gradient(bottom, rgba(255, 0, 0, 0), #141823);
+  background: linear-gradient(to bottom, rgba(255, 0, 0, 0), #141823);
 }
 
 .card__featured_mosaic {
-  .card--gradient-bg, 
+  .card--gradient-bg,
   .card__img--overlay,
-  .card__featured > .card 
-  {
+  .card__featured > .card {
     height: 100%;
   }
   .card__featured {
@@ -71,7 +70,7 @@
       height: 250px;
     }
   }
-  .card__secondary { 
+  .card__secondary {
     .card-img {
       height: 115px;
       width: 115px;

@@ -8,7 +8,15 @@ import SEO from "../seo";
 import "../../styles/layout.css";
 import { Container } from "react-bootstrap";
 
-const Layout = ({ pageTitle, children, onHideNav, onShowNav, showNav, siteTitle, jsImports }) => {
+const Layout = ({
+  pageTitle,
+  children,
+  onHideNav,
+  onShowNav,
+  showNav,
+  siteTitle,
+  jsImports,
+}) => {
   const query = useStaticQuery(graphql`
     query {
       allSanityPageTitles {
@@ -28,7 +36,7 @@ const Layout = ({ pageTitle, children, onHideNav, onShowNav, showNav, siteTitle,
   let titleOfPage = "Awesome Inc"; // Default title
   try {
     const matchedPage = query?.allSanityPageTitles?.edges?.find(
-      page => page?.node?.filePath === currentPath
+      (page) => page?.node?.filePath === currentPath,
     );
     titleOfPage = matchedPage?.node?.pageTitle || titleOfPage;
   } catch (error) {

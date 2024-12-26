@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 @import "variables";
-@import "mixins"; 
+@import "mixins";
 // -----------------------------------------------------------------------------
 
 .text-normal {
@@ -9,24 +9,24 @@
 
 .tablet-hide-bg {
   @include screen-md {
-    background-image: none
+    background-image: none;
   }
 }
 
 .mobile-hide-bg {
   @include screen-xs {
-    background-image: none
+    background-image: none;
   }
 
   @include screen-sm {
-    background-image: none
+    background-image: none;
   }
 }
 
 .double-border--brand {
   position: relative;
   border-right: 2px $brand-color solid;
-    border-left: 2px $brand-color solid;
+  border-left: 2px $brand-color solid;
   &:before {
     content: "";
     position: absolute;
@@ -42,7 +42,7 @@
 .parallax {
   background-attachment: fixed;
 }
-$image-path: '/images/awesome-inc-space-banner.jpg';
+$image-path: "/images/awesome-inc-space-banner.jpg";
 $bg-filter-blur: blur(2px) grayscale(0.8);
 .bg-filter-mute {
   background-image: url($image-path);
@@ -54,16 +54,16 @@ $bg-filter-blur: blur(2px) grayscale(0.8);
   &:before {
     content: "";
     position: absolute;
-    width : 100%;
+    width: 100%;
     height: 100%;
     background: inherit;
     z-index: -1;
     background: rgba(150, 150, 150, 0.45);
-    
-    filter        : $bg-filter-blur;
-    -moz-filter   : $bg-filter-blur;
+
+    filter: $bg-filter-blur;
+    -moz-filter: $bg-filter-blur;
     -webkit-filter: $bg-filter-blur;
-    -o-filter     : $bg-filter-blur;
+    -o-filter: $bg-filter-blur;
   }
 }
 

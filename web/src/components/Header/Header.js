@@ -43,7 +43,8 @@ const Header = () => {
   }
 
   React.useEffect(() => {
-    const navbar_selected = window.localStorage.getItem("navbar_selected") !== null;
+    const navbar_selected =
+      window.localStorage.getItem("navbar_selected") !== null;
     const open_selected = window.localStorage.getItem("open") !== null;
     if (navbar_selected) {
       setActive(JSON.parse(navbar_selected !== null ? navbar_selected : ""));
@@ -124,7 +125,9 @@ const Header = () => {
                 className="sticky-top sub-navbar"
                 variant="dark"
                 expand="lg"
-                expanded={active === "Learn To Code" && open === true ? true : false}
+                expanded={
+                  active === "Learn To Code" && open === true ? true : false
+                }
               >
                 <Container className="border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1">
                   <Navbar.Brand>
@@ -134,23 +137,36 @@ const Header = () => {
                     aria-controls="basic-navbar-nav"
                     onClick={() => handleClick("Learn To Code")}
                     className={`${
-                      active === "Learn To Code" && open === true ? "" : "collapsed"
+                      active === "Learn To Code" && open === true
+                        ? ""
+                        : "collapsed"
                     } bg-none border-2 border-white text-white shadow-none`}
                   >
                     {active === "Learn To Code" && open === true ? (
-                      <ImPlus size={20} style={{ transform: "rotate(45deg)" }} />
+                      <ImPlus
+                        size={20}
+                        style={{ transform: "rotate(45deg)" }}
+                      />
                     ) : (
                       <ImPlus size={20} />
                     )}
                   </Navbar.Toggle>
-                  <Navbar.Collapse id="basic-navbar-nav" className="border-top-0">
+                  <Navbar.Collapse
+                    id="basic-navbar-nav"
+                    className="border-top-0"
+                  >
                     <Nav>
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
-                        <Col xs={{ span: 10 }} className={`d-flex flex-column py-2 border-0`}>
+                        <Col
+                          xs={{ span: 10 }}
+                          className={`d-flex flex-column py-2 border-0`}
+                        >
                           <a href="/learn/youth/code">Youth Courses</a>
                           <a href="/learn/adults">Adult Courses</a>
                           <a href="/weekofcode">Kids Camps</a>
-                          <a href="/salesforce">Salesforce Career Accelerator</a>
+                          <a href="/salesforce">
+                            Salesforce Career Accelerator
+                          </a>
                         </Col>
                       </Row>
                     </Nav>
@@ -173,7 +189,11 @@ const Header = () => {
                   Awesome Fund
                 </a>
                 <a href="/events">Events</a>
-                <a href="/assets/community-yearbook.pdf" target="_blank" rel="_noopener">
+                <a
+                  href="/assets/community-yearbook.pdf"
+                  target="_blank"
+                  rel="_noopener"
+                >
                   Community Yearbook
                 </a>{" "}
                 {/*Need to add yearbooks and possibly other assets*/}
@@ -199,7 +219,10 @@ const Header = () => {
                     } bg-none border-2 border-white bg-none border-2 border-white text-white shadow-none`}
                   >
                     {active === "Startups" && open === true ? (
-                      <ImPlus size={20} style={{ transform: "rotate(45deg)" }} />
+                      <ImPlus
+                        size={20}
+                        style={{ transform: "rotate(45deg)" }}
+                      />
                     ) : (
                       <ImPlus size={20} />
                     )}
@@ -207,7 +230,10 @@ const Header = () => {
                   <Navbar.Collapse id="startup-navbar" className="border-top-0">
                     <Nav>
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
-                        <Col xs={{ span: 10 }} className={`d-flex flex-column py-2 border-0`}>
+                        <Col
+                          xs={{ span: 10 }}
+                          className={`d-flex flex-column py-2 border-0`}
+                        >
                           <a href="/idea">I Have an Idea</a>
                           <a href="/events/5across">5 Across</a>
                           <a href="/fellowship">Startup Accelerator</a>
@@ -215,7 +241,11 @@ const Header = () => {
                             Awesome Fund
                           </a>
                           <a href="/events">Events</a>
-                          <a href="/assets/community-yearbook.pdf" target="_blank" rel="noopener">
+                          <a
+                            href="/assets/community-yearbook.pdf"
+                            target="_blank"
+                            rel="noopener"
+                          >
                             Community Yearbook
                           </a>{" "}
                           {/*Need to add yearbooks and possibly other assets*/}
@@ -232,7 +262,11 @@ const Header = () => {
                 Workspace <AiFillCaretDown size={10} />
               </Nav.Link>
               <div className="hover-options">
-                <a href="https://calendly.com/awesometour/30min?" target="_blank" className="pt-0">
+                <a
+                  href="https://calendly.com/awesometour/30min?"
+                  target="_blank"
+                  className="pt-0"
+                >
                   Schedule a Tour
                 </a>
                 <a href="/workspace#become-a-member">Office Space</a>
@@ -245,7 +279,9 @@ const Header = () => {
                 className="sticky-top sub-navbar"
                 variant="dark"
                 expand="lg"
-                expanded={active === "Workspace" && open === true ? true : false}
+                expanded={
+                  active === "Workspace" && open === true ? true : false
+                }
               >
                 <Container className="border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1">
                   <Navbar.Brand>
@@ -259,16 +295,28 @@ const Header = () => {
                     } bg-none border-2 border-white bg-none border-2 border-white text-white shadow-none`}
                   >
                     {active === "Workspace" && open === true ? (
-                      <ImPlus size={20} style={{ transform: "rotate(45deg)" }} />
+                      <ImPlus
+                        size={20}
+                        style={{ transform: "rotate(45deg)" }}
+                      />
                     ) : (
                       <ImPlus size={20} />
                     )}
                   </Navbar.Toggle>
-                  <Navbar.Collapse id="workspace-navbar" className="border-top-0">
+                  <Navbar.Collapse
+                    id="workspace-navbar"
+                    className="border-top-0"
+                  >
                     <Nav>
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
-                        <Col xs={{ span: 10 }} className={`d-flex flex-column py-2 border-0`}>
-                          <a href="https://calendly.com/awesometour/30min?" target="_blank">
+                        <Col
+                          xs={{ span: 10 }}
+                          className={`d-flex flex-column py-2 border-0`}
+                        >
+                          <a
+                            href="https://calendly.com/awesometour/30min?"
+                            target="_blank"
+                          >
                             Schedule a Tour
                           </a>
                           <a href="/workspace#become-a-member">Office Space</a>
@@ -282,7 +330,10 @@ const Header = () => {
             </Row>
 
             <Col className="desktop">
-              <Nav.Link href="https://apaxsoftware.com/" className="text--white">
+              <Nav.Link
+                href="https://apaxsoftware.com/"
+                className="text--white"
+              >
                 Web & App Development <AiFillCaretDown size={10} />
               </Nav.Link>
               <div className="hover-options">
@@ -297,29 +348,46 @@ const Header = () => {
                 className="sticky-top sub-navbar"
                 variant="dark"
                 expand="lg"
-                expanded={active === "Web & App Development" && open === true ? true : false}
+                expanded={
+                  active === "Web & App Development" && open === true
+                    ? true
+                    : false
+                }
               >
                 <Container className="border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1">
                   <Navbar.Brand>
-                    <a href="https://apaxsoftware.com/">Web & App Development</a>
+                    <a href="https://apaxsoftware.com/">
+                      Web & App Development
+                    </a>
                   </Navbar.Brand>
                   <Navbar.Toggle
                     aria-controls="web-app-development-basic-navbar-nav"
                     onClick={() => handleClick("Web & App Development")}
                     className={`${
-                      active === "Web & App Development" && open === true ? "" : "collapsed"
+                      active === "Web & App Development" && open === true
+                        ? ""
+                        : "collapsed"
                     } bg-none border-2 border-white text-white shadow-none`}
                   >
                     {active === "Web & App Development" && open === true ? (
-                      <ImPlus size={20} style={{ transform: "rotate(45deg)" }} />
+                      <ImPlus
+                        size={20}
+                        style={{ transform: "rotate(45deg)" }}
+                      />
                     ) : (
                       <ImPlus size={20} />
                     )}
                   </Navbar.Toggle>
-                  <Navbar.Collapse id="web-app-development-navbar" className="border-top-0">
+                  <Navbar.Collapse
+                    id="web-app-development-navbar"
+                    className="border-top-0"
+                  >
                     <Nav>
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
-                        <Col xs={{ span: 10 }} className={`d-flex flex-column py-2 border-0`}>
+                        <Col
+                          xs={{ span: 10 }}
+                          className={`d-flex flex-column py-2 border-0`}
+                        >
                           <a href="https://apaxsoftware.com/" target="_blank">
                             Web & App Development
                           </a>
@@ -354,7 +422,9 @@ const Header = () => {
                 className="sticky-top sub-navbar"
                 variant="dark"
                 expand="lg"
-                expanded={active === "Be Awesome" && open === true ? true : false}
+                expanded={
+                  active === "Be Awesome" && open === true ? true : false
+                }
               >
                 <Container className="border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1">
                   <Navbar.Brand>
@@ -364,11 +434,16 @@ const Header = () => {
                     aria-controls="awesome-navbar"
                     onClick={() => handleClick("Be Awesome")}
                     className={`${
-                      active === "Be Awesome" && open === true ? "" : "collapsed"
+                      active === "Be Awesome" && open === true
+                        ? ""
+                        : "collapsed"
                     } bg-none border-2 border-white text-white shadow-none`}
                   >
                     {active === "Be Awesome" && open === true ? (
-                      <ImPlus size={20} style={{ transform: "rotate(45deg)" }} />
+                      <ImPlus
+                        size={20}
+                        style={{ transform: "rotate(45deg)" }}
+                      />
                     ) : (
                       <ImPlus size={20} />
                     )}
@@ -376,7 +451,10 @@ const Header = () => {
                   <Navbar.Collapse id="awesome-navbar" className="border-top-0">
                     <Nav>
                       <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
-                        <Col xs={{ span: 10 }} className={`d-flex flex-column py-2 border-0`}>
+                        <Col
+                          xs={{ span: 10 }}
+                          className={`d-flex flex-column py-2 border-0`}
+                        >
                           <Link to="/about">About</Link>
                           <Link to="/about">Core Values</Link>
                           <Link to="/what-we-do">What We Do</Link>
@@ -395,7 +473,9 @@ const Header = () => {
             {useLocation().pathname === "/bootcamp/" && (
               <Col className="desktop" style={{ paddingLeft: "4%" }}>
                 <a href="#header" className="">
-                  <BrandButton style={{ padding: "1.5 rem 2 rem", fontSize: "1.25rem" }}>
+                  <BrandButton
+                    style={{ padding: "1.5 rem 2 rem", fontSize: "1.25rem" }}
+                  >
                     Apply Now
                   </BrandButton>
                 </a>
@@ -404,7 +484,9 @@ const Header = () => {
             {useLocation().pathname === "/learn/youth/code/" && (
               <Col className="desktop" style={{ paddingLeft: "4%" }}>
                 <a href="#call" className="">
-                  <BrandButton style={{ padding: "1.5 rem 2 rem", fontSize: "1.25rem" }}>
+                  <BrandButton
+                    style={{ padding: "1.5 rem 2 rem", fontSize: "1.25rem" }}
+                  >
                     Book a Call
                   </BrandButton>
                 </a>
@@ -414,7 +496,9 @@ const Header = () => {
         </Navbar.Collapse>
       </Container>
       {useLocation().pathname === "/bootcamp/" && (
-        <Container className={`${navButton} d-md-none d-flex justify-content-center`}>
+        <Container
+          className={`${navButton} d-md-none d-flex justify-content-center`}
+        >
           <div className="d-flex justify-content-center">
             <Dropdown className="mx-1 my-1">
               <Dropdown.Toggle
@@ -424,20 +508,32 @@ const Header = () => {
                   width: "45vw",
                   border: "1px solid #323232",
                   backgroundColor: "white",
-                  color: "#323232"
+                  color: "#323232",
                 }}
               >
                 Jump To
               </Dropdown.Toggle>
               <Dropdown.Menu align="start">
-                <Dropdown.Item href="#job-guarantee">Job Guarantee</Dropdown.Item>
-                <Dropdown.Item href="#testimonials">Hear From Our Alumni</Dropdown.Item>
-                <Dropdown.Item href="#learn-skills">What we offer</Dropdown.Item>
-                <Dropdown.Item href="#more-than-bootcamp">More than a bootcamp</Dropdown.Item>
+                <Dropdown.Item href="#job-guarantee">
+                  Job Guarantee
+                </Dropdown.Item>
+                <Dropdown.Item href="#testimonials">
+                  Hear From Our Alumni
+                </Dropdown.Item>
+                <Dropdown.Item href="#learn-skills">
+                  What we offer
+                </Dropdown.Item>
+                <Dropdown.Item href="#more-than-bootcamp">
+                  More than a bootcamp
+                </Dropdown.Item>
                 <Dropdown.Item href="#employers">Hiring Partners</Dropdown.Item>
                 <Dropdown.Item href="#languages">Our Tech Stack</Dropdown.Item>
-                <Dropdown.Item href="#bootcamp-upcoming-dates">Program Dates</Dropdown.Item>
-                <Dropdown.Item href="#timeline">Application Timeline</Dropdown.Item>
+                <Dropdown.Item href="#bootcamp-upcoming-dates">
+                  Program Dates
+                </Dropdown.Item>
+                <Dropdown.Item href="#timeline">
+                  Application Timeline
+                </Dropdown.Item>
                 <Dropdown.Item href="#cost">The Cost</Dropdown.Item>
                 <Dropdown.Item href="#still-unsure">FAQs</Dropdown.Item>
               </Dropdown.Menu>

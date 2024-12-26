@@ -18,5 +18,8 @@
   "workspaces": [
     "web",
     "studio"
-  ]
+  ],
+  "devDependencies": {
+    "prettier": "^3.4.2"
+  }
 }

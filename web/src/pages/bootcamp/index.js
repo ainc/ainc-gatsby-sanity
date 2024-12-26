@@ -134,19 +134,22 @@ export const query = graphql`
   }
 `;
 
-const BootcampPage = props => {
+const BootcampPage = (props) => {
   const { data, errors } = props;
 
   const testimonials = data.allSanityBootcampTestimonials.nodes || {};
 
   const featuredAlumni =
-    data.allSanityBootcampAlumni.nodes.filter(node => node.featuredAlumni === true) || {};
+    data.allSanityBootcampAlumni.nodes.filter(
+      (node) => node.featuredAlumni === true,
+    ) || {};
 
   const testimonial1 = testimonials[0];
   const testimonial2 = testimonials[1];
   const testimonial3 = testimonials[2];
 
-  const imageTestimonials = data.allSanityBootcampImageTestimonials.nodes.at(-1) || {};
+  const imageTestimonials =
+    data.allSanityBootcampImageTestimonials.nodes.at(-1) || {};
   const profCard = data.sanityBootcampProfileCard || {};
 
   const gradStats = data.allSanityBootcampGraduationStats.nodes || {};
@@ -199,35 +202,35 @@ const BootcampPage = props => {
       {
         breakpoint: 1440,
         settings: {
-          slidesToShow: 7
-        }
+          slidesToShow: 7,
+        },
       },
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 5,
-          slidesToScroll: 1
-        }
+          slidesToScroll: 1,
+        },
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 1
-        }
+          slidesToScroll: 1,
+        },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   //Scroll to section 'Cost'
   const sectionCost = useRef(null);
-  const scrollToSection = ref => {
+  const scrollToSection = (ref) => {
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth" });
     }
@@ -273,21 +276,28 @@ const BootcampPage = props => {
                     <div className="d-flex" style={{ color: "#C12029" }}>
                       {stars}
                     </div>
-                    <p className={`${styles.reviewText} d-flex text-black mb-0 ms-3`}>
+                    <p
+                      className={`${styles.reviewText} d-flex text-black mb-0 ms-3`}
+                    >
                       4.8/5 - 100+ reviews
                     </p>
                   </div>
                 </Row>
-                <Title className="white text-uppercase">Land your dream tech job, guaranteed</Title>
+                <Title className="white text-uppercase">
+                  Land your dream tech job, guaranteed
+                </Title>
                 <h4 className="text-start white mt-4 fw-lighter d-none d-md-block">
                   <b>
-                    Hate your job? Our in-person 16-week bootcamp helps you master full stack
-                    development, get access to 1:1 mentorship, and land a job in 6 months or we'll
-                    refund your tuition.
+                    Hate your job? Our in-person 16-week bootcamp helps you
+                    master full stack development, get access to 1:1 mentorship,
+                    and land a job in 6 months or we'll refund your tuition.
                   </b>
                 </h4>
               </Col>
-              <Col md={7} className="d-flex justify-content-center justify-content-md-end">
+              <Col
+                md={7}
+                className="d-flex justify-content-center justify-content-md-end"
+              >
                 <ApplyForm />
               </Col>
             </Row>
@@ -296,11 +306,18 @@ const BootcampPage = props => {
       </section>
 
       {/* Header stats */}
-      <section id="stats" style={{ backgroundColor: "#323232" }} className="background--brand">
+      <section
+        id="stats"
+        style={{ backgroundColor: "#323232" }}
+        className="background--brand"
+      >
         <Container className={`${styles.stats}`}>
           <Row className="pt-5 justify-content-center mx-5">
             {gradStats.map((node, i) => (
-              <Col key={i} className={`${styles.statsRow} justify-content-center text-center`}>
+              <Col
+                key={i}
+                className={`${styles.statsRow} justify-content-center text-center`}
+              >
                 <GradStat
                   image={node.picture.asset.gatsbyImageData}
                   alt={node.title}
@@ -353,10 +370,11 @@ const BootcampPage = props => {
           <Row className="mx-lg-5 px-lg-5">
             <Col className="d-flex justify-content-center mx-lg-5 px-lg-5">
               <p className="text-center text-white">
-                We only succeed when you succeed. We guarantee that all students who complete the
-                16-week Bootcamp program and uphold the job search requirements will receive a job
-                offer within six months of their graduation date, or we'll refund your tuition. See
-                our Student Agreement for details.
+                We only succeed when you succeed. We guarantee that all students
+                who complete the 16-week Bootcamp program and uphold the job
+                search requirements will receive a job offer within six months
+                of their graduation date, or we'll refund your tuition. See our
+                Student Agreement for details.
               </p>
             </Col>
           </Row>
@@ -373,7 +391,9 @@ const BootcampPage = props => {
       {/* Two Buttons Section */}
       <section id="two-buttons" className="">
         <Container fluid className={`${styles.twoButtons}`}>
-          <Row className={`${styles.twoButtonsRow} align-items-center justify-content-center`}>
+          <Row
+            className={`${styles.twoButtonsRow} align-items-center justify-content-center`}
+          >
             <Col
               xs={12}
               sm={12}
@@ -392,7 +412,10 @@ const BootcampPage = props => {
                     <img
                       className="my-3"
                       style={{ maxWidth: "70px" }}
-                      src={require("/src/images/bootcamp/QuestionCircle.svg").default}
+                      src={
+                        require("/src/images/bootcamp/QuestionCircle.svg")
+                          .default
+                      }
                       alt="Question Circle"
                     />
                   </div>
@@ -425,7 +448,9 @@ const BootcampPage = props => {
                     <img
                       className="my-3"
                       style={{ maxWidth: "70px" }}
-                      src={require("/src/images/bootcamp/MoneyCircle.svg").default}
+                      src={
+                        require("/src/images/bootcamp/MoneyCircle.svg").default
+                      }
                       alt="Money Circle"
                     />
                   </div>
@@ -476,10 +501,18 @@ const BootcampPage = props => {
             </div>
           </Col>
           {/* For large screens, display modal */}
-          <Col md={6} lg={7} className="text-center justify-content-center d-none d-md-flex">
+          <Col
+            md={6}
+            lg={7}
+            className="text-center justify-content-center d-none d-md-flex"
+          >
             <div className={styles.videoThumbnail}>
               {/* Youtube Link */}
-              <a onClick={handleVideoShow} target="_blank" rel="noopener noreferrer">
+              <a
+                onClick={handleVideoShow}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Image
                   className={styles.videoFilter}
                   src={Thumbnail}
@@ -520,8 +553,9 @@ const BootcampPage = props => {
               Learn all the skills you need to launch a lasting tech&nbsp;career
             </Title>
             <Subtitle className={`text-center`} style={{ fontSize: "1rem" }}>
-              Our 16-week bootcamp is designed to give you the foundational skills in all areas of
-              software development and career&nbsp;growth.
+              Our 16-week bootcamp is designed to give you the foundational
+              skills in all areas of software development and
+              career&nbsp;growth.
             </Subtitle>
           </Row>
           <Row className="py-3 align-items-top">
@@ -530,7 +564,11 @@ const BootcampPage = props => {
                 <div className="d-flex justify-content-center">
                   <div
                     className=""
-                    style={{ maxWidth: "100px", maxHeight: "100px", objectFit: "contain" }}
+                    style={{
+                      maxWidth: "100px",
+                      maxHeight: "100px",
+                      objectFit: "contain",
+                    }}
                   >
                     <StaticImage
                       placeholder="blurred"
@@ -546,14 +584,18 @@ const BootcampPage = props => {
                   className={`mb-3 ${styles.whyAwesomeIncBorder} d-flex align-items-center text-center`}
                   style={{ minHeight: "16vh" }}
                 >
-                  Having in-demand tech skills is just one piece of the puzzle. At Awesome Inc,
-                  you’ll get one-on-one guidance through a dedicated career coach to learn hands on
-                  skills to ace your job search and land a role you love. We pride ourselves on
+                  Having in-demand tech skills is just one piece of the puzzle.
+                  At Awesome Inc, you’ll get one-on-one guidance through a
+                  dedicated career coach to learn hands on skills to ace your
+                  job search and land a role you love. We pride ourselves on
                   instructors who really&nbsp;care.
                 </p>
                 <div className="d-flex justify-content-center">
                   <a href="#header">
-                    <BrandButton className={`my-3`} style={{ marginLeft: "0rem" }}>
+                    <BrandButton
+                      className={`my-3`}
+                      style={{ marginLeft: "0rem" }}
+                    >
                       Apply Now
                     </BrandButton>
                   </a>
@@ -565,7 +607,11 @@ const BootcampPage = props => {
                 <div className="d-flex justify-content-center">
                   <div
                     className=""
-                    style={{ maxWidth: "100px", maxHeight: "100px", objectFit: "contain" }}
+                    style={{
+                      maxWidth: "100px",
+                      maxHeight: "100px",
+                      objectFit: "contain",
+                    }}
                   >
                     <StaticImage
                       placeholder="blurred"
@@ -574,21 +620,28 @@ const BootcampPage = props => {
                     />
                   </div>
                 </div>
-                <Title className="py-3 text-center" style={{ marginLeft: "0px" }}>
+                <Title
+                  className="py-3 text-center"
+                  style={{ marginLeft: "0px" }}
+                >
                   In-person learning for direct mentorship & collaboration
                 </Title>
                 <p
                   className={`mb-3 d-flex align-items-center text-center`}
                   style={{ minHeight: "16vh" }}
                 >
-                  Have a question? Stuck on a problem? Support is just one room away with our
-                  in-person program. We bring students and instructors together in a dynamic setting
-                  all while building a network of peers that will support you whenever you
+                  Have a question? Stuck on a problem? Support is just one room
+                  away with our in-person program. We bring students and
+                  instructors together in a dynamic setting all while building a
+                  network of peers that will support you whenever you
                   need&nbsp;it.
                 </p>
                 <div className="d-flex justify-content-center">
                   <a href="#header">
-                    <BrandButton className={`my-3`} style={{ marginLeft: "0rem" }}>
+                    <BrandButton
+                      className={`my-3`}
+                      style={{ marginLeft: "0rem" }}
+                    >
                       Apply Now
                     </BrandButton>
                   </a>
@@ -600,16 +653,30 @@ const BootcampPage = props => {
       </section>
 
       {/* More than a bootcamp */}
-      <section id="more-than-bootcamp" className="pb-5" style={{ backgroundColor: "#C02129" }}>
+      <section
+        id="more-than-bootcamp"
+        className="pb-5"
+        style={{ backgroundColor: "#C02129" }}
+      >
         <Container className="pt-5">
-          <Title className={`text-center text-white`}>More than a bootcamp.</Title>
-          <Title className={`text-center text-white`}>Join a tech network for life.</Title>
-          <h4 className={`text-center m-auto mb-5 text-white`} style={{ maxWidth: "60%" }}>
-            At Awesome Inc, you’re part of a supportive community of tech enthusiasts who are just
-            as passionate as you are. Enjoy frequent events & build lifelong friendships worth more
-            than anything.{" "}
+          <Title className={`text-center text-white`}>
+            More than a bootcamp.
+          </Title>
+          <Title className={`text-center text-white`}>
+            Join a tech network for life.
+          </Title>
+          <h4
+            className={`text-center m-auto mb-5 text-white`}
+            style={{ maxWidth: "60%" }}
+          >
+            At Awesome Inc, you’re part of a supportive community of tech
+            enthusiasts who are just as passionate as you are. Enjoy frequent
+            events & build lifelong friendships worth more than anything.{" "}
           </h4>
-          <Row className="d-flex justify-content-center text-center" style={{ color: "#C12029" }}>
+          <Row
+            className="d-flex justify-content-center text-center"
+            style={{ color: "#C12029" }}
+          >
             <Col md={4}>
               <Title className="text-white">175+</Title>
               <p className="fw-bold text-white">past alumni</p>
@@ -625,7 +692,10 @@ const BootcampPage = props => {
           </Row>
 
           <Col className={`${styles.gallery} mt-3`}>
-            <Row style={{ width: "100%", height: "40%", paddingBottom: "5px" }} className="mx-auto">
+            <Row
+              style={{ width: "100%", height: "40%", paddingBottom: "5px" }}
+              className="mx-auto"
+            >
               <Image
                 src={bootcamp5}
                 alt={"Bootcamp 5"}
@@ -645,7 +715,10 @@ const BootcampPage = props => {
                 className={styles.galleryPhoto}
               />
             </Row>
-            <Row style={{ width: "100%", height: "60%", paddingTop: "5px" }} className="mx-auto">
+            <Row
+              style={{ width: "100%", height: "60%", paddingTop: "5px" }}
+              className="mx-auto"
+            >
               <Image
                 src={bootcamp1}
                 alt={"Bootcamp 1"}
@@ -684,7 +757,7 @@ const BootcampPage = props => {
                             marginTop: "1.5rem",
                             marginLeft: "1.5rem",
                             marginRight: "1.5rem",
-                            marginBottom: "1.5rem"
+                            marginBottom: "1.5rem",
                           }}
                           image={node.picture.asset.gatsbyImageData}
                           alt={node.company}
@@ -708,15 +781,20 @@ const BootcampPage = props => {
       <section id="languages">
         <Container fluid className={`${styles.languages}`}>
           <Row>
-            <Subtitle style={{ fontSize: "1.25rem" }} className="text-center fs-5 pb-3 mt-4">
+            <Subtitle
+              style={{ fontSize: "1.25rem" }}
+              className="text-center fs-5 pb-3 mt-4"
+            >
               <b>
-                With over 500 hours of hands-on training, you'll gain experience while building 10+
-                projects using:
+                With over 500 hours of hands-on training, you'll gain experience
+                while building 10+ projects using:
               </b>
             </Subtitle>
           </Row>
           <Container>
-            <Row className={`${styles.languageIcons} d-flex justify-content-center py-4`}>
+            <Row
+              className={`${styles.languageIcons} d-flex justify-content-center py-4`}
+            >
               <div className="overflow-hidden">
                 <Slider {...settings} className="">
                   <div className="d-flex justify-content-center">
@@ -791,17 +869,20 @@ const BootcampPage = props => {
           <Container>
             <Row>
               <p className="pt-5 text-center">
-                With over 500 hours of hands-on training, you'll gain experience while building 10+
-                projects using HTML, CSS, JavaScript, web frameworks, GitHub, Agile, and more.
+                With over 500 hours of hands-on training, you'll gain experience
+                while building 10+ projects using HTML, CSS, JavaScript, web
+                frameworks, GitHub, Agile, and more.
               </p>
               <p className="pb-5 text-justify text-center">
-                Students begin with a part-time Prework phase, with 4 weeks of remote lessons
-                covering the basics of web development. After that, we kick it into high gear for 12
-                weeks of full-time, in-person training. We've designed Bootcamp to feel less like
-                school, and more like you first 3 months on the job. By the conclusion of the
-                combined 16-week program, our alumni are ready to interview with regional and
-                national employers for the opportunity to earn a full-time position at a competitive
-                junior developer's salary.
+                Students begin with a part-time Prework phase, with 4 weeks of
+                remote lessons covering the basics of web development. After
+                that, we kick it into high gear for 12 weeks of full-time,
+                in-person training. We've designed Bootcamp to feel less like
+                school, and more like you first 3 months on the job. By the
+                conclusion of the combined 16-week program, our alumni are ready
+                to interview with regional and national employers for the
+                opportunity to earn a full-time position at a competitive junior
+                developer's salary.
               </p>
             </Row>
           </Container>
@@ -810,11 +891,16 @@ const BootcampPage = props => {
 
       {/* Apply */}
       <section id="apply">
-        <Container className={`${styles.apply} justify-content-center text-justify py-5`}>
+        <Container
+          className={`${styles.apply} justify-content-center text-justify py-5`}
+        >
           <Row>
-            <Title className="text-center text-bold text-uppercase">Applying For Bootcamp</Title>
+            <Title className="text-center text-bold text-uppercase">
+              Applying For Bootcamp
+            </Title>
             <h6 className="text-center fsw-lighter mt-4">
-              There is a four-step, competitive application process for the Bootcamp program:
+              There is a four-step, competitive application process for the
+              Bootcamp program:
             </h6>
           </Row>
           <Col className={`${styles.applyCol} mb-5 justify-content-center`}>
@@ -827,7 +913,9 @@ const BootcampPage = props => {
                 style={{ maxWidth: "180px" }}
               />
             </div>
-            <div className={`${styles.applyCol} d-flex align-items-center justify-content-center`}>
+            <div
+              className={`${styles.applyCol} d-flex align-items-center justify-content-center`}
+            >
               <StaticImage
                 placeholder="blurred"
                 alt="Arrow steps"
@@ -845,7 +933,9 @@ const BootcampPage = props => {
                 style={{ maxWidth: "180px" }}
               />
             </div>
-            <div className={`${styles.applyCol} d-flex align-items-center justify-content-center`}>
+            <div
+              className={`${styles.applyCol} d-flex align-items-center justify-content-center`}
+            >
               <StaticImage
                 placeholder="blurred"
                 alt="Arrow steps"
@@ -863,7 +953,9 @@ const BootcampPage = props => {
                 style={{ maxWidth: "180px" }}
               />
             </div>
-            <div className={`${styles.applyCol} d-flex align-items-center justify-content-center`}>
+            <div
+              className={`${styles.applyCol} d-flex align-items-center justify-content-center`}
+            >
               <StaticImage
                 placeholder="blurred"
                 alt="Arrow steps"
@@ -884,13 +976,16 @@ const BootcampPage = props => {
           </Col>
           <Row className="justify-content-center">
             <p className="text-justify">
-              This process helps us to find top-quality applicants for the Bootcamp. We continue to
-              be surprised and inspired by the variety of different educational and professional
-              backgrounds rfom which our students come to Bootcamp. Contrary to stereotypes about
-              software developers, there's not just on archetype that's a good fit for this career.
-              Our goal throughout the application process is to find people who, in their own unique
-              way, are ready to dive into a software development career through the accelerated
-              learning environment we provide. For more on this, check out our blog post
+              This process helps us to find top-quality applicants for the
+              Bootcamp. We continue to be surprised and inspired by the variety
+              of different educational and professional backgrounds rfom which
+              our students come to Bootcamp. Contrary to stereotypes about
+              software developers, there's not just on archetype that's a good
+              fit for this career. Our goal throughout the application process
+              is to find people who, in their own unique way, are ready to dive
+              into a software development career through the accelerated
+              learning environment we provide. For more on this, check out our
+              blog post
               <a
                 href="https://www.awesomeinc.org/blog/what-we-look-for-in-a-bootcamp-student"
                 className="link--brand"
@@ -921,7 +1016,9 @@ const BootcampPage = props => {
           </Row>
           <Row>
             <Col>
-              <Title className="text-center text--medium mt-3">Early Application Deadline </Title>
+              <Title className="text-center text--medium mt-3">
+                Early Application Deadline{" "}
+              </Title>
               <CountdownTimer date={earlyApplicationDeadline} />
               <Title className="text-center text--small fw-bold fst-italic">
                 {" "}
@@ -952,7 +1049,14 @@ const BootcampPage = props => {
               </BrandButton>
             </Col>
 
-            <Col xs={12} sm={12} md={4} lg={3} xl={3} className="text-center  me-auto my-4">
+            <Col
+              xs={12}
+              sm={12}
+              md={4}
+              lg={3}
+              xl={3}
+              className="text-center  me-auto my-4"
+            >
               <Title className="text-center text--medium brand fw-bolder">
                 {data.sanityBootcamp.upcomingStartDate}
               </Title>
@@ -961,7 +1065,10 @@ const BootcampPage = props => {
                 {data.sanityBootcamp.upcomingEndDate}
               </Title>
               <a href="#header">
-                <BrandButton className="justify-content-center btn--small my-2" disabled="">
+                <BrandButton
+                  className="justify-content-center btn--small my-2"
+                  disabled=""
+                >
                   APPLY NOW
                 </BrandButton>
               </a>
@@ -971,7 +1078,11 @@ const BootcampPage = props => {
       </section>
 
       {/* Timeline */}
-      <section id="timeline" style={{ backgroundColor: "#e6e7e8" }} className="pt-5 mb-3">
+      <section
+        id="timeline"
+        style={{ backgroundColor: "#e6e7e8" }}
+        className="pt-5 mb-3"
+      >
         <Container className={`${styles.timeline} pt-5 justify-content-center`}>
           <div className={`${styles.titleDiv} justify-content-center`}>
             <Title className={`${styles.timelineTitle} d-flex`}>Timeline</Title>
@@ -979,8 +1090,9 @@ const BootcampPage = props => {
           <Col sm={12} md={12} lg={12} xl={9}>
             <Row className="">
               <p style={{ fontSize: "1rem" }} className="text-justify">
-                This is a realistic timeline of what a Web Developer Bootcamp student can expect
-                from applying to the program to becoming a proud alumni.
+                This is a realistic timeline of what a Web Developer Bootcamp
+                student can expect from applying to the program to becoming a
+                proud alumni.
               </p>
             </Row>
             <Row className="">
@@ -1002,7 +1114,10 @@ const BootcampPage = props => {
           <Row>
             <Col>
               <Row className="mt-2 mb-5">
-                <Title style={{ color: "#ED3742" }} className="text--huge text-center mt-4 ">
+                <Title
+                  style={{ color: "#ED3742" }}
+                  className="text--huge text-center mt-4 "
+                >
                   The Cost
                 </Title>
               </Row>
@@ -1024,11 +1139,12 @@ const BootcampPage = props => {
                   </Row>
                   <Row className="mx-5">
                     <p className="text-justify text-center">
-                      Fund your future with an Income Share Agreement. We're partnered with
-                      industry-leading ISA provider Meratas to allow students to enroll in our
-                      full-time program with no up front tuition costs. ISA recipients only pay when
-                      they've landed a job making $45,000/year or more. Want to know more? Schedule
-                      a call today!
+                      Fund your future with an Income Share Agreement. We're
+                      partnered with industry-leading ISA provider Meratas to
+                      allow students to enroll in our full-time program with no
+                      up front tuition costs. ISA recipients only pay when
+                      they've landed a job making $45,000/year or more. Want to
+                      know more? Schedule a call today!
                     </p>
                   </Row>
                 </Col>
@@ -1038,7 +1154,10 @@ const BootcampPage = props => {
                     <div className="text-center ms-auto">
                       <img
                         style={{ maxWidth: "100px" }}
-                        src={require("/src/images/bootcamp/Money_in_Hand.svg").default}
+                        src={
+                          require("/src/images/bootcamp/Money_in_Hand.svg")
+                            .default
+                        }
                         alt="Moeny In Hand"
                       />
                     </div>
@@ -1050,8 +1169,8 @@ const BootcampPage = props => {
                   </Row>
                   <Row className="mx-5">
                     <p className="text-justify text-center">
-                      Students who choose to pay tuition up front are offered a discounted tuition
-                      rate of $15,500.
+                      Students who choose to pay tuition up front are offered a
+                      discounted tuition rate of $15,500.
                     </p>
                   </Row>
                 </Col>
@@ -1072,7 +1191,8 @@ const BootcampPage = props => {
         <Container fluid className={`${styles.stillUnsure} py-4`}>
           <div className="mx-5 text-center justify-content-center mx-auto">
             <Title className="text-center pt-5 pb-3">
-              Still unsure? Here's everyone else who took this same leap and hasn't looked back!
+              Still unsure? Here's everyone else who took this same leap and
+              hasn't looked back!
             </Title>
             <a href="../alumni">
               <BrandButton className="my-3 ">Meet Alumni</BrandButton>
@@ -1089,49 +1209,61 @@ const BootcampPage = props => {
             <Accordion.Item eventKey="0" className="px-3 py-4">
               <Accordion.Header>What is Developer Bootcamp?</Accordion.Header>
               <Accordion.Body>
-                Employers around the country are experiencing a shortage of well-qualified software
-                developers, and Kentucky is no different. While there are several possible responses
-                to this need, many regions have benefited from intensive training programs called
-                Developer Bootcamps. The general model is a 3-month program, in batches of 10-20
-                students, with a curriculum for full-stack web development jobs. Bootcamps are
-                taught by experienced software developers (10+ years industry experience), with a
-                focus on quickly moving from basic skills to project experience. High job placement
-                rates (&gt;80% within 180 days of graduation) are the target for these programs.
-                Successful programs are highly selective of their applicants, typically targeting
-                college graduates and experienced professionals in their 20s, 30s, and 40s looking
-                to make a career change.
+                Employers around the country are experiencing a shortage of
+                well-qualified software developers, and Kentucky is no
+                different. While there are several possible responses to this
+                need, many regions have benefited from intensive training
+                programs called Developer Bootcamps. The general model is a
+                3-month program, in batches of 10-20 students, with a curriculum
+                for full-stack web development jobs. Bootcamps are taught by
+                experienced software developers (10+ years industry experience),
+                with a focus on quickly moving from basic skills to project
+                experience. High job placement rates (&gt;80% within 180 days of
+                graduation) are the target for these programs. Successful
+                programs are highly selective of their applicants, typically
+                targeting college graduates and experienced professionals in
+                their 20s, 30s, and 40s looking to make a career change.
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="1" className="px-3 py-3">
               <Accordion.Header>Who should apply?</Accordion.Header>
               <Accordion.Body>
-                Our ideal applicants are professional men and women who are looking to transition
-                into a career in software development. This program is not for everyone. Like all
-                Awesome Inc initiatives, we've built this program on the foundation of our Core
-                Values. CV #2 (Be Excellent) is a big part of this program. We expect that many of
-                our candidates will have deep experience in a related field, such as graphic design,
-                math/finance, or project management. Some applicants will have prior programming
-                experience, maybe a class back in high school or college, but many will not. Most of
-                our applicants reside in Kentucky, and desire to live and work in the region after
-                Bootcamp. Since the 12-week in-person phase of our program is full-time (8am - 5pm,
-                five days per week), our candidates must be willing to sacrifice other commitments
-                (such as outside employment) to focus on learning for that duration.
+                Our ideal applicants are professional men and women who are
+                looking to transition into a career in software development.
+                This program is not for everyone. Like all Awesome Inc
+                initiatives, we've built this program on the foundation of our
+                Core Values. CV #2 (Be Excellent) is a big part of this program.
+                We expect that many of our candidates will have deep experience
+                in a related field, such as graphic design, math/finance, or
+                project management. Some applicants will have prior programming
+                experience, maybe a class back in high school or college, but
+                many will not. Most of our applicants reside in Kentucky, and
+                desire to live and work in the region after Bootcamp. Since the
+                12-week in-person phase of our program is full-time (8am - 5pm,
+                five days per week), our candidates must be willing to sacrifice
+                other commitments (such as outside employment) to focus on
+                learning for that duration.
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="2" className="px-3 py-3">
-              <Accordion.Header>What is the cost of the Bootcamp?</Accordion.Header>
+              <Accordion.Header>
+                What is the cost of the Bootcamp?
+              </Accordion.Header>
               <Accordion.Body>
-                Tuition for the Bootcamp is $15,500. Financing and flexible payment plans are
-                available. Once accepted, a $500 deposit is due to confirm your spot in the program.
-                If the only thing keeping you from participating in the program is finances, please
-                contact us and we'll do our best to work with you to find a solution.
+                Tuition for the Bootcamp is $15,500. Financing and flexible
+                payment plans are available. Once accepted, a $500 deposit is
+                due to confirm your spot in the program. If the only thing
+                keeping you from participating in the program is finances,
+                please contact us and we'll do our best to work with you to find
+                a solution.
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="3" className="px-3 py-3">
               <Accordion.Header>Are scholarships available?</Accordion.Header>
               <Accordion.Body>
-                Yes. Through employer partners such as APAX Software, partial scholarships are
-                available. Once you've applied for the Bootcamp, please fill out the{" "}
+                Yes. Through employer partners such as APAX Software, partial
+                scholarships are available. Once you've applied for the
+                Bootcamp, please fill out the{" "}
                 <a
                   href="https://docs.google.com/forms/d/e/1FAIpQLSd9t_ECAVqVVHWNalx-hiUiOeRk7hk94uZQEGBu7Vt48Uu5PQ/viewform"
                   className="link--brand"
@@ -1144,64 +1276,82 @@ const BootcampPage = props => {
             <Accordion.Item eventKey="4" className="px-3 py-3">
               <Accordion.Header>When is the next class?</Accordion.Header>
               <Accordion.Body>
-                Our next Bootcamp cohort (Fall 2024, i.e. F24) begins Onboarding on Monday, August
-                19, then moves to intensive classes from Monday, August 19 - Friday, December 13.
-                The application deadline for the S24 cohort is Friday, July 19.
+                Our next Bootcamp cohort (Fall 2024, i.e. F24) begins Onboarding
+                on Monday, August 19, then moves to intensive classes from
+                Monday, August 19 - Friday, December 13. The application
+                deadline for the S24 cohort is Friday, July 19.
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="5" className="px-3 py-3">
               <Accordion.Header>What will I learn?</Accordion.Header>
               <Accordion.Body>
-                Our curriculum provides what we and our employer partners see as necessary skills
-                for a junior-level software developer. First, we'll help you learn how to learn
-                (seriously, there are some lifehacks you'll wish you had during college chemistry
-                class). Then we will start with programming and computer science basics, dive into
-                the building blocks of web pages (HTML, CSS, JS), then get into the server side of
-                web applications (databases, SQL, Python/Node.js/Ruby/PHP, web frameworks, AWS), all
-                with plenty of exposure to modern development systems and tools (Git, GitHub, Agile,
-                TDD, UI/UX design). Through all of this, our focus is on making real, working
-                software projects. We can print off a certificate for you at the end if you're the
-                sentimental type, but this experience is really about making things, working with a
-                team, building your project portfolio, and networking with the local developers and
-                companies who we hope will be your future co-workers and employers. As software
-                development is a rapidly-changing field, we update some our specific technology
+                Our curriculum provides what we and our employer partners see as
+                necessary skills for a junior-level software developer. First,
+                we'll help you learn how to learn (seriously, there are some
+                lifehacks you'll wish you had during college chemistry class).
+                Then we will start with programming and computer science basics,
+                dive into the building blocks of web pages (HTML, CSS, JS), then
+                get into the server side of web applications (databases, SQL,
+                Python/Node.js/Ruby/PHP, web frameworks, AWS), all with plenty
+                of exposure to modern development systems and tools (Git,
+                GitHub, Agile, TDD, UI/UX design). Through all of this, our
+                focus is on making real, working software projects. We can print
+                off a certificate for you at the end if you're the sentimental
+                type, but this experience is really about making things, working
+                with a team, building your project portfolio, and networking
+                with the local developers and companies who we hope will be your
+                future co-workers and employers. As software development is a
+                rapidly-changing field, we update some our specific technology
                 offerings for each cohort. A few past offerings:
                 <ul>
                   <li>
-                    Spring 2022 - Fall 2023: JavaScript, Python, React, MySQL, Django, GitPod,
-                    Google Cloud
+                    Spring 2022 - Fall 2023: JavaScript, Python, React, MySQL,
+                    Django, GitPod, Google Cloud
                   </li>
                   <li>
-                    Spring 2021 - Fall 2021: JavaScript, PHP, React, MySQL, Laravel, Codeanywhere
+                    Spring 2021 - Fall 2021: JavaScript, PHP, React, MySQL,
+                    Laravel, Codeanywhere
                   </li>
                   <li>
-                    Fall 2019 - Fall 2020: JavaScript, PHP, React, MySQL, Laravel, Google Cloud
+                    Fall 2019 - Fall 2020: JavaScript, PHP, React, MySQL,
+                    Laravel, Google Cloud
                   </li>
                   <li>
-                    Fall 2017 - Spring 2019: JavaScript, PHP, VueJS, PostgreSQL or MySQL, Laravel,
-                    Heroku
+                    Fall 2017 - Spring 2019: JavaScript, PHP, VueJS, PostgreSQL
+                    or MySQL, Laravel, Heroku
                   </li>
-                  <li>Summer 2017: JavaScript, PHP, AngularJS, PostgreSQL, Laravel, Heroku</li>
-                  <li>Fall 2016: JavaScript, Python, AngularJS, PostgreSQL, Django, AWS</li>
+                  <li>
+                    Summer 2017: JavaScript, PHP, AngularJS, PostgreSQL,
+                    Laravel, Heroku
+                  </li>
+                  <li>
+                    Fall 2016: JavaScript, Python, AngularJS, PostgreSQL,
+                    Django, AWS
+                  </li>
                 </ul>
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="6" className="px-3 py-3">
               <Accordion.Header>What is Prework?</Accordion.Header>
               <Accordion.Body>
-                Prework is like a summer reading assignment for Bootcamp. It's what our accepted
-                students work on independently prior to working with our instructional team. Prework
-                helps to prepare students for Onboarding, the first four weeks of lessons which are
-                delivered remotely. This helps us to hit the ground running on week one of the
-                intensive Bootcamp phase, while minimizing the time our students spend out of
-                full-time work. Our students start with different prior experiences, so we want to
-                make sure everyone is starting at (nearly) the same spot. And we want that spot to
-                be somewhere beyond absolute zero. Our program is an intense 16 weeks, but without
-                the prework, we couldn't fit in all that you'll need. The Intro to Web Development
-                is a part-time, evening course intended to cover most of the Prework and Onboarding
-                content, with the added benefits of an in-person instructor and a slower pace (nine
-                weeks instead of four). For someone who wants to explore coding before committing to
-                Bootcamp, or who wants to get a head start on Bootcamp content, the{" "}
+                Prework is like a summer reading assignment for Bootcamp. It's
+                what our accepted students work on independently prior to
+                working with our instructional team. Prework helps to prepare
+                students for Onboarding, the first four weeks of lessons which
+                are delivered remotely. This helps us to hit the ground running
+                on week one of the intensive Bootcamp phase, while minimizing
+                the time our students spend out of full-time work. Our students
+                start with different prior experiences, so we want to make sure
+                everyone is starting at (nearly) the same spot. And we want that
+                spot to be somewhere beyond absolute zero. Our program is an
+                intense 16 weeks, but without the prework, we couldn't fit in
+                all that you'll need. The Intro to Web Development is a
+                part-time, evening course intended to cover most of the Prework
+                and Onboarding content, with the added benefits of an in-person
+                instructor and a slower pace (nine weeks instead of four). For
+                someone who wants to explore coding before committing to
+                Bootcamp, or who wants to get a head start on Bootcamp content,
+                the{" "}
                 <a href="intro-to-web-development" className="link--brand">
                   Intro to Web Development
                 </a>{" "}
@@ -1211,16 +1361,20 @@ const BootcampPage = props => {
             <Accordion.Item eventKey="7" className="px-3 py-3">
               <Accordion.Header>Do I need a laptop?</Accordion.Header>
               <Accordion.Body>
-                Yes, students are required to furnish their own laptop computer for the Bootcamp
-                program. The minimum requirements are:
+                Yes, students are required to furnish their own laptop computer
+                for the Bootcamp program. The minimum requirements are:
                 <ul>
                   <li>
-                    Operating System: able to run the latest version of macOS (recommended),
-                    Windows, or Ubuntu
+                    Operating System: able to run the latest version of macOS
+                    (recommended), Windows, or Ubuntu
                   </li>
                   <li>
-                    Processor: Intel Core i7, Apple M1 chip, or faster (recommended:{" "}
-                    <a href="https://browser.geekbench.com/mac-benchmarks" className="link--brand">
+                    Processor: Intel Core i7, Apple M1 chip, or faster
+                    (recommended:{" "}
+                    <a
+                      href="https://browser.geekbench.com/mac-benchmarks"
+                      className="link--brand"
+                    >
                       Geekbench score
                     </a>{" "}
                     &gt;1200)

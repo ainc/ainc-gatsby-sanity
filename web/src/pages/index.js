@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
-  filterOutDocsPublishedInTheFuture
+  filterOutDocsPublishedInTheFuture,
 } from "../lib/helpers";
 import { Container, Row, Col, Image, Badge, Card } from "react-bootstrap";
 import GraphQLErrorList from "../components/graphql-error-list";
@@ -60,7 +60,10 @@ export const query = graphql`
       linkToEvent
       host
     }
-    allSanityEvents(sort: { date: ASC }, filter: { date: { gte: $currentDate } }) {
+    allSanityEvents(
+      sort: { date: ASC }
+      filter: { date: { gte: $currentDate } }
+    ) {
       nodes {
         id
         featured
@@ -110,7 +113,9 @@ const IndexPage = ({ data }) => {
   let feature_event = data.sanityEvents || events[0] || {};
 
   let eventsNoFeature = events
-    .filter(event => event.eventName && feature_event.eventName !== event.eventName)
+    .filter(
+      (event) => event.eventName && feature_event.eventName !== event.eventName,
+    )
     .slice(0, 3); // Ensure no crash on missing eventName
 
   const courses = data.allSanityCourses.nodes || {};
@@ -121,13 +126,13 @@ const IndexPage = ({ data }) => {
   const section4Ref = useRef(null);
 
   //Scroll to a section when button is clicked (HomepageSlider component)
-  const scrollToSection = sectionId => {
+  const scrollToSection = (sectionId) => {
     switch (sectionId) {
       case "workspace":
         section1Ref.current.scrollIntoView({
           behavior: "smooth",
           block: "center",
-          inline: "center"
+          inline: "center",
         });
         break;
       case "courses":
@@ -137,7 +142,7 @@ const IndexPage = ({ data }) => {
         section3Ref.current.scrollIntoView({
           behavior: "smooth",
           block: "center",
-          inline: "center"
+          inline: "center",
         });
         break;
 
@@ -146,8 +151,10 @@ const IndexPage = ({ data }) => {
     }
   };
 
-  const [isWorkspaceButton1Hovered, setIsWorkspaceButton1Hovered] = useState(false);
-  const [isWorkspaceButton2Hovered, setIsWorkspaceButton2Hovered] = useState(false);
+  const [isWorkspaceButton1Hovered, setIsWorkspaceButton1Hovered] =
+    useState(false);
+  const [isWorkspaceButton2Hovered, setIsWorkspaceButton2Hovered] =
+    useState(false);
 
   return (
     <Layout>
@@ -162,7 +169,9 @@ const IndexPage = ({ data }) => {
           <Row className="d-flex justify-content-center">
             {/* <Col xs={12} sm={{ span: 10, offset: 1}} > */}
 
-            <Row className={` row row-cols-5 justify-content-center my-3 px-1 gx-3`}>
+            <Row
+              className={` row row-cols-5 justify-content-center my-3 px-1 gx-3`}
+            >
               {/* <Col md={3}> */}
               <Col xs={6} sm={6} md={6} lg={3} xl={3} className="mt-3">
                 <BackgroundCard
@@ -216,16 +225,23 @@ const IndexPage = ({ data }) => {
           </Row>
           <Row>
             <Col xs={12} sm={{ span: 8, offset: 2 }}>
-              <Title className="mt-5 text-center text-uppercase">Welcome to Awesome Inc</Title>
-              <p className="mt-3 mb-5 text-center">Pursue your Definition of Awesome</p>
+              <Title className="mt-5 text-center text-uppercase">
+                Welcome to Awesome Inc
+              </Title>
+              <p className="mt-3 mb-5 text-center">
+                Pursue your Definition of Awesome
+              </p>
               <p className="mt-3 text-center">
-                We exist to create and grow high tech startups. We do this by hosting community
-                events, leading technology education courses, and offering a shared workspace
-                environment. Click one of our initiatives above to learn more about Awesome Inc.
+                We exist to create and grow high tech startups. We do this by
+                hosting community events, leading technology education courses,
+                and offering a shared workspace environment. Click one of our
+                initiatives above to learn more about Awesome Inc.
               </p>
 
               <a href="../about">
-                <BrandButton className="secondary d-block mx-auto">Learn More</BrandButton>
+                <BrandButton className="secondary d-block mx-auto">
+                  Learn More
+                </BrandButton>
               </a>
             </Col>
           </Row>
@@ -245,7 +261,8 @@ const IndexPage = ({ data }) => {
               <Row className="w-50">
                 <Title className="text-uppercase white">Our Core Values</Title>
                 <p className="text-white">
-                  Here at Awesome Inc we not only work by our core values, but live by them too.
+                  Here at Awesome Inc we not only work by our core values, but
+                  live by them too.
                 </p>
               </Row>
               <Row className="mb-5">
@@ -258,7 +275,9 @@ const IndexPage = ({ data }) => {
 
       {/* EVENTS */}
       <section id="events">
-        <Title className="mt-5 mb-3 text-uppercase text-center">Upcoming Events</Title>
+        <Title className="mt-5 mb-3 text-uppercase text-center">
+          Upcoming Events
+        </Title>
         <Container>
           <Row>
             {feature_event?.eventName && (
@@ -291,11 +310,17 @@ const IndexPage = ({ data }) => {
       </section>
 
       {/* COURSES */}
-      <section ref={section2Ref} id="courses" style={{ backgroundColor: "#323232" }}>
+      <section
+        ref={section2Ref}
+        id="courses"
+        style={{ backgroundColor: "#323232" }}
+      >
         <Title className="pt-5 mb-3 text-uppercase text-center text-white">
           Educational Courses
         </Title>
-        <p className="mb-5 text-uppercase text-center text-white">Made for any level</p>
+        <p className="mb-5 text-uppercase text-center text-white">
+          Made for any level
+        </p>
         <Container>
           <Row>
             {courses.map((node, i) => (
@@ -350,8 +375,12 @@ const IndexPage = ({ data }) => {
 
       {/* WORKSPACE */}
       <section ref={section1Ref} id="workspace" className="workspace-section">
-        <Title className="pt-5 mb-2 text-uppercase text-center">Workspace</Title>
-        <Subtitle className=" text-uppercase text-center">Join Our Workspace</Subtitle>
+        <Title className="pt-5 mb-2 text-uppercase text-center">
+          Workspace
+        </Title>
+        <Subtitle className=" text-uppercase text-center">
+          Join Our Workspace
+        </Subtitle>
         <a
           className="workspace-button"
           href="https://calendly.com/awesometour/30min?"
@@ -372,7 +401,7 @@ const IndexPage = ({ data }) => {
               backgroundRepeat: `no-repeat`,
               backgroundSize: `35%`,
               backgroundPosition: `50% 50%`,
-              padding: `5rem 0`
+              padding: `5rem 0`,
             }}
           >
             <Row>
@@ -393,7 +422,7 @@ const IndexPage = ({ data }) => {
                         style={{
                           boxShadow: isWorkspaceButton1Hovered
                             ? " 0 5px 10px rgba(162, 27, 34, 0.75)"
-                            : "inherit"
+                            : "inherit",
                         }}
                       >
                         <Subtitle className="fw-bold text-center text-white">
@@ -424,15 +453,15 @@ const IndexPage = ({ data }) => {
                         style={{
                           boxShadow: isWorkspaceButton2Hovered
                             ? " 0 5px 10px rgba(162, 27, 34, 0.75)"
-                            : "inherit"
+                            : "inherit",
                         }}
                       >
                         <Subtitle className="fw-bold text-center text-white">
                           Membership Benefits
                         </Subtitle>
                         <p className="text-center text-white fw-bolder">
-                          Flexible membership options and features to support your business
-                          operations.
+                          Flexible membership options and features to support
+                          your business operations.
                         </p>
                       </Card>
                     </a>
@@ -447,7 +476,9 @@ const IndexPage = ({ data }) => {
       {/* SOFTWARE DEVELOPMENT */}
       {/* TODO: Fix icons to be 1:1 */}
       <section ref={section4Ref} id="software">
-        <Title className="pt-5 mb-3 text-uppercase text-center">Software Development</Title>
+        <Title className="pt-5 mb-3 text-uppercase text-center">
+          Software Development
+        </Title>
         <Subtitle className="mb-5 text-uppercase text-center fw-bolder">
           Let us create custom software for your business
         </Subtitle>
@@ -478,8 +509,8 @@ const IndexPage = ({ data }) => {
                 </a>
 
                 <p className="text-center">
-                  Our expert team of web developers build websites and mobile applications that are
-                  fast, secure, and easy to maintain.
+                  Our expert team of web developers build websites and mobile
+                  applications that are fast, secure, and easy to maintain.
                 </p>
               </div>
             </Col>
@@ -507,8 +538,9 @@ const IndexPage = ({ data }) => {
                   </Subtitle>
                 </a>
                 <p className="text-center">
-                  We make clients part of our streamlined process by facilitating reviews and
-                  planning sessions during all parts of the development cycle.
+                  We make clients part of our streamlined process by
+                  facilitating reviews and planning sessions during all parts of
+                  the development cycle.
                 </p>
               </div>
             </Col>
@@ -531,11 +563,14 @@ const IndexPage = ({ data }) => {
                       layout="fixed"
                     />
                   </motion.div>
-                  <Subtitle className="text-center fw-bolder mt-5 mb-3">Graphic Design</Subtitle>
+                  <Subtitle className="text-center fw-bolder mt-5 mb-3">
+                    Graphic Design
+                  </Subtitle>
                 </a>
                 <p className="text-center">
-                  Our UI/UX design services transform your project, increasing user satisfaction,
-                  reducing development costs, and delivering a high ROI.
+                  Our UI/UX design services transform your project, increasing
+                  user satisfaction, reducing development costs, and delivering
+                  a high ROI.
                 </p>
               </div>
             </Col>
