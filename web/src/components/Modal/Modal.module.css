@@ -52,7 +52,7 @@ label {
 
 input[type="text"],
 textarea {
-  transition: (all 0.30s ease-in-out);
+  transition: (all 0.3s ease-in-out);
   outline: none;
   border: 1px solid #dddddd;
 }
@@ -60,6 +60,5 @@ textarea {
 input[type="text"]:focus,
 textarea:focus {
   box-shadow: (0 0 50px 50px rgb(105, 10, 10));
-  border: 2px 0px 0px 0px solid rgb(185, 44, 44, .5);
- 
+  border: 2px 0px 0px 0px solid rgb(185, 44, 44, 0.5);
 }

@@ -9,33 +9,28 @@
   font-size: #{$remValue}rem;
 }
 
-
 @mixin font-size($font-size) {
-    $pxFontValue: (math.div($font-size, 10));
-    $pxLineValue: (math.div($font-size, 10) * 1.5);
-    font-size: $font-size * 1px;
-    line-height: $font-size * 1.5 * 1px;
-    font-size: #{$pxFontValue}rem;
-    line-height: #{$pxLineValue}rem;
+  $pxFontValue: (math.div($font-size, 10));
+  $pxLineValue: (math.div($font-size, 10) * 1.5);
+  font-size: $font-size * 1px;
+  line-height: $font-size * 1.5 * 1px;
+  font-size: #{$pxFontValue}rem;
+  line-height: #{$pxLineValue}rem;
 }
-
 
 @mixin width($param) {
-    max-width: math.div(($param * 100), 12%);
+  max-width: math.div(($param * 100), 12%);
 }
-
 
 @mixin max-width($param) {
-   max-width: math.div(($param * 100), 12%);
+  max-width: math.div(($param * 100), 12%);
 }
 
-
 @mixin min-width($param) {
-    min-width: math.div(($param * 100), 12%);
+  min-width: math.div(($param * 100), 12%);
 }
 
 @font-face {
-    font-family: 'The-Bohemian-Regular';
-    src: url('/fonts/The-Bohemian-Regular.woff') format('woff');
+  font-family: "The-Bohemian-Regular";
+  src: url("/fonts/The-Bohemian-Regular.woff") format("woff");
 }
-

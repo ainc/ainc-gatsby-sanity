@@ -3,18 +3,16 @@ import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import * as styles from "./TeamMember.module.scss";
 import styled from "styled-components";
 
-
-
 const TeamMember = (props) => {
   return (
     <div className={styles.teamMember}>
       <figure className={styles.figure}>
-          <GatsbyImage
-            imgStyle={{borderRadius: "50%"}}
-            objectFit="scale-down"
-            image={props.image}
-            alt={props.alt}
-          />
+        <GatsbyImage
+          imgStyle={{ borderRadius: "50%" }}
+          objectFit="scale-down"
+          image={props.image}
+          alt={props.alt}
+        />
         <figcaption className={styles.figcaption}>
           <div className={styles.nameHover}>
             <h3 className={styles.lgxVertical}>{props.name}</h3>

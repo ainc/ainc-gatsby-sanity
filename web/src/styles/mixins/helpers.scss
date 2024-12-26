@@ -11,9 +11,9 @@
   -ms-transform: $arguments;
   transform: $arguments;
 }
-@mixin rotation($deg:5deg) {
+@mixin rotation($deg: 5deg) {
   @include transform(rotate($deg));
 }
-@mixin scale($ratio:1.5) {
+@mixin scale($ratio: 1.5) {
   @include transform(scale($ratio));
 }

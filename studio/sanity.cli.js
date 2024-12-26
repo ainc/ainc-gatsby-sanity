@@ -1,21 +1,20 @@
 // sanity.cli.js
-import {defineCliConfig} from 'sanity/cli'
+import { defineCliConfig } from "sanity/cli";
 
 export default defineCliConfig({
   api: {
-    projectId: 'y716vocf',
+    projectId: "y716vocf",
   },
   graphql: [
     {
-      workspace: 'production-workspace',
-      dataset: 'production',
-      id: 'production',
-
+      workspace: "production-workspace",
+      dataset: "production",
+      id: "production",
     },
     {
-      workspace: 'development-workspace',
-      dataset: 'development',
-      id: 'development'
-    }
-  ]
-})
+      workspace: "development-workspace",
+      dataset: "development",
+      id: "development",
+    },
+  ],
+});

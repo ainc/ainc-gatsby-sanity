@@ -1,5 +1,5 @@
-@import '../../styles/variables.scss';
-@import "../../styles/mixins"; 
+@import "../../styles/variables.scss";
+@import "../../styles/mixins";
 
 .card-background-filter {
   background-position: 25% top;
@@ -19,23 +19,22 @@
     display: block;
     z-index: 0;
     border-radius: 5%;
-    background-color: rgba(193,32,41,0.8);
+    background-color: rgba(193, 32, 41, 0.8);
   }
 }
 
 .card-title {
   font-size: 1rem;
-  line-height: .9rem;
+  line-height: 0.9rem;
   letter-spacing: 1px;
   @include screen-xs {
-    font-size: .7rem;
+    font-size: 0.7rem;
   }
 }
 
-
 .card-text {
-  font-size: .8rem;
-  line-height: .9rem;
+  font-size: 0.8rem;
+  line-height: 0.9rem;
 }
 
 @media (max-width: 760px) {

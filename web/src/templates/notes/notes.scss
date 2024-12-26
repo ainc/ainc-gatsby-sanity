@@ -1,28 +1,24 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@import "../../styles/variables";
+@import "../../styles/mixins";
 
 .body {
+  font-size: 17px;
+  color: black;
+  @include screen-tablet-max {
+    font-size: 15px;
+    line-height: 30px;
+  }
+  a {
+    color: $brand-color;
+  }
+  p {
     font-size: 17px;
+    line-height: 30px;
     color: black;
     @include screen-tablet-max {
-        font-size: 15px;
-        line-height: 30px;
+      font-size: 15px;
+      line-height: 30px;
+      padding-bottom: 50px;
     }
-    a {
-        color: $brand-color;
-      }
-    p {
-        font-size: 17px;
-        line-height: 30px;
-        color: black;
-        @include screen-tablet-max {
-            font-size: 15px;
-            line-height: 30px;
-            padding-bottom: 50px;
-        }
-    }
+  }
 }
-  
-  
-  
-

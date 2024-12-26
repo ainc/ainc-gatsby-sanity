@@ -7,10 +7,9 @@
 // You can delete this file if you're not using it
 
 import "./src/styles/bootstrap/custom-bootstrap.scss"; // Bootstrap overrides
-import "./src/styles/global.scss"
+import "./src/styles/global.scss";
 
 // Fonts
-import "@fontsource/open-sans"
-import "@fontsource/exo"
-import "@fontsource/exo-2"
-
+import "@fontsource/open-sans";
+import "@fontsource/exo";
+import "@fontsource/exo-2";

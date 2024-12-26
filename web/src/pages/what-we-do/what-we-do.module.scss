@@ -8,9 +8,9 @@
 .about-header {
   background-image: url(../../images/what-we-do/workspace-gradient.png);
   background-size: cover;
-  background-position:center;
+  background-position: center;
   height: 60vh;
-  @include screen-xs{
+  @include screen-xs {
     height: 80vh;
   }
 }
@@ -75,7 +75,6 @@
   margin-right: auto;
 }
 
-
 .header-border .heading-title {
   margin-top: 1rem;
   display: flex;
@@ -115,7 +114,7 @@
 .work-header {
   padding-bottom: 8rem;
   padding-top: 6rem;
-  background-color: rgba(230,231,232,255);
+  background-color: rgba(230, 231, 232, 255);
 }
 
 .work-header img {
@@ -138,7 +137,7 @@
 }
 
 .dot-divider {
-  width: 100%
+  width: 100%;
 }
 
 .asterisk {
@@ -173,7 +172,6 @@
 @media (max-width: 1000px) {
   .whatWeDo .heading-title {
     padding: 0px 10px;
-    
   }
   .logo-header {
     max-width: 100%;

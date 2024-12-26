@@ -77,7 +77,9 @@
   border-top: none;
   margin-top: 4em;
   background-color: #fff;
-  box-shadow: #fff 11px 0px 0px, #fff -13px 0px 0px;
+  box-shadow:
+    #fff 11px 0px 0px,
+    #fff -13px 0px 0px;
 }
 
 .header-border::before {

@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 a {
   color: $brand-grey;
@@ -10,7 +10,6 @@ a {
 }
 
 .footer-background {
-  
   // width: 100vw;
   padding-top: 3rem;
   padding-bottom: 2rem;
@@ -39,12 +38,12 @@ a {
   padding-left: 0;
   list-style: none;
   font-size: 0.9rem;
-  
+
   .main-line {
     margin-bottom: 1.5rem;
     font-size: 1rem;
   }
-  
+
   .red-icon {
     margin-right: 10px;
     color: $brand-color;
@@ -62,7 +61,7 @@ a {
 
 .copyright-inline-list {
   padding-left: 0;
-  
+
   li {
     display: inline;
     padding: 0 8px;

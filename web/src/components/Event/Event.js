@@ -2,11 +2,13 @@ import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import * as styles from "./events.module.scss";
 import EventBriteModal from "../EventBriteModal/EventBriteModal";
-const Event = props => {
+const Event = (props) => {
   const host = props.host ? `Host: ${props.host}` : "Host: To Be Determined";
-  const location = props.location ? `Location: ${props.location}` : "Location: To Be Determined";
+  const location = props.location
+    ? `Location: ${props.location}`
+    : "Location: To Be Determined";
 
-  const isEventBriteEvent = link => {
+  const isEventBriteEvent = (link) => {
     if (!link) return false;
     return link.toLowerCase().includes("eventbrite.com");
   };
@@ -16,7 +18,10 @@ const Event = props => {
   const eventContent = (
     <div className={styles.box}>
       <div className={styles.eventImage}>
-        <GatsbyImage image={props.image} alt={props.alt || (props.name ?? "Untitled Event")} />
+        <GatsbyImage
+          image={props.image}
+          alt={props.alt || (props.name ?? "Untitled Event")}
+        />
       </div>
       <div className={`${styles.textDiv} mx-3`}>
         <h2 className={styles.boldText}>{props.date}</h2>
@@ -33,7 +38,7 @@ const Event = props => {
         className={styles.contentWrapper}
         role="button"
         tabIndex={0}
-        onKeyPress={e => {
+        onKeyPress={(e) => {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
           }

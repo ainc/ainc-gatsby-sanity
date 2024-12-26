@@ -10,7 +10,11 @@ export function Figure({ node }) {
     return null;
   }
 
-  const imageData = getGatsbyImageData(node.asset, { maxWidth: 675 }, clientConfig.sanity);
+  const imageData = getGatsbyImageData(
+    node.asset,
+    { maxWidth: 675 },
+    clientConfig.sanity,
+  );
 
   return (
     <figure className={styles.root}>

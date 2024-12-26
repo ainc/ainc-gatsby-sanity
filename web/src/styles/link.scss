@@ -1,27 +1,25 @@
 // -----------------------------------------------------------------------------
 @import "variables";
-@import "mixins"; 
+@import "mixins";
 // -----------------------------------------------------------------------------
 
 .link--brand {
-    color: $brand-color;
-    &:hover {
-        color: $brand-red-bright;
-    }
-
+  color: $brand-color;
+  &:hover {
+    color: $brand-red-bright;
+  }
 }
 
 .link--brand-black {
-    color: $brand-color2;
-    &:hover {
-        color: $brand-red-bright;
-    }
-
+  color: $brand-color2;
+  &:hover {
+    color: $brand-red-bright;
+  }
 }
 
 .link--brand-dark {
-    color: $color-red-dark;
-    &:hover {
-        color: $brand-color;
-    }
+  color: $color-red-dark;
+  &:hover {
+    color: $brand-color;
+  }
 }

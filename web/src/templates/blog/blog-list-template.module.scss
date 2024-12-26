@@ -1,38 +1,34 @@
-@use '../../styles/variables' as styles;
-@import '../../styles/mixins';
+@use "../../styles/variables" as styles;
+@import "../../styles/mixins";
 
 * {
-    letter-spacing: 0 !important;
+  letter-spacing: 0 !important;
 }
 
 .page {
-    // padding-top: 300px;
-    margin: 0 .5rem;
-    font-weight: 900;
-    color: styles.$brand-color;
-
+  // padding-top: 300px;
+  margin: 0 0.5rem;
+  font-weight: 900;
+  color: styles.$brand-color;
 }
 
 .page-number-single {
-    display: none;
-    @include screen-xs {
-        display: flex;
-    }
+  display: none;
+  @include screen-xs {
+    display: flex;
+  }
 }
 
 .page-number-all {
-    margin: 0;
+  margin: 0;
 }
 
 .page:hover {
-    // text-shadow: 2px 2px 0 rgb(0, 0, 0);
-    // transform: scale(2.5);
-    // transition-duration: 400ms;
-    color: styles.$brand-red-bright;
+  // text-shadow: 2px 2px 0 rgb(0, 0, 0);
+  // transform: scale(2.5);
+  // transition-duration: 400ms;
+  color: styles.$brand-red-bright;
 }
-
-
-
 
 // @import '../../styles/variables';
 // @import '../../styles/mixins';

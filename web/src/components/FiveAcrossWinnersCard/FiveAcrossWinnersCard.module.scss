@@ -5,7 +5,7 @@
   // margin-bottom: 30px;
   border: $color-red-dark solid 1px;
   // font-weight: 300;
-  
+
   .video-button {
     margin-bottom: -30px;
   }
@@ -13,24 +13,20 @@
   .body-text {
     font-weight: 300;
   }
-  
 
-  .heading, .heading-subtitle {
+  .heading,
+  .heading-subtitle {
     text-align: center;
     margin-top: -20px;
     font-weight: 300;
     color: $color-red-dark;
-    
   }
 
-  
-  .heading > span, .heading-subtitle > span {
+  .heading > span,
+  .heading-subtitle > span {
     background-color: white;
-    box-shadow: white 11px 0px 0px,
-                white -13px 0px 0px;
+    box-shadow:
+      white 11px 0px 0px,
+      white -13px 0px 0px;
   }
-  
 }
-
-
-

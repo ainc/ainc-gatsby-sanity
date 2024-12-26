@@ -1,71 +1,68 @@
-:root{
-    --stripe-color: #323232;
+:root {
+  --stripe-color: #323232;
 }
 
-.box{
-    background-color: #FFFFFF;
-    border-radius: 15px;
-    margin: auto;
-    height: auto;
-    width: 100%;
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
+.box {
+  background-color: #ffffff;
+  border-radius: 15px;
+  margin: auto;
+  height: auto;
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
 }
 
-
-.box::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 14%;
-    height: 100%;
-    background-color: var(--stripe-color);
-    transform: skew(-41deg); /* Adjust the angle of the diagonal stripe */
-    transform-origin: 0 0;
-    z-index: 0; /* Place the stripe behind the card content */
-} 
-
-    
-.image-container{
-    display: block;
-    width: fit-content;
-    height: auto;
-    max-width: 100%;
-    position: relative;
+.box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14%;
+  height: 100%;
+  background-color: var(--stripe-color);
+  transform: skew(-41deg); /* Adjust the angle of the diagonal stripe */
+  transform-origin: 0 0;
+  z-index: 0; /* Place the stripe behind the card content */
 }
 
-.box-title{
-    text-align: left;
-    margin-left: 5%;
-    color: #C12029;
+.image-container {
+  display: block;
+  width: fit-content;
+  height: auto;
+  max-width: 100%;
+  position: relative;
 }
 
-.box-description{
-    text-align: left;
-    margin-left: 5%;
-    position: relative;
-    font-size: 17px !important;
+.box-title {
+  text-align: left;
+  margin-left: 5%;
+  color: #c12029;
+}
+
+.box-description {
+  text-align: left;
+  margin-left: 5%;
+  position: relative;
+  font-size: 17px !important;
 }
 
 .designed-for {
-    position: absolute;
-    top: -24px;
-    right: 20px;
-    color: white;
-    background-color: var(--stripe-color);
-    font-size: 20px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-
+  position: absolute;
+  top: -24px;
+  right: 20px;
+  color: white;
+  background-color: var(--stripe-color);
+  font-size: 20px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .background {
-    background-size: cover;
-    background-position: center;
-    padding-top: 40px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
+  background-size: cover;
+  background-position: center;
+  padding-top: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }

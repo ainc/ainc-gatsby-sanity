@@ -24,7 +24,9 @@
   max-width: 40vw;
   flex-direction: row;
   cursor: pointer; // Indicates the card is clickable
-  transition: box-shadow 0.3s, border-color 0.3s;
+  transition:
+    box-shadow 0.3s,
+    border-color 0.3s;
 
   @media (max-width: 768px) {
     flex-direction: column; // Stack vertically on small screens

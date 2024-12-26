@@ -5,10 +5,12 @@ import { Figure } from "./figure";
 
 const components = {
   types: {
-    figure: Figure
-  }
+    figure: Figure,
+  },
 };
 
-const BlockContent = ({ blocks }) => <PortableText value={blocks} components={components} />;
+const BlockContent = ({ blocks }) => (
+  <PortableText value={blocks} components={components} />
+);
 
 export default BlockContent;

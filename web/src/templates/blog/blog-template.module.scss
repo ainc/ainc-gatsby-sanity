@@ -1,18 +1,17 @@
-@import '../../styles/variables.scss';
-@import "../../styles/mixins.scss"; 
-
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
 
 .author {
-    color: $brand-color !important;
-    font-size: 1.5rem !important;
-    @include screen-tablet-max {
-        font-size: 1rem !important;
-    }
+  color: $brand-color !important;
+  font-size: 1.5rem !important;
+  @include screen-tablet-max {
+    font-size: 1rem !important;
+  }
 }
 
 .date {
-    font-size: 1rem;
-    @include screen-tablet-max {
-        font-size: .8rem;
-    }
+  font-size: 1rem;
+  @include screen-tablet-max {
+    font-size: 0.8rem;
+  }
 }
