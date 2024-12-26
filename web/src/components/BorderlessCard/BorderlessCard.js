@@ -11,24 +11,30 @@ const MemberOption = (props) => {
   const [showModal2, setShowModal2] = useState(false);
   const handleCloseModal1 = () => setShowModal1(false);
   const handleShowModal1 = () => setShowModal1(true);
-  const handleCloseModal2= () => setShowModal2(false);
-  const handleShowModal2= () => setShowModal2(true);
+  const handleCloseModal2 = () => setShowModal2(false);
+  const handleShowModal2 = () => setShowModal2(true);
 
   return (
-    <div> 
+    <div>
       <Container className={styles.container} fluid>
         <Row>
           <Col xs={12}>
-            <a href={props.imgModal} data = {props.modalDialog} aria-label="Read more about this membership">
-              <motion.div initial={{ opacity: 0, y: -50}}
-                          whileInView={{ opacity: 1, y: 0}}
-                          transition={{ delay: 0.5, duration: 1 }}>
-              <Image
-                onClick={handleShowModal1}
-                className={` ${styles.icon} ${props.classN}`}
-                src={props.imgSrc}
-                alt={props.imgAlt}
-              />
+            <a
+              href={props.imgModal}
+              data={props.modalDialog}
+              aria-label="Read more about this membership"
+            >
+              <motion.div
+                initial={{ opacity: 0, y: -50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 1 }}
+              >
+                <Image
+                  onClick={handleShowModal1}
+                  className={` ${styles.icon} ${props.classN}`}
+                  src={props.imgSrc}
+                  alt={props.imgAlt}
+                />
               </motion.div>
             </a>
           </Col>
@@ -46,51 +52,44 @@ const MemberOption = (props) => {
           </Col>
           <Col>
             <a href={props.priceModal}>
-
-              <Button onClick = {handleShowModal2} className={styles.price}>{props.price}</Button>
-
+              <Button onClick={handleShowModal2} className={styles.price}>
+                {props.price}
+              </Button>
             </a>
           </Col>
         </Row>
       </Container>
 
-      <ModalCustom 
+      <ModalCustom
         lgShow={showModal1}
         hide={handleCloseModal1}
-        content ={
+        content={
           <Container>
             <Row>
               <Image src={props.imgModal} alt={props.ImgAlt} />
               {props.data}
-      
-              
             </Row>
           </Container>
         }
-     
-      
-    
       />
-       
-     
-      <ModalCustom 
-      lgShow={showModal2} 
-      hide={handleCloseModal2}
-      content={
-        //Pass HTML here
-        <Container>
-          <Row>
-            <div className="modalDiv">
-              <iframe className='applicationContent' src="https://forms.zohopublic.com/virtualoffice9155/form/BasicSignup/formperma/jheJ3kZTxSJkztL3SEy-4jweu_3XvBNxr7KoJJXJbsc"></iframe>
-            </div>
-        
-          </Row>
-         
-        </Container>
-      }
+
+      <ModalCustom
+        lgShow={showModal2}
+        hide={handleCloseModal2}
+        content={
+          //Pass HTML here
+          <Container>
+            <Row>
+              <div className="modalDiv">
+                <iframe
+                  className="applicationContent"
+                  src="https://forms.zohopublic.com/virtualoffice9155/form/BasicSignup/formperma/jheJ3kZTxSJkztL3SEy-4jweu_3XvBNxr7KoJJXJbsc"
+                ></iframe>
+              </div>
+            </Row>
+          </Container>
+        }
       />
-  
-       
     </div>
   );
 };

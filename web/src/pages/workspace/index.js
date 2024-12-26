@@ -9,7 +9,7 @@ import BorderlessCard from "../../components/BorderlessCard/BorderlessCard";
 import Amenities from "../../components/Amenities/Amenities";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
-import BrandButton from '../../components/UI/BrandButton/BrandButton'
+import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import SeeTheSpace from "./Components/SeeTheSpace/SeeTheSpace";
 import ModalCustom from "../../components/Modal/ModalCustom";
 
@@ -39,18 +39,25 @@ const WorkspacePage = () => {
     <Layout>
       {/* Hero */}
       <section>
-        
         <div className={styles.headerWorkspace}>
           <Container>
             <Row>
-              <Col className={` ${styles.lgxHeadingArea} ${styles.lgxHeading} `}>
-                <motion.div initial={{ opacity: 0, scale: 0.5 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.5, duration: 0.8 }}>
-                <Title className={`${styles.headingTitle} ${styles.extraBold} text-white`}>Workspace</Title>
-                <Subtitle className={styles.headingSubtitle}>
-                  <i className="text-white">Get your best work done here.</i>
-                </Subtitle>
+              <Col
+                className={` ${styles.lgxHeadingArea} ${styles.lgxHeading} `}
+              >
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.5, duration: 0.8 }}
+                >
+                  <Title
+                    className={`${styles.headingTitle} ${styles.extraBold} text-white`}
+                  >
+                    Workspace
+                  </Title>
+                  <Subtitle className={styles.headingSubtitle}>
+                    <i className="text-white">Get your best work done here.</i>
+                  </Subtitle>
                 </motion.div>
               </Col>
             </Row>
@@ -67,11 +74,13 @@ const WorkspacePage = () => {
       <section className={styles.member}>
         <Container>
           <Row>
-            <Title className={`${styles.headingTitle} ${styles.extraBold} ${styles.lineHeight}`}>
+            <Title
+              className={`${styles.headingTitle} ${styles.extraBold} ${styles.lineHeight}`}
+            >
               Become a member
             </Title>
           </Row>
-          
+
           <Row>
             <Col md={4} sm={12}>
               <BorderlessCard
@@ -87,7 +96,7 @@ const WorkspacePage = () => {
               />
             </Col>
             <Col md={4} sm={12}>
-              <BorderlessCard 
+              <BorderlessCard
                 imgModal="#"
                 arial-labelledby="open-desk-membership"
                 imgSrc={Desktop}
@@ -153,10 +162,18 @@ const WorkspacePage = () => {
                   />
                 </Col>
                 <Col md={6} sm={12}>
-                  <Amenities info="Networking Events" imgSrc={Events} imgAlt="Networking Events" />
+                  <Amenities
+                    info="Networking Events"
+                    imgSrc={Events}
+                    imgAlt="Networking Events"
+                  />
                 </Col>
                 <Col md={6} sm={12}>
-                  <Amenities info="Print + Copy" imgSrc={Printer} imgAlt="Printing and Copying" />
+                  <Amenities
+                    info="Print + Copy"
+                    imgSrc={Printer}
+                    imgAlt="Printing and Copying"
+                  />
                 </Col>
                 <Col md={6} sm={12}>
                   <Amenities
@@ -166,13 +183,25 @@ const WorkspacePage = () => {
                   />
                 </Col>
                 <Col md={6} sm={12}>
-                  <Amenities info="Thinking Room" imgSrc={Bubble} imgAlt="Thinking Room" />
+                  <Amenities
+                    info="Thinking Room"
+                    imgSrc={Bubble}
+                    imgAlt="Thinking Room"
+                  />
                 </Col>
                 <Col md={6} sm={12}>
-                  <Amenities info="Mentorship" imgSrc={Mentor} imgAlt="Mentorship Access" />
+                  <Amenities
+                    info="Mentorship"
+                    imgSrc={Mentor}
+                    imgAlt="Mentorship Access"
+                  />
                 </Col>
                 <Col md={6} sm={12}>
-                  <Amenities info="Podcasting Room" imgSrc={Podcast} imgAlt="Podcast Room" />
+                  <Amenities
+                    info="Podcasting Room"
+                    imgSrc={Podcast}
+                    imgAlt="Podcast Room"
+                  />
                 </Col>
                 <Col md={6} sm={12}>
                   <Amenities
@@ -182,27 +211,33 @@ const WorkspacePage = () => {
                   />
                 </Col>
                 <Col md={6} sm={12}>
-                  <Amenities info="Electric Scooters" imgSrc={Scooter} imgAlt="Electric Scooters" />
+                  <Amenities
+                    info="Electric Scooters"
+                    imgSrc={Scooter}
+                    imgAlt="Electric Scooters"
+                  />
                 </Col>
                 <Col md={6} sm={12}>
-                  <Amenities info="3D Printer" imgSrc={ThreeDPrinter} imgAlt="3D Printer" />
+                  <Amenities
+                    info="3D Printer"
+                    imgSrc={ThreeDPrinter}
+                    imgAlt="3D Printer"
+                  />
                 </Col>
               </Row>
             </Col>
           </Row>
-          <Container fluid className='my-3'>
+          <Container fluid className="my-3">
             <Row>
               <Col>
-              
-                <a href='https://calendly.com/awesometour/30min?' target="_blank">
-                <Button className={styles.btnCustom}>
-                  Schedule A Tour
-                </Button>
+                <a
+                  href="https://calendly.com/awesometour/30min?"
+                  target="_blank"
+                >
+                  <Button className={styles.btnCustom}>Schedule A Tour</Button>
                 </a>
               </Col>
 
-
-              
               {/*<Button onClick={handleShow} className={styles.btnCustom}> if want to add modal later
                   Schedule A Tour
                 </Button>

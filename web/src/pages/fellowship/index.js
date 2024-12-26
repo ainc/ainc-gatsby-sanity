@@ -28,10 +28,10 @@ const FellowshipPage = ({ data }) => {
   const [refCallback] = useKeenSlider(
     {
       rtl: true,
-      loop: true
+      loop: true,
     },
     [
-      slider => {
+      (slider) => {
         let timeout;
         let mouseOver = false;
         function clearNextTimeout() {
@@ -58,8 +58,8 @@ const FellowshipPage = ({ data }) => {
         slider.on("dragStarted", clearNextTimeout);
         slider.on("animationEnded", nextTimeout);
         slider.on("updated", nextTimeout);
-      }
-    ]
+      },
+    ],
   );
   const [lgShow, setLgShow] = useState(false);
   const handleClose = () => setLgShow(false);
@@ -78,7 +78,8 @@ const FellowshipPage = ({ data }) => {
             >
               <Title className="brand pl-5 mt-3">FELLOWSHIP</Title>
               <Subtitle className="fw-lighter fs-4">
-                A one year, mentor-driven program designed to accelerate your high tech startup.
+                A one year, mentor-driven program designed to accelerate your
+                high tech startup.
               </Subtitle>
 
               <ApplyNowModal
@@ -105,10 +106,15 @@ const FellowshipPage = ({ data }) => {
       {/*KPI's */}
       <Container className="my-5">
         <Row className="d-flex justify-content-center align-items-center flex-sm-column flex-md-row">
-          <Title className="text-center text-uppercase">Fellowship Metrics</Title>
+          <Title className="text-center text-uppercase">
+            Fellowship Metrics
+          </Title>
 
           <Col className="d-flex justify-content-center align-items-center py-2">
-            <KPIBoxes title={fellowshipKPIs.companiesServed} subtitle="Portfolio Companies" />
+            <KPIBoxes
+              title={fellowshipKPIs.companiesServed}
+              subtitle="Portfolio Companies"
+            />
           </Col>
           <Col className="d-flex justify-content-center align-items-center py-2">
             <KPIBoxes
@@ -118,7 +124,11 @@ const FellowshipPage = ({ data }) => {
             />
           </Col>
           <Col className="d-flex justify-content-center align-items-center py-2">
-            <KPIBoxes className="" title={fellowshipKPIs.jobsCreated} subtitle="Jobs Created" />
+            <KPIBoxes
+              className=""
+              title={fellowshipKPIs.jobsCreated}
+              subtitle="Jobs Created"
+            />
           </Col>
         </Row>
       </Container>
@@ -128,11 +138,14 @@ const FellowshipPage = ({ data }) => {
         <Row className="my-5">
           <Col xs={12} className="m-auto">
             <Container className="double-border--brand my-5">
-              <div ref={refCallback} className="keen-slider d-flex align-items-center">
+              <div
+                ref={refCallback}
+                className="keen-slider d-flex align-items-center"
+              >
                 <div className="keen-slider__slide">
                   <p className="text-center text--white mb-1 mt-3">
-                    Our company took advantage of all of the services. They were incredibly helpful
-                    and well-timed for us.
+                    Our company took advantage of all of the services. They were
+                    incredibly helpful and well-timed for us.
                   </p>
                   <p className="text-center fst-italic text-white mb-3">
                     {/* changed text from grey to white for better contrast, but lighter grey is probably better */}
@@ -141,18 +154,23 @@ const FellowshipPage = ({ data }) => {
                 </div>
                 <div className="keen-slider__slide">
                   <p className="text-center text--white mb-1 mt-3">
-                    The Fellowship Program has been an incredible resource in Kentucky as
-                    WeatherCheck grows. Our team utilized many of the resources offered while we
-                    were in the program.
+                    The Fellowship Program has been an incredible resource in
+                    Kentucky as WeatherCheck grows. Our team utilized many of
+                    the resources offered while we were in the program.
                   </p>
-                  <p className="text-center fst-italic text-white mb-3">Demetrius Gray</p>
+                  <p className="text-center fst-italic text-white mb-3">
+                    Demetrius Gray
+                  </p>
                 </div>
                 <div className="keen-slider__slide">
                   <p className="text-center text--white mb-1 mt-3">
-                    The network I've developed through the Fellowship program includes some of my
-                    most trusted advisors as well as my lead investors.
+                    The network I've developed through the Fellowship program
+                    includes some of my most trusted advisors as well as my lead
+                    investors.
                   </p>
-                  <p className="text-center fst-italic text-white mb-3">Josh Lau</p>
+                  <p className="text-center fst-italic text-white mb-3">
+                    Josh Lau
+                  </p>
                 </div>
               </div>
             </Container>
@@ -204,7 +222,9 @@ const FellowshipPage = ({ data }) => {
                 />
               </a>
               <a href="/mentors" aria-label="Mentors of the fellowship">
-                <BrandButton className={` text-center mt-2`}>Mentors</BrandButton>
+                <BrandButton className={` text-center mt-2`}>
+                  Mentors
+                </BrandButton>
               </a>
             </motion.div>
             {/* </div> */}
@@ -216,7 +236,10 @@ const FellowshipPage = ({ data }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 1 }}
             >
-              <a href="/fellowship/portfolio" aria-label="Read our fellowship portfolio">
+              <a
+                href="/fellowship/portfolio"
+                aria-label="Read our fellowship portfolio"
+              >
                 <StaticImage
                   placeholder="blurred"
                   className="mx-auto d-block img-fluid"
@@ -226,8 +249,13 @@ const FellowshipPage = ({ data }) => {
                   layout="fixed"
                 />
               </a>
-              <a href="/fellowship/portfolio" aria-label="Read our fellowship portfolio">
-                <BrandButton className={`text-center mt-2`}>Portfolio</BrandButton>
+              <a
+                href="/fellowship/portfolio"
+                aria-label="Read our fellowship portfolio"
+              >
+                <BrandButton className={`text-center mt-2`}>
+                  Portfolio
+                </BrandButton>
               </a>
             </motion.div>
             {/* </div> */}
@@ -314,10 +342,18 @@ const FellowshipPage = ({ data }) => {
                     transition={{ delay: 0.5, duration: 1 }}
                   >
                     <ul>
-                      <li className="my-2">Access to our network of over 85 mentors</li>
-                      <li className="my-2">Web development, video, and graphic design services</li>
-                      <li className="my-2">24/7 Access to Awesome Inc co-working space</li>
-                      <li className="my-2">Access to pro bono legal and accounting services</li>
+                      <li className="my-2">
+                        Access to our network of over 85 mentors
+                      </li>
+                      <li className="my-2">
+                        Web development, video, and graphic design services
+                      </li>
+                      <li className="my-2">
+                        24/7 Access to Awesome Inc co-working space
+                      </li>
+                      <li className="my-2">
+                        Access to pro bono legal and accounting services
+                      </li>
                     </ul>
                   </motion.div>
                 </div>
@@ -338,7 +374,9 @@ const FellowshipPage = ({ data }) => {
       {/* Sponsors */}
       <div className={`${styles.sponsorBackground} text-center pt-5 pb-1`}>
         <Col className="col-md-auto">
-          <Title className="text-center text-white mb-5">FELLOWSHIP SPONSORS</Title>
+          <Title className="text-center text-white mb-5">
+            FELLOWSHIP SPONSORS
+          </Title>
           <Row
             className={`mx-auto col-sm-6 d-flex justify-content-center`}
             style={{ letterSpacing: "0rem" }}
@@ -348,8 +386,16 @@ const FellowshipPage = ({ data }) => {
             {FellowshipSponsers.map((node, i) => {
               if (node._rawSponserLogo == null) {
                 return (
-                  <Col xs="5" sm="3" className={`${styles.sponsor} text-center`} key={i}>
-                    <a href={node.sponserWebsite} aria-label="Visit {node.sponser}'s site">
+                  <Col
+                    xs="5"
+                    sm="3"
+                    className={`${styles.sponsor} text-center`}
+                    key={i}
+                  >
+                    <a
+                      href={node.sponserWebsite}
+                      aria-label="Visit {node.sponser}'s site"
+                    >
                       <div className="m-2">
                         <h4 className="">{node.sponser}</h4>
                       </div>
@@ -358,8 +404,16 @@ const FellowshipPage = ({ data }) => {
                 );
               } else {
                 return (
-                  <Col xs="5" sm="3" className={`${styles.sponsor} text-center`} key={i}>
-                    <a href={node.sponserWebsite} aria-label="Visit {node.sponser}'s site">
+                  <Col
+                    xs="5"
+                    sm="3"
+                    className={`${styles.sponsor} text-center`}
+                    key={i}
+                  >
+                    <a
+                      href={node.sponserWebsite}
+                      aria-label="Visit {node.sponser}'s site"
+                    >
                       <div className="">
                         <img
                           src={node._rawSponserLogo.asset.url}

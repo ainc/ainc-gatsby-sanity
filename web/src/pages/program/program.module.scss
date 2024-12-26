@@ -1,87 +1,86 @@
 .main-heading {
-    background-image: url('../../images/5across-hero.png');
-    background-size: cover;
-    background-position: center;
-    min-height: 63vh;
-    
+  background-image: url("../../images/5across-hero.png");
+  background-size: cover;
+  background-position: center;
+  min-height: 63vh;
 }
 
 .details {
-    display: flex;
-    background-color: rgb(223, 228, 233);
-    background-size: cover;
-    min-width: 100vw;
+  display: flex;
+  background-color: rgb(223, 228, 233);
+  background-size: cover;
+  min-width: 100vw;
 }
 
 .tonights-judges {
-    background-color: #323232;
-    color: white;
-    margin: 0;
-    min-width: 98vw;
+  background-color: #323232;
+  color: white;
+  margin: 0;
+  min-width: 98vw;
 }
 .support-sponsors {
-    display: grid;
-    min-width: 100vw;
+  display: grid;
+  min-width: 100vw;
 }
 
 .judge-image {
-    clip-path: circle(45%);
-    position: relative;
-    object-fit: cover;
-    height: 150px;
-    display: inline-flex;
-    align-items: center;
+  clip-path: circle(45%);
+  position: relative;
+  object-fit: cover;
+  height: 150px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .judge-text {
-    line-height: 1rem;
-    font-size: .8rem;
-    margin-top: 0.8rem;
+  line-height: 1rem;
+  font-size: 0.8rem;
+  margin-top: 0.8rem;
 }
-h4.judge-text  {
-    font-size: 0.65rem;
-    line-height: 0.9rem;
+h4.judge-text {
+  font-size: 0.65rem;
+  line-height: 0.9rem;
 }
 
 .tonights-teams {
-    align-content: center;
+  align-content: center;
 }
 
 .team-image {
-    align-items: center;
-    display: flex;
-    max-height: 15vh;
+  align-items: center;
+  display: flex;
+  max-height: 15vh;
 }
 
 .experience-more {
-    background-color: #323232;
-    align-content: center;
-    display: grid;
-    min-width: 100vw;
+  background-color: #323232;
+  align-content: center;
+  display: grid;
+  min-width: 100vw;
 }
 
 .become-mentor {
-    background: url(../../images/AInc_Stock-33.jpeg);
-    min-height: 40vh;
-    background-size: cover;
-    min-width: 100vw;
-    display: flex;
-    align-content: center;
+  background: url(../../images/AInc_Stock-33.jpeg);
+  min-height: 40vh;
+  background-size: cover;
+  min-width: 100vw;
+  display: flex;
+  align-content: center;
 }
 
 .podcast-text {
-    font-size: .8rem;
-    letter-spacing: 1px;
-    line-height: .8rem;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  line-height: 0.8rem;
 }
 
 hr {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 
 .buttons {
-    line-height: .6rem;
-    min-height: 50px;
-    font-size: 11px;
-    letter-spacing: .1rem;
+  line-height: 0.6rem;
+  min-height: 50px;
+  font-size: 11px;
+  letter-spacing: 0.1rem;
 }

@@ -4,43 +4,50 @@
   Mixins for Screen sizes
 -------------------------------------------------------------------*/
 
-@mixin screen-xs {  /* < 480 */
+@mixin screen-xs {
+  /* < 480 */
   @media (max-width: #{$screen-xs}) {
     @content;
   }
 }
 
-@mixin screen-sm {  /* 480 - 767 */
+@mixin screen-sm {
+  /* 480 - 767 */
   @media (min-width: #{$screen-xs}) and (max-width: #{$screen-sm - 1px}) {
     @content;
   }
 }
 
-@mixin screen-md { /* 768 - 991 */
+@mixin screen-md {
+  /* 768 - 991 */
   @media (min-width: #{$screen-sm}) and (max-width: #{$screen-md - 1px}) {
     @content;
   }
 }
 
-@mixin screen-lg { /* 992 - 1200 */
+@mixin screen-lg {
+  /* 992 - 1200 */
   @media (min-width: #{$screen-md}) and (max-width: #{$screen-lg - 1px}) {
     @content;
   }
 }
 
-@mixin screen-max { /* > 1201 */
+@mixin screen-max {
+  /* > 1201 */
   @media (min-width: #{$screen-lg}) {
     @content;
   }
 }
 
-@mixin screen-tablet-max { /* < 992 ie anything less than a tablet */
+@mixin screen-tablet-max {
+  /* < 992 ie anything less than a tablet */
   @media (max-width: #{$screen-md - 1px}) {
     @content;
   }
 }
 
-@mixin screen-laptop-min { /* > 992 ie anything larger than a tablet */
+@mixin screen-laptop-min {
+  /* > 992 ie anything larger than a tablet */
   @media (min-width: #{$screen-md}) {
     @content;
   }

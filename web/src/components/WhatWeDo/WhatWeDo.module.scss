@@ -1,43 +1,40 @@
 .logo-container {
-    height: 100px; /* Adjust the height for mobile and other text boxes*/
-    width: 220px;
-    margin-bottom: 1rem;
-    display: flex;
+  height: 100px; /* Adjust the height for mobile and other text boxes*/
+  width: 220px;
+  margin-bottom: 1rem;
+  display: flex;
 }
 
 .logo-container img {
-    flex: 0 0 auto;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+  flex: 0 0 auto;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .logo-description {
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .logo {
-    width: 200px;
-    max-height: 100px;
+  width: 200px;
+  max-height: 100px;
 }
 
 .asterisk {
-    height: 25px !important;
-    width: 25px !important;
-    margin-right: 8px !important;
-    display: inline-block !important;
-  }
+  height: 25px !important;
+  width: 25px !important;
+  margin-right: 8px !important;
+  display: inline-block !important;
+}
 
 @media (min-width: 900px) {
 }
-  
-@media (max-width: 1200px) {
-    .logo-description {
-        font-size: 0.8rem;
-    }
-}
-  
 
-  
+@media (max-width: 1200px) {
+  .logo-description {
+    font-size: 0.8rem;
+  }
+}

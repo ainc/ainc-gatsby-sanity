@@ -1,9 +1,9 @@
-@import '../../styles/variables.scss';
-@import "../../styles/mixins"; 
+@import "../../styles/variables.scss";
+@import "../../styles/mixins";
 .autocomplete-container {
-    margin: 20px auto;
-  }
-  
+  margin: 20px auto;
+}
+
 .autocomplete-input {
   width: 100%;
   padding: 10px;
@@ -36,15 +36,15 @@
 }
 
 .autocomplete-list li a {
-  color: inherit; 
-  text-decoration: none; 
+  color: inherit;
+  text-decoration: none;
 }
 
 .autocomplete-list li a:hover {
-  background-color: transparent; 
+  background-color: transparent;
 }
-.form-control{
-  @include screen-xs{
+.form-control {
+  @include screen-xs {
     font-size: 16px;
   }
 }

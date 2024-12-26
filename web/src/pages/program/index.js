@@ -13,23 +13,32 @@ import ProgramLinkTree from "./ProgramLinkTree";
 
 const ProgramPage = ({ data }) => {
   const allProgram = data.sanityProgram || {};
-  const allSanityFiveAcrossSponsors = data.allSanityFiveAcrossSponsors.nodes || {};
-  const titleSponsorName = data.allSanityFiveAcrossSponsors.nodes[0].titleSp.title || {};
-  const titleSponsorLink = data.allSanityFiveAcrossSponsors.nodes[0].titleSp.link || {};
+  const allSanityFiveAcrossSponsors =
+    data.allSanityFiveAcrossSponsors.nodes || {};
+  const titleSponsorName =
+    data.allSanityFiveAcrossSponsors.nodes[0].titleSp.title || {};
+  const titleSponsorLink =
+    data.allSanityFiveAcrossSponsors.nodes[0].titleSp.link || {};
   const titleSponsorImage =
-    data.allSanityFiveAcrossSponsors.nodes[0].titleSp.image.asset.gatsbyImageData || {};
+    data.allSanityFiveAcrossSponsors.nodes[0].titleSp.image.asset
+      .gatsbyImageData || {};
   const titleSponsorSecondaryImage =
-    data.allSanityFiveAcrossSponsors.nodes[0].titleSp.secondaryImage?.asset.gatsbyImageData || {};
+    data.allSanityFiveAcrossSponsors.nodes[0].titleSp.secondaryImage?.asset
+      .gatsbyImageData || {};
 
-  const presentingSponsorName = data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.title || {};
-  const presentingSponsorLink = data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.link || {};
+  const presentingSponsorName =
+    data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.title || {};
+  const presentingSponsorLink =
+    data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.link || {};
   const presentingSponsorImage =
-    data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.image.asset.gatsbyImageData || {};
+    data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.image.asset
+      .gatsbyImageData || {};
   const presentingSponsorSecondaryImage =
-    data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.secondaryImage?.asset.gatsbyImageData ||
-    {};
+    data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.secondaryImage?.asset
+      .gatsbyImageData || {};
 
-  const suppourtingSponsors = data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors || {};
+  const suppourtingSponsors =
+    data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors || {};
 
   const teams = data.sanityProgram.teams || {};
   const judges = data.sanityProgram.judges || {};
@@ -41,7 +50,9 @@ const ProgramPage = ({ data }) => {
       <Container fluid className={styles.mainHeading}>
         <Col>
           <Row>
-            <Title className="text-uppercase text-center text-white mt-5">Welcome to</Title>
+            <Title className="text-uppercase text-center text-white mt-5">
+              Welcome to
+            </Title>
           </Row>
           <Row>
             <Col xs={{ offset: 1, span: 10 }} className="text-center">
@@ -83,7 +94,7 @@ const ProgramPage = ({ data }) => {
             Tonight's Teams
           </Subtitle>
           <Col xs={12}>
-            {teams.map(team => (
+            {teams.map((team) => (
               <Row>
                 <GatsbyImage
                   className={styles.teamImage}
@@ -105,7 +116,7 @@ const ProgramPage = ({ data }) => {
           </Subtitle>
           {/* TODO: Create this section similarly to how we did the team's section */}
           <Row>
-            {judges.map(judge => (
+            {judges.map((judge) => (
               <Col xs={6} lg={{ offset: 3, span: 6 }}>
                 <GatsbyImage
                   className={styles.judgeImage}
@@ -113,13 +124,19 @@ const ProgramPage = ({ data }) => {
                   image={judge.image.asset.gatsbyImageData}
                   alt={judge.alt}
                 />
-                <h3 className={`text-center fw-bold text-uppercase ${styles.judgeText}`}>
+                <h3
+                  className={`text-center fw-bold text-uppercase ${styles.judgeText}`}
+                >
                   {judge.names}
                 </h3>
-                <h4 className={`text-center mb-1 text-uppercase ${styles.judgeText}`}>
+                <h4
+                  className={`text-center mb-1 text-uppercase ${styles.judgeText}`}
+                >
                   {judge.title}
                 </h4>
-                <h4 className={`text-center text-uppercase ${styles.judgeText}`}>
+                <h4
+                  className={`text-center text-uppercase ${styles.judgeText}`}
+                >
                   {judge.accolades}
                 </h4>
               </Col>
@@ -144,27 +161,39 @@ const ProgramPage = ({ data }) => {
             </Subtitle>
           </Row>
           <Row>
-            <Col xs={7} className="my-1 d-flex align-items-center justify-content-center">
+            <Col
+              xs={7}
+              className="my-1 d-flex align-items-center justify-content-center"
+            >
               <a href={titleSponsorLink}>
                 <GatsbyImage image={titleSponsorImage} alt={titleSponsorName} />
               </a>
             </Col>
-            <Col xs={5} className="mt-4 d-flex align-items-center justify-content-center">
+            <Col
+              xs={5}
+              className="mt-4 d-flex align-items-center justify-content-center"
+            >
               <a href={presentingSponsorLink}>
-                <GatsbyImage image={presentingSponsorImage} alt={presentingSponsorName} />
+                <GatsbyImage
+                  image={presentingSponsorImage}
+                  alt={presentingSponsorName}
+                />
               </a>
             </Col>
           </Row>
           <Row className={styles.supportSponsors}>
             <Row>
-              {suppourtingSponsors.map(sponsor => (
+              {suppourtingSponsors.map((sponsor) => (
                 <Col
                   xs={6}
                   lg={10}
                   className="my-3 d-flex align-items-center justify-content-center"
                 >
                   <a href={sponsor.link}>
-                    <GatsbyImage image={sponsor.image.asset.gatsbyImageData} alt={sponsor.alt} />
+                    <GatsbyImage
+                      image={sponsor.image.asset.gatsbyImageData}
+                      alt={sponsor.alt}
+                    />
                   </a>
                 </Col>
               ))}
@@ -191,14 +220,19 @@ const ProgramPage = ({ data }) => {
             </Col>
           </Row>
           <Col xs={{ offset: 2, span: 8 }} md={{ offset: 4, span: 3 }}>
-            <a href="https://podcasters.spotify.com/pod/show/awesomeinc" target="_blank">
+            <a
+              href="https://podcasters.spotify.com/pod/show/awesomeinc"
+              target="_blank"
+            >
               <StaticImage
                 placeholder="blurred"
                 className="my-2 ms-5"
                 src="../../images/ainc_podcast_logo.png"
               ></StaticImage>
             </a>
-            <p className={`mb-2 ms-3 text-center text-uppercase text-white ${styles.podcastText}`}>
+            <p
+              className={`mb-2 ms-3 text-center text-uppercase text-white ${styles.podcastText}`}
+            >
               Awesome Inc's Podcast
             </p>
             <StaticImage
@@ -206,7 +240,9 @@ const ProgramPage = ({ data }) => {
               className="my-2 ms-5"
               src="../../images/middle-tech.png"
             ></StaticImage>
-            <p className={`mb-4 ms-3 text-center text-uppercase text-white ${styles.podcastText}`}>
+            <p
+              className={`mb-4 ms-3 text-center text-uppercase text-white ${styles.podcastText}`}
+            >
               5 Across deep dive
             </p>
           </Col>
@@ -224,7 +260,9 @@ const ProgramPage = ({ data }) => {
                   href="https://docs.google.com/forms/d/1azJ9L8NBpe-3KYMTgFOQ7l0Hn-0y26a2SrHI6SebNm8/viewform?edit_requested=true"
                   target="_blank"
                 >
-                  <BrandButton className={`secondary my-5 w-75 text-uppercase ${styles.buttons} `}>
+                  <BrandButton
+                    className={`secondary my-5 w-75 text-uppercase ${styles.buttons} `}
+                  >
                     Fill out this google form to apply
                   </BrandButton>
                 </a>

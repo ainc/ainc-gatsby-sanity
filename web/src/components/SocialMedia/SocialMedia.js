@@ -34,36 +34,59 @@ const SocialMedia = () => {
                 className={` d-flex justify-content-center justify-content-md-start ${styles.socialRight} col-xs-12 `}
               >
                 <div>
-                  <Subtitle className={`text-wrap text-center fw-bold`}>Let's Be Friends!</Subtitle>
-                  <h3 className={styles.headingSubtitle}> - Find us on social media - </h3>
+                  <Subtitle className={`text-wrap text-center fw-bold`}>
+                    Let's Be Friends!
+                  </Subtitle>
+                  <h3 className={styles.headingSubtitle}>
+                    {" "}
+                    - Find us on social media -{" "}
+                  </h3>
                   <ul className={styles.socialLinks}>
                     <li>
-                      <a href="https://twitter.com/awesomeinclex" aria-label="Visit our Twitter">
+                      <a
+                        href="https://twitter.com/awesomeinclex"
+                        aria-label="Visit our Twitter"
+                      >
                         <FaTwitter />
                       </a>
                     </li>
                     <li>
-                      <a href="https://www.facebook.com/awesomeinclex" aria-label="Visit our Facebook">
+                      <a
+                        href="https://www.facebook.com/awesomeinclex"
+                        aria-label="Visit our Facebook"
+                      >
                         <FaFacebookF />
                       </a>
                     </li>
                     <li>
-                      <a href="https://www.linkedin.com/school/awesome-inc/" aria-label="Visit our LinkedIn">
+                      <a
+                        href="https://www.linkedin.com/school/awesome-inc/"
+                        aria-label="Visit our LinkedIn"
+                      >
                         <FaLinkedinIn />
                       </a>
                     </li>
                     <li>
-                      <a href="https://www.instagram.com/awesomeinclex/" aria-label="Visit our Instagram">
+                      <a
+                        href="https://www.instagram.com/awesomeinclex/"
+                        aria-label="Visit our Instagram"
+                      >
                         <FaInstagram />
                       </a>
                     </li>
                     <li>
-                      <a href="https://www.youtube.com/user/AincTelevision/featured" aria-label="Visit our Youtube">
+                      <a
+                        href="https://www.youtube.com/user/AincTelevision/featured"
+                        aria-label="Visit our Youtube"
+                      >
                         <FaYoutube />
                       </a>
                     </li>
                     <li>
-                      <a href="https://www.tiktok.com/@awesomeinclex" aria-label="Visit our TikTok">
+                      <a
+                        href="https://www.tiktok.com/@awesomeinclex"
+                        aria-label="Visit our TikTok"
+                      >
                         <FaTiktok />
                       </a>
                     </li>

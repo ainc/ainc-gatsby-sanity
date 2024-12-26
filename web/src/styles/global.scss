@@ -1,11 +1,11 @@
 // -----------------------------------------------------------------------------
 @import "variables";
-@import "mixins"; 
+@import "mixins";
 // -----------------------------------------------------------------------------
 
 body {
   background: $body-bg;
-  font-family:$base-font;
+  font-family: $base-font;
   @include font-size($font-size-base);
   padding: 0;
   margin: 0;
@@ -44,32 +44,31 @@ a {
   font-weight: 400;
 }
 @media (max-width: 767px) {
-  
   /* Adjust heading sizes for smaller screens */
   h1 {
-      font-size: 1.6em;
+    font-size: 1.6em;
   }
-  
+
   h2 {
-      font-size: 1.4em;
+    font-size: 1.4em;
   }
-  
+
   h3 {
-      font-size: 1.2em;
+    font-size: 1.2em;
   }
-  
+
   h4 {
-      font-size: 1em;
+    font-size: 1em;
   }
-  
+
   h5 {
-      font-size: 0.8em;
+    font-size: 0.8em;
   }
-  
+
   h6 {
-      font-size: 0.75em;
+    font-size: 0.75em;
   }
-  p{
+  p {
     font-size: 0.6em;
   }
 }

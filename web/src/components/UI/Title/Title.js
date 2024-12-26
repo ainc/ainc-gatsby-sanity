@@ -1,8 +1,7 @@
-
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import './Title.scss'
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import "./Title.scss";
 
 /*
 const StyleTitle = styled.h1`
@@ -44,14 +43,11 @@ const Title = (props) => {
     <h1 {...props} className={`title ${props.className}`}>
       {props.children}
     </h1>
-  )
-}
+  );
+};
 
 Title.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.node,
-  ])
-}
-
+  children: PropTypes.oneOfType([PropTypes.node]),
+};
 
 export default Title;

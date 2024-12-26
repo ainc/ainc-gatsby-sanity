@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Modal } from "react-bootstrap";
 
-const EventBriteModal = props => {
+const EventBriteModal = (props) => {
   const [showModal, setShowModal] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
@@ -30,7 +30,12 @@ const EventBriteModal = props => {
   return (
     <>
       {isSmallScreen ? (
-        <a href={props.link} target="_blank" rel="noopener noreferrer" className="link--brand">
+        <a
+          href={props.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link--brand"
+        >
           <div style={{ textAlign: "left" }}>{props.children}</div>
         </a>
       ) : (
@@ -38,7 +43,13 @@ const EventBriteModal = props => {
           onClick={handleClick}
           type="button"
           className=""
-          style={{ background: "none", border: "none", width: "100%", padding: "0", margin: "0" }}
+          style={{
+            background: "none",
+            border: "none",
+            width: "100%",
+            padding: "0",
+            margin: "0",
+          }}
           aria-label={`Open details for ${props.children.props.name}`}
         >
           <div style={{ textAlign: "left" }}>{props.children}</div>

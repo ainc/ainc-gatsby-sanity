@@ -7,28 +7,35 @@ import BrandButton from "../UI/BrandButton/BrandButton";
 import * as styles from "./coursecardsmall.module.scss";
 
 const CourseCardSmall = ({ courseInfo }) => {
-
-    return (
-        <Container fluid className = 'd-flex align-items-stretch'>
-            <Row>
+  return (
+    <Container fluid className="d-flex align-items-stretch">
+      <Row>
         {courseInfo.map((course) => (
-                <Col className='my-3'>
-                    <Card className={`${styles.box} `}>
-                        <GatsbyImage alt={course.node.courseTitle} image={course.node.picture.asset.gatsbyImageData} className={`${styles.imageContainer} mt-3`}/>
-                        {/* I couldn't get Card.Img to work with GatsbyImage- next best thing*/}
-                        <Card.Body>
-                            <Card.Title className='text-uppercase fw-bold align-middle fs-2'>{course.node.courseTitle}</Card.Title>
-                            <Card.Text className={`${styles.descriptionText} fs-5`}>{course.node.description}</Card.Text>
-                            <a href={course.node.courseLink}>
-                                <BrandButton>Learn More</BrandButton>
-                            </a>
-                        </Card.Body>
-                    </Card>
-                </Col>
+          <Col className="my-3">
+            <Card className={`${styles.box} `}>
+              <GatsbyImage
+                alt={course.node.courseTitle}
+                image={course.node.picture.asset.gatsbyImageData}
+                className={`${styles.imageContainer} mt-3`}
+              />
+              {/* I couldn't get Card.Img to work with GatsbyImage- next best thing*/}
+              <Card.Body>
+                <Card.Title className="text-uppercase fw-bold align-middle fs-2">
+                  {course.node.courseTitle}
+                </Card.Title>
+                <Card.Text className={`${styles.descriptionText} fs-5`}>
+                  {course.node.description}
+                </Card.Text>
+                <a href={course.node.courseLink}>
+                  <BrandButton>Learn More</BrandButton>
+                </a>
+              </Card.Body>
+            </Card>
+          </Col>
         ))}
-            </Row>
-        </Container>
-    )
-}
+      </Row>
+    </Container>
+  );
+};
 
 export default CourseCardSmall;

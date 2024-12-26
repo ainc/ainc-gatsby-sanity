@@ -1,20 +1,19 @@
-@import '../../styles/variables.scss';
-@import "../../styles/mixins"; 
+@import "../../styles/variables.scss";
+@import "../../styles/mixins";
 
 .card-image {
-    @include screen-xs {
-        height: 25%;
-    }
-    @include screen-sm {
-        height: 25%;
-    }
+  @include screen-xs {
+    height: 25%;
+  }
+  @include screen-sm {
+    height: 25%;
+  }
 }
 
 .card-text {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .card-subtitle {
-    font-size: 20px;
+  font-size: 20px;
 }
-
