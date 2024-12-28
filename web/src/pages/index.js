@@ -431,7 +431,6 @@ const IndexPage = ({ data }) => {
                         <p className="text-center text-white fw-bolder">
                           An awesome space to work or host your next meeting.
                         </p>
-                        <p>TEST</p>
                       </Card>
                     </a>
                   </motion.div>
