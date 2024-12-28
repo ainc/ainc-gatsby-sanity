@@ -3,12 +3,13 @@
   "name": "ainc-gatsby-sanity",
   "version": "0.1.0",
   "scripts": {
-    "build-studio": "(cd studio && npm run build)",
+    "build-studio": "(cd studio && yarn run build)",
     "export-db": "cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN sanity dataset export production ./production.tar.gz",
     "import-db": "cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN sanity dataset import ./production.tar.gz dev --replace",
     "deploy-graphql": "cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN sanity graphql deploy",
     "clone": "sanity dataset export production production && sanity dataset import production/production.tar.gz development --replace",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "husky install",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@portabletext/react": "^2.0.2",
@@ -20,6 +21,11 @@
     "studio"
   ],
   "devDependencies": {
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.11",
     "prettier": "^3.4.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,scss}": "prettier --write"
   }
 }
