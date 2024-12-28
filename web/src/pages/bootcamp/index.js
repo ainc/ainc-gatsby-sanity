@@ -1015,7 +1015,6 @@ const BootcampPage = (props) => {
             </Col>
           </Row>
           <Row>
-            <p>TEST</p>
             <Col>
               <Title className="text-center text--medium mt-3">
                 Early Application Deadline{" "}
