@@ -1,4 +1,4 @@
-//== DEFAULT BRAND  COLORS
+//== DEFAULT BRAND COLORS
 $brand-color: #c12029; // Red
 
 //== OTHERS COLORS
@@ -25,6 +25,15 @@ $border-color: #ddd;
 $footer-text: #d1d2d4;
 $color-light-blue: #55cbf3;
 $color-red-dark: #af1d24;
+
+//== BUTTON COLORS
+$button-bg-color: $brand-color;
+$button-text-color: $white-color;
+
+$button-hover-bg-color: $white-color;
+$button-hover-text-color: $brand-color;
+
+$button-transition-duration: 0.3s;
 
 // BOOTSTRAP VARS
 $card-height: 100%;
