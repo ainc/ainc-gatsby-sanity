@@ -1,13 +1,24 @@
 // -----------------------------------------------------------------------------
-@import "variables";
-@import "mixins";
+@import "./variables.scss";
+@import "./mixins.scss";
 // -----------------------------------------------------------------------------
-.accordion-button:not(.collapsed) {
-  color: $brand-color;
-  background-color: $brand-grey-light;
-  font-weight: bold;
-}
 
 .accordion-button {
-  font-weight: bold;
+  @include button-style;
+  font-weight: bold; // Specific requirement
+
+  &.collapsed {
+    // Use default button styles when collapsed
+    @include button-style;
+  }
+
+  &:not(.collapsed) {
+    // Apply different styles when not collapsed
+    @include button-style(
+      $bg-color: $brand-grey-light,
+      $text-color: $brand-color,
+      $hover-bg: $brand-color,
+      $hover-text: $white-color
+    );
+  }
 }

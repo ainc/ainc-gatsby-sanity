@@ -1,5 +1,41 @@
-@import "mixins/rfs"; // RFS mixin.
-@import "mixins/font"; // Font size and fonts
-@import "mixins/responsive"; // Responsiveness
-@import "mixins/color"; // Colors
+@import "./variables.scss";
+@import "mixins/rfs";
+@import "mixins/font";
+@import "mixins/responsive";
+@import "mixins/color";
 @import "mixins/helpers";
+
+@mixin button-style(
+  $bg-color: $button-bg-color,
+  $text-color: $button-text-color,
+  $hover-bg: $button-hover-bg-color,
+  $hover-text: $button-hover-text-color
+) {
+  background: $bg-color;
+  color: $text-color;
+  border: 2px solid $bg-color;
+  border-radius: 4px;
+  padding: 0.5rem 2rem;
+  font-family: $heading-font;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  transition:
+    background $button-transition-duration,
+    color $button-transition-duration;
+
+  &:hover {
+    background: $hover-bg;
+    color: $hover-text;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+}

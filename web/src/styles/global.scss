@@ -1,8 +1,7 @@
 // -----------------------------------------------------------------------------
-@import "variables";
+@import "./variables.scss";
 @import "mixins";
 // -----------------------------------------------------------------------------
-
 body {
   background: $body-bg;
   font-family: $base-font;
@@ -17,32 +16,14 @@ p {
 }
 
 .btn-primary {
-  font-family: $heading-font;
-  font-weight: 600;
-  letter-spacing: 3px;
-  background: $brand-color;
-  padding: 0.5rem 2rem;
-  color: $white-color;
-  overflow: hidden;
-  display: inline-block;
-  text-transform: uppercase;
+  @include button-style;
   @include font-size(12);
-  border: 2px solid $brand-color;
-  border-radius: 4px;
-  position: relative;
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-    cursor: not-allowed;
-  }
-  &:hover {
-    color: $brand-color2;
-  }
 }
 
 a {
   font-weight: 400;
 }
+
 @media (max-width: 767px) {
   /* Adjust heading sizes for smaller screens */
   h1 {
