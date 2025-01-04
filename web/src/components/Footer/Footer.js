@@ -352,6 +352,7 @@ const Footer = () => {
                   <a
                     href="https://twitter.com/awesomeinclex"
                     aria-label="Visit our Twitter"
+                    target="_blank"
                   >
                     <FaTwitter />
                   </a>
@@ -360,6 +361,7 @@ const Footer = () => {
                   <a
                     href="https://www.facebook.com/awesomeinclex"
                     aria-label="Visit our Facebook"
+                    target="_blank"
                   >
                     <FaFacebookF />
                   </a>
@@ -368,6 +370,7 @@ const Footer = () => {
                   <a
                     href="https://www.linkedin.com/school/awesome-inc/"
                     aria-label="Visit our LinkedIn"
+                    target="_blank"
                   >
                     <FaLinkedinIn />
                   </a>
@@ -376,6 +379,7 @@ const Footer = () => {
                   <a
                     href="https://www.instagram.com/awesomeinclex/"
                     aria-label="Visit our Instagram"
+                    target="_blank"
                   >
                     <FaInstagram />
                   </a>
@@ -384,6 +388,7 @@ const Footer = () => {
                   <a
                     href="https://www.youtube.com/user/AincTelevision/featured"
                     aria-label="Visit our Youtube"
+                    target="_blank"
                   >
                     <FaYoutube />
                   </a>

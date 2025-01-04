@@ -21,7 +21,10 @@ const BackgroundCard = (props) => {
   return (
     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }}>
       {props.sectionRef ? (
-        <a onClick={() => scrollToSection(props.sectionRef)}>
+        <a
+          onClick={() => scrollToSection(props.sectionRef)}
+          style={{ cursor: "pointer" }}
+        >
           <Card
             className={`${styles.cardBackgroundFilter} col-xs-12`}
             style={{ backgroundImage: `url(${props.backgroundImage})` }}
@@ -61,7 +64,10 @@ const BackgroundCard = (props) => {
           </Card>
         </a>
       ) : (
-        <a href={props.link}>
+        <a
+          href={props.link}
+          style={{ cursor: "pointer" }} // Added cursor: pointer
+        >
           <Card
             className={`${styles.cardBackgroundFilter} col-xs-12`}
             style={{ backgroundImage: `url(${props.backgroundImage})` }}
