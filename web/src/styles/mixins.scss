@@ -9,7 +9,7 @@
   $bg-color: $button-bg-color,
   $text-color: $button-text-color,
   $hover-bg: $button-hover-bg-color,
-  $hover-text: $button-hover-text-color
+  $hover-text: $button-text-color
 ) {
   background: $bg-color;
   color: $text-color;
@@ -26,10 +26,12 @@
   position: relative;
   transition:
     background $button-transition-duration,
+    border $button-transition-duration,
     color $button-transition-duration;
 
   &:hover {
     background: $hover-bg;
+    border: 2px solid $hover-bg;
     color: $hover-text;
   }
 

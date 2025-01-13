@@ -4,21 +4,19 @@
 // -----------------------------------------------------------------------------
 
 .button {
-  @include button-style; // Apply centralized button styles
+  @include button-style;
 
-  // Responsive adjustments
   @media only screen and (max-width: $screen-xs) {
-    font-size: 0.6rem; // Use the mobile font size variable here
+    font-size: 0.6rem;
     padding: 0.3rem 1rem;
   }
 
-  // Additional Variant Styles
   &.secondary {
     @include button-style(
       $bg-color: $brand-color2,
       $text-color: $white-color,
-      $hover-bg: $white-color,
-      $hover-text: $brand-color2
+      $hover-bg: #5c5d5f,
+      $hover-text: $white-color
     );
   }
 
@@ -26,8 +24,8 @@
     @include button-style(
       $bg-color: $white-color,
       $text-color: $brand-color2,
-      $hover-bg: $white-color,
-      $hover-text: $brand-color
+      $hover-bg: $brand-grey,
+      $hover-text: $brand-color2
     );
   }
 
@@ -35,8 +33,8 @@
     @include button-style(
       $bg-color: $white-color,
       $text-color: $brand-red-bright,
-      $hover-bg: $white-color,
-      $hover-text: $brand-color2
+      $hover-bg: $brand-grey,
+      $hover-text: $brand-red-bright
     );
   }
 
@@ -55,7 +53,7 @@
   @include button-style(
     $bg-color: #ed3742,
     $text-color: $white-color,
-    $hover-bg: #ed3742,
+    $hover-bg: #bf2329,
     $hover-text: $white-color
   );
 }

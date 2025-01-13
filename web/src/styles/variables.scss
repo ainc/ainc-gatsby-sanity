@@ -1,5 +1,5 @@
 //== DEFAULT BRAND COLORS
-$brand-color: #c12029; // Red
+$brand-color: #c12029;
 
 //== OTHERS COLORS
 $brand-light: lighten($brand-color, 10%);
@@ -24,14 +24,14 @@ $text-ash: #999;
 $border-color: #ddd;
 $footer-text: #d1d2d4;
 $color-light-blue: #55cbf3;
-$color-red-dark: #af1d24;
+$color-red-dark: #c02129;
 
 //== BUTTON COLORS
 $button-bg-color: $brand-color;
 $button-text-color: $white-color;
 
-$button-hover-bg-color: $white-color;
-$button-hover-text-color: $brand-color;
+$button-hover-bg-color: #651316;
+$button-hover-text-color: $white-color;
 
 $button-transition-duration: 0.3s;
 
