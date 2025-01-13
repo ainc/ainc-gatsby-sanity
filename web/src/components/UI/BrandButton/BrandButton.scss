@@ -4,59 +4,40 @@
 // -----------------------------------------------------------------------------
 
 .button {
-  font-family: $heading-font;
-  font-weight: 600;
-  letter-spacing: 3px;
-  background-color: $brand-color;
-  padding: 0.5rem 1rem;
-  color: $white-color;
-  overflow: hidden;
-  display: inline-block;
-  text-transform: uppercase;
-  font-size: 1rem;
-  border: 2px solid $brand-color;
-  border-radius: 4px;
-  position: relative;
+  @include button-style;
+
   @media only screen and (max-width: $screen-xs) {
-    font-size: 0.6rem /* use the mobile font size variable here */;
+    font-size: 0.6rem;
     padding: 0.3rem 1rem;
   }
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-    cursor: not-allowed;
-  }
-  &:hover {
-    color: $brand-color2;
-  }
-  .hover--black {
-    &:hover {
-      color: $brand-color2;
-    }
-  }
+
   &.secondary {
-    background-color: $brand-color2;
-    border-color: $brand-color2;
-    &:hover {
-      color: $brand-grey-dark;
-    }
+    @include button-style(
+      $bg-color: $brand-color2,
+      $text-color: $white-color,
+      $hover-bg: #5c5d5f,
+      $hover-text: $white-color
+    );
   }
+
   &.white--dark-text {
-    background-color: white;
-    border-color: white;
-    color: $brand-color2;
-    &:hover {
-      color: $brand-color;
-    }
+    @include button-style(
+      $bg-color: $white-color,
+      $text-color: $brand-color2,
+      $hover-bg: $brand-grey,
+      $hover-text: $brand-color2
+    );
   }
+
   &.white--red-text {
-    background-color: white;
-    border-color: white;
-    color: $brand-red-bright;
-    &:hover {
-      color: $brand-color2;
-    }
+    @include button-style(
+      $bg-color: $white-color,
+      $text-color: $brand-red-bright,
+      $hover-bg: $brand-grey,
+      $hover-text: $brand-red-bright
+    );
   }
+
   &.btn--small {
     font-size: 1rem;
     padding: 0.4rem 1.4rem;
@@ -69,6 +50,10 @@
 }
 
 .week-of-code {
-  background-color: #ed3742;
-  border-color: #ed3742;
+  @include button-style(
+    $bg-color: #ed3742,
+    $text-color: $white-color,
+    $hover-bg: #bf2329,
+    $hover-text: $white-color
+  );
 }

@@ -17,8 +17,8 @@
     @include button-style(
       $bg-color: $brand-grey-light,
       $text-color: $brand-color,
-      $hover-bg: $brand-color,
-      $hover-text: $white-color
+      $hover-bg: #5c5d5f,
+      $hover-text: $brand-color
     );
   }
 }
