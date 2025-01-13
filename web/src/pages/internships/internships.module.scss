@@ -96,12 +96,12 @@
 .team-button {
   padding-left: 10px !important;
   padding-right: 10px !important;
-  position: absolute;
+  position: absolute !important;
   bottom: -20%;
   left: 50%;
   transform: translateX(-50%);
   min-width: 200px;
-  padding: 0.8rem 2.4rem;
+  padding: 0.8rem 2.4rem !important;
 }
 
 .team-images {
