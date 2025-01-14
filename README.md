@@ -1,83 +1,204 @@
 # ainc-gatsby-sanity
 
-A portfolio using structured content and a static site builder.
+A portfolio using **Sanity.io** (for structured content) and **Gatsby** (as a static site generator) within a **Yarn monorepo**.
 
-Deployed from [sanity.io/create](https://www.sanity.io/create/?template=sanity-io%2Fsanity-template-gatsby-portfolio).
+Because **pushing directly to `main` is impossible**, all changes are managed through **issues**, **feature branches**, and **pull requests (PRs)**—ensuring clarity, collaboration, and minimal downtime when integrating new features or fixes.
 
-## What you have
+---
 
-- A blazing fast portfolio with [Gatsby.js](https://gatsbyjs.org)
-- Structured content using [Sanity.io](https://www.sanity.io)
-- Global deployment on [Netlify](https://netlify.com)
+## Overview
 
-## Quick start
+This repository includes:
+- **web**: The Gatsby front-end
+- **studio**: The Sanity Content Studio (schemas and content)
 
-1. Clone this repository from your GitHub account
-2. `yarn install` in the project root folder on local
-3. `yarn run dev` to start the Studio and frontend locally \*\*
-   - Your Studio should be running on [http://localhost:3333](http://localhost:3333)
-   - Your frontend should be running on [http://localhost:8000](http://localhost:8000)
-4. `yarn run build` to build to production locally
-   \*\* Note: You may have better success opening two separate terminals to and running `yarn run dev` in both `/studio` and `/web`
+**Root `package.json`** highlights:
+- **`build-studio`**: Builds the Studio (`(cd studio && yarn run build)`).
+- **`export-db`** / **`import-db`**: For exporting/importing production dataset.
+- **`deploy-graphql`**: Deploys updated GraphQL schema.
+- **`clone`**: Clones the production dataset into the development dataset.
+- **`prepare`** / **`postinstall`**: Hooks for setting up Husky (Git hooks).
 
-## Notes
+Refer to the **`package.json`** files in each workspace for workspace-specific scripts.
 
-- Having troucble with `yarn install`?
-  Verified Node versions: `14.xx`, `17.xx`
+---
 
-## Workflow to create new documents for production
+## 1. Initial Setup
 
-<details>
-<summary>Steps</summary>
-<br>
+1. **Clone the repo**  
+   git clone <your-repo-url>
 
-[Import/Export Documentation](https://www.sanity.io/docs/migrating-data)
+2. **Install dependencies** (in the root folder)  
+   cd ainc-gatsby-sanity  
+   yarn install
 
-- Use `local` machine to create document on your personal tagged dataset [(Commit for reference on how to switch to change tags)](https://github.com/ainc/ainc-gatsby-sanity/commit/83a6e89290f1b83a4fd9d0a0223cc858c05bca8b#:~:text=%3A%20%27beta%27-,graphqlTag,-%3A%20%27beta%27)
-- Export from your tagged dataset, then import into the `dev` dataset using either `--missing` or `--replace` flags [(Documentation)](https://www.sanity.io/docs/importing-data#:~:text=tar.gz%20production-,Protip,-The%20import%20will)
-- In the `dev` dataset, then add content to your new document in the Sanity Dashboard
-- Then export from the `dev` dataset, and import into the `production` dataset using the `--missing skip` flag (adds any missing data, skips any data with same Id's)
-- Possible have to do `sanity graphql deploy` to update the GraphQL (After adding code in `/documents))
-- Yay you're done... hopefully (Refer to the commands below)
+3. **Verify Yarn is installed**  
+   yarn --version
 
-- - Note: these commands will only transfer the content of the documents, you will still need to add the document code to the `studio/douments` folder
+---
 
-### Confirmed command sequence once a schema is made in your `tagged` dataset
+## 2. Issue-Driven Development
 
-These 2 commands will export from your `tagged` dataset into the `dev` dataset
+**Before making any changes**, create a GitHub issue describing the task or feature:
 
-- `sanity dataset export dev --tag [tagName] ./tagged.tar.gz` (Export from `tagged` dataset)
-- `sanity dataset import ./tagged.tar.gz dev --missing skip` (Import into `dev` dataset) this will add all missing data and skip any data with the same id
+1. **Create an issue**  
+   - Provide a clear title and description of what you want to accomplish.  
+   - Specify whether it affects `web`, `studio`, or both.
 
-After this step, you would populate the content in sanity
+2. **Create a branch off the issue**  
+   git checkout -b feat/<issue-number>-<short-description>
+   - Example: `feat/42-add-new-schema-field`
 
-Then, these 2 commands will import your data from `dev` to `production`
+---
 
-- `sanity dataset export dev ./dev.tar.gz` (Export from `dev` dataset)
-  Create a backup of `production` dataset (Possible GitHub action)
-- `sanity dataset export production ./production.tar.gz` (Export from `production` dataset)
+## 3. Local Development
 
-Import from `dev` into `production`
+### 3.1 Gatsby Site (`web`)
 
-- `sanity dataset import ./dev.tar.gz production --missing skip` (Import into `production` dataset)
+1. **Navigate to `web`**  
+   cd web  
+   yarn dev
+   - The Gatsby dev (development) server runs at [http://localhost:8000](http://localhost:8000).
 
-<br><br>
+2. **Edit code** in the `web` folder  
+   - Changes appear automatically (hot reload).
 
-</details>
+3. **Build** (production)  
+   - From `web`:  
+     yarn build  
+   - This creates a production-ready build in `web/public`.
 
-## Sanity Workflow
+### 3.2 Sanity Studio (`studio`)
 
-Sanity runs into issues with overwriting work when trying to update schemas simultaneously on different branches. The ideal workflow for updating schema is as follows:
+1. **Navigate to `studio`**  
+   cd studio  
+   yarn dev  
+   - The Studio runs at [http://localhost:3333](http://localhost:3333).
 
-1.  Plan out all necessary schema for development.
-2.  Add schema and push to the main branch on Github before any changes are made by other users.
-3.  Other users should pull your schema changes before adding any new schema.
-4.  Continue development on the front-end accessing the already committed schema.
+2. **Schema or content updates**  
+   - Edit files in `studio/schemas` (or your chosen directory).
+   - See your changes in real time in the local Studio.
 
-The entire goal is to eliminate concurrent development of Sanity schema since they will overwrite each other.
+---
 
-Other potential solutions:
+## 4. Changes That Affect Both Studio and Web
 
-- Sanity migration command
+If schema changes in the Studio require corresponding updates in Gatsby, handle them together in a **single feature branch**.
 
-## [Algolia Documentation](https://docs.google.com/document/d/1sB_nA5skU5SWLJMCFQwWHw5sEfgyP8EAVu0xZj09RP4/edit)
+### Step-by-Step Process
+
+1. **Create a branch off the issue**  
+   git checkout -b feat/<issue-number>-<description>
+   - Example: `feat/15-update-schema-and-frontend`
+
+2. **Edit the schema** in `studio`  
+   - Make necessary updates and test locally:  
+     cd studio  
+     yarn dev
+
+3. **Update Gatsby** in `web`  
+   - Adjust GraphQL queries/components to match the new schema fields.
+   - Test by running `yarn dev` in `web`.
+
+4. **Commit changes (both `studio` and `web`)**  
+   git add .  
+   git commit -m "Update schema and front-end for issue <#>"
+
+5. **Push and open a PR**  
+   git push origin feat/<issue-number>-<description>
+   - Link the PR to the corresponding GitHub issue.
+
+6. **Merge and Deploy**  
+   - After PR approval:
+     - Merge into `main`.
+     - Redeploy the GraphQL schema if needed:  
+       yarn deploy-graphql  
+     - Deploy the updated Gatsby site.
+
+---
+
+## 5. Handling Independent Updates
+
+### 5.1 Studio-Only Changes
+
+1. **Create an issue and branch**  
+   git checkout -b feat/<issue-number>-<studio-description>
+
+2. **Edit schema** in `studio`  
+   - Test with `yarn dev`.
+
+3. **Commit and push**  
+   git add .  
+   git commit -m "Studio-only changes for issue <#>"  
+   git push origin feat/<issue-number>-<studio-description>
+
+4. **Open a PR**, merge, and redeploy GraphQL if necessary  
+   yarn deploy-graphql
+
+### 5.2 Gatsby-Only Changes
+
+1. **Create an issue and branch**  
+   git checkout -b feat/<issue-number>-<web-description>
+
+2. **Edit code** in `web`  
+   - Test with `yarn dev`.
+
+3. **Commit and push**  
+   git add .  
+   git commit -m "Web-only changes for issue <#>"  
+   git push origin feat/<issue-number>-<web-description>
+
+4. **Open a PR**, merge, and deploy the updated Gatsby site
+
+---
+
+## 6. Syncing Production to Development
+
+If **production** has updates that need to be synced to **development**:
+
+1. **Update** production content in the live Studio.
+2. **Clone** production into development:  
+   cd studio  
+   yarn clone  
+   - This exports the production dataset and imports it into the development dataset (`--replace` by default).
+3. **Restart** local environments to ensure everything is up to date.
+
+---
+
+## 7. Best Practices
+
+1. **Use Issues for Every Task**  
+   - Create an issue describing the task or change.
+   - Reference the issue in your branch name and commits.
+
+2. **Small, Focused PRs**  
+   - Avoid mixing unrelated changes in a single PR.
+
+3. **Test Locally First**  
+   - Verify schema changes (`studio`) and front-end queries (`web`) before opening a PR.
+
+4. **Deploy in Sync**  
+   - Merge and deploy schema changes first (or in the same PR) to prevent querying fields that don’t exist yet.
+
+5. **Communication**  
+   - Let teammates know if your changes might break existing queries.
+
+---
+
+## Additional Resources
+
+- **Gatsby Docs**: [https://www.gatsbyjs.com/docs/](https://www.gatsbyjs.com/docs/)  
+- **Sanity Docs**: [https://www.sanity.io/docs](https://www.sanity.io/docs)  
+- **Import/Export Data**: [https://www.sanity.io/docs/migrating-data](https://www.sanity.io/docs/migrating-data)  
+
+---
+
+## Learn More
+
+- [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+
