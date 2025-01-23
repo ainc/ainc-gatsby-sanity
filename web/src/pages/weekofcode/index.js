@@ -29,35 +29,35 @@ const Page = ({ data }) => {
   const ButtonRow = () => {
     return (
       <>
-        <p className="fst-italic">Sign Up For One Of Our 2024 Camp Dates</p>
+        <p className="fst-italic">Sign Up For One Of Our 2025 Camp Dates</p>
         <Row className="px-5 py-3">
           <Col md={4} className={`d-flex ${styles.leftButton} pb-3`}>
             <a
-              href="https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-801830545747"
+              href="https://www.eventbrite.com/e/week-of-code-summer-camp-1-june-9-12-level-1-awesome-inc-2025-tickets-1217094886569?aff=oddtdtcreator"
               target="_blank"
             >
               <BrandButton className="week-of-code py-2 px-4">
-                June 10-13
+                June 9-12
               </BrandButton>
             </a>
           </Col>
-          <Col md={4} className="pb-3">
+          {/* <Col md={4} className="pb-3">
             <a
-              href="https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-801837556717"
+              href="https://www.eventbrite.com/e/copy-of-week-of-code-summer-camp-2-june-16-19-level-1-awesome-inc-2025-tickets-1217111746999?aff=oddtdtcreator"
               target="_blank"
             >
               <BrandButton className="week-of-code py-2 px-4">
-                July 15-18
+                July 16-19
               </BrandButton>
             </a>
-          </Col>
+          </Col> */}
           <Col md={4} className={`d-flex ${styles.rightButton} pb-3`}>
             <a
-              href="https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-837800292227"
+              href="https://www.eventbrite.com/e/week-of-code-summer-camp-3-july-14-17-level-1-awesome-inc-2025-tickets-1217113522309?aff=oddtdtcreator"
               target="_blank"
             >
               <BrandButton className="week-of-code py-2 px-4">
-                July 22-25
+                July 14-17
               </BrandButton>
             </a>
           </Col>
@@ -80,7 +80,7 @@ const Page = ({ data }) => {
               Prepare Your Child for a 21st Century World
             </Title>
             <a
-              href="https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-801830545747"
+              href="https://www.eventbrite.com/e/week-of-code-summer-camp-1-june-9-12-level-1-awesome-inc-2025-tickets-1217094886569?aff=oddtdtcreator"
               target="_blank"
             >
               <BrandButton className="week-of-code">
@@ -186,7 +186,7 @@ const Page = ({ data }) => {
               attention.
             </p>
             <a
-              href="https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-at-awesome-inc-2024-tickets-801830545747"
+              href="https://www.eventbrite.com/e/week-of-code-summer-camp-1-june-9-12-level-1-awesome-inc-2025-tickets-1217094886569?aff=oddtdtcreator"
               target="_blank"
             >
               <BrandButton className="week-of-code  px-4">
