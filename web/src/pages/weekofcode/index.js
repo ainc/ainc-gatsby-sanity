@@ -30,7 +30,7 @@ const Page = ({ data }) => {
     return (
       <>
         <p className="fst-italic">Sign Up For One Of Our 2025 Camp Dates</p>
-        <Row className="px-5 py-3">
+        <Row className="px-5 py-3 justify-content-center">
           <Col md={4} className={`d-flex ${styles.leftButton} pb-3`}>
             <a
               href="https://www.eventbrite.com/e/week-of-code-summer-camp-1-june-9-12-level-1-awesome-inc-2025-tickets-1217094886569?aff=oddtdtcreator"
