@@ -41,7 +41,7 @@ const Page = ({ data }) => {
               </BrandButton>
             </a>
           </Col>
-          {/* <Col md={4} className="pb-3">
+          <Col md={4} className="pb-3">
             <a
               href="https://www.eventbrite.com/e/copy-of-week-of-code-summer-camp-2-june-16-19-level-1-awesome-inc-2025-tickets-1217111746999?aff=oddtdtcreator"
               target="_blank"
@@ -50,7 +50,7 @@ const Page = ({ data }) => {
                 July 16-19
               </BrandButton>
             </a>
-          </Col> */}
+          </Col>
           <Col md={4} className={`d-flex ${styles.rightButton} pb-3`}>
             <a
               href="https://www.eventbrite.com/e/week-of-code-summer-camp-3-july-14-17-level-1-awesome-inc-2025-tickets-1217113522309?aff=oddtdtcreator"
