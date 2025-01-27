@@ -1,0 +1,112 @@
+@import "../../../styles/mixins.scss";
+@import "../../../styles/variables.scss";
+
+/* Top Black Section */
+.mainHeading {
+  background-image: url("../../../images/tech-talent/header-image.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10%;
+}
+
+.headingTitle {
+  font-size: 5rem;
+  line-height: 6rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.inquireButton {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: $brand-color;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* Services Section */
+.whatWeDo {
+  padding: 3rem 0;
+}
+
+.servicesHeading {
+  font-weight: 800;
+  color: $brand-color2;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.servicesSubheader {
+  font-size: 20px;
+  color: $brand-color2;
+}
+
+/* Horizontal Button Group */
+.horizontalButton {
+  background-color: gray;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin: 0.5rem;
+
+  &:hover {
+    background-color: darkgray;
+  }
+}
+
+/* Final Black Section (70% viewport height) */
+.finalBlackSection {
+  background-color: black;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.finalBlackHeading {
+  color: white;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.finalBlackSubtext {
+  color: #ccc;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.finalBlackButton {
+  background-color: $brand-color;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: darken($brand-color, 10%);
+  }
+}

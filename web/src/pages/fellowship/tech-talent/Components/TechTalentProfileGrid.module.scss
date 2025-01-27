@@ -1,0 +1,32 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/variables.scss";
+
+.profileGridSection {
+  padding: 3rem 0;
+  margin: 0 20%;
+}
+
+.profileGridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+}
+
+/* Special Red Box */
+.redBox {
+  background-color: red;
+  color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.redBoxText {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.redBoxSubtext {
+  opacity: 0.8;
+}
