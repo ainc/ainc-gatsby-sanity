@@ -47,7 +47,7 @@ const Page = ({ data }) => {
               target="_blank"
             >
               <BrandButton className="week-of-code py-2 px-4">
-                July 16-19
+                June 16-19
               </BrandButton>
             </a>
           </Col>
