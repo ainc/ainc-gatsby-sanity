@@ -1,30 +1,32 @@
 import * as React from "react";
 import * as styles from "./TechTalentProfileCard.module.scss";
 import { StaticImage } from "gatsby-plugin-image";
+import BrandAnchor from "../../../../components/UI/BrandAnchor/BrandAnchor";
 
-/**
- * TechTalentProfileCard (TTPC = Tech Talent Profile Card)
- * Renders a profile card with a circular profile image
- * and name text whose baseline wraps around the image.
- */
 const TechTalentProfileCard = (props) => {
+  let profileImage;
+  try {
+    // Dynamically require the image
+    profileImage = require(
+      `../../../../images/tech-talent/${props.imageName}.png`,
+    ).default;
+  } catch (error) {
+    console.error("Error loading image:", props.imageName, error);
+  }
+
   return (
-    <div className={styles.profileCard}>
+    <div
+      id={props.department.replace(/\s+/g, "-").toLowerCase()}
+      className={styles.profileCard}
+    >
       {/* Container for image and curved text */}
       <div className={styles.profileName}>
         {/* Circular Profile Image */}
-        <StaticImage
+        <img
           className={styles.profileImage}
-          src="../../../../images/tech-talent/kyle raney.png"
-          alt="Profile Placeholder"
+          src={profileImage}
+          alt={`Profile image of ${props.name}`}
         />
-
-        {/* 
-          SVG to display text along a circular path.
-          - We set the viewBox to "0 0 200 200" to align with .profileName dimensions.
-          - The path is a circle with center at (100,100) and radius = 55.
-          - This positions the text so that it closely wraps the profile image (which has a radius of 50).
-        */}
         <svg
           className={styles.nameCircle}
           viewBox="0 0 1200 1200"
@@ -46,7 +48,7 @@ const TechTalentProfileCard = (props) => {
             <textPath
               className={styles.nameText}
               xlinkHref="#circlePathId"
-              startOffset="10%"
+              startOffset="8%"
               textAnchor="start"
             >
               Meet {props.name}
@@ -56,10 +58,15 @@ const TechTalentProfileCard = (props) => {
       </div>
 
       {/* Department and Portfolio Link */}
-      <div className={styles.departmentName}>{props.department}</div>
-      <a href={props.link} className={styles.portfolioButton}>
-        Portfolio
-      </a>
+      <div className={styles.lowerCard}>
+        <div className={styles.departmentName}>{props.department}</div>
+        <BrandAnchor
+          href={props.link}
+          className={`${styles.portfolioButton}, btn--small`}
+        >
+          Portfolio
+        </BrandAnchor>
+      </div>
     </div>
   );
 };

@@ -6,25 +6,21 @@
   border-radius: 4px;
   padding: 1rem;
   text-align: center;
-  position: relative; // (relative positioning: positions child elements relative to this container)
+  position: relative;
 }
 
-/**
- * Container for the profile image.
- * We use explicit dimensions (width/height = 200px) so that the image can be exactly centered.
- */
 .profileName {
   position: relative;
-  width: 400px; // Increased to fit larger SVG
-  height: 400px; // Match width to keep it square
-  margin: 0 auto 1rem auto; // Center the container horizontally
+  width: 400px;
+  height: 400px;
+  margin: 0 auto 1rem auto;
 }
 
 .profileImage {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 300px; // Image size stays the same
+  width: 300px;
   height: 300px;
   border-radius: 50%;
   object-fit: cover;
@@ -42,26 +38,23 @@
   text-transform: uppercase;
   font-weight: 300;
   fill: $brand-color;
+  @include font-size(60);
 }
 
-/* Optional additional styling for other elements */
+.lowerCard {
+  position: relative;
+  bottom: 45px;
+  height: 100px;
+}
+
 .departmentName {
-  @include font-size(18); // (Mixin from your code base)
-  font-weight: bold;
+  @include font-size(22);
+  font-weight: 800;
   text-transform: uppercase;
   color: $brand-red-bright;
+  margin-bottom: 18px;
 }
 
 .portfolioButton {
-  background-color: $brand-color;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 0.5rem 1rem;
-  margin-top: 1rem;
-  cursor: pointer;
-
-  &:hover {
-    background-color: darken($brand-color, 10%);
-  }
+  @include font-size(10);
 }

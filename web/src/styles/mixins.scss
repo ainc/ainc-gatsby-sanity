@@ -33,6 +33,7 @@
     background: $hover-bg;
     border: 2px solid $hover-bg;
     color: $hover-text;
+    cursor: pointer;
   }
 
   &.disabled,

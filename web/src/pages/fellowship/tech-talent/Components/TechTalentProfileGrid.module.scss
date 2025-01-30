@@ -14,19 +14,35 @@
 
 /* Special Red Box */
 .redBox {
-  background-color: red;
+  position: relative;
+  bottom: 58px;
+  margin: auto;
+  height: 300px;
+  width: 80%;
+  background-color: $brand-color;
   color: white;
-  border-radius: 8px;
-  padding: 2rem;
+  border-radius: 15px;
+  padding: 3.2rem 1.7rem;
   text-align: center;
 }
 
+.redBoxContentWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
 .redBoxText {
-  font-size: 1.25rem;
+  font-size: 1.4rem;
+  line-height: 2.3rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  text-transform: uppercase;
 }
 
 .redBoxSubtext {
+  font-size: 1.4rem;
+  line-height: 2.3rem;
   opacity: 0.8;
 }

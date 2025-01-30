@@ -1,64 +1,79 @@
 @import "../../../styles/mixins.scss";
 @import "../../../styles/variables.scss";
 
-/* Top Black Section */
+/* Top Section */
 .mainHeading {
   background-image: url("../../../images/tech-talent/header-image.png");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   min-height: 100vh;
+  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-left: 10%;
+  z-index: 1;
 }
 
+/* Heading Section */
 .headingTitle {
-  font-size: 5rem;
-  line-height: 6rem;
+  font-size: 3.5rem;
+  letter-spacing: 3px !important;
+  line-height: 4rem;
   font-weight: 800;
   color: white;
   margin-bottom: 2rem;
-}
-
-.inquireButton {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background-color: $brand-color;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.05);
-  }
+  margin-top: 28vh;
 }
 
 /* Services Section */
 .whatWeDo {
-  padding: 3rem 0;
+  text-align: center;
+  position: absolute;
+  top: calc(100vh + 75px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 2;
+  padding: 3rem 2rem;
+}
+
+.spacer {
+  height: 120px;
+  background-color: #e7e6e9;
 }
 
 .servicesHeading {
-  font-weight: 800;
-  color: $brand-color2;
+  font-weight: 700;
+  @include font-size(30);
   text-transform: uppercase;
-  margin-bottom: 1.5rem;
+  margin: 2rem 0;
 }
 
 .servicesSubheader {
-  font-size: 20px;
-  color: $brand-color2;
+  @include font-size(16);
+  line-height: 3.3rem;
+  margin-bottom: 2.8rem;
+  margin: 0 11rem 2.8rem 11rem;
 }
 
 /* Horizontal Button Group */
+.horizontalButtonGroup {
+  position: absolute;
+  top: calc(100vh + 590px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}
+
 .horizontalButton {
-  background-color: gray;
+  background-color: #939598;
+  @include font-size(11);
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2.5rem;
   border: none;
   border-radius: 4px;
   text-transform: uppercase;
@@ -68,12 +83,14 @@
 
   &:hover {
     background-color: darkgray;
+    color: white;
   }
 }
 
-/* Final Black Section (70% viewport height) */
-.finalBlackSection {
-  background-color: black;
+.finalSection {
+  background-image: url("../../../images/tech-talent/group 168.png");
+  background-size: cover;
+  background-repeat: no-repeat;
   min-height: 70vh;
   display: flex;
   flex-direction: column;
@@ -83,30 +100,19 @@
   padding: 2rem;
 }
 
-.finalBlackHeading {
+.finalHeading {
   color: white;
   font-weight: 700;
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
-.finalBlackSubtext {
+.finalSubtext {
   color: #ccc;
   font-size: 1rem;
   margin-bottom: 2rem;
 }
 
-.finalBlackButton {
-  background-color: $brand-color;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  text-transform: uppercase;
-
-  &:hover {
-    background-color: darken($brand-color, 10%);
-  }
+.finalButton {
+  @include font-size(10);
 }
