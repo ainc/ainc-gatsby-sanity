@@ -7,11 +7,17 @@ import BackgroundCard from "../../components/BackgroundCard/BackgroundCard";
 import { motion } from "framer-motion";
 import Title from "../../components/UI/Title/Title";
 import * as styles from "./partnership.module.scss";
+import BrandButton from "../../components/UI/BrandButton/BrandButton";
 
 
 
 
 const PartnershipsPage = ({ data }) => {
+    
+    function scrollToRow() {
+        document.getElementById("targetRow").scrollIntoView({ behavior: "smooth" });
+    }
+
     return (
         <Layout>
             <Container fluid className={`${styles.mainHeading}`}>
@@ -31,6 +37,17 @@ const PartnershipsPage = ({ data }) => {
                                 <p>Dedicated to curating Lexington's finest startups</p>
                             </Title>
                             </Col>
+                            {/*experementing*/}
+                            <Row>
+                                <a
+                                    href="#"
+                                    onClick={scrollToRow}
+                                >
+                                    <BrandButton className={`secondary text-uppercase`}>
+                                        LEARN MORE
+                                    </BrandButton>
+                                </a>
+                            </Row>
                         </Row>
                         </motion.div>
                         <motion.div
@@ -42,6 +59,11 @@ const PartnershipsPage = ({ data }) => {
                     </Col>
                 </Row>
             </Container>
+
+            <tr id="targetRow">
+                <td>found me</td>
+            </tr>
+            
         </Layout>
     );
 };
