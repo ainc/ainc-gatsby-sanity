@@ -1,0 +1,12 @@
+@import "../../styles/main.scss";
+
+.main-heading {
+    background-image: url("../../images/partnerships/5accross_june24_70.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 93vh;
+    @include screen-md {
+      height: 110vh;
+    }
+  }
+  
