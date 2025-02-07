@@ -10,3 +10,15 @@
     }
   }
   
+  .values {
+    margin-bottom: 1rem;
+    margin-top: 0;
+    font-weight: 1000;
+    color: $brand-color;
+  }
+  
+  .subHeading {
+    align-self: start;
+    width: 50vh;
+    color: $brand-grey-dark;
+  }

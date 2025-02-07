@@ -37,13 +37,13 @@ const PartnershipsPage = ({ data }) => {
                                 <p>Dedicated to curating Lexington's finest startups</p>
                             </Title>
                             </Col>
-                            {/*experementing*/}
+                            
                             <Row>
                                 <a
                                     href="#"
                                     onClick={scrollToRow}
                                 >
-                                    <BrandButton className={`secondary text-uppercase`}>
+                                    <BrandButton className={`partnership`}>
                                         LEARN MORE
                                     </BrandButton>
                                 </a>
@@ -58,6 +58,26 @@ const PartnershipsPage = ({ data }) => {
                         </motion.div>
                     </Col>
                 </Row>
+            </Container>
+
+            {/*experementing*/}
+            <Container>
+                <Row className="py-5">
+                    <Title className={`${styles.values}`}>
+                        <Col>
+                            <h1>SPONSORS.</h1>
+                            <h1>PARTNERS.</h1>
+                            <h1>FRIENDS.</h1>
+                        </Col>
+                        <Row className={`${styles.subHeading}`}>
+                            <p>The people and partners who push the bluegrass forward with us.</p>
+                        </Row>
+                    </Title>
+                    
+                    
+                </Row>
+                
+
             </Container>
 
             <tr id="targetRow">
