@@ -40,13 +40,13 @@ const ParkingPage = ({ data }) => {
             some general guidelines for parking near Awesome Inc.
           </p>
         </Col>
-        <Row>
+        <Row className="justify-content-center align-items-center">
           {/* Parking map Button  with alignment*/}
           <Col
-            xs={{ offset: 2, span: 8 }}
-            md={{ offset: 4, span: 4 }}
-            lg={{ offset: 4 }}
-            xl={{ offset: 4, span: 5 }}
+            xs={{ offset: 0, span: 8 }}
+            md={{ offset: 0, span: 4 }}
+            lg={{ offset: 0, span: 4 }}
+            xl={{ offset: 0, span: 5 }}
           >
             {/* <a
               target="_blank"
@@ -58,8 +58,8 @@ const ParkingPage = ({ data }) => {
               </BrandButton>
             </a>  */}
 
-            {/* aerial view is complete, in RC's google docs */}
-            <div>
+            {/* aerial view test is complete, in RC's google docs */}
+            <Col className="d-flex justify-content-center">
               <BrandButton
                 className={`mb-4 mt-5 ${styles.button} `}
                 onClick={openModal}
@@ -67,7 +67,7 @@ const ParkingPage = ({ data }) => {
                 Parking Map
                 <FaMapMarkerAlt className="mb-1 ms-2"></FaMapMarkerAlt>
               </BrandButton>
-            </div>
+            </Col>
           </Col>
         </Row>
         <Col
@@ -83,11 +83,15 @@ const ParkingPage = ({ data }) => {
           ></StaticImage>
         </Col>
       </Container>
-      <Container className="ps-3">
+      <Container className="ps-3 align: center">
         <Col
-          xs={{ span: 12 }}
-          lg={{ offset: 2, span: 8 }}
-          xl={{ offset: 2, span: 6 }}
+          // xs={{ span: 12 }}
+          // lg={{ offset: 2, span: 8 }}
+          // xl={{ offset: 2, span: 6 }}
+          xs={{ offset: 3, span: 12 }}
+          md={{ offset: 3, span: 4 }}
+          lg={{ offset: 3, span: 4 }}
+          xl={{ offset: 3, span: 6 }}
         >
           <Subtitle className={` ${styles.park}`}>Do Park</Subtitle>
           <ul>
@@ -111,9 +115,13 @@ const ParkingPage = ({ data }) => {
         </Col>
 
         <Col
-          xs={{ span: 12 }}
-          lg={{ offset: 2, span: 8 }}
-          xl={{ offset: 2, span: 6 }}
+          // xs={{ span: 12 }}
+          // lg={{ offset: 2, span: 8 }}
+          // xl={{ offset: 2, span: 6 }}
+          xs={{ offset: 3, span: 12 }}
+          md={{ offset: 3, span: 8 }}
+          lg={{ offset: 3, span: 8 }}
+          xl={{ offset: 3, span: 6 }}
           className="pb-3"
         >
           <Subtitle className={` pt-2 ${styles.park}`}>Do Not Park</Subtitle>
