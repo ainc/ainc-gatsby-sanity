@@ -117,7 +117,7 @@ const PartnershipsPage = ({ data }) => {
                         </div>
                         
                     </Row>
-                    <Row className="w-100 justify-content-center">
+                    <Row className="justify-content-center">
                         <Col xs={12} className="d-flex justify-content-center">
                             <ProgramForm />
                         </Col>

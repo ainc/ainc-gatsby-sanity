@@ -9,7 +9,7 @@ import * as styles from "./form.module.scss";
 
 const PartnershipForm = (props) => {
   return (
-    <Card className={`${styles.partnershipFormCard} me-5  p-0`}>
+    <Card className={`${styles.partnershipFormCard} ${styles.cardOveride}  p-0`}>
       <Form>
         <Container className={styles.partershipFormContainer}>
           <Row>

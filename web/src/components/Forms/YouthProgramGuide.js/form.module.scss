@@ -3,6 +3,19 @@
 @import "../../../styles/mixins.scss";
 // -----------------------------------------------------------------------------
 
+.cardOveride.partnershipFormCard {
+  margin-top: 20px;
+  background-size: cover;
+  font-size: 1rem;
+  width: fit-content;
+  background-color: transparent ;
+  box-shadow: none  ;
+  border: none;
+}
+.partnership-form-container {
+  background-color: transparent;
+}
+
 .form-container {
   background-color: #323232;
   border: inherit;
@@ -36,14 +49,3 @@
   }
 }
 
-.partnership-form-card {
-  margin-top: 20px;
-  background-size: cover;
-  font-size: 1rem;
-  width: fit-content;
-  background-color: transparent !important;
-  box-shadow: none !important;
-}
-.partnership-form-container {
-  background-color: transparent;
-}
