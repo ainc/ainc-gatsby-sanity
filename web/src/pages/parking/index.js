@@ -40,27 +40,13 @@ const ParkingPage = ({ data }) => {
             some general guidelines for parking near Awesome Inc.
           </p>
         </Col>
-
-        {/* Testing 3d aerial view */}
-        <Row className="justify-content-center align-items-center">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95.37611917871982!2d-84.4907540147311!3d38.042268335807414!2m3!1f251.8204488777985!2f55.021187590739!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x884244e842d5acf7%3A0x92c7783d2b2a2d15!2sAwesome%20Inc!5e1!3m2!1sen!2sus!4v1738872425388!5m2!1sen!2sus"
-            width="600"
-            height="450"
-            //style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </Row>
-
         <Row className="justify-content-center align-items-center">
           {/* Parking map Button  with alignment*/}
           <Col
-            xs={{ offset: 0, span: 8 }}
-            md={{ offset: 0, span: 4 }}
-            lg={{ offset: 0, span: 4 }}
-            xl={{ offset: 0, span: 5 }}
+            xs={{ offset: 2, span: 8 }}
+            md={{ offset: 4, span: 4 }}
+            lg={{ offset: 4 }}
+            xl={{ offset: 4, span: 5 }}
           >
             {/* <a
               target="_blank"
@@ -72,8 +58,8 @@ const ParkingPage = ({ data }) => {
               </BrandButton>
             </a>  */}
 
-            {/* aerial view test is complete, in RC's google docs */}
-            <Col className="d-flex justify-content-center">
+            {/* aerial view is complete, in RC's google docs */}
+            <div>
               <BrandButton
                 className={`mb-4 mt-5 ${styles.button} `}
                 onClick={openModal}
@@ -81,7 +67,7 @@ const ParkingPage = ({ data }) => {
                 Parking Map
                 <FaMapMarkerAlt className="mb-1 ms-2"></FaMapMarkerAlt>
               </BrandButton>
-            </Col>
+            </div>
           </Col>
         </Row>
         <Col
@@ -97,15 +83,11 @@ const ParkingPage = ({ data }) => {
           ></StaticImage>
         </Col>
       </Container>
-      <Container className="ps-3 align: center">
+      <Container className="ps-3">
         <Col
-          // xs={{ span: 12 }}
-          // lg={{ offset: 2, span: 8 }}
-          // xl={{ offset: 2, span: 6 }}
-          xs={{ offset: 3, span: 12 }}
-          md={{ offset: 3, span: 4 }}
-          lg={{ offset: 3, span: 4 }}
-          xl={{ offset: 3, span: 6 }}
+          xs={{ span: 12 }}
+          lg={{ offset: 2, span: 8 }}
+          xl={{ offset: 2, span: 6 }}
         >
           <Subtitle className={` ${styles.park}`}>Do Park</Subtitle>
           <ul>
@@ -129,13 +111,9 @@ const ParkingPage = ({ data }) => {
         </Col>
 
         <Col
-          // xs={{ span: 12 }}
-          // lg={{ offset: 2, span: 8 }}
-          // xl={{ offset: 2, span: 6 }}
-          xs={{ offset: 3, span: 12 }}
-          md={{ offset: 3, span: 8 }}
-          lg={{ offset: 3, span: 8 }}
-          xl={{ offset: 3, span: 6 }}
+          xs={{ span: 12 }}
+          lg={{ offset: 2, span: 8 }}
+          xl={{ offset: 2, span: 6 }}
           className="pb-3"
         >
           <Subtitle className={` pt-2 ${styles.park}`}>Do Not Park</Subtitle>
