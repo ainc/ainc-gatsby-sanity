@@ -1,10 +1,21 @@
 @import "../../styles/main.scss";
 
 .main-heading {
-    background-image: url("../../images/partnerships/5accross_june24_70.jpg");
+    background-image: url("../../images/partnership/5accross_june24_70.jpg");
     background-size: cover;
     background-position: center;
     height: 93vh;
+    @include screen-md {
+      height: 110vh;
+    }
+  }
+.form-heading {
+    background-image: url("../../images/partnership/5accross_june24_67.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 93vh;
+    width: 100vw;
+
     @include screen-md {
       height: 110vh;
     }
@@ -22,3 +33,82 @@
     width: 50vh;
     color: $brand-grey-dark;
   }
+
+.sponsor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-item-bottom-left:nth-child(7) {
+    grid-column: 1; 
+    border-right: 2px solid grey;
+    border-top: 2px solid grey;
+}
+  
+.grid-item-middle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey; 
+}
+  .grid-item-middle-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey; 
+    border-bottom: none;
+  }
+  .grid-item-middle-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey; 
+    border-top: none;
+  }
+  .grid-item-top-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey; 
+    border-top: none;
+    border-right: none;
+  }
+  .grid-item-top-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey; 
+    border-top: none;
+    border-left: none;
+  }
+  .grid-item-bottom-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey; 
+    border-bottom: none;
+    border-right: none;
+  }
+  .grid-item-bottom-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey; 
+    border-bottom: none;
+    border-left: none;
+  }
+  .grid-item-middle-left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey; 
+    border-left: none;
+}
+.grid-item-middle-right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey; 
+    border-right: none
+}
+  
