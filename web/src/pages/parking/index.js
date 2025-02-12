@@ -40,6 +40,20 @@ const ParkingPage = ({ data }) => {
             some general guidelines for parking near Awesome Inc.
           </p>
         </Col>
+
+        {/* Testing 3d aerial view */}
+        <Row className="justify-content-center align-items-center">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95.37611917871982!2d-84.4907540147311!3d38.042268335807414!2m3!1f251.8204488777985!2f55.021187590739!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x884244e842d5acf7%3A0x92c7783d2b2a2d15!2sAwesome%20Inc!5e1!3m2!1sen!2sus!4v1738872425388!5m2!1sen!2sus"
+            width="600"
+            height="450"
+            //style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </Row>
+
         <Row className="justify-content-center align-items-center">
           {/* Parking map Button  with alignment*/}
           <Col
