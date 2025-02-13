@@ -17,3 +17,49 @@
 .card-subtitle {
   font-size: 20px;
 }
+
+.smallDate {
+  transform: scale(0.8);
+  transform-origin: left center;
+}
+
+.card-text {
+  font-size: 15px;
+
+  @media (max-width: 767.98px) {
+    font-size: 14px;
+
+    small {
+      font-size: 12px;
+    }
+  }
+}
+
+.halfSizeCard {
+  width: 70%;
+  height: 100%;
+  transform-origin: top left;
+}
+
+.smallCardImage {
+  height: 350px;
+
+  @media (max-width: 1199.98px) {
+    height: 390px;
+  }
+}
+
+.smallCardSubtitle {
+  font-size: 0.9rem;
+  line-height: 1.2;
+
+  @media (max-width: 767.98px) {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+}
+.smallCardText {
+  small {
+    font-size: 0.7rem;
+  }
+}

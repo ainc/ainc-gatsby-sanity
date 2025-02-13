@@ -26,3 +26,25 @@
     background-size: 85% 85%;
   }
 }
+
+#events .row {
+  justify-content: start; /* Align items to the left */
+}
+
+#events .col {
+  display: flex;
+  justify-content: center;
+  padding: 12px; /* Match your gutter size */
+}
+
+#events .feature-card {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 1200px) {
+  #events .feature-card {
+    max-width: 600px; /* Adjust this value based on your design needs */
+  }
+}
