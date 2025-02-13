@@ -232,7 +232,7 @@ const fiveAcrossPage = ({ data }) => {
             <Title
               className={`${styles.largeText} text-white mt-5  text-uppercase`}
             >
-              Over 10 years of putting the spotlight on Kentucky Entrepreneurs
+              Celebrating 15 years of putting the spotlight on Kentucky Entrepreneurs!
             </Title>
             <BrandButton
               className="mt-3 mb-5"
