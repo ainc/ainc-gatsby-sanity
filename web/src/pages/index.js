@@ -275,27 +275,21 @@ const IndexPage = ({ data }) => {
 
       {/* EVENTS */}
       <section id="events">
-        <Title className="mt-5 mb-3 text-uppercase text-center">
+        <Title className="mt-5 mb-4 text-uppercase text-center">
           Upcoming Events
         </Title>
-        <Container>
-          <Row>
-            {feature_event?.eventName && (
-              <Col xs={12} lg={6}>
+        <Container fluid="xxl">
+          <Row className="g-4">
+            {eventsNoFeature?.map((event, i) => (
+              <Col
+                key={i}
+                xs={12}
+                xl={6} // 2 columns at 1200px+
+                className="d-flex justify-content-center"
+              >
                 <FeatureCard
-                  title={feature_event.eventName}
-                  date={feature_event.date}
-                  image={feature_event.picture?.asset?.gatsbyImageData}
-                  host={feature_event.host}
-                  location={feature_event.location}
-                  link={feature_event.linkToEvent}
-                />
-              </Col>
-            )}
-            <Col xs={12} lg={6}>
-              {eventsNoFeature.map((event, i) => (
-                <HorizontalCard
-                  key={i}
+                  className="w-100"
+                  style={{ maxWidth: "600px" }}
                   title={event.eventName}
                   date={event.date}
                   image={event.picture?.asset?.gatsbyImageData}
@@ -303,8 +297,8 @@ const IndexPage = ({ data }) => {
                   location={event.location}
                   link={event.linkToEvent}
                 />
-              ))}
-            </Col>
+              </Col>
+            ))}
           </Row>
         </Container>
       </section>
