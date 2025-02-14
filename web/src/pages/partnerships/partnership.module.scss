@@ -20,6 +20,18 @@
       height: 110vh;
     }
   }
+
+.oppurtunites-heading {
+    background-image: url("../../images/partnership/5across_june24-71.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 93vh;
+    width: 100vw;
+
+    @include screen-md {
+      height: 110vh;
+    }
+}
   
   .values {
     margin-bottom: 1rem;
@@ -33,6 +45,8 @@
     width: 50vh;
     color: $brand-grey-dark;
   }
+
+  
 
 .sponsor-grid {
   display: grid;
@@ -111,4 +125,33 @@
     border: 1px solid grey; 
     border-right: none
 }
+.header-border {
+    width: 100%;
+    // margin-bottom: 30px;
+    border: white solid 2px;
+    // font-weight: 300;
+
+    .body-text {
+      font-weight: 300;
+      color: white;
+      text-align: center;
+    }
+  
+    .heading,
+    .heading-subtitle {
+      text-align: center;
+      margin-top: -20px;
+      font-weight: 300;
+      color: white;
+    }
+  
+    .heading > span,
+    .heading-subtitle > span {
+      background-color: transparent;
+      box-shadow:
+        transparent 11px 0px 0px,
+        transparent -13px 0px 0px;
+      border: none;
+    }
+  }
   

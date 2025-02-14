@@ -9,14 +9,16 @@ import Title from "../../components/UI/Title/Title";
 import * as styles from "./partnership.module.scss";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import ProgramForm from "../../components/Forms/YouthProgramGuide.js/partnershipsForm.js"
+import ImageOutline from "../../components/ImageOutline/ImageOutline";
+import FiveAcrossWinnersCard from "../../components/FiveAcrossWinnersCard/FiveAcrossWinnersCard";
+
 
 import aincLogo from "../../images/logo.png";
 
 const PartnershipsPage = ({ data }) => {
     
     const sponsors = [aincLogo, aincLogo, aincLogo, aincLogo, aincLogo, aincLogo];
-    const lengthOfSponsors = sponsors.length
-
+    const lengthOfSponsors = sponsors.length;
     function scrollToRow() {
         document.getElementById("targetRow").scrollIntoView({ behavior: "smooth" });
     }
@@ -53,17 +55,11 @@ const PartnershipsPage = ({ data }) => {
                             </Row>
                         </Row>
                         </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.5 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 1.0, duration: 0.4 }}
-                        >
-                        </motion.div>
                     </Col>
                 </Row>
             </Container>
 
-            {/*experementing*/}
+            {/*Partners*/}
             <Container>
                 <Row className="py-5">
                     <Title className={`${styles.values}`}>
@@ -92,6 +88,7 @@ const PartnershipsPage = ({ data }) => {
                                         index%3 === 2 ? styles.gridItemMiddleRight :
                                         styles.gridItemMiddle
                                         }`}>
+                                            {/*need graphQL Data */}
                                         <Image
                                         style={{ maxWidth: "150px", height: "auto", padding: "7px" }}
                                         src={image}
@@ -106,6 +103,7 @@ const PartnershipsPage = ({ data }) => {
                 </Row>
             </Container>
             
+            {/*Interst Form Section */}
             <Container fluid className={`${styles.formHeading} py-5`}>
                <Col md={6} className="mx-auto py-5 text-center partnership-form-container">
                     <Row >
@@ -122,15 +120,86 @@ const PartnershipsPage = ({ data }) => {
                             <ProgramForm />
                         </Col>
                     </Row>
-
                 </Col>
             </Container>
-
-
             <tr id="targetRow">
                 <td>found me</td>
             </tr>
             
+            {/* Perks */}
+            <Container>
+                <Col className="text-center">
+                    <Title className={`${styles.values} mx-auto`}>
+                        BEING A PARTERN HAS IT'S PERKS
+                        <p className={`${styles.subHeading} mx-auto`}>These are just a few of the reasons companies partner with Awesome Inc</p>
+                    </Title>
+                    <Row className="mb-5">
+                        <Col  >
+                            <ImageOutline style={{ marginLeft: "1rem" }}>
+                            <StaticImage
+                                src="../../images/partnership/5across_june24-31.jpg"
+                                width={250}
+                                height={350}
+                                objectFit="cover"
+                                className="position-relative"
+                                alt="people brainstorming"
+                            />
+                           
+                            </ImageOutline>
+                        </Col>
+                        <Col >
+                            <ImageOutline style={{ marginLeft: "1rem" }}>
+                            <StaticImage
+                                src="../../images/partnership/5across_june24-16.jpg"
+                                width={250}
+                                height={350}
+                                objectFit="cover"
+                                className="position-relative"
+                                alt="people brainstorming"
+                            />
+                            </ImageOutline>
+                        </Col>
+                        <Col >
+                            <ImageOutline style={{ marginLeft: "1rem" }}>
+                            <StaticImage
+                                src="../../images/partnership/5across_june24-128.jpg"
+                                width={250}
+                                height={350}
+                                objectFit=""
+                                className="position-relative"
+                                alt="people brainstorming"
+                            />
+                            </ImageOutline>
+                        </Col>
+                    </Row>
+                </Col>
+            </Container>
+            
+            {/*Oppurtunites Section */}
+            <Container fluid className={styles.oppurtunitesHeading}>
+                <Row className="text-center">
+                    <Title className="mx-auto mt-5 text-white">PARTNERHSIP OPPURTUNITES</Title>
+                    <p className="text-white">Learn more about partnership options</p>
+                </Row>
+                <Row className="mt-5">
+                    {/*this is bad data sponosors need to be replaced */}
+                    {sponsors.map((event) => ( 
+                    <Col lg="4">
+                    <Row className="my-5">
+                        <Col sm="12">
+                            <div className={styles.headerBorder}>
+                            {/* need to change headings to start from h1 and increase by one for accessibility */}
+                            <h4 className={`${styles.headingSubtitle} p-2`}>
+                                <span>TITLE</span>
+                            </h4>
+                            <h4 className={`${styles.bodyText} p-2 mb-4`}>TESTIMONIAL: adfasdf asdfasdf asdfdasf asdfadsf asdfd asdfasdf asdf asdfasd  fjlksad;jfal;sdkjfalskdjfa;lksdfja sdl;fkjasdlfkjlfkds;aj;lksj aksjdfhaskdjfh k asdfalskdjfl;askdjflasdkjflak;jkljjlk;ajsd;lfkj</h4>
+                            </div>
+                        </Col>
+                        </Row>
+                    </Col>
+                    ))} 
+                </Row>
+            </Container>
         </Layout>
     );
 };
