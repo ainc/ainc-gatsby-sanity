@@ -154,4 +154,33 @@
       border: none;
     }
   }
+  .finalSection {
+    background-image: url("../../images/partnership/middletech_15years-56.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .finalHeading {
+    color: white;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .finalSubtext {
+    color: #ccc;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .finalButton {
+    @include font-size(10);
+  }
   

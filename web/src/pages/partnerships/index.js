@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Col, Container, Row, Image } from "react-bootstrap";
 import SEO from "../../components/seo";
-import { StaticImage } from "gatsby-plugin-image";
+import { StaticImage, GatsbyImage } from "gatsby-plugin-image";
 import Layout from "../../components/Layout/Layout.js";
 import BackgroundCard from "../../components/BackgroundCard/BackgroundCard";
 import { motion } from "framer-motion";
@@ -11,7 +11,8 @@ import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import ProgramForm from "../../components/Forms/YouthProgramGuide.js/partnershipsForm.js"
 import ImageOutline from "../../components/ImageOutline/ImageOutline";
 import FiveAcrossWinnersCard from "../../components/FiveAcrossWinnersCard/FiveAcrossWinnersCard";
-
+import { Carousel } from "react-bootstrap";
+import Subtitle from "../../components/UI/Subtitle/Subtitle";
 
 import aincLogo from "../../images/logo.png";
 
@@ -122,11 +123,11 @@ const PartnershipsPage = ({ data }) => {
                     </Row>
                 </Col>
             </Container>
+            
             <tr id="targetRow">
-                <td>found me</td>
             </tr>
             
-            {/* Perks */}
+            {/* Perks section*/}
             <Container>
                 <Col className="text-center">
                     <Title className={`${styles.values} mx-auto`}>
@@ -188,16 +189,49 @@ const PartnershipsPage = ({ data }) => {
                     <Row className="my-5">
                         <Col sm="12">
                             <div className={styles.headerBorder}>
-                            {/* need to change headings to start from h1 and increase by one for accessibility */}
                             <h4 className={`${styles.headingSubtitle} p-2`}>
                                 <span>TITLE</span>
                             </h4>
-                            <h4 className={`${styles.bodyText} p-2 mb-4`}>TESTIMONIAL: adfasdf asdfasdf asdfdasf asdfadsf asdfd asdfasdf asdf asdfasd  fjlksad;jfal;sdkjfalskdjfa;lksdfja sdl;fkjasdlfkjlfkds;aj;lksj aksjdfhaskdjfh k asdfalskdjfl;askdjflasdkjflak;jkljjlk;ajsd;lfkj</h4>
+                            <h4 className={`${styles.bodyText} p-2 mb-4`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
                             </div>
                         </Col>
                         </Row>
                     </Col>
                     ))} 
+                </Row>
+            </Container>         
+            {/* Testimonial section */}
+            <Container>
+            <Carousel indicators={true} className={`${styles.carouselHeight} my-3`}>
+                {sponsors.map((index) => (
+                <Carousel.Item key={index}>
+                    <Row className="p-1 d-flex justify-content-center">
+                    <Image
+                        style={{maxWidth: "150px", height: "auto", padding: "15px" }}
+                        src={aincLogo}
+                        alt={`Sponsor ${index + 1}`}
+                    />
+                    <Row md={2} className="text-center">
+                        <p className="mx-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </Row>
+                    <Col className="p-3 d-flex flex-column align-items-center align-items-md-start">
+                        <Subtitle className="mx-auto" style={{ color: "#C12029" }}>company name</Subtitle>
+                    </Col>
+                    </Row>
+                </Carousel.Item>
+                ))}
+            </Carousel>
+            </Container>
+
+            {/* Foot Section */}
+            <Container fluid className={styles.finalSection}>
+                <Row>
+                    <Col>
+                        <h2 className={styles.finalHeading}>We'd love to have you as a partner.</h2>
+                        <BrandButton className={`${styles.finalButton}, btn--small`}>
+                        Learn More
+                        </BrandButton>
+                    </Col>
                 </Row>
             </Container>
         </Layout>
