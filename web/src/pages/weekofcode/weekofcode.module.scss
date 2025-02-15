@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------------
+@import "../../styles/variables.scss";
+@import "../../styles/mixins";
+// -----------------------------------------------------------------------------
+
+
 .header-section {
   background-image: url("./images/Hero_BG_Desktop.png");
   background-repeat: no-repeat;
@@ -120,3 +126,5 @@
   object-fit: cover;
   width: 100%;
 }
+
+
