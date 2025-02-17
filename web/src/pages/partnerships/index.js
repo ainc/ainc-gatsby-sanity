@@ -157,7 +157,6 @@ const PartnershipsPage = ({ data }) => {
                                 <p className={`${styles.finalSubText} text-white`}>
                                     Cintrifuse is a non-profit organization and relies on the support of our generous donors to continue fostering innovation, empowering founders, and bulding a thriving startup ecosystem in cincinnati. your support can make a real difference in shaping the furture of entrepreneurship and tech
                                 </p>
-
                                 </Container>
                                 </ImageOutline>
                                 
@@ -182,7 +181,7 @@ const PartnershipsPage = ({ data }) => {
                         <Col sm="12">
                             <div className={styles.headerBorder}>
                             <h4 className={`${styles.headingSubtitle} p-2`}>
-                                <span>TITLE</span>
+                               TITLE
                             </h4>
                             <h4 className={`${styles.bodyText} p-2 mb-4`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
                             </div>
