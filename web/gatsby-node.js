@@ -64,7 +64,7 @@ async function createBlogPostPages(graphql, actions) {
 
   //pagination for all blog posts
   const blogCount = result.data.allSanityBlog.totalCount;
-  const blogsPerPage = 9;
+  const blogsPerPage = 10; //changed from 9 to 10
   const numBlogs = Math.ceil(blogCount / blogsPerPage);
 
   Array.from({ length: numBlogs }).forEach((_, i) => {
@@ -102,7 +102,7 @@ async function createPodcastPages(graphql, actions) {
   }
 
   const posts = result.data.allFeedAnchorPodcast.nodes;
-  const postsPerPage = 10;
+  const postsPerPage = 10; //changed from 9 to 10, p
   const numPages = Math.ceil(posts.length / postsPerPage);
 
   //pagination with import
