@@ -1,4 +1,5 @@
 import * as React from "react";
+import { graphql } from "gatsby";
 import { Col, Container, Row, Image } from "react-bootstrap";
 import SEO from "../../components/seo";
 import { StaticImage, GatsbyImage } from "gatsby-plugin-image";
@@ -13,22 +14,43 @@ import ImageOutline from "../../components/ImageOutline/ImageOutline";
 import FiveAcrossWinnersCard from "../../components/FiveAcrossWinnersCard/FiveAcrossWinnersCard";
 import { Carousel } from "react-bootstrap";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
-import BorderlessCard from "../../components/BorderlessCard/BorderlessCard";
 
+import PerkImage1 from "../../images/partnership/5across_june24-31.jpg";
+import PerkImage2 from "../../images/partnership/5across_june24-16.jpg";
+import PerkImage3 from "../../images/partnership/5across_june24-128.jpg";
+import Desktop from "../../images/Rent_Workspace.png";
+import Rocket from "../../images/accelerate-your-startup.png"
+import HTMLBrackets from "../../images/Learn_To_Code.png"
 
 {/* test data */}
-import aincLogo from "../../images/logo.png";
-import perkImage1 from "../../images/partnership/5across_june24-31.jpg";
-import perkImage2 from "../../images/partnership/5across_june24-16.jpg";
-import perkImage3 from "../../images/partnership/5across_june24-128.jpg";
-import Desktop from "../../images/Desk.png";
+import AincLogo from "../../images/logo.png";
 
+
+
+export const query_partnership = graphql`
+query PartnersPage {
+    allSanityFiveAcrossSponsors {
+      nodes {
+        suppourtingSponsors {
+            image {
+                asset {
+                  gatsbyImageData(layout: CONSTRAINED)
+                }
+              }
+        }
+      }
+    }
+    
+  }
+`;
 
 const PartnershipsPage = ({ data }) => {
     
-    const perksImages = [perkImage1,perkImage2 ,perkImage3]
-    const sponsors = [aincLogo, aincLogo, aincLogo, aincLogo, aincLogo, aincLogo];
+    const perksImages = [PerkImage1,PerkImage2 ,PerkImage3]
+    const perkIcons = [Rocket, HTMLBrackets, Desktop]
+    const sponsors = data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors;
     const lengthOfSponsors = sponsors.length;
+    const partnershipOppurtunites = ['Fellowshop/HOF Suppor', '5 Across', 'Demo Days', 'Investor 1-1s', 'Newsletters', 'Summer Retreat', 'Lunch and Learn', 'Mentor Sessions']
     function scrollToRow() {
         document.getElementById("targetRow").scrollIntoView({ behavior: "smooth" });
     }
@@ -86,7 +108,7 @@ const PartnershipsPage = ({ data }) => {
                             {/*sponsoers grid*/}
                             <Col>
                                 <Row className={`${styles.sponsorGrid}`}>
-                                    {sponsors.map((image, index) => (
+                                    {sponsors.map((sponsor, index) => (
                                     <Col key={index} className={`${
                                         index % 3 === 0 && index >= lengthOfSponsors - 4 ? styles.gridItemBottomLeft :
                                         index % 3 === 1 && index >= lengthOfSponsors - 3 ? styles.gridItemMiddleBottom :
@@ -97,11 +119,10 @@ const PartnershipsPage = ({ data }) => {
                                         index%3 === 0 ? styles.gridItemMiddleLeft :
                                         index%3 === 2 ? styles.gridItemMiddleRight :
                                         styles.gridItemMiddle
-                                        }`}>
+                                        } p-4`}>
                                             {/*need graphQL Data */}
-                                        <Image
-                                        style={{ maxWidth: "150px", height: "auto", padding: "7px" }}
-                                        src={image}
+                                        <GatsbyImage
+                                        image={sponsor.image.asset.gatsbyImageData}
                                         alt={`Sponsor ${index + 1}`}
                                         />
                                     </Col>
@@ -145,13 +166,12 @@ const PartnershipsPage = ({ data }) => {
                     </Title>
                     <Row className="mb-5">
                         <Col>
-                            {perksImages.map((image) => (
-                                
+                            {perksImages.map((image,index) => (
                                 <ImageOutline style={{ marginLeft: "5rem" }}>
                                 <Container className={`${styles.perksImage}`} style={{backgroundImage:`url(${image})`}}> 
                                 <Image 
                                     style={{ maxWidth: "100px", height: "auto", padding: "7px" }}
-                                    src={Desktop}
+                                    src={perkIcons[index]}
                                     alt=''
                                 />
                                 <p className={`${styles.finalSubText} text-white`}>
@@ -159,7 +179,6 @@ const PartnershipsPage = ({ data }) => {
                                 </p>
                                 </Container>
                                 </ImageOutline>
-                                
                             ))}
                            
                         </Col>
@@ -175,15 +194,15 @@ const PartnershipsPage = ({ data }) => {
                 </Row>
                 <Row className="mt-5">
                     {/*this is bad data sponosors need to be replaced */}
-                    {sponsors.map((event) => ( 
+                    {partnershipOppurtunites.map((title) => ( 
                     <Col lg="4">
-                    <Row className="my-5">
+                    <Row className="my-3 mx-3">
                         <Col sm="12">
                             <div className={styles.headerBorder}>
-                            <h4 className={`${styles.headingSubtitle} p-2`}>
-                               TITLE
+                            <h4 className={`${styles.headingSubtitle} my-2`}>
+                               {title}
                             </h4>
-                            <h4 className={`${styles.bodyText} p-2 mb-4`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
+                            <h4 className={`${styles.bodyText} p-5 mb-4`}>Our space and network can provide an opportunity for entrepreneurs to get connected to who they need to be successful</h4>
                             </div>
                         </Col>
                         </Row>
@@ -200,7 +219,7 @@ const PartnershipsPage = ({ data }) => {
                     <Row className="p-1 d-flex justify-content-center">
                     <Image
                         style={{maxWidth: "150px", height: "auto", padding: "15px" }}
-                        src={aincLogo}
+                        src={AincLogo}
                         alt={`Sponsor ${index + 1}`}
                     />
                     <Row md={2} className="text-center">
@@ -229,5 +248,7 @@ const PartnershipsPage = ({ data }) => {
         </Layout>
     );
 };
+
+
 
 export default PartnershipsPage;

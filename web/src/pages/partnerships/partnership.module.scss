@@ -146,12 +146,14 @@
       font-weight: 400;
       color: white;
       text-align: center;
+      font-weight: 600;
     }
   
     .heading,
     .heading-subtitle {
       text-align: center;
-      font-weight: bold;
+      font-size: larger;
+      font-weight: bolder;
       color: white;
       text-decoration: underline;
       text-decoration-color: white;
@@ -162,8 +164,9 @@
   .final-section {
     background-image: url("../../images/partnership/middletech_15years-56.jpg");
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    min-height: 70vh;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     align-items: center;
