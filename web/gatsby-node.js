@@ -64,7 +64,7 @@ async function createBlogPostPages(graphql, actions) {
 
   //pagination for all blog posts
   const blogCount = result.data.allSanityBlog.totalCount;
-  const blogsPerPage = 9;
+  const blogsPerPage = 10;
   const numBlogs = Math.ceil(blogCount / blogsPerPage);
 
   Array.from({ length: numBlogs }).forEach((_, i) => {
