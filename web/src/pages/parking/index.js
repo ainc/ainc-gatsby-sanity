@@ -1,15 +1,31 @@
 import * as React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import SEO from "../../components/seo";
-import { StaticImage } from "gatsby-plugin-image";
+import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../../components/Layout/Layout";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import * as styles from "./parking.module.css";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { useState } from "react"; // Import useState for modal functionality
+import ModalCustom from "../../components/Modal/ModalCustom"; // Import the modal component
+import aincOrbitGif from "../../images/aincOrbit.gif"; //should be new aincOrbit
 
 const ParkingPage = ({ data }) => {
+  // State for modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Function to open the modal
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  // Function to close the modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <Layout>
       <Container className="ps-3">
@@ -29,21 +45,21 @@ const ParkingPage = ({ data }) => {
           </p>
         </Col>
         <Row>
+          {/* Parking map Button with alignment */}
           <Col
             xs={{ offset: 2, span: 8 }}
             md={{ offset: 4, span: 4 }}
             lg={{ offset: 4 }}
             xl={{ offset: 4, span: 5 }}
           >
-            <a
-              target="_blank"
-              href="https://www.google.com/maps/d/u/0/viewer?ll=38.041576999999975%2C-84.49243799999999&hl=en&f=q&hq=parking%20near%20awesome%20inc&source=s_q&spn=0.003333%2C0.004823&t=h&geocode&msa=0&z=18&ie=UTF8&hnear&mid=1tuKBp8oRRCexyub92RobT_smUMI"
+            {/* Updated Button to Open Modal */}
+            <BrandButton
+              className={`mb-4 mt-5 ${styles.button}`}
+              onClick={openModal} // Open modal on click
             >
-              <BrandButton className={`mb-4 mt-5 ${styles.button} `}>
-                Parking map
-                <FaMapMarkerAlt className="mb-1 ms-2"></FaMapMarkerAlt>
-              </BrandButton>
-            </a>
+              Parking map
+              <FaMapMarkerAlt className="mb-1 ms-2"></FaMapMarkerAlt>
+            </BrandButton>
           </Col>
         </Row>
         <Col
@@ -113,6 +129,61 @@ const ParkingPage = ({ data }) => {
           </ul>
         </Col>
       </Container>
+      {/* orbit gif */}
+      <Col className="d-flex justify-content-center">
+        <img
+          src={aincOrbitGif}
+          alt="Awesome Inc 3D Orbit View"
+          width="600"
+          height="450"
+        />
+      </Col>
+      {/* space holder */}
+      <div>
+        <p>
+          <br></br>
+        </p>
+      </div>
+
+      {/* Modal for Parking Map */}
+      <ModalCustom
+        lgShow={isModalOpen} // Pass the modal state
+        hide={closeModal} // Pass the close handler
+        title="Parking Map" // Modal title
+        content={
+          <Container>
+            {/* Embedded Google Map */}
+            <Row>
+              <iframe
+                src="https://www.google.com/maps/d/u/0/embed?mid=1tuKBp8oRRCexyub92RobT_smUMI"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen
+              ></iframe>
+            </Row>
+            {/* Centered "Open Full Parking Map in Google Maps" Button */}
+            <Row className="mt-3">
+              <Col className="d-flex justify-content-center">
+                <a
+                  href="https://www.google.com/maps/d/u/0/viewer?mid=1tuKBp8oRRCexyub92RobT_smUMI"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-decoration-none"
+                >
+                  <BrandButton>
+                    Open Full Parking Map in Google Maps
+                  </BrandButton>
+                </a>
+              </Col>
+            </Row>
+            {/* Close Button (not centered) */}
+            <Row className="mt-3">
+              <BrandButton onClick={closeModal}>Close</BrandButton>
+            </Row>
+          </Container>
+        }
+      />
     </Layout>
   );
 };
