@@ -13,11 +13,20 @@ import ImageOutline from "../../components/ImageOutline/ImageOutline";
 import FiveAcrossWinnersCard from "../../components/FiveAcrossWinnersCard/FiveAcrossWinnersCard";
 import { Carousel } from "react-bootstrap";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
+import BorderlessCard from "../../components/BorderlessCard/BorderlessCard";
 
+
+{/* test data */}
 import aincLogo from "../../images/logo.png";
+import perkImage1 from "../../images/partnership/5across_june24-31.jpg";
+import perkImage2 from "../../images/partnership/5across_june24-16.jpg";
+import perkImage3 from "../../images/partnership/5across_june24-128.jpg";
+import Desktop from "../../images/Desk.png";
+
 
 const PartnershipsPage = ({ data }) => {
     
+    const perksImages = [perkImage1,perkImage2 ,perkImage3]
     const sponsors = [aincLogo, aincLogo, aincLogo, aincLogo, aincLogo, aincLogo];
     const lengthOfSponsors = sponsors.length;
     function scrollToRow() {
@@ -135,42 +144,25 @@ const PartnershipsPage = ({ data }) => {
                         <p className={`${styles.subHeading} mx-auto`}>These are just a few of the reasons companies partner with Awesome Inc</p>
                     </Title>
                     <Row className="mb-5">
-                        <Col  >
-                            <ImageOutline style={{ marginLeft: "1rem" }}>
-                            <StaticImage
-                                src="../../images/partnership/5across_june24-31.jpg"
-                                width={250}
-                                height={350}
-                                objectFit="cover"
-                                className="position-relative"
-                                alt="people brainstorming"
-                            />
+                        <Col>
+                            {perksImages.map((image) => (
+                                
+                                <ImageOutline style={{ marginLeft: "5rem" }}>
+                                <Container className={`${styles.perksImage}`} style={{backgroundImage:`url(${image})`}}> 
+                                <Image 
+                                    style={{ maxWidth: "100px", height: "auto", padding: "7px" }}
+                                    src={Desktop}
+                                    alt=''
+                                />
+                                <p className={`${styles.finalSubText} text-white`}>
+                                    Cintrifuse is a non-profit organization and relies on the support of our generous donors to continue fostering innovation, empowering founders, and bulding a thriving startup ecosystem in cincinnati. your support can make a real difference in shaping the furture of entrepreneurship and tech
+                                </p>
+
+                                </Container>
+                                </ImageOutline>
+                                
+                            ))}
                            
-                            </ImageOutline>
-                        </Col>
-                        <Col >
-                            <ImageOutline style={{ marginLeft: "1rem" }}>
-                            <StaticImage
-                                src="../../images/partnership/5across_june24-16.jpg"
-                                width={250}
-                                height={350}
-                                objectFit="cover"
-                                className="position-relative"
-                                alt="people brainstorming"
-                            />
-                            </ImageOutline>
-                        </Col>
-                        <Col >
-                            <ImageOutline style={{ marginLeft: "1rem" }}>
-                            <StaticImage
-                                src="../../images/partnership/5across_june24-128.jpg"
-                                width={250}
-                                height={350}
-                                objectFit=""
-                                className="position-relative"
-                                alt="people brainstorming"
-                            />
-                            </ImageOutline>
                         </Col>
                     </Row>
                 </Col>
@@ -179,7 +171,7 @@ const PartnershipsPage = ({ data }) => {
             {/*Oppurtunites Section */}
             <Container fluid className={styles.oppurtunitesHeading}>
                 <Row className="text-center">
-                    <Title className="mx-auto mt-5 text-white">PARTNERHSIP OPPURTUNITES</Title>
+                    <Title className="mx-auto mt-5 text-white">PARTNERHSIP OPPORTUNITES</Title>
                     <p className="text-white">Learn more about partnership options</p>
                 </Row>
                 <Row className="mt-5">
@@ -201,7 +193,8 @@ const PartnershipsPage = ({ data }) => {
                 </Row>
             </Container>         
             {/* Testimonial section */}
-            <Container>
+            <Container className="py-5">
+            <Title className={`${styles.greyUnderline} text-center mt-5`} >TESTIMONIALS</Title>
             <Carousel indicators={true} className={`${styles.carouselHeight} my-3`}>
                 {sponsors.map((index) => (
                 <Carousel.Item key={index}>

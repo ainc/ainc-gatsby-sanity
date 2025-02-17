@@ -25,12 +25,14 @@
     background-image: url("../../images/partnership/5across_june24-71.jpg");
     background-size: cover;
     background-position: center;
-    height: 93vh;
-    width: 100vw;
-
-    @include screen-md {
-      height: 110vh;
-    }
+    background-repeat: no-repeat;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
 }
   
   .values {
@@ -38,6 +40,15 @@
     margin-top: 0;
     font-weight: 1000;
     color: $brand-color;
+  }
+  .grey-underline {
+    margin-bottom: 1rem;
+    margin-top: 0;
+    font-weight: 1000;
+    color: $brand-color;
+    text-decoration: underline;
+    text-decoration-color: grey;
+    text-underline-offset: 20px;
   }
   
   .subHeading {
@@ -154,7 +165,7 @@
       border: none;
     }
   }
-  .finalSection {
+  .final-section {
     background-image: url("../../images/partnership/middletech_15years-56.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -167,14 +178,14 @@
     padding: 2rem;
   }
   
-  .finalHeading {
+  .final-heading {
     color: white;
     font-weight: 700;
     font-size: 2rem;
     margin-bottom: 1rem;
   }
   
-  .finalSubtext {
+  .final-subtext {
     color: #ccc;
     font-size: 1rem;
     margin-bottom: 2rem;
@@ -184,3 +195,9 @@
     @include font-size(10);
   }
   
+  .perks-image {
+    background-size: cover;
+    background-position: center;
+    height: 45vh;
+    width: 30vh;
+  }
