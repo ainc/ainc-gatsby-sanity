@@ -158,17 +158,20 @@ const PartnershipsPage = ({ data }) => {
             </tr>
             
             {/* Perks section*/}
-            <Container>
-                <Col className="text-center">
-                    <Title className={`${styles.values} mx-auto`}>
-                        BEING A PARTERN HAS IT'S PERKS
-                        <p className={`${styles.subHeading} mx-auto`}>These are just a few of the reasons companies partner with Awesome Inc</p>
-                    </Title>
-                    <Row className="mb-5">
-                        <Col>
+            <Container className="text-center">
+                <Row className="mb-5 ">
+
+                        <Title className={`${styles.values} mx-auto my-5`}>
+                            BEING A PARTERN HAS IT'S PERKS
+                            <p className={`${styles.subHeading} mx-auto`}>These are just a few of the reasons companies partner with Awesome Inc</p>
+                        </Title>
+                        <Col >
                             {perksImages.map((image,index) => (
                                 <ImageOutline style={{ marginLeft: "5rem" }}>
-                                <Container className={`${styles.perksImage}`} style={{backgroundImage:`url(${image})`}}> 
+                                <Container className={`${styles.perksImage}`} style={{backgroundImage:`linear-gradient(
+                                    rgba(18, 2, 2, 0.409),
+                                    rgba(18, 2, 2, 0.409)
+                                    ), url(${image})`}}> 
                                 <Image 
                                     style={{ maxWidth: "100px", height: "auto", padding: "7px" }}
                                     src={perkIcons[index]}
@@ -183,7 +186,6 @@ const PartnershipsPage = ({ data }) => {
                            
                         </Col>
                     </Row>
-                </Col>
             </Container>
             
             {/*Oppurtunites Section */}
@@ -239,7 +241,7 @@ const PartnershipsPage = ({ data }) => {
                 <Row>
                     <Col>
                         <h2 className={styles.finalHeading}>We'd love to have you as a partner.</h2>
-                        <BrandButton className={`${styles.finalButton}, btn--small`}>
+                        <BrandButton className={`${styles.finalButton}, btn--small my-4`}>
                         Learn More
                         </BrandButton>
                     </Col>

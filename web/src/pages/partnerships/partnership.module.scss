@@ -1,7 +1,12 @@
 @import "../../styles/main.scss";
 
 .main-heading {
-    background-image: url("../../images/partnership/5accross_june24_70.jpg");
+    background-image:
+    linear-gradient(
+      rgba(255, 255, 252, 0),
+      rgba(255, 0, 0, 0.467)
+      ), 
+      url("../../images/partnership/5accross_june24_70.jpg");
     background-size: cover;
     background-position: center;
     height: 93vh;
@@ -10,7 +15,12 @@
     }
   }
 .form-heading {
-    background-image: url("../../images/partnership/5accross_june24_67.jpg");
+    background-image: 
+      linear-gradient(
+        rgba(255, 0, 0, 0.218),
+        rgba(255, 0, 0, 0.218)
+        ), 
+      url("../../images/partnership/5accross_june24_67.jpg");
     background-size: cover;
     background-position: center;
     height: 93vh;
@@ -22,7 +32,12 @@
   }
 
 .oppurtunites-heading {
-    background-image: url("../../images/partnership/5across_june24-71.jpg");
+    background-image: 
+    linear-gradient(
+      rgba(255, 0, 0, 0.218),
+      rgba(255, 0, 0, 0.218)
+      ), 
+    url("../../images/partnership/5across_june24-71.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -164,9 +179,9 @@
   .final-section {
     background-image: url("../../images/partnership/middletech_15years-56.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: center -300px;
     background-repeat: no-repeat;
-    height: 70vh;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
