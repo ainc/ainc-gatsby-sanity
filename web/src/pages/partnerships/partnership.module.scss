@@ -68,8 +68,10 @@
   
   .subHeading {
     align-self: start;
-    width: 50vh;
+    width: 35vh;
     color: $brand-grey-dark;
+    font-style: italic;
+    font-weight: 500;
   }
 
   
@@ -77,12 +79,6 @@
 .sponsor-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-}
-
-.grid-item-bottom-left:nth-child(7) {
-    grid-column: 1; 
-    border-right: 2px solid grey;
-    border-top: 2px solid grey;
 }
   
 .grid-item-middle{
@@ -177,11 +173,16 @@
   
   }
   .final-section {
-    background-image: url("../../images/partnership/middletech_15years-56.jpg");
+    background-image: 
+    linear-gradient(
+      rgba(18, 2, 2, 0.409),
+      rgba(18, 2, 2, 0.409)
+    ),
+    url("../../images/partnership/middletech_15years-56.jpg");
     background-size: cover;
     background-position: center -300px;
-    background-repeat: no-repeat;
-    height: 50vh;
+    height: 500px;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -193,7 +194,7 @@
   .final-heading {
     color: white;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 60px;
     margin-bottom: 1rem;
   }
   

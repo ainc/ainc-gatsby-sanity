@@ -96,10 +96,10 @@ const PartnershipsPage = ({ data }) => {
                 <Row className="py-5">
                     <Title className={`${styles.values}`}>
                         <Row>
-                            <Col>
-                                <h1>SPONSORS.</h1>
-                                <h1>PARTNERS.</h1>
-                                <h1>FRIENDS.</h1>
+                            <Col style={{fontSize: '75px'}}>
+                                <Row>SPONSORS.</Row>
+                                <Row>PARTNERS.</Row>
+                                <Row>FRIENDS.</Row>
                                 <Row className={`${styles.subHeading}`}>
                                     <p>The people and partners who push the bluegrass forward with us.</p>
                                 </Row>
@@ -139,10 +139,11 @@ const PartnershipsPage = ({ data }) => {
                <Col md={6} className="mx-auto py-5 text-center partnership-form-container">
                     <Row >
                         <div className="partnership-form-card">
-                            <Title className="text-white mb-5">
-                                Interested in becoming a partner?
-                                <p>Fill out the form below and we will be in touch.</p>
+                            <Title className="text-white">
+                                Interested in 
                             </Title>
+                            <Title className='text-white'>becoming a partner?</Title>
+                            <p className={`${styles.subHeading} mx-auto text-white`}>Fill out the form below and we will be in touch.</p>
                         </div>
                         
                     </Row>
@@ -240,7 +241,7 @@ const PartnershipsPage = ({ data }) => {
             <Container fluid className={styles.finalSection}>
                 <Row>
                     <Col>
-                        <h2 className={styles.finalHeading}>We'd love to have you as a partner.</h2>
+                        <h2 className={`${styles.finalHeading}`}>We'd love to have you as a partner.</h2>
                         <BrandButton className={`${styles.finalButton}, btn--small my-4`}>
                         Learn More
                         </BrandButton>
