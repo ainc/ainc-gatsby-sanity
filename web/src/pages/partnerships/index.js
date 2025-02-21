@@ -136,13 +136,10 @@ const PartnershipsPage = ({ data }) => {
             
             {/*Interst Form Section */}
             <Container fluid className={`${styles.formHeading} py-5`}>
-               <Col md={6} className="mx-auto py-5 text-center partnership-form-container">
+               <Col md={6} className="mx-auto py-5 text-center">
                     <Row >
-                        <div className="partnership-form-card">
-                            <Title className="text-white">
-                                Interested in 
-                            </Title>
-                            <Title className='text-white'>becoming a partner?</Title>
+                        <div>
+                            <Title className="text-white">Interested in becoming a partner?</Title>
                             <p className={`${styles.subHeading} mx-auto text-white`}>Fill out the form below and we will be in touch.</p>
                         </div>
                         
