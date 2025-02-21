@@ -11,21 +11,20 @@ export default function BlogPreview({ blog }) {
 
   const defaultBgImageUrl = "../../images/logo.png";
 
-  const bgImage =
-    edge.node.thumbnail.asset !== null
-      ? `url(${edge.node.thumbnail.asset.url}`
-      : `url(${defaultBgImageUrl}`;
-  const refImage =
-    edge.node.reference.picture !== null
-      ? `edge.node.reference.picture`
-      : `url(${defaultBgImageUrl})`;
+  const bgImage = edge.node.thumbnail?.asset?.url
+    ? `url(${edge.node.thumbnail.asset.url})`
+    : `url(${defaultBgImageUrl})`;
+
+  // Safely access reference picture
+  const refImage = edge.node.reference?.picture
+    ? `${edge.node.reference.picture}`
+    : `url(${defaultBgImageUrl})`;
 
   return (
     <Col xs={12} md={6} className="mt-4 px-0 px-sm-2" key={edge.id}>
       <Container className="blog-card border border-2 rounded-1">
         <Row className="p-3 h-100">
           <Col xs={12} className="p-0">
-            {/* <Container className="blog-image d-flex align-items-end relative" style={{  */}
             <Container
               className="blog-image d-flex flex-column"
               style={{
@@ -60,13 +59,9 @@ export default function BlogPreview({ blog }) {
                     objectFit="contain"
                     style={{ height: "70px", width: "70px", zIndex: "2" }}
                     image={
-                      edge.node.reference.picture?.asset?.gatsbyImageData || ""
+                      edge.node.reference?.picture?.asset?.gatsbyImageData || ""
                     }
-                    alt={
-                      edge.node.reference.name !== null
-                        ? edge.node.reference.name
-                        : ""
-                    }
+                    alt={edge.node.reference?.name || ""}
                     className="rounded-circle border border-3 border-white my-0 ms-0"
                   />
                 </Col>
@@ -78,7 +73,7 @@ export default function BlogPreview({ blog }) {
                     className="author"
                     style={{ fontWeight: "800", zIndex: "2" }}
                   >
-                    {edge.node.reference.name}, {edge.node.reference.title}
+                    {edge.node.reference?.name}, {edge.node.reference?.title}
                   </Title>
                   <p style={{ zIndex: "2" }} className="date text-white">
                     {" "}
