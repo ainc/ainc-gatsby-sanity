@@ -110,7 +110,7 @@ const fiveAcrossPage = ({ data }) => {
 
       <Container className="my-5 pt-2">
         <Subtitle className="text-center fw-bold">
-          5 Across has given over 250 founders a new platform and thousands of
+          5 Across has given over 350 founders a new platform and thousands of
           Kentuckians a fun place to engage with local startups.
         </Subtitle>
         <Row className="mt-5 d-flex justify-content-center">
