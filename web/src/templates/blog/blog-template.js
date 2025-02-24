@@ -41,24 +41,21 @@ const Blog = ({ pageContext }) => {
           <Col sm={{ span: 8, offset: 2 }}>
             <Title className="mt-5">{blogInfo.title}</Title>
             <Container className="my-4">
-              <Row className="">
-                <Col
-                  xs={{ span: 2 }}
-                  sm={{ span: 1 }}
-                  className="d-flex justify-content-center p-0 rounded-circle border border-1 border-dark"
-                >
+              <Row >
+                <Col xs={{span:3}} sm={{span:4}} md={{span: 2}} >
                   <GatsbyImage
                     objectFit="cover"
                     image={authorImage}
                     // image={'../../images/ainc-logo-horizontal-white-text.png'}
                     alt={blogInfo.reference.name}
-                    className="rounded-circle border border-3 border-white p-1"
+                    className="rounded-circle p-4"
+                    style={{ outline: "1px solid black", border: "3px solid white" }}
                   />
                 </Col>
                 <Col
                   xs={{ span: 10 }}
                   sm={{ span: 10 }}
-                  className="d-flex justify-content-start align-content-center flex-column mt-2 mt-sm-1 mx-0 mx-sm-1"
+                  className="d-flex justify-content-start align-content-center flex-column mt-2 mx-0"
                 >
                   <Title className={`${styles.author} mb-0`}>
                     {blogInfo.reference.name}, {blogInfo.reference.title}
