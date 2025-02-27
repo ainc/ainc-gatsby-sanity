@@ -1,0 +1,59 @@
+.button-container {
+  display: flex;
+  gap: 10px; /* space between buttons */
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ed3742;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: "Roboto", sans-serif;
+}
+
+button:hover {
+  background-color: #bf2329;
+}
+
+button:focus {
+  outline: none;
+}
+
+.company-info-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Ensures better alignment */
+  gap: 10px; /* Adds space between elements */
+  margin-top: 20px;
+}
+
+.company-box {
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.company-box img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.company-box h3 {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+.company-box p {
+  font-size: 1rem;
+  color: #555;
+}
