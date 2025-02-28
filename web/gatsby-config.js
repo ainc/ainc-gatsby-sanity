@@ -21,6 +21,14 @@ module.exports = {
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-netlify",
     {
+      resolve: 'gatsby-source-google-spreadsheets',
+      options: {
+        spreadsheetId: '1EAvRMNAvI9A7tY6DP7bZVzVYQC7365kRkTUaxMMujU0',
+        credentials: require('./test-scoreboard-5across-c1727cd0855e.json')
+
+      }
+    },
+    {
       resolve: "gatsby-plugin-sharp",
       options: {
         placeholder: `dominantColor`,
