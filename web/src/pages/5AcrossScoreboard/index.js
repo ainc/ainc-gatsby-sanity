@@ -20,9 +20,17 @@ const FiveAcrossScoreboard = ({ data }) => {
     const filterByName = (data, name) => {
         const nodes = data.allGoogleSheet.nodes[0].Sheet1;
 
-        const filteredData = nodes.filter((item) =>
-          item.fName.trim().toLowerCase().includes(name.toLowerCase())
-        );
+        if (!name || name.trim() == '') {
+            return nodes
+        }   
+        const search = name.trim().toLowerCase();
+
+        const filteredData = nodes.filter(({ fName, lName }) => {
+            const fullName = `${fName} ${lName}`.toLowerCase();
+            return fName.toLowerCase().includes(search) ||
+                lName.toLowerCase().includes(search) ||
+                fullName.includes(search);
+        });
         return filteredData;
       };
 
