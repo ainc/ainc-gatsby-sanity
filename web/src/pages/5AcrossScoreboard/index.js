@@ -1,121 +1,146 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 import * as styles from "./5AcrossScoreboard.module.scss";
 import Layout from "../../components/Layout/Layout";
 import { Container, Row, Col } from "react-bootstrap";
 import Title from "../../components/UI/Title/Title";
-
+import HorizontalButtons from "../events/5across/HorizontalButtons.js";
 
 const FiveAcrossScoreboard = ({ data }) => {
-    // Extract the nodes array from the data structure and sort them in order by points 
+    const [formName, setFormName] = useState(""); // initialize with empty string
+    const [filteredData, setFilteredData] = useState(data.allGoogleSheet.nodes[0].Sheet1);
+
+    // Extract and sort the nodes by points
     const nodes = data.allGoogleSheet.nodes[0].Sheet1;
-    nodes.sort((a, b) => b.points - a.points);   
+    const nextFiveAcross = data.allSanityEvents.nodes || {};
+    nodes.sort((a, b) => b.points - a.points);
     nodes.forEach((node, index) => {
-        node.rank = index + 1; 
+        node.rank = index + 1;
     });
 
-    // State to manage filtered data
-    const [filteredData, setFilteredData] = useState(nodes);
+    const filterByName = (name) => {
+        if (!name || name.trim() === "") {
+            setFilteredData(nodes); // reset to all data if name is empty
+            return;
+        }
 
-    
-    const filterByName = (data, name) => {
-        const nodes = data.allGoogleSheet.nodes[0].Sheet1;
-       
-        if (!name || name.trim() == '') {
-            return nodes
-        }   
         const search = name.trim().toLowerCase();
-        console.log(search)
-
         const filteredData = nodes.filter(({ fName, lName }) => {
-            const fullName = fName.toLowerCase().trim() + ' ' + lName.toLowerCase().trim();
-            return fName.toLowerCase().includes(search) ||
+            const fullName = fName.toLowerCase().trim() + " " + lName.toLowerCase().trim();
+            return (
+                fName.toLowerCase().includes(search) ||
                 lName.toLowerCase().includes(search) ||
-                fullName.includes(search);
+                fullName.includes(search)
+            );
         });
-        return filteredData;
-      };
-
-      // Handle form submission
-    const handleSubmit = (e) => {
-        e.preventDefault(); 
-       
-        const formData = new FormData(e.target);
-        
-        const name = formData.get("name");
-
-        const filteredData = filterByName(data, name);
         setFilteredData(filteredData);
     };
 
+    const handleInputChange = (e) => {
+        const value = e.target.value;
+        setFormName(value);  // update the formName state
+        filterByName(value);  // filter the data on change
+    };
 
-    return(
-   <Layout>
-        <Col className="p-5">
-        <Row>
-            <Title
-                style={{ color: "#ED3742" }}
-                className="text--huge text-center mt-4  mx-center"
-            >
-                Attendes standings
-                <p style={{ color: 'black', width: '75%'}} className="mx-auto">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-            </Title>
-        </Row>
+    return (
+        <Layout>
+            <Col className="p-5">
+                <Row>
+                    <Title
+                        style={{ color: "#ED3742" }}
+                        className="text--huge text-center mt-4 mx-center"
+                    >
+                        Attendees standings
+                        <p style={{ color: "black", width: "75%" }} className="mx-auto">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                            deserunt mollit anim id est laborum.
+                        </p>
+                    </Title>
+                </Row>
+                <Row className="px-4">
+                    <input
+                        className="px-2 my-2"
+                        style={{width : '400px'}}
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter name"
+                        value={formName}  // Bind input value to state
+                        onChange={handleInputChange}  // Call filter function on change
+                    />
+                    <Row className="px-0">
+                    {nextFiveAcross.map((node) => (
+                        <HorizontalButtons register={node.linkToEvent} />
+                    ))}
+                    </Row>
+                </Row>
+                <table className={`${styles.table}`}>
+                    <thead>
+                        <tr className="text-white">
+                            <th scope="col">Rank</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Events attended</th>
+                            <th scope="col">Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {filteredData.map((item) => (
+                            <tr key={item.rank}>
+                                <th scope="row" className="text-white">{item.rank}</th>
+                                <td>{item.fName} {item.lName.charAt(0)}.</td>
+                                <td>{item.totalEvents}</td>
+                                <td>{item.points}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </Col>
+        </Layout>
+    );
+};
 
-        <form  className="p-1" id="filterForm" onSubmit={handleSubmit}>
-        <label className="px-2" htmlFor="name">Enter Name:</label>
-            <input
-                className="px-2"
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Enter name"
-            />
-            <button className="mx-2" type="submit">Filter</button>
-        </form>
-
-        <table className={`${styles.table}`}>
-            <thead>
-                <tr className="text-white">
-                <th scope="col">Rank</th>
-                <th scope="col">Name</th>
-                <th scope="col">Events attended</th>
-                <th scope="col">Points</th>
-                </tr>
-            </thead>
-            <tbody>
-                {filteredData.map((item, index) => (
-                    <tr>
-                    <th scope="row"  className="text-white">{item.rank}</th>
-                    <td>{item.fName} {item.lName.charAt(0)}.</td>
-                    <td>{item.totalEvents}</td>
-                    <td>{item.points}</td>
-                    </tr>
-                ))}
-            </tbody>
-        </table>          
-        </Col>
-    </Layout>
-  
-   )
-}
 export const query_scoreboard = graphql`
-query {
+query scoreboardQuery ($currentDate : Date) {
     allGoogleSheet {
-      nodes {
-        Sheet1 {
-            points
-            totalEvents
-            streak
-            fName
-            lName
+        nodes {
+            Sheet1 {
+                points
+                totalEvents
+                streak
+                fName
+                lName
+            }
         }
-      }
     }
-  }
+    allSanityEvents(
+        filter: {
+            reference: { eventTypeName: { eq: "5 Across" } }
+            date: { gte: $currentDate }
+        }
+        sort: { date: ASC }
+        limit: 1
+    ) {
+        nodes {
+            eventName
+            date(formatString: "MMMM D, YYYY")
+            host
+            location
+            linkToEvent
+            picture {
+                asset {
+                    gatsbyImageData
+                }
+            }
+            reference {
+                eventTypeName
+            }
+        }
+    }
+}
 `;
-
 
 export default FiveAcrossScoreboard;
