@@ -10,7 +10,7 @@ export default (S) =>
       // General
       S.listItem()
         .id("generalSettings")
-        .title("General")
+        .title("General (SEO, Footer, Metadata)")
         .child(
           S.list()
             .id("settingsGroup")
@@ -44,7 +44,7 @@ export default (S) =>
       // Home Page
       S.listItem()
         .id("homePage")
-        .title("Home Page")
+        .title("Home Page (/)")
         .icon(MdHome)
         .child(
           S.list()
@@ -90,7 +90,7 @@ export default (S) =>
       // About Page
       S.listItem()
         .id("aboutPage")
-        .title("About Page")
+        .title("About Page (/about)")
         .child(
           S.list()
             .id("aboutComponents")
@@ -121,7 +121,7 @@ export default (S) =>
       // 5 Across Program Guide Page
       S.listItem()
         .id("fiveAcrossProgramGuide")
-        .title("5 Across Program Guide")
+        .title("5 Across Program Guide (/program)")
         .child(
           S.list()
             .id("programGuideComponents")
@@ -155,7 +155,7 @@ export default (S) =>
       // 5 Across Main Page
       S.listItem()
         .id("fiveAcrossPage")
-        .title("5 Across Page")
+        .title("5 Across Page (/5across)")
         .child(
           S.list()
             .id("fiveAcrossComponents")
@@ -198,7 +198,7 @@ export default (S) =>
       // Events Page
       S.listItem()
         .id("eventsPage")
-        .title("Events Page")
+        .title("Events Page (/events)")
         .icon(FaCalendarAlt)
         .child(
           S.list()
@@ -220,14 +220,14 @@ export default (S) =>
       // Workspace Page
       S.listItem()
         .id("workspacePage")
-        .title("Workspace Page")
+        .title("Workspace Page (/workspace)")
         .icon(FaBuilding)
         .child(S.list().id("workspaceComponents")),
 
       // Blog Page
       S.listItem()
         .id("blogPage")
-        .title("Blog Page")
+        .title("Blog Page (/blog)")
         .child(
           S.list()
             .id("blogComponents")
@@ -257,7 +257,7 @@ export default (S) =>
       // Fellowship Main Page with Sponsors and Metrics
       S.listItem()
         .id("fellowshipPage")
-        .title("Fellowship Page")
+        .title("Fellowship Page (/fellowship)")
         .child(
           S.list()
             .id("fellowshipComponents")
@@ -299,31 +299,39 @@ export default (S) =>
       // Press Page
       S.listItem()
         .id("pressPage")
-        .title("Press Page")
+        .title("Press Page (/press)")
         .child(S.documentTypeList("press").title("Press")),
 
       // Links Page
       S.listItem()
         .id("linksPage")
-        .title("Links Page")
+        .title("Links Page (/links)")
         .child(S.documentTypeList("links").title("Links")),
 
-      // Careers Page
+      // Apax Careers Page
       S.listItem()
-        .id("careersPage")
-        .title("Careers Page")
+        .id("apaxCareersPage")
+        .title("Apax Careers Page (https://www.apaxsoftware.com/careers)")
+        .child(S.documentTypeList("careers").title("Careers")),
+
+      // Awesome Inc Careers Page
+      S.listItem()
+        .id("awesomeIncCareersPage")
+        .title(
+          "Awesome Inc Careers Page (https://careers.awesomeinc.org/jobs/Careers)",
+        )
         .child(S.documentTypeList("careers").title("Careers")),
 
       // Notes Pages
       S.listItem()
         .id("notesPages")
-        .title("Notes Pages")
+        .title("Notes Pages (/notes/*)")
         .child(S.documentTypeList("notes").title("Notes")),
 
       // Internships Page
       S.listItem()
         .id("internshipsPage")
-        .title("Internships Page")
+        .title("Internships Page (/internships)")
         .child(
           S.list()
             .id("internshipsComponents")
@@ -349,19 +357,19 @@ export default (S) =>
       // Team Alpha Page
       S.listItem()
         .id("teamAlphaPage")
-        .title("Team Alpha Page")
+        .title("Team Alpha Page (/team-alpha)")
         .child(S.documentTypeList("teamAlpha").title("TeamAlpha")),
 
       // Tutorials Pages
       S.listItem()
         .id("tutorialsPages")
-        .title("Tutorials Pages")
+        .title("Tutorials Pages (/tutorials)")
         .child(S.documentTypeList("tutorials").title("Tutorials")),
 
       // What We Do Page
       S.listItem()
         .id("whatWeDoPage")
-        .title("What We Do Page")
+        .title("What We Do Page (/what-we-do)")
         .child(S.documentTypeList("whatWeDo").title("What We Do Page")),
 
       // Intro to Web Development Page
@@ -391,7 +399,7 @@ export default (S) =>
       // Bootcamp Page
       S.listItem()
         .id("bootcampSection")
-        .title("Bootcamp")
+        .title("Bootcamp Page (/bootcamp)")
         .icon(FaGraduationCap)
         .child(
           S.list()
