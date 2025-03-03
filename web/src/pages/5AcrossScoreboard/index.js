@@ -9,7 +9,6 @@ import Title from "../../components/UI/Title/Title";
 const FiveAcrossScoreboard = ({ data }) => {
     // Extract the nodes array from the data structure and sort them in order by points 
     const nodes = data.allGoogleSheet.nodes[0].Sheet1;
-    const copyNodes = data.allGoogleSheet.nodes[0].Sheet1;
     nodes.sort((a, b) => b.points - a.points);   
     nodes.forEach((node, index) => {
         node.rank = index + 1; 
@@ -18,21 +17,16 @@ const FiveAcrossScoreboard = ({ data }) => {
     // State to manage filtered data
     const [filteredData, setFilteredData] = useState(nodes);
 
-    
     const filterByName = (data, name) => {
         const nodes = data.allGoogleSheet.nodes[0].Sheet1;
-       
-        if (!name) {
-            return copyNodes; 
-        }
 
         const filteredData = nodes.filter((item) =>
-          item.fName.toLowerCase().includes(name.toLowerCase())
+          item.fName.trim().toLowerCase().includes(name.toLowerCase())
         );
         return filteredData;
       };
 
-      // Handle form submission
+    // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault(); 
        
