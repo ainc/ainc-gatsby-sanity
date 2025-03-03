@@ -9,7 +9,6 @@ import Title from "../../components/UI/Title/Title";
 const FiveAcrossScoreboard = ({ data }) => {
     // Extract the nodes array from the data structure and sort them in order by points 
     const nodes = data.allGoogleSheet.nodes[0].Sheet1;
-    const copyNodes = data.allGoogleSheet.nodes[0].Sheet1;
     nodes.sort((a, b) => b.points - a.points);   
     nodes.forEach((node, index) => {
         node.rank = index + 1; 
@@ -22,27 +21,18 @@ const FiveAcrossScoreboard = ({ data }) => {
     const filterByName = (data, name) => {
         const nodes = data.allGoogleSheet.nodes[0].Sheet1;
        
-        if (!name) {
-            return copyNodes; 
-        }
-
-<<<<<<< HEAD
         if (!name || name.trim() == '') {
             return nodes
         }   
         const search = name.trim().toLowerCase();
+        console.log(search)
 
         const filteredData = nodes.filter(({ fName, lName }) => {
-            const fullName = `${fName} ${lName}`.toLowerCase();
+            const fullName = fName.toLowerCase().trim() + ' ' + lName.toLowerCase().trim();
             return fName.toLowerCase().includes(search) ||
                 lName.toLowerCase().includes(search) ||
                 fullName.includes(search);
         });
-=======
-        const filteredData = nodes.filter((item) =>
-          item.fName.toLowerCase().includes(name.toLowerCase())
-        );
->>>>>>> parent of 15b3a07 (fixed the filter by adding trim)
         return filteredData;
       };
 
