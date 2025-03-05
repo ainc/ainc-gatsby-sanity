@@ -32,9 +32,6 @@ Refer to the **`package.json`** files in each workspace for workspace-specific s
    cd ainc-gatsby-sanity  
    yarn install
 
-3. **Verify Yarn is installed**  
-   yarn --version
-
 ---
 
 ## 2. Issue-Driven Development
