@@ -25,7 +25,6 @@ module.exports = {
       resolve: 'gatsby-source-google-spreadsheets',
       options: {
         spreadsheetId: '1EAvRMNAvI9A7tY6DP7bZVzVYQC7365kRkTUaxMMujU0',
-        worksheetTitle: 'totals',
         credentials: credentials
 
       }

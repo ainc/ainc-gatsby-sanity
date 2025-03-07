@@ -8,10 +8,9 @@ import HorizontalButtons from "../events/5across/HorizontalButtons.js";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 
 const FiveAcrossScoreboard = ({ data }) => {
-    const [formName, setFormName] = useState(""); // initialize with empty string
+    const [formName, setFormName] = useState(""); 
     const [filteredData, setFilteredData] = useState(data.allGoogleSheet.nodes[0].Sheet1);
 
-    // Extract and sort the nodes by points
     const nodes = data.allGoogleSheet.nodes[0].Sheet1;
     const nextFiveAcross = data.allSanityEvents.nodes || {};
     nodes.sort((a, b) => b.events - a.events);
@@ -21,16 +20,16 @@ const FiveAcrossScoreboard = ({ data }) => {
 
     const filterByName = (name) => {
         if (!name || name.trim() === "") {
-            setFilteredData(nodes); // reset to all data if name is empty
+            setFilteredData(nodes); 
             return;
         }
 
         const search = name.trim().toLowerCase();
-        const filteredData = nodes.filter(({ fName, lName }) => {
-            const fullName = fName.toLowerCase().trim() + " " + lName.toLowerCase().trim();
+        const filteredData = nodes.filter(({ firstName, lastName }) => {
+            const fullName = firstName.toLowerCase().trim() + " " + lastName.toLowerCase().trim();
             return (
-                fName.toLowerCase().includes(search) ||
-                lName.toLowerCase().includes(search) ||
+                firstName.toLowerCase().includes(search) ||
+                lastName.toLowerCase().includes(search) ||
                 fullName.includes(search)
             );
         });
@@ -39,36 +38,41 @@ const FiveAcrossScoreboard = ({ data }) => {
 
     const handleInputChange = (e) => {
         const value = e.target.value;
-        setFormName(value);  // update the formName state
-        filterByName(value);  // filter the data on change
+        setFormName(value);  
+        filterByName(value);  
     };
 
     return (
         <Layout>
-            <Col className="p-5">
+            <Col className="p-3">
                 <Row>
                     <Title
                         style={{ color: "#ED3742" }}
                         className="text--huge text-center mt-4 mx-center"
                     >
                         Attendees standings
-                        
-                        <StaticImage
-                        placeholder="blurred"
-                        className="height"
-                        src="../../images/5-Across-2025-Attendee-Giveaway-Ticket-Graphic.png"
-                        alt=""
-                        />    
-                        <p style={{ color: "black", width: "75%" }} className="mx-auto">
+                        {/* <p style={{ color: "black", width: "75%" }} className="mx-auto">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
                             nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
                             deserunt mollit anim id est laborum.
-                        </p>
+                        </p> */}
                     </Title>
-                     
+                    <Row className="d-flex flex-column align-items-center text-center">
+                        <StaticImage
+                            placeholder="blurred"
+                            className="height"
+                            src="../../images/5-Across-2025-Attendee-Giveaway-Ticket-Graphic.png"
+                            alt=""
+                        />   
+                        <Row className="mt-3 justify-content-center">
+                            {nextFiveAcross.map((node) => (
+                                <HorizontalButtons key={node.linkToEvent} register={node.linkToEvent} />
+                            ))}
+                        </Row>
+                    </Row>
                 </Row>
                 <Row className="px-4">
                     <input
@@ -78,14 +82,9 @@ const FiveAcrossScoreboard = ({ data }) => {
                         id="name"
                         name="name"
                         placeholder="Enter name"
-                        value={formName}  // Bind input value to state
-                        onChange={handleInputChange}  // Call filter function on change
+                        value={formName}  
+                        onChange={handleInputChange}  
                     />
-                    <Row className="px-0">
-                    {nextFiveAcross.map((node) => (
-                        <HorizontalButtons register={node.linkToEvent} />
-                    ))}
-                    </Row>
                 </Row>
                 <table className={`${styles.table}`}>
                     <thead>
@@ -100,7 +99,7 @@ const FiveAcrossScoreboard = ({ data }) => {
                         {filteredData.map((item) => (
                             <tr key={item.rank}>
                                 <th scope="row" className="text-white">{item.rank}</th>
-                                <td>{item.firstName} {item.lastName}.</td>
+                                <td>{item.firstName} {item.lastName.charAt(0)}.</td>
                                 <td>{item.quantity}</td>
                                 <td>{item.entries}</td>
                             </tr>
