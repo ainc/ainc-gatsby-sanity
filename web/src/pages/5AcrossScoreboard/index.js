@@ -5,6 +5,7 @@ import Layout from "../../components/Layout/Layout";
 import { Container, Row, Col } from "react-bootstrap";
 import Title from "../../components/UI/Title/Title";
 import HorizontalButtons from "../events/5across/HorizontalButtons.js";
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 
 const FiveAcrossScoreboard = ({ data }) => {
     const [formName, setFormName] = useState(""); // initialize with empty string
@@ -13,7 +14,7 @@ const FiveAcrossScoreboard = ({ data }) => {
     // Extract and sort the nodes by points
     const nodes = data.allGoogleSheet.nodes[0].Sheet1;
     const nextFiveAcross = data.allSanityEvents.nodes || {};
-    nodes.sort((a, b) => b.points - a.points);
+    nodes.sort((a, b) => b.events - a.events);
     nodes.forEach((node, index) => {
         node.rank = index + 1;
     });
@@ -51,6 +52,13 @@ const FiveAcrossScoreboard = ({ data }) => {
                         className="text--huge text-center mt-4 mx-center"
                     >
                         Attendees standings
+                        
+                        <StaticImage
+                        placeholder="blurred"
+                        className="height"
+                        src="../../images/5-Across-2025-Attendee-Giveaway-Ticket-Graphic.png"
+                        alt=""
+                        />    
                         <p style={{ color: "black", width: "75%" }} className="mx-auto">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -60,6 +68,7 @@ const FiveAcrossScoreboard = ({ data }) => {
                             deserunt mollit anim id est laborum.
                         </p>
                     </Title>
+                     
                 </Row>
                 <Row className="px-4">
                     <input
@@ -84,16 +93,16 @@ const FiveAcrossScoreboard = ({ data }) => {
                             <th scope="col">Rank</th>
                             <th scope="col">Name</th>
                             <th scope="col">Events attended</th>
-                            <th scope="col">Points</th>
+                            <th scope="col">Entries</th>
                         </tr>
                     </thead>
                     <tbody>
                         {filteredData.map((item) => (
                             <tr key={item.rank}>
                                 <th scope="row" className="text-white">{item.rank}</th>
-                                <td>{item.fName} {item.lName.charAt(0)}.</td>
-                                <td>{item.totalEvents}</td>
-                                <td>{item.points}</td>
+                                <td>{item.firstName} {item.lastName}.</td>
+                                <td>{item.quantity}</td>
+                                <td>{item.entries}</td>
                             </tr>
                         ))}
                     </tbody>
@@ -108,12 +117,11 @@ query scoreboardQuery ($currentDate : Date) {
     allGoogleSheet {
         nodes {
             Sheet1 {
-                points
-                totalEvents
-                streak
-                fName
-                lName
-            }
+                firstName
+                lastName
+                quantity
+                entries
+              }
         }
     }
     allSanityEvents(

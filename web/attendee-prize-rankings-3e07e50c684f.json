@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "attendee-prize-rankings",
+  "private_key_id": "3e07e50c684f2da514a6d55adf918b89cab72172",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDdRi4LfF22rBok\nqxW5Oo//p4hJKi+bxG0gXzfV9TUTurC10gQhGG5U7LM++k5Bt15epsrGzniVQZDZ\nDjVbGy6sWmdYmP9CtDtVQJpYTpvz9vdbyZ2yotsSKnfGg7sG5fnIy3TEmdLYZWSa\nB9oifboueHM+FqMGLpTYZGjzY1WTYy2zXjsrfKbbE6Ky934OyM9PUgYrK2l7o7bz\ntPgXLb9zI3+GMnPxW82skrRq39DemZPavi7FTRizUlycrqavMhzG1fOdUqNsJo7b\nHgON1OBMD/ckUJ+wrynwGm/CSTBw/P0QzpmN1B45Iruf5Qe/wNKlvMK9duZyTf+B\nPh5Y51J7AgMBAAECggEAFTYQseSBGJgU2tD/qxrptN3QGwYNPEcEbab9s5KRkkuX\nfEZz7jbo/1ZqtFh1lKfJnGnWubS51cJMP/0JsQBrup/hP5qjADebZx0N7qB9I1It\np2yDTnLSwey060sIwazdWJnlnqG0QYQutElDvYIEjUcvR5Nkm0dvLfMqJbKvAGAY\nMNn9q3iH/b1qzMck32vu2tv0nRSOgPz48Iikmm+hEp3zzZpd/dOm57U45yiqeCVD\nnRfgi2kVgfqlljZmNQklwUd52YiHwVEcZUWrmxOKXGCDfUQ09O5eqPtxK6d6Vw97\nc4/eVUJHqsn9/SSWFIN+AGcgrjCIeuFn5KT4mIl18QKBgQDz3j47oy1FbFZwv6KU\nFpN/6/nguBN32Nmb/esrFaMF4JGWV67+xwENwoWO2I/rNRce4hcOS7U3H4J51qmH\nuwupYNbQK0+tu8acVVoAZPqrCGXKMa+1RU/waMEZqL8JbSmABDnuibn8WUR3CZUD\nrFSFo4SQQAJnIPPysPZPJxPS2QKBgQDoSDF8SaSp1TTk7TVAojVMgNq95A6TLyoj\n+ON+j4QkvxgfH+QlFdvMuNWwe8uc/KKeKvHLTCVaI1oApf3gq9VF+Q0Rxf5ly9Tl\nSmQzz5QaBSIpBIQqMypgR8omqe2pgz4Uwa8sQPFb5gWLrOepZ6RS05Vmm+LRoLxf\nnSjNkjWTcwKBgCEcMZLjSsg8N1hDjI1Sq2AY5+pM08fX12PIi99jpqirntisuwO4\nfTojCQMmABRNNwBobfzw5n+/dXWZYZceHC05CrFk0AKklgivxfJ7w1TpZPiY2mRg\nLsRTVLRpJtbezV2mNT9fz7KlZBhNYsAG68rhMqRrLGhYHwb6Y9bHVXexAoGBALD7\nAKlgOxQjnM+oZODANrf5nbD9aJWAZC1QX5V4qAiPiUN9uwj+pKBRXI/BYxxT6Vt2\nARETDYqmUNcZolxi0HcmEW0vXGwXaDjj+4D2cjN5IdP62vCEV49QY5gd9TUpCE4s\nXNntCXkpw6Pus/wBOdTZ3YV21NVAEQcQ6ZvoAOY9AoGBAMRzsFAKw52bY9OIiiCt\noN5/Tz6Jw8q+xycn/yYpLhKhvuJQ4pYH8pmyRAVuiEJF3pxsuByZmDVAMsbkXjjH\nqawdr+vpwhD04Ve0PfXI8nuOC7DxijbwzEP3hyHFrRlDpPxMPMqfzsnIqBHdqJAA\nn3L9F/b0dBWkJ0IWfpwXdeUJ\n-----END PRIVATE KEY-----\n",
+  "client_email": "scoreboarduser@attendee-prize-rankings.iam.gserviceaccount.com",
+  "client_id": "117307274302179902597",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/scoreboarduser%40attendee-prize-rankings.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

@@ -6,7 +6,7 @@ require("dotenv").config({
 
 const clientConfig = require("./client-config");
 const token = process.env.SANITY_READ_TOKEN;
-const credentials = require("./test-scoreboard-5across-c1727cd0855e.json");
+const credentials = require("./attendee-prize-rankings-3e07e50c684f.json");
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -25,6 +25,7 @@ module.exports = {
       resolve: 'gatsby-source-google-spreadsheets',
       options: {
         spreadsheetId: '1EAvRMNAvI9A7tY6DP7bZVzVYQC7365kRkTUaxMMujU0',
+        worksheetTitle: 'totals',
         credentials: credentials
 
       }
