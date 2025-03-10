@@ -8,14 +8,17 @@ import {
   FaClock,
   FaCommentAlt,
   FaGraduationCap,
+  FaTrophy,
   FaHandshake,
   FaHeading,
   FaListAlt,
   FaMicrophone,
   FaRegWindowMaximize,
+  FaInfoCircle,
   FaStar,
   FaTools,
-  FaWrench
+  FaWrench,
+  FaLink,
 } from "react-icons/fa";
 import { GiBarefoot, GiOfficeChair } from "react-icons/gi";
 import { IoMdRibbon } from "react-icons/io";
@@ -27,7 +30,7 @@ import {
   MdPhotoLibrary,
   MdSchool,
   MdSettings,
-  MdTitle
+  MdTitle,
 } from "react-icons/md";
 
 export default (S) =>
@@ -48,7 +51,7 @@ export default (S) =>
               S.listItem()
                 .id("home_accomplishments")
                 .title("Accomplishments")
-                .icon(MdOutlineSubtitles)
+                .icon(FaTrophy)
                 .schemaType("accomplishments")
                 .child(
                   S.document()
@@ -97,7 +100,7 @@ export default (S) =>
               S.listItem()
                 .id("general_footer")
                 .title("Footer")
-                .icon(FaRegWindowMaximize)
+                .icon(GiBarefoot)
                 .child(
                   S.document()
                     .id("footerDoc")
@@ -249,8 +252,8 @@ export default (S) =>
                     ]),
                 ),
 
-                // Events
-                S.listItem()
+              // Events
+              S.listItem()
                 .id("eventsPage")
                 .title("Events (/events)")
                 .icon(FaCalendarAlt)
@@ -336,7 +339,7 @@ export default (S) =>
               S.listItem()
                 .id("aboutSection")
                 .title("About (/about)")
-                .icon(GiBarefoot)
+                .icon(FaInfoCircle)
                 .child(
                   S.list()
                     .id("aboutComponents")
@@ -345,7 +348,7 @@ export default (S) =>
                       S.listItem()
                         .id("about_accomplishments")
                         .title("Accomplishments")
-                        .icon(MdOutlineSubtitles)
+                        .icon(FaTrophy)
                         .schemaType("accomplishments")
                         .child(
                           S.document()
@@ -382,7 +385,9 @@ export default (S) =>
                         .icon(FaHandshake)
                         .schemaType("blogAuthor")
                         .child(
-                          S.documentTypeList("blogAuthor").title("Blog Authors"),
+                          S.documentTypeList("blogAuthor").title(
+                            "Blog Authors",
+                          ),
                         ),
                       S.listItem()
                         .id("blogsList")
@@ -393,33 +398,35 @@ export default (S) =>
                     ]),
                 ),
 
-               // CAREERS
-      S.listItem()
-      .id("careersSection")
-      .title("Careers")
-      .icon(FaBuilding)
-      .child(
-        S.list()
-          .id("careersPagesList")
-          .title("Careers Pages")
-          .items([
-            S.listItem()
-              .id("awesomeIncCareersPage")
-              .title(
-                "Awesome Inc Careers (https://careers.awesomeinc.org/jobs/Careers)",
-              )
-              .icon(FaBuilding)
-              .child(S.documentTypeList("careers").title("Careers")),
-            S.listItem()
-              .id("apaxCareersPage")
-              .title("Apax Careers (https://www.apaxsoftware.com/careers)")
-              .icon(FaBuilding)
-              .child(S.documentTypeList("careers").title("Careers")),
-          ]),
-      ),
+              // CAREERS
+              S.listItem()
+                .id("careersSection")
+                .title("Careers")
+                .icon(FaBuilding)
+                .child(
+                  S.list()
+                    .id("careersPagesList")
+                    .title("Careers Pages")
+                    .items([
+                      S.listItem()
+                        .id("awesomeIncCareersPage")
+                        .title(
+                          "Awesome Inc Careers (https://careers.awesomeinc.org/jobs/Careers)",
+                        )
+                        .icon(FaBuilding)
+                        .child(S.documentTypeList("careers").title("Careers")),
+                      S.listItem()
+                        .id("apaxCareersPage")
+                        .title(
+                          "Apax Careers (https://www.apaxsoftware.com/careers)",
+                        )
+                        .icon(FaBuilding)
+                        .child(S.documentTypeList("careers").title("Careers")),
+                    ]),
+                ),
 
-      // Events
-      S.listItem()
+              // Events
+              S.listItem()
                 .id("eventsPage")
                 .title("Events (/events)")
                 .icon(FaCalendarAlt)
@@ -481,17 +488,13 @@ export default (S) =>
                 .icon(FaBullhorn)
                 .child(S.documentTypeList("press").title("Press")),
 
-                 // WHAT WE DO (/what-we-do)
+              // WHAT WE DO (/what-we-do)
               S.listItem()
-              .id("ap_whatWeDoPage")
-              .title("What We Do (/what-we-do)")
-              .icon(FaTools)
-              .child(
-                S.documentTypeList("whatWeDo").title("What We Do Page"),
-              ),
-            ]), 
-
-             
+                .id("ap_whatWeDoPage")
+                .title("What We Do (/what-we-do)")
+                .icon(FaTools)
+                .child(S.documentTypeList("whatWeDo").title("What We Do Page")),
+            ]),
         ),
 
       // 8) OTHER
@@ -504,7 +507,6 @@ export default (S) =>
             .id("otherPagesList")
             .title("Other Pages")
             .items([
-              
               S.listItem()
                 .id("fellowshipMentors")
                 .title("Fellowship Mentors (/mentors)")
@@ -515,11 +517,11 @@ export default (S) =>
                     .title("All Mentors")
                     .filter('_type == "mentor"'),
                 ),
-                S.listItem()
-                  .id("linksPage")
-                  .title("Links (/links)")
-                  .icon(MdTitle)
-                  .child(S.documentTypeList("links").title("Links")),
+              S.listItem()
+                .id("linksPage")
+                .title("Links (/links)")
+                .icon(FaLink)
+                .child(S.documentTypeList("links").title("Links")),
               S.listItem()
                 .id("notesPages")
                 .title("Notes Pages (/notes/*)")
@@ -530,14 +532,11 @@ export default (S) =>
                 .title("Team Alpha (/team-alpha)")
                 .icon(MdGroups)
                 .child(S.documentTypeList("teamAlpha").title("TeamAlpha")),
-                S.listItem()
+              S.listItem()
                 .id("ap_tutorialsPages")
                 .title("Tutorials Pages (/tutorials)")
                 .icon(MdSchool)
-                .child(
-                  S.documentTypeList("tutorials").title("Tutorials"),
-                ),
-
+                .child(S.documentTypeList("tutorials").title("Tutorials")),
             ]),
         ),
 
@@ -547,12 +546,10 @@ export default (S) =>
         .title("Everything")
         .icon(FaListAlt)
         .child(
-          
           S.list()
             .id("allPagesList")
             .title("Everything")
             .items([
-
               // 5 ACROSS MAIN (/5across)
               S.listItem()
                 .id("ap_fiveAcrossMain")
@@ -649,7 +646,7 @@ export default (S) =>
                       S.listItem()
                         .id("ap_homeAccomplishments")
                         .title("Accomplishments")
-                        .icon(MdOutlineSubtitles)
+                        .icon(FaTrophy)
                         .schemaType("accomplishments")
                         .child(
                           S.document()
@@ -693,7 +690,7 @@ export default (S) =>
               S.listItem()
                 .id("ap_about")
                 .title("About (/about)")
-                .icon(GiBarefoot)
+                .icon(FaInfoCircle)
                 .child(
                   S.list()
                     .id("ap_aboutComponents")
@@ -702,7 +699,7 @@ export default (S) =>
                       S.listItem()
                         .id("ap_aboutAccomplishments")
                         .title("Accomplishments")
-                        .icon(MdOutlineSubtitles)
+                        .icon(FaTrophy)
                         .schemaType("accomplishments")
                         .child(
                           S.document()
@@ -767,7 +764,9 @@ export default (S) =>
                         .icon(FaHandshake)
                         .schemaType("blogAuthor")
                         .child(
-                          S.documentTypeList("blogAuthor").title("Blog Authors"),
+                          S.documentTypeList("blogAuthor").title(
+                            "Blog Authors",
+                          ),
                         ),
                       S.listItem()
                         .id("ap_blogsList")
@@ -948,7 +947,7 @@ export default (S) =>
                       S.listItem()
                         .id("ap_footerSettings")
                         .title("Footer")
-                        .icon(FaRegWindowMaximize)
+                        .icon(GiBarefoot)
                         .child(
                           S.document()
                             .id("ap_footerDoc")
@@ -988,7 +987,7 @@ export default (S) =>
                       S.listItem()
                         .id("ap_homeAccomplishmentsAgain")
                         .title("Accomplishments")
-                        .icon(MdOutlineSubtitles)
+                        .icon(FaTrophy)
                         .schemaType("accomplishments")
                         .child(
                           S.document()
@@ -1064,33 +1063,27 @@ export default (S) =>
                 .id("ap_introToWebDevPage")
                 .title("Intro to Web Development (/intro-to-web-development)")
                 .icon(FaChalkboardTeacher)
-                .child(
-                  S.documentTypeList("courses").title("Courses"),
-                ),
+                .child(S.documentTypeList("courses").title("Courses")),
 
               // LEARN (/learn)
               S.listItem()
                 .id("ap_learnPage")
                 .title("Learn (/learn)")
                 .icon(MdSchool)
-                .child(
-                  S.documentTypeList("courses").title("Courses"),
-                ),
+                .child(S.documentTypeList("courses").title("Courses")),
 
               // LEARN ADULTS (/learn/adults)
               S.listItem()
                 .id("ap_learnAdultsPage")
                 .title("Learn Adults (/learn/adults)")
                 .icon(MdSchool)
-                .child(
-                  S.documentTypeList("courses").title("Courses"),
-                ),
+                .child(S.documentTypeList("courses").title("Courses")),
 
               // LINKS (/links)
               S.listItem()
                 .id("ap_linksPage")
                 .title("Links (/links)")
-                .icon(MdTitle)
+                .icon(FaLink)
                 .child(S.documentTypeList("links").title("Links")),
 
               // NOTES (/notes)
@@ -1107,28 +1100,19 @@ export default (S) =>
                 .icon(FaBullhorn)
                 .child(S.documentTypeList("press").title("Press")),
 
-               // TUTORIALS (/tutorials)
-               S.listItem()
-               .id("ap_tutorialsPages")
-               .title("Tutorials Pages (/tutorials)")
-               .icon(MdSchool)
-               .child(
-                 S.documentTypeList("tutorials").title("Tutorials"),
-               ),
-
-                // TEAM ALPHA (/team-alpha)
+              // TUTORIALS (/tutorials)
               S.listItem()
-              .id("ap_teamAlphaPage")
-              .title("Team Alpha (/team-alpha)")
-              .icon(MdGroups)
-              .child(
-                S.documentTypeList("teamAlpha").title("TeamAlpha"),
-              ),
+                .id("ap_tutorialsPages")
+                .title("Tutorials Pages (/tutorials)")
+                .icon(MdSchool)
+                .child(S.documentTypeList("tutorials").title("Tutorials")),
 
-
-              
-
-             
+              // TEAM ALPHA (/team-alpha)
+              S.listItem()
+                .id("ap_teamAlphaPage")
+                .title("Team Alpha (/team-alpha)")
+                .icon(MdGroups)
+                .child(S.documentTypeList("teamAlpha").title("TeamAlpha")),
 
               // Finally, filter out doc types so they don't appear twice
               ...S.documentTypeListItems().filter(
