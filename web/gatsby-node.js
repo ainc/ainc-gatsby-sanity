@@ -258,7 +258,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   });
   createRedirect({
     fromPath: `https://awesomeincu.com`,
-    toPath: `/learn`,
+    toPath: `/weekofcode`,
     isPermanent: true,
     force: true,
     redirectInBrowser: true,
