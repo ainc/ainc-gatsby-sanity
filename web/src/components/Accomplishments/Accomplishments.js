@@ -155,7 +155,7 @@ const Accomplishments = () => {
               {/*To get impact report to be modal */}
               {/*<BrandButton onClick={handleImpactReportShow} className='secondary px-3 mx-5'>Read our impact report</BrandButton>*/}
               <a
-                href="/assets/Awesome-Inc-Year-in-Review-2023.pdf"
+                href="/assets/Awesome-Inc-Year-in-Review-2024.pdf"
                 target="_blank"
               >
                 <BrandButton className="secondary px-3 mx-5 my-3">
