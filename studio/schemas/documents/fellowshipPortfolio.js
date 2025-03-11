@@ -32,5 +32,10 @@ export default {
       type: "text",
       title: "Company Description",
     },
+    {
+      name: "location",
+      type: "geopoint",
+      title: "Location",
+    },
   ],
 };
