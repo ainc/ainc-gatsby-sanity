@@ -39,7 +39,6 @@
     "gatsby-plugin-sass": "^6.11.0",
     "gatsby-plugin-sharp": "^5.12.3",
     "gatsby-source-filesystem": "^5.11.0",
-    "gatsby-source-google-spreadsheets": "^3.0.9",
     "gatsby-source-rss-feed": "^1.2.2",
     "gatsby-source-sanity": "^7.8.0",
     "hero-slider": "^3.1.0",
