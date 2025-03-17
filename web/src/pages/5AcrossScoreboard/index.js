@@ -100,8 +100,8 @@ const FiveAcrossScoreboard = ({ data }) => {
                             <tr key={item.rank}>
                                 <th scope="row" className="text-white">{item.rank}</th>
                                 <td>{item.firstName} {item.lastName.charAt(0)}.</td>
+                                <td>{item.events}</td>
                                 <td>{item.quantity}</td>
-                                <td>{item.entries}</td>
                             </tr>
                         ))}
                     </tbody>
@@ -118,8 +118,8 @@ query scoreboardQuery ($currentDate : Date) {
             Sheet1 {
                 firstName
                 lastName
+                events
                 quantity
-                entries
               }
         }
     }

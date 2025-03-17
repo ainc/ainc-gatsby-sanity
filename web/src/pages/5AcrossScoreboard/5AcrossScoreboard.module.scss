@@ -7,17 +7,17 @@
   
 .table th,
 .table td {
-  border-bottom: 1px solid #ddd; /* Add a bottom border to each cell */
-  padding: 12px; /* Add padding for better spacing */
-  text-align: left; /* Align text to the left */
+  border-bottom: 1px solid #ddd; 
+  padding: 12px; 
+  text-align: left;
 }
 
 .table th {
-  background-color: #d60101; /* Add a background color to headers */
-  font-weight: bold; /* Make header text bold */
+  background-color: #d60101; 
+  font-weight: bold;
 }
 
 .table tr:last-child td {
-  border-bottom: none; /* Remove the bottom border from the last row */
+  border-bottom: none; 
 }
 
