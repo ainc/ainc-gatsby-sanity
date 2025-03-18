@@ -7,18 +7,49 @@
   @include button-style;
   font-weight: bold; // Specific requirement
 
-  &.collapsed {
-    // Use default button styles when collapsed
-    @include button-style;
-  }
 
-  &:not(.collapsed) {
-    // Apply different styles when not collapsed
-    @include button-style(
-      $bg-color: $brand-grey-light,
-      $text-color: $brand-color,
-      $hover-bg: #5c5d5f,
-      $hover-text: $brand-color
-    );
+&.collapsed {
+  // Use default button styles when collapsed
+  @include button-style;
+}
+
+&:not(.collapsed) {
+  // Apply different styles when not collapsed
+  @include button-style(
+    $bg-color: $brand-grey-light,
+    $text-color: $brand-color,
+    $hover-bg: #5c5d5f,
+    $hover-text: $brand-color
+  );
+}
+}
+
+.week-of-code-accordion {
+  .accordion-button {
+    @include button-style;
+    font-weight: bold; // Specific requirement
+  
+    &.collapsed {
+      // Use default button styles when collapsed
+      @include button-style(
+        $hover-bg: transparent,
+        $hover-text: $brand-color
+      );
+    }
+  
+    &:not(.collapsed) {
+      // Apply different styles when not collapsed
+      @include button-style($bg-color: $brand-grey-light,
+        $text-color: $brand-color,
+        $hover-bg: transparent,
+        $hover-text: $brand-color );
+    }
   }
+  .accordion-button::after {
+    display: block;
+    content: "";
+    background-image: var(--bs-accordion-btn-icon);
+  }
+  
+  
 }
