@@ -5,7 +5,9 @@
   letter-spacing: 0 !important;
 }
 .blog-card {
-  height: 60vh;
+
+  height: 500px;
+  
 
   @include screen-xs {
     height: 85vh;
