@@ -27,8 +27,8 @@ module.exports = {
         credentials: {
           type: "service_account",
           project_id: "across-rewards-program",
-          private_key_id: "FIVE_ACROSS_REWARDS_PRIVATE_KEY_ID",
-          private_key: "FIVE_ACROSS_REWARDS_PRIVATE_KEY",
+          private_key_id: process.env.FIVE_ACROSS_REWARDS_PRIVATE_KEY_ID,
+          private_key: process.env.FIVE_ACROSS_REWARDS_PRIVATE_KEY,
           client_email:
             "id-a-rewards@across-rewards-program.iam.gserviceaccount.com",
           client_id: "117583428751875259457",
