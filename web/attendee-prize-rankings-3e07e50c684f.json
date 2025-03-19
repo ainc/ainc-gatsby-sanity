@@ -1,9 +1,9 @@
 {
   "type": "service_account",
   "project_id": "attendee-prize-rankings",
-  "private_key_id": "ENV_PRIVATE_KEY_ID",
-  "private_key": "ENV_PRIVATE_KEY",
-  "client_email": "GOOGLE_CLOUD_EMAIL",
+  "private_key_id": "27be5ee0d020708dd7ba2f9b9f50436bf7d9cfc0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCpx3as78scT5AV\nABqKo/zu6Kc/1b1vooU2u0NA4ptFfMiQUs4/qsXUtbgerH7nRlXgGn5jytHAUSkx\nVLgqNfDOIWIgBhZOXoUAiG4S68AtzUPLdp8+Bzl6JCEPQrcvsxkmuyIl79GcP6Rq\nRibZvXHhBP/rPRaAOpCYodmi3zBh29QTCB80JyTQxS3Xsu+RWugL7zmmCvm0YkBZ\nJ0II/+Ju3M1VhPHLv6XxcjwDXTUG+jPqtlmaHghucya8JJyAY1u71aj/BWeuOZL7\nl7qTj8TDzWaQ5x0kDpa4OnnkOQY5gbX4w2lUJTRpGpyw8AGH/M7nAp7ocWZSPLRX\nxwcuLOIdAgMBAAECggEAH3xoW+YUquludRaR1YhYDg6DhekjuqJPRjkwXcYouZhM\nscdJjLElAy+4N6gR2N5Iask/C06/24SxuP5XMSzTvcafJgU6+cm5rMGgeE3UVCov\nGnqjSaOZWzd8EhJzWptCXNZznMl+/BUpbrQX3GWvyuVceMnZdGpoCoZpkDUICf2n\nWeBA61go4O1Kd47gWQPxf2Of8a9/Szko3FmWEzFs3yPrfFI5dwz24kQpK7TIQgDf\n/5GaRRtmUeJ5hDgTCSWv3073E4GhtN+hL5Ad2NYdbnvWXJRgDXtMp5pnP0YOPyo9\nphQAZtzgqWLK5uIRL9RDfbwLGOlWMC1dQ2As7/8iGQKBgQDWOGE5LZ8CKWFvif9y\nRderlHrsTeKHBatp5v5U3NuRwaGlSOIuRb6oHVQ90ulJAiWW+7blgnmwqhUHQd76\nWiZ/8L2PdvJLKeTwE4YbHo4Bv4xU78Y3HpkYCpysnk7OquvsyXFZB6emX/LBKKGg\nIKpIrO3eTYTr9lsjxZyxUeCRUwKBgQDK5DkPJiVNjrM/fHmRbvoFVnIq8SEjuRwb\nX94kzfVipxBipEDo0f1/FmbMcPLj/5VBYmO3hW3tlRXjr6eCBgnHwzLtCVg29iCG\nckHJDrnDQbtCO+0cvv7oOiBqtHflo2KV6SVbmhoQKFcottXFqnDTx+3lBirityK0\nEVBIzD8gzwKBgQCVvsuXoKBqbmrCAYEjbFcahax3yuny4K+2U9atk8WY2fYZCB2z\nouVntzjQDsMsWefU5xguz0opiHsym4U3FBWdkbewtcEhcaOrfrpb8rvp1PBP31x7\n41O5TpG+yNrl9Oz+lMI7LfKvhpq3E6QHv03Jh7ivkRi9qXSESPsDqOyGKQKBgQC1\n464nn5n3ksOtWakesW/hUyNczflYrj29aM+dDSs8uusck4ZBcuggg/O6ulN2BQ5I\npK0ivLLVOD98dF/mWAVymdNQ33y/IR39ifbiCZqNqqL2+QRULgIWLO4c2xdVvojG\nPlKocVmGPLQOowK4h1lI80aZeFMAFxA8f/0KlljNzwKBgQDEwJQJnw2D7IXSADc3\nTaCw/kk5DEPNDIakNgo62/AqsWehwKtgliQ0A0fzY7dFLtJYZ6UVItZYWsRNnSFA\nSL+FtQ+GooLcEkGD1M8xk9ubqgt/gaduPa4wwSCsylODCWMpIuYGiXk/I1WByXdE\nx8AS19ezun4OU/q/I28dfn2Ubw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "scoreboarduser@attendee-prize-rankings.iam.gserviceaccount.com",
   "client_id": "117307274302179902597",
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
   "token_uri": "https://oauth2.googleapis.com/token",
