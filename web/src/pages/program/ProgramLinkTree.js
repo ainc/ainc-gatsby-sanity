@@ -6,7 +6,7 @@ import * as styles from "../program/program.module.scss";
 
 const ProgramLinkTree = (props) => {
   return (
-    <Container className={styles.details}>
+    <Container className={`program-link-tree ${styles.details}`}>
       <Col>
         <Row>
           <Subtitle className="text-uppercase text-center text-black mt-4 mb-4">

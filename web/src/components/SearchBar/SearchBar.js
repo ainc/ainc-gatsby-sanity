@@ -33,9 +33,12 @@ const SearchBar = () => {
   `);
 
   const blogs = data.allSanityBlog.edges.map(({ node }) => {
+    if (!node.thumbnail || !node.thumbnail.asset) {
+      console.warn("Missing thumbnail for blog:", node.title);
+    }
     const defaultBgImageUrl = "../images/logo.png";
     const bgImage =
-      node.thumbnail.asset !== null
+      node.thumbnail && node.thumbnail.asset
         ? getImage(node.thumbnail.asset.gatsbyImageData)
         : defaultBgImageUrl;
     return {
@@ -100,7 +103,11 @@ const SearchItem = ({ key, title, description, author, blogUrl, imageUrl }) => {
         <Row className="d-flex justify-content-center align-items-center">
           <Col md={2} className="mt-3 mb-3 mb-md-0">
             <div className="d-flex justify-content-center align-items-center">
-              <GatsbyImage image={imageUrl} alt={title} className="shadow" />
+              {typeof imageUrl === "string" ? (
+                <img src={imageUrl} alt={title} className="shadow" />
+              ) : (
+                <GatsbyImage image={imageUrl} alt={title} className="shadow" />
+              )}
             </div>
           </Col>
           <Col md={10}>

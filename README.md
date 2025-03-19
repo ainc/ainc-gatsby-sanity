@@ -28,12 +28,12 @@ Refer to the **`package.json`** files in each workspace for workspace-specific s
 1. **Clone the repo**  
    git clone <your-repo-url>
 
-2. **Install dependencies** (in the root folder)  
+2. **Verify Yarn is installed**  
+   yarn --version
+
+3. **Install dependencies** (in the root folder)  
    cd ainc-gatsby-sanity  
    yarn install
-
-3. **Verify Yarn is installed**  
-   yarn --version
 
 ---
 

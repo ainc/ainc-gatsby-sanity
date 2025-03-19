@@ -6,7 +6,6 @@ require("dotenv").config({
 
 const clientConfig = require("./client-config");
 const token = process.env.SANITY_READ_TOKEN;
-const credentials = require("./attendee-prize-rankings-3e07e50c684f.json");
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -22,6 +21,7 @@ module.exports = {
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-netlify",
     {
+<<<<<<< HEAD
       resolve: 'gatsby-source-google-spreadsheets',
       options: {
         spreadsheetId: '14rehTJhUM9nSxfQtUF18OFIANrCRATH2tYsVsO8XirA',
@@ -30,6 +30,8 @@ module.exports = {
       }
     },
     {
+=======
+>>>>>>> main
       resolve: "gatsby-plugin-sharp",
       options: {
         placeholder: `dominantColor`,
