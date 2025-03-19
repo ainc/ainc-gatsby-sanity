@@ -23,8 +23,20 @@ module.exports = {
     {
       resolve: 'gatsby-source-google-spreadsheets',
       options: {
-        spreadsheetId: '14rehTJhUM9nSxfQtUF18OFIANrCRATH2tYsVsO8XirA',
-        credentials: credentials
+        spreadsheetId: '1C6rqs1o2sY_EDmDQV7yHS8SxulXZ00el3H_7pf7Yp64',
+        credentials: {
+          type: "service_account",
+          project_id: "across-rewards-program",
+          private_key_id: "FIVE_ACROSS_REWARDS_PRIVATE_KEY_ID",
+          private_key: "FIVE_ACROSS_REWARDS_PRIVATE_KEY",
+          client_email: "id-a-rewards@across-rewards-program.iam.gserviceaccount.com",
+          client_id: "117583428751875259457",
+          auth_uri: "https://accounts.google.com/o/oauth2/auth",
+          token_uri: "https://oauth2.googleapis.com/token",
+          auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
+          client_x509_cert_url: "https://www.googleapis.com/robot/v1/metadata/x509/id-a-rewards%40across-rewards-program.iam.gserviceaccount.com",
+          universe_domain: "googleapis.com"
+        }
 
       }
     },
