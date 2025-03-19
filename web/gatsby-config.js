@@ -21,7 +21,6 @@ module.exports = {
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-netlify",
     {
-<<<<<<< HEAD
       resolve: 'gatsby-source-google-spreadsheets',
       options: {
         spreadsheetId: '14rehTJhUM9nSxfQtUF18OFIANrCRATH2tYsVsO8XirA',
@@ -30,8 +29,6 @@ module.exports = {
       }
     },
     {
-=======
->>>>>>> main
       resolve: "gatsby-plugin-sharp",
       options: {
         placeholder: `dominantColor`,
