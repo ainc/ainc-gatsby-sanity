@@ -47,6 +47,11 @@ export default {
         ],
       },
     },
+    {
+      name: "pinBoard",
+      title: "Achievements Pin Board",
+      type: "image",
+    }
   ],
   preview: {
     select: {

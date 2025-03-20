@@ -1,52 +1,58 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { Container, Row } from "react-bootstrap";
-
-import Event from "../../components/Event/Event";
 import Layout from "../../components/Layout/Layout";
-import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import Title from "../../components/UI/Title/Title";
+import { GatsbyImage } from "gatsby-plugin-image";
 
-const EventsPage = ({ data }) => {
-  const events = data.allSanityEvents.edges || [];
-
+const AchievementsPage = ({ data }) => {
+  // const pinBoards = data?.allSanityTeamMember?.edges?.filter(node => node.pinBoard !== null);
+  const teamMembers = data?.allSanityTeamMember?.edges;
   return (
     <Layout>
       {/* Heading */}
       <Container className="text-center my-5">
         <Row>
-          <Title className="text-uppercase">Upcoming Events</Title>
+          <Title className="text-uppercase">Team Achievements</Title>
         </Row>
       </Container>
 
-      {/* Team members boards */}
-     
+      {/* Pin boards */}
+      <Container>
+        {teamMembers.length > 0 ? (
+          teamMembers.map((edge) =>
+            edge.node.pinBoard ? (
+              <div>
+                <GatsbyImage
+                  image={edge.node.pinBoard?.asset.gatsbyImageData}
+                />
+              </div>
+            ) : null,
+          )
+        ) : (
+          <p>No Team Achievement Boards Found</p>
+        )}
+      </Container>
     </Layout>
   );
 };
 
-export const query_team_members = graphql`
-  query ($currentDate: Date!) {
-    allSanityEvents(
-      sort: { date: ASC }
-      filter: { date: { gte: $currentDate } }
-    ) {
+export const query_pins = graphql`
+  {
+    allSanityTeamMember {
       edges {
         node {
-          eventName
-          date(formatString: "MMMM D, YYYY")
-          linkToEvent
-          host
-          location
-          picture {
+          pinBoard {
             asset {
-              gatsbyImageData(aspectRatio: 1.05)
+              gatsbyImageData
             }
           }
+          name
         }
       }
     }
   }
 `;
 
-export default EventsPage;
+export default AchievementsPage;
+
