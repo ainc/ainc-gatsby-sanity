@@ -8,7 +8,6 @@ import { GatsbyImage } from "gatsby-plugin-image";
 const AchievementsPage = ({ data }) => {
   // const pinBoards = data?.allSanityTeamMember?.edges?.filter(node => node.pinBoard !== null);
   const teamMembers = data?.allSanityTeamMember?.edges;
-  console.log(teamMembers);
   return (
     <Layout>
       {/* Heading */}
@@ -56,3 +55,4 @@ export const query_pins = graphql`
 `;
 
 export default AchievementsPage;
+
