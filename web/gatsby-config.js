@@ -23,14 +23,16 @@ module.exports = {
     {
       resolve: "gatsby-source-google-spreadsheets",
       options: {
-        spreadsheetId: "1C6rqs1o2sY_EDmDQV7yHS8SxulXZ00el3H_7pf7Yp64",
+        spreadsheetId: process.env.FIVE_ACROSS_REWARDS_SPREADSHEET_ID,
         credentials: {
           type: "service_account",
-          project_id: "across-rewards-program",
+          project_id: process.env.FIVE_ACROSS_REWARDS_PROJECT_ID,
           private_key_id: process.env.FIVE_ACROSS_REWARDS_PRIVATE_KEY_ID,
-          private_key: process.env.FIVE_ACROSS_REWARDS_PRIVATE_KEY,
-          client_email:
-            "id-a-rewards@across-rewards-program.iam.gserviceaccount.com",
+          private_key: process.env.FIVE_ACROSS_REWARDS_PRIVATE_KEY.replace(
+            /(\\r)|(\\n)/g,
+            "\n",
+          ),
+          client_email: process.env.FIVE_ACROSS_REWARDS_CLIENT_EMAIL,
           client_id: "117583428751875259457",
           auth_uri: "https://accounts.google.com/o/oauth2/auth",
           token_uri: "https://oauth2.googleapis.com/token",
