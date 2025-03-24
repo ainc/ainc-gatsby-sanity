@@ -316,7 +316,7 @@ const IndexPage = ({ data }) => {
           Made for any level
         </p>
         <Container>
-          <Row>
+          <Row className="justify-content-center">
             {courses.map((node, i) => (
               <Col className="mb-3" md={4} lg={4} key={i}>
                 <motion.div
