@@ -56,12 +56,12 @@ const LearnPage = ({ data }) => {
           <Col xs={12} md={6}>
             <Title className="brand text-uppercase">Learn to Code</Title>
             <p className="fst-italic">with Awesome Inc</p>
-            <a href="../learn/youth">
-              <BrandButton className="secondary mr-3 my-3">Youth</BrandButton>
-            </a>
-            <a href="../learn/adults">
-              <BrandButton className="secondary mx-3">Adult</BrandButton>
-            </a>
+            // <a href="../learn/youth">
+            //   <BrandButton className="secondary mr-3 my-3">Youth</BrandButton>
+            // </a>
+            // <a href="../learn/adults">
+            //   <BrandButton className="secondary mx-3">Adult</BrandButton>
+            // </a>
           </Col>
         </Row>
       </Container>
