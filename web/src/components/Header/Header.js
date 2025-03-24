@@ -113,10 +113,8 @@ const Header = () => {
                 Learn To Code <AiFillCaretDown size={10} />
               </Nav.Link>
               <div className="hover-options">
-                <a href="/learn/youth/code/">Youth Courses</a>
-                <a href="/learn/adults">Adult Courses</a>
+                <a href="/intro-to-web-development">Adult Intro Course</a>
                 <a href="/weekofcode">Kids Camps</a>
-                <a href="/salesforce">Salesforce Career Accelerator</a>
               </div>
             </Col>
 
