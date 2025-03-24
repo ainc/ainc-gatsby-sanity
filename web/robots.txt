@@ -8,7 +8,7 @@ Disallow: /program/
 Disallow: /team-achievements/
 Disallow: /transy/
 Disallow: /_gatsby/slices/_gatsby-scripts-1/
-dDisallow: /bootcamp/countdown/
+Disallow: /bootcamp/countdown/
 Disallow: /confirmation/bootcamp/
 Disallow: /confirmation/bootcamp-download/
 Disallow: /confirmation/interview/
