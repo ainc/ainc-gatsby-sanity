@@ -47,3 +47,5 @@ Disallow: /bootcamp/Components/ShieldsRow/ShieldsRow/
 Disallow: /bootcamp/Components/SideNav/SideNav/
 Disallow: /fellowship/Components/KPIBox/KPIBox/
 Disallow: /workspace/Components/SeeTheSpace/SeeTheSpace/
+
+Sitemap: https://awesomeinc.org/sitemap.xml
