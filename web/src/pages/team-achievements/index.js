@@ -19,19 +19,21 @@ const AchievementsPage = ({ data }) => {
 
       {/* Pin boards */}
       <Container>
-        {teamMembers.length > 0 ? (
-          teamMembers.map((edge) =>
-            edge.node.pinBoard ? (
-              <div>
-                <GatsbyImage
-                  image={edge.node.pinBoard?.asset.gatsbyImageData}
-                />
-              </div>
-            ) : null,
-          )
-        ) : (
-          <p>No Team Achievement Boards Found</p>
-        )}
+        <div className="text-center">
+          {teamMembers.length > 0 ? (
+            teamMembers.map((edge) =>
+              edge.node.pinBoard ? (
+                <div className="my-5">
+                  <GatsbyImage
+                    image={edge.node.pinBoard?.asset.gatsbyImageData}
+                  />
+                </div>
+              ) : null,
+            )
+          ) : (
+            <p>No Team Achievement Boards Found</p>
+          )}
+        </div>
       </Container>
     </Layout>
   );
@@ -55,4 +57,3 @@ export const query_pins = graphql`
 `;
 
 export default AchievementsPage;
-
