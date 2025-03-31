@@ -84,12 +84,6 @@ const IndiaPage = () => {
                 lg={{ span: 5, offset: 1 }}
                 xl={{ offset: 1, span: 4 }}
               >
-                <StaticImage
-                  placeholder="blurred"
-                  className={styles.phone}
-                  src="../../../images/learn/header-phone.png"
-                  alt="phone"
-                ></StaticImage>
               </Col>
             </Row>
           </Row>

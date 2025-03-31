@@ -5,7 +5,6 @@ import Layout from "../../components/Layout/Layout";
 import { Container, Row, Col } from "react-bootstrap";
 import Title from "../../components/UI/Title/Title";
 import HorizontalButtons from "../events/5across/HorizontalButtons.js";
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 
 const FiveAcrossScoreboard = ({ data }) => {
   const [formName, setFormName] = useState("");
@@ -55,22 +54,8 @@ const FiveAcrossScoreboard = ({ data }) => {
               className="text--huge text-center mt-4 mx-center"
             >
               Attendees standings
-              {/* <p style={{ color: "black", width: "75%" }} className="mx-auto">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                deserunt mollit anim id est laborum.
-                            </p> */}
             </Title>
             <Row className="d-flex flex-column align-items-center text-center">
-              <StaticImage
-                placeholder="blurred"
-                className="height"
-                src="../../images/5-Across-2025-Attendee-Giveaway-Ticket-Graphic.png"
-                alt=""
-              />
               <Row className="mt-3 justify-content-center">
                 {nextFiveAcross.map((node) => (
                   <HorizontalButtons

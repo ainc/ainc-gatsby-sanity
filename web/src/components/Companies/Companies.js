@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Container, Col, Row } from "react-bootstrap";
 import Title from "../../components/UI/Title/Title";
 
-export const query = graphql`
+const query = useStaticQuery(graphql`
   {
     allSanityBootcampEmployers {
       nodes {
@@ -18,7 +18,7 @@ export const query = graphql`
       }
     }
   }
-`;
+`);
 
 const Companies = ({ employers }) => {
   return (
