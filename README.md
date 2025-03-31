@@ -35,6 +35,9 @@ Refer to the **`package.json`** files in each workspace for workspace-specific s
    cd ainc-gatsby-sanity  
    yarn install
 
+4. **.env File**
+   Ask leader for the .env file.
+
 ---
 
 ## 2. Issue-Driven Development
