@@ -188,6 +188,34 @@ async function createTutorialsPages(graphql, actions) {
   });
 }
 
+//generate page
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+
+  const result = await graphql(`
+    {
+      allSanityPage {
+        nodes {
+          id
+          slug {
+            current
+          }
+        }
+      }
+    }
+  `);
+
+  result.data.allSanityPage.nodes.forEach((node) => {
+    createPage({
+      path: `/${node.slug.current}`,
+      component: path.resolve("./src/templates/page.js"),
+      context: {
+        slug: node.slug.current,
+      },
+    });
+  });
+};
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createRedirect } = actions;
   //internal

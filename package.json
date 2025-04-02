@@ -14,6 +14,8 @@
   "dependencies": {
     "@portabletext/react": "^2.0.2",
     "@sanity/block-content-to-react": "^3.0.0",
+    "@sanity/client": "^6.28.4",
+    "gatsby-source-sanity": "^7.9.1",
     "svgo": "^2.8.0"
   },
   "workspaces": [
