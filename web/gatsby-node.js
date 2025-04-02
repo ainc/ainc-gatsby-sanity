@@ -189,32 +189,43 @@ async function createTutorialsPages(graphql, actions) {
 }
 
 //generate page
-exports.createPages = async ({ graphql, actions }) => {
+async function createSanityPages(graphql, actions, reporter) {
   const { createPage } = actions;
-
   const result = await graphql(`
     {
       allSanityPage {
-        nodes {
-          id
-          slug {
-            current
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
           }
         }
       }
     }
   `);
 
-  result.data.allSanityPage.nodes.forEach((node) => {
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running Sanity Page query.`);
+    return;
+  }
+
+  result.data.allSanityPage.edges.forEach(({ node }) => {
+    if (!node.slug?.current) {
+      reporter.warn(`Sanity page missing slug: ${node.id}`);
+      return;
+    }
+
     createPage({
       path: `/${node.slug.current}`,
-      component: path.resolve("./src/templates/page.js"),
+      component: require.resolve("./src/templates/page.js"),
       context: {
         slug: node.slug.current,
       },
     });
   });
-};
+}
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createRedirect } = actions;
@@ -292,6 +303,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     redirectInBrowser: true,
   });
 
+  await createSanityPages(graphql, actions, reporter);
   await createPodcastPages(graphql, actions);
   await createBlogPostPages(graphql, actions);
   await createNotePages(graphql, actions);
