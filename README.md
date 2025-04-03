@@ -9,10 +9,12 @@ Because **pushing directly to `main` is impossible**, all changes are managed th
 ## Overview
 
 This repository includes:
+
 - **web**: The Gatsby front-end
 - **studio**: The Sanity Content Studio (schemas and content)
 
 **Root `package.json`** highlights:
+
 - **`build-studio`**: Builds the Studio (`(cd studio && yarn run build)`).
 - **`export-db`** / **`import-db`**: For exporting/importing production dataset.
 - **`deploy-graphql`**: Deploys updated GraphQL schema.
@@ -36,7 +38,7 @@ Refer to the **`package.json`** files in each workspace for workspace-specific s
    yarn install
 
 4. **.env File**
-   Ask leader for the .env file.
+   Ask leader for the .env.development file.
 
 ---
 
@@ -44,8 +46,9 @@ Refer to the **`package.json`** files in each workspace for workspace-specific s
 
 **Before making any changes**, create a GitHub issue describing the task or feature:
 
-1. **Create an issue**  
-   - Provide a clear title and description of what you want to accomplish.  
+1. **Create an issue**
+
+   - Provide a clear title and description of what you want to accomplish.
    - Specify whether it affects `web`, `studio`, or both.
 
 2. **Create a branch off the issue**  
@@ -61,24 +64,27 @@ Refer to the **`package.json`** files in each workspace for workspace-specific s
 1. **Navigate to `web`**  
    cd web  
    yarn dev
+
    - The Gatsby dev (development) server runs at [http://localhost:8000](http://localhost:8000).
 
-2. **Edit code** in the `web` folder  
+2. **Edit code** in the `web` folder
+
    - Changes appear automatically (hot reload).
 
-3. **Build** (production)  
+3. **Build** (production)
    - From `web`:  
-     yarn build  
+     yarn build
    - This creates a production-ready build in `web/public`.
 
 ### 3.2 Sanity Studio (`studio`)
 
 1. **Navigate to `studio`**  
    cd studio  
-   yarn dev  
+   yarn dev
+
    - The Studio runs at [http://localhost:3333](http://localhost:3333).
 
-2. **Schema or content updates**  
+2. **Schema or content updates**
    - Edit files in `studio/schemas` (or your chosen directory).
    - See your changes in real time in the local Studio.
 
@@ -92,14 +98,17 @@ If schema changes in the Studio require corresponding updates in Gatsby, handle 
 
 1. **Create a branch off the issue**  
    git checkout -b feat/<issue-number>-<description>
+
    - Example: `feat/15-update-schema-and-frontend`
 
-2. **Edit the schema** in `studio`  
+2. **Edit the schema** in `studio`
+
    - Make necessary updates and test locally:  
      cd studio  
      yarn dev
 
-3. **Update Gatsby** in `web`  
+3. **Update Gatsby** in `web`
+
    - Adjust GraphQL queries/components to match the new schema fields.
    - Test by running `yarn dev` in `web`.
 
@@ -109,13 +118,14 @@ If schema changes in the Studio require corresponding updates in Gatsby, handle 
 
 5. **Push and open a PR**  
    git push origin feat/<issue-number>-<description>
+
    - Link the PR to the corresponding GitHub issue.
 
-6. **Merge and Deploy**  
+6. **Merge and Deploy**
    - After PR approval:
      - Merge into `main`.
      - Redeploy the GraphQL schema if needed:  
-       yarn deploy-graphql  
+       yarn deploy-graphql
      - Deploy the updated Gatsby site.
 
 ---
@@ -127,7 +137,8 @@ If schema changes in the Studio require corresponding updates in Gatsby, handle 
 1. **Create an issue and branch**  
    git checkout -b feat/<issue-number>-<studio-description>
 
-2. **Edit schema** in `studio`  
+2. **Edit schema** in `studio`
+
    - Test with `yarn dev`.
 
 3. **Commit and push**  
@@ -143,7 +154,8 @@ If schema changes in the Studio require corresponding updates in Gatsby, handle 
 1. **Create an issue and branch**  
    git checkout -b feat/<issue-number>-<web-description>
 
-2. **Edit code** in `web`  
+2. **Edit code** in `web`
+
    - Test with `yarn dev`.
 
 3. **Commit and push**  
@@ -162,7 +174,7 @@ If **production** has updates that need to be synced to **development**:
 1. **Update** production content in the live Studio.
 2. **Clone** production into development:  
    cd studio  
-   yarn clone  
+   yarn clone
    - This exports the production dataset and imports it into the development dataset (`--replace` by default).
 3. **Restart** local environments to ensure everything is up to date.
 
@@ -170,29 +182,33 @@ If **production** has updates that need to be synced to **development**:
 
 ## 7. Best Practices
 
-1. **Use Issues for Every Task**  
+1. **Use Issues for Every Task**
+
    - Create an issue describing the task or change.
    - Reference the issue in your branch name and commits.
 
-2. **Small, Focused PRs**  
+2. **Small, Focused PRs**
+
    - Avoid mixing unrelated changes in a single PR.
 
-3. **Test Locally First**  
+3. **Test Locally First**
+
    - Verify schema changes (`studio`) and front-end queries (`web`) before opening a PR.
 
-4. **Deploy in Sync**  
+4. **Deploy in Sync**
+
    - Merge and deploy schema changes first (or in the same PR) to prevent querying fields that don’t exist yet.
 
-5. **Communication**  
+5. **Communication**
    - Let teammates know if your changes might break existing queries.
 
 ---
 
 ## Additional Resources
 
-- **Gatsby Docs**: [https://www.gatsbyjs.com/docs/](https://www.gatsbyjs.com/docs/)  
-- **Sanity Docs**: [https://www.sanity.io/docs](https://www.sanity.io/docs)  
-- **Import/Export Data**: [https://www.sanity.io/docs/migrating-data](https://www.sanity.io/docs/migrating-data)  
+- **Gatsby Docs**: [https://www.gatsbyjs.com/docs/](https://www.gatsbyjs.com/docs/)
+- **Sanity Docs**: [https://www.sanity.io/docs](https://www.sanity.io/docs)
+- **Import/Export Data**: [https://www.sanity.io/docs/migrating-data](https://www.sanity.io/docs/migrating-data)
 
 ---
 
@@ -204,4 +220,3 @@ If **production** has updates that need to be synced to **development**:
 - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-

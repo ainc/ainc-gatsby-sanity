@@ -1,4 +1,3 @@
-// src/components/Pin/Pin.jsx
 import React, { useState } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 
@@ -37,8 +36,6 @@ const Pin = ({ pin, onDragEnd }) => {
     overflow: "hidden",
   };
 
-  // If we have pinImageUrl as a gatsbyImageData object, we show the image
-  // Otherwise, fallback to a colored square
   return (
     <div
       style={style}
