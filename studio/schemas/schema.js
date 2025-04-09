@@ -10,6 +10,9 @@ import link from "./objects/link";
 import sliderImage from "./objects/sliderImage";
 import fiveAcrossJudges from "./objects/fiveAcrossJudges";
 import imageTestimonials from "./objects/imageTestimonials";
+import hero from "./objects/hero";
+import cta from "./objects/cta";
+import button from "./objects/button";
 // Document types
 import category from "./documents/category";
 import teamMember from "./documents/teamMember";
@@ -62,6 +65,9 @@ export default [
   link,
   sliderImage,
   imageTestimonials,
+  hero,
+  cta,
+  button,
   // The following are document types which will appear
   // in the studio.
   teamMember,

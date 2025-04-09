@@ -1,4 +1,4 @@
-// schemas/documents/page.js
+// In sanity/schemas/page.js
 export default {
   name: "page",
   type: "document",
@@ -8,7 +8,6 @@ export default {
       name: "title",
       type: "string",
       title: "Title",
-      validation: (Rule) => Rule.required(),
     },
     {
       name: "slug",
@@ -16,15 +15,17 @@ export default {
       title: "Slug",
       options: {
         source: "title",
-        maxLength: 96,
       },
-      validation: (Rule) => Rule.required(),
     },
     {
-      name: "body",
+      name: "content",
       type: "array",
-      title: "Body Content",
-      of: [{ type: "block" }], // Just rich text blocks to start
+      title: "Page sections",
+      of: [{ type: "hero" }, { type: "cta" }, { type: "button" }],
+      options: {
+        sortable: true,
+        editModal: "dialog",
+      },
     },
   ],
 };
