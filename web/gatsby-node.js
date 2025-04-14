@@ -1,3 +1,4 @@
+//gatsby-node.js
 const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
 const { paginate } = require("gatsby-awesome-pagination");
@@ -188,6 +189,103 @@ async function createTutorialsPages(graphql, actions) {
   });
 }
 
+//------------------------------------------------------------------createSanityPages
+async function createSanityPages(graphql, actions, reporter) {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allSanityPage {
+        nodes {
+          id
+          slug {
+            current
+          }
+        }
+      }
+    }
+  `);
+
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running Sanity Page query.`);
+    return;
+  }
+
+  const pageTemplate = require.resolve("./src/templates/page.js");
+
+  result.data.allSanityPage.nodes.forEach((node) => {
+    if (!node.slug?.current) {
+      reporter.warn(`Sanity page missing slug: ${node.id}`);
+      return;
+    }
+
+    createPage({
+      path: `/${node.slug.current}`,
+      component: require.resolve("./src/templates/page.js"),
+      context: {
+        id: node.id,
+      },
+    });
+  });
+}
+//------------------------ to create existence of 'content'
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type SanityPage implements Node {
+      _id: String!
+      _type: String!
+      _createdAt: Date!
+      _updatedAt: Date!
+      _rev: String!
+      title: String
+      slug: SanitySlug
+      content: [SanityPageContent]
+    }
+    
+    union SanityPageContent = SanityHero | SanityCta
+    
+    type SanityHero implements Node {
+      _key: String!
+      _type: String!
+      heading: String
+      subheading: String
+      backgroundImage: SanityImage
+    }
+    
+    type SanityCta implements Node {
+      _key: String!
+      _type: String!
+      heading: String
+      text: String
+      button: SanityButton
+      backgroundImage: SanityImage
+    }
+    
+    type SanityButton {
+      text: String
+      url: String
+      variant: String
+    }
+    
+    type SanitySlug {
+      _type: String!
+      current: String!
+    }
+    
+    type SanityImage {
+      asset: SanityImageAsset
+    }
+    
+    type SanityImageAsset {
+      gatsbyImageData: JSON
+    }
+  `;
+  createTypes(typeDefs);
+};
+
+//----------------------
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createRedirect } = actions;
   //internal
@@ -264,6 +362,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     redirectInBrowser: true,
   });
 
+  //---------
+  await createSanityPages(graphql, actions, reporter);
+  //---------
   await createPodcastPages(graphql, actions);
   await createBlogPostPages(graphql, actions);
   await createNotePages(graphql, actions);

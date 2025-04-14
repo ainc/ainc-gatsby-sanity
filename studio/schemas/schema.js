@@ -10,6 +10,9 @@ import link from "./objects/link";
 import sliderImage from "./objects/sliderImage";
 import fiveAcrossJudges from "./objects/fiveAcrossJudges";
 import imageTestimonials from "./objects/imageTestimonials";
+import hero from "./objects/hero";
+import cta from "./objects/cta";
+import button from "./objects/button";
 // Document types
 import category from "./documents/category";
 import teamMember from "./documents/teamMember";
@@ -49,6 +52,7 @@ import fiveAcrossTestimonials from "./documents/fiveAcrossTestimonials";
 import bootcampImageTestimonials from "./documents/bootcampImageTestimonials";
 import alumniTestimonials from "./documents/alumniTestimonials";
 import fellowshipKPIs from "./documents/fellowshipKPIs";
+import page from "./documents/page";
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
   bioPortableText,
@@ -61,6 +65,9 @@ export default [
   link,
   sliderImage,
   imageTestimonials,
+  hero,
+  cta,
+  button,
   // The following are document types which will appear
   // in the studio.
   teamMember,
@@ -101,4 +108,5 @@ export default [
   bootcampImageTestimonials,
   alumniTestimonials,
   fellowshipKPIs,
+  page,
 ];
