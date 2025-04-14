@@ -1,3 +1,5 @@
+//fellowshipPortfolio
+
 export default {
   name: "fellowshipPortfolio",
   type: "document",
@@ -31,6 +33,24 @@ export default {
       name: "description",
       type: "text",
       title: "Company Description",
+    },
+    {
+      name: "location",
+      type: "geopoint",
+      title: "Location",
+    },
+    {
+      name: "filters",
+      title: "Filters",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "filters" }], // Links to the 'tag' schema
+        },
+      ],
+      description:
+        "Add filters to categorize this company (e.g., Tech, Healthcare)",
     },
   ],
 };
