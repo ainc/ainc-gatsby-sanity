@@ -125,7 +125,7 @@ If schema changes in the Studio require corresponding updates in Gatsby, handle 
    - After PR approval:
      - Merge into `main`.
      - Redeploy the GraphQL schema if needed:  
-       yarn deploy-graphql
+       yarn graphql-deploy  
      - Deploy the updated Gatsby site.
 
 ---
