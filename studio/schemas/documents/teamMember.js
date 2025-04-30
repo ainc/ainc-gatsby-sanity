@@ -33,6 +33,12 @@ export default {
       type: "internalTeamMember",
     },
     {
+      name: "startDate",
+      type: "date",
+      title: "Start Date",
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "priority",
       type: "string",
       title: "Member Priority",
@@ -48,10 +54,13 @@ export default {
       },
     },
     {
-      name: "pinBoard",
-      title: "Achievements Pin Board",
-      type: "image",
-    }
+      name: "onlyShownOnAchievementsPage",
+      type: "boolean",
+      title: "Only shown on the achievements page",
+      description:
+        "If this is checked, the member will only be shown on the achievements page; they will be excluded from the about page.",
+      initialValue: false,
+    },
   ],
   preview: {
     select: {

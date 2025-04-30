@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { graphql } from "gatsby";
 import Layout from "../../components/Layout/Layout";
 import { Container, Col, Row, Image } from "react-bootstrap";
-import SEO from "../../components/seo";
-import { GatsbyImage } from "gatsby-plugin-image";
 import { motion } from "framer-motion";
 
 import * as styles from "./about.module.css";
@@ -12,20 +10,13 @@ import SocialMedia from "../../components/SocialMedia/SocialMedia";
 import TeamMember from "../../components/TeamMember/TeamMember";
 import OutlineDiv from "../../components/DivOutline/DivOutline";
 import Title from "../../components/UI/Title/Title";
-import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
 
 import coreValues from "../../images/about-core-values.png";
-import ModalCustom from "../../components/Modal/ModalCustom";
 import Accomplishments from "../../components/Accomplishments/Accomplishments";
 
 const AboutPage = ({ data }) => {
   const teamMembers = data.allSanityTeamMember.nodes || {};
-  const accomplishments = data.allSanityAccomplishments.nodes.at(-1) || {};
-
-  const [lgShow, setLgShow] = useState(false);
-  const handleShow = () => setLgShow(true);
-  const handleClose = () => setLgShow(false);
 
   const sortedTeamMembers = teamMembers.sort((a, b) => {
     if (a.name === "Brian" && b.name !== "Brian") return -1; // "Brian" comes first
@@ -210,27 +201,10 @@ const AboutPage = ({ data }) => {
 
 export const query_accomplishments = graphql`
   query {
-    allSanityAccomplishments {
-      nodes {
-        header
-        accomplishment1 {
-          asset {
-            gatsbyImageData
-          }
-        }
-        accomplishment2 {
-          asset {
-            gatsbyImageData
-          }
-        }
-        accomplishment3 {
-          asset {
-            gatsbyImageData
-          }
-        }
-      }
-    }
-    allSanityTeamMember(sort: [{ priority: ASC }, { name: ASC }]) {
+    allSanityTeamMember(
+      filter: { onlyShownOnAchievementsPage: { eq: false } }
+      sort: [{ priority: ASC }, { name: ASC }]
+    ) {
       nodes {
         name
         picture {
