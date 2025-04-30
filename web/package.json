@@ -18,7 +18,7 @@
     "@fontsource/exo-2": "^4.5.8",
     "@fontsource/open-sans": "^4.5.10",
     "@gatsbyjs/reach-router": "^2.0.1",
-    "@portabletext/react": "^1.0.1",
+    "@portabletext/react": "^1.0.6",
     "@react-google-maps/api": "^2.20.6",
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/image-url": "^1.0.1",

@@ -1,3 +1,4 @@
+//hero.js
 export default {
   name: "hero",
   type: "object",

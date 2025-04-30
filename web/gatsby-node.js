@@ -228,22 +228,29 @@ async function createSanityPages(graphql, actions, reporter) {
   });
 }
 //------------------------ to create existence of 'content'
-
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   const typeDefs = `
     type SanityPage implements Node {
-      _id: String!
-      _type: String!
-      _createdAt: Date!
-      _updatedAt: Date!
-      _rev: String!
-      title: String
-      slug: SanitySlug
       content: [SanityPageContent]
     }
     
-    union SanityPageContent = SanityHero | SanityCta
+    union SanityPageContent = SanityHero | SanityCta | SanityTextBlock | SanityColumnBlock
+    
+    type SanityColumnBlock implements Node {
+      _key: String!
+      _type: String!
+      spacing: String
+      alignment: String
+      sections: [SanityColumnSection]
+      backgroundImage: SanityImage
+    }
+    
+    type SanityColumnSection {
+      _key: String!
+      width: String
+      content: [SanityPageContent]
+    }
     
     type SanityHero implements Node {
       _key: String!
@@ -260,6 +267,15 @@ exports.createSchemaCustomization = ({ actions }) => {
       text: String
       button: SanityButton
       backgroundImage: SanityImage
+    }
+    
+    type SanityTextBlock implements Node {
+      _key: String!
+      _type: String!
+      textAlignment: String
+      textColor: String
+      backgroundImage: SanityImage
+      _rawContent: JSON
     }
     
     type SanityButton {
@@ -279,6 +295,22 @@ exports.createSchemaCustomization = ({ actions }) => {
     
     type SanityImageAsset {
       gatsbyImageData: JSON
+      url: String
+    }
+    
+    type SanityBlock {
+      _key: String!
+      _type: String!
+      children: [SanitySpan]
+      style: String
+      list: String
+    }
+    
+    type SanitySpan {
+      _key: String!
+      _type: String!
+      marks: [String]
+      text: String
     }
   `;
   createTypes(typeDefs);

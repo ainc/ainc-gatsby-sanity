@@ -1,3 +1,4 @@
+//button.js
 export default {
   name: "button",
   type: "object",

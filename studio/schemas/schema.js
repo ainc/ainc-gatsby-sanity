@@ -13,6 +13,8 @@ import imageTestimonials from "./objects/imageTestimonials";
 import hero from "./objects/hero";
 import cta from "./objects/cta";
 import button from "./objects/button";
+import textBlock from "./objects/textBlock";
+import columnBlock from "./objects/columnBlock";
 // Document types
 import category from "./documents/category";
 import teamMember from "./documents/teamMember";
@@ -68,6 +70,8 @@ export default [
   hero,
   cta,
   button,
+  textBlock,
+  columnBlock,
   // The following are document types which will appear
   // in the studio.
   teamMember,

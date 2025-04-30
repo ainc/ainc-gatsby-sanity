@@ -21,7 +21,12 @@ export default {
       name: "content",
       type: "array",
       title: "Page sections",
-      of: [{ type: "hero" }, { type: "cta" }, { type: "button" }],
+      of: [
+        { type: "hero" },
+        { type: "cta" },
+        { type: "textBlock" },
+        { type: "columnBlock" },
+      ],
       options: {
         sortable: true,
         editModal: "dialog",
