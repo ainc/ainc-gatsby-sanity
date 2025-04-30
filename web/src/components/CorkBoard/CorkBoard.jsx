@@ -38,7 +38,7 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [] }) => {
   // parse out the year for "Awesome Since"
   const sinceYear = memberEntry?.startDate
     ? new Date(memberEntry.startDate).getFullYear()
-    : "—";
+    : null;
 
   const avatar = memberEntry?.pictureUrl || "";
 
@@ -131,6 +131,7 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [] }) => {
         boxShadow: "0 10px 20px rgba(0,0,0,0.19)",
       }}
     >
+      {/* fixed profile card */}
       <div
         className="position-absolute"
         style={{
@@ -158,17 +159,20 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [] }) => {
           }}
         />
         <div style={{ fontSize: "1.4rem", fontWeight: 600 }}>{boardName}</div>
-        <div
-          style={{
-            fontSize: ".7rem",
-            fontStyle: "italic",
-            color: "#4d4d4d",
-          }}
-        >
-          Awesome&nbsp;Since&nbsp;{sinceYear}
-        </div>
+        {sinceYear && (
+          <div
+            style={{
+              fontSize: ".7rem",
+              fontStyle: "italic",
+              color: "#4d4d4d",
+            }}
+          >
+            Awesome&nbsp;Since&nbsp;{sinceYear}
+          </div>
+        )}
       </div>
 
+      {/* pin canvas */}
       <div
         className="w-100 h-100 position-relative"
         style={{
