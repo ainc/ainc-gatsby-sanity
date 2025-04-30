@@ -1,64 +1,49 @@
 import React, { useState } from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { motion } from "framer-motion";
+import { PIN_SIZE } from "./randomPlacement";
 
-const Pin = ({ pin, onDragEnd }) => {
-  const [isDragging, setIsDragging] = useState(false);
+const Pin = ({ pin, setHoveredStory }) => {
+  const [dragging, setDragging] = useState(false);
 
   const handleDragStart = (e) => {
-    setIsDragging(true);
+    setDragging(true);
     const rect = e.currentTarget.getBoundingClientRect();
     e.dataTransfer.setData(
       "text/plain",
       JSON.stringify({
-        pinId: pin.id,
+        uniqueId: pin.dragKey,
         offsetX: e.clientX - rect.left,
         offsetY: e.clientY - rect.top,
       }),
     );
   };
 
-  const handleDragEnd = () => {
-    setIsDragging(false);
-    if (onDragEnd) {
-      onDragEnd(pin.id);
-    }
-  };
-
-  const style = {
-    position: "absolute",
-    left: pin.x,
-    top: pin.y,
-    width: pin.size,
-    height: pin.size,
-    cursor: "grab",
-    border: "2px solid #333",
-    zIndex: isDragging ? 9999 : 1,
-    overflow: "hidden",
-  };
-
   return (
-    <div
-      style={style}
+    <motion.div
+      style={{
+        position: "absolute",
+        left: pin.x,
+        top: pin.y,
+        width: PIN_SIZE,
+        height: PIN_SIZE,
+        cursor: dragging ? "grabbing" : "grab",
+        zIndex: dragging ? 1000 : 1,
+      }}
       draggable
       onDragStart={handleDragStart}
-      onDragEnd={handleDragEnd}
+      onDragEnd={() => setDragging(false)}
+      onMouseEnter={() => setHoveredStory(pin.story || "(No story)")}
+      onMouseLeave={() => setHoveredStory("")}
+      animate={{ scale: dragging ? 1.1 : 1, rotate: dragging ? "-2deg" : 0 }}
+      transition={{ type: "spring", stiffness: 300 }}
     >
-      {pin.pinImageUrl ? (
-        <GatsbyImage
-          image={pin.pinImageUrl}
-          alt={pin.title}
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />
-      ) : (
-        <div
-          style={{
-            width: "100%",
-            height: "100%",
-            backgroundColor: pin.fallbackColor || "#ccc",
-          }}
-        />
-      )}
-    </div>
+      <img
+        src={pin.icon || "/images/default-pin.png"}
+        alt={pin.pinName}
+        style={{ width: 70, height: "auto" }}
+        onError={(e) => (e.target.src = "/images/default-pin.png")}
+      />
+    </motion.div>
   );
 };
 
