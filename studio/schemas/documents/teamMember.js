@@ -36,7 +36,6 @@ export default {
       name: "startDate",
       type: "date",
       title: "Start Date",
-      validation: (Rule) => Rule.required(),
     },
     {
       name: "priority",
