@@ -14,7 +14,7 @@ import {
 import boardImage from "../../images/wood-board-background.jpg";
 
 const EDGE = 10;
-const DEBUG_SECTIONS = true;
+const DEBUG_SECTIONS = false;
 const norm = (s) => (s || "").trim().toLowerCase();
 
 const clash = (spots, x, y) =>
