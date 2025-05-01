@@ -776,7 +776,11 @@ export default (S) =>
                         .child(S.documentTypeList("blog").title("Blogs")),
                     ]),
                 ),
-
+              S.listItem()
+                .id("bootcampAlumni")
+                .title("Bootcamp Alumni")
+                .schemaType("bootcampEmployers")
+                .child(S.documentTypeList("bootcampAlumni")),
               // BOOTCAMP (/bootcamp)
               S.listItem()
                 .id("ap_bootcampSection")
