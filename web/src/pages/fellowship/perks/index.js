@@ -90,6 +90,25 @@ const PerksPage = ({ data }) => {
                 Pro Bono Financial modeling <br /> and CFO services
               </h2>
             </Col>
+            <Col
+              sm={4}
+              className="d-flex flex-column align-items-center justify-content-center"
+            >
+              <img
+                className="services-img mb-4"
+                src="/images/increaseStats.svg"
+              />
+              <h2 className="text-center mb-5">$25k Investment Opportunity</h2>
+            </Col>
+            <Col
+              sm={4}
+              className="d-flex flex-column align-items-center justify-content-center"
+            >
+              <img className="services-img mb-4" src="/images/megaphone.svg" />
+              <h2 className="text-center mb-5">
+                1 hour consultation with Director of Marketing
+              </h2>
+            </Col>
           </Row>
         </section>
         <Row>
