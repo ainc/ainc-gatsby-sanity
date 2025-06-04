@@ -20,6 +20,7 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-netlify",
+    "gatsby-plugin-sharp",
     {
       resolve: "gatsby-source-google-spreadsheets",
       options: {
@@ -44,12 +45,12 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: "gatsby-plugin-sharp",
-      options: {
-        placeholder: `dominantColor`,
-      },
-    },
+    // {
+    //   resolve: "gatsby-plugin-sharp",
+    //   options: {
+    //     placeholder: `dominantColor`,
+    //   },
+    // },
     {
       resolve: "gatsby-source-sanity",
       options: {
