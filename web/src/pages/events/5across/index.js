@@ -5,6 +5,7 @@ import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import { Container, Col, Row, Image } from "react-bootstrap";
 import { motion } from "framer-motion";
 
+import Event from "../../../components/Event/Event";
 import BrandButton from "../../../components/UI/BrandButton/BrandButton";
 import DropdownDataDisplay from "../../../components/DropdownDataDisplay/DropdownDataDisplay";
 import HorizontalButtons from "./HorizontalButtons";
@@ -35,12 +36,19 @@ const fiveAcrossPage = ({ data }) => {
 
   const suppourtingSponsors =
     data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors || {};
-  const nextFiveAcross = data.allSanityEvents.nodes || {};
+  
 
   const fiveAcrossWinners = data.allSanityFiveAcrossWinners.edges || {};
   const previousWinner = fiveAcrossWinners[fiveAcrossWinners.length - 1].node;
 
   const testimonials = data.allSanityFiveAcrossTestimonials.nodes[0] || {};
+
+  const fiveAcrossEvents = data.allSanityEvents.nodes || {};
+  
+
+  const scroll = () => {
+    eventsRef.current.scrollIntoView({ behavior: "smooth" });
+  }
 
   let years = [];
 
@@ -58,6 +66,7 @@ const fiveAcrossPage = ({ data }) => {
   }
   //Scroll to Recent Winner section
   const recentWinner = useRef(null);
+  const eventsRef = useRef(null);
   const scrollToSection = (ref) => {
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth" });
@@ -99,9 +108,22 @@ const fiveAcrossPage = ({ data }) => {
               transition={{ delay: 1.0, duration: 0.4 }}
             >
               <Row className="">
-                {nextFiveAcross.map((node) => (
-                  <HorizontalButtons register={node.linkToEvent} />
-                ))}
+                  <Col md="auto" className="d-flex justify-content-center mb-3">
+                    <a
+                      href="https://forms.zohopublic.com/virtualoffice9155/form/5AcrossApplication1/formperma/i3hM2QiFcJG1DM_nCW8jQvMplp5UUFgRbKc5Ev8kuiA"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      <BrandButton className={`secondary text-uppercase`}>
+                        Apply to Pitch
+                      </BrandButton>
+                    </a>
+                  </Col>
+                  <Col md="auto" className={`${styles.customCol} justify-content-center`}>
+                    <BrandButton className={`secondary text-uppercase`} onClick={() => scrollToSection(eventsRef)}>
+                      Register to Attend
+                    </BrandButton>
+                  </Col>
               </Row>
             </motion.div>
           </Col>
@@ -217,13 +239,58 @@ const fiveAcrossPage = ({ data }) => {
           </Col>
         </Row>
         <Row className="my-5 d-flex justify-content-center">
-          {nextFiveAcross.map((node) => (
-            <HorizontalButtons register={node.linkToEvent} />
-          ))}
+          <Col md="auto" className="d-flex justify-content-center mb-3">
+            <a
+              href="https://forms.zohopublic.com/virtualoffice9155/form/5AcrossApplication1/formperma/i3hM2QiFcJG1DM_nCW8jQvMplp5UUFgRbKc5Ev8kuiA"
+              target="_blank"
+              rel="noopener"
+            >
+              <BrandButton className={`secondary text-uppercase`}>
+                Apply to Pitch
+              </BrandButton>
+            </a>
+          </Col>
+          <Col md="auto" className={`${styles.customCol} justify-content-center`}>
+            {/* <EventBriteModal> */}
+              <BrandButton className={`secondary text-uppercase`} onClick={() => scrollToSection(eventsRef)}>
+                Register to Attend
+              </BrandButton>
+            {/* </EventBriteModal> */}
+          </Col>
         </Row>
       </Container>
+     {/*  {/* Upcoming events here *
+      <div 
+        className={`${styles.customContainer} ${styles.noHorizontalSpacing}`} 
+        id='upcomingEvents'
+        ref={eventsRef}
+        >
+        <div className={styles.flexContainer}>
+          {fiveAcrossEvents.length > 0 ? (
+            fiveAcrossEvents.map((node) => (
+              <div
+                className={`${styles.flexItem} ${styles.contentWrapper}`}
+                key={node.eventName ?? node.id}>
+
+                <Event 
+                  image={node.picture.asset.gatsbyImageData}
+                  date={node.date}
+                  host={node.host}
+                  location={node.location}
+                  link={node.linkToEvent}
+                  name={node.eventName ?? "Untitled Event"}
+                />
+              </div>
+            ))
+          ) : (
+          <div className={`${styles.noEventsMessage}`}>
+            <p>No upcoming events</p>
+          </div>
+          )}
+        </div>
+      </div> */}
       {/*Testimonials */}
-      <Container>
+      <Container>        
         <TestimonialCarousel images={testimonials} />
       </Container>
       <Container fluid className={`mt-5 ${styles.pastPitches}`}>
@@ -258,9 +325,8 @@ const fiveAcrossPage = ({ data }) => {
         <Row className="mt-5 justify-content-center align-items-center">
           {/* White box */}
           <Col lg="6" md="6" xs="8" className="bg-white rounded-4">
-            {nextFiveAcross.map((node) => (
               <Container fluid className="mt-2">
-                <EventBriteModal link={node.linkToEvent}>
+                <EventBriteModal link={data.allSanityEvents.nodes[0].linkToEvent}>
                   <Row>
                     <Col className="d-flex justify-content-center align-items-center">
                       <StaticImage
@@ -273,21 +339,21 @@ const fiveAcrossPage = ({ data }) => {
                     </Col>
                     {/* changed headings in this section from h6, font size utilities currently aren't working but should look normal once the utilities work */}
                     <Col className="" lg="8">
-                      <h2 className="text--red  fw-bold">{node.date}</h2>{" "}
+                      <h2 className="text--red  fw-bold">{data.allSanityEvents.nodes[0].date}</h2>{" "}
                       {/*need to  */}
                       <h4 className="text--black fw-light ">
-                        Location: {node.location}
+                        Location: {data.allSanityEvents.nodes[0].location}
                       </h4>{" "}
                       {/*Location*/}
                       <h3 className="text--black ">
-                        {node.eventName ?? "Untitled Event"}
+                        {data.allSanityEvents.nodes[0].eventName ?? "Untitled Event"}
                       </h3>{" "}
                       {/*title */}
                     </Col>
                   </Row>
                 </EventBriteModal>
               </Container>
-            ))}
+
           </Col>
         </Row>
         <Row className="mt-5">
@@ -307,6 +373,40 @@ const fiveAcrossPage = ({ data }) => {
           </Col>
         </Row>
       </Container>
+      
+      {/* UPCOMING EVENTS*/}
+      <div 
+        className={`${styles.customContainer} ${styles.noHorizontalSpacing}`} 
+        id='upcomingEvents'
+        ref={eventsRef}
+        >
+        <Title className={`${styles.largeText} text-uppercase py-lg-5`}>
+          All upcoming five across events
+        </Title>
+        <div className={styles.flexContainer}>
+          {fiveAcrossEvents.length > 0 ? (
+            fiveAcrossEvents.map((node) => (
+              <div
+                className={`${styles.flexItem} ${styles.contentWrapper}`}
+                key={node.eventName ?? node.id}>
+
+                <Event 
+                  image={node.picture.asset.gatsbyImageData}
+                  date={node.date}
+                  host={node.host}
+                  location={node.location}
+                  link={node.linkToEvent}
+                  name={node.eventName ?? "Untitled Event"}
+                />
+              </div>
+            ))
+          ) : (
+          <div className={`${styles.noEventsMessage}`}>
+            <p>No upcoming events</p>
+          </div>
+          )}
+        </div>
+      </div>
 
       {/* RECENT WINNER SECTION */}
       <Container ref={recentWinner} className="mb-5 pb-5">
@@ -500,7 +600,6 @@ export const query_upcoming_5a = graphql`
         date: { gte: $currentDate }
       }
       sort: { date: ASC }
-      limit: 1
     ) {
       nodes {
         eventName
@@ -510,7 +609,7 @@ export const query_upcoming_5a = graphql`
         linkToEvent
         picture {
           asset {
-            gatsbyImageData
+            gatsbyImageData(aspectRatio: 1.05)
           }
         }
         reference {
