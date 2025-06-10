@@ -1,44 +1,62 @@
 import React from "react";
-// import { graphql } from "gatsby";
+import { graphql } from "gatsby";
 import { motion } from "framer-motion";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import SEO from "../../components/seo";
+import * as styles from "./timeline.module.css";
 
+const HistoryWall = ({ data }) => {
 
-const HistoryWall = () => {
-  // const query = graphql`
-  //   query allSanityTimelineEvent {
-  //     nodes {
-  //       id
-  //       date(formatString: "MMMM D, YYYY")
-  //       title
-  //       image {
-  //         asset {
-  //           gatsbyImageData(width: 800, placeholder: BLURRED)
-  //         }
-  //       }
-  //     }
-  //   }
-  // `);
-
-  // const timelineData = data.allSanityTimelineEvent.nodes;
-
-  const timelineData = []; // empty array so it doesn't crash
+  const timelineData = data.allSanityTimelineEvent.nodes;
 
   return (
     <div
-      className="timeline-container"
-      style={{ padding: "50px", background: "#f8f8f7" }}
+      className={styles.timelineContainer}
     >
-      {timelineData.length === 0 && (
-        <p>
-          This is as far as I have gotten. Still not seeing <code>TimelineEvent</code> in GraphQL and
-          can't bring content from Sanity over without the proper query.
-        </p>
-      )}
+      {timelineData.map((event, index) => {
+        const imageData = getImage(event.image?.asset);
+
+        return (
+          <motion.div
+            key={event.id}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
+            viewport={{ once: true }}
+            className={styles.timelineItem}
+          >
+            {imageData && (
+              <GatsbyImage
+                image={imageData}
+                alt={event.image?.alt || event.title}
+              />
+            )}
+            <h3 className={styles.timelineDate}>{event.date}</h3>
+            <h2 className={styles.timelineTitle}>{event.title}</h2>
+            <p className={styles.timelineContent}>{event.content}</p>
+          </motion.div>
+        );
+      })}
     </div>
   );
 };
 
-
 export default HistoryWall;
+
+// GraphQL Page Query
+export const query = graphql`
+  {
+    allSanityTimelineEvent {
+      nodes {
+        title
+        date
+        image {
+          asset {
+            gatsbyImageData
+          }
+        }
+        content
+      }
+    }
+  }
+`;
+
