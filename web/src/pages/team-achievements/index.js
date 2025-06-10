@@ -39,6 +39,7 @@ const PinBoardPage = () => {
 
   // Log all team member names once
   console.log("Team member names:", Array.from(memberNames));
+  console.log(teamMembers)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,6 +47,7 @@ const PinBoardPage = () => {
         const resp = await fetch("/api/sheet");
         if (!resp.ok) throw new Error("Network response failed");
         const { pins } = await resp.json();
+        console.log(pins)
 
         const grouped = pins.reduce((acc, p) => {
           const key = p.recipient?.trim() || "Unknown";
@@ -65,6 +67,7 @@ const PinBoardPage = () => {
         );
       } catch (err) {
         toast.error(`Failed to load pins: ${err.message}`);
+        console.log(err)
       } finally {
         setLoading(false);
       }
@@ -99,7 +102,8 @@ const PinBoardPage = () => {
             </p>
           </div>
         ) : (
-          filteredBoards.map((board, i) => (
+          boards.map((board, i) => (
+          /* filteredBoards.map((board, i) => ( */
             <Row key={board.recipient} className="justify-content-center my-5">
               <Col xs="auto">
                 <motion.div
