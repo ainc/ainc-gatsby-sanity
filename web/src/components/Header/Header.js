@@ -194,6 +194,7 @@ const Header = () => {
                 >
                   Community Yearbook
                 </a>{" "}
+                <a href=" https://entrepreneurhof.com/">HOF</a>
                 {/*Need to add yearbooks and possibly other assets*/}
               </div>
             </Col>
