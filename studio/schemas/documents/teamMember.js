@@ -60,6 +60,12 @@ export default {
         "If this is checked, the member will only be shown on the achievements page; they will be excluded from the about page.",
       initialValue: false,
     },
+    {
+      name: "recipientName",
+      type: "string",
+      title: "Pin Tracker Recipient Name",
+      description: "This is the name under recipient in the pin log google sheet.",
+    },
   ],
   preview: {
     select: {

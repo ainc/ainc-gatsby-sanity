@@ -13,3 +13,6 @@
 .vscode
 
 ../yarn.lock
+
+# Environment Files
+.env*
