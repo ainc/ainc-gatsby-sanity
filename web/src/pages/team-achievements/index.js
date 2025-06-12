@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 const PinBoardPage = () => {
   const [boards, setBoards] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [links, setLinks] = useState([]);
   const [globalHoveredStory, setGlobalHoveredStory] = useState("");
 
   const { allSanityTeamMember } = useStaticQuery(graphql`
@@ -22,6 +23,7 @@ const PinBoardPage = () => {
               url
             }
           }
+          recipientName
         }
       }
     }
@@ -30,16 +32,13 @@ const PinBoardPage = () => {
   // Build array of team members, including startDate
   const teamMembers = (allSanityTeamMember.nodes || []).map((n) => ({
     name: n.name,
+    pinName: n.recipientName || "",
     startDate: n.startDate,
     pictureUrl: n.picture?.asset?.url || "",
   }));
 
   // Create a Set of valid team member names
-  const memberNames = new Set(teamMembers.map((m) => m.name));
-
-  // Log all team member names once
-  console.log("Team member names:", Array.from(memberNames));
-  console.log(teamMembers)
+  const memberNames = new Set(teamMembers.map((m) => m.pinName));
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,7 +46,11 @@ const PinBoardPage = () => {
         const resp = await fetch("/api/sheet");
         if (!resp.ok) throw new Error("Network response failed");
         const { pins } = await resp.json();
-        console.log(pins)
+
+        const links = await fetch("/api/pinImages");
+        if (!links.ok) throw new Error("Network response failed");
+        const { imgLinks } = await links.json();
+        setLinks(imgLinks)
 
         const grouped = pins.reduce((acc, p) => {
           const key = p.recipient?.trim() || "Unknown";
@@ -78,9 +81,6 @@ const PinBoardPage = () => {
   // Only keep boards whose recipient matches a team member, and log each comparison
   const filteredBoards = boards.filter((board) => {
     const exists = memberNames.has(board.recipient);
-    console.log(
-      `Checking "${board.recipient}" against team members: ${exists}`,
-    );
     return exists;
   });
 
@@ -102,8 +102,8 @@ const PinBoardPage = () => {
             </p>
           </div>
         ) : (
-          boards.map((board, i) => (
-          /* filteredBoards.map((board, i) => ( */
+          /* boards.map((board, i) => ( */
+          filteredBoards.map((board, i) => (
             <Row key={board.recipient} className="justify-content-center my-5">
               <Col xs="auto">
                 <motion.div
@@ -118,6 +118,7 @@ const PinBoardPage = () => {
                     initialPins={board.pins}
                     onHoverStory={setGlobalHoveredStory}
                     teamMembers={teamMembers}
+                    imgLinks={links}
                   />
                 </motion.div>
               </Col>
