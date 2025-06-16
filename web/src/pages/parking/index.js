@@ -5,13 +5,13 @@ import { StaticImage } from "gatsby-plugin-image";
 import Layout from "../../components/Layout/Layout";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
-import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import * as styles from "./parking.module.css";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
 const ParkingPage = ({ data }) => {
   return (
     <Layout>
+      <div className={styles.parking}></div>
       <Container className="ps-3">
         <Col
           xs={{ offset: 1, span: 10 }}
@@ -20,9 +20,9 @@ const ParkingPage = ({ data }) => {
           xl={{ offset: 3, span: 6 }}
         >
           <Title className="text-uppercase text-center text-black mt-5 mb-5">
-            Parking
+            We are located at 348 E Main St.
           </Title>
-          <p className={`text-black mb-3 ps-3`}>
+          <p className={`text-black mb-3 ps-3 text-center`}>
             After 5pm, free parking spaces are widely available downtown.
             However, during the day, it helps to be strategic. Here's a map and
             some general guidelines for parking near Awesome Inc.
@@ -35,84 +35,67 @@ const ParkingPage = ({ data }) => {
             lg={{ offset: 4 }}
             xl={{ offset: 4, span: 5 }}
           >
-            <a
-              target="_blank"
-              href="https://www.google.com/maps/d/u/0/viewer?ll=38.041576999999975%2C-84.49243799999999&hl=en&f=q&hq=parking%20near%20awesome%20inc&source=s_q&spn=0.003333%2C0.004823&t=h&geocode&msa=0&z=18&ie=UTF8&hnear&mid=1tuKBp8oRRCexyub92RobT_smUMI"
-            >
-              <BrandButton className={`mb-4 mt-5 ${styles.button} `}>
-                Parking map
-                <FaMapMarkerAlt className="mb-1 ms-2"></FaMapMarkerAlt>
-              </BrandButton>
-            </a>
+          
           </Col>
         </Row>
         <Col
-          xs={{ span: 12 }}
-          lg={{ offset: 3, span: 6 }}
-          xl={{ offset: 3, span: 6 }}
+          xs={{ span: 20 }}
+          lg={{ offset: 5, span: 10 }}
+          xl={{ offset: 1, span: 10 }}
         >
           <StaticImage
             placeholder="blurred"
             className="mb-4"
-            src="../../images/parking-lot.png"
+            src="/Users/nicholas/Desktop/parkingraphicversion2.jpg"
             alt="awesome inc parking lot"
           ></StaticImage>
         </Col>
       </Container>
-      <Container className="ps-3">
-        <Col
-          xs={{ span: 12 }}
-          lg={{ offset: 2, span: 8 }}
-          xl={{ offset: 2, span: 6 }}
-        >
-          <Subtitle className={` ${styles.park}`}>Do Park</Subtitle>
-          <ul>
-            <li className={` ps-3 ${styles.list}`}>
-              Spaces marked for Awesome Inc in the lot East of our building
-            </li>
-            <li className={` ps-3 ${styles.list}`}>
-              Free 2-hour parking spaces along East Vine Street
-            </li>
-            <li className={` ps-3 ${styles.list}`}>
-              Free full-day spaces on Short Street near Thoroughbred Park and
-              Ransom Ave near Second Presbyterian church
-            </li>
-            <li className={` ps-3 ${styles.list}`}>
-              Deweese Street (PNC Bank) Parking Garage, ~$4/day
-            </li>
-            <li className={` ps-3 ${styles.list}`}>
-              Metered spaces on Water Street, Main Street, or Eastern Avenue
-            </li>
+      
+      <section className="mt-5">
+  <Container>
+    <Row className="g-4" style={{justifyContent: "center"}}>
+      <Col lg={5} md={10}>
+        <div className={`${styles.test}`}>
+          <Row className="justify-content-center">
+            <Col sm="auto" className="mx-auto text-center">
+              <Title className={`${styles.raiseTitle} text-uppercase px-3`}>
+                Do Park
+              </Title>
+            </Col>
+          </Row>
+          <ul className={`${styles.Check} ${styles.stableList}`}>
+            <li>Spaces marked for Awesome Inc in the lot East of our building</li>
+            <li>Free 2-hour parking spaces along East Vine Street</li>
+            <li>Free full-day spaces on Short Street near Thoroughbred Park and Ransom Ave near Second Presbyterian church</li>
+            <li>Deweese Street (PNC Bank) Parking Garage, ~$4/day</li>
+            <li>Metered spaces on Water Street, Main Street, or Eastern Avenue</li>
           </ul>
-        </Col>
+        </div>
+      </Col>
 
-        <Col
-          xs={{ span: 12 }}
-          lg={{ offset: 2, span: 8 }}
-          xl={{ offset: 2, span: 6 }}
-          className="pb-3"
-        >
-          <Subtitle className={` pt-2 ${styles.park}`}>Do Not Park</Subtitle>
-          <ul>
-            <li className={` ps-3 ${styles.list}`}>
-              Spaces marked for Carson's Restaurant or PPG Paints (East side of
-              building)
-            </li>
-            <li className={` ps-3 ${styles.list}`}>
-              Spaces marked for Commerce Lexington, Northwestern Mutual,
-              Tate/Hill/Jacobs Architects, or Awesome Inc Directors (West side
-              of building)
-            </li>
-            <li className={` ps-3 ${styles.list}`}>
-              Spaces in the Main and Vine retail / residential complex
-            </li>
-            <li className={` ps-3 ${styles.list}`}>
-              In the "Loading Zone" on Main Street, directly in front of Awesome
-              Inc
-            </li>
+      <Col lg={5} md={10}>
+        <div className={`${styles.test}`}>
+          <Row className="justify-content-center">
+            <Col sm="auto" className="mx-auto text-center">
+              <Title className={`${styles.raiseTitle} text-uppercase px-3`}>
+                Don't Park
+              </Title>
+            </Col>
+          </Row>
+          <ul className={`${styles.Xmark} ${styles.stableList}`}>
+            <li>Spaces marked for Carson's Restaurant or PPG Paints (East Side of building)</li>
+            <li>Spaces marked for Commerce Lexington, Northwestern Mutual, Tate/Hill/Jacobs Architects, or Awesome Inc Directors (West side of building)</li>
+            <li>Spaces in the Main and Vine retail / residential complex</li>
+            <li>In the "Loading Zone" on Main Street, directly in front of Awesome Inc</li>
           </ul>
-        </Col>
-      </Container>
+        </div>
+      </Col>
+    </Row>
+  </Container>
+</section>
+      
+      <div className={styles.parkfoot}></div>
     </Layout>
   );
 };
