@@ -1,20 +1,83 @@
-.park {
-  font-size: 2.5rem;
-}
-
-.list {
-  font-size: 1rem;
-  letter-spacing: 0.01rem;
-  line-height: 1.4rem;
-  /* text-indent: -1.4rem; */
-}
-
-.button {
-  min-width: 75%;
-  font-weight: bold;
-  filter: opacity(85%);
-}
 .button:hover {
   filter: none;
   color: white;
+}
+.parking{
+  background-image: url(/images/headerwithicon.png);
+  background-size: cover;
+  background-position-y: 0%;
+  background-position-x: center;
+  margin: auto;
+  height: 70vh;
+  width: auto;
+  background-repeat: no-repeat;
+}
+.parkfoot{
+  background-image: url(/images/parkingicons.png);
+  background-size: cover;
+  background-position: 110%;
+  background-position-x: center;
+  margin: auto;
+  height: 60vh;
+  width: auto;
+  background-repeat: no-repeat;
+}
+.test {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  text-align: left;
+  border-color: #ed3243;
+  border-style: solid;
+  border-width: 1px;
+  height: 50vh;
+  width: 100%;
+  text-align: center;
+  max-width: 500px;
+  min-height: auto;
+  box-sizing: border-box;
+}
+.raise-title {
+  background-color: white;
+  margin-top: -20px;
+}
+.stableList {
+  padding: 20px;
+  margin: 0;
+  list-style: none;
+}
+.stableList li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-left: 35px;
+  position: relative;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.6;
+  min-height: 25px;
+}
+.Check.stableList li::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 3px;
+  width: 18px;
+  height: 18px;
+  background-image: url(/images/CheckMark.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+}
+.Xmark.stableList li::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 3px;
+  width: 18px;
+  height: 18px;
+  background-image: url(/images/Xmark.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  text-size-adjust: auto;
 }
