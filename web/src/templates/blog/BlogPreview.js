@@ -9,34 +9,26 @@ import "./BlogPreview.scss";
 export default function BlogPreview({ blog }) {
   const edge = blog;
 
-  const defaultBgImageUrl = "../../images/logo.png";
-
-  const bgImage = edge.node.thumbnail?.asset?.url
-    ? `url(${edge.node.thumbnail.asset.url})`
-    : `url(${defaultBgImageUrl})`;
-
-  // Safely access reference picture
-  const refImage = edge.node.reference?.picture
-    ? `${edge.node.reference.picture}`
-    : `url(${defaultBgImageUrl})`;
+/* Removed unnecessary code since I added gatsbyImage which is better than url */
 
   return (
     <Col xs={12} md={6} className="mt-4 px-0 px-sm-2" key={edge.id}>
       <Container className="blog-card border border-2 rounded-1">
         <Row className="p-3">
           <Col xs={12} className="p-0 d-flex">
+          {/* Changed contianer to use GatsbyImage instead of style to get background Image since it's more optimized */}
             <Container
-              className="blog-image d-flex flex-column"
-              style={{
-                backgroundImage: bgImage,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                backgroundPosition: "center center",
-                height: "270px",
-                width: "100%",
-                position: "relative",
-              }}
+              className="blog-image d-flex flex-column position-relative p-0 align-items-center"
             >
+              <GatsbyImage
+                image={edge.node.thumbnail?.asset?.gatsbyImageData}
+                alt={edge.node.title || "Blog Thumbnail"}
+                className="position-absolute w-100 h-100"
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "center",
+                }}
+              />
               <Row className="bg h-100 w-100">
                 <Col className="book h-100 d-flex justify-content-center align-items-center">
                   <a
@@ -52,18 +44,23 @@ export default function BlogPreview({ blog }) {
               <Row style={{ height: "90px" }} className="blog-details mt-auto">
                 <Col
                   xs={4}
-                  style={{ height: "", width: "fit-content" }}
+                  style={{ width: "fit-content" }}
                   className="justify-content-center align-items-center"
                 >
-                  <GatsbyImage
-                    objectFit="contain"
-                    style={{ height: "70px", width: "70px", zIndex: "2" }}
-                    image={
-                      edge.node.reference?.picture?.asset?.gatsbyImageData || ""
-                    }
-                    alt={edge.node.reference?.name || ""}
-                    className="rounded-circle border border-3 border-white my-0 ms-0"
-                  />
+                  {/* Keep using GatsbyImage for reference picture */}
+                  {edge.node.reference?.picture?.asset?.gatsbyImageData && (
+                    <GatsbyImage
+                      objectFit="contain"
+                      style={{
+                        height: "70px",
+                        width: "70px",
+                        zIndex: "2",
+                      }}
+                      image={edge.node.reference.picture.asset.gatsbyImageData}
+                      alt={edge.node.reference?.name || "Author"}
+                      className="rounded-circle border border-3 border-white my-0 ms-0"
+                    />
+                  )}
                 </Col>
                 <Col
                   xs={7}
@@ -76,7 +73,6 @@ export default function BlogPreview({ blog }) {
                     {edge.node.reference?.name}, {edge.node.reference?.title}
                   </Title>
                   <p style={{ zIndex: "2" }} className="date text-white">
-                    {" "}
                     {edge.node.date}
                   </p>
                 </Col>
@@ -84,7 +80,7 @@ export default function BlogPreview({ blog }) {
               <div className="overlay"></div>
             </Container>
           </Col>
-          <Col xs={12} className="">
+          <Col xs={12}>
             <Container className="p-0 d-flex flex-column justify-content-between h-100">
               <Row>
                 <div className="pt-3">
@@ -94,7 +90,7 @@ export default function BlogPreview({ blog }) {
                     </Title>
                   </a>
                 </div>
-                <div className="">
+                <div>
                   <p className="description text-break">
                     {edge.node.previewText}
                   </p>
@@ -103,7 +99,6 @@ export default function BlogPreview({ blog }) {
               <Row>
                 <a href={`/blog/${edge.node.slug.current}`}>
                   <p className="text--brand fs-6 link--brand">
-                    {" "}
                     Read More <FaLongArrowAltRight size="25" />
                   </p>
                 </a>

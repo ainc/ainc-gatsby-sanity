@@ -191,6 +191,8 @@ const BlogPage = ({ pageContext, data }) => {
   );
 };
 
+
+/* changed asset to use GatsbyImageData instead of URL for better optimization, also limited sizes to 360 by 270 instead of having image sizes be 1000 by 1500 */
 export const query = graphql`
   query BlogPageQuery($skip: Int!, $limit: Int!) {
     allSanityBlog(sort: { date: DESC }, skip: $skip, limit: $limit) {
@@ -205,7 +207,7 @@ export const query = graphql`
           previewText
           thumbnail {
             asset {
-              url
+              gatsbyImageData(width: 360, height: 270, layout: CONSTRAINED, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
             }
           }
           reference {
