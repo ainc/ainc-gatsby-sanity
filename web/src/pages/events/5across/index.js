@@ -86,10 +86,16 @@ const fiveAcrossPage = ({ data }) => {
             >
               <Row className="">
                 <Col sm="10" md="10" lg="6" className="">
-                  <StaticImage
+                  {/* <StaticImage
                     placeholder="blurred"
                     className="my-5 mw-100"
                     src="../../../images/5across-banner.png"
+                    alt=""
+                  /> */}
+                  <StaticImage
+                    placeholder="blurred"
+                    className="my-5 mw-100"
+                    src="../../../images/5AcrossLogo_15_black@6x.png"
                     alt=""
                   />
                 </Col>
@@ -259,36 +265,6 @@ const fiveAcrossPage = ({ data }) => {
           </Col>
         </Row>
       </Container>
-     {/*  {/* Upcoming events here *
-      <div 
-        className={`${styles.customContainer} ${styles.noHorizontalSpacing}`} 
-        id='upcomingEvents'
-        ref={eventsRef}
-        >
-        <div className={styles.flexContainer}>
-          {fiveAcrossEvents.length > 0 ? (
-            fiveAcrossEvents.map((node) => (
-              <div
-                className={`${styles.flexItem} ${styles.contentWrapper}`}
-                key={node.eventName ?? node.id}>
-
-                <Event 
-                  image={node.picture.asset.gatsbyImageData}
-                  date={node.date}
-                  host={node.host}
-                  location={node.location}
-                  link={node.linkToEvent}
-                  name={node.eventName ?? "Untitled Event"}
-                />
-              </div>
-            ))
-          ) : (
-          <div className={`${styles.noEventsMessage}`}>
-            <p>No upcoming events</p>
-          </div>
-          )}
-        </div>
-      </div> */}
       {/*Testimonials */}
       <Container>        
         <TestimonialCarousel images={testimonials} />
@@ -329,11 +305,18 @@ const fiveAcrossPage = ({ data }) => {
                 <EventBriteModal link={data.allSanityEvents.nodes[0].linkToEvent}>
                   <Row>
                     <Col className="d-flex justify-content-center align-items-center">
-                      <StaticImage
+                      {/* <StaticImage
                         placeholder="blurred"
                         quality="100"
                         className="img-fluid"
                         src="../../../images/5across-banner.png"
+                        alt="5across logo"
+                      /> */}
+                      <StaticImage
+                        placeholder="blurred"
+                        quality="100"
+                        className="img-fluid"
+                        src="../../../images/5AcrossLogo_15_black@6x.png"
                         alt="5across logo"
                       />
                     </Col>
@@ -439,7 +422,7 @@ const fiveAcrossPage = ({ data }) => {
                   placeholder="blurred"
                   src="../../../images/5across-banner.png"
                   alt=""
-                />
+                /> 
               </Col>
             </Row>
           </Col>
