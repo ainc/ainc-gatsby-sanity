@@ -26,14 +26,14 @@ const clash = (spots, x, y) =>
       y + PIN_SIZE + BUFFER > s.y,
   );
 
-const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [] }) => {
+const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks = [] }) => {
   const [pins, setPins] = useState([]);
   const [groupBounds, setGroupBounds] = useState({});
 
   const boardName = initialPins[0]?.recipient?.trim() || "Unknown";
 
   // find the matching team member entry to pull startDate and picture
-  const memberEntry = teamMembers.find((t) => norm(t.name) === norm(boardName));
+  const memberEntry = teamMembers.find((t) => norm(t.pinName) === norm(boardName));
 
   // parse out the year for "Awesome Since"
   const sinceYear = memberEntry?.startDate
@@ -56,10 +56,11 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [] }) => {
     initialPins.forEach((p) => {
       if (!p.uniqueId) return;
       const dragKey = p.uniqueId;
+      const type = p.pinName
 
       if (p.x != null && p.y != null) {
         taken.push({ x: p.x, y: p.y });
-        placed.push({ ...p, dragKey });
+        placed.push({ ...p, dragKey, type });
         return;
       }
 
@@ -75,7 +76,7 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [] }) => {
 
         if (!clash(taken, x, y)) {
           taken.push({ x, y });
-          placed.push({ ...p, dragKey, x, y });
+          placed.push({ ...p, dragKey, x, y, type });
           ok = true;
         }
       }
@@ -200,7 +201,12 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [] }) => {
           ))}
 
         {pins.map((p) => (
-          <Pin key={p.dragKey} pin={p} setHoveredStory={onHoverStory} />
+          <Pin 
+            key={p.dragKey} 
+            pin={p} 
+            setHoveredStory={onHoverStory} 
+            pinType={p.type}
+            imgLinks={imgLinks}/>
         ))}
       </div>
     </div>
