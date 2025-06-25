@@ -85,7 +85,7 @@ const ProgramLinkTree = (props) => {
             </a>
           </Col>
           <Col xs={6} className="">
-            <a href="/assets/StartupPipeline_Final_2023.pdf" target="_blank">
+            <a href="https://www.awesomeinc.org/assets/StartupPipeline_Final_2024.pdf" target="_blank">
               <BrandButton
                 xs={6}
                 className={`secondary my-1 w-100 text-uppercase ${styles.buttons}`}
