@@ -6,50 +6,13 @@ import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
 
-import BrandButton from "../UI/BrandButton/BrandButton";
+import BrandLink from "../UI/BrandLink/BrandLink";
 import Subtitle from "../UI/Subtitle/Subtitle";
 import Title from "../UI/Title/Title";
 import Wrapper from "../UI/Wrapper/Wrapper";
 
 const HomepageSlider = (props) => {
   const { scrollToSection, sectionIds } = props;
-
-  /* Old slider
-  const  [sliderRef] = useKeenSlider(
-    {
-      loop: true,
-    },
-    [
-      (slider) => {
-        let timeout
-        let mouseOver = false
-        function clearNextTimeout() {
-          clearTimeout(timeout)
-        }
-        function nextTimeout() {
-          clearTimeout(timeout)
-          if (mouseOver) return
-          timeout = setTimeout(() => {
-            slider.next()
-          }, 2500)
-        }
-        slider.on("created", () => {
-          slider.container.addEventListener("mouseover", () => {
-            mouseOver = true
-            clearNextTimeout()
-          })
-          slider.container.addEventListener("mouseout", () => {
-            mouseOver = false
-            nextTimeout()
-          })
-          nextTimeout()
-        })
-        slider.on("dragStarted", clearNextTimeout)
-        slider.on("animationEnded", nextTimeout)
-        slider.on("updated", nextTimeout)
-      },
-    ]
-  )*/
 
   const query = useStaticQuery(graphql`
     query imageSlider {
@@ -105,13 +68,9 @@ const HomepageSlider = (props) => {
                     transition={{ delay: 1.0, duration: 0.6 }}
                   >
                     <Col>
-                      <BrandButton
-                        onClick={() => scrollToSection(sectionIds[i])}
-                        href="slide.cta.url"
-                        className="mt-3"
-                      >
+                      <BrandLink href={slide.cta.url} className="mt-3">
                         Learn More
-                      </BrandButton>
+                      </BrandLink>
                     </Col>
                   </motion.div>
                 </Row>

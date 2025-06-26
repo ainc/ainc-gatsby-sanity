@@ -239,6 +239,7 @@ const Header = () => {
                             Awesome Fund
                           </a>
                           <a href="/events">Events</a>
+                          <a href=" https://entrepreneurhof.com/">HOF</a>
                           <a
                             href="/assets/community-yearbook.pdf"
                             target="_blank"
