@@ -370,7 +370,7 @@ const fiveAcrossPage = ({ data }) => {
           {fiveAcrossEvents.length > 0 ? (
             fiveAcrossEvents.map((node) => (
               <div
-                className={`${styles.flexItem} ${styles.contentWrapper}`}
+                className={`${styles.flexItem}`}
                 key={node.eventName ?? node.id}>
 
                 <Event 
@@ -384,7 +384,7 @@ const fiveAcrossPage = ({ data }) => {
               </div>
             ))
           ) : (
-          <div className={`${styles.noEventsMessage}`}>
+          <div className={`${styles.largeText}`}>
             <p>No upcoming events</p>
           </div>
           )}
