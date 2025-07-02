@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { graphql, Link } from "gatsby";
 import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Col, Container, Row } from "react-bootstrap";
@@ -21,7 +21,9 @@ const BlogPage = ({ pageContext, data }) => {
   const handleShowSubscribe = () => setLgShowSub(true);
   const handleShowSearch = () => setLgShowSearch(true);
   const handleCloseSearch = () => setLgShowSearch(false);
-  const [blogData, setBlogData] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(6); // Start with 6 blogs
+  const loadMoreRef = useRef(null);
+  const allBlogs = data.allSanityBlog.edges;
 
   const defaultBgImageUrl = "/web/src/images/logo.png";
 
@@ -33,9 +35,24 @@ const BlogPage = ({ pageContext, data }) => {
   const prevPage = currentBlog - 1 === 1 ? "" : (currentBlog - 1).toString();
   const nextPage = (currentBlog + 1).toString();
 
-  React.useEffect(() => {
-    setBlogData(data.allSanityBlog.edges);
-  });
+  useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting) {
+        setVisibleCount((prev) => Math.min(prev + 6, allBlogs.length));
+      }
+    },
+    { rootMargin: "200px", threshold: 1.0 }
+  );
+
+  if (loadMoreRef.current) {
+    observer.observe(loadMoreRef.current);
+  }
+
+  return () => {
+    if (loadMoreRef.current) observer.unobserve(loadMoreRef.current);
+  };
+}, [loadMoreRef.current]);
 
   return (
     <Layout>
@@ -144,56 +161,22 @@ const BlogPage = ({ pageContext, data }) => {
 
       <Container className="px-1 pb-3 pb-lg-5">
         <Row className="mb-5 mx-3">
-          {blogData.map((edge) => {
-            return <BlogPreview blog={edge} />;
-          })}
+         {allBlogs.slice(0, visibleCount).map((edge) => (
+          <BlogPreview key={edge.node.slug.current} blog={edge} />
+          ))}
         </Row>
       </Container>
-
-      <h5 className="text-center mb-5 mt-5">
-        <Row className={`${styles.pageNumberAll}`}>
-          <Col>
-            {!isFirst && (
-              <a
-                href={`${prevPage == 1 ? "" : `/blog/${prevPage}`}`}
-                rel="prev"
-                className={styles.page}
-              >
-                ← Previous Page
-              </a>
-            )}
-          </Col>
-          <Col className="d-none d-sm-block">
-            {Array.from({ length: numBlogs }, (_, i) => (
-              <a
-                href={`/blog/${i === 0 ? "" : i + 1}`}
-                className={styles.page}
-                key={`pagination-number${i + 1}`}
-                style={{
-                  textDecoration: "none",
-                  color: i + 1 === currentBlog ? "#323333" : "",
-                }}
-              >
-                {i + 1}
-              </a>
-            ))}
-          </Col>
-          <Col>
-            {!isLast && (
-              <a href={`/blog/${nextPage}`} className={styles.page} rel="next">
-                Next Page →
-              </a>
-            )}
-          </Col>
-        </Row>
-      </h5>
+        <div ref={loadMoreRef} style={{height: "40px"}}></div>
+        {visibleCount>= allBlogs.length && (
+          <p className="text-center text-muted">Stay tuned for more blogs!</p>
+        )}
     </Layout>
   );
 };
 
 export const query = graphql`
-  query BlogPageQuery($skip: Int!, $limit: Int!) {
-    allSanityBlog(sort: { date: DESC }, skip: $skip, limit: $limit) {
+  query BlogPageQuery {
+    allSanityBlog(sort: { date: DESC }) {
       totalCount
       edges {
         node {
