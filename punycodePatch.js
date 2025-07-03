@@ -31,6 +31,7 @@ const pathArray = [
   "./node_modules/google-spreadsheet/node_modules/whatwg-url/lib/url-state-machine.js",
   "./node_modules/node-fetch/node_modules/tr46/index.js",
   "./node_modules/google-spreadsheet/node_modules/tr46/index.js",
+  "./node_modules/gensync/index.js",
 ];
 
 for (const [_i, value] of pathArray.entries()) {
