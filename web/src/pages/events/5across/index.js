@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { graphql, Link } from "gatsby";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import { Container, Col, Row, Image } from "react-bootstrap";
-import { motion } from "framer-motion";
+import { motion, SwitchLayoutGroupContext } from "framer-motion";
 
 import Event from "../../../components/Event/Event";
 import BrandButton from "../../../components/UI/BrandButton/BrandButton";
@@ -18,6 +18,7 @@ import "../../../styles/main.scss";
 import * as styles from "./fiveAcross.module.scss";
 import TestimonialCarousel from "../../../components/TestimonialCarousel/TestimonialCarousel";
 import { Chrono, chrono } from "react-chrono"
+import { First } from "react-bootstrap/esm/PageItem";
 const fiveAcrossPage = ({ data }) => {
   const titleSponsorName =
     data.allSanityFiveAcrossSponsors.nodes[0].titleSp.title || {};
@@ -79,8 +80,7 @@ const fiveAcrossPage = ({ data }) => {
     year: "numeric",
     month: "short",
   }),
-  cardTitle: node.companyTitle,
-  cardSubtitle: node.FounderNames,
+  
   cardDetailedText: node.founderVideo ? [`Video: ${node.founderVideo}`] : [],
 }));
 
@@ -477,22 +477,27 @@ const AwesomeTheme = {
   </Row>
   <Row className="mt-4">
     <Col>
-    <div style={{ position: "relative", zIndex: 2, overflowX: "auto", }}>
+    <div style={{ position: "relative", zIndex: 2, overflowX: "auto",  }}>
           <Chrono 
           items={timelineItems} 
           mode="HORIZONTAL" 
-          cardHeight={500} 
+          cardHeight={450} 
+          cardWidth={200}
           theme={AwesomeTheme} 
           toolbarPosition="bottom"
           slideShow={false}
           scrollable={true}
           showAllCardsHorizontal={true}
+          textDensity='HIGH'
+          mediaSettings={{fit: 'scale-down'}}
+          enableLayoutSwitch={false}
+          densitySwitch={false}
           >
   {fiveAcrossWinners.map(({ node }) => (
   node.founderVideo ? (
-    <div
-      key={node.companyTitle}
-      style={{ textAlign: "center", padding: "1rem" }}
+    <div 
+      key={node.companyTitle} className={styles.cardContent}
+      style={{ textAlign: "center", padding: "1rem", }}
     >
       <h3>{node.companyTitle}</h3>
       <p>{node.FounderNames}</p>
@@ -514,7 +519,7 @@ const AwesomeTheme = {
         rel="noopener noreferrer"
         style={{
           display: "inline-block",
-          marginTop: "1rem",
+          marginTop: "auto",
           backgroundColor: "#ed3243",
           color: "white",
           padding: "0.5rem 1rem",
@@ -524,7 +529,7 @@ const AwesomeTheme = {
           userSelect: "none",
           border: "none",
         }}
-        onClick={e => e.stopPropagation()} // stop timeline hijack
+        onClick={e => e.stopPropagation()} 
       >
         Watch Video
       </a>
