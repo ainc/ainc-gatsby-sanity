@@ -32,7 +32,7 @@ const EventsPage = ({ data }) => {
           {events.length > 0 ? (
             events.map((edge) => (
               <div
-                className={`${styles.flexItem} ${styles.contentWrapper}`}
+                className={`${styles.flexItem}`}
                 key={edge.node.eventName ?? edge.node.id}
               >
                 <Event

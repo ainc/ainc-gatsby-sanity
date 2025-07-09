@@ -1,0 +1,41 @@
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[[plugins]]
+origin = "default"
+package = "@netlify/plugin-gatsby"
+pinned_version = "3"
+
+[plugins.inputs]
+
+[[plugins]]
+origin = "ui"
+package = "@netlify/plugin-sitemap"
+pinned_version = "0.8"
+
+[plugins.inputs]
+
+[build]
+publish = "./web/public"
+publishOrigin = "ui"
+commandOrigin = "ui"
+base = "."
+command = "yarn workspace ainc-gatsby-sanity-web build"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
