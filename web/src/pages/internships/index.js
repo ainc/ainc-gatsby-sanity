@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
 import { graphql } from "gatsby";
 import { motion } from "framer-motion";
 import Layout from "../../components/Layout/Layout";
@@ -427,12 +427,19 @@ const InternshipsPage = ({ data }) => {
           </Title>
         </Row>
       </Container>
-      <Carousel indicators={true} className={`${styles.carouselHeight} my-3`}>
+      <Container className={`${styles.carouselHeight} `}>
+        <Carousel 
+        indicators={false} 
+        className="mt-3 mb-5 h-100 d-flex flex-column align-center justify-content-center" 
+      >
         {allSanityInternTestimonials.map((node, index) => (
-          <Carousel.Item key={index}>
-            <Row className="d-flex justify-content-center">
+          <Carousel.Item 
+            key={index} 
+            className="h-100">
+            <div className="w-100" id={index}>
+            <Row className="d-flex justify-content-center align-middle">
               <Col md={6}>
-                <p className="text-justify text-center">{node.testimonial}</p>
+                <p className="text-justify text-center align-middle">{node.testimonial}</p>
               </Col>
             </Row>
             <Row>
@@ -454,10 +461,11 @@ const InternshipsPage = ({ data }) => {
                 <p style={{ fontStyle: "italic" }}>{node.team}</p>
               </Col>
             </Row>
+            </div>
           </Carousel.Item>
         ))}
-      </Carousel>
-
+        </Carousel>
+      </Container>
       {/*Apply Now */}
       <Container fluid>
         <Row

@@ -137,6 +137,7 @@
 }
 
 .carousel-height {
+  position: relative;
   @media (min-width: 250px) {
     height: 100vh;
   }
@@ -147,6 +148,6 @@
     height: 72vh;
   }
   @media (min-width: 1440px) {
-    height: 50vh;
+    height: 60vh;
   }
 }
