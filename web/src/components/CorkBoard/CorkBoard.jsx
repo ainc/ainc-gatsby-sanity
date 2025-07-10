@@ -159,7 +159,7 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks 
             marginBottom: 2,
           }}
         />
-        <div style={{ fontSize: "1.4rem", fontWeight: 600 }}>{boardName}</div>
+        <div style={{ fontSize: "1.3rem", fontWeight: 600 }}>{boardName}</div>
         {sinceYear && (
           <div
             style={{

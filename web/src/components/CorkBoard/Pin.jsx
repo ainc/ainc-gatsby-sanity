@@ -77,7 +77,7 @@ const Pin = ({ pin, setHoveredStory, pinType, imgLinks }) => {
       <img
         src={imgSrc}
         alt={pin.pinName}
-        style={{ width: 70, height: "auto" }}
+        style={{ width: 85, height: "auto" }}
         onError={(e) => (e.target.src = "/images/default-pin.png")}
       />
     </motion.div>

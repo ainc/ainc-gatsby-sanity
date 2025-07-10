@@ -84,6 +84,11 @@ const PinBoardPage = () => {
     return exists;
   });
 
+  // Split array in half for purposes of two columns
+  const half = filteredBoards.length / 2;
+  const halfTwoBoards = filteredBoards.splice(0, half)
+  const halfOneBoards = filteredBoards.splice(0, filteredBoards.length)
+
   return (
     <Layout>
       <Container fluid style={{ paddingBottom: 60 }}>
@@ -101,19 +106,18 @@ const PinBoardPage = () => {
               Loading achievement boards...
             </p>
           </div>
-        ) : (
-          /* boards.map((board, i) => ( */
-          filteredBoards.map((board, i) => (
-            <Row key={board.recipient} className="justify-content-center my-5">
+        ) : (<Row>
+          <Col sm={12} xl={6}>{halfOneBoards.map((board, i) => (
+            <Row key={board.recipient} className="justify-content-center py-5 my-5">
               <Col xs="auto">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
                 >
-                  <h2 className="text-center">
+                 {/*  <h2 className="text-center">
                     {board.recipient}&apos;s Achievement Board
-                  </h2>
+                  </h2> */}
                   <CorkBoard
                     initialPins={board.pins}
                     onHoverStory={setGlobalHoveredStory}
@@ -123,7 +127,31 @@ const PinBoardPage = () => {
                 </motion.div>
               </Col>
             </Row>
-          ))
+          ))}</Col>
+          <Col sm={12} xl={6}>{halfTwoBoards.map((board, i) => (
+            <Row key={board.recipient} className="justify-content-center py-5 my-5">
+              <Col xs="auto">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                >
+
+                  {/* <h2 className="text-center">
+                    {board.recipient}&apos;s Achievement Board
+                  </h2> */}
+                  <CorkBoard
+                    initialPins={board.pins}
+                    onHoverStory={setGlobalHoveredStory}
+                    teamMembers={teamMembers}
+                    imgLinks={links}
+                  />
+                </motion.div>
+              </Col>
+            </Row>
+          ))}
+          </Col>
+          </Row>
         )}
       </Container>
 
