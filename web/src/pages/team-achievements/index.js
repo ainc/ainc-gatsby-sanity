@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useStaticQuery, graphql } from "gatsby";
 import CorkBoard from "../../components/CorkBoard/CorkBoard";
 import Layout from "../../components/Layout/Layout";
+import Title from "../../components/UI/Title/Title";
 import { toast } from "react-toastify";
 
 const PinBoardPage = () => {
@@ -106,7 +107,11 @@ const PinBoardPage = () => {
               Loading achievement boards...
             </p>
           </div>
-        ) : (<Row>
+        ) : (
+        <Row>
+          <Title className="mt-5 text-center text-uppercase">
+            Our Team's Acheivement Boards
+          </Title>
           <Col sm={12} xl={6}>{halfOneBoards.map((board, i) => (
             <Row key={board.recipient} className="justify-content-center py-5 my-5">
               <Col xs="auto">
