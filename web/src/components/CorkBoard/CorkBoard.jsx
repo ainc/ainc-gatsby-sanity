@@ -55,6 +55,7 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks 
 
     initialPins.forEach((p) => {
       if (!p.uniqueId) return;
+      if (!p.delivered) return;
       const dragKey = p.uniqueId;
       const type = p.pinName
 
