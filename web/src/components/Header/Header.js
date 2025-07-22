@@ -187,7 +187,7 @@ const Header = () => {
                   Awesome Fund
                 </a>
                 <a href="/events">Events</a>
-                <a href=" https://entrepreneurhof.com/">HOF</a>
+                <a href=" https://entrepreneurhof.com/">Hall of Fame</a>
                 <a
                   href="/assets/community-yearbook.pdf"
                   target="_blank"
@@ -240,7 +240,7 @@ const Header = () => {
                             Awesome Fund
                           </a>
                           <a href="/events">Events</a>
-                          <a href=" https://entrepreneurhof.com/">HOF</a>
+                          <a href=" https://entrepreneurhof.com/">Hall of Fame</a>
                           <a
                             href="/assets/community-yearbook.pdf"
                             target="_blank"
