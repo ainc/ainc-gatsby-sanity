@@ -2,7 +2,7 @@ export const BOARD_WIDTH = 600;
 export const BOARD_HEIGHT = 400;
 
 export const RESERVED_WIDTH = 210; // profile card
-export const RESERVED_HEIGHT = 210;
+export const RESERVED_HEIGHT = 220;
 
 export const PIN_SIZE = 90;
 export const BUFFER = 10;

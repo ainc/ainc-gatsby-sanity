@@ -6,6 +6,7 @@ import CorkBoard from "../../components/CorkBoard/CorkBoard";
 import Layout from "../../components/Layout/Layout";
 import Title from "../../components/UI/Title/Title";
 import { toast } from "react-toastify";
+import {BOARD_WIDTH} from "../../components/CorkBoard/randomPlacement";
 
 const PinBoardPage = () => {
   const [boards, setBoards] = useState([]);
@@ -29,6 +30,50 @@ const PinBoardPage = () => {
       }
     }
   `);
+
+  // Optimal window size is 1440px
+  // Idea is to scale entire boards based on window size
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    scale: window.innerWidth / 1440,
+  });
+
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    if (windowSize.width >= 1200) { // Col has breakpoint at 1200px to display 2 corkboards
+      let x = windowSize.width / 2;
+      x = x - 100; // 50px margin
+      x = x / BOARD_WIDTH;
+      setScale(x.toFixed(2));
+    } else {
+      let x = windowSize.width - 100;
+      x = x / BOARD_WIDTH;
+      setScale(x.toFixed(2));
+    }
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+      });
+      if (windowSize.width >= 1200) { // Col has breakpoint at 1200px to display 2 corkboards
+      let x = windowSize.width / 2;
+      x = x - 100; // 50px margin
+      x = x / BOARD_WIDTH;
+      setScale(x.toFixed(2));
+    } else {
+      let x = windowSize.width - 100;
+      x = x / BOARD_WIDTH;
+      setScale(x.toFixed(2));
+    }
+    };
+     window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); 
+
 
   // Build array of team members, including startDate
   const teamMembers = (allSanityTeamMember.nodes || []).map((n) => ({
@@ -128,6 +173,7 @@ const PinBoardPage = () => {
                     onHoverStory={setGlobalHoveredStory}
                     teamMembers={teamMembers}
                     imgLinks={links}
+                    scale={scale}
                   />
                 </motion.div>
               </Col>
@@ -150,6 +196,7 @@ const PinBoardPage = () => {
                     onHoverStory={setGlobalHoveredStory}
                     teamMembers={teamMembers}
                     imgLinks={links}
+                    scale={scale}
                   />
                 </motion.div>
               </Col>
