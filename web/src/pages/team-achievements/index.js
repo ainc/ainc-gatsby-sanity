@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 import { useStaticQuery, graphql } from "gatsby";
 import CorkBoard from "../../components/CorkBoard/CorkBoard";
 import Layout from "../../components/Layout/Layout";
+import Title from "../../components/UI/Title/Title";
 import { toast } from "react-toastify";
+import {BOARD_WIDTH} from "../../components/CorkBoard/randomPlacement";
 
 const PinBoardPage = () => {
   const [boards, setBoards] = useState([]);
@@ -28,6 +30,50 @@ const PinBoardPage = () => {
       }
     }
   `);
+
+  // Optimal window size is 1440px
+  // Idea is to scale entire boards based on window size
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    scale: window.innerWidth / 1440,
+  });
+
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    if (windowSize.width >= 1200) { // Col has breakpoint at 1200px to display 2 corkboards
+      let x = windowSize.width / 2;
+      x = x - 100; // 50px margin
+      x = x / BOARD_WIDTH;
+      setScale(x.toFixed(2));
+    } else {
+      let x = windowSize.width - 100;
+      x = x / BOARD_WIDTH;
+      setScale(x.toFixed(2));
+    }
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+      });
+      if (windowSize.width >= 1200) { // Col has breakpoint at 1200px to display 2 corkboards
+      let x = windowSize.width / 2;
+      x = x - 100; // 50px margin
+      x = x / BOARD_WIDTH;
+      setScale(x.toFixed(2));
+    } else {
+      let x = windowSize.width - 100;
+      x = x / BOARD_WIDTH;
+      setScale(x.toFixed(2));
+    }
+    };
+     window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); 
+
 
   // Build array of team members, including startDate
   const teamMembers = (allSanityTeamMember.nodes || []).map((n) => ({
@@ -84,6 +130,11 @@ const PinBoardPage = () => {
     return exists;
   });
 
+  // Split array in half for purposes of two columns
+  const half = filteredBoards.length / 2;
+  const halfTwoBoards = filteredBoards.splice(0, half)
+  const halfOneBoards = filteredBoards.splice(0, filteredBoards.length)
+
   return (
     <Layout>
       <Container fluid style={{ paddingBottom: 60 }}>
@@ -102,28 +153,57 @@ const PinBoardPage = () => {
             </p>
           </div>
         ) : (
-          /* boards.map((board, i) => ( */
-          filteredBoards.map((board, i) => (
-            <Row key={board.recipient} className="justify-content-center my-5">
+        <Row>
+          <Title className="mt-5 text-center text-uppercase">
+            Our Team's Acheivement Boards
+          </Title>
+          <Col sm={12} xl={6}>{halfOneBoards.map((board, i) => (
+            <Row key={board.recipient} className="justify-content-center py-5 my-5">
               <Col xs="auto">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
                 >
-                  <h2 className="text-center">
+                 {/*  <h2 className="text-center">
                     {board.recipient}&apos;s Achievement Board
-                  </h2>
+                  </h2> */}
                   <CorkBoard
                     initialPins={board.pins}
                     onHoverStory={setGlobalHoveredStory}
                     teamMembers={teamMembers}
                     imgLinks={links}
+                    scale={scale}
                   />
                 </motion.div>
               </Col>
             </Row>
-          ))
+          ))}</Col>
+          <Col sm={12} xl={6}>{halfTwoBoards.map((board, i) => (
+            <Row key={board.recipient} className="justify-content-center py-5 my-5">
+              <Col xs="auto">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                >
+
+                  {/* <h2 className="text-center">
+                    {board.recipient}&apos;s Achievement Board
+                  </h2> */}
+                  <CorkBoard
+                    initialPins={board.pins}
+                    onHoverStory={setGlobalHoveredStory}
+                    teamMembers={teamMembers}
+                    imgLinks={links}
+                    scale={scale}
+                  />
+                </motion.div>
+              </Col>
+            </Row>
+          ))}
+          </Col>
+          </Row>
         )}
       </Container>
 
