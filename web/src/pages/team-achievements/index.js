@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col, Spinner } from "react-bootstrap";
+import { Container, Row, Col, Spinner, Modal, Form } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { useStaticQuery, graphql } from "gatsby";
 import CorkBoard from "../../components/CorkBoard/CorkBoard";
@@ -13,6 +13,11 @@ const PinBoardPage = () => {
   const [loading, setLoading] = useState(true);
   const [links, setLinks] = useState([]);
   const [globalHoveredStory, setGlobalHoveredStory] = useState("");
+  const [valid, setValid] = useState(false);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleOpen = () => setShow(true);
 
   const { allSanityTeamMember } = useStaticQuery(graphql`
     query TeamMembersForBoards {
@@ -34,45 +39,48 @@ const PinBoardPage = () => {
   // Optimal window size is 1440px
   // Idea is to scale entire boards based on window size
   const [windowSize, setWindowSize] = useState({
-    width: window.innerWidth,
-    scale: window.innerWidth / 1440,
+    width: typeof window !== 'undefined' ? window.innerWidth : 1440,
+    scale: 1,
   });
 
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
-    if (windowSize.width >= 1200) { // Col has breakpoint at 1200px to display 2 corkboards
-      let x = windowSize.width / 2;
-      x = x - 100; // 50px margin
-      x = x / BOARD_WIDTH;
-      setScale(x.toFixed(2));
-    } else {
-      let x = windowSize.width - 100;
-      x = x / BOARD_WIDTH;
-      setScale(x.toFixed(2));
-    }
-    const handleResize = () => {
-      setWindowSize({
-        width: window.innerWidth,
-      });
-      if (windowSize.width >= 1200) { // Col has breakpoint at 1200px to display 2 corkboards
-      let x = windowSize.width / 2;
-      x = x - 100; // 50px margin
-      x = x / BOARD_WIDTH;
-      setScale(x.toFixed(2));
-    } else {
-      let x = windowSize.width - 100;
-      x = x / BOARD_WIDTH;
-      setScale(x.toFixed(2));
-    }
-    };
-     window.addEventListener('resize', handleResize);
+    if (typeof window === 'undefined') return; // No effect during server side rendering
 
-    // Clean up the event listener on component unmount
-    return () => {
-      window.removeEventListener('resize', handleResize);
+    const updateScale = () => {
+      const width = window.innerWidth;
+      let newScale;
+    
+      if (width >= 1200) {
+      let x = width / 2;
+      x = x - 100; // 50px margin
+      x = x / BOARD_WIDTH;
+      newScale = Number(x.toFixed(2));
+      } else {
+      let x = width - 100;
+      x = x / BOARD_WIDTH;
+      newScale = Number(x.toFixed(2));
+      }
+      setWindowSize({
+        width,
+        scale: newScale
+      });
+      setScale(newScale);
     };
-  }, []); 
+    updateScale();
+
+  const handleResize = () => {
+    updateScale();
+  };
+
+  window.addEventListener('resize', handleResize);
+
+  return () => {
+    window.removeEventListener('resize', handleResize);
+  };
+}, []);
+
 
 
   // Build array of team members, including startDate
@@ -213,6 +221,11 @@ const PinBoardPage = () => {
       >
         {globalHoveredStory || "Hover over a pin to see its story"}
       </div>
+     {/*  <div onClick={handleOpen} className="position-fixed bg-black text-white" style={{bottom: "10%", right: "5%", zIndex: 10, padding: "4px 4px"}}>Click me</div>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>Enter Super Secret Phrase to prove you're Awesome</Modal.Header>
+        <Form.Control placeholder="Super Secret Phrase"/>
+      </Modal> */}
     </Layout>
   );
 };
