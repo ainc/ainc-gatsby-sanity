@@ -22,13 +22,12 @@ export default async function handler(req, res) {
             spreadsheetId: process.env.SECOND_SPREADSHEET_ID,
             range: "'Pin Database'!A2:D",
         });
-        console.log("Images", pinImages)
 
         const imgLinks = (pinImages.data.values || []).map((row) => ({
-            pinName: row[0] || "Unnamed", // A
-            howToEarn: row[1] || "", // B
-            pinCode: row[2] || "", // C
-            source: row[3] || "/images/default-pin.png", // D
+            pinName: row[0]?.trim() || "Unnamed", // A
+            howToEarn: row[1].trim() || "", // B
+            pinCode: row[2].trim() || "", // C
+            source: row[3].trim() || "/images/default-pin.png", // D
         }))
 
         return res.status(200).json({ imgLinks });
@@ -37,7 +36,7 @@ export default async function handler(req, res) {
     // If not GET 
     return res.status(405).json({ error: "Method not allowed" });
   } catch (error) {
-    console.log("Sheets API Error:", error);
+    console.error("Sheets API Error:", error);
     return res.status(500).json({
       error: error.message,
       details: error.errors,

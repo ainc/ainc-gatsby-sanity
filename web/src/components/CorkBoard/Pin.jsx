@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { PIN_SIZE } from "./randomPlacement";
 
-const Pin = ({ pin, setHoveredStory, pinType, imgLinks, scale }) => {
+const Pin = ({ pin, setHoveredStory, pinType, imgLinks }) => {
   const [dragging, setDragging] = useState(false);
 
   const handleDragStart = (e) => {
@@ -17,7 +17,6 @@ const Pin = ({ pin, setHoveredStory, pinType, imgLinks, scale }) => {
       }),
     );
   };
-
 
   let imgSrc = "/images/default-pin.png"
   switch(pinType){
@@ -60,8 +59,8 @@ const Pin = ({ pin, setHoveredStory, pinType, imgLinks, scale }) => {
     <motion.div
       style={{
         position: "absolute",
-        left: pin.x * scale,
-        top:  pin.y * scale,
+        left: pin.x,
+        top: pin.y,
         width: PIN_SIZE,
         height: PIN_SIZE,
         cursor: dragging ? "grabbing" : "grab",
@@ -78,7 +77,7 @@ const Pin = ({ pin, setHoveredStory, pinType, imgLinks, scale }) => {
       <img
         src={imgSrc}
         alt={pin.pinName}
-        style={{ width: 85 * scale, height: "auto" }}
+        style={{ width: 70, height: "auto" }}
         onError={(e) => (e.target.src = "/images/default-pin.png")}
       />
     </motion.div>

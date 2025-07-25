@@ -26,7 +26,7 @@ const clash = (spots, x, y) =>
       y + PIN_SIZE + BUFFER > s.y,
   );
 
-const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks = [], scale }) => {
+const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks = [] }) => {
   const [pins, setPins] = useState([]);
   const [groupBounds, setGroupBounds] = useState({});
 
@@ -55,7 +55,6 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks 
 
     initialPins.forEach((p) => {
       if (!p.uniqueId) return;
-      if (!p.delivered) return;
       const dragKey = p.uniqueId;
       const type = p.pinName
 
@@ -127,8 +126,8 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks 
     <div
       className="mx-auto position-relative"
       style={{
-        width: BOARD_WIDTH * scale,
-        height: BOARD_HEIGHT * scale,
+        width: BOARD_WIDTH,
+        height: BOARD_HEIGHT,
         border: "3px solid #654321",
         boxShadow: "0 10px 20px rgba(0,0,0,0.19)",
       }}
@@ -139,8 +138,8 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks 
         style={{
           top: 10,
           left: 10,
-          width: RESERVED_WIDTH * scale,
-          height: RESERVED_HEIGHT * scale,
+          width: RESERVED_WIDTH,
+          height: RESERVED_HEIGHT,
           background: "#fff",
           padding: "25px 8px 14px",
           clipPath:
@@ -153,18 +152,18 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks 
           src={avatar}
           alt={`${boardName} avatar`}
           style={{
-            width: 90 * scale,
-            height: 90 * scale,
+            width: 90,
+            height: 90,
             borderRadius: "50%",
             objectFit: "cover",
             marginBottom: 2,
           }}
         />
-        <div style={{ fontSize: "1rem", fontWeight: 600 }}>{boardName}</div>
+        <div style={{ fontSize: "1.4rem", fontWeight: 600 }}>{boardName}</div>
         {sinceYear && (
           <div
             style={{
-              fontSize: ".8rem",
+              fontSize: ".7rem",
               fontStyle: "italic",
               color: "#4d4d4d",
             }}
@@ -207,9 +206,7 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks 
             pin={p} 
             setHoveredStory={onHoverStory} 
             pinType={p.type}
-            imgLinks={imgLinks}
-            scale={scale}
-            />
+            imgLinks={imgLinks}/>
         ))}
       </div>
     </div>
