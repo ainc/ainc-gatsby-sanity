@@ -91,10 +91,6 @@ const ParkingPage = ({ data }) => {
                 </Row>
                 <ul className={`${styles.Check} ${styles.stableList}`}>
                   <li>
-                    Spaces marked for Awesome Inc in the lot East of our
-                    building
-                  </li>
-                  <li>
                     Free full-day spaces on Short Street near Thoroughbred Park
                     and Ransom Ave near Second Presbyterian church
                   </li>
@@ -125,7 +121,7 @@ const ParkingPage = ({ data }) => {
                   </li>
                   <li>
                     Spaces marked for Commerce Lexington, Northwestern Mutual or
-                    Awesome Inc Directors (West side of building)
+                    Awesome Inc
                   </li>
                   <li>
                     Spaces in the Main and Vine retail / residential complex
