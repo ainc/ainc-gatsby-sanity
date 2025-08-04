@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Pin from "./Pin";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import {
   BOARD_WIDTH,
   BOARD_HEIGHT,
@@ -12,6 +12,7 @@ import {
   randBetween,
 } from "./randomPlacement";
 import boardImage from "../../images/wood-board-background.jpg";
+import 'react-toastify/dist/ReactToastify.css';
 
 const EDGE = 10;
 const DEBUG_SECTIONS = false;
@@ -26,7 +27,7 @@ const clash = (spots, x, y) =>
       y + PIN_SIZE + BUFFER > s.y,
   );
 
-const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks = [], scale }) => {
+const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks = [], scale, valid }) => {
   const [pins, setPins] = useState([]);
   const [groupBounds, setGroupBounds] = useState({});
 
@@ -69,8 +70,10 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks 
       let ok = false;
 
       for (let k = 0; k < 1000 && !ok; k++) {
-        const x = randBetween(lane.xMin + EDGE, lane.xMax - PIN_SIZE - EDGE);
-        const y = randBetween(lane.yMin + EDGE, lane.yMax - PIN_SIZE - EDGE);
+        /* const x = randBetween(lane.xMin + EDGE, lane.xMax - PIN_SIZE - EDGE);
+        const y = randBetween(lane.yMin + EDGE, lane.yMax - PIN_SIZE - EDGE); */
+        const x = randBetween(10, 500);
+        const y = randBetween(10, 290);
 
         if (x < RESERVED_WIDTH + BUFFER && y < RESERVED_HEIGHT + BUFFER)
           continue;
@@ -84,7 +87,7 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks 
 
       if (!ok) {
         console.log(`Could not place pin "${p.pinName}"`);
-        toast.error(`Could not place ${p.pinName}`);
+        toast.error(`Could not place ${p.pinName} ${p.recipient}`);
       }
     });
 
@@ -112,15 +115,24 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks 
       prev.map((p) => (p.dragKey === uniqueId ? { ...p, x, y } : p)),
     );
 
-    try {
-      await fetch("/api/sheet", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ uniqueId, x, y }),
-      });
-    } catch {
-      toast.error("Failed to save position");
+
+    // if valid, execute api
+    // else, toast notification saying access denied
+    if (valid) {
+      try {
+        // Query user for super secret phrase
+        await fetch("/api/sheet", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ uniqueId, x, y }),
+        });
+      } catch {
+        toast.error("Failed to save position");
+      }
+    } else {
+      toast.error("Unauthorized, please login to make edits");
     }
+   
   };
 
   return (

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col, Spinner, Modal, Form } from "react-bootstrap";
+import { Container, Row, Col, Spinner, Modal, Form, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { useStaticQuery, graphql } from "gatsby";
 import CorkBoard from "../../components/CorkBoard/CorkBoard";
 import Layout from "../../components/Layout/Layout";
 import Title from "../../components/UI/Title/Title";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import {BOARD_WIDTH} from "../../components/CorkBoard/randomPlacement";
 
 const PinBoardPage = () => {
@@ -15,6 +15,7 @@ const PinBoardPage = () => {
   const [globalHoveredStory, setGlobalHoveredStory] = useState("");
   const [valid, setValid] = useState(false);
   const [show, setShow] = useState(false);
+  const [phrase, setPhrase] = useState('');
 
   const handleClose = () => setShow(false);
   const handleOpen = () => setShow(true);
@@ -93,6 +94,22 @@ const PinBoardPage = () => {
 
   // Create a Set of valid team member names
   const memberNames = new Set(teamMembers.map((m) => m.pinName));
+
+  // Validation logic
+  const handleSubmit = (event) => {
+    var phraseTrimmed = phrase.toLowerCase().trim();
+    if (phraseTrimmed !== process.env.SUPER_SECRET_PHRASE) {
+      event.preventDefault();
+      event.stopPropagation();
+      toast.warn("Phrase is invalid")
+      return;
+    }
+
+    else setValid(true);
+    toast.success('You can now make edits to the pin boards!');
+    setShow(false);
+  };
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -182,6 +199,7 @@ const PinBoardPage = () => {
                     teamMembers={teamMembers}
                     imgLinks={links}
                     scale={scale}
+                    valid={valid}
                   />
                 </motion.div>
               </Col>
@@ -205,6 +223,7 @@ const PinBoardPage = () => {
                     teamMembers={teamMembers}
                     imgLinks={links}
                     scale={scale}
+                    valid={valid}
                   />
                 </motion.div>
               </Col>
@@ -217,15 +236,42 @@ const PinBoardPage = () => {
 
       <div
         className="position-fixed w-100 text-center bg-black text-white"
-        style={{ bottom: 0, left: 0, zIndex: 9999, padding: "8px 0" }}
+        style={{ bottom: 0, left: 0, zIndex: 9998, padding: "8px 0" }}
       >
         {globalHoveredStory || "Hover over a pin to see its story"}
       </div>
-     {/*  <div onClick={handleOpen} className="position-fixed bg-black text-white" style={{bottom: "10%", right: "5%", zIndex: 10, padding: "4px 4px"}}>Click me</div>
+      <Button onClick={handleOpen} className="position-fixed bg-black text-white border-0" style={{bottom: "0%", right: "5%", zIndex: 9999, padding: "4px 4px"}}>Awesome Login</Button>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>Enter Super Secret Phrase to prove you're Awesome</Modal.Header>
-        <Form.Control placeholder="Super Secret Phrase"/>
-      </Modal> */}
+        <Form onSubmit={handleSubmit}>
+          <Form.Group>
+            <Modal.Header closeButton>Enter Super Secret Phrase</Modal.Header>
+            <Modal.Body>
+              <Form.Control 
+                value={phrase} 
+                placeholder="Super Secret Phrase"
+                onChange={(e) => setPhrase(e.target.value)}
+                className="py-2 my-2"
+              />
+              <Form.Control.Feedback type="invalid">Phrase is incorrect, make sure casing is right.</Form.Control.Feedback>
+            </Modal.Body>
+          </Form.Group>
+          <Modal.Footer className='justify-content center align-items center'>
+          <Button className="mx-auto" onClick={handleSubmit}>Submit form</Button>
+        </Modal.Footer>
+        </Form>
+      </Modal>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </Layout>
   );
 };
