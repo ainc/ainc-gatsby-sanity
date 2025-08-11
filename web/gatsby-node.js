@@ -301,7 +301,14 @@ exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
   if (miniCssExtractPlugin) {
     miniCssExtractPlugin.options.ignoreOrder = true;
   }
-  actions.replaceWebpackConfig(config);
+  //actions.replaceWebpackConfig(config);
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        punycode: require.resolve('punycode/'),
+      }
+    }
+  })
 };
 /**
  * Returns the current date in YYYY-MM-DD format
