@@ -35,10 +35,8 @@ export default async function handler(req, res) {
         x: parseFloat(row[7]) || null, // H
         y: parseFloat(row[8]) || null, // I
         uniqueId: row[9] || "", // J
-        category: row[10] || "", // K
-        notes: row[11] || "", // L
-        created: row[12] || new Date().toISOString(), // M
       }));
+      console.log(pins)
 
       return res.status(200).json({ pins });
     }
