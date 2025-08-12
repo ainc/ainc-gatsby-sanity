@@ -233,7 +233,6 @@ const PinBoardPage = () => {
           </Row>
         )}
       </Container>
-
       <div
         className="position-fixed w-100 text-center bg-black text-white"
         style={{ bottom: 0, left: 0, zIndex: 9998, padding: "8px 0" }}
