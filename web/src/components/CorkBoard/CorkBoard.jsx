@@ -21,13 +21,13 @@ const norm = (s) => (s || "").trim().toLowerCase();
 const clash = (spots, x, y) =>
   spots.some(
     (s) =>
-      x < s.x + PIN_SIZE + BUFFER &&
-      x + PIN_SIZE + BUFFER > s.x &&
-      y < s.y + PIN_SIZE + BUFFER &&
-      y + PIN_SIZE + BUFFER > s.y,
+      x < s.x + PIN_SIZE &&
+      x + PIN_SIZE > s.x &&
+      y < s.y + PIN_SIZE &&
+      y + PIN_SIZE > s.y,
   );
 
-const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks = [], scale, valid }) => {
+const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks = [], scale, valid, group }) => {
   const [pins, setPins] = useState([]);
   const [groupBounds, setGroupBounds] = useState({});
 
@@ -44,7 +44,7 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks 
   const avatar = memberEntry?.pictureUrl || "";
 
   useEffect(() => {
-    const groups = initialPins.map((p) => p.group?.trim() || "No Group");
+    const groups = initialPins.map((p) => p.group?.trim());
     setGroupBounds(calculateGroupBounds(groups));
   }, [initialPins]);
 
@@ -66,28 +66,53 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks 
         return;
       }
 
-      const lane = groupBounds[p.group?.trim()] || groupBounds["No Group"];
+      const lane = groupBounds[p.group?.trim()];
       let ok = false;
+      let x = lane.xMin;
+      let y = lane.yMin;
 
-      for (let k = 0; k < 1000 && !ok; k++) {
-        /* const x = randBetween(lane.xMin + EDGE, lane.xMax - PIN_SIZE - EDGE);
-        const y = randBetween(lane.yMin + EDGE, lane.yMax - PIN_SIZE - EDGE); */
-        const x = randBetween(10, 500);
-        const y = randBetween(10, 290);
-
-        if (x < RESERVED_WIDTH + BUFFER && y < RESERVED_HEIGHT + BUFFER)
+      // attempt to place within group
+      for (let k = 0; k < 500 && !ok; k++) {
+        // avoid placing on profile card
+        if (x < RESERVED_WIDTH + BUFFER && y < RESERVED_HEIGHT + BUFFER) {
+          x = x + 10;
           continue;
-
+        }
+      
         if (!clash(taken, x, y)) {
           taken.push({ x, y });
           placed.push({ ...p, dragKey, x, y, type });
           ok = true;
+        } 
+        else if (x >= lane.xMax - PIN_SIZE - EDGE){
+          x = lane.xMin;
+          y = y + 90;
+        } 
+        else {
+          x = x + 5;
         }
       }
 
+      // if placing in group fails, randomly place on board
       if (!ok) {
-        console.log(`Could not place pin "${p.pinName}"`);
+        for (let i = 0; i < 500 && !ok; i++) {
+
+          x = randBetween(10, 500);
+          y = randBetween(10, 290);
+
+          if (x < RESERVED_WIDTH + BUFFER && y < RESERVED_HEIGHT + BUFFER)
+            continue;
+
+          if (!clash(taken, x, y)) {
+            taken.push({ x, y });
+            placed.push({ ...p, dragKey, x, y, type });
+            ok = true;
+          }
+       }
+       if (!ok) {
+        console.log(`Could not place pin "${p.pinName} ${p.recipient}}"`);
         toast.error(`Could not place ${p.pinName} ${p.recipient}`);
+       }
       }
     });
 

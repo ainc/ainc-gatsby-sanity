@@ -213,10 +213,6 @@ const PinBoardPage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
                 >
-
-                  {/* <h2 className="text-center">
-                    {board.recipient}&apos;s Achievement Board
-                  </h2> */}
                   <CorkBoard
                     initialPins={board.pins}
                     onHoverStory={setGlobalHoveredStory}
