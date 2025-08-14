@@ -416,6 +416,7 @@ const Header = () => {
                 <Link to="/careers">Careers</Link>
                 <Link to="/internships">Internships</Link>
                 <Link to="/events">Events</Link>
+                <Link to="/15YearTimeline">15 Year Timeline</Link>
               </div>
             </Col>
 
@@ -465,6 +466,7 @@ const Header = () => {
                           <Link to="/careers">Careers</Link>
                           <Link to="/internships">Internships</Link>
                           <Link to="/events">Events</Link>
+                          <Link to="/15YearTimeline">15 Year Timeline</Link>
                         </Col>
                       </Row>
                     </Nav>
