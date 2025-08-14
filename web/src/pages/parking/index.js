@@ -7,7 +7,7 @@ import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import * as styles from "./parking.module.css";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import ParkingMap from "../../images/parkingraphicversion2.jpg";
+import ParkingMap from "../../images/parkingraphicversion3.jpg";
 import ParkingIcon from "../../images/parkingicon.png";
 
 const ParkingPage = ({ data }) => {
