@@ -27,4 +27,20 @@ Your pin should now be an option in the pin logs sheet and will apply to the ach
 **Note: The last field, called Pin Tracker Recipient Name must exactly match the name put into the team database or the achievement board will not load.**[^1]
 5. Pubish the Sanity document and the team member will now be selectable in pin logs!
 
+## Directory for Pin Board files
+### /web/src/api
+This folder contains two files, pinImages and sheet. These files handle the API querys to the google sheet for the pin locations and images.
+
+### /web/src/components/CorkBoard
+This folder holds the components for the pins and corkboards and also inlcudes the grouping logic in randomPlacement.js. The corkboard component host the logic for placing the pins within the groups and moving the pins. Overlap is currently enable when dropping the pins but can be disabled by adding the clash logic from the intial pin placments as seen below 
+``` 
+if (!clash(taken, x, y)) {
+   taken.push({ x, y });
+   placed.push({ ...p, dragKey, x, y, type });
+   ok = true;
+}
+```
+### /web/src/pages/team-achievements/index.js
+This is the actual page for the pin boards. This file build all the pin boards based off of the sanity and google sheet query. It also holds the logic for resizing the boards in different window sizes and the verification for moving the pins. **If you want to change the secret phrase, the environment variable in netlify must be changed for production or .env.development for local development.**
+
 [^1]: For devs, this is because we use the google sheet for tracking the pins and Sanity to ensure the team member exists. Removing one source of truth will streamline the member adding process and make it easier for non devs.
