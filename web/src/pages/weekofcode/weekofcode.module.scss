@@ -5,14 +5,14 @@
 
 
 .header-section {
-  background-image: url("./images/Hero_BG_Desktop.png");
+  background-image: url("./images/Hero_BG_Desktop.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
   padding: 200px 0;
 
   @media (max-width: 768px) {
-    background-image: url("./images/Hero_BG_Mobile.png");
+    background-image: url("./images/Hero_BG_Mobile.webp");
     padding: 100px 0px;
   }
 }

@@ -75,6 +75,10 @@
 .billiImage {
   width: 200px;
   position: absolute;
+  @media (min-width: 2560px) {
+    right: 35%;
+    top: -55%;
+  }
   @media (max-width: 2000px) {
     right: 25%;
     top: -50%;
