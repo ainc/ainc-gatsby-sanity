@@ -47,5 +47,18 @@ Disallow: /bootcamp/Components/ShieldsRow/ShieldsRow/
 Disallow: /bootcamp/Components/SideNav/SideNav/
 Disallow: /fellowship/Components/KPIBox/KPIBox/
 Disallow: /workspace/Components/SeeTheSpace/SeeTheSpace/
+Disallow: /terms/
+Disallow: /privacy/
+Disallow: /5AcrossScoreboard/
+Disallow: /__node-manifests/
+Disallow: /~partytown/
+Disallow: /page-data/
+Disallow: /static/
+Disallow: /.cache/
+Disallow: /_gatsby/
+Disallow: /thanks/
+Disallow: /unsubscribe/
+Disallow: /workspace/Components/
+Disallow: /weekofcode/Components/
 
 Sitemap: https://awesomeinc.org/sitemap.xml
