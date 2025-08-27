@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 import { useStaticQuery, graphql } from "gatsby";
 import CorkBoard from "../../components/CorkBoard/CorkBoard";
 import Layout from "../../components/Layout/Layout";
-import { toast } from "react-toastify";
+import Title from "../../components/UI/Title/Title";
+import { toast, ToastContainer } from "react-toastify";
+import { BOARD_WIDTH } from "../../components/CorkBoard/randomPlacement";
 
 const PinBoardPage = () => {
   const [boards, setBoards] = useState([]);
@@ -29,6 +31,51 @@ const PinBoardPage = () => {
     }
   `);
 
+  // Optimal window size is 1440px
+  // Idea is to scale entire boards based on window size
+  const [windowSize, setWindowSize] = useState({
+    width: typeof window !== "undefined" ? window.innerWidth : 1440,
+    scale: 1,
+  });
+
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return; // No effect during server side rendering
+
+    const updateScale = () => {
+      const width = window.innerWidth;
+      let newScale;
+
+      if (width >= 1200) {
+        let x = width / 2;
+        x = x - 100; // 50px margin
+        x = x / BOARD_WIDTH;
+        newScale = Number(x.toFixed(2));
+      } else {
+        let x = width - 100;
+        x = x / BOARD_WIDTH;
+        newScale = Number(x.toFixed(2));
+      }
+      setWindowSize({
+        width,
+        scale: newScale,
+      });
+      setScale(newScale);
+    };
+    updateScale();
+
+    const handleResize = () => {
+      updateScale();
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   // Build array of team members, including startDate
   const teamMembers = (allSanityTeamMember.nodes || []).map((n) => ({
     name: n.name,
@@ -50,7 +97,7 @@ const PinBoardPage = () => {
         const links = await fetch("/api/pinImages");
         if (!links.ok) throw new Error("Network response failed");
         const { imgLinks } = await links.json();
-        setLinks(imgLinks)
+        setLinks(imgLinks);
 
         const grouped = pins.reduce((acc, p) => {
           const key = p.recipient?.trim() || "Unknown";
@@ -70,7 +117,7 @@ const PinBoardPage = () => {
         );
       } catch (err) {
         toast.error(`Failed to load pins: ${err.message}`);
-        console.log(err)
+        console.log(err);
       } finally {
         setLoading(false);
       }
@@ -83,6 +130,11 @@ const PinBoardPage = () => {
     const exists = memberNames.has(board.recipient);
     return exists;
   });
+
+  // Split array in half for purposes of two columns
+  const half = filteredBoards.length / 2;
+  const halfTwoBoards = filteredBoards.splice(0, half);
+  const halfOneBoards = filteredBoards.splice(0, filteredBoards.length);
 
   return (
     <Layout>
@@ -102,37 +154,85 @@ const PinBoardPage = () => {
             </p>
           </div>
         ) : (
-          /* boards.map((board, i) => ( */
-          filteredBoards.map((board, i) => (
-            <Row key={board.recipient} className="justify-content-center my-5">
-              <Col xs="auto">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
+          <Row>
+            <Title className="mt-5 text-center text-uppercase">
+              Our Team's Achievement Boards
+            </Title>
+            <Col sm={12} xl={6}>
+              {halfOneBoards.map((board, i) => (
+                <Row
+                  key={board.recipient}
+                  className="justify-content-center py-5 my-5"
                 >
-                  <h2 className="text-center">
+                  <Col xs="auto">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: i * 0.1 }}
+                    >
+                      {/*  <h2 className="text-center">
                     {board.recipient}&apos;s Achievement Board
-                  </h2>
-                  <CorkBoard
-                    initialPins={board.pins}
-                    onHoverStory={setGlobalHoveredStory}
-                    teamMembers={teamMembers}
-                    imgLinks={links}
-                  />
-                </motion.div>
-              </Col>
-            </Row>
-          ))
+                  </h2> */}
+                      <CorkBoard
+                        initialPins={board.pins}
+                        onHoverStory={setGlobalHoveredStory}
+                        teamMembers={teamMembers}
+                        imgLinks={links}
+                        scale={scale}
+                        valid={true}
+                      />
+                    </motion.div>
+                  </Col>
+                </Row>
+              ))}
+            </Col>
+            <Col sm={12} xl={6}>
+              {halfTwoBoards.map((board, i) => (
+                <Row
+                  key={board.recipient}
+                  className="justify-content-center py-5 my-5"
+                >
+                  <Col xs="auto">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: i * 0.1 }}
+                    >
+                      <CorkBoard
+                        initialPins={board.pins}
+                        onHoverStory={setGlobalHoveredStory}
+                        teamMembers={teamMembers}
+                        imgLinks={links}
+                        scale={scale}
+                        valid={true}
+                      />
+                    </motion.div>
+                  </Col>
+                </Row>
+              ))}
+            </Col>
+          </Row>
         )}
       </Container>
-
       <div
         className="position-fixed w-100 text-center bg-black text-white"
-        style={{ bottom: 0, left: 0, zIndex: 9999, padding: "8px 0" }}
+        style={{ bottom: 0, left: 0, zIndex: 9998, padding: "8px 0" }}
       >
         {globalHoveredStory || "Hover over a pin to see its story"}
       </div>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </Layout>
   );
 };
