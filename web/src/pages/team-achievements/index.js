@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col, Spinner } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Spinner,
+  Modal,
+  Form,
+  Button,
+} from "react-bootstrap";
 import { motion } from "framer-motion";
 import { useStaticQuery, graphql } from "gatsby";
 import CorkBoard from "../../components/CorkBoard/CorkBoard";
@@ -13,6 +21,12 @@ const PinBoardPage = () => {
   const [loading, setLoading] = useState(true);
   const [links, setLinks] = useState([]);
   const [globalHoveredStory, setGlobalHoveredStory] = useState("");
+  const [valid, setValid] = useState(false);
+  const [show, setShow] = useState(false);
+  const [phrase, setPhrase] = useState("");
+
+  const handleClose = () => setShow(false);
+  const handleOpen = () => setShow(true);
 
   const { allSanityTeamMember } = useStaticQuery(graphql`
     query TeamMembersForBoards {
@@ -86,6 +100,19 @@ const PinBoardPage = () => {
 
   // Create a Set of valid team member names
   const memberNames = new Set(teamMembers.map((m) => m.pinName));
+
+  // Validation logic
+  const handleSubmit = (event) => {
+    var phraseTrimmed = phrase.toLowerCase().trim();
+    if (phraseTrimmed !== process.env.SUPER_SECRET_PHRASE) {
+      event.preventDefault();
+      event.stopPropagation();
+      toast.warn("Phrase is invalid");
+      return;
+    } else setValid(true);
+    toast.success("You can now make edits to the pin boards!");
+    setShow(false);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -220,7 +247,6 @@ const PinBoardPage = () => {
       >
         {globalHoveredStory || "Hover over a pin to see its story"}
       </div>
-
       <ToastContainer
         position="top-right"
         autoClose={5000}
