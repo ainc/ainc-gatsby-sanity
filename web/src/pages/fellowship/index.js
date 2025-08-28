@@ -144,9 +144,9 @@ const FellowshipPage = ({ data }) => {
               >
                 <div className="keen-slider__slide d-flex flex-column align-items-center">
                   <StaticImage
-                    src="../../images/logo.png"
+                    src="../../images/uploads/cloverleaf.png"
                     alt="Company Logo"
-                    width={80}
+                    width={310}
                     height={80}
                     className="mb-3"
                   />
@@ -161,10 +161,10 @@ const FellowshipPage = ({ data }) => {
                 </div>
                 <div className="keen-slider__slide d-flex flex-column align-items-center">
                   <StaticImage
-                    src="../../images/logo.png"
+                    src="../../images/uploads/weather-check.png"
                     alt="Company Logo"
-                    width={80}
-                    height={80}
+                    width={145}
+                    height={90}
                     className="mb-3"
                   />
                   <p className="text-center text--white mb-1 mt-3">
@@ -178,10 +178,10 @@ const FellowshipPage = ({ data }) => {
                 </div>
                 <div className="keen-slider__slide d-flex flex-column align-items-center">
                   <StaticImage
-                    src="../../images/logo.png"
+                    src="../../images/uploads/nymbl-systems.png"
                     alt="Company Logo"
-                    width={80}
-                    height={80}
+                    width={150}
+                    height={100}
                     className="mb-3"
                   />
                   <p className="text-center text--white mb-1 mt-3">
