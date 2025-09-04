@@ -69,16 +69,11 @@ async function createBlogPostPages(graphql, actions) {
 
   Array.from({ length: numBlogs }).forEach((_, i) => {
     createPage({
-      path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+      path: `/blog`,
       component: require.resolve("./src/templates/blog/blog-list-template.js"),
       // component: require.resolve("./src/pages/blog/index.js"),
 
-      context: {
-        limit: blogsPerPage,
-        skip: i * blogsPerPage,
-        numBlogs,
-        currentBlog: i + 1,
-      },
+      context: {},
     });
   });
 }
