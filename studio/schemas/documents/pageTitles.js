@@ -17,7 +17,7 @@ export default {
       name: "pageTitle",
       title: "Page Title",
       type: "string",
-      description: 'Every title will be appended with " | Awesome Inc"',
+      description: 'Every title will be prepended with "Awesome Inc | "',
       validation: (Rule) => Rule.required().min(1),
     },
   ],
