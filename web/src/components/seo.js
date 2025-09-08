@@ -180,6 +180,39 @@ function SEO({ description, lang, meta, keywords, title, path, jsImports }) {
       {/* Zoho PageSense */}
 
       <script src="https://cdn.pagesense.io/js/awesomeinc/617258c649af414b86fee0936d14ed09.js"></script>
+
+      {/* Title Shortener */}
+      <script>
+        {`
+          (function() {
+            const MAX_LEN = 65;
+
+            function shorten(str, limit) {
+              if (!str) return "";
+              if (str.length <= limit) return str;
+              return str.slice(0, limit - 3).trim() + "...";
+            }
+
+            // Update <title>
+            if (document.title && document.title.length > MAX_LEN) {
+              console.warn("[SEO] Trimming <title>:", document.title);
+              document.title = shorten(document.title, MAX_LEN);
+            }
+
+            // Update OpenGraph / Twitter title tags
+            const metaTags = document.querySelectorAll(
+              'meta[property="og:title"], meta[name="twitter:title"]'
+            );
+            metaTags.forEach((tag) => {
+              const content = tag.getAttribute("content");
+              if (content && content.length > MAX_LEN) {
+                console.warn("[SEO] Trimming meta tag:", content);
+                tag.setAttribute("content", shorten(content, MAX_LEN));
+              }
+            });
+          })();
+        `}
+      </script>
     </Helmet>
   );
 }
