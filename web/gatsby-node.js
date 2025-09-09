@@ -233,6 +233,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     force: true,
     redirectInBrowser: true,
   });
+  createRedirect({
+    fromPath: `/applications/bootcamp`,
+    toPath: `/bootcamp/apply/`,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
 
   //external
   createRedirect({
