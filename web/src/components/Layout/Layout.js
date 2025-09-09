@@ -16,6 +16,7 @@ const Layout = ({
   showNav,
   siteTitle,
   jsImports,
+  noIndex = false,
 }) => {
   const query = useStaticQuery(graphql`
     query {
@@ -45,7 +46,11 @@ const Layout = ({
 
   return (
     <Container fluid className="d-flex flex-column min-vh-100 p-0">
-      <SEO title={titleOfPage} imports={jsImports} />
+      <SEO
+        title={titleOfPage}
+        imports={jsImports}
+        meta={noIndex ? [{ name: "robots", content: "noindex, nofollow" }] : []}
+      />
       <Banner />
       <Header />
       <main className="flex-grow-1">{children}</main>
