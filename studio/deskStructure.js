@@ -308,6 +308,16 @@ export default (S) =>
                             .title("All Sponsors")
                             .filter('_type == "fellowshipSponsers"'),
                         ),
+                      S.listItem()
+                        .id("fellowship_testimonials")
+                        .title("Fellowship Testimonials")
+                        .icon(FaCommentAlt)
+                        .child(
+                          S.documentTypeList("fellowshipTestimonials")
+                            .id("fellowshipTestimonialsDTL")
+                            .title("Fellowship Testimonials")
+                            .filter('_type == "fellowshipTestimonials"'),
+                        ),
                     ]),
                 ),
 
@@ -911,6 +921,16 @@ export default (S) =>
                             .title("All Sponsors")
                             .filter('_type == "fellowshipSponsers"'),
                         ),
+                      S.listItem()
+                        .id("ap_fellowshipTestimonials")
+                        .title("Fellowship Testimonials")
+                        .icon(FaCommentAlt)
+                        .child(
+                          S.documentTypeList("fellowshipTestimonials")
+                            .id("ap_fellowshipTestimonialsDTL")
+                            .title("Fellowship Testimonials")
+                            .filter('_type == "fellowshipTestimonials"'),
+                        ),
                     ]),
                 ),
 
@@ -1159,6 +1179,7 @@ export default (S) =>
                     "imageSlider",
                     "bootcampImageTestimonials",
                     "alumniTestimonials",
+                    "fellowshipTestimonials",
                   ].includes(listItem.getId()),
               ),
             ]),
