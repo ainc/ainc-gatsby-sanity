@@ -1,51 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
-import { useLocation } from "@reach/router";
+import { usePageTitle } from "../hooks/usePageTitle";
 import favicon from "../images/logo.png";
 
 function SEO({ description, lang, meta, keywords, title, path, jsImports }) {
-  const data = useStaticQuery(graphql`
-    query DefaultSEOQuery {
-      site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
-        title
-        description
-        keywords
-        author {
-          name
-        }
-      }
-      allSanityPageTitles {
-        edges {
-          node {
-            filePath
-            pageTitle
-          }
-        }
-      }
-    }
-  `);
-
-  const pageTitle =
-    title !== undefined
-      ? //If there is a title prop, use that
-        title
-      : data.allSanityPageTitles.edges.find(
-            (page) => page.node.filePath === useLocation().pathname + "/",
-          ) !== undefined
-        ? //if there is a page title for the current page from sanity, use that
-          data.allSanityPageTitles.edges.find(
-            (page) => page.node.filePath === useLocation().pathname + "/",
-          ).node.pageTitle
-        : //if there is no page title for the current page from sanity, use the default title
-          "Awesome Inc";
+  const {
+    pageTitle,
+    siteTitle,
+    siteDescription,
+    siteAuthor,
+    siteKeywords,
+    pageMetaDescription,
+  } = usePageTitle(title);
 
   const metaDescription =
-    description || (data.site && data.site.description) || "";
-  const siteTitle = (data.site && data.site.title) || "";
-  const siteAuthor =
-    (data.site && data.site.author && data.site.author.name) || "";
+    description || pageMetaDescription || siteDescription || "";
+  const metaKeywords = keywords || siteKeywords || [];
   const salesIQPages = [
     "/learn/",
     "/learn/adults/",
@@ -53,12 +24,11 @@ function SEO({ description, lang, meta, keywords, title, path, jsImports }) {
     "/bootcamp/",
     "/bootcamp/apply/",
   ];
-  const includeSalesIQ = salesIQPages.includes(useLocation().pathname);
   return (
     <Helmet
       htmlAttributes={{ lang }}
       title={pageTitle}
-      titleTemplate={title === siteTitle ? "%s" : `${siteTitle} | %s`}
+      titleTemplate={pageTitle === siteTitle ? "%s" : `${siteTitle} | %s`}
       meta={[
         {
           name: "description",
@@ -98,10 +68,10 @@ function SEO({ description, lang, meta, keywords, title, path, jsImports }) {
         },
       ]
         .concat(
-          keywords && keywords.length > 0
+          metaKeywords && metaKeywords.length > 0
             ? {
                 name: "keywords",
-                content: keywords.join(", "),
+                content: metaKeywords.join(", "),
               }
             : [],
         )
