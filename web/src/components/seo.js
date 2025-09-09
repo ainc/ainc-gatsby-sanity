@@ -1,51 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
-import { useLocation } from "@reach/router";
+import { usePageTitle } from "../hooks/usePageTitle";
 import favicon from "../images/logo.png";
 
 function SEO({ description, lang, meta, keywords, title, path, jsImports }) {
-  const data = useStaticQuery(graphql`
-    query DefaultSEOQuery {
-      site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
-        title
-        description
-        keywords
-        author {
-          name
-        }
-      }
-      allSanityPageTitles {
-        edges {
-          node {
-            filePath
-            pageTitle
-          }
-        }
-      }
-    }
-  `);
-
-  const pageTitle =
-    title !== undefined
-      ? //If there is a title prop, use that
-        title
-      : data.allSanityPageTitles.edges.find(
-            (page) => page.node.filePath === useLocation().pathname + "/",
-          ) !== undefined
-        ? //if there is a page title for the current page from sanity, use that
-          data.allSanityPageTitles.edges.find(
-            (page) => page.node.filePath === useLocation().pathname + "/",
-          ).node.pageTitle
-        : //if there is no page title for the current page from sanity, use the default title
-          "Awesome Inc";
+  const {
+    pageTitle,
+    siteTitle,
+    siteDescription,
+    siteAuthor,
+    siteKeywords,
+    pageMetaDescription,
+  } = usePageTitle(title);
 
   const metaDescription =
-    description || (data.site && data.site.description) || "";
-  const siteTitle = (data.site && data.site.title) || "";
-  const siteAuthor =
-    (data.site && data.site.author && data.site.author.name) || "";
+    description || pageMetaDescription || siteDescription || "";
+  const metaKeywords = keywords || siteKeywords || [];
   const salesIQPages = [
     "/learn/",
     "/learn/adults/",
@@ -53,12 +24,11 @@ function SEO({ description, lang, meta, keywords, title, path, jsImports }) {
     "/bootcamp/",
     "/bootcamp/apply/",
   ];
-  const includeSalesIQ = salesIQPages.includes(useLocation().pathname);
   return (
     <Helmet
       htmlAttributes={{ lang }}
       title={pageTitle}
-      titleTemplate={title === siteTitle ? "%s" : `%s | ${siteTitle}`}
+      titleTemplate={pageTitle === siteTitle ? "%s" : `${siteTitle} | %s`}
       meta={[
         {
           name: "description",
@@ -98,10 +68,10 @@ function SEO({ description, lang, meta, keywords, title, path, jsImports }) {
         },
       ]
         .concat(
-          keywords && keywords.length > 0
+          metaKeywords && metaKeywords.length > 0
             ? {
                 name: "keywords",
-                content: keywords.join(", "),
+                content: metaKeywords.join(", "),
               }
             : [],
         )
@@ -180,39 +150,6 @@ function SEO({ description, lang, meta, keywords, title, path, jsImports }) {
       {/* Zoho PageSense */}
 
       <script src="https://cdn.pagesense.io/js/awesomeinc/617258c649af414b86fee0936d14ed09.js"></script>
-
-      {/* Title Shortener */}
-      <script>
-        {`
-          (function() {
-            const MAX_LEN = 65;
-
-            function shorten(str, limit) {
-              if (!str) return "";
-              if (str.length <= limit) return str;
-              return str.slice(0, limit - 3).trim() + "...";
-            }
-
-            // Update <title>
-            if (document.title && document.title.length > MAX_LEN) {
-              console.warn("[SEO] Trimming <title>:", document.title);
-              document.title = shorten(document.title, MAX_LEN);
-            }
-
-            // Update OpenGraph / Twitter title tags
-            const metaTags = document.querySelectorAll(
-              'meta[property="og:title"], meta[name="twitter:title"]'
-            );
-            metaTags.forEach((tag) => {
-              const content = tag.getAttribute("content");
-              if (content && content.length > MAX_LEN) {
-                console.warn("[SEO] Trimming meta tag:", content);
-                tag.setAttribute("content", shorten(content, MAX_LEN));
-              }
-            });
-          })();
-        `}
-      </script>
     </Helmet>
   );
 }
