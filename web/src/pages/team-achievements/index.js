@@ -39,6 +39,7 @@ const PinBoardPage = () => {
   });
 
   const [scale, setScale] = useState(1);
+  const [pinScale, setPinScale] = useState(0.8);
 
   useEffect(() => {
     if (typeof window === "undefined") return; // No effect during server side rendering
@@ -57,6 +58,7 @@ const PinBoardPage = () => {
         x = x / BOARD_WIDTH;
         newScale = Number(x.toFixed(2));
       }
+
       setWindowSize({
         width,
         scale: newScale,
@@ -179,6 +181,7 @@ const PinBoardPage = () => {
                         teamMembers={teamMembers}
                         imgLinks={links}
                         scale={scale}
+                        pinScale={pinScale}
                         valid={true}
                       />
                     </motion.div>
@@ -204,6 +207,7 @@ const PinBoardPage = () => {
                         teamMembers={teamMembers}
                         imgLinks={links}
                         scale={scale}
+                        pinScale={pinScale}
                         valid={true}
                       />
                     </motion.div>

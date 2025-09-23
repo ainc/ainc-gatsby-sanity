@@ -11,8 +11,11 @@ import {
   calculateGroupBounds,
   randBetween,
 } from "./randomPlacement";
+
+// Default pin scale - can be overridden by parent component
+const DEFAULT_PIN_SCALE = 1;
 import boardImage from "../../images/wood-board-background.jpg";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 const EDGE = 10;
 const DEBUG_SECTIONS = false;
@@ -27,14 +30,25 @@ const clash = (spots, x, y) =>
       y + PIN_SIZE > s.y,
   );
 
-const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks = [], scale, valid, group }) => {
+const CorkBoard = ({
+  initialPins = [],
+  onHoverStory,
+  teamMembers = [],
+  imgLinks = [],
+  scale,
+  valid,
+  group,
+  pinScale = DEFAULT_PIN_SCALE,
+}) => {
   const [pins, setPins] = useState([]);
   const [groupBounds, setGroupBounds] = useState({});
 
   const boardName = initialPins[0]?.recipient?.trim() || "Unknown";
 
   // find the matching team member entry to pull startDate and picture
-  const memberEntry = teamMembers.find((t) => norm(t.pinName) === norm(boardName));
+  const memberEntry = teamMembers.find(
+    (t) => norm(t.pinName) === norm(boardName),
+  );
 
   // parse out the year for "Awesome Since"
   const sinceYear = memberEntry?.startDate
@@ -58,7 +72,7 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks 
       if (!p.uniqueId) return;
       if (!p.delivered) return;
       const dragKey = p.uniqueId;
-      const type = p.pinName
+      const type = p.pinName;
 
       if (p.x != null && p.y != null) {
         taken.push({ x: p.x, y: p.y });
@@ -78,17 +92,15 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks 
           x = x + 10;
           continue;
         }
-      
+
         if (!clash(taken, x, y)) {
           taken.push({ x, y });
           placed.push({ ...p, dragKey, x, y, type });
           ok = true;
-        } 
-        else if (x >= lane.xMax - PIN_SIZE - EDGE){
+        } else if (x >= lane.xMax - PIN_SIZE - EDGE) {
           x = lane.xMin;
           y = y + 90;
-        } 
-        else {
+        } else {
           x = x + 5;
         }
       }
@@ -96,7 +108,6 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks 
       // if placing in group fails, randomly place on board
       if (!ok) {
         for (let i = 0; i < 500 && !ok; i++) {
-
           x = randBetween(10, 500);
           y = randBetween(10, 290);
 
@@ -108,11 +119,11 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks 
             placed.push({ ...p, dragKey, x, y, type });
             ok = true;
           }
-       }
-       if (!ok) {
-        console.log(`Could not place pin "${p.pinName} ${p.recipient}}"`);
-        toast.error(`Could not place ${p.pinName} ${p.recipient}`);
-       }
+        }
+        if (!ok) {
+          console.log(`Could not place pin "${p.pinName} ${p.recipient}}"`);
+          toast.error(`Could not place ${p.pinName} ${p.recipient}`);
+        }
       }
     });
 
@@ -140,7 +151,6 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks 
       prev.map((p) => (p.dragKey === uniqueId ? { ...p, x, y } : p)),
     );
 
-
     // if valid, execute api
     // else, toast notification saying access denied
     if (valid) {
@@ -157,7 +167,6 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks 
     } else {
       toast.error("Unauthorized, please login to make edits");
     }
-   
   };
 
   return (
@@ -239,14 +248,15 @@ const CorkBoard = ({ initialPins = [], onHoverStory, teamMembers = [], imgLinks 
           ))}
 
         {pins.map((p) => (
-          <Pin 
-            key={p.dragKey} 
-            pin={p} 
-            setHoveredStory={onHoverStory} 
+          <Pin
+            key={p.dragKey}
+            pin={p}
+            setHoveredStory={onHoverStory}
             pinType={p.type}
             imgLinks={imgLinks}
             scale={scale}
-            />
+            pinScale={pinScale}
+          />
         ))}
       </div>
     </div>
