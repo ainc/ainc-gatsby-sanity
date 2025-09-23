@@ -6,7 +6,12 @@ import {
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture,
 } from "../lib/helpers";
-import { Container, Row, Col, Image, Badge, Card } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import Row from "react-bootstrap";
+import Col from "react-bootstrap";
+import Image from "react-bootstrap";
+import Badge from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
@@ -17,8 +22,8 @@ import Subtitle from "../components/UI/Subtitle/Subtitle";
 import BackgroundCard from "../components/BackgroundCard/BackgroundCard";
 import CoreValue from "../components/CustomCode/CoreValue/CoreValue";
 import Event from "../components/Event/Event";
-import NewsletterSection from "../components/Layout/Newsletter/Newsletter";
-import PodcastSection from "../components/Layout/Podcast/Podcast";
+// import NewsletterSection from "../components/Layout/Newsletter/Newsletter";
+// import PodcastSection from "../components/Layout/Podcast/Podcast";
 import Startups from "../components/Layout/Startups/Startups";
 import FeatureCard from "../components/FeatureCard/FeatureCard";
 import HorizontalCard from "../components/HorizontalCard/HorizontalCard";
@@ -53,7 +58,7 @@ export const query = graphql`
       date
       picture {
         asset {
-          gatsbyImageData(width: 550, aspectRatio: 1.1)
+          gatsbyImageData(width: 550, aspectRatio: 1.1, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
         }
       }
       location
@@ -71,7 +76,7 @@ export const query = graphql`
         date
         picture {
           asset {
-            gatsbyImageData(width: 550, aspectRatio: 1.0)
+            gatsbyImageData(width: 550, aspectRatio: 1.0, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
           }
         }
         location
@@ -90,7 +95,7 @@ export const query = graphql`
         designedFor
         picture {
           asset {
-            gatsbyImageData(height: 200, width: 250)
+            gatsbyImageData(height: 200, width: 250, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
             url
           }
         }
@@ -151,6 +156,13 @@ const IndexPage = ({ data }) => {
     }
   };
 
+  const NewsletterSection = React.lazy(() =>
+  import("../components/Layout/Newsletter/Newsletter")
+);
+const PodcastSection = React.lazy(() =>
+  import("../components/Layout/Podcast/Podcast")
+);
+
   const [isWorkspaceButton1Hovered, setIsWorkspaceButton1Hovered] =
     useState(false);
   const [isWorkspaceButton2Hovered, setIsWorkspaceButton2Hovered] =
@@ -178,6 +190,7 @@ const IndexPage = ({ data }) => {
                   title="Learn to Code"
                   text="Everybody can and should learn to code, start today."
                   backgroundImage="/images/student-learn-to-code-shirt.jpg"
+                  formats={["auto", "webp", "avif"]}
                   imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
                   alt="brackets"
                   sectionRef={section2Ref}
@@ -190,6 +203,7 @@ const IndexPage = ({ data }) => {
                   title="Rent Workspace"
                   text="Rent a desk or space for events, meetings, and more."
                   backgroundImage="/images/awesome-inc-space-banner.jpg"
+                  formats={["auto", "webp", "avif"]}
                   imgSrc="https://d33wubrfki0l68.cloudfront.net/13acb6f3560e894a9e0eecc194c96f778fba858f/f6fb2/images/icons/rent-workspace.png"
                   link="/workspace"
                   alt="desk and chair"
@@ -202,6 +216,7 @@ const IndexPage = ({ data }) => {
                   title="Accelerate your startup"
                   text="We will help grow your business with a mentor-driven, accelerator program."
                   backgroundImage="/images/startup-panel-min.jpg"
+                  formats={["auto", "webp", "avif"]}
                   imgSrc="https://d33wubrfki0l68.cloudfront.net/40f039dccd7775d86dcc2076d6b01abe6802fdac/f6c13/images/icons/accelerate-your-startup.png"
                   link="/learn"
                   alt="brackets"
@@ -214,6 +229,7 @@ const IndexPage = ({ data }) => {
                   title="Software Development"
                   text="Let us create custom software for your business."
                   backgroundImage="/images/software-panel.jpg"
+                  formats={["auto", "webp", "avif"]}
                   imgSrc="https://d33wubrfki0l68.cloudfront.net/fb2b3c6c872a02cdce20d96103c70a10b3f75172/3398b/images/icons/software-development.png"
                   link="/learn"
                   alt="brackets"
@@ -324,6 +340,7 @@ const IndexPage = ({ data }) => {
                   initial={{ opacity: 0.5, y: -50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1 }}
+                  viewport={{ once: true, amount: 0.2 }}
                 >
                   <Card className="h-100">
                     <GatsbyImage
@@ -407,6 +424,7 @@ const IndexPage = ({ data }) => {
                     transition={{ delay: 0, duration: 0.4 }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <a href="../workspace">
                       <Card
@@ -438,6 +456,7 @@ const IndexPage = ({ data }) => {
                     transition={{ delay: 0, duration: 0.4 }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <a href="../workspace">
                       <Card
@@ -487,6 +506,7 @@ const IndexPage = ({ data }) => {
                     transition={{ delay: 0.2, duration: 0.5 }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <StaticImage
                       placeholder="blurred"
@@ -517,6 +537,7 @@ const IndexPage = ({ data }) => {
                     transition={{ delay: 0.2, duration: 0.5 }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <StaticImage
                       placeholder="blurred"
@@ -547,6 +568,7 @@ const IndexPage = ({ data }) => {
                     transition={{ delay: 0.2, duration: 0.5 }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <StaticImage
                       placeholder="blurred"
@@ -571,12 +593,13 @@ const IndexPage = ({ data }) => {
           </Row>
         </Container>
       </section>
-
+      
+      <Suspense fallback={<div>Loading…</div>}>
       {/* NEWSLETTER */}
       <NewsletterSection />
-
       {/* PODCAST */}
       <PodcastSection />
+      </Suspense>
     </Layout>
   );
 };
