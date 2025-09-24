@@ -7,10 +7,10 @@ import {
   filterOutDocsPublishedInTheFuture,
 } from "../lib/helpers";
 import { Container } from "react-bootstrap";
-import Row from "react-bootstrap";
-import Col from "react-bootstrap";
-import Image from "react-bootstrap";
-import Badge from "react-bootstrap";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Image from "react-bootstrap/Image";
+import Badge from "react-bootstrap/Badge";
 import { Card } from "react-bootstrap";
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
@@ -45,7 +45,7 @@ import StackIcon from "../assets/svg/stack.svg";
 import ToolsIcon from "../assets/svg/tools.svg";
 import { withTheme } from "styled-components";
 import EventBriteModal from "../components/EventBriteModal/EventBriteModal";
-import Accomplishments from "../components/Accomplishments/Accomplishments";
+// import Accomplishments from "../components/Accomplishments/Accomplishments";
 
 import "./index.scss";
 
@@ -163,6 +163,10 @@ const PodcastSection = React.lazy(() =>
   import("../components/Layout/Podcast/Podcast")
 );
 
+const Accomplishments = React.lazy(() => 
+  import ("../components/Accomplishments/Accomplishments")
+);
+
   const [isWorkspaceButton1Hovered, setIsWorkspaceButton1Hovered] =
     useState(false);
   const [isWorkspaceButton2Hovered, setIsWorkspaceButton2Hovered] =
@@ -264,7 +268,9 @@ const PodcastSection = React.lazy(() =>
         </Container>
       </section>
       {/*ACCOMPLISHMENTS */}
+      <Suspense fallback={null}>
       <Accomplishments />
+      </Suspense>
 
       {/* CORE VALUES */}
       <section id="core-values">
