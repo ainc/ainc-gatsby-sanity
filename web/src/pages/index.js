@@ -20,11 +20,11 @@ import BrandButton from "../components/UI/BrandButton/BrandButton";
 import Title from "../components/UI/Title/Title";
 import Subtitle from "../components/UI/Subtitle/Subtitle";
 import BackgroundCard from "../components/BackgroundCard/BackgroundCard";
-import CoreValue from "../components/CustomCode/CoreValue/CoreValue";
+// import CoreValue from "../components/CustomCode/CoreValue/CoreValue";
 import Event from "../components/Event/Event";
 // import NewsletterSection from "../components/Layout/Newsletter/Newsletter";
 // import PodcastSection from "../components/Layout/Podcast/Podcast";
-import Startups from "../components/Layout/Startups/Startups";
+// import Startups from "../components/Layout/Startups/Startups";
 import FeatureCard from "../components/FeatureCard/FeatureCard";
 import HorizontalCard from "../components/HorizontalCard/HorizontalCard";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
@@ -167,6 +167,14 @@ const Accomplishments = React.lazy(() =>
   import ("../components/Accomplishments/Accomplishments")
 );
 
+const CoreValue = React.lazy(() =>
+  import ("../components/CustomCode/CoreValue/CoreValue") 
+);
+
+const Startups = React.lazy(() =>
+  import ("../components/Layout/Startups/Startups")
+);
+
   const [isWorkspaceButton1Hovered, setIsWorkspaceButton1Hovered] =
     useState(false);
   const [isWorkspaceButton2Hovered, setIsWorkspaceButton2Hovered] =
@@ -288,7 +296,9 @@ const Accomplishments = React.lazy(() =>
                 </p>
               </Row>
               <Row className="mb-5">
+                <Suspense fallback={null}>
                 <CoreValue />
+                </Suspense>
               </Row>
             </Container>
           </div>
@@ -385,9 +395,10 @@ const Accomplishments = React.lazy(() =>
       </section>
 
       {/* STARTUPS */}
-
       <section ref={section3Ref} id="startup">
+        <Suspense fallback={null}>
         <Startups />
+        </Suspense>
       </section>
 
       {/* WORKSPACE */}
