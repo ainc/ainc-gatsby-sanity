@@ -58,7 +58,7 @@ export const query = graphql`
       date
       picture {
         asset {
-          gatsbyImageData(width: 550, aspectRatio: 1.1, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+          gatsbyImageData(width: 550, aspectRatio: 1.1, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], breakpoints: [400, 768, 1200, 1920])
         }
       }
       location
@@ -76,7 +76,7 @@ export const query = graphql`
         date
         picture {
           asset {
-            gatsbyImageData(width: 550, aspectRatio: 1.0, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            gatsbyImageData(width: 550, aspectRatio: 1.0, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], breakpoints: [400, 768, 1200, 1920])
           }
         }
         location
@@ -95,7 +95,7 @@ export const query = graphql`
         designedFor
         picture {
           asset {
-            gatsbyImageData(height: 200, width: 250, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            gatsbyImageData(height: 200, width: 250, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], breakpoints: [400, 768, 1200, 1920])
             url
           }
         }
@@ -414,24 +414,30 @@ const Startups = React.lazy(() =>
           href="https://calendly.com/awesometour/30min?"
           target="_blank"
         >
-          <img
-            src="https://d33wubrfki0l68.cloudfront.net/223738930eb44ab59015db4d33febf500d9da8f1/0ab2a/images/icons/schedule-a-tour-button-red.png"
-            width="100"
-            height="100"
-            id="tour-button"
-            alt="tour button"
-          />
+        <StaticImage
+          src="../images/icons/schedule-a-tour-button-red.png" 
+          alt="tour button"
+          width={100}
+          height={100}
+          id="tour-button"
+        />
         </a>
         <Container>
           <div
-            style={{
-              backgroundImage: `url(${desk_background})`,
-              backgroundRepeat: `no-repeat`,
-              backgroundSize: `35%`,
-              backgroundPosition: `50% 50%`,
-              padding: `5rem 0`,
-            }}
+            style={{ position: "relative", padding: "5rem, 0" }}
           >
+              <StaticImage
+                src="../images/desk_background.png"
+                alt="Desk Background"
+              style={{
+                position: "absolute",
+                inset: 0,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "35%",
+                backgroundPosition: "50% 50%",
+                    }}
+                placeholder="blurred"
+              />
             <Row>
               <Col xs={12} sm={6}>
                 <div className="d-flex justify-content-center">
