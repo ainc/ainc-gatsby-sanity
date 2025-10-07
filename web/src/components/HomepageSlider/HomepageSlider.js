@@ -56,15 +56,16 @@ const HomepageSlider = (props) => {
               <GatsbyImage
                 image={getImage(slide.image.asset)}
                 alt={slide.image.alt || slide.title || "Slide background"}
-              style={{
-                height: "100%",
-                width: "100%",
-                position: "absolute",
-                top: 0,
-                left: 0,
-                objectFit: "cover",
-                objectPosition: "center center",
-                    }}
+                style={{
+                  height: "100%",
+                  width: "100%",
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  objectFit: "cover",
+                  objectPosition: "center center",
+                  zIndex: 0,
+                      }}
                 />
             <Wrapper>
               <Container className="mb-3 d-flex align-content-center flex-wrap h-100">
@@ -73,6 +74,7 @@ const HomepageSlider = (props) => {
                     initial={{ opacity: 0, y: -50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.8 }}
+                    style={{ zIndex: 2 }}
                   >
                     <Subtitle className="text-white">{slide.subtitle}</Subtitle>
                     <Title className="mb-3 text-white">{slide.title}</Title>
