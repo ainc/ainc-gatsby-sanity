@@ -33,7 +33,7 @@ const Pin = ({
     case "Be Excellent":
       imgSrc = imgLinks[1].source;
       break;
-    case "Be A Friend":
+    case "Be a Friend":
       imgSrc = imgLinks[2].source;
       break;
     case "Be You":
