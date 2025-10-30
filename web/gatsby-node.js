@@ -4,7 +4,7 @@ const { paginate } = require("gatsby-awesome-pagination");
 const { createRedirect } = require("gatsby-plugin-netlify");
 
 async function createBlogPostPages(graphql, actions) {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
   const result = await graphql(`
     {
       allSanityBlog {
@@ -62,25 +62,33 @@ async function createBlogPostPages(graphql, actions) {
     });
   });
 
-  //pagination for all blog posts
-  const blogCount = result.data.allSanityBlog.totalCount;
-  const blogsPerPage = 10; //changed from 9 to 10
-  const numBlogs = Math.ceil(blogCount / blogsPerPage);
-
-  Array.from({ length: numBlogs }).forEach((_, i) => {
-    createPage({
-      path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-      component: require.resolve("./src/templates/blog/blog-list-template.js"),
-      // component: require.resolve("./src/pages/blog/index.js"),
-
-      context: {
-        limit: blogsPerPage,
-        skip: i * blogsPerPage,
-        numBlogs,
-        currentBlog: i + 1,
-      },
-    });
+  // Create a single blog list page
+  createPage({
+    path: `/blog`,
+    component: require.resolve("./src/templates/blog/blog-list-template.js"),
+    context: {},
   });
+
+  // Redirect legacy numeric pagination routes (/blog/2, /blog/3, ...) to /blog
+  const blogCount = result.data.allSanityBlog.totalCount;
+  const blogsPerPage = 10;
+  const numBlogs = Math.ceil(blogCount / blogsPerPage);
+  for (let i = 2; i <= numBlogs; i++) {
+    createRedirect({
+      fromPath: `/blog/${i}`,
+      toPath: `/blog`,
+      isPermanent: true,
+      force: true,
+      redirectInBrowser: true,
+    });
+    createRedirect({
+      fromPath: `/blog/${i}/`,
+      toPath: `/blog`,
+      isPermanent: true,
+      force: true,
+      redirectInBrowser: true,
+    });
+  }
 }
 
 async function createPodcastPages(graphql, actions) {
