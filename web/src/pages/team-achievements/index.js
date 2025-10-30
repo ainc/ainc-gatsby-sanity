@@ -127,11 +127,18 @@ const PinBoardPage = () => {
     fetchData();
   }, []);
 
-  // Only keep boards whose recipient matches a team member, and log each comparison
+// Only keep boards whose recipient matches a team member and isn't Nathan
   const filteredBoards = boards.filter((board) => {
-    const exists = memberNames.has(board.recipient);
-    return exists;
-  });
+  const recipient = board.recipient?.trim();
+
+  // Skip null, undefined, or Nathan Wilson
+  if (!recipient || recipient === "Nathan Wilson") {
+    return false;
+  }
+
+  const exists = memberNames.has(recipient);
+  return exists;
+});
 
   // Split array in half for purposes of two columns
   const half = filteredBoards.length / 2;
