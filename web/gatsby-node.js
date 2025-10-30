@@ -62,19 +62,11 @@ async function createBlogPostPages(graphql, actions) {
     });
   });
 
-  //pagination for all blog posts
-  const blogCount = result.data.allSanityBlog.totalCount;
-  const blogsPerPage = 10; //changed from 9 to 10
-  const numBlogs = Math.ceil(blogCount / blogsPerPage);
-
-  Array.from({ length: numBlogs }).forEach((_, i) => {
-    createPage({
-      path: `/blog`,
-      component: require.resolve("./src/templates/blog/blog-list-template.js"),
-      // component: require.resolve("./src/pages/blog/index.js"),
-
-      context: {},
-    });
+  // Create a single blog list page
+  createPage({
+    path: `/blog`,
+    component: require.resolve("./src/templates/blog/blog-list-template.js"),
+    context: {},
   });
 }
 
@@ -224,6 +216,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   createRedirect({
     fromPath: `/woc`,
     toPath: `/notes/woc`,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
+  // Also catch single-segment numeric (or any) pages like /blog/2 and /blog/2/
+  createRedirect({
+    fromPath: `/blog/*`,
+    toPath: `/blog`,
     isPermanent: true,
     force: true,
     redirectInBrowser: true,
