@@ -6,7 +6,12 @@ import {
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture,
 } from "../lib/helpers";
-import { Container, Row, Col, Image, Badge, Card } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Image from "react-bootstrap/Image";
+import Badge from "react-bootstrap/Badge";
+import { Card } from "react-bootstrap";
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
@@ -15,11 +20,11 @@ import BrandButton from "../components/UI/BrandButton/BrandButton";
 import Title from "../components/UI/Title/Title";
 import Subtitle from "../components/UI/Subtitle/Subtitle";
 import BackgroundCard from "../components/BackgroundCard/BackgroundCard";
-import CoreValue from "../components/CustomCode/CoreValue/CoreValue";
+// import CoreValue from "../components/CustomCode/CoreValue/CoreValue";
 import Event from "../components/Event/Event";
-import NewsletterSection from "../components/Layout/Newsletter/Newsletter";
-import PodcastSection from "../components/Layout/Podcast/Podcast";
-import Startups from "../components/Layout/Startups/Startups";
+// import NewsletterSection from "../components/Layout/Newsletter/Newsletter";
+// import PodcastSection from "../components/Layout/Podcast/Podcast";
+// import Startups from "../components/Layout/Startups/Startups";
 import FeatureCard from "../components/FeatureCard/FeatureCard";
 import HorizontalCard from "../components/HorizontalCard/HorizontalCard";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
@@ -40,7 +45,7 @@ import StackIcon from "../assets/svg/stack.svg";
 import ToolsIcon from "../assets/svg/tools.svg";
 import { withTheme } from "styled-components";
 import EventBriteModal from "../components/EventBriteModal/EventBriteModal";
-import Accomplishments from "../components/Accomplishments/Accomplishments";
+// import Accomplishments from "../components/Accomplishments/Accomplishments";
 
 import "./index.scss";
 
@@ -53,7 +58,7 @@ export const query = graphql`
       date
       picture {
         asset {
-          gatsbyImageData(width: 550, aspectRatio: 1.1)
+          gatsbyImageData(width: 550, aspectRatio: 1.1, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], breakpoints: [400, 768, 1200, 1920])
         }
       }
       location
@@ -71,7 +76,7 @@ export const query = graphql`
         date
         picture {
           asset {
-            gatsbyImageData(width: 550, aspectRatio: 1.0)
+            gatsbyImageData(width: 550, aspectRatio: 1.0, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], breakpoints: [400, 768, 1200, 1920])
           }
         }
         location
@@ -90,7 +95,7 @@ export const query = graphql`
         designedFor
         picture {
           asset {
-            gatsbyImageData(height: 200, width: 250)
+            gatsbyImageData(height: 200, width: 250, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], breakpoints: [400, 768, 1200, 1920])
             url
           }
         }
@@ -151,6 +156,25 @@ const IndexPage = ({ data }) => {
     }
   };
 
+  const NewsletterSection = React.lazy(() =>
+  import("../components/Layout/Newsletter/Newsletter")
+);
+const PodcastSection = React.lazy(() =>
+  import("../components/Layout/Podcast/Podcast")
+);
+
+const Accomplishments = React.lazy(() => 
+  import ("../components/Accomplishments/Accomplishments")
+);
+
+const CoreValue = React.lazy(() =>
+  import ("../components/CustomCode/CoreValue/CoreValue") 
+);
+
+const Startups = React.lazy(() =>
+  import ("../components/Layout/Startups/Startups")
+);
+
   const [isWorkspaceButton1Hovered, setIsWorkspaceButton1Hovered] =
     useState(false);
   const [isWorkspaceButton2Hovered, setIsWorkspaceButton2Hovered] =
@@ -178,6 +202,7 @@ const IndexPage = ({ data }) => {
                   title="Learn to Code"
                   text="Everybody can and should learn to code, start today."
                   backgroundImage="/images/student-learn-to-code-shirt.jpg"
+                  formats={["auto", "webp", "avif"]}
                   imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
                   alt="brackets"
                   sectionRef={section2Ref}
@@ -190,6 +215,7 @@ const IndexPage = ({ data }) => {
                   title="Rent Workspace"
                   text="Rent a desk or space for events, meetings, and more."
                   backgroundImage="/images/awesome-inc-space-banner.jpg"
+                  formats={["auto", "webp", "avif"]}
                   imgSrc="https://d33wubrfki0l68.cloudfront.net/13acb6f3560e894a9e0eecc194c96f778fba858f/f6fb2/images/icons/rent-workspace.png"
                   link="/workspace"
                   alt="desk and chair"
@@ -202,6 +228,7 @@ const IndexPage = ({ data }) => {
                   title="Accelerate your startup"
                   text="We will help grow your business with a mentor-driven, accelerator program."
                   backgroundImage="/images/startup-panel-min.jpg"
+                  formats={["auto", "webp", "avif"]}
                   imgSrc="https://d33wubrfki0l68.cloudfront.net/40f039dccd7775d86dcc2076d6b01abe6802fdac/f6c13/images/icons/accelerate-your-startup.png"
                   link="/learn"
                   alt="brackets"
@@ -214,6 +241,7 @@ const IndexPage = ({ data }) => {
                   title="Software Development"
                   text="Let us create custom software for your business."
                   backgroundImage="/images/software-panel.jpg"
+                  formats={["auto", "webp", "avif"]}
                   imgSrc="https://d33wubrfki0l68.cloudfront.net/fb2b3c6c872a02cdce20d96103c70a10b3f75172/3398b/images/icons/software-development.png"
                   link="/learn"
                   alt="brackets"
@@ -248,7 +276,9 @@ const IndexPage = ({ data }) => {
         </Container>
       </section>
       {/*ACCOMPLISHMENTS */}
+      <Suspense fallback={null}>
       <Accomplishments />
+      </Suspense>
 
       {/* CORE VALUES */}
       <section id="core-values">
@@ -266,7 +296,9 @@ const IndexPage = ({ data }) => {
                 </p>
               </Row>
               <Row className="mb-5">
+                <Suspense fallback={null}>
                 <CoreValue />
+                </Suspense>
               </Row>
             </Container>
           </div>
@@ -324,6 +356,7 @@ const IndexPage = ({ data }) => {
                   initial={{ opacity: 0.5, y: -50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1 }}
+                  viewport={{ once: true, amount: 0.2 }}
                 >
                   <Card className="h-100">
                     <GatsbyImage
@@ -362,9 +395,10 @@ const IndexPage = ({ data }) => {
       </section>
 
       {/* STARTUPS */}
-
       <section ref={section3Ref} id="startup">
+        <Suspense fallback={null}>
         <Startups />
+        </Suspense>
       </section>
 
       {/* WORKSPACE */}
@@ -380,24 +414,30 @@ const IndexPage = ({ data }) => {
           href="https://calendly.com/awesometour/30min?"
           target="_blank"
         >
-          <img
-            src="https://d33wubrfki0l68.cloudfront.net/223738930eb44ab59015db4d33febf500d9da8f1/0ab2a/images/icons/schedule-a-tour-button-red.png"
-            width="100"
-            height="100"
-            id="tour-button"
-            alt="tour button"
-          />
+        <StaticImage
+          src="../images/icons/schedule-a-tour-button-red.png" 
+          alt="tour button"
+          width={100}
+          height={100}
+          id="tour-button"
+        />
         </a>
         <Container>
           <div
-            style={{
-              backgroundImage: `url(${desk_background})`,
-              backgroundRepeat: `no-repeat`,
-              backgroundSize: `35%`,
-              backgroundPosition: `50% 50%`,
-              padding: `5rem 0`,
-            }}
+            style={{ position: "relative", padding: "5rem, 0" }}
           >
+              <StaticImage
+                src="../images/desk_background.png"
+                alt="Desk Background"
+              style={{
+                position: "absolute",
+                inset: 0,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "35%",
+                backgroundPosition: "50% 50%",
+                    }}
+                placeholder="blurred"
+              />
             <Row>
               <Col xs={12} sm={6}>
                 <div className="d-flex justify-content-center">
@@ -407,6 +447,7 @@ const IndexPage = ({ data }) => {
                     transition={{ delay: 0, duration: 0.4 }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <a href="../workspace">
                       <Card
@@ -438,6 +479,7 @@ const IndexPage = ({ data }) => {
                     transition={{ delay: 0, duration: 0.4 }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <a href="../workspace">
                       <Card
@@ -487,6 +529,7 @@ const IndexPage = ({ data }) => {
                     transition={{ delay: 0.2, duration: 0.5 }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <StaticImage
                       placeholder="blurred"
@@ -517,6 +560,7 @@ const IndexPage = ({ data }) => {
                     transition={{ delay: 0.2, duration: 0.5 }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <StaticImage
                       placeholder="blurred"
@@ -547,6 +591,7 @@ const IndexPage = ({ data }) => {
                     transition={{ delay: 0.2, duration: 0.5 }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <StaticImage
                       placeholder="blurred"
@@ -571,12 +616,13 @@ const IndexPage = ({ data }) => {
           </Row>
         </Container>
       </section>
-
+      
+      <Suspense fallback={<div>Loading…</div>}>
       {/* NEWSLETTER */}
       <NewsletterSection />
-
       {/* PODCAST */}
       <PodcastSection />
+      </Suspense>
     </Layout>
   );
 };

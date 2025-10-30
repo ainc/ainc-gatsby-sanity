@@ -241,7 +241,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     force: true,
     redirectInBrowser: true,
   });
-  // Note: blog pagination redirects are handled in createBlogPostPages to avoid catching post slugs
+  createRedirect({
+    fromPath: `/applications/bootcamp`,
+    toPath: `/bootcamp/apply/`,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
 
   //external
   createRedirect({

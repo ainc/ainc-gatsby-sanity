@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import * as styles from "./InformationCard.module.css";
+import SEO from "../../../components/seo";
 import {
   Container,
   Row,
@@ -14,6 +15,15 @@ const InformationCard = (props) => {
 
   return (
     <>
+      <SEO
+        title="Information Card"
+        meta={[
+          {
+            name: "robots",
+            content: "noindex, nofollow",
+          },
+        ]}
+      />
       <div className={styles.ovalContainer} style={{ float: float }}>
         <div style={{ float: float }}>
           {" "}

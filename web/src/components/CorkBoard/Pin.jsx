@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { PIN_SIZE } from "./randomPlacement";
 
-const Pin = ({ pin, setHoveredStory, pinType, imgLinks, scale }) => {
+const Pin = ({
+  pin,
+  setHoveredStory,
+  pinType,
+  imgLinks,
+  scale,
+  pinScale = 1,
+}) => {
   const [dragging, setDragging] = useState(false);
 
   const handleDragStart = (e) => {
@@ -18,9 +25,8 @@ const Pin = ({ pin, setHoveredStory, pinType, imgLinks, scale }) => {
     );
   };
 
-
-  let imgSrc = "/images/default-pin.png"
-  switch(pinType){
+  let imgSrc = "/images/default-pin.png";
+  switch (pinType) {
     case "Be Good":
       imgSrc = imgLinks[0].source;
       break;
@@ -54,6 +60,21 @@ const Pin = ({ pin, setHoveredStory, pinType, imgLinks, scale }) => {
     case "Triangle Pin":
       imgSrc = imgLinks[10].source;
       break;
+    case "Work Anniversary":
+      imgSrc = imgLinks[11].source;
+      break;
+    case "Core Value Training":
+      imgSrc = imgLinks[12].source;
+      break;
+    case "Winter Retreat 2023":
+      imgSrc = imgLinks[13].source;
+      break;
+    case "Winter Retreat 2024":
+      imgSrc = imgLinks[14].source;
+      break;
+    case "Winter Retreat 2025":
+      imgSrc = imgLinks[15].source;
+      break;
   }
 
   return (
@@ -61,9 +82,9 @@ const Pin = ({ pin, setHoveredStory, pinType, imgLinks, scale }) => {
       style={{
         position: "absolute",
         left: pin.x * scale,
-        top:  pin.y * scale,
-        width: PIN_SIZE,
-        height: PIN_SIZE,
+        top: pin.y * scale,
+        width: PIN_SIZE * pinScale,
+        height: PIN_SIZE * pinScale,
         cursor: dragging ? "grabbing" : "grab",
         zIndex: dragging ? 1000 : 1,
       }}
@@ -78,7 +99,7 @@ const Pin = ({ pin, setHoveredStory, pinType, imgLinks, scale }) => {
       <img
         src={imgSrc}
         alt={pin.pinName}
-        style={{ width: 85 * scale, height: "auto" }}
+        style={{ width: 85 * scale * pinScale, height: "auto" }}
         onError={(e) => (e.target.src = "/images/default-pin.png")}
       />
     </motion.div>
