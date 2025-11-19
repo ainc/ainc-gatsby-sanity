@@ -11,8 +11,36 @@ import Arrow from "../../../../images/arrow.png";
 import BrandButton from "../../../../components/UI/BrandButton/BrandButton";
 
 const SeeTheSpace = (props) => {
-  const videoLinkSrc =
+    const getEmbedUrl = (url) => {
+    if (!url) return "";
+
+    // Already embed → append params
+    if (url.includes("/embed/")) {
+      return `${url}${url.includes("?") ? "&" : "?"}autoplay=1&mute=1&rel=0`;
+    }
+
+    // watch?v=ID
+    if (url.includes("watch?v=")) {
+      const videoId = url.split("watch?v=")[1].split("&")[0];
+      return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&rel=0`;
+    }
+
+    // youtu.be/ID
+    if (url.includes("youtu.be/")) {
+      const videoId = url.split("youtu.be/")[1].split("?")[0];
+      return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&rel=0`;
+    }
+
+    // fallback
+    return `${url}${url.includes("?") ? "&" : "?"}autoplay=1&mute=1&rel=0`;
+  };
+
+  // Your link (could be any format)
+  const rawVideoLink =
     "https://www.youtube.com/embed/QItnXb9IBd8?si=G_JyJeX3rcacXemU";
+
+  // Clean autoplay embed
+  const videoLinkSrc = getEmbedUrl(rawVideoLink);
 
   const [videoShow, setVideoShow] = useState(false);
   const handleVideoShow = () => setVideoShow(true);
@@ -75,12 +103,7 @@ const SeeTheSpace = (props) => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 1 }}
               >
-                {/* Youtube Link */}
-                <a
-                  onClick={handleVideoShow}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a onClick={handleVideoShow} className={styles.thumbnailLink}>
                   <Image
                     className={styles.videoFilter}
                     src={Thumbnail}
@@ -93,6 +116,7 @@ const SeeTheSpace = (props) => {
               </motion.div>
             </div>
           </Col>
+
           <ModalCustom
             lgShow={videoShow}
             hide={handleVideoClose}
@@ -104,10 +128,10 @@ const SeeTheSpace = (props) => {
                 height="500"
                 src={videoLinkSrc}
                 title="YouTube video player"
-                frameborder="0"
+                style={{ border: 0 }}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
+                allowFullScreen
+              />
             }
           />
           <Col md={3} className="d-none d-md-block"></Col>

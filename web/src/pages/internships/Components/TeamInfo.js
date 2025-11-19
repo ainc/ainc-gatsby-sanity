@@ -10,6 +10,30 @@ const TeamInfoModal = (props) => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const convertToEmbed = (url) => {
+    if (!url) return "";
+
+    // Already embed
+    if (url.includes("youtube.com/embed")) return url;
+
+    // Watch links
+    if (url.includes("watch?v=")) {
+      const id = url.split("watch?v=")[1].split("&")[0];
+      return `https://www.youtube.com/embed/${id}`;
+    }
+
+    // youtu.be links
+    if (url.includes("youtu.be/")) {
+      const id = url.split("youtu.be/")[1].split("?")[0];
+      return `https://www.youtube.com/embed/${id}`;
+    }
+
+    return url;
+  };
+
+  const embedSrc = convertToEmbed(props.link);
+
   return (
     <>
       <SEO
@@ -83,7 +107,7 @@ const TeamInfoModal = (props) => {
                   <iframe
                     width="100%"
                     height="500"
-                    src={props.link}
+                    src={embedSrc}
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
