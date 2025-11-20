@@ -4,6 +4,7 @@ import SEO from "../../../components/seo";
 import Title from "../../../components/UI/Title/Title";
 import BrandButton from "../../../components/UI/BrandButton/BrandButton";
 import ModalCustom from "../../../components/Modal/ModalCustom";
+import { getEmbedUrl } from "../../../../utils/getEmbedUrl";
 import "./teaminfo.scss";
 const TeamInfoModal = (props) => {
   const [show, setShow] = useState(false);
@@ -83,7 +84,7 @@ const TeamInfoModal = (props) => {
                   <iframe
                     width="100%"
                     height="500"
-                    src={props.link}
+                    src={getEmbedUrl(props.link)}
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
