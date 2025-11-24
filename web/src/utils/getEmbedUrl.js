@@ -1,4 +1,4 @@
-export function getEmbedUrl(url, { autoplay = 1, muted = 1 } = {}) {
+export default function getEmbedUrl(url, { autoplay = 1, muted = 1 } = {}) {
   if (!url) return "";
 
   try {
