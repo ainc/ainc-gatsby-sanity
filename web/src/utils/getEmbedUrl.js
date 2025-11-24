@@ -1,33 +1,42 @@
-export function getEmbedUrl(url = "") {
+export function getEmbedUrl(url, { autoplay = 1, muted = 1 } = {}) {
   if (!url) return "";
 
-  let embed = url.trim();
+  try {
+    // Ensure URL object can be parsed
+    const parsed = new URL(url);
 
-  // If it's a youtube short
-  if (embed.includes("youtube.com/shorts/")) {
-    embed = embed.replace("youtube.com/shorts/", "youtube.com/embed/");
+    // --- CASE 1: URL IS ALREADY EMBED FORMAT ---
+    if (parsed.pathname.startsWith("/embed/")) {
+      // Keep existing params, but enforce autoplay/muted
+      parsed.searchParams.set("autoplay", autoplay);
+      parsed.searchParams.set("mute", muted);
+
+      return parsed.toString();
+    }
+
+    // --- CASE 2: NORMAL WATCH URL ---
+    // e.g. https://www.youtube.com/watch?v=ID&si=xyz
+    if (parsed.searchParams.has("v")) {
+      const videoId = parsed.searchParams.get("v");
+
+      // Build embed URL
+      const embedUrl = new URL(`https://www.youtube.com/embed/${videoId}`);
+
+      // Preserve known params (si, etc.)
+      parsed.searchParams.forEach((value, key) => {
+        if (key !== "v") embedUrl.searchParams.set(key, value);
+      });
+
+      // Add autoplay/muted settings
+      embedUrl.searchParams.set("autoplay", autoplay);
+      embedUrl.searchParams.set("mute", muted);
+
+      return embedUrl.toString();
+    }
+
+    // --- CASE 3: Unsupported format ---
+    return url;
+  } catch {
+    return url;
   }
-
-  // Standard YouTube URL with watch?v=
-  if (embed.includes("watch?v=")) {
-    embed = embed.replace("watch?v=", "embed/");
-  }
-
-  // Share URLs like youtu.be/XYZ123
-  if (embed.includes("youtu.be/")) {
-    embed = embed.replace("youtu.be/", "youtube.com/embed/");
-  }
-
-  // If it's already embed, leave it alone
-  if (!embed.includes("embed")) {
-    // Last fallback
-    embed = embed.replace("youtube.com/", "youtube.com/embed/");
-  }
-
-  // Add video params
-  const hasParams = embed.includes("?");
-  embed += hasParams ? "&" : "?";
-  embed += "autoplay=1&mute=1&rel=0";
-
-  return embed;
 }
