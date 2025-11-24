@@ -4,7 +4,7 @@ import SEO from "../../../components/seo";
 import Title from "../../../components/UI/Title/Title";
 import BrandButton from "../../../components/UI/BrandButton/BrandButton";
 import ModalCustom from "../../../components/Modal/ModalCustom";
-import { getEmbedUrl } from "../../../pages/utils/getEmbedUrl";
+import getEmbedUrl from "../../../utils/getEmbedUrl";
 import "./teaminfo.scss";
 const TeamInfoModal = (props) => {
   const [show, setShow] = useState(false);
