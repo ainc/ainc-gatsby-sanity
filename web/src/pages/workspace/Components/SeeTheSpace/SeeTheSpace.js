@@ -9,7 +9,7 @@ import TourBtn from "../../../../images/schedule-a-tour-button-white.png";
 import Thumbnail from "../../../../images/private-office-thumbnail.png";
 import Arrow from "../../../../images/arrow.png";
 import BrandButton from "../../../../components/UI/BrandButton/BrandButton";
-import { getEmbedUrl } from "../../../utils/getEmbedUrl";
+import { getEmbedUrl } from "../../../../utils/getEmbedUrl";
 
 const SeeTheSpace = (props) => {
   const videoLinkSrc =
