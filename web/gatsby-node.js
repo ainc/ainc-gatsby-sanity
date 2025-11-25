@@ -248,6 +248,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     force: true,
     redirectInBrowser: true,
   });
+  createRedirect({
+    fromPath: `/vote`,
+    toPath: `https://www.menti.com/al1qz8js1e1j`,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
 
   //external
   createRedirect({
