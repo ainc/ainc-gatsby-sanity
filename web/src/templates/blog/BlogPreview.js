@@ -37,7 +37,7 @@ export default function BlogPreview({ blog }) {
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundPosition: "center center",
-      height: "270px",
+      // height: "270px",
       width: "100%",
       position: "relative",
     }}

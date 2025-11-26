@@ -3,38 +3,66 @@
 
 * {
   letter-spacing: 0 !important;
+  box-sizing: border-box;
 }
 
 .blog-card {
+  position: relative;
   height: 500px;
+  overflow: hidden;
 
   @include screen-xs {
     height: 85vh;
   }
 
+  .blog-image {
+    position: relative;
+    height: 90px; // starting height
+    background-size: cover;
+    background-position: center;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0, 1);
+    z-index: 1;
+  }
+
   .bg {
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 2;
+    transition: background 0.5s ease;
   }
 
   .book {
-    translate: 0 -10%;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateY(-10%);
     opacity: 0;
-  }
-
-  .blog-image {
-    position: relative;
-    transition: all 0.2s ease-in-out;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+    transition: opacity 0.5s ease, transform 0.5s ease-in-out;
   }
 
   .blog-details {
-    opacity: 1;
-    translate: 0;
-    transition: opacity 0.5s ease, translate 0.5s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    color: white;
+    z-index: 5;
 
     .author {
-      color: white;
       font-size: 0.9rem !important;
+      font-weight: 800;
 
       @include screen-tablet-max {
         font-size: 0.7rem !important;
@@ -51,19 +79,37 @@
     }
   }
 
-  .title {
-    font-size: 1.3rem !important;
+  .card-text-wrapper {
+    position: relative; // normal flow initially
+    z-index: 5;
+    padding: 8px 16px;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0, 1);
 
-    @include screen-tablet-max {
-      font-size: 1rem !important;
+    .title {
+      font-size: 1.3rem !important;
+      margin: 8px 0;
+
+      @include screen-tablet-max {
+        font-size: 1rem !important;
+      }
     }
-  }
 
-  .description {
-    line-height: normal;
+    .description {
+      line-height: normal;
+      margin-bottom: 8px;
 
-    @include screen-tablet-max {
-      font-size: 0.7rem;
+      @include screen-tablet-max {
+        font-size: 0.7rem;
+      }
+    }
+
+    .link--brand {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #AD7D52;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
   }
 }
@@ -79,38 +125,41 @@
     transparent 0%,
     rgba(0, 0, 0, 0.8) 100%
   );
-  z-index: -1;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 .blog-image-link {
-  text-decoration: none;
   display: block;
   width: 100%;
-
-  .blog-image {
-    position: relative;
-    transition: all 0.2s ease-in-out;
-  }
+  position: relative;
+  overflow: hidden;
 
   &:hover {
     .blog-image {
-      transform: scale(1.02);
+      height: 500px; // expand image
+      transform: scale(1.05);
+    }
 
-      > .blog-details {
-        opacity: 0;
-        translate: 0;
-      }
+    .bg {
+      background-color: rgba(193, 32, 41, 0.65);
+    }
 
-      .bg {
-        background-color: rgba(193, 32, 41, 0.65);
-      }
+    .book {
+      opacity: 1;
+      transform: translate(-50%, -50%) translateY(0);
+    }
 
-      .book {
-        translate: 0;
-        display: flex !important;
-        opacity: 1;
-        transition: opacity 0.5s, translate 0.5s ease-in-out;
-      }
+    .overlay {
+      opacity: 1;
+    }
+
+    .card-text-wrapper {
+      position: absolute; // move on top of image
+      bottom: 75px; // ~425px from top for 500px image
+      left: 0;
+      width: 100%;
     }
   }
 }
