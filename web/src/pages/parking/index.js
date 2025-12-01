@@ -17,7 +17,7 @@ const ParkingPage = ({ data }) => {
 
       <Col
         xs={{ span: 20 }}
-        lg={{ offset: 5, span: 10 }}
+        lg={{ offset: 2, span: 10 }}
         xl={{ offset: 2, span: 8 }}
       >
         <Image
@@ -62,7 +62,7 @@ const ParkingPage = ({ data }) => {
         </Row>
         <Col
           xs={{ span: 20 }}
-          lg={{ offset: 5, span: 10 }}
+          lg={{ offset: 2, span: 10 }}
           xl={{ offset: 1, span: 10 }}
         >
           <Image
