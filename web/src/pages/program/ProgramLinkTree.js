@@ -26,12 +26,12 @@ const ProgramLinkTree = (props) => {
           </Row>
           <Row>
             <Col xs={6} className="">
-              <a href="https://raadz.com/5across" target="_blank">
+              <a href="https://www.menti.com/al1qz8js1e1j" target="_blank">
                 <BrandButton
                   xs={6}
                   className={`secondary my-1 w-100 text-uppercase ${styles.buttons}`}
                 >
-                  Vote on raadz
+                  Vote
                 </BrandButton>
               </a>
             </Col>
