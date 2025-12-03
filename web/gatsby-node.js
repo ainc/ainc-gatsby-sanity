@@ -266,7 +266,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   });
   createRedirect({
     fromPath: `https://5across.org/`,
-    toPath: `/events/5across`,
+    toPath: `https://www.menti.com/al1qz8js1e1j`,
     isPermanent: true,
     force: true,
     redirectInBrowser: true,
