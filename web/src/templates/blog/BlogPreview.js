@@ -86,7 +86,7 @@ export default function BlogPreview({ blog }) {
 </Link>
           </Col>
           <Col xs={12} className="">
-            <Container className="p-0 d-flex flex-column justify-content-between h-100">
+            <Container className="card-text-wrapper p-0 d-flex flex-column justify-content-between h-100">
               <Row>
                 <div className="pt-3">
                   <a href={`/blog/${edge.node.slug.current}`}>
