@@ -3,17 +3,16 @@
 
 .header {
   background-color: #444444;
-  height: 300px;
   width: 100%;
-  margin-bottom: 200px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
+  position: relative; // no more absolute
+  min-height: 300px;
+  margin-bottom: 150px;
+
   @include screen-tablet-max {
-    height: 200px;
+    min-height: 240px;
   }
 }
+
 .header::after {
   content: "";
   border-top-right-radius: 50% 100%;
@@ -23,6 +22,7 @@
   height: 50%;
   width: 100%;
   background-color: white;
+
   @include screen-tablet-max {
     border-top-right-radius: 50% 50%;
     border-top-left-radius: 50% 50%;
@@ -33,10 +33,11 @@
 .logo {
   position: relative;
   z-index: 2;
-  width: 400px;
-  height: 350px;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+
   @include screen-tablet-max {
-    width: 200px;
-    height: 200px;
+    max-width: 180px;
   }
 }
