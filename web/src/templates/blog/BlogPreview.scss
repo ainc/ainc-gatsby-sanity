@@ -5,12 +5,10 @@
   letter-spacing: 0 !important;
 }
 .blog-card {
-
-  height: 500px;
-  
+  min-height: 65vh;
 
   @include screen-xs {
-    height: 85vh;
+    min-height: 55vh;
   }
   .bg {
     position: absolute;
