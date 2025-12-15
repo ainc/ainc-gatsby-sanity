@@ -72,6 +72,8 @@ const Header = () => {
       className={`sticky-top navbar${shouldAnimate ? " animate" : ""}`}
       variant="dark"
       expand="lg"
+       style={{ position: "relative" }} // THIS IS CRUCIAL
+
     >
       <Container>
         <Navbar.Brand className={navbarBrand}>
@@ -546,6 +548,15 @@ const Header = () => {
           </div>
         </Container>
       )}
+     {/* Christmas Light Rope */}
+<div className="lightrope-wrapper">
+  <div className="lightrope">
+    {Array.from({ length: 47 }).map((_, i) => (
+      <div key={i} className="globe"></div>
+    ))}
+  </div>
+</div>
+
     </Navbar>
   );
 };

@@ -179,9 +179,83 @@ const Startups = React.lazy(() =>
     useState(false);
   const [isWorkspaceButton2Hovered, setIsWorkspaceButton2Hovered] =
     useState(false);
+useEffect(() => {
+  // Gatsby SSR guard
+  if (typeof window === "undefined") return;
+
+  const canvas = document.querySelector(".snow");
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  let W = window.innerWidth;
+  let H = window.innerHeight;
+  const flakes = [];
+  const numFlakes = 180;
+  let animationId;
+
+  canvas.width = W;
+  canvas.height = H;
+
+  function Flake() {
+    this.x = Math.random() * W;
+    this.y = Math.random() * H;
+    this.r = Math.random() * 1.2;
+    this.weight = Math.random() * 3 + 2;
+    this.speed = this.weight * 0.6;
+    this.alpha = this.weight / 5;
+  }
+
+  for (let i = 0; i < numFlakes; i++) {
+    flakes.push(new Flake());
+  }
+
+  function loop() {
+    ctx.clearRect(0, 0, W, H);
+
+    flakes.forEach(flake => {
+      flake.y += flake.speed;
+      ctx.beginPath();
+      ctx.arc(flake.x, flake.y, flake.weight, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${flake.alpha})`;
+      ctx.fill();
+
+      if (flake.y > H) {
+        flake.y = -flake.weight;
+        flake.x = Math.random() * W;
+      }
+    });
+
+    animationId = requestAnimationFrame(loop);
+  }
+
+  loop();
+
+  // 🕒 STOP AFTER 12 SECONDS
+  const stopTimer = setTimeout(() => {
+    cancelAnimationFrame(animationId);
+    ctx.clearRect(0, 0, W, H);
+  }, 12000);
+
+  const resize = () => {
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = W;
+    canvas.height = H;
+  };
+
+  window.addEventListener("resize", resize);
+
+  return () => {
+    clearTimeout(stopTimer);
+    cancelAnimationFrame(animationId);
+    window.removeEventListener("resize", resize);
+  };
+}, []);
 
   return (
     <Layout>
+      <canvas className="snow" />
+
       <HomepageSlider
         scrollToSection={scrollToSection}
         sectionIds={["workspace", "courses", "startup"]}
