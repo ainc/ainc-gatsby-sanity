@@ -72,7 +72,6 @@ const Header = () => {
       className={`sticky-top navbar${shouldAnimate ? " animate" : ""}`}
       variant="dark"
       expand="lg"
-       style={{ position: "relative" }} // THIS IS CRUCIAL
 
     >
       <Container>
@@ -497,6 +496,16 @@ const Header = () => {
           </Nav>
         </Navbar.Collapse>
       </Container>
+
+       {/* Christmas Lights Rope */}
+  <div className="lightrope-wrapper">
+    <div className="lightrope">
+      {Array.from({ length: 47 }).map((_, i) => (
+        <div key={i} className="globe"></div>
+      ))}
+    </div>
+  </div>
+  
       {useLocation().pathname === "/bootcamp/" && (
         <Container
           className={`${navButton} d-md-none d-flex justify-content-center`}
@@ -548,15 +557,6 @@ const Header = () => {
           </div>
         </Container>
       )}
-     {/* Christmas Light Rope */}
-<div className="lightrope-wrapper">
-  <div className="lightrope">
-    {Array.from({ length: 47 }).map((_, i) => (
-      <div key={i} className="globe"></div>
-    ))}
-  </div>
-</div>
-
     </Navbar>
   );
 };

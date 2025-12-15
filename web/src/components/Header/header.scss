@@ -24,7 +24,7 @@
     position: absolute;
     color: black;
     background-color: white;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
     width: 200px;
     padding: 1%;
     > a {
@@ -42,6 +42,7 @@
   }
 
   &:hover {
+    // opacity: 0;
     > .hover-options {
       display: flex;
       height: fit-content;
@@ -53,33 +54,35 @@
 
 .navbar {
   background-color: $brand-color2;
-  opacity: 0.95;
+  opacity: 0.9;
   z-index: 999;
-  position: relative; // important for lightrope positioning
   @media (max-width: 768px) {
     --bs-navbar-padding-y: 0rem;
   }
-
   .sub-navbar {
     padding-top: 2%;
     padding-bottom: 0%;
   }
+}
 
-  .navbar-contents {
-    opacity: 0;
-    transition: opacity 0.6s ease-in;
-  }
+.navbar-contents {
+  opacity: 0;
+  transition: opacity 0.6s ease-in;
+}
 
-  &.animate .navbar-contents {
-    opacity: 1;
-    animation-name: fadeInRight;
-    animation-duration: 0.6s;
-    animation-timing-function: ease-in;
-  }
+/* When animate class is added, show and animate contents */
+.navbar.animate .navbar-contents {
+  opacity: 1;
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+  animation-duration: 600ms;
+  animation-timing-function: ease-in;
 }
 
 .navbar > .container {
+  -webkit-transform-origin: center;
   transform-origin: center;
+
   line-height: 1rem;
 
   > .navbar-collapse > .navbar-nav > .row {
@@ -114,11 +117,9 @@
       &:hover > .nav-link {
         color: $brand-color;
       }
-
       @include screen-tablet-max {
         border-bottom: 1px solid white;
       }
-
       &.show {
         > a {
           padding-bottom: 0;
@@ -173,14 +174,18 @@
   }
 }
 
-/* Animation */
+/*Animation*/
+
 @keyframes fadeInRight {
   from {
     opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
   }
+
   to {
     opacity: 1;
+    -webkit-transform: none;
     transform: none;
   }
 }
@@ -193,8 +198,6 @@
     opacity: 1;
   }
 }
-
-/* Dropdown menu fixes */
 .dropdown-menu {
   min-width: auto !important;
   font-size: 12px;
@@ -203,6 +206,8 @@
 #lang-nav-dropdown {
   width: fit-content;
 }
+
+/* Christmas lights */
 .lightrope-wrapper {
   position: absolute;
   top: 100%;       // top of lights at bottom of navbar
@@ -219,26 +224,23 @@
   display: flex;
   gap: 20px;       // spacing between globes
 }
+
 .globe {
   width: 12px;
   height: 28px;
   border-radius: 50%;
   background: red; // default color
   box-shadow: 0 5px 10px red;
-
 }
 
-// Cycle colors: 1 = red, 2 = white
 .globe:nth-child(2n + 1) {
   background: red;
   box-shadow: 0 5px 10px red;
- 
 }
 
 .globe:nth-child(2n) {
   background: white;
   box-shadow: 0 5px 10px white;
-  
 }
 
 @keyframes flash {
