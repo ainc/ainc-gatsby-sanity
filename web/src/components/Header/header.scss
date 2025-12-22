@@ -206,3 +206,45 @@
 #lang-nav-dropdown {
   width: fit-content;
 }
+
+/* Christmas lights */
+.lightrope-wrapper {
+  position: absolute;
+  top: 100%;       // top of lights at bottom of navbar
+  left: 0;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: -1;     // make lights low
+}
+
+.lightrope {
+  display: flex;
+  gap: 20px;       // spacing between globes
+}
+
+.globe {
+  width: 12px;
+  height: 28px;
+  border-radius: 50%;
+  background: red; // default color
+  box-shadow: 0 5px 10px red;
+}
+
+.globe:nth-child(2n + 1) {
+  background: red;
+  box-shadow: 0 5px 10px red;
+}
+
+.globe:nth-child(2n) {
+  background: white;
+  box-shadow: 0 5px 10px white;
+}
+
+@keyframes flash {
+  0%   { opacity: 1; transform: scale(1); }
+  50%  { opacity: 0.4; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
