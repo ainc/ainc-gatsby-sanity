@@ -6,10 +6,20 @@
 }
 .blog-card {
   min-height: 55vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 
   @include screen-xs {
     min-height: 55vh;
   }
+
+  > .row {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
   .bg {
     position: absolute;
   }
@@ -55,6 +65,14 @@
     @include screen-tablet-max {
       font-size: 0.7rem;
     }
+  }
+
+  // Ensure content section grows to fill available space
+  > .row > [class*="col-"]:last-child {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0; // Allow flex shrinking
   }
 
   &:hover {
