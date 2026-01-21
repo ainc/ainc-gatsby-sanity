@@ -1,0 +1,216 @@
+@import "../../styles/main.scss";
+
+.main-heading {
+    background-image:
+    linear-gradient(
+      rgba(255, 255, 252, 0),
+      rgba(255, 0, 0, 0.467)
+      ), 
+      url("../../images/partnership/5accross_june24_70.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 93vh;
+    @include screen-md {
+      height: 110vh;
+    }
+  }
+.form-heading {
+    background-image: 
+      linear-gradient(
+        rgba(255, 0, 0, 0.218),
+        rgba(255, 0, 0, 0.218)
+        ), 
+      url("../../images/partnership/5accross_june24_67.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 93vh;
+    width: 100vw;
+
+    @include screen-md {
+      height: 110vh;
+    }
+  }
+
+.oppurtunites-heading {
+    background-image: 
+    linear-gradient(
+      rgba(255, 0, 0, 0.218),
+      rgba(255, 0, 0, 0.218)
+      ), 
+    url("../../images/partnership/5across_june24-71.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+  
+  .values {
+    margin-bottom: 1rem;
+    margin-top: 0;
+    font-weight: 1000;
+    color: $brand-color;
+  }
+  .grey-underline {
+    margin-bottom: 1rem;
+    margin-top: 0;
+    font-weight: 1000;
+    color: $brand-color;
+    text-decoration: underline;
+    text-decoration-color: grey;
+    text-underline-offset: 20px;
+  }
+  
+  .subHeading {
+    align-self: start;
+    width: 35vh;
+    color: $brand-grey-dark;
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  
+
+.sponsor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+  
+.grid-item-middle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey; 
+}
+  .grid-item-middle-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey; 
+    border-bottom: none;
+  }
+  .grid-item-middle-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey; 
+    border-top: none;
+  }
+  .grid-item-top-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey; 
+    border-top: none;
+    border-right: none;
+  }
+  .grid-item-top-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey; 
+    border-top: none;
+    border-left: none;
+  }
+  .grid-item-bottom-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey; 
+    border-bottom: none;
+    border-right: none;
+  }
+  .grid-item-bottom-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey; 
+    border-bottom: none;
+    border-left: none;
+  }
+  .grid-item-middle-left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey; 
+    border-left: none;
+}
+.grid-item-middle-right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey; 
+    border-right: none
+}
+.header-border {
+    width: 100%;
+    // margin-bottom: 30px;
+    border: white solid 2px;
+    // font-weight: 300;
+
+    .body-text {
+      font-weight: 400;
+      color: white;
+      text-align: center;
+      font-weight: 600;
+    }
+  
+    .heading,
+    .heading-subtitle {
+      text-align: center;
+      font-size: larger;
+      font-weight: bolder;
+      color: white;
+      text-decoration: underline;
+      text-decoration-color: white;
+      text-underline-offset: 5px;
+    }
+  
+  }
+  .final-section {
+    background-image: 
+    linear-gradient(
+      rgba(18, 2, 2, 0.409),
+      rgba(18, 2, 2, 0.409)
+    ),
+    url("../../images/partnership/middletech_15years-56.jpg");
+    background-size: cover;
+    background-position: center -300px;
+    height: 500px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .final-heading {
+    color: white;
+    font-weight: 700;
+    font-size: 60px;
+    margin-bottom: 1rem;
+  }
+  
+  .final-subtext {
+    color: #ccc;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .finalButton {
+    @include font-size(10);
+  }
+  
+  .perks-image {
+    background-size: cover;
+    background-position: center;
+    height: 45vh;
+    width: 30vh;
+  }

@@ -437,11 +437,9 @@ const fiveAcrossPage = ({ data }) => {
           </Title>
         </Row>
         <Row>
-          {/* <Col/> */}
           <Col className="text-center mt-5">
             <DropdownDataDisplay categories={years} data={fiveAcrossWinners} />
           </Col>
-          {/* <Col/> */}
         </Row>
       </Container>
 

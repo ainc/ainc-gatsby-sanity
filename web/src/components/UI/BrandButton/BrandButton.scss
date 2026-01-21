@@ -56,4 +56,12 @@
     $hover-bg: #bf2329,
     $hover-text: $white-color
   );
+  .partnership {
+    @include button-style(
+      $bg-color: $brand-color,
+      $text-color: $white-color,
+      $hover-bg: #5c5d5f,
+      $hover-text: $white-color
+    );
+  }
 }
