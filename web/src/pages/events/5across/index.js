@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { graphql, Link } from "gatsby";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import { Container, Col, Row, Image } from "react-bootstrap";
-import { motion } from "framer-motion";
+import { motion, SwitchLayoutGroupContext } from "framer-motion";
 
 import Event from "../../../components/Event/Event";
 import BrandButton from "../../../components/UI/BrandButton/BrandButton";
@@ -17,6 +17,8 @@ import EventBriteModal from "../../../components/EventBriteModal/EventBriteModal
 import "../../../styles/main.scss";
 import * as styles from "./fiveAcross.module.scss";
 import TestimonialCarousel from "../../../components/TestimonialCarousel/TestimonialCarousel";
+import { Chrono, chrono } from "react-chrono"
+import { First } from "react-bootstrap/esm/PageItem";
 const fiveAcrossPage = ({ data }) => {
   const titleSponsorName =
     data.allSanityFiveAcrossSponsors.nodes[0].titleSp.title || {};
@@ -72,6 +74,43 @@ const fiveAcrossPage = ({ data }) => {
       ref.current.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const timelineItems = fiveAcrossWinners.map(({ node }) => ({
+  title: new Date(node.WinningDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+  }),
+  
+  cardDetailedText: node.founderVideo ? [`Video: ${node.founderVideo}`] : [],
+}));
+
+//Theme for Previous Winner Section
+const AwesomeTheme = {
+
+  primary: "#ed3243",
+  secondary: "#FFFFFF" ,
+  
+  cardBgColor: '#FFFFFF',
+  toolbarBgColor: '#FFFFFF',
+  toolbarBtnBgColor: '#ed3243',
+  timelineBgColor: "#ed3243",
+  
+  iconColor: '#FFFFFF', 
+  buttonHoverBgColor: '#FFFFFF', 
+  buttonActiveBgColor: '#FFFFFF', 
+  buttonActiveIconColor: '#FFFFFF', 
+ 
+  buttonBorderColor: '#ed3243',
+  buttonHoverBorderColor: '#63b3ed',
+  shadowColor: '#ffffff',
+  glowColor: '#FFFFFF',
+
+  searchHighlightColor: '#FFFFFF',
+  darkToggleActiveBgColor: '#2b6cb0',
+  darkToggleActiveIconColor: '#f7fafc',
+  cardTitleColor: "#ed3243",
+  titleColor: "#ed3243",
+};
 
   return (
     <Layout>
@@ -431,19 +470,111 @@ const fiveAcrossPage = ({ data }) => {
 
       {/* PREVIOUS WINNER SECTION */}
       <Container className="mt-5">
-        <Row className="mt-5 text-center">
-          <Title className={`${styles.largeText} text-uppercase`}>
-            Or Revisit a Previous Winner
-          </Title>
-        </Row>
-        <Row>
-          {/* <Col/> */}
-          <Col className="text-center mt-5">
-            <DropdownDataDisplay categories={years} data={fiveAcrossWinners} />
-          </Col>
-          {/* <Col/> */}
-        </Row>
-      </Container>
+  <Row className="mt-5 text-center">
+    <Title className={`${styles.largeText} text-uppercase`}>
+      Or Revisit a Previous Winner
+    </Title>
+  </Row>
+  <Row className="mt-4">
+    <Col>
+    <div style={{ position: "relative", zIndex: 2, overflowX: "auto",  }}>
+          <Chrono 
+          items={timelineItems} 
+          mode="HORIZONTAL" 
+          cardHeight={450} 
+          cardWidth={200}
+          theme={AwesomeTheme} 
+          toolbarPosition="bottom"
+          slideShow={false}
+          scrollable={true}
+          showAllCardsHorizontal={true}
+          textDensity='HIGH'
+          mediaSettings={{fit: 'scale-down'}}
+          enableLayoutSwitch={false}
+          densitySwitch={false}
+          >
+  {fiveAcrossWinners.map(({ node }) => (
+  node.founderVideo ? (
+    <div 
+      key={node.companyTitle} className={styles.cardContent}
+      style={{ textAlign: "center", padding: "1rem", }}
+    >
+      <h3>{node.companyTitle}</h3>
+      <p>{node.FounderNames}</p>
+      {node.image?.asset?.gatsbyImageData ? (
+        <GatsbyImage
+          image={node.image.asset.gatsbyImageData}
+          alt={node.companyTitle}
+          style={{ maxHeight: 400, margin: "1rem auto" }}
+        />
+      ) : (
+        <div style={{ height: 200, backgroundColor: "#f0f0f0" }}>
+          <p>No image available</p>
+        </div>
+      )}
+
+      <a
+        href={node.founderVideo}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          display: "inline-block",
+          marginTop: "auto",
+          backgroundColor: "#ed3243",
+          color: "white",
+          padding: "0.5rem 1rem",
+          borderRadius: "5px",
+          textDecoration: "none",
+          cursor: "pointer",
+          userSelect: "none",
+          border: "none",
+        }}
+        onClick={e => e.stopPropagation()} 
+      >
+        Watch Video
+      </a>
+    </div>
+  ) : (
+    <div
+      key={node.companyTitle}
+      style={{ textAlign: "center", padding: "1rem" }}
+    >
+      <h3>{node.companyTitle}</h3>
+      <p>{node.FounderNames}</p>
+      {node.image?.asset?.gatsbyImageData ? (
+        <GatsbyImage
+          image={node.image.asset.gatsbyImageData}
+          alt={node.companyTitle}
+          style={{ maxHeight: 400, margin: "1rem auto" }}
+        />
+      ) : (
+        <div style={{ height: 200, backgroundColor: "#f0f0f0" }}>
+          <p>No image available</p>
+        </div>
+      )}
+      <button
+        disabled
+        style={{
+          opacity: 0.5,
+          padding: "0.5rem 1rem",
+          backgroundColor: "#ccc",
+          border: "none",
+          borderRadius: "5px",
+          cursor: "not-allowed",
+          marginTop: "1rem",
+        }}
+      >
+        No Video
+      </button>
+    </div>
+  )
+))}
+</Chrono>
+    </div>      
+    </Col>
+  </Row>
+</Container>
+
 
       {/* BRING THE FUN SECTION */}
       <Container className="my-5">
