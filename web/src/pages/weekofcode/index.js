@@ -31,7 +31,10 @@ const Page = ({ data }) => {
       <>
         <p className="fst-italic">Sign Up For One Of Our 2026 Camp Dates</p>
         <Row className="px-5 py-3 justify-content-center">
-          <Col md={4} className={`d-flex ${styles.leftButton} pb-3`}>
+          <Col
+            md={4}
+            className={`d-flex mx-auto justify-content-center ${styles.leftButton} pb-3`}
+          >
             <a
               href="https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-awesome-inc-2026-tickets-1983882943288?aff=oddtdtcreator"
               target="_blank"
