@@ -29,35 +29,15 @@ const Page = ({ data }) => {
   const ButtonRow = () => {
     return (
       <>
-        <p className="fst-italic">Sign Up For One Of Our 2025 Camp Dates</p>
+        <p className="fst-italic">Sign Up For One Of Our 2026 Camp Dates</p>
         <Row className="px-5 py-3 justify-content-center">
           <Col md={4} className={`d-flex ${styles.leftButton} pb-3`}>
             <a
-              href="https://www.eventbrite.com/e/week-of-code-summer-camp-1-june-9-12-level-1-awesome-inc-2025-tickets-1217094886569?aff=oddtdtcreator"
+              href="https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-awesome-inc-2026-tickets-1983882943288?aff=oddtdtcreator"
               target="_blank"
             >
               <BrandButton className="week-of-code py-2 px-4">
-                June 9-12
-              </BrandButton>
-            </a>
-          </Col>
-          <Col md={4} className="pb-3">
-            <a
-              href="https://www.eventbrite.com/e/copy-of-week-of-code-summer-camp-2-june-16-19-level-1-awesome-inc-2025-tickets-1217111746999?aff=oddtdtcreator"
-              target="_blank"
-            >
-              <BrandButton className="week-of-code py-2 px-4">
-                June 16-19
-              </BrandButton>
-            </a>
-          </Col>
-          <Col md={4} className={`d-flex ${styles.rightButton} pb-3`}>
-            <a
-              href="https://www.eventbrite.com/e/week-of-code-summer-camp-3-july-14-17-level-1-awesome-inc-2025-tickets-1217113522309?aff=oddtdtcreator"
-              target="_blank"
-            >
-              <BrandButton className="week-of-code py-2 px-4">
-                July 14-17
+                June 8-11
               </BrandButton>
             </a>
           </Col>
@@ -274,57 +254,57 @@ const Page = ({ data }) => {
           <Title className="text-white mb-5">Have Questions?</Title>
           <Accordion className="week-of-code-accordion mb-5">
             <Accordion.Item eventKey="0" className="px-1">
-               <Accordion.Header> 
+              <Accordion.Header>
                 Where is the best place to park at Awesome Inc?
-               </Accordion.Header>
-               <Accordion.Body style={{ textAlign: "left" }}>
+              </Accordion.Header>
+              <Accordion.Body style={{ textAlign: "left" }}>
                 Free Parking is available for drop-off/pickup. The best location
-                  is the parking lot to the east side of our building, in spaces
-                  1-19. See{" "}
-                  <a
-                    className="link--brand"
-                    href="http://www.awesomeinc.org/parking/"
-                  >
-                    parking map
-                  </a>{" "}
-                  for more details.
-                </Accordion.Body>
+                is the parking lot to the east side of our building, in spaces
+                1-19. See{" "}
+                <a
+                  className="link--brand"
+                  href="http://www.awesomeinc.org/parking/"
+                >
+                  parking map
+                </a>{" "}
+                for more details.
+              </Accordion.Body>
             </Accordion.Item>
-              <Accordion.Item eventKey="1" className="px-1">
-                <Accordion.Header>
-                  Do students need their own computer for this course?
-                </Accordion.Header>
-                <Accordion.Body style={{ textAlign: "left" }}>
-                  Yes, each student will need to provide his/her own laptop for
-                  the course. Either Microsoft Windows-based PC's, Apple macOS
-                  computers, and Chromebooks will work, but iPads will not work
-                  for this course. We recommend a laptop made within the past 3-4
-                  years. Computers should be free from viruses/malware. We have a
-                  limited number of{" "}
-                  <a
-                    href="https://squareup.com/market/awesome-inc/laptop-rental"
-                    className="link--brand"
-                  >
-                    rental laptops available for $25/day.
-                  </a>
-                </Accordion.Body>
+            <Accordion.Item eventKey="1" className="px-1">
+              <Accordion.Header>
+                Do students need their own computer for this course?
+              </Accordion.Header>
+              <Accordion.Body style={{ textAlign: "left" }}>
+                Yes, each student will need to provide his/her own laptop for
+                the course. Either Microsoft Windows-based PC's, Apple macOS
+                computers, and Chromebooks will work, but iPads will not work
+                for this course. We recommend a laptop made within the past 3-4
+                years. Computers should be free from viruses/malware. We have a
+                limited number of{" "}
+                <a
+                  href="https://squareup.com/market/awesome-inc/laptop-rental"
+                  className="link--brand"
+                >
+                  rental laptops available for $25/day.
+                </a>
+              </Accordion.Body>
             </Accordion.Item>
-              <Accordion.Item eventKey="2" className="pb-1 px-1">
-                <Accordion.Header>
-                  Are scholarships available for this course?
-                </Accordion.Header>
-                <Accordion.Body style={{ textAlign: "left" }}>
-                  Yes, we have scholarships available thanks to our sponsor,
-                  Verizon. You can{" "}
-                  <a
-                    href="https://goo.gl/forms/sZpc22S1jdeoZ7Fk2"
-                    className="link--brand"
-                  >
-                    apply here.
-                  </a>
-                </Accordion.Body>
-            </Accordion.Item>     
-          </Accordion> 
+            <Accordion.Item eventKey="2" className="pb-1 px-1">
+              <Accordion.Header>
+                Are scholarships available for this course?
+              </Accordion.Header>
+              <Accordion.Body style={{ textAlign: "left" }}>
+                Yes, we have scholarships available thanks to our sponsor,
+                Verizon. You can{" "}
+                <a
+                  href="https://goo.gl/forms/sZpc22S1jdeoZ7Fk2"
+                  className="link--brand"
+                >
+                  apply here.
+                </a>
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
           <p className="fst-italic text-white">
             Still have questions? Email us at learn@awesomeinc.org
           </p>
