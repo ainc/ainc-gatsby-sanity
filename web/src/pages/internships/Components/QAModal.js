@@ -27,15 +27,6 @@ const QAModal = (props) => {
 
   return (
     <>
-      <SEO
-        title="QA Modal"
-        meta={[
-          {
-            name: "robots",
-            content: "noindex, nofollow",
-          },
-        ]}
-      />
       <div className="my-3">
         <button
           onClick={handleQAOpen}

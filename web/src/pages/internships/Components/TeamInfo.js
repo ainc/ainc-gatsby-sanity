@@ -13,15 +13,6 @@ const TeamInfoModal = (props) => {
   const handleShow = () => setShow(true);
   return (
     <>
-      <SEO
-        title="Team Info Modal"
-        meta={[
-          {
-            name: "robots",
-            content: "noindex, nofollow",
-          },
-        ]}
-      />
       <Modal
         show={props.show}
         onHide={props.onHide}
