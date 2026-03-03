@@ -63,7 +63,7 @@ const Page = ({ data }) => {
               Prepare Your Child for a 21st Century World
             </Title>
             <a
-              href="https://www.eventbrite.com/e/week-of-code-summer-camp-1-june-9-12-level-1-awesome-inc-2025-tickets-1217094886569?aff=oddtdtcreator"
+              href="https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-awesome-inc-2026-tickets-1983882943288?aff=oddtdtcreator"
               target="_blank"
             >
               <BrandButton className="week-of-code">
@@ -169,7 +169,7 @@ const Page = ({ data }) => {
               attention.
             </p>
             <a
-              href="https://www.eventbrite.com/e/week-of-code-summer-camp-1-june-9-12-level-1-awesome-inc-2025-tickets-1217094886569?aff=oddtdtcreator"
+              href="https://www.eventbrite.com/e/week-of-code-summer-camp-level-1-awesome-inc-2026-tickets-1983882943288?aff=oddtdtcreator"
               target="_blank"
             >
               <BrandButton className="week-of-code  px-4">
