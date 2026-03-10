@@ -11,6 +11,9 @@ const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
   flags: {
+    PRESERVE_WEBPACK_CACHE: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    PARALLEL_SOURCING: true,
     // DEV_SSR: true // enable server-side rendering to bypass `netlify build`
   },
   plugins: [
@@ -21,9 +24,40 @@ module.exports = {
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-netlify",
     {
+      resolve: "gatsby-source-google-spreadsheets",
+      options: {
+        spreadsheetId: process.env.FIVE_ACROSS_REWARDS_SPREADSHEET_ID,
+        credentials: {
+          type: "service_account",
+          project_id: process.env.FIVE_ACROSS_REWARDS_PROJECT_ID,
+          private_key_id: process.env.FIVE_ACROSS_REWARDS_PRIVATE_KEY_ID,
+          private_key: process.env.FIVE_ACROSS_REWARDS_PRIVATE_KEY.replace(
+            /(\\r)|(\\n)/g,
+            "\n",
+          ),
+          client_email: process.env.FIVE_ACROSS_REWARDS_CLIENT_EMAIL,
+          client_id: "117583428751875259457",
+          auth_uri: "https://accounts.google.com/o/oauth2/auth",
+          token_uri: "https://oauth2.googleapis.com/token",
+          auth_provider_x509_cert_url:
+            "https://www.googleapis.com/oauth2/v1/certs",
+          client_x509_cert_url:
+            "https://www.googleapis.com/robot/v1/metadata/x509/id-a-rewards%40across-rewards-program.iam.gserviceaccount.com",
+          universe_domain: "googleapis.com",
+        },
+      },
+    },
+    {
       resolve: "gatsby-plugin-sharp",
       options: {
-        placeholder: `dominantColor`,
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `dominantColor`,
+          quality: 50,
+          breakpoints: [750, 1080, 1366, 1920],
+        },
+        stripMetadata: true,
+        defaultQuality: 50,
       },
     },
     {

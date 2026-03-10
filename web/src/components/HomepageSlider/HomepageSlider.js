@@ -1,55 +1,19 @@
 import React, { useRef } from "react";
 import { graphql, Link, useStaticQuery } from "gatsby";
 import { motion } from "framer-motion";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
 
-import BrandButton from "../UI/BrandButton/BrandButton";
+import BrandLink from "../UI/BrandLink/BrandLink";
 import Subtitle from "../UI/Subtitle/Subtitle";
 import Title from "../UI/Title/Title";
 import Wrapper from "../UI/Wrapper/Wrapper";
 
 const HomepageSlider = (props) => {
   const { scrollToSection, sectionIds } = props;
-
-  /* Old slider
-  const  [sliderRef] = useKeenSlider(
-    {
-      loop: true,
-    },
-    [
-      (slider) => {
-        let timeout
-        let mouseOver = false
-        function clearNextTimeout() {
-          clearTimeout(timeout)
-        }
-        function nextTimeout() {
-          clearTimeout(timeout)
-          if (mouseOver) return
-          timeout = setTimeout(() => {
-            slider.next()
-          }, 2500)
-        }
-        slider.on("created", () => {
-          slider.container.addEventListener("mouseover", () => {
-            mouseOver = true
-            clearNextTimeout()
-          })
-          slider.container.addEventListener("mouseout", () => {
-            mouseOver = false
-            nextTimeout()
-          })
-          nextTimeout()
-        })
-        slider.on("dragStarted", clearNextTimeout)
-        slider.on("animationEnded", nextTimeout)
-        slider.on("updated", nextTimeout)
-      },
-    ]
-  )*/
 
   const query = useStaticQuery(graphql`
     query imageSlider {
@@ -64,7 +28,11 @@ const HomepageSlider = (props) => {
           }
           image {
             asset {
-              url
+              gatsbyImageData(
+              layout: FULL_WIDTH
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
         }
@@ -78,16 +46,27 @@ const HomepageSlider = (props) => {
       {slides.map((slide, i) => (
         <Carousel.Item key={i}>
           <div
-            style={{
-              backgroundAttachment: "fixed",
-              backgroundImage: `url(${slide.image.asset.url})`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              backgroundAttachment: "scroll", // for safari
-              height: "100vh",
-              backgroundPosition: "center center",
-            }}
+              style={{
+                position: "relative",
+                height: "100vh",          
+                width: "100%",            
+                overflow: "hidden",
+                    }}
           >
+              <GatsbyImage
+                image={getImage(slide.image.asset)}
+                alt={slide.image.alt || slide.title || "Slide background"}
+                style={{
+                  height: "100%",
+                  width: "100%",
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  objectFit: "cover",
+                  objectPosition: "center center",
+                  zIndex: 0,
+                      }}
+                />
             <Wrapper>
               <Container className="mb-3 d-flex align-content-center flex-wrap h-100">
                 <Row>
@@ -95,6 +74,7 @@ const HomepageSlider = (props) => {
                     initial={{ opacity: 0, y: -50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.8 }}
+                    style={{ zIndex: 2 }}
                   >
                     <Subtitle className="text-white">{slide.subtitle}</Subtitle>
                     <Title className="mb-3 text-white">{slide.title}</Title>
@@ -105,13 +85,9 @@ const HomepageSlider = (props) => {
                     transition={{ delay: 1.0, duration: 0.6 }}
                   >
                     <Col>
-                      <BrandButton
-                        onClick={() => scrollToSection(sectionIds[i])}
-                        href="slide.cta.url"
-                        className="mt-3"
-                      >
+                      <BrandLink href={slide.cta.url} className="mt-3">
                         Learn More
-                      </BrandButton>
+                      </BrandLink>
                     </Col>
                   </motion.div>
                 </Row>

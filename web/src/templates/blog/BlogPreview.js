@@ -23,8 +23,8 @@ export default function BlogPreview({ blog }) {
   return (
     <Col xs={12} md={6} className="mt-4 px-0 px-sm-2" key={edge.id}>
       <Container className="blog-card border border-2 rounded-1">
-        <Row className="p-3 h-100">
-          <Col xs={12} className="p-0">
+        <Row className="p-3">
+          <Col xs={12} className="p-0 d-flex">
             <Container
               className="blog-image d-flex flex-column"
               style={{

@@ -142,7 +142,14 @@ const FellowshipPage = ({ data }) => {
                 ref={refCallback}
                 className="keen-slider d-flex align-items-center"
               >
-                <div className="keen-slider__slide">
+                <div className="keen-slider__slide d-flex flex-column align-items-center">
+                  <StaticImage
+                    src="../../images/uploads/cloverleaf.png"
+                    alt="Company Logo"
+                    width={310}
+                    height={80}
+                    className="mb-3"
+                  />
                   <p className="text-center text--white mb-1 mt-3">
                     Our company took advantage of all of the services. They were
                     incredibly helpful and well-timed for us.
@@ -152,7 +159,14 @@ const FellowshipPage = ({ data }) => {
                     Kirsten Moorefield
                   </p>
                 </div>
-                <div className="keen-slider__slide">
+                <div className="keen-slider__slide d-flex flex-column align-items-center">
+                  <StaticImage
+                    src="../../images/uploads/weather-check.png"
+                    alt="Company Logo"
+                    width={145}
+                    height={90}
+                    className="mb-3"
+                  />
                   <p className="text-center text--white mb-1 mt-3">
                     The Fellowship Program has been an incredible resource in
                     Kentucky as WeatherCheck grows. Our team utilized many of
@@ -162,7 +176,14 @@ const FellowshipPage = ({ data }) => {
                     Demetrius Gray
                   </p>
                 </div>
-                <div className="keen-slider__slide">
+                <div className="keen-slider__slide d-flex flex-column align-items-center">
+                  <StaticImage
+                    src="../../images/uploads/nymbl-systems.png"
+                    alt="Company Logo"
+                    width={150}
+                    height={100}
+                    className="mb-3"
+                  />
                   <p className="text-center text--white mb-1 mt-3">
                     The network I've developed through the Fellowship program
                     includes some of my most trusted advisors as well as my lead
