@@ -13,6 +13,11 @@ import AccordionHeader from "react-bootstrap/esm/AccordionHeader";
 import AccordionItem from "react-bootstrap/esm/AccordionItem";
 import { graphql } from "gatsby";
 import laptopGIF from "../../images/animated-projects.gif";
+import bootcamp1 from "../../images/bootcamp4.jpg";
+import bootcamp2 from "../../images/bootcamp2.jpg";
+import bootcamp3 from "../../images/bootcamp3.jpg";
+import bootcamp4 from "../../images/bootcamp1.jpg";
+import bootcampTeamPic from "../../images/bootcampteampic.jpg";
 
 export const query = graphql`
   query MyQuery {
@@ -33,13 +38,18 @@ export const query = graphql`
 const IntroWebDevPage = ({ data }) => {
   const allSanityCourses = data.allSanityCourses.nodes || {};
   const externalLink = allSanityCourses.at(-1).externalLink;
+  const missionButtonLink = "#curriculum";
 
   return (
     <Layout>
       <Container className={`py-5 ${styles.intro}`}>
         <Col>
-          <Title className="pt-5 pb-2 text-center text-uppercase">
-            intro to web development
+          
+           <Title className={`pt-5 pb-0 text-uppercase text-white fw-bold text-center ${styles.awesomeIncU}`}>
+             Awesome Inc U
+           </Title>
+          <Title className={`pt-0 pb-2 text-uppercase text-white fw-bold text-center ${styles.CodingResources}`}>
+            Coding Resources
           </Title>
         </Col>
         <Col
@@ -54,57 +64,123 @@ const IntroWebDevPage = ({ data }) => {
             href={externalLink}
             target="_blank"
           >
-            <BrandButton className="px-3 text-uppercase mb-5">
-              register now
-            </BrandButton>
+            
           </a>
         </Col>
       </Container>
       <Container className={`my-5 ${styles.bottomIntro}`}>
-        <Row>
-          <Col
-            xs={{ span: 12 }}
-            md={{ span: 8, offset: 2 }}
-            lg={{ span: 6, offset: 3 }}
-            xl={{ span: 4, offset: 4 }}
-          >
-            <p className={`text-center fw-bold ${styles.text}`}>
-              Awesome Inc U's beginner coding course for adults, giving students
-              the core skills and knowledge to start the journey towards
-              professional web development. Your next adventure starts here.
-            </p>
-          </Col>
-        </Row>
-      </Container>
-      <Container className={` ${styles.upcomingProgram}`}>
-        <Title className="text-white text-uppercase text-center pt-5 pb-5">
-          upcoming program dates
-        </Title>
-        {allSanityCourses.map((node, i) => (
-          <div key={i}>
-            <h2
-              className={`${styles.programText} fs-4 pt-3 text-uppercase text-white fw-bold text-center`}
-            >
-              {node.courseSeason}
-            </h2>
-            <h3
-              className={`${styles.programText} fs-5 text-white fw-bold text-center`}
-            >
-              {node.startDate}
-            </h3>
-            <h3 className="mb-1 text-uppercase fs-5 text-center text-white">
-              to
-            </h3>
-            <h3
-              className={`${styles.programText} fs-5 pb-5 text-white fw-bold text-center`}
-            >
-              {node.endDate}
-            </h3>
-          </div>
-        ))}
+  <Row className="align-items-center">
+    
+    {/* LEFT SIDE — TEXT */}
+    <Col
+      xs={12}
+      lg={5}
+      className={styles.textColumn}
+    >
+      <Title className="pt-5 pb-2 text-uppercase text-danger fw-bold text-center">
+        Awesome Inc U
+      </Title>
+
+      <p className={`${styles.text} ${styles.awesomeTextBelow}`}>
+        Awesome Inc U was created to provide training and 
+        resources to hobbyists, professionals, career changers,
+         and entrepreneurs. We expanded our offerings to pour into 
+         the youth of our community through after-school programs, 
+         summer camps, and other training sessions; all designed to 
+         introduce students to technology and prepare our future workforce
+          for the needs of a high-tech community.
+      </p>
+
+      <p className={`${styles.text} ${styles.awesomeTextBelow}`}>
+        Awesome Inc U’s signature program, the Web Developer
+        Bootcamp, was created out of need from local and regional 
+        technology companies desperate for entry-level developers 
+        who could bolster their growth.
+      </p>
+    </Col>
+
+    {/* RIGHT SIDE — 4 IMAGES */}
+    <Col
+      xs={12}
+      lg={7}
+      className="d-flex justify-content-center"
+    >
+      <div className={styles.imageGrid}>
+        <img src={bootcamp1} className={`${styles.gridImg} ${styles.photoTopLeft}`} alt="Bootcamp students working" />
+        <img src={bootcamp2} className={`${styles.gridImg} ${styles.photoBottomLeft}`} alt="Bootcamp class session" />
+        <img src={bootcamp3} className={`${styles.gridImg} ${styles.photoTopRight}`} alt="Bootcamp teamwork" />
+        <img src={bootcamp4} className={`${styles.gridImg} ${styles.photoBottomRight}`} alt="Bootcamp coding activity" />
+      </div>
+    </Col>
+
+      </Row>
       </Container>
 
-      <Container className={``}>
+
+      <Container fluid className={styles.MISSIONACOMPLISHEDBOOTCAMP}>
+        <Container className="py-5">
+          <Row>
+            <Col xs={12} lg={{ span: 5, offset: 7 }}>
+              <Title className={`text-uppercase text-center ${styles.missionHeading}`}>
+                MISSION ACOMPLISHED:
+                BOOTCAMP
+              </Title>
+            </Col>
+          </Row>
+          <Row className={`align-items-center ${styles.missionRow}`}>
+            <Col xs={12} lg={7} className="mb-4 mb-lg-0">
+              <div className={styles.missionImageWrap}>
+                <img
+                  src={bootcampTeamPic}
+                  alt="Bootcamp team"
+                  className={styles.missionImage}
+                />
+              </div>
+            </Col>
+            <Col xs={12} lg={5}>
+              <div className={styles.missionTextBlock}>
+                <p className={`${styles.missionCopy} ${styles.programText} text-white`}>
+                  After nine incredible years, the Awesome Inc Bootcamp has
+                  achieved what it set out to do - build a strong pipeline of
+                  entry-level tech talent right here in Kentucky. Nearly 200
+                  graduates have launched new careers, boosted their earning
+                  potential, and helped close the talent gap in Lexington's tech
+                  scene. The Bootcamp graduates started careers at over 85
+                  different companies- some of those were Fellowship Companies
+                  that grew through the resources gained during the year-long
+                  accelerator program.
+                </p>
+                <p className={`${styles.missionCopy} ${styles.programText} text-white`}>
+                  Now that the mission is complete, we're evolving. Our focus is
+                  shifting from entry-level training to helping teams and
+                  professionals level up with advanced coding, AI integration, and
+                  tech-forward upskilling through the Tech Association of the
+                  Bluegrass.
+                </p>
+                <p className={`${styles.missionCopy} mb-1 text-white`}>
+                  The Bootcamp may have ended, but the mission continues - to make
+                  Kentucky a place where innovation, talent, and opportunity
+                  thrive. Explore our current coding courses and resources to keep
+                  growing your skills and stay ahead in tech.
+                </p>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} lg={{ span: 5, offset: 7 }}>
+              <div className={styles.missionButtonWrap}>
+                <a href={missionButtonLink}>
+                  <BrandButton className={`text-uppercase ${styles.missionButton}`}>
+                    View Resources
+                  </BrandButton>
+                </a>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </Container>
+
+      <Container id="curriculum" className={``}>
         <Col
           sm={12}
           md={{ offset: 3, span: 8 }}

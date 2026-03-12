@@ -4,12 +4,30 @@
 // -----------------------------------------------------------------------------
 
 .text {
-  line-height: 2rem;
-  font-size: 1.2rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.3rem;
+  margin-bottom: 0.5rem;
+  width: 300px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.awesomeTextBelow {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.textColumn {
+  max-width: 520px;
 }
 
 .intro {
-  background: url(../../images/intro-to-web-hero.png);
+ 
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url('../../images/Into-to-web-dev-homepage-pic.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom center;
@@ -18,20 +36,219 @@
   min-height: 60vh;
 }
 
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto;
+  gap: 12px;
+  width: 100%;
+  max-width: 860px;
+}
+
+.gridImg {
+  width: 100%;
+  height: 280px;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+.photoTopLeft {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+.photoBottomLeft {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+.photoTopRight {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+.photoBottomRight {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+@include screen-max {
+  .imageGrid {
+    grid-template-columns: 424px 424px;
+    grid-template-rows: 280px 188px 280px;
+    width: 860px;
+  }
+
+  .gridImg {
+    height: 100%;
+  }
+
+  .photoTopLeft {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .photoBottomLeft {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .photoTopRight {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .photoBottomRight {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+  }
+}
+
+@include screen-sm {
+  .imageGrid {
+    max-width: 700px;
+  }
+
+  .gridImg {
+    height: 280px;
+  }
+
+  .photoTopLeft,
+  .photoBottomLeft,
+  .photoTopRight,
+  .photoBottomRight {
+    width: 100%;
+    height: 280px;
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+@include screen-xs {
+  .imageGrid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .gridImg {
+    height: 220px;
+  }
+
+  .photoTopLeft,
+  .photoBottomLeft,
+  .photoTopRight,
+  .photoBottomRight {
+    height: 220px;
+  }
+}
+
 .bottom-intro {
   background-color: white;
   background-size: cover;
-  min-width: 100%;
+  overflow: hidden;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
-.upcomingProgram {
+.MISSIONACOMPLISHEDBOOTCAMP {
   background-color: #323232;
-  min-width: 100%;
 }
 
 .program-text {
-  letter-spacing: -1px;
+    letter-spacing: -1px;
 }
+
+.missionRow {
+  min-height: auto;
+}
+
+.missionImageWrap {
+  width: 100%;
+  height: 100%;
+}
+
+.missionImage {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+.missionTextBlock {
+  max-width: 417px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.missionHeading {
+  color: #ed3742;
+  margin-bottom: 0.75rem;
+}
+
+.missionCopy {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.3rem;
+  margin-bottom: 0.5rem;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.missionButtonWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.75rem;
+}
+
+.missionButton {
+  background-color: #d32626;
+  border: 1px solid #d32626;
+  color: #ffffff;
+  width: 359.79px;
+  padding: 0.55rem 1.15rem;
+}
+
+.missionButton:hover,
+.missionButton:focus {
+  background-color: #b61f1f;
+  border-color: #b61f1f;
+  color: #ffffff;
+}
+
+@include screen-md {
+  .missionImage {
+    min-height: 420px;
+  }
+}
+
+@include screen-sm {
+  .missionImage {
+    min-height: 320px;
+  }
+
+  .missionTextBlock {
+    max-width: 100%;
+  }
+}
+
+@include screen-xs {
+  .missionImage {
+    min-height: 260px;
+  }
+}
+    
+  .awesome-inc-u {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    
+  }
+  .Coding-Resources{
+    font-family: "Open Sans", sans-serif;
+    font-weight: 800;
+    font-size: 64px;
+  }
 
 .arrow {
   transform: rotate(97deg);
