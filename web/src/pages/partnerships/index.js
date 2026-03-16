@@ -1,17 +1,14 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import { Col, Container, Row, Image } from "react-bootstrap";
-import SEO from "../../components/seo";
 import { StaticImage, GatsbyImage } from "gatsby-plugin-image";
 import Layout from "../../components/Layout/Layout.js";
-import BackgroundCard from "../../components/BackgroundCard/BackgroundCard";
 import { motion } from "framer-motion";
 import Title from "../../components/UI/Title/Title";
 import * as styles from "./partnership.module.scss";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import ProgramForm from "../../components/Forms/YouthProgramGuide.js/partnershipsForm.js";
 import ImageOutline from "../../components/ImageOutline/ImageOutline";
-import FiveAcrossWinnersCard from "../../components/FiveAcrossWinnersCard/FiveAcrossWinnersCard";
 import { Carousel } from "react-bootstrap";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
 
@@ -22,20 +19,25 @@ import Desktop from "../../images/Rent_Workspace.png";
 import Rocket from "../../images/accelerate-your-startup.png";
 import HTMLBrackets from "../../images/Learn_To_Code.png";
 
-{
-  /* test data */
-}
-import AincLogo from "../../images/logo.png";
+import ApaxLogo from "../../images/partnership/chase_logo.png";
+import ChaseLogo from "../../images/partnership/chase_logo.png";
+import KineticLogo from "../../images/partnership/kinetic_logoStacked_RGB_R_white_bgnd.png";
+import CommerceLexLogo from "../../images/partnership/commerce-lexington-logo.jpg";
 
 export const query_partnership = graphql`
   query PartnersPage {
-    allSanityFiveAcrossSponsors {
+    allSanityPartnershipSponsors(sort: { fields: order, order: ASC }) {
       nodes {
-        suppourtingSponsors {
-          image {
-            asset {
-              gatsbyImageData(layout: CONSTRAINED)
-            }
+        _id
+        name
+        position
+        logo {
+          asset {
+            gatsbyImageData(
+              width: 200
+              layout: CONSTRAINED
+              placeholder: BLURRED
+            )
           }
         }
       }
@@ -46,22 +48,48 @@ export const query_partnership = graphql`
 const PartnershipsPage = ({ data }) => {
   const perksImages = [PerkImage1, PerkImage2, PerkImage3];
   const perkIcons = [Rocket, HTMLBrackets, Desktop];
-  const sponsors =
-    data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors;
-  const lengthOfSponsors = sponsors.length;
+
+  const sponsors = data.allSanityPartnershipSponsors.nodes;
+
+  const leftLogos = sponsors.filter((s) => s.position === "left");
+  const rightLogos = sponsors.filter((s) => s.position === "right");
+  const bottomLogos = sponsors.filter((s) => s.position === "bottom");
   const partnershipOppurtunites = [
-    "Fellowshop/HOF Suppor",
-    "5 Across",
-    "Demo Days",
-    "Investor 1-1s",
-    "Newsletters",
-    "Summer Retreat",
-    "Lunch and Learn",
-    "Mentor Sessions",
+    {
+      title: "HOF Support",
+      description:
+        "Support the Kentucky Entrepreneur Hall of Fame and help celebrate the founders building Kentucky’s next great companies.",
+    },
+    {
+      title: "Fellowship Support",
+      description:
+        "Support founders in our mentor-driven fellowship program designed to accelerate Kentucky’s high‑tech startups.",
+    },
+    {
+      title: "5 Across",
+      description:
+        "Give local founders a platform to pitch their startup companies, gain valuable feedback, and attract more customers.",
+    },
+    {
+      title: "Investor 1‑1s",
+      description:
+        "Help create space for meaningful conversations between founders and investors from across the state of Kentucky.",
+    },
+    {
+      title: "Newsletters",
+      description:
+        "Get your company in front of thousands of newsletter subscribers each month.",
+    },
+    {
+      title: "Lunch and Learn",
+      description:
+        "Host educational sessions that position your team as experts while adding value to the startup community.",
+    },
+    {
+      title: "Mentor Sessions",
+      description: "Be a mentor to Kentucky startups and their founders.",
+    },
   ];
-  function scrollToRow() {
-    document.getElementById("targetRow").scrollIntoView({ behavior: "smooth" });
-  }
 
   return (
     <Layout>
@@ -83,7 +111,7 @@ const PartnershipsPage = ({ data }) => {
                 </Col>
 
                 <Row>
-                  <a href="#" onClick={scrollToRow}>
+                  <a href="#partnerForm">
                     <BrandButton className={`partnership`}>
                       LEARN MORE
                     </BrandButton>
@@ -96,64 +124,75 @@ const PartnershipsPage = ({ data }) => {
       </Container>
 
       {/*Partners*/}
-      <Container>
-        <Row className="py-5">
-          <Title className={`${styles.values}`}>
-            <Row>
-              <Col style={{ fontSize: "75px" }}>
-                <Row>SPONSORS.</Row>
-                <Row>PARTNERS.</Row>
-                <Row>FRIENDS.</Row>
-                <Row className={`${styles.subHeading}`}>
-                  <p>
-                    The people and partners who push the bluegrass forward with
-                    us.
-                  </p>
-                </Row>
-              </Col>
+      <Container className="py-5">
+        <Row className="align-items-center g-0">
+          {/* Left logo grid */}
+          <Col xs={12} lg={3} className={styles.logoGridColLeft}>
+            <div className={styles.logoGrid}>
+              {leftLogos.map((sponsor) => (
+                <div key={sponsor._id} className={styles.logoCell}>
+                  <GatsbyImage
+                    image={sponsor.logo.asset.gatsbyImageData}
+                    alt={sponsor.name}
+                    objectFit="contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </Col>
 
-              {/*sponsoers grid*/}
-              <Col>
-                <Row className={`${styles.sponsorGrid}`}>
-                  {sponsors.map((sponsor, index) => (
-                    <Col
-                      key={index}
-                      className={`${
-                        index % 3 === 0 && index >= lengthOfSponsors - 4
-                          ? styles.gridItemBottomLeft
-                          : index % 3 === 1 && index >= lengthOfSponsors - 3
-                            ? styles.gridItemMiddleBottom
-                            : index % 3 === 2 && index >= lengthOfSponsors - 3
-                              ? styles.gridItemBottomRight
-                              : index === 0
-                                ? styles.gridItemTopLeft
-                                : index === 1
-                                  ? styles.gridItemMiddleTop
-                                  : index === 2
-                                    ? styles.gridItemTopRight
-                                    : index % 3 === 0
-                                      ? styles.gridItemMiddleLeft
-                                      : index % 3 === 2
-                                        ? styles.gridItemMiddleRight
-                                        : styles.gridItemMiddle
-                      } p-4`}
-                    >
-                      {/*need graphQL Data */}
-                      <GatsbyImage
-                        image={sponsor.image.asset.gatsbyImageData}
-                        alt={`Sponsor ${index + 1}`}
-                      />
-                    </Col>
-                  ))}
-                </Row>
-              </Col>
-            </Row>
-          </Title>
+          {/* Center text block */}
+          <Col xs={12} lg={6} className="text-center my-4 my-lg-0 px-3 px-lg-4">
+            <h2 className={styles.heroWords}>
+              SPONSORS.
+              <br />
+              PARTNERS.
+              <br />
+              FRIENDS.
+            </h2>
+            <p className={`${styles.heroSubtitle} `}>
+              The people and partners who push the bluegrass forward with us.
+            </p>
+          </Col>
+
+          {/* Right logo grid */}
+          <Col xs={12} lg={3} className={styles.logoGridColRight}>
+            <div className={styles.logoGrid}>
+              {rightLogos.map((sponsor) => (
+                <div key={sponsor._id} className={styles.logoCell}>
+                  <GatsbyImage
+                    image={sponsor.logo.asset.gatsbyImageData}
+                    alt={sponsor.name}
+                  />
+                </div>
+              ))}
+            </div>
+          </Col>
+        </Row>
+
+        {/* Bottom row: 4 logos across */}
+        <Row className="mt-0 g-0">
+          <Col xs={12}>
+            <div className={styles.logoGridBottom}>
+              {bottomLogos.map((sponsor) => (
+                <div key={sponsor._id} className={styles.logoCell}>
+                  <GatsbyImage
+                    image={sponsor.logo.asset.gatsbyImageData}
+                    alt={sponsor.name}
+                  />
+                </div>
+              ))}
+            </div>
+          </Col>
         </Row>
       </Container>
 
       {/*Interst Form Section */}
-      <Container fluid className={`${styles.formHeading} py-5`}>
+      <Container
+        id="partnerForm"
+        fluid
+        className={`${styles.formHeading} py-5`}
+      >
         <Col md={6} className="mx-auto py-5 text-center">
           <Row>
             <div>
@@ -173,18 +212,16 @@ const PartnershipsPage = ({ data }) => {
         </Col>
       </Container>
 
-      <tr id="targetRow"></tr>
-
       {/* Perks section*/}
       <Container className="text-center">
         <Row className="mb-5 ">
-          <Title className={`${styles.values} mx-auto my-5`}>
-            BEING A PARTERN HAS IT'S PERKS
-            <p className={`${styles.subHeading} mx-auto`}>
-              These are just a few of the reasons companies partner with Awesome
-              Inc
-            </p>
+          <Title className={`${styles.values} mx-auto my-5 text-uppercase`}>
+            Being a Partner Has It's Perks
           </Title>
+          <p className={`${styles.subHeading} mx-auto`}>
+            These are just a few of the reasons companies partner with
+            AwesomeInc
+          </p>
           <Col>
             {perksImages.map((image, index) => (
               <ImageOutline style={{ marginLeft: "5rem" }}>
@@ -222,37 +259,46 @@ const PartnershipsPage = ({ data }) => {
       </Container>
 
       {/*Oppurtunites Section */}
-      <Container fluid className={styles.oppurtunitesHeading}>
+      <Container fluid className={styles.opportunitesHeading}>
         <Row className="text-center">
-          <Title className="mx-auto mt-5 text-white">
-            PARTNERHSIP OPPORTUNITES
+          <Title className="mx-auto mt-5 text--brand text-uppercase">
+            Partnership Opportunities
           </Title>
-          <p className="text-white">Learn more about partnership options</p>
+          <p className="text--brand text--italic">
+            Learn more about partnership options
+          </p>
         </Row>
-        <Row className="mt-5">
-          {/*this is bad data sponosors need to be replaced */}
-          {partnershipOppurtunites.map((title) => (
-            <Col lg="4">
-              <Row className="my-3 mx-3">
-                <Col sm="12">
-                  <div className={styles.headerBorder}>
-                    <h4 className={`${styles.headingSubtitle} my-2`}>
-                      {title}
-                    </h4>
-                    <h4 className={`${styles.bodyText} p-5 mb-4`}>
-                      Our space and network can provide an opportunity for
-                      entrepreneurs to get connected to who they need to be
-                      successful
-                    </h4>
+        <Container>
+          <Row className="my-5">
+            {/*this is bad data sponosors need to be replaced */}
+            {partnershipOppurtunites.map(({ title, description }, index) => {
+              const isSingleLast =
+                partnershipOppurtunites.length % 3 === 1 &&
+                index === partnershipOppurtunites.length - 1;
+
+              return (
+                <Col
+                  key={title}
+                  sm="12"
+                  lg={isSingleLast ? { span: 4, offset: 4 } : 4}
+                  className="mb-5"
+                >
+                  <div className={`${styles.cardContainer} text--brand mb-5`}>
+                    <fieldset className={styles.cardBox}>
+                      <legend className={styles.cardTitle}>{title}</legend>
+                      <h4 className={`${styles.cardText} mb-4`}>
+                        {description}
+                      </h4>
+                    </fieldset>
                   </div>
                 </Col>
-              </Row>
-            </Col>
-          ))}
-        </Row>
+              );
+            })}
+          </Row>
+        </Container>
       </Container>
       {/* Testimonial section */}
-      <Container className="py-5">
+      {/* <Container className="py-5">
         <Title className={`${styles.greyUnderline} text-center mt-5`}>
           TESTIMONIALS
         </Title>
@@ -286,7 +332,7 @@ const PartnershipsPage = ({ data }) => {
             </Carousel.Item>
           ))}
         </Carousel>
-      </Container>
+      </Container> */}
 
       {/* Foot Section */}
       <Container fluid className={styles.finalSection}>
@@ -295,9 +341,11 @@ const PartnershipsPage = ({ data }) => {
             <h2 className={`${styles.finalHeading}`}>
               We'd love to have you as a partner.
             </h2>
-            <BrandButton className={`${styles.finalButton}, btn--small my-4`}>
-              Learn More
-            </BrandButton>
+            <a href="#partnerForm">
+              <BrandButton className={`${styles.finalButton} btn--small my-4`}>
+                Learn More
+              </BrandButton>
+            </a>
           </Col>
         </Row>
       </Container>
