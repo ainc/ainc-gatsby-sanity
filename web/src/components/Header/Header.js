@@ -187,6 +187,7 @@ const Header = () => {
                   Awesome Fund
                 </a>
                 <a href="/events">Events</a>
+                <a href=" https://entrepreneurhof.com/">Hall of Fame</a>
                 <a
                   href="/assets/community-yearbook.pdf"
                   target="_blank"
@@ -239,6 +240,9 @@ const Header = () => {
                             Awesome Fund
                           </a>
                           <a href="/events">Events</a>
+                          <a href=" https://entrepreneurhof.com/">
+                            Hall of Fame
+                          </a>
                           <a
                             href="/assets/community-yearbook.pdf"
                             target="_blank"
@@ -405,7 +409,6 @@ const Header = () => {
                 <Link to="/about" className="pt-0">
                   About
                 </Link>
-                <Link to="/about">Core Values</Link>
                 <Link to="/what-we-do">What We Do</Link>
                 <Link to="/blog/">Blog</Link>
                 <Link to="/press">Press</Link>
@@ -455,7 +458,6 @@ const Header = () => {
                           className={`d-flex flex-column py-2 border-0`}
                         >
                           <Link to="/about">About</Link>
-                          <Link to="/about">Core Values</Link>
                           <Link to="/what-we-do">What We Do</Link>
                           <Link to="/blog/">Blog</Link>
                           <Link to="/press">Press</Link>

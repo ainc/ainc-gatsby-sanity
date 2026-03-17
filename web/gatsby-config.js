@@ -11,6 +11,9 @@ const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
   flags: {
+    PRESERVE_WEBPACK_CACHE: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    PARALLEL_SOURCING: true,
     // DEV_SSR: true // enable server-side rendering to bypass `netlify build`
   },
   plugins: [
@@ -47,7 +50,14 @@ module.exports = {
     {
       resolve: "gatsby-plugin-sharp",
       options: {
-        placeholder: `dominantColor`,
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `dominantColor`,
+          quality: 50,
+          breakpoints: [750, 1080, 1366, 1920],
+        },
+        stripMetadata: true,
+        defaultQuality: 50,
       },
     },
     {

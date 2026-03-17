@@ -60,6 +60,27 @@ export default {
         "If this is checked, the member will only be shown on the achievements page; they will be excluded from the about page.",
       initialValue: false,
     },
+    {
+      name: "hideFromPages",
+      type: "array",
+      title: "Hide From Pages",
+      description: "Select the pages this team member should be hidden from.",
+      of: [{ type: "string" }],
+      options: {
+        list: [
+          { title: "About Page", value: "about" },
+          { title: "Achievements Page", value: "achievements" },
+        ],
+        layout: "tags", // shows nice tag-style selection
+      },
+    },
+    {
+      name: "recipientName",
+      type: "string",
+      title: "Pin Tracker Recipient Name",
+      description:
+        "This is the name under recipient in the pin log google sheet.",
+    },
   ],
   preview: {
     select: {

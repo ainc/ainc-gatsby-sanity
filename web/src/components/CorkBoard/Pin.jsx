@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { PIN_SIZE } from "./randomPlacement";
 
-const Pin = ({ pin, setHoveredStory }) => {
+const Pin = ({
+  pin,
+  setHoveredStory,
+  pinType,
+  imgLinks,
+  scale,
+  pinScale = 1,
+}) => {
   const [dragging, setDragging] = useState(false);
 
   const handleDragStart = (e) => {
@@ -18,14 +25,66 @@ const Pin = ({ pin, setHoveredStory }) => {
     );
   };
 
+  let imgSrc = "/images/default-pin.png";
+  switch (pinType) {
+    case "Be Good":
+      imgSrc = imgLinks[0].source;
+      break;
+    case "Be Excellent":
+      imgSrc = imgLinks[1].source;
+      break;
+    case "Be a Friend":
+      imgSrc = imgLinks[2].source;
+      break;
+    case "Be You":
+      imgSrc = imgLinks[3].source;
+      break;
+    case "Billi":
+      imgSrc = imgLinks[4].source;
+      break;
+    case "Oreo":
+      imgSrc = imgLinks[5].source;
+      break;
+    case "Balloon":
+      imgSrc = imgLinks[6].source;
+      break;
+    case "5 Across":
+      imgSrc = imgLinks[7].source;
+      break;
+    case "Success Bell":
+      imgSrc = imgLinks[8].source;
+      break;
+    case "Startup Rocket":
+      imgSrc = imgLinks[9].source;
+      break;
+    case "Triangle Pin":
+      imgSrc = imgLinks[10].source;
+      break;
+    case "Work Anniversary":
+      imgSrc = imgLinks[11].source;
+      break;
+    case "Core Value Training":
+      imgSrc = imgLinks[12].source;
+      break;
+    case "Winter Retreat 2023":
+      imgSrc = imgLinks[13].source;
+      break;
+    case "Winter Retreat 2024":
+      imgSrc = imgLinks[14].source;
+      break;
+    case "Winter Retreat 2025":
+      imgSrc = imgLinks[15].source;
+      break;
+  }
+
   return (
     <motion.div
       style={{
         position: "absolute",
-        left: pin.x,
-        top: pin.y,
-        width: PIN_SIZE,
-        height: PIN_SIZE,
+        left: pin.x * scale,
+        top: pin.y * scale,
+        width: PIN_SIZE * pinScale,
+        height: PIN_SIZE * pinScale,
         cursor: dragging ? "grabbing" : "grab",
         zIndex: dragging ? 1000 : 1,
       }}
@@ -38,9 +97,9 @@ const Pin = ({ pin, setHoveredStory }) => {
       transition={{ type: "spring", stiffness: 300 }}
     >
       <img
-        src={pin.icon || "/images/default-pin.png"}
+        src={imgSrc}
         alt={pin.pinName}
-        style={{ width: 70, height: "auto" }}
+        style={{ width: 85 * scale * pinScale, height: "auto" }}
         onError={(e) => (e.target.src = "/images/default-pin.png")}
       />
     </motion.div>

@@ -4,7 +4,7 @@ import SEO from "../../components/seo";
 import Layout from "../../components/Layout/Layout";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import { graphql, Link } from "gatsby";
-import * as styles from "./links.scss";
+import "./links.scss";
 import { StaticImage } from "gatsby-plugin-image";
 import "../../styles/main.scss";
 import {
@@ -23,7 +23,7 @@ const LinksPage = ({ data }) => {
     <Container>
       <SEO />
       <Row>
-        <Col className="header d-flex justify-content-center align-items-center">
+        <Col className="headerlinks d-flex justify-content-center align-items-center">
           <StaticImage
             placeholder="blurred"
             className="logo mx-auto d-block img-fluid"
@@ -36,7 +36,7 @@ const LinksPage = ({ data }) => {
         </Col>
       </Row>
 
-      <Row className="pt-3" style={{ marginTop: "30%" }}>
+      <Row className="pt-3" style={{ marginTop: "300px" }}>
         {allLinks.map((node) => (
           <Col md={{ span: 8, offset: 2 }}>
             <a href={node.url}>

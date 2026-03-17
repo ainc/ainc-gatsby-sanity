@@ -1,11 +1,10 @@
 @import "../../styles/variables";
 @import "../../styles/mixins";
 
-.header {
+.headerlinks {
   background-color: #444444;
   height: 300px;
   width: 100%;
-  margin-bottom: 200px;
   position: absolute;
   top: 0;
   left: 0;
@@ -14,7 +13,7 @@
     height: 200px;
   }
 }
-.header::after {
+.headerlinks::after {
   content: "";
   border-top-right-radius: 50% 100%;
   border-top-left-radius: 50% 100%;
@@ -36,7 +35,13 @@
   width: 400px;
   height: 350px;
   @include screen-tablet-max {
-    width: 200px;
-    height: 200px;
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 }

@@ -2,6 +2,7 @@ import React from "react";
 // import { useCountdown } from '../../../../hooks/useCountdown';
 import ReactDom from "react-dom";
 import Countdown from "react-countdown";
+import SEO from "../../../../components/seo";
 
 // Random component
 const Completionist = () => <span>CLOSED</span>;
@@ -23,9 +24,20 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
 
 const CountdownTimer = (props) => {
   return (
-    <div className="text-center mt-3 mb-3" style={{ fontWeight: "bold" }}>
-      <Countdown date={props.date} renderer={renderer} />
-    </div>
+    <>
+      <SEO
+        title="Countdown Timer"
+        meta={[
+          {
+            name: "robots",
+            content: "noindex, nofollow",
+          },
+        ]}
+      />
+      <div className="text-center mt-3 mb-3" style={{ fontWeight: "bold" }}>
+        <Countdown date={props.date} renderer={renderer} />
+      </div>
+    </>
   );
 };
 

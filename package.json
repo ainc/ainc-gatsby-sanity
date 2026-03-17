@@ -4,10 +4,10 @@
   "version": "0.1.0",
   "scripts": {
     "build-studio": "(cd studio && yarn run build)",
-    "export-db": "cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN sanity dataset export production ./production.tar.gz",
-    "import-db": "cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN sanity dataset import ./production.tar.gz dev --replace",
+    "export-db": "cd studio && sanity dataset export production ./production.tar.gz",
+    "import-db": "cd studio && sanity dataset import ./production.tar.gz development --replace",
     "deploy-graphql": "cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN sanity graphql deploy",
-    "clone": "sanity dataset export production production && sanity dataset import production/production.tar.gz development --replace",
+    "clone": "cd studio && sanity dataset export production ./production.tar.gz && sanity dataset import ./production.tar.gz development --replace",
     "prepare": "husky install",
     "postinstall": "husky install"
   },

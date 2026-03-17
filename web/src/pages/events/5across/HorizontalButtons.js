@@ -1,4 +1,5 @@
 import React from "react";
+import SEO from "../../../components/seo";
 import BrandButton from "../../../components/UI/BrandButton/BrandButton";
 import { Col } from "react-bootstrap";
 import * as styles from "./fiveAcross.module.scss";
@@ -7,6 +8,15 @@ import EventBriteModal from "../../../components/EventBriteModal/EventBriteModal
 const HorizontalButtons = (props) => {
   return (
     <>
+      <SEO
+        title="5Across Horizontal Buttons"
+        meta={[
+          {
+            name: "robots",
+            content: "noindex, nofollow",
+          },
+        ]}
+      />
       <Col md="auto" className="d-flex justify-content-center mb-3">
         <a
           href="https://forms.zohopublic.com/virtualoffice9155/form/5AcrossApplication1/formperma/i3hM2QiFcJG1DM_nCW8jQvMplp5UUFgRbKc5Ev8kuiA"
