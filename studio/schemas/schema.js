@@ -51,6 +51,7 @@ import alumniTestimonials from "./documents/alumniTestimonials";
 import fellowshipKPIs from "./documents/fellowshipKPIs";
 import timeline from "./documents/timeline";
 import fellowshipTestimonials from "./documents/fellowshipTestimonials";
+import partnershipSponsors from "./documents/partnershipSponsors";
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
   bioPortableText,
@@ -105,4 +106,5 @@ export default [
   fellowshipKPIs,
   timeline,
   fellowshipTestimonials,
+  partnershipSponsors,
 ];
