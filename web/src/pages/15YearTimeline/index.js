@@ -30,7 +30,7 @@ const HistoryWall = ({ data }) => {
 
         const left = 8 + Math.random() * 84;
         const top = 6 + Math.random() * 88;
-        const speed = 0.18 + Math.random() * 0.55;
+        const speed = 0.18 + Math.random() * 0.56;
         const driftX = 10 + Math.random() * 26;
         const driftY = 6 + Math.random() * 18;
         const phase = Math.random() * Math.PI * 2;
