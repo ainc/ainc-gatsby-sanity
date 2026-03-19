@@ -1,36 +1,36 @@
 /* Container for the entire timeline */
 .timelineContainer {
-  padding: 50px;
-  background-color: #f8f8f8;
+  padding: 90px 20px 140px;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  max-width: 1200px;
+  max-width: 980px;
   margin: 0 auto;
 }
 
 /* Individual timeline item */
 .timelineItem {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
+  position: relative;
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0 0 70px;
 }
 
-/* Hover effect for timeline items */
-.timelineItem:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+/* Side alignment (alternating cards) */
+.timelineItemLeft {
+  justify-content: flex-start;
+}
+
+.timelineItemRight {
+  justify-content: flex-end;
 }
 
 /* Styling for the date */
 .timelineDate {
   font-size: 1rem;
-  color: #888;
+  color: rgba(255, 255, 255, 0.55);
   margin: 0;
   text-align: center;
 }
@@ -38,7 +38,7 @@
 /* Styling for the title */
 .timelineTitle {
   font-size: 1.5rem;
-  color: #333;
+  color: #f0f0f5;
   margin: 0;
   text-align: center;
 }
@@ -46,7 +46,7 @@
 /* Styling for the content */
 .timelineContent {
   font-size: 1rem;
-  color: #555;
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
 }
 
@@ -59,3 +59,356 @@
   border-radius: 8px;
   margin-bottom: 1rem;
 } */
+
+/* ────────────────────────────────────────────────────────────────── */
+/* Scroll narrative background */
+
+.storyRoot {
+  position: relative;
+  min-height: 100vh;
+  background: radial-gradient(
+      circle at 50% -10%,
+      rgba(40, 40, 52, 0.32),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(42, 212, 196, 0.08),
+      transparent 60%
+    ),
+    radial-gradient(circle at 20% 40%, rgba(228, 63, 63, 0.08), transparent 60%),
+    #0a0a0f;
+  color: #c8c8d0;
+  overflow-x: hidden;
+}
+
+.chapters {
+  display: flex;
+  flex-direction: column;
+  gap: 3.25rem;
+}
+
+.chapter {
+  position: relative;
+  z-index: 2;
+  padding: 0 0.5rem;
+}
+
+.eraTag {
+  font-family: "Space Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 0.95rem;
+  opacity: 0.65;
+  color: rgba(255, 255, 255, 0.55);
+  text-align: center;
+}
+
+.timelineImageWrap {
+  display: flex;
+  justify-content: center;
+}
+
+.timelineImageWrap :global(img) {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* ── Floating fragments ── */
+.fragmentsContainer {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.timeFragment {
+  position: absolute;
+  width: 140px;
+  height: 110px;
+  border: 1px solid rgba(255, 255, 255, 0.035);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0.008) 100%
+  );
+  backdrop-filter: blur(2px);
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 6px;
+}
+
+.timeFragment :global(img) {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  border-radius: 2px;
+}
+
+.fragmentImg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.85;
+  filter: saturate(0.82) contrast(0.95);
+}
+
+/* Ensure the GatsbyImage wrapper and its internal <img> don't force-crop. */
+.fragmentImg :global(img) {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+.fragmentVisible {
+  opacity: 0.18;
+}
+
+/* ── Progress spiral ── */
+.progressSpiral {
+  position: fixed;
+  top: 92px; /* place below the sticky navbar */
+  right: 24px;
+  z-index: 2000; /* keep above navbar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+@media (max-width: 768px) {
+  .progressSpiral {
+    top: 72px; /* smaller navbar on mobile */
+  }
+}
+
+.visible {
+  opacity: 1;
+}
+
+.spiralSvg {
+  width: 48px;
+  height: 48px;
+  transform: rotate(-90deg);
+}
+
+.spiralTrack {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.06);
+  stroke-width: 2;
+}
+
+.spiralFill {
+  fill: none;
+  stroke: rgba(90, 90, 110, 1);
+  stroke-width: 2;
+  stroke-dasharray: 125.66; /* 2*pi*r where r=20 */
+  stroke-dashoffset: 125.66;
+  stroke-linecap: round;
+}
+
+.progressEra {
+  font-family: "Space Mono", monospace;
+  font-size: 0.55rem;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/* CodePen-style vertical timeline cards (keeps floating logos) */
+
+.timeline {
+  padding: 90px 0 110px;
+  position: relative;
+}
+
+.container {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+  position: relative;
+}
+
+.timelineRail {
+  position: absolute;
+  top: 190px;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(197, 202, 233, 0.65),
+    rgba(63, 81, 181, 0.25)
+  );
+  box-shadow: 0 0 0 6px rgba(197, 202, 233, 0.12);
+}
+
+.card {
+  width: min(520px, 92%);
+  background: rgba(245, 245, 245, 0.04);
+  border-radius: 16px;
+  box-shadow: 0 22px 30px -18px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 38px -18px rgba(0, 0, 0, 0.42);
+}
+
+.imgWrap {
+  width: 100%;
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    rgba(63, 81, 181, 0.12),
+    rgba(255, 64, 129, 0.08)
+  );
+  overflow: hidden;
+}
+
+.imgWrap :global(img) {
+  /* Fit inside the standard card header dimensions (no cropping). */
+  object-fit: contain !important;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.imgWrap :global([data-gatsby-image-wrapper]),
+.imgWrap :global(.gatsby-image-wrapper) {
+  width: 100%;
+  height: 100%;
+}
+
+.imgWrap :global([data-gatsby-image-wrapper] img),
+.imgWrap :global(.gatsby-image-wrapper img) {
+  object-fit: contain !important;
+  width: 100%;
+  height: 100%;
+}
+
+.card:hover .imgWrap :global(img) {
+  transform: none;
+}
+
+.date {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(20, 20, 26, 0.92);
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+}
+
+.cardBody {
+  padding: 18px 18px 16px;
+}
+
+.cardBody h2 {
+  font-size: 22px;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.cardBody p {
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.65;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+/* Scroll reveal animation (IntersectionObserver toggles .show) */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.revealLeft {
+  transform: translate(-56px, 16px);
+}
+
+.revealRight {
+  transform: translate(56px, 16px);
+}
+
+.show {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Pointer arrow like classic timelines */
+.timelineItemLeft .card::after,
+.timelineItemRight .card::after {
+  content: "";
+  position: absolute;
+  top: 36px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.timelineItemLeft .card::after {
+  right: -14px;
+  border-width: 10px 0 10px 14px;
+  border-color: transparent transparent transparent rgba(245, 245, 245, 0.04);
+  filter: drop-shadow(0 12px 14px rgba(0, 0, 0, 0.15));
+}
+
+.timelineItemRight .card::after {
+  left: -14px;
+  border-width: 10px 14px 10px 0;
+  border-color: transparent rgba(245, 245, 245, 0.04) transparent transparent;
+  filter: drop-shadow(0 12px 14px rgba(0, 0, 0, 0.15));
+}
+
+/* Responsive */
+@media (max-width: 840px) {
+  .timelineRail {
+    left: 44px;
+    transform: none;
+  }
+
+  .timelineItem {
+    justify-content: flex-start !important;
+  }
+
+  .card {
+    width: calc(100% - 74px);
+    margin-left: 74px;
+  }
+
+  .timelineItemLeft .card::after,
+  .timelineItemRight .card::after {
+    left: -14px;
+    right: auto;
+    border-width: 10px 14px 10px 0;
+    border-color: transparent rgba(245, 245, 245, 0.04) transparent transparent;
+  }
+}
