@@ -5,7 +5,7 @@ import { google } from "googleapis";
     Images are hosted by post image, src stored in sheet
 */
 export default async function handler(req, res) {
-  const scopes = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
+  const scopes = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
   const auth = new google.auth.JWT(
     process.env.FIVE_ACROSS_REWARDS_CLIENT_EMAIL,
     null,
@@ -14,27 +14,27 @@ export default async function handler(req, res) {
   );
 
   try {
-     if (req.method === "GET") {
-        await auth.authorize();
-        const sheets = google.sheets({ version: "v4", auth });
+    if (req.method === "GET") {
+      await auth.authorize();
+      const sheets = google.sheets({ version: "v4", auth });
 
-        const pinImages = await sheets.spreadsheets.values.get({
-            spreadsheetId: process.env.SECOND_SPREADSHEET_ID,
-            range: "'Pin Database'!A2:D",
-        });
-        console.log("Images", pinImages)
+      const pinImages = await sheets.spreadsheets.values.get({
+        spreadsheetId: process.env.SECOND_SPREADSHEET_ID,
+        range: "'Pin Database'!A2:D",
+      });
+      console.log("Images", pinImages);
 
-        const imgLinks = (pinImages.data.values || []).map((row) => ({
-            pinName: row[0] || "Unnamed", // A
-            howToEarn: row[1] || "", // B
-            pinCode: row[2] || "", // C
-            source: row[3] || "/images/default-pin.png", // D
-        }))
+      const imgLinks = (pinImages.data.values || []).map((row) => ({
+        pinName: row[0] || "Unnamed", // A
+        howToEarn: row[1] || "", // B
+        pinCode: row[2] || "", // C
+        source: row[3] || "/images/default-pin.png", // D
+      }));
 
-        return res.status(200).json({ imgLinks });
+      return res.status(200).json({ imgLinks });
     }
 
-    // If not GET 
+    // If not GET
     return res.status(405).json({ error: "Method not allowed" });
   } catch (error) {
     console.log("Sheets API Error:", error);

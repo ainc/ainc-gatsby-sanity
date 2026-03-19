@@ -29,9 +29,9 @@ const HomepageSlider = (props) => {
           image {
             asset {
               gatsbyImageData(
-              layout: FULL_WIDTH
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+                layout: FULL_WIDTH
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
               )
             }
           }
@@ -46,27 +46,27 @@ const HomepageSlider = (props) => {
       {slides.map((slide, i) => (
         <Carousel.Item key={i}>
           <div
-              style={{
-                position: "relative",
-                height: "100vh",          
-                width: "100%",            
-                overflow: "hidden",
-                    }}
+            style={{
+              position: "relative",
+              height: "100vh",
+              width: "100%",
+              overflow: "hidden",
+            }}
           >
-              <GatsbyImage
-                image={getImage(slide.image.asset)}
-                alt={slide.image.alt || slide.title || "Slide background"}
-                style={{
-                  height: "100%",
-                  width: "100%",
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  objectFit: "cover",
-                  objectPosition: "center center",
-                  zIndex: 0,
-                      }}
-                />
+            <GatsbyImage
+              image={getImage(slide.image.asset)}
+              alt={slide.image.alt || slide.title || "Slide background"}
+              style={{
+                height: "100%",
+                width: "100%",
+                position: "absolute",
+                top: 0,
+                left: 0,
+                objectFit: "cover",
+                objectPosition: "center center",
+                zIndex: 0,
+              }}
+            />
             <Wrapper>
               <Container className="mb-3 d-flex align-content-center flex-wrap h-100">
                 <Row>

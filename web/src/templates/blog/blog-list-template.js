@@ -36,23 +36,23 @@ const BlogPage = ({ pageContext, data }) => {
   const nextPage = (currentBlog + 1).toString();
 
   useEffect(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      if (entries[0].isIntersecting) {
-        setVisibleCount((prev) => Math.min(prev + 6, allBlogs.length));
-      }
-    },
-    { rootMargin: "200px", threshold: 1.0 }
-  );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setVisibleCount((prev) => Math.min(prev + 6, allBlogs.length));
+        }
+      },
+      { rootMargin: "200px", threshold: 1.0 },
+    );
 
-  if (loadMoreRef.current) {
-    observer.observe(loadMoreRef.current);
-  }
+    if (loadMoreRef.current) {
+      observer.observe(loadMoreRef.current);
+    }
 
-  return () => {
-    if (loadMoreRef.current) observer.unobserve(loadMoreRef.current);
-  };
-}, [loadMoreRef.current]);
+    return () => {
+      if (loadMoreRef.current) observer.unobserve(loadMoreRef.current);
+    };
+  }, [loadMoreRef.current]);
 
   return (
     <Layout>
@@ -161,15 +161,15 @@ const BlogPage = ({ pageContext, data }) => {
 
       <Container className="px-1 pb-3 pb-lg-5">
         <Row className="mb-5 mx-3">
-         {allBlogs.slice(0, visibleCount).map((edge) => (
-          <BlogPreview key={edge.node.slug.current} blog={edge} />
+          {allBlogs.slice(0, visibleCount).map((edge) => (
+            <BlogPreview key={edge.node.slug.current} blog={edge} />
           ))}
         </Row>
       </Container>
-        <div ref={loadMoreRef} style={{height: "40px"}}></div>
-        {visibleCount>= allBlogs.length && (
-          <p className="text-center text-muted">Stay tuned for more blogs!</p>
-        )}
+      <div ref={loadMoreRef} style={{ height: "40px" }}></div>
+      {visibleCount >= allBlogs.length && (
+        <p className="text-center text-muted">Stay tuned for more blogs!</p>
+      )}
     </Layout>
   );
 };

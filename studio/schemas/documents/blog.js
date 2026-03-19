@@ -12,15 +12,15 @@ export default {
       options: {
         dateFormat: "MMMM D, YYYY",
       },
-      validation: (Rule) => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       title: "Author",
       name: "reference",
       type: "reference",
       initialValue: {
-        _type: 'reference',
-        _ref: '9823d288-f279-4419-8a10-c734fb0267c3'
+        _type: "reference",
+        _ref: "9823d288-f279-4419-8a10-c734fb0267c3",
       },
       to: [{ type: "blogAuthor" }],
       validation: (Rule) => Rule.required(),
@@ -29,7 +29,7 @@ export default {
       name: "title",
       type: "string",
       title: "Blog Title",
-      validation: (Rule) => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
 
     {
@@ -63,12 +63,13 @@ export default {
       title: "Body",
       description:
         "Body content. If you want to add an image, drag and drop it to the place within the blog you would like it to be.",
-        validation: (Rule) => Rule.custom(body => {
-          if (!body || body.trim() === ''){
-            return 'Missing Blog Content'
+      validation: (Rule) =>
+        Rule.custom((body) => {
+          if (!body || body.trim() === "") {
+            return "Missing Blog Content";
           }
-          return true
-        })
+          return true;
+        }),
     },
   ],
   orderings: [

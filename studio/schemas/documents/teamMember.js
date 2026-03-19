@@ -78,7 +78,8 @@ export default {
       name: "recipientName",
       type: "string",
       title: "Pin Tracker Recipient Name",
-      description: "This is the name under recipient in the pin log google sheet.",
+      description:
+        "This is the name under recipient in the pin log google sheet.",
     },
   ],
   preview: {

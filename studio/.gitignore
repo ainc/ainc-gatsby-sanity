@@ -1,2 +1,8 @@
 /dist
 /node_modules
+<<<<<<< HEAD
+/.env.development
+=======
+>>>>>>> origin/433-create-partners-page
+/production.tar.gz
+/yarn-error.log

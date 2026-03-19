@@ -2,7 +2,7 @@
   filter: none;
   color: white;
 }
-.parking{
+.parking {
   background-image: url(/images/parkingpageheader.png);
   background-size: cover;
   background-position-y: 0%;
@@ -12,7 +12,7 @@
   width: auto;
   background-repeat: no-repeat;
 }
-.parkfoot{
+.parkfoot {
   background-image: url(/images/parkingicons.png);
   background-size: cover;
   background-position: 110%;
@@ -56,7 +56,7 @@
   min-height: 25px;
 }
 .Check.stableList li::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 5px;
   top: 3px;
@@ -68,7 +68,7 @@
   flex-shrink: 0;
 }
 .Xmark.stableList li::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 5px;
   top: 3px;

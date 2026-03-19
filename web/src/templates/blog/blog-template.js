@@ -41,15 +41,18 @@ const Blog = ({ pageContext }) => {
           <Col sm={{ span: 8, offset: 2 }}>
             <Title className="mt-5">{blogInfo.title}</Title>
             <Container className="my-4">
-              <Row >
-                <Col xs={{span:3}} sm={{span:4}} md={{span: 2}} >
+              <Row>
+                <Col xs={{ span: 3 }} sm={{ span: 4 }} md={{ span: 2 }}>
                   <GatsbyImage
                     objectFit="cover"
                     image={authorImage}
                     // image={'../../images/ainc-logo-horizontal-white-text.png'}
                     alt={blogInfo.reference.name}
                     className="rounded-circle p-4"
-                    style={{ outline: "1px solid black", border: "3px solid white" }}
+                    style={{
+                      outline: "1px solid black",
+                      border: "3px solid white",
+                    }}
                   />
                 </Col>
                 <Col
