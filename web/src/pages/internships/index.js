@@ -51,6 +51,15 @@ export const query = graphql`
         }
       }
     }
+    sanityImageSlider(title: { eq: "Intern Alumni Logos" }) {
+      slides {
+        image {
+          asset {
+            gatsbyImageData(width: 120, height: 120, layout: FIXED)
+          }
+        }
+      }
+    }
     allSanityTeamAlpha(
       filter: {
         name: {
@@ -83,9 +92,50 @@ export const query = graphql`
 `;
 const InternshipsPage = ({ data }) => {
   const allSanityInternTestimonials = data.allSanityInternTestimonials.nodes;
+  const alumniLogoSlides = data?.sanityImageSlider?.slides || [];
   const allTeamAlpha = data.allSanityTeamAlpha.nodes || {};
 
   const [teamInfoDiv, setTeamInfoDiv] = useState(null);
+
+  // setup auto-scrolling carousel for logos
+  const [logoSliderRef] = useKeenSlider(
+    {
+      loop: true,
+      rtl: true,
+      slides: { perView: "auto", spacing: 16 },
+    },
+    [
+      (slider) => {
+        let timeout;
+        let mouseOver = false;
+        function clearNextTimeout() {
+          clearTimeout(timeout);
+        }
+        function nextTimeout() {
+          clearTimeout(timeout);
+          if (mouseOver) return;
+          // speed up auto-scroll
+          timeout = setTimeout(() => {
+            slider.next();
+          }, 2000);
+        }
+        slider.on("created", () => {
+          slider.container.addEventListener("mouseover", () => {
+            mouseOver = true;
+            clearNextTimeout();
+          });
+          slider.container.addEventListener("mouseout", () => {
+            mouseOver = false;
+            nextTimeout();
+          });
+          nextTimeout();
+        });
+        slider.on("dragStarted", clearNextTimeout);
+        slider.on("animationEnded", nextTimeout);
+        slider.on("updated", nextTimeout);
+      },
+    ],
+  );
 
   const showTeamDiv = (team) => {
     setTeamInfoDiv(team);
@@ -186,7 +236,10 @@ const InternshipsPage = ({ data }) => {
       {/* Teams section */}
 
       <section id="team">
-        <Container fluid style={{ backgroundColor: "#C12029" }}>
+        <Container
+          fluid
+          style={{ backgroundColor: "#C12029", paddingBottom: "4rem" }}
+        >
           <Row>
             <div className={styles.tbDiv}>
               <Title className="text-center text-white text-uppercase mt-5 mb-3">
@@ -222,25 +275,148 @@ const InternshipsPage = ({ data }) => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
+            {/* MOBILE TEAM BUTTONS */}
+            <div className="d-block d-sm-none mb-4">
+              <BrandButton
+                onClick={() => showTeamDiv("design")}
+                style={{
+                  backgroundColor: "white",
+                  color: "black",
+                  border: "1px solid #ddd",
+                  width: "100%",
+                  padding: "1rem",
+                  marginBottom: "0.75rem",
+                }}
+              >
+                Design
+              </BrandButton>
+
+              <BrandButton
+                onClick={() => showTeamDiv("marketing")}
+                style={{
+                  backgroundColor: "white",
+                  color: "black",
+                  border: "1px solid #ddd",
+                  width: "100%",
+                  padding: "1rem",
+                  marginBottom: "0.75rem",
+                }}
+              >
+                Marketing
+              </BrandButton>
+
+              <BrandButton
+                onClick={() => showTeamDiv("video")}
+                style={{
+                  backgroundColor: "white",
+                  color: "black",
+                  border: "1px solid #ddd",
+                  width: "100%",
+                  padding: "1rem",
+                  marginBottom: "0.75rem",
+                }}
+              >
+                Video
+              </BrandButton>
+
+              <BrandButton
+                onClick={() => showTeamDiv("development")}
+                style={{
+                  backgroundColor: "white",
+                  color: "black",
+                  border: "1px solid #ddd",
+                  width: "100%",
+                  padding: "1rem",
+                  marginBottom: "0.75rem",
+                }}
+              >
+                Web Development
+              </BrandButton>
+
+              <BrandButton
+                onClick={() => showTeamDiv("events")}
+                style={{
+                  backgroundColor: "white",
+                  color: "black",
+                  border: "1px solid #ddd",
+                  width: "100%",
+                  padding: "1rem",
+                  marginBottom: "0.75rem",
+                }}
+              >
+                Events
+              </BrandButton>
+
+              <BrandButton
+                onClick={() => showTeamDiv("vcfund")}
+                style={{
+                  backgroundColor: "white",
+                  color: "black",
+                  border: "1px solid #ddd",
+                  width: "100%",
+                  padding: "1rem",
+                  marginBottom: "0.75rem",
+                }}
+              >
+                Venture Capital Fund
+              </BrandButton>
+
+              <BrandButton
+                onClick={() => showTeamDiv("kehof")}
+                style={{
+                  backgroundColor: "white",
+                  color: "black",
+                  border: "1px solid #ddd",
+                  width: "100%",
+                  padding: "1rem",
+                  marginBottom: "0.75rem",
+                }}
+              >
+                Kentucky Entrepreneur Hall of Fame
+              </BrandButton>
+
+              <BrandButton
+                onClick={() => showTeamDiv("outreach")}
+                style={{
+                  backgroundColor: "white",
+                  color: "black",
+                  border: "1px solid #ddd",
+                  width: "100%",
+                  padding: "1rem",
+                }}
+              >
+                Outreach
+              </BrandButton>
+            </div>
+
             <Row
-              className="justify-content-center "
+              className="justify-content-center d-none d-sm-flex"
               style={{ height: "21rem" }}
             >
-              <Col className="col-12 col-md-4 col-lg-2 mb-4 mx-4">
+              <Col xs={12} md={6} lg={3} className="mb-4">
                 <div className={styles.tbDiv}>
-                  <StaticImage
-                    placeholder="blurred"
-                    className={`${styles.teamImages} d-none d-sm-block`}
-                    style={{ position: "absolute", bottom: "-12%" }}
-                    src="../../images/team-alpha-design.jpg"
-                    alt="Design Intern"
-                  />
                   <BrandButton
                     onClick={() => showTeamDiv("design")}
-                    className={`${styles.teamButton} secondary text-center`}
+                    className={styles.overlayBtn}
                   >
-                    Design
+                    <div className={styles.imageWrapper}>
+                      <StaticImage
+                        placeholder="blurred"
+                        className={`${styles.teamImages} d-none d-sm-block`}
+                        style={{
+                          position: "absolute",
+                          width: "100%",
+                          height: "100%",
+                          top: 0,
+                          left: 0,
+                        }}
+                        src="../../images/team-alpha-design.jpg"
+                        alt="Design Intern"
+                      />
+                      <span className={styles.overlayText}>Design</span>
+                    </div>
                   </BrandButton>
+
                   <TeamInfoModal
                     show={teamInfoDiv === "design"}
                     onHide={hideTeamDiv}
@@ -254,26 +430,35 @@ const InternshipsPage = ({ data }) => {
                   />
                 </div>
               </Col>
-              <Col className="col-12 mb-4 col-md-4 col-lg-2 mx-4">
+              <Col xs={12} md={6} lg={3} className="mb-4">
                 <div className={styles.tbDiv}>
-                  <StaticImage
-                    placeholder="blurred"
-                    className={`${styles.teamImages} d-none d-sm-block`}
-                    style={{ position: "absolute", bottom: "-12%" }}
-                    src="../../images/team-alpha-marketing.jpg"
-                    alt="Events and Marketing Intern"
-                  />
                   <BrandButton
                     onClick={() => showTeamDiv("marketing")}
-                    className={`${styles.teamButton} secondary text-center`}
+                    className={styles.overlayBtn}
                   >
-                    Marketing
+                    <div className={styles.imageWrapper}>
+                      <StaticImage
+                        placeholder="blurred"
+                        className={`${styles.teamImages} d-none d-sm-block`}
+                        style={{
+                          position: "absolute",
+                          width: "100%",
+                          height: "100%",
+                          top: 0,
+                          left: 0,
+                        }}
+                        src="../../images/team-alpha-marketing.jpg"
+                        alt="Events and Marketing Intern"
+                      />
+                      <span className={styles.overlayText}>Marketing</span>
+                    </div>
                   </BrandButton>
+
                   <TeamInfoModal
                     show={teamInfoDiv === "marketing"}
                     onHide={hideTeamDiv}
                     title="MARKETING"
-                    content="The Marketing Team's mission is to reach and inform our target audiences about Awesome Inc, our initiatives, and events. We accomplish this through many avenues, including our website, newsletters, Google Ads and Analytics, podcasts, blogs, and CRMs. Typically, we look for interns with strengths in copywriting, social media management, data analytics, and video content production."
+                    content="The Marketing Team's mission is to reach and inform our target audiences about Awesome Inc, our initiatives, and events. We accomplish this through an organic, omnichannel strategy. Our website, newsletters, Google Ads and Analytics, podcasts, blogs, and CRM are important pieces of the strategy. Typically, we look for interns with strengths in communication, copywriting, social media management, data analytics, and video content production."
                     color="#ED3742"
                     team="marketing"
                     link="https://www.youtube.com/embed/nLdRQmCYa3k?si=6mNd6CHi8qlklu8U"
@@ -282,21 +467,30 @@ const InternshipsPage = ({ data }) => {
                   />
                 </div>
               </Col>
-              <Col className="col-12 mb-4 col-md-4 col-lg-2 mx-4">
+              <Col xs={12} md={6} lg={3} className="mb-4">
                 <div className={styles.tbDiv}>
-                  <StaticImage
-                    placeholder="blurred"
-                    className={`${styles.teamImages} d-none d-sm-block`}
-                    style={{ position: "absolute", bottom: "-12%" }}
-                    src="../../images/team-alpha-video.jpg"
-                    alt="Video Intern"
-                  />
                   <BrandButton
                     onClick={() => showTeamDiv("video")}
-                    className={`${styles.teamButton} secondary text-center`}
+                    className={styles.overlayBtn}
                   >
-                    Video
+                    <div className={styles.imageWrapper}>
+                      <StaticImage
+                        placeholder="blurred"
+                        className={`${styles.teamImages} d-none d-sm-block`}
+                        style={{
+                          position: "absolute",
+                          width: "100%",
+                          height: "100%",
+                          top: 0,
+                          left: 0,
+                        }}
+                        src="../../images/team-alpha-video.jpg"
+                        alt="Video Intern"
+                      />
+                      <span className={styles.overlayText}>Video</span>
+                    </div>
                   </BrandButton>
+
                   <TeamInfoModal
                     show={teamInfoDiv === "video"}
                     onHide={hideTeamDiv}
@@ -310,29 +504,196 @@ const InternshipsPage = ({ data }) => {
                   />
                 </div>
               </Col>
-              <Col className="col-12 mb-4 col-md-4 col-lg-2 mx-4">
+              <Col xs={12} md={6} lg={3} className="mb-4">
                 <div className={styles.tbDiv}>
-                  <StaticImage
-                    placeholder="blurred"
-                    className={`${styles.teamImages} d-none d-sm-block`}
-                    style={{ position: "absolute", bottom: "-12%" }}
-                    src="../../images/team-alpha-development.jpg"
-                    alt="Development Intern"
-                  />
                   <BrandButton
                     onClick={() => showTeamDiv("development")}
-                    className={`${styles.teamButton} secondary text-center`}
+                    className={styles.overlayBtn}
                   >
-                    Development
+                    <div className={styles.imageWrapper}>
+                      <StaticImage
+                        placeholder="blurred"
+                        className={`${styles.teamImages} d-none d-sm-block`}
+                        style={{
+                          position: "absolute",
+                          width: "100%",
+                          height: "100%",
+                          top: 0,
+                          left: 0,
+                        }}
+                        src="../../images/team-alpha-development.jpg"
+                        alt="Development Intern"
+                      />
+                      <span className={styles.overlayText}>
+                        Web Development
+                      </span>
+                    </div>
                   </BrandButton>
+
                   <TeamInfoModal
                     show={teamInfoDiv === "development"}
                     onHide={hideTeamDiv}
                     title="WEB DEVELOPMENT"
-                    content="Create innovative software for growing businesses. Work with Lexington's most talented developers to find tune your coding skills. Get involved with Awesome Inc U to further your knowledge and learn to develop your own apps, video games, and more!"
+                    content="Create innovative software for growing businesses. Work alongside elite industry experts to fine-tune your coding skills and further your knowledge as you learn to develop professional applications."
                     color="#323232"
                     team="web development"
                     link="https://www.youtube.com/embed/Ju34XWP2UMc?si=Tv_RPPubykOqn6NG"
+                    autoFocus={false}
+                    returnFocusOnClose={false}
+                  />
+                </div>
+              </Col>
+            </Row>
+            <Row
+              className="justify-content-center d-none d-sm-flex"
+              style={{ height: "21rem" }}
+            >
+              {/* New tiles added below */}
+              <Col xs={12} md={6} lg={3} className="mb-4">
+                <div className={styles.tbDiv}>
+                  <BrandButton
+                    onClick={() => showTeamDiv("events")}
+                    className={styles.overlayBtn}
+                  >
+                    <div className={styles.imageWrapper}>
+                      {/* base photo for the events tile */}
+                      <StaticImage
+                        placeholder="blurred"
+                        className={`${styles.teamImages} d-none d-sm-block`}
+                        style={{
+                          position: "absolute",
+                          width: "100%",
+                          height: "100%",
+                          top: 0,
+                          left: 0,
+                        }}
+                        src="../../images/5acrosspic.jpg"
+                        alt="Events"
+                      />
+                      <span className={styles.overlayText}>Events</span>
+                    </div>
+                  </BrandButton>
+
+                  <TeamInfoModal
+                    show={teamInfoDiv === "events"}
+                    onHide={hideTeamDiv}
+                    title="EVENTS"
+                    content="Our Events Team on Team Alpha is looking for a driven intern to assist with community events. Ideal candidates will have strong attention to detail, excellent people skills, and the ability to multitask in fast-paced environments. This role requires someone who is organized, creative, socially confident, and highly self-motivated. A passion for community events, leadership qualities, and a willingness to take initiative are essential."
+                    color="#ED3742"
+                    team="events"
+                    autoFocus={false}
+                    returnFocusOnClose={false}
+                  />
+                </div>
+              </Col>
+              <Col xs={12} md={6} lg={3} className="mb-4">
+                <div className={styles.tbDiv}>
+                  <BrandButton
+                    onClick={() => showTeamDiv("vcfund")}
+                    className={styles.overlayBtn}
+                  >
+                    <div className={styles.imageWrapper}>
+                      <StaticImage
+                        placeholder="blurred"
+                        className={`${styles.teamImages} d-none d-sm-block`}
+                        style={{
+                          position: "absolute",
+                          width: "100%",
+                          height: "100%",
+                          top: 0,
+                          left: 0,
+                        }}
+                        src="../../images/fellowshipdemoday.jpg"
+                        alt="Venture Capital Fund"
+                      />
+                      <span className={styles.overlayText}>
+                        Venture Capital Fund
+                      </span>
+                    </div>
+                  </BrandButton>
+
+                  <TeamInfoModal
+                    show={teamInfoDiv === "vcfund"}
+                    onHide={hideTeamDiv}
+                    title="VENTURE CAPITAL FUND"
+                    content="The Awesome Fund Venture Team works to identify, evaluate, and support high-potential early-stage startups across Kentucky and the surrounding region. Our mission is to deploy capital strategically while helping founders build durable, high-growth companies. We accomplish this through proactive deal sourcing, founder meetings, market research, financial analysis, investment memos, and portfolio support initiatives. Typically, we look for interns with strengths in analytical thinking, research, writing, financial modeling, communication, and a strong interest in startups and venture capital."
+                    color="#2E7D32"
+                    team="vcfund"
+                    autoFocus={false}
+                    returnFocusOnClose={false}
+                  />
+                </div>
+              </Col>
+              <Col xs={12} md={6} lg={3} className="mb-4">
+                <div className={styles.tbDiv}>
+                  <BrandButton
+                    onClick={() => showTeamDiv("kehof")}
+                    className={styles.overlayBtn}
+                  >
+                    <div className={styles.imageWrapper}>
+                      <StaticImage
+                        placeholder="blurred"
+                        className={`${styles.teamImages} d-none d-sm-block`}
+                        style={{
+                          position: "absolute",
+                          width: "100%",
+                          height: "100%",
+                          top: 0,
+                          left: 0,
+                        }}
+                        src="../../images/kefofimage.jpg"
+                        alt="Kentucky Entrepreneur Hall of Fame"
+                      />
+                      <span className={styles.overlayText}>
+                        Kentucky Entrepreneur Hall of Fame
+                      </span>
+                    </div>
+                  </BrandButton>
+
+                  <TeamInfoModal
+                    show={teamInfoDiv === "kehof"}
+                    onHide={hideTeamDiv}
+                    title="KENTUCKY ENTREPRENEUR HALL OF FAME"
+                    content="The KEHOF team focuses on preserving the legacy of Kentucky business while inspiring its future. We accomplish this through several avenues, including our physical gallery, digital archives, induction events, and multimedia storytelling. Typically, we look for interns with strengths in research, strategic marketing, and networking."
+                    color="#FFD700"
+                    team="kehof"
+                    autoFocus={false}
+                    returnFocusOnClose={false}
+                  />
+                </div>
+              </Col>
+              <Col xs={12} md={6} lg={3} className="mb-4">
+                <div className={styles.tbDiv}>
+                  <BrandButton
+                    onClick={() => showTeamDiv("outreach")}
+                    className={styles.overlayBtn}
+                  >
+                    <div className={styles.imageWrapper}>
+                      <StaticImage
+                        placeholder="blurred"
+                        className={`${styles.teamImages} d-none d-sm-block`}
+                        style={{
+                          position: "absolute",
+                          width: "100%",
+                          height: "100%",
+                          top: 0,
+                          left: 0,
+                        }}
+                        src="../../images/Summerretreat.jpg"
+                        alt="Outreach"
+                      />
+                      <span className={styles.overlayText}>Outreach</span>
+                    </div>
+                  </BrandButton>
+
+                  <TeamInfoModal
+                    show={teamInfoDiv === "outreach"}
+                    onHide={hideTeamDiv}
+                    title="OUTREACH"
+                    content="Our Outreach team on Team Alpha is looking for community-minded leaders with experience in social media and event coordination, with a heart for service, to help build a community centered on entrepreneurship, technology, and connection with a high level of execution."
+                    color="#0066CC"
+                    team="outreach"
+                    showLink={false}
                     autoFocus={false}
                     returnFocusOnClose={false}
                   />
@@ -457,6 +818,29 @@ const InternshipsPage = ({ data }) => {
           </Carousel.Item>
         ))}
       </Carousel>
+
+      {/* Alumni logos slider */}
+      {alumniLogoSlides.length > 0 && (
+        <Container fluid className={styles.alumniLogosSection}>
+          <Row className="mb-4">
+            <Col className="text-center">
+              <Title className="text-center mt-5 text-uppercase text--red">
+                Where Our Interns Work
+              </Title>
+            </Col>
+          </Row>
+          <div ref={logoSliderRef} className="keen-slider">
+            {alumniLogoSlides.map((slide, idx) => (
+              <div className="keen-slider__slide" key={idx}>
+                <GatsbyImage
+                  image={slide.image.asset.gatsbyImageData}
+                  alt="Alumni company logo"
+                />
+              </div>
+            ))}
+          </div>
+        </Container>
+      )}
 
       {/*Apply Now */}
       <Container fluid>
