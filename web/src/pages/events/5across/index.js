@@ -18,24 +18,19 @@ import "../../../styles/main.scss";
 import * as styles from "./fiveAcross.module.scss";
 import TestimonialCarousel from "../../../components/TestimonialCarousel/TestimonialCarousel";
 const fiveAcrossPage = ({ data }) => {
-  const titleSponsorName =
-    data.allSanityFiveAcrossSponsors.nodes[0].titleSp.title || {};
-  const titleSponsorLink =
-    data.allSanityFiveAcrossSponsors.nodes[0].titleSp.link || {};
-  const titleSponsorImage =
-    data.allSanityFiveAcrossSponsors.nodes[0].titleSp.image.asset
-      .gatsbyImageData || {};
+  const sponsorsNode = data.allSanityFiveAcrossSponsors.nodes[0];
+  const titleSp = sponsorsNode?.titleSp;
+  const presentingSp = sponsorsNode?.presentingSp;
 
-  const presentingSponsorName =
-    data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.title || {};
-  const presentingSponsorLink =
-    data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.link || {};
-  const presentingSponsorImage =
-    data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.image.asset
-      .gatsbyImageData || {};
+  const titleSponsorName = titleSp?.title ?? "";
+  const titleSponsorLink = titleSp?.link ?? "";
+  const titleSponsorImage = titleSp?.image?.asset?.gatsbyImageData;
 
-  const suppourtingSponsors =
-    data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors || {};
+  const presentingSponsorName = presentingSp?.title ?? "";
+  const presentingSponsorLink = presentingSp?.link ?? "";
+  const presentingSponsorImage = presentingSp?.image?.asset?.gatsbyImageData;
+
+  const suppourtingSponsors = sponsorsNode?.suppourtingSponsors ?? [];
 
   const fiveAcrossWinners = data.allSanityFiveAcrossWinners.edges || {};
   const previousWinner = fiveAcrossWinners[fiveAcrossWinners.length - 1].node;
@@ -519,13 +514,30 @@ const fiveAcrossPage = ({ data }) => {
           </Col>
         </Row>
         <Row className="text-center my-5">
-          {titleSponsorLink !== null ? (
+          {titleSponsorImage ? (
             <>
               <Col lg="12" className="my-3">
                 <Title className="fs-2">Title Sponsor</Title>
               </Col>
               <Col lg="12" className="my-2">
-                <a href={titleSponsorLink} target="_blank">
+                {titleSponsorLink ? (
+                  <a
+                    href={titleSponsorLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ delay: 0.3, duration: 0.6 }}
+                    >
+                      <GatsbyImage
+                        image={titleSponsorImage}
+                        alt={titleSponsorName}
+                      />
+                    </motion.div>
+                  </a>
+                ) : (
                   <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -536,7 +548,7 @@ const fiveAcrossPage = ({ data }) => {
                       alt={titleSponsorName}
                     />
                   </motion.div>
-                </a>
+                )}
               </Col>
             </>
           ) : null}
@@ -544,18 +556,37 @@ const fiveAcrossPage = ({ data }) => {
             <Title className="fs-2 my-5">Presenting Sponsor</Title>
           </Col>
           <Col lg="12" className="my-2">
-            <a href={presentingSponsorLink} target="_blank">
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-              >
-                <GatsbyImage
-                  image={presentingSponsorImage}
-                  alt={presentingSponsorName}
-                />
-              </motion.div>
-            </a>
+            {presentingSponsorImage ? (
+              presentingSponsorLink ? (
+                <a
+                  href={presentingSponsorLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 0.6 }}
+                  >
+                    <GatsbyImage
+                      image={presentingSponsorImage}
+                      alt={presentingSponsorName}
+                    />
+                  </motion.div>
+                </a>
+              ) : (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.3, duration: 0.6 }}
+                >
+                  <GatsbyImage
+                    image={presentingSponsorImage}
+                    alt={presentingSponsorName}
+                  />
+                </motion.div>
+              )
+            ) : null}
           </Col>
         </Row>
         <Row className="my-5">
