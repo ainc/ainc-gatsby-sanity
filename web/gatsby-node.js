@@ -196,20 +196,6 @@ async function createTutorialsPages(graphql, actions) {
   });
 }
 
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions;
-  createTypes(`
-    type SanityIntroAlumniCarousel implements Node {
-      _id: String!
-      name: String
-      jobTitle: String
-      cohort: String
-      order: Int
-      image: SanityImage
-    }
-  `);
-};
-
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createRedirect } = actions;
   //internal
