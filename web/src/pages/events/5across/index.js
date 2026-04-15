@@ -36,7 +36,6 @@ const fiveAcrossPage = ({ data }) => {
 
   const suppourtingSponsors =
     data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors || {};
-  
 
   const fiveAcrossWinners = data.allSanityFiveAcrossWinners.edges || {};
   const previousWinner = fiveAcrossWinners[fiveAcrossWinners.length - 1].node;
@@ -44,11 +43,10 @@ const fiveAcrossPage = ({ data }) => {
   const testimonials = data.allSanityFiveAcrossTestimonials.nodes[0] || {};
 
   const fiveAcrossEvents = data.allSanityEvents.nodes || {};
-  
 
   const scroll = () => {
     eventsRef.current.scrollIntoView({ behavior: "smooth" });
-  }
+  };
 
   let years = [];
 
@@ -114,22 +112,28 @@ const fiveAcrossPage = ({ data }) => {
               transition={{ delay: 1.0, duration: 0.4 }}
             >
               <Row className="">
-                  <Col md="auto" className="d-flex justify-content-center mb-3">
-                    <a
-                      href="https://forms.zohopublic.com/virtualoffice9155/form/5AcrossApplication1/formperma/i3hM2QiFcJG1DM_nCW8jQvMplp5UUFgRbKc5Ev8kuiA"
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      <BrandButton className={`secondary text-uppercase`}>
-                        Apply to Pitch
-                      </BrandButton>
-                    </a>
-                  </Col>
-                  <Col md="auto" className={`${styles.customCol} justify-content-center`}>
-                    <BrandButton className={`secondary text-uppercase`} onClick={() => scrollToSection(eventsRef)}>
-                      Register to Attend
+                <Col md="auto" className="d-flex justify-content-center mb-3">
+                  <a
+                    href="https://forms.zohopublic.com/virtualoffice9155/form/5AcrossApplication1/formperma/i3hM2QiFcJG1DM_nCW8jQvMplp5UUFgRbKc5Ev8kuiA"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <BrandButton className={`secondary text-uppercase`}>
+                      Apply to Pitch
                     </BrandButton>
-                  </Col>
+                  </a>
+                </Col>
+                <Col
+                  md="auto"
+                  className={`${styles.customCol} justify-content-center`}
+                >
+                  <BrandButton
+                    className={`secondary text-uppercase`}
+                    onClick={() => scrollToSection(eventsRef)}
+                  >
+                    Register to Attend
+                  </BrandButton>
+                </Col>
               </Row>
             </motion.div>
           </Col>
@@ -256,17 +260,23 @@ const fiveAcrossPage = ({ data }) => {
               </BrandButton>
             </a>
           </Col>
-          <Col md="auto" className={`${styles.customCol} justify-content-center`}>
+          <Col
+            md="auto"
+            className={`${styles.customCol} justify-content-center`}
+          >
             {/* <EventBriteModal> */}
-              <BrandButton className={`secondary text-uppercase`} onClick={() => scrollToSection(eventsRef)}>
-                Register to Attend
-              </BrandButton>
+            <BrandButton
+              className={`secondary text-uppercase`}
+              onClick={() => scrollToSection(eventsRef)}
+            >
+              Register to Attend
+            </BrandButton>
             {/* </EventBriteModal> */}
           </Col>
         </Row>
       </Container>
       {/*Testimonials */}
-      <Container>        
+      <Container>
         <TestimonialCarousel images={testimonials} />
       </Container>
       <Container fluid className={`mt-5 ${styles.pastPitches}`}>
@@ -275,7 +285,8 @@ const fiveAcrossPage = ({ data }) => {
             <Title
               className={`${styles.largeText} text-white mt-5  text-uppercase`}
             >
-              Celebrating 15 years of putting the spotlight on Kentucky Entrepreneurs!
+              Celebrating 15 years of putting the spotlight on Kentucky
+              Entrepreneurs!
             </Title>
             <BrandButton
               className="mt-3 mb-5"
@@ -301,42 +312,44 @@ const fiveAcrossPage = ({ data }) => {
         <Row className="mt-5 justify-content-center align-items-center">
           {/* White box */}
           <Col lg="6" md="6" xs="8" className="bg-white rounded-4">
-              <Container fluid className="mt-2">
-                <EventBriteModal link={data.allSanityEvents.nodes[0].linkToEvent}>
-                  <Row>
-                    <Col className="d-flex justify-content-center align-items-center">
-                      {/* <StaticImage
+            <Container fluid className="mt-2">
+              <EventBriteModal link={data.allSanityEvents.nodes[0].linkToEvent}>
+                <Row>
+                  <Col className="d-flex justify-content-center align-items-center">
+                    {/* <StaticImage
                         placeholder="blurred"
                         quality="100"
                         className="img-fluid"
                         src="../../../images/5across-banner.png"
                         alt="5across logo"
                       /> */}
-                      <StaticImage
-                        placeholder="blurred"
-                        quality="100"
-                        className="img-fluid"
-                        src="../../../images/5AcrossLogo_15_black@6x.png"
-                        alt="5across logo"
-                      />
-                    </Col>
-                    {/* changed headings in this section from h6, font size utilities currently aren't working but should look normal once the utilities work */}
-                    <Col className="" lg="8">
-                      <h2 className="text--red  fw-bold">{data.allSanityEvents.nodes[0].date}</h2>{" "}
-                      {/*need to  */}
-                      <h4 className="text--black fw-light ">
-                        Location: {data.allSanityEvents.nodes[0].location}
-                      </h4>{" "}
-                      {/*Location*/}
-                      <h3 className="text--black ">
-                        {data.allSanityEvents.nodes[0].eventName ?? "Untitled Event"}
-                      </h3>{" "}
-                      {/*title */}
-                    </Col>
-                  </Row>
-                </EventBriteModal>
-              </Container>
-
+                    <StaticImage
+                      placeholder="blurred"
+                      quality="100"
+                      className="img-fluid"
+                      src="../../../images/5AcrossLogo_15_black@6x.png"
+                      alt="5across logo"
+                    />
+                  </Col>
+                  {/* changed headings in this section from h6, font size utilities currently aren't working but should look normal once the utilities work */}
+                  <Col className="" lg="8">
+                    <h2 className="text--red  fw-bold">
+                      {data.allSanityEvents.nodes[0].date}
+                    </h2>{" "}
+                    {/*need to  */}
+                    <h4 className="text--black fw-light ">
+                      Location: {data.allSanityEvents.nodes[0].location}
+                    </h4>{" "}
+                    {/*Location*/}
+                    <h3 className="text--black ">
+                      {data.allSanityEvents.nodes[0].eventName ??
+                        "Untitled Event"}
+                    </h3>{" "}
+                    {/*title */}
+                  </Col>
+                </Row>
+              </EventBriteModal>
+            </Container>
           </Col>
         </Row>
         <Row className="mt-5">
@@ -356,13 +369,13 @@ const fiveAcrossPage = ({ data }) => {
           </Col>
         </Row>
       </Container>
-      
+
       {/* UPCOMING EVENTS*/}
-      <div 
-        className={`${styles.customContainer} ${styles.noHorizontalSpacing}`} 
-        id='upcomingEvents'
+      <div
+        className={`${styles.customContainer} ${styles.noHorizontalSpacing}`}
+        id="upcomingEvents"
         ref={eventsRef}
-        >
+      >
         <Title className={`${styles.largeText} text-uppercase py-lg-5`}>
           All upcoming five across events
         </Title>
@@ -371,9 +384,9 @@ const fiveAcrossPage = ({ data }) => {
             fiveAcrossEvents.map((node) => (
               <div
                 className={`${styles.flexItem} ${styles.contentWrapper}`}
-                key={node.eventName ?? node.id}>
-
-                <Event 
+                key={node.eventName ?? node.id}
+              >
+                <Event
                   image={node.picture.asset.gatsbyImageData}
                   date={node.date}
                   host={node.host}
@@ -384,9 +397,9 @@ const fiveAcrossPage = ({ data }) => {
               </div>
             ))
           ) : (
-          <div className={`${styles.noEventsMessage}`}>
-            <p>No upcoming events</p>
-          </div>
+            <div className={`${styles.noEventsMessage}`}>
+              <p>No upcoming events</p>
+            </div>
           )}
         </div>
       </div>
@@ -422,7 +435,7 @@ const fiveAcrossPage = ({ data }) => {
                   placeholder="blurred"
                   src="../../../images/5across-banner.png"
                   alt=""
-                /> 
+                />
               </Col>
             </Row>
           </Col>
@@ -506,20 +519,27 @@ const fiveAcrossPage = ({ data }) => {
           </Col>
         </Row>
         <Row className="text-center my-5">
-          <Col lg="12" className="my-3">
-            <Title className="fs-2">Title Sponsor</Title>
-          </Col>
-          <Col lg="12" className="my-2">
-            <a href={titleSponsorLink} target="_blank">
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-              >
-                <GatsbyImage image={titleSponsorImage} alt={titleSponsorName} />
-              </motion.div>
-            </a>
-          </Col>
+          {titleSponsorLink !== null ? (
+            <>
+              <Col lg="12" className="my-3">
+                <Title className="fs-2">Title Sponsor</Title>
+              </Col>
+              <Col lg="12" className="my-2">
+                <a href={titleSponsorLink} target="_blank">
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 0.6 }}
+                  >
+                    <GatsbyImage
+                      image={titleSponsorImage}
+                      alt={titleSponsorName}
+                    />
+                  </motion.div>
+                </a>
+              </Col>
+            </>
+          ) : null}
           <Col lg="12" className="my-2">
             <Title className="fs-2 my-5">Presenting Sponsor</Title>
           </Col>
