@@ -21,8 +21,12 @@ export default {
         list: [
           { title: "Marketing", value: "Marketing" },
           { title: "Video", value: "Video" },
-          { title: "Web Development", value: "Web Development" },
+          { title: "Development", value: "Development" },
           { title: "Design", value: "Design" },
+          { title: "Events", value: "Events" },
+          { title: "VC Fund", value: "VC Fund" },
+          { title: "KEHOF", value: "KEHOF" },
+          { title: "Outreach", value: "Outreach" },
         ],
       },
     },
