@@ -1,7 +1,7 @@
-// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------  
 @import "../../styles/variables";
 @import "../../styles/mixins";
-// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------  
 
 .banner {
   text-align: center;
@@ -32,6 +32,14 @@
 
   a:hover {
     color: #de3640;
-    // animation: color-change;
+  }
+
+  .countdown {
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 16px; // matches normal p size
+    @include screen-tablet-max {
+      font-size: 14px;
+    }
   }
 }
