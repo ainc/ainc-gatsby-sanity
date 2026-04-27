@@ -19,11 +19,6 @@ import Desktop from "../../images/Rent_Workspace.png";
 import Rocket from "../../images/accelerate-your-startup.png";
 import HTMLBrackets from "../../images/Learn_To_Code.png";
 
-import ApaxLogo from "../../images/partnership/chase_logo.png";
-import ChaseLogo from "../../images/partnership/chase_logo.png";
-import KineticLogo from "../../images/partnership/kinetic_logoStacked_RGB_R_white_bgnd.png";
-import CommerceLexLogo from "../../images/partnership/commerce-lexington-logo.jpg";
-
 export const query_partnership = graphql`
   query PartnersPage {
     allSanityPartnershipSponsors(sort: { fields: order, order: ASC }) {
@@ -213,7 +208,7 @@ const PartnershipsPage = ({ data }) => {
       </Container>
 
       {/* Perks section*/}
-      <Container className="text-center">
+      {/* <Container className="text-center">
         <Row className="mb-5 ">
           <Title className={`${styles.values} mx-auto my-5 text-uppercase`}>
             Being a Partner Has It's Perks
@@ -256,7 +251,7 @@ const PartnershipsPage = ({ data }) => {
             ))}
           </Col>
         </Row>
-      </Container>
+      </Container> */}
 
       {/*Oppurtunites Section */}
       <Container fluid className={styles.opportunitesHeading}>
