@@ -1,18 +1,29 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
 
 import * as styles from "./FiveAcrossWinnersCard.module.scss";
 
 const FiveAcrossWinnersCard = (props) => {
-  let d = new Date(props.fiveAcrossDate);
-  let formattedDate = d.toLocaleDateString("en-GB", {
-    //formats date as MMMM YYYY
-    month: "long",
-    year: "numeric",
-    timeZone: "UTC",
-  });
+  const founderList = React.useMemo(() => {
+    const founderNames = props.founders?.trim();
+
+    if (!founderNames) {
+      return [];
+    }
+
+    return founderNames
+      .split(",")
+      .map((nameChunk) => nameChunk.trim())
+      .filter(Boolean)
+      .flatMap((nameChunk) =>
+        nameChunk
+          .split(/\s*&\s*|\s+and\s+/i)
+          .map((namePart) => namePart.trim())
+          .filter(Boolean),
+      );
+  }, [props.founders]);
 
   //if no video is set by sanity, then default link to 5Across playlist
   let setDefaultVideo = props.founderVideo
@@ -20,24 +31,38 @@ const FiveAcrossWinnersCard = (props) => {
     : "https://www.youtube.com/playlist?list=PL_YvoQ-KM3YHl7D29MzJClPvRqp_PL7me";
 
   return (
-    <Row className="my-5">
-      <Col sm="12">
-        <div className={styles.headerBorder}>
-          {/* need to change headings to start from h1 and increase by one for accessibility */}
-          <h4 className={`${styles.headingSubtitle}`}>
-            <span>{formattedDate}</span>
-          </h4>
-          <h4 className="mt-3">{props.companyTitle}</h4>
-          <h4 className={styles.bodyText}>Founders:</h4>
-          <h4 className={`mb-3 ${styles.bodyText}`}>{props.founders}</h4>
-          <div className={styles.videoButton}>
-            <a href={setDefaultVideo}>
-              <BrandButton>Watch Video</BrandButton>
-            </a>
-          </div>
+    <article
+      className={`${styles.card} ${props.className || ""} ${props.isActive ? styles.activeCard : ""} ${props.dense ? styles.denseCard : ""}`}
+    >
+      <h3 className={styles.companyTitle}>{props.companyTitle}</h3>
+      <div className={styles.foundersBlock}>
+        <p className={styles.foundersLabel}>Founders:</p>
+        {founderList.length ? (
+          <ul className={styles.foundersList}>
+            {founderList.map((founder) => (
+              <li
+                key={`${props.companyTitle}-${founder}`}
+                className={styles.foundersText}
+              >
+                {founder}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className={styles.foundersText}>Founder info coming soon</p>
+        )}
+      </div>
+
+      {props.winnerImage ? (
+        <div className={styles.imageWrap}>
+          <GatsbyImage image={props.winnerImage} alt={props.companyTitle} />
         </div>
-      </Col>
-    </Row>
+      ) : null}
+
+      <a href={setDefaultVideo} target="_blank" rel="noopener noreferrer">
+        <BrandButton className={styles.watchButton}>Watch Video</BrandButton>
+      </a>
+    </article>
   );
 };
 
