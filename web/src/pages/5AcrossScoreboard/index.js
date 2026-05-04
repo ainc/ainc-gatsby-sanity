@@ -10,10 +10,10 @@ import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 const FiveAcrossScoreboard = ({ data }) => {
   const [formName, setFormName] = useState("");
   const [filteredData, setFilteredData] = useState(
-    data.allGoogleSheet.nodes[0].Sheet1,
+    data.allGoogleSpreadsheet.nodes[0].Sheet1,
   );
 
-  const nodes = data.allGoogleSheet.nodes[0].Sheet1;
+  const nodes = data.allGoogleSpreadsheet.nodes[0].Sheet1;
   const nextFiveAcross = data.allSanityEvents.nodes || {};
   nodes.sort((a, b) => b.events - a.events);
   nodes.forEach((node, index) => {
@@ -125,7 +125,7 @@ const FiveAcrossScoreboard = ({ data }) => {
 
 export const query_scoreboard = graphql`
   query scoreboardQuery($currentDate: Date) {
-    allGoogleSheet {
+    allGoogleSpreadsheet {
       nodes {
         Sheet1 {
           firstName
