@@ -52,7 +52,7 @@ export default {
     {
       name: "jobTitle",
       type: "string",
-      title: "Job Tile",
+      title: "Job Title",
       validation: (Rule) =>
         Rule.custom((value, context) => {
           // Check if isRequired is true and conditionalField is empty
