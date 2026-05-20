@@ -440,8 +440,19 @@ const fiveAcrossPage = ({ data }) => {
       {/* PREVIOUS WINNER SECTION */}
       <Container className="mt-5">
         <Row className="mt-5 text-center">
-          <Title className={`${styles.largeText} text-uppercase`}>
-            Or Revisit a Previous Winner
+          <Title
+            className={`${styles.largeText} ${styles.revisitWinnerHeading} text-uppercase`}
+          >
+            <span className="d-none d-sm-inline">
+              Or Revisit a Previous Winner
+            </span>
+            <StaticImage
+              placeholder="blurred"
+              quality={100}
+              src="../../../images/Confetti Over words.png"
+              alt="Revisit our past winners"
+              className={`${styles.revisitWinnerImage} d-block d-sm-none`}
+            />
           </Title>
         </Row>
         <Row>
