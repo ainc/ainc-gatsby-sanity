@@ -1,269 +1,80 @@
-import React, { useState } from "react";
-import Layout from "../../components/Layout/Layout";
-import { motion } from "framer-motion";
-// import { graphql } from "gatsby";
-import { Container, Row, Col, Button } from "react-bootstrap";
-import SEO from "../../components/seo";
-import * as styles from "./workspace.module.css";
-import BorderlessCard from "../../components/BorderlessCard/BorderlessCard";
-import Amenities from "../../components/Amenities/Amenities";
-import Title from "../../components/UI/Title/Title";
-import Subtitle from "../../components/UI/Subtitle/Subtitle";
-import BrandButton from "../../components/UI/BrandButton/BrandButton";
-import SeeTheSpace from "./Components/SeeTheSpace/SeeTheSpace";
-import ModalCustom from "../../components/Modal/ModalCustom";
+import React from "react";
+import WorkspacePageShell from "./shared/WorkspacePageShell";
+import WorkspaceSparkHero from "./shared/WorkspaceSparkHero";
+import WorkspaceSparkSection from "./shared/WorkspaceSparkSection";
+import WorkspaceOfferingTiles from "./shared/WorkspaceOfferingTiles";
+import WorkspaceStartupsSection from "./shared/WorkspaceStartupsSection";
+import WorkspaceMembershipBand from "./shared/WorkspaceMembershipBand";
+import WorkspaceVideoStrip from "./shared/WorkspaceVideoStrip";
+import WorkspaceSparkAmenities from "./shared/WorkspaceSparkAmenities";
+import WorkspaceSparkContact from "./shared/WorkspaceSparkContact";
+import WorkspaceSparkCta from "./shared/WorkspaceSparkCta";
+import { WORKSPACE_CTAS } from "./constants/ctaPlaceholders";
+import { HUB_HERO, HUB_STORY, HUB_MEMBERSHIPS } from "./data/pageContent";
+import * as styles from "./shared/workspaceShared.module.scss";
 
-//Image Links Below
-import Mail from "../../images/virtual-member-mail.png";
-import Desktop from "../../images/Desk.png";
-import Lock from "../../images/lock.png";
-import Wifi from "../../images/wifi.png";
-import MailAddress from "../../images/mailing-address.png";
-import Chair from "../../images/chair.png";
-import Events from "../../images/events-hosted.png";
-import Printer from "../../images/printer.png";
-import PingPong from "../../images/ping-pong.png";
-import Bubble from "../../images/thinking-room.png";
-import Podcast from "../../images/podcadsting-room.png";
-import Mentor from "../../images/mentor.png";
-import Lightbulb from "../../images/indoor-outdoor.png";
-import Scooter from "../../images/electric-scooter.png";
-import ThreeDPrinter from "../../images/3d-printer.png";
+const WorkspacePage = () => (
+  <WorkspacePageShell>
+    <WorkspaceSparkHero
+      eyebrow={HUB_HERO.eyebrow}
+      title={HUB_HERO.title}
+      lead={HUB_HERO.lead}
+      stats={HUB_HERO.stats}
+      primaryCta={WORKSPACE_CTAS.bookTour}
+      secondaryCta={WORKSPACE_CTAS.buyDayPass}
+    />
 
-const WorkspacePage = () => {
-  const [lgShow, setLgShow] = useState(false);
-  const handleClose = () => setLgShow(false);
-  const handleShow = () => setLgShow(true);
+    <WorkspaceSparkSection
+      variant="light"
+      eyebrow={HUB_STORY.eyebrow}
+      title={HUB_STORY.title}
+      titleStyle="sub"
+    >
+      <p className={styles.prose}>{HUB_STORY.body}</p>
+    </WorkspaceSparkSection>
 
-  return (
-    <Layout>
-      {/* Hero */}
-      <section>
-        <div className={styles.headerWorkspace}>
-          <Container>
-            <Row>
-              <Col
-                className={` ${styles.lgxHeadingArea} ${styles.lgxHeading} `}
-              >
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.5, duration: 0.8 }}
-                >
-                  <Title
-                    className={`${styles.headingTitle} ${styles.extraBold} text-white`}
-                  >
-                    Workspace
-                  </Title>
-                  <Subtitle className={styles.headingSubtitle}>
-                    <i className="text-white">Get your best work done here.</i>
-                  </Subtitle>
-                </motion.div>
-              </Col>
-            </Row>
-          </Container>
-        </div>
-      </section>
+    <WorkspaceSparkSection
+      variant="muted"
+      eyebrow="A Place to Start. A Place to Stay."
+      title="Explore Our Workspace"
+      lead="Coworking, private offices, meeting rooms, and event space — each with its own page and pricing."
+    >
+      <WorkspaceOfferingTiles />
+    </WorkspaceSparkSection>
 
-      {/* See The Space */}
-      <section className={styles.spotlightAdult}>
-        <SeeTheSpace />
-      </section>
+    <WorkspaceStartupsSection />
 
-      {/* Become a member */}
-      <section className={styles.member}>
-        <Container>
-          <Row>
-            <Title
-              className={`${styles.headingTitle} ${styles.extraBold} ${styles.lineHeight}`}
-            >
-              Become a member
-            </Title>
-          </Row>
+    <WorkspaceSparkSection
+      variant="light"
+      eyebrow="Memberships"
+      title="Find the Right Fit"
+      lead="Compare options below or visit each offering for full details."
+    >
+      <div className={styles.membershipStack}>
+        {HUB_MEMBERSHIPS.map((item) => (
+          <WorkspaceMembershipBand
+            key={item.title}
+            eyebrow={item.eyebrow}
+            title={item.title}
+            price={item.price}
+            body={item.body}
+            linkCta={{ label: item.ctaLabel, path: item.path }}
+          />
+        ))}
+        <WorkspaceMembershipBand
+          eyebrow="Built for Community"
+          title="Book Events"
+          price="Custom packages"
+          body="Host meetups, trainings, and community gatherings in our event-ready spaces."
+          linkCta={{ label: "Book event space", path: "/book-events" }}
+        />
+      </div>
+    </WorkspaceSparkSection>
 
-          <Row>
-            <Col md={4} sm={12}>
-              <BorderlessCard
-                imgModal="#"
-                imgSrc={Mail}
-                header="VIRTUAL MEMBER"
-                infoOne="DOWNTOWN MAILING ADDRESS"
-                infoTwo="CONFERENCE ROOM ACCESS"
-                infoThree="MEMBER EXCLUSIVE EVENTS"
-                price="$75/MONTH"
-                imgAlt=""
-                id=""
-              />
-            </Col>
-            <Col md={4} sm={12}>
-              <BorderlessCard
-                imgModal="#"
-                arial-labelledby="open-desk-membership"
-                imgSrc={Desktop}
-                header="OPEN DESK MEMBER"
-                infoOne="24/7 Access to Our Space"
-                infoTwo="Conference Room Access"
-                infoThree="Member Exclusive Events"
-                price="$199/MONTH"
-                imgAlt=""
-              />
-            </Col>
-            {/* The lock image is a lot larger than the other images, so an extra prop was needed to even this out, aka classN. */}
-            <Col md={4} sm={12}>
-              <BorderlessCard
-                imgModal="#"
-                imgSrc={Lock}
-                header="PRIVATE OFFICE"
-                infoOne="Private Office Space"
-                infoTwo="Conference Room Access"
-                infoThree="Member Exclusive Events"
-                price="Reach out for Pricing"
-                imgAlt=""
-                classN={styles.lockIcon}
-              />
-            </Col>
-          </Row>
-        </Container>
-      </section>
-
-      {/* Membership amenities */}
-      <section className={styles.spotlightAdult}>
-        <Container fluid>
-          <Row>
-            <Title
-              className={`${styles.headingTitle} ${styles.extraBold} ${styles.amenities} ${styles.lineHeight}`}
-            >
-              Membership Amenities
-            </Title>
-          </Row>
-          <Row className={styles.spotlightAdult}>
-            <Col xl={{ span: 8, offset: 2 }} lg={{ span: 9, offset: 2 }}>
-              <Row>
-                {/* Various Amenities */}
-                <Col md={6} sm={12}>
-                  <Amenities
-                    info="Secure Wi-Fi, Gigabit Internet"
-                    imgSrc={Wifi}
-                    imgAlt="Wifi Access"
-                  />
-                </Col>
-                <Col md={6} sm={12}>
-                  <Amenities
-                    info="Downtown Mailing Address"
-                    imgSrc={MailAddress}
-                    imgAlt="Mailing Address"
-                  />
-                </Col>
-                <Col md={6} sm={12}>
-                  <Amenities
-                    info="Conference + Meeting Rooms"
-                    imgSrc={Chair}
-                    imgAlt="Conference Rooms"
-                  />
-                </Col>
-                <Col md={6} sm={12}>
-                  <Amenities
-                    info="Networking Events"
-                    imgSrc={Events}
-                    imgAlt="Networking Events"
-                  />
-                </Col>
-                <Col md={6} sm={12}>
-                  <Amenities
-                    info="Print + Copy"
-                    imgSrc={Printer}
-                    imgAlt="Printing and Copying"
-                  />
-                </Col>
-                <Col md={6} sm={12}>
-                  <Amenities
-                    info="Breakroom + Kitchen"
-                    imgSrc={PingPong}
-                    imgAlt="Breakroom and Kitchen"
-                  />
-                </Col>
-                <Col md={6} sm={12}>
-                  <Amenities
-                    info="Thinking Room"
-                    imgSrc={Bubble}
-                    imgAlt="Thinking Room"
-                  />
-                </Col>
-                <Col md={6} sm={12}>
-                  <Amenities
-                    info="Mentorship"
-                    imgSrc={Mentor}
-                    imgAlt="Mentorship Access"
-                  />
-                </Col>
-                <Col md={6} sm={12}>
-                  <Amenities
-                    info="Podcasting Room"
-                    imgSrc={Podcast}
-                    imgAlt="Podcast Room"
-                  />
-                </Col>
-                <Col md={6} sm={12}>
-                  <Amenities
-                    info="Indoor/Outdoor space"
-                    imgSrc={Lightbulb}
-                    imgAlt="Indoor/Outdoor space"
-                  />
-                </Col>
-                <Col md={6} sm={12}>
-                  <Amenities
-                    info="Electric Scooters"
-                    imgSrc={Scooter}
-                    imgAlt="Electric Scooters"
-                  />
-                </Col>
-                <Col md={6} sm={12}>
-                  <Amenities
-                    info="3D Printer"
-                    imgSrc={ThreeDPrinter}
-                    imgAlt="3D Printer"
-                  />
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-          <Container fluid className="my-3">
-            <Row>
-              <Col>
-                <a
-                  href="https://calendly.com/awesometour/30min?"
-                  target="_blank"
-                >
-                  <Button className={styles.btnCustom}>Schedule A Tour</Button>
-                </a>
-              </Col>
-
-              {/*<Button onClick={handleShow} className={styles.btnCustom}> if want to add modal later
-                  Schedule A Tour
-                </Button>
-              <ModalCustom 
-                lgShow={lgShow} 
-                hide={handleClose} 
-                title="Schedule a Tour" 
-                content={
-                  //Pass HTML here
-                  <Container>
-                    <Row>
-                      <Subtitle>this is a test</Subtitle>
-                    </Row>
-                    <Row>
-                      <BrandButton>Hello</BrandButton>
-                    </Row>
-                  </Container>
-                }
-                />
-                */}
-            </Row>
-          </Container>
-        </Container>
-      </section>
-    </Layout>
-  );
-};
+    <WorkspaceVideoStrip />
+    <WorkspaceSparkAmenities />
+    <WorkspaceSparkContact />
+  </WorkspacePageShell>
+);
 
 export default WorkspacePage;

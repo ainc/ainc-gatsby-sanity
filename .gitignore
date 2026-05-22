@@ -16,3 +16,8 @@
 
 # Environment Files
 .env*
+
+# Local Cursor brand assets (PDFs, photos) — README + tokens.md are tracked
+.cursor/brand/*
+!.cursor/brand/README.md
+!.cursor/brand/tokens.md

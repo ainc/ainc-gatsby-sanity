@@ -7,6 +7,11 @@
   width: 100%;
 }
 
+.amenityRow {
+  text-align: left;
+  width: 100%;
+}
+
 .amenity {
   border-radius: 50%;
   margin: 0rem 0.5rem 0rem 0rem;
