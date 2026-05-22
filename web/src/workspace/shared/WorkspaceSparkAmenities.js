@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import Amenities from "../../../components/Amenities/Amenities";
+import Amenities from "../../components/Amenities/Amenities";
 import { WORKSPACE_AMENITIES } from "../data/amenitiesData";
 import WorkspaceSparkSection from "./WorkspaceSparkSection";
 import * as styles from "./workspaceShared.module.scss";

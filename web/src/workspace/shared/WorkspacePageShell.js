@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../../../components/Layout/Layout";
+import Layout from "../../components/Layout/Layout";
 import * as styles from "./workspaceShared.module.scss";
 
 const WorkspacePageShell = ({ children }) => (

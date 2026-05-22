@@ -1,10 +1,10 @@
 import React from "react";
-import WorkspacePageShell from "../workspace/shared/WorkspacePageShell";
-import WorkspaceSparkHero from "../workspace/shared/WorkspaceSparkHero";
-import WorkspaceSparkSection from "../workspace/shared/WorkspaceSparkSection";
-import WorkspaceMembershipBand from "../workspace/shared/WorkspaceMembershipBand";
-import WorkspaceSparkContact from "../workspace/shared/WorkspaceSparkContact";
-import { WORKSPACE_CTAS } from "../workspace/constants/ctaPlaceholders";
+import WorkspacePageShell from "../../workspace/shared/WorkspacePageShell";
+import WorkspaceSparkHero from "../../workspace/shared/WorkspaceSparkHero";
+import WorkspaceSparkSection from "../../workspace/shared/WorkspaceSparkSection";
+import WorkspaceMembershipBand from "../../workspace/shared/WorkspaceMembershipBand";
+import WorkspaceSparkContact from "../../workspace/shared/WorkspaceSparkContact";
+import { WORKSPACE_CTAS } from "../../workspace/constants/ctaPlaceholders";
 
 const EVENT_OFFERINGS = [
   {

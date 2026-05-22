@@ -1,6 +1,6 @@
 import React from "react";
 import WorkspacePillars from "./WorkspacePillars";
-import startupsImage from "../../../images/bootcampteampic.jpg";
+import startupsImage from "../../images/bootcampteampic.jpg";
 import * as styles from "./workspaceShared.module.scss";
 
 const STARTUPS_COPY = {

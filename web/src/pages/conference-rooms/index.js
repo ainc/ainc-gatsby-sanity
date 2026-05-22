@@ -1,13 +1,13 @@
 import React from "react";
-import WorkspacePageShell from "../workspace/shared/WorkspacePageShell";
-import WorkspaceSparkHero from "../workspace/shared/WorkspaceSparkHero";
-import WorkspaceSparkSection from "../workspace/shared/WorkspaceSparkSection";
-import WorkspaceSparkAmenities from "../workspace/shared/WorkspaceSparkAmenities";
-import WorkspaceSparkContact from "../workspace/shared/WorkspaceSparkContact";
-import WorkspaceSparkCta from "../workspace/shared/WorkspaceSparkCta";
-import RoomCapacityIcons from "../workspace/shared/RoomCapacityIcons";
-import { WORKSPACE_CTAS } from "../workspace/constants/ctaPlaceholders";
-import * as styles from "../workspace/shared/workspaceShared.module.scss";
+import WorkspacePageShell from "../../workspace/shared/WorkspacePageShell";
+import WorkspaceSparkHero from "../../workspace/shared/WorkspaceSparkHero";
+import WorkspaceSparkSection from "../../workspace/shared/WorkspaceSparkSection";
+import WorkspaceSparkAmenities from "../../workspace/shared/WorkspaceSparkAmenities";
+import WorkspaceSparkContact from "../../workspace/shared/WorkspaceSparkContact";
+import WorkspaceSparkCta from "../../workspace/shared/WorkspaceSparkCta";
+import RoomCapacityIcons from "../../workspace/shared/RoomCapacityIcons";
+import { WORKSPACE_CTAS } from "../../workspace/constants/ctaPlaceholders";
+import * as styles from "../../workspace/shared/workspaceShared.module.scss";
 
 const ROOMS = [
   {

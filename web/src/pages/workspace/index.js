@@ -1,17 +1,21 @@
 import React from "react";
-import WorkspacePageShell from "./shared/WorkspacePageShell";
-import WorkspaceSparkHero from "./shared/WorkspaceSparkHero";
-import WorkspaceSparkSection from "./shared/WorkspaceSparkSection";
-import WorkspaceOfferingTiles from "./shared/WorkspaceOfferingTiles";
-import WorkspaceStartupsSection from "./shared/WorkspaceStartupsSection";
-import WorkspaceMembershipBand from "./shared/WorkspaceMembershipBand";
-import WorkspaceVideoStrip from "./shared/WorkspaceVideoStrip";
-import WorkspaceSparkAmenities from "./shared/WorkspaceSparkAmenities";
-import WorkspaceSparkContact from "./shared/WorkspaceSparkContact";
-import WorkspaceSparkCta from "./shared/WorkspaceSparkCta";
-import { WORKSPACE_CTAS } from "./constants/ctaPlaceholders";
-import { HUB_HERO, HUB_STORY, HUB_MEMBERSHIPS } from "./data/pageContent";
-import * as styles from "./shared/workspaceShared.module.scss";
+import WorkspacePageShell from "../../workspace/shared/WorkspacePageShell";
+import WorkspaceSparkHero from "../../workspace/shared/WorkspaceSparkHero";
+import WorkspaceSparkSection from "../../workspace/shared/WorkspaceSparkSection";
+import WorkspaceOfferingTiles from "../../workspace/shared/WorkspaceOfferingTiles";
+import WorkspaceStartupsSection from "../../workspace/shared/WorkspaceStartupsSection";
+import WorkspaceMembershipBand from "../../workspace/shared/WorkspaceMembershipBand";
+import WorkspaceVideoStrip from "../../workspace/shared/WorkspaceVideoStrip";
+import WorkspaceSparkAmenities from "../../workspace/shared/WorkspaceSparkAmenities";
+import WorkspaceSparkContact from "../../workspace/shared/WorkspaceSparkContact";
+import WorkspaceSparkCta from "../../workspace/shared/WorkspaceSparkCta";
+import { WORKSPACE_CTAS } from "../../workspace/constants/ctaPlaceholders";
+import {
+  HUB_HERO,
+  HUB_STORY,
+  HUB_MEMBERSHIPS,
+} from "../../workspace/data/pageContent";
+import * as styles from "../../workspace/shared/workspaceShared.module.scss";
 
 const WorkspacePage = () => (
   <WorkspacePageShell>

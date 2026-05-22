@@ -1,8 +1,8 @@
 import { WORKSPACE_PAGES } from "../constants/ctaPlaceholders";
-import coworkingImg from "../../../images/workspace/offering-coworking.jpg";
-import privateOfficeImg from "../../../images/workspace/offering-private-office.jpg";
-import conferenceImg from "../../../images/workspace/offering-conference.jpg";
-import eventsImg from "../../../images/workspace/offering-events.jpg";
+import coworkingImg from "../../images/workspace/offering-coworking.jpg";
+import privateOfficeImg from "../../images/workspace/offering-private-office.jpg";
+import conferenceImg from "../../images/workspace/offering-conference.jpg";
+import eventsImg from "../../images/workspace/offering-events.jpg";
 
 /** Stock placeholders (Unsplash) — replace with Awesome Inc photography when ready */
 const OFFERING_MEDIA_BY_PATH = {

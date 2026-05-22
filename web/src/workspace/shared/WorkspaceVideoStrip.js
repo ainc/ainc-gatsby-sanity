@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Thumbnail from "../../../images/private-office-thumbnail.png";
-import ModalCustom from "../../../components/Modal/ModalCustom";
+import Thumbnail from "../../images/private-office-thumbnail.png";
+import ModalCustom from "../../components/Modal/ModalCustom";
 import WorkspaceSparkCta from "./WorkspaceSparkCta";
 import { WORKSPACE_CTAS } from "../constants/ctaPlaceholders";
 import { FaPlay } from "react-icons/fa";

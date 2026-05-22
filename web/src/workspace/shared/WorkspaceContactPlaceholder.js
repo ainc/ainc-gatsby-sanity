@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import BrandButton from "../../../components/UI/BrandButton/BrandButton";
-import Title from "../../../components/UI/Title/Title";
+import BrandButton from "../../components/UI/BrandButton/BrandButton";
+import Title from "../../components/UI/Title/Title";
 import { WORKSPACE_CTAS } from "../constants/ctaPlaceholders";
 import * as styles from "./workspaceShared.module.scss";
 

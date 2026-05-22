@@ -1,5 +1,5 @@
 import React from "react";
-import BrandButton from "../../../components/UI/BrandButton/BrandButton";
+import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import * as styles from "./workspaceShared.module.scss";
 
 const WorkspaceCtaButton = ({ cta, className = "" }) => (

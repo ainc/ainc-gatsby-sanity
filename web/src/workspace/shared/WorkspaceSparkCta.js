@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import BrandButton from "../../../components/UI/BrandButton/BrandButton";
+import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import * as styles from "./workspaceShared.module.scss";
 
 const isInternal = (href) => href?.startsWith("/") && !href.startsWith("//");

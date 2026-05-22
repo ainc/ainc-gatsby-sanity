@@ -1,12 +1,12 @@
 import React from "react";
-import WorkspacePageShell from "../workspace/shared/WorkspacePageShell";
-import WorkspaceSparkHero from "../workspace/shared/WorkspaceSparkHero";
-import WorkspaceSparkSection from "../workspace/shared/WorkspaceSparkSection";
-import WorkspaceMembershipBand from "../workspace/shared/WorkspaceMembershipBand";
-import WorkspaceSparkAmenities from "../workspace/shared/WorkspaceSparkAmenities";
-import WorkspaceSparkContact from "../workspace/shared/WorkspaceSparkContact";
-import { WORKSPACE_CTAS } from "../workspace/constants/ctaPlaceholders";
-import * as styles from "../workspace/shared/workspaceShared.module.scss";
+import WorkspacePageShell from "../../workspace/shared/WorkspacePageShell";
+import WorkspaceSparkHero from "../../workspace/shared/WorkspaceSparkHero";
+import WorkspaceSparkSection from "../../workspace/shared/WorkspaceSparkSection";
+import WorkspaceMembershipBand from "../../workspace/shared/WorkspaceMembershipBand";
+import WorkspaceSparkAmenities from "../../workspace/shared/WorkspaceSparkAmenities";
+import WorkspaceSparkContact from "../../workspace/shared/WorkspaceSparkContact";
+import { WORKSPACE_CTAS } from "../../workspace/constants/ctaPlaceholders";
+import * as styles from "../../workspace/shared/workspaceShared.module.scss";
 
 const PLANS = [
   {

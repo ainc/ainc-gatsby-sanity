@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import BrandButton from "../../../components/UI/BrandButton/BrandButton";
+import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import * as styles from "./workspaceShared.module.scss";
 
 const WorkspaceHero = ({ title, subtitle, primaryCta, secondaryCta }) => (

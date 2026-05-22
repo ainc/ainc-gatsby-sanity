@@ -1,5 +1,5 @@
-@import "../../../styles/variables.scss";
-@import "../../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
 
 /* Workspace marketing — Sparkhaus-style layout, Awesome Inc Brand Book 2023 tokens */
 
@@ -24,7 +24,7 @@
       rgba(50, 50, 50, 0.72) 50%,
       rgba(193, 32, 41, 0.45) 100%
     ),
-    url("../../../images/ainc-workspace-header-3.png");
+    url("../../images/ainc-workspace-header-3.png");
   background-size: cover;
   background-position: center 40%;
   color: $white-color;

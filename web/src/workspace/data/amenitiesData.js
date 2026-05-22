@@ -1,15 +1,15 @@
-import Wifi from "../../../images/wifi.png";
-import MailAddress from "../../../images/mailing-address.png";
-import Chair from "../../../images/chair.png";
-import Events from "../../../images/events-hosted.png";
-import Printer from "../../../images/printer.png";
-import PingPong from "../../../images/ping-pong.png";
-import Bubble from "../../../images/thinking-room.png";
-import Podcast from "../../../images/podcadsting-room.png";
-import Mentor from "../../../images/mentor.png";
-import Lightbulb from "../../../images/indoor-outdoor.png";
-import Scooter from "../../../images/electric-scooter.png";
-import ThreeDPrinter from "../../../images/3d-printer.png";
+import Wifi from "../../images/wifi.png";
+import MailAddress from "../../images/mailing-address.png";
+import Chair from "../../images/chair.png";
+import Events from "../../images/events-hosted.png";
+import Printer from "../../images/printer.png";
+import PingPong from "../../images/ping-pong.png";
+import Bubble from "../../images/thinking-room.png";
+import Podcast from "../../images/podcadsting-room.png";
+import Mentor from "../../images/mentor.png";
+import Lightbulb from "../../images/indoor-outdoor.png";
+import Scooter from "../../images/electric-scooter.png";
+import ThreeDPrinter from "../../images/3d-printer.png";
 
 /** Copied from /workspace membership amenities */
 export const WORKSPACE_AMENITIES = [
