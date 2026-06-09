@@ -16,3 +16,9 @@
 
 # Environment Files
 .env*
+
+# Cursor - ignore local state, keep shared config
+.cursor/*
+!.cursor/rules/
+!.cursor/brand/
+!.cursor/hooks.json
