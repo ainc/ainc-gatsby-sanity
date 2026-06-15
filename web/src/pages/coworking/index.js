@@ -10,24 +10,9 @@ import * as styles from "../../workspace/shared/workspaceShared.module.scss";
 
 const PLANS = [
   {
-    eyebrow: "Drop in for a day",
-    title: "Day Pass",
-    price: "$35 / day",
-    body: "Same-day access to open desk areas, Wi-Fi, and breakroom. Book conference rooms à la carte when you need them.",
-    cta: WORKSPACE_CTAS.buyDayPass,
-  },
-  {
-    eyebrow: "Collaborate and thrive",
-    title: "Open Desk Member",
+    title: "Coworking Membership",
     price: "$199 / month",
-    body: "24/7 access, conference room privileges, and member-exclusive events. Our most popular plan for full-time builders.",
-    cta: WORKSPACE_CTAS.bookTour,
-  },
-  {
-    eyebrow: "Work from anywhere, mail from downtown",
-    title: "Virtual Member",
-    price: "$75 / month",
-    body: "Downtown mailing address, conference access, and programming — without a dedicated desk.",
+    body: "Perfect for remote workers, freelancers, and founders looking for a professional workspace and a collaborative community to grow with.",
     cta: WORKSPACE_CTAS.bookTour,
   },
 ];
@@ -35,10 +20,9 @@ const PLANS = [
 const CoworkingPage = () => (
   <WorkspacePageShell>
     <WorkspaceSparkHero
-      eyebrow="Co-working"
-      title="Collaborate in Shared Workspace"
-      lead="Flexible memberships and day passes for founders, freelancers, and remote teams at Awesome Inc."
-      stats="Purchase a day pass to try the space, or choose a monthly membership with conference access included."
+      eyebrow="Coworking"
+      title="Convenience. Community. Coworking."
+      lead="Open desk memberships and day passes for founders, freelancers, and remote teams at Awesome Inc."
       primaryCta={WORKSPACE_CTAS.buyDayPass}
       secondaryCta={WORKSPACE_CTAS.bookTour}
     />
@@ -46,8 +30,8 @@ const CoworkingPage = () => (
     <WorkspaceSparkSection
       variant="light"
       eyebrow="For Every Stage of Growth"
-      title="Memberships"
-      lead="Co-working at Awesome Inc emphasizes connection — a vibrant space where ideas flourish and entrepreneurs meet."
+      title="Membership"
+      lead="Coworking at Awesome Inc emphasizes connection — a vibrant space where ideas flourish and entrepreneurs meet."
     >
       <div className={styles.membershipStack}>
         {PLANS.map((plan) => (
@@ -61,22 +45,6 @@ const CoworkingPage = () => (
           />
         ))}
       </div>
-    </WorkspaceSparkSection>
-
-    <WorkspaceSparkSection
-      variant="muted"
-      eyebrow="Need a Room?"
-      title="Conference + Meeting Space"
-      lead="Members can book thinking rooms and conference space by the hour."
-      align="center"
-    >
-      <WorkspaceMembershipBand
-        eyebrow="Book online"
-        title="Schedule a Room"
-        price="From $25 / hour"
-        body="Paid scheduling through Zoho will connect here — reserve space for clients, workshops, or team syncs."
-        cta={WORKSPACE_CTAS.scheduleConferenceRoom}
-      />
     </WorkspaceSparkSection>
 
     <WorkspaceSparkAmenities />

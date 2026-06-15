@@ -29,19 +29,9 @@ const WorkspacePage = () => (
     />
 
     <WorkspaceSparkSection
-      variant="light"
-      eyebrow={HUB_STORY.eyebrow}
-      title={HUB_STORY.title}
-      titleStyle="sub"
-    >
-      <p className={styles.prose}>{HUB_STORY.body}</p>
-    </WorkspaceSparkSection>
-
-    <WorkspaceSparkSection
       variant="muted"
       eyebrow="A Place to Start. A Place to Stay."
       title="Explore Our Workspace"
-      lead="Coworking, private offices, meeting rooms, and event space — each with its own page and pricing."
     >
       <WorkspaceOfferingTiles />
     </WorkspaceSparkSection>
@@ -77,6 +67,16 @@ const WorkspacePage = () => (
 
     <WorkspaceVideoStrip />
     <WorkspaceSparkAmenities />
+
+    <WorkspaceSparkSection
+      variant="light"
+      eyebrow={HUB_STORY.eyebrow}
+      title={HUB_STORY.title}
+      titleStyle="sub"
+    >
+      <p className={styles.prose}>{HUB_STORY.body}</p>
+    </WorkspaceSparkSection>
+
     <WorkspaceSparkContact />
   </WorkspacePageShell>
 );

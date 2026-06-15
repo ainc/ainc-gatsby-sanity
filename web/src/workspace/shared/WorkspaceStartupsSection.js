@@ -4,7 +4,7 @@ import startupsImage from "../../images/bootcampteampic.jpg";
 import * as styles from "./workspaceShared.module.scss";
 
 const STARTUPS_COPY = {
-  eyebrow: "Co-working & Collaboration",
+  eyebrow: "Coworking & Collaboration",
   title: "Startups & High-Growth Teams",
   lead: "Builders and doers who need flexible space, community, and room to grow.",
   imageAlt: "Entrepreneurs collaborating at Awesome Inc Workspace",

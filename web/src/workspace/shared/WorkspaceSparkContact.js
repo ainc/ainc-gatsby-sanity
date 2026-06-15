@@ -11,7 +11,6 @@ const WorkspaceSparkContact = () => {
     <WorkspaceSparkSection
       id="workspace-contact"
       variant="dark"
-      align="center"
       eyebrow="Let's Talk"
       title="Ready to See the Space?"
       lead="Book a tour, ask about availability, or tell us what you need — our team will follow up shortly."

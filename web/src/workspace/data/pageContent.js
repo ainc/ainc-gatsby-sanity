@@ -26,10 +26,10 @@ const OFFERING_MEDIA_BY_PATH = {
 
 export const HUB_HERO = {
   eyebrow: "Awesome Inc Workspace",
-  title: "Be Part of a Powerful Community",
+  title: "Get Your Best Work Done Here",
   lead: "We exist to create and grow high-tech startups — with community events, education, and a shared workspace environment downtown.",
   stats:
-    "Coworking, private offices, conference rooms, and event space for builders, founders, and growing teams in Lexington.",
+    "15,000 sq ft of coworking space, 25 private offices, meeting + conference rooms, and event space.",
 };
 
 export const HUB_STORY = {
@@ -53,15 +53,25 @@ export const HUB_PILLARS = [
   },
 ];
 
-export const HUB_OFFERINGS = WORKSPACE_PAGES.map((page) => ({
-  ...page,
-  ...OFFERING_MEDIA_BY_PATH[page.path],
-}));
+export const HUB_OFFERINGS = [
+  ...WORKSPACE_PAGES.map((page) => ({
+    ...page,
+    ...OFFERING_MEDIA_BY_PATH[page.path],
+  })),
+  {
+    title: "Virtual Office / Mailing",
+    path: "/coworking",
+    description:
+      "A downtown Lexington mailing address and member perks — without a desk.",
+    image: privateOfficeImg,
+    imageAlt: "Downtown mailing address and virtual office services",
+  },
+];
 
 export const HUB_MEMBERSHIPS = [
   {
     eyebrow: "Collaborate in shared space",
-    title: "Co-working",
+    title: "Coworking",
     price: "From $75 / month · Day pass $35",
     body: "Hot desks, open seating, and member events. Add conference time as you need it.",
     path: "/coworking",

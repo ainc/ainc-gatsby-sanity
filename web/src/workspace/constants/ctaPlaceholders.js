@@ -15,6 +15,11 @@ export const WORKSPACE_CTAS = {
     href: "#zoho-day-pass",
     note: "Zoho checkout — placeholder",
   },
+  buyVirtualMembership: {
+    label: "Buy Virtual Membership",
+    href: "#zoho-virtual-membership",
+    note: "Zoho checkout — placeholder",
+  },
   joinOfficeWaitlist: {
     label: "Join the Waitlist",
     href: "#zoho-private-office-waitlist",
