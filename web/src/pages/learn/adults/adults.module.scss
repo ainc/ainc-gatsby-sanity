@@ -3,6 +3,13 @@
 @import "../../../styles/mixins.scss";
 // -----------------------------------------------------------------------------
 
+// Contain the full-bleed alumni carousel (width: 100vw) so the scrollbar-width
+// overflow doesn't create a horizontal scroll. `clip` avoids forcing a vertical
+// scroll container the way `hidden` would.
+.pageWrap {
+  overflow-x: clip;
+}
+
 .text {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
@@ -31,7 +38,7 @@
       rgba(0, 0, 0, 0.1),
       rgba(0, 0, 0, 0.9)
     ),
-    url("../../../images/Into-to-web-dev-homepage-pic.jpg");
+    url("../../../images/adults-intro-header.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom center;
@@ -268,7 +275,7 @@
       rgba(178, 18, 18, 0.15) 60%,
       rgba(178, 18, 18, 0) 75%
     ),
-    url(../../../images/introtowebdevelopment1.1.jpg);
+    url(../../../images/adults-web-dev-gradient.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -584,7 +591,9 @@
   letter-spacing: 0.12em;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22);
   border-radius: 8px;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition:
+    background-color 0.2s,
+    box-shadow 0.2s;
 
   &:hover {
     background-color: #d92d38;
@@ -711,7 +720,10 @@
   color: #c12029;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.14);
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
 
   &:hover {
     background: #fff;
