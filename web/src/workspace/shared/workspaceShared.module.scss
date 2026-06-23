@@ -696,6 +696,85 @@
   align-items: flex-start;
 }
 
+/* —— Zoho embed (custom modal iframe) —— */
+.zohoModalRoot {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 3vh, 2.5rem) clamp(0.5rem, 2vw, 1.5rem);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.zohoModalOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.zohoModalBackdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.zohoModalDialog {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: min(1200px, 96vw);
+  max-height: 94vh;
+  background: $white-color;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+}
+
+.zohoModalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.25rem;
+  background: $brand-color2;
+  color: $white-color;
+}
+
+.zohoModalTitle {
+  font-family: $heading-font;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.zohoModalClose {
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  color: $white-color;
+  font-size: 1.85rem;
+  line-height: 1;
+  padding: 0 0.35rem;
+  cursor: pointer;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: $brand-red-bright;
+  }
+}
+
+.zohoEmbedFrame {
+  width: 100%;
+  height: min(85vh, 900px);
+  border: none;
+  background-color: transparent;
+}
+
 /* —— Contact (via WorkspaceSparkSection align=center) —— */
 .contactBlock {
   width: 100%;

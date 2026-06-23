@@ -60,7 +60,7 @@ export const HUB_OFFERINGS = [
   })),
   {
     title: "Virtual Office / Mailing",
-    path: "/coworking",
+    path: "/virtual-office",
     description:
       "A downtown Lexington mailing address and member perks — without a desk.",
     image: privateOfficeImg,
