@@ -370,7 +370,7 @@ const FellowshipPage = ({ data }) => {
                         Web development, video, and graphic design services
                       </li>
                       <li className="my-2">
-                        24/7 Access to Awesome Inc co-working space
+                        24/7 Access to Awesome Inc coworking space
                       </li>
                       <li className="my-2">
                         Access to pro bono legal and accounting services

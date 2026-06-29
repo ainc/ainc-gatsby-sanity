@@ -9,7 +9,7 @@
 
 .text--grey,
 .text--gray {
-  color: $brand-grey-dark;
+  color: $brand-color2;
 }
 
 .text--white {
@@ -54,9 +54,9 @@
 }
 
 .text--micro {
-  @include font-size(6);
+  @include font-size(10);
   @include screen-max {
-    @include font-size(8);
+    @include font-size(12);
   }
 }
 
