@@ -1,21 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card } from "react-bootstrap";
-import SEO from "../../../../components/seo";
 import Title from "../../../../components/UI/Title/Title";
 import Subtitle from "../../../../components/UI/Subtitle/Subtitle";
 
 const KPIBox = (props) => {
   return (
     <>
-      <SEO
-        title="KPI Box"
-        meta={[
-          {
-            name: "robots",
-            content: "noindex, nofollow",
-          },
-        ]}
-      />
       <Card
         className="text-center d-flex align-items-center justify-content-center"
         style={{

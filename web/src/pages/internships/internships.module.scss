@@ -192,17 +192,25 @@
 }
 
 .carousel-height {
-  @media (min-width: 250px) {
-    height: 100vh;
+  // Lock every slide to the tallest testimonial (measured at runtime into the
+  // --testimonial-min-h variable) so the section height never changes between
+  // slides. Shorter testimonials are vertically centered. Bottom padding keeps
+  // the indicator dots clear of the content.
+  padding-bottom: 3rem;
+
+  :global(.carousel-item) {
+    min-height: var(--testimonial-min-h, auto);
+    padding-top: 0.5rem;
   }
-  @media (min-width: 768px) {
-    height: 90vh;
-  }
-  @media (min-width: 1024px) {
-    height: 72vh;
-  }
-  @media (min-width: 1440px) {
-    height: 50vh;
+
+  // Center on the active slide AND the incoming/outgoing transition slides so
+  // the content doesn't shift vertically as a testimonial slides in.
+  :global(.carousel-item.active),
+  :global(.carousel-item-next),
+  :global(.carousel-item-prev) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 
