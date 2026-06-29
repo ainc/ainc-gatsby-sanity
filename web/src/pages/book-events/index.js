@@ -12,14 +12,12 @@ const EVENT_OFFERINGS = [
     title: "Workshops & Trainings",
     price: "20–80+ guests",
     body: "Classroom, theater, or reception-style setups with A/V support for presentations and livestreams.",
-    cta: WORKSPACE_CTAS.bookEventSpace,
   },
   {
     eyebrow: "Downtown location",
     title: "Meetups & Showcases",
     price: "Custom packages",
     body: "Pitch nights, community gatherings, and partner events in the heart of Lexington.",
-    cta: WORKSPACE_CTAS.bookEventSpace,
   },
   {
     eyebrow: "Full-service planning",
@@ -36,9 +34,8 @@ const BookEventsPage = () => (
       eyebrow="Events & Programs"
       title="Host Where Innovation Happens"
       lead="Our venue is built for networking, education, and celebration — book space for your next impactful event at Awesome Inc."
-      stats="Event booking runs through Zoho (placeholder). Members and partners receive priority scheduling."
-      primaryCta={WORKSPACE_CTAS.bookEventSpace}
-      secondaryCta={WORKSPACE_CTAS.bookTour}
+      stats="Members and partners receive priority scheduling."
+      primaryCta={WORKSPACE_CTAS.bookTour}
     />
 
     <WorkspaceSparkSection

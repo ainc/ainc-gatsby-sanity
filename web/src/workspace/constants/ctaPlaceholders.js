@@ -27,8 +27,12 @@ export const ZOHO_EMBEDS = {
   scheduleConferenceRoom: bookingsEmbed("4078485000002477034"),
   // Zoho Bookings — Buy a Day Pass (booked online, invoiced after the fact)
   buyDayPass: bookingsEmbed("4078485000002477172"),
-  // TODO: Zoho Checkout/Subscriptions — Buy Virtual Membership
-  buyVirtualMembership: "",
+  // Zoho Form — Virtual Membership Sign-Up
+  buyVirtualMembership:
+    "https://forms.zohopublic.com/virtualoffice9155/form/VirtualMembershipSignUp/formperma/Y542pIUv65K8VnE8YxlWaPmUJo2DTU20gYWZ_I_BGLU",
+  // Zoho Form — Coworking Membership Sign-Up
+  coworkingMembership:
+    "https://forms.zohopublic.com/virtualoffice9155/form/CoworkingMembershipSignUp/formperma/58SJy65I7DrTCAWWA11ASEosZPqyNPz9T4g9yoBRNt4",
   // TODO: Zoho Form — Private Office Waitlist
   joinOfficeWaitlist: "",
   // TODO: Zoho Form — Book Event Space
@@ -66,6 +70,11 @@ export const WORKSPACE_CTAS = {
     note: "Zoho checkout — placeholder",
     embedUrl: ZOHO_EMBEDS.buyVirtualMembership,
     modalTitle: "Buy Virtual Membership",
+  },
+  coworkingMembership: {
+    label: "Become a Member",
+    embedUrl: ZOHO_EMBEDS.coworkingMembership,
+    modalTitle: "Coworking Membership Sign-Up",
   },
   joinOfficeWaitlist: {
     label: "Join the Waitlist",

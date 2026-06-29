@@ -88,7 +88,7 @@ const ConferenceRoomsPage = () => (
       </div>
     </WorkspaceSparkSection>
 
-    <WorkspaceSparkContact />
+    <WorkspaceSparkContact contactCta={null} />
   </WorkspacePageShell>
 );
 

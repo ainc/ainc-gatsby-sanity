@@ -77,7 +77,7 @@ const WorkspacePage = () => (
       <p className={styles.prose}>{HUB_STORY.body}</p>
     </WorkspaceSparkSection>
 
-    <WorkspaceSparkContact />
+    <WorkspaceSparkContact contactCta={null} />
   </WorkspacePageShell>
 );
 

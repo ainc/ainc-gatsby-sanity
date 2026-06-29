@@ -48,7 +48,7 @@ const CoworkingPage = () => (
     </WorkspaceSparkSection>
 
     <WorkspaceSparkAmenities />
-    <WorkspaceSparkContact />
+    <WorkspaceSparkContact contactCta={WORKSPACE_CTAS.coworkingMembership} />
   </WorkspacePageShell>
 );
 

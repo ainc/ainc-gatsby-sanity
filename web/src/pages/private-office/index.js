@@ -33,7 +33,7 @@ const PrivateOfficePage = () => (
     </WorkspaceSparkSection>
 
     <WorkspaceSparkAmenities />
-    <WorkspaceSparkContact />
+    <WorkspaceSparkContact contactCta={null} />
   </WorkspacePageShell>
 );
 
