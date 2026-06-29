@@ -18,14 +18,10 @@ import Title from "../../components/UI/Title/Title";
 import BrandButton from "../../components/UI/BrandButton/BrandButton";
 import * as styles from "./internships.module.scss";
 import "./bootstrap-classes.scss";
-import internWhy from "/src/images/intern-why.jpg";
-import ModalCustom from "../../components/Modal/ModalCustom";
-import ModalButton from "../../components/ModalButton/ModalButton";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import Profile from "../../components/Profile/Profile";
-//import ButtonAndImage from '../../components/ButtonAndImage/ButtonAndImage'
 import TeamInfoModal from "./Components/TeamInfo";
 import QAModal from "./Components/QAModal";
 
@@ -96,6 +92,39 @@ const InternshipsPage = ({ data }) => {
   const allTeamAlpha = data.allSanityTeamAlpha.nodes || {};
 
   const [teamInfoDiv, setTeamInfoDiv] = useState(null);
+
+  // Lock the testimonials carousel to the tallest testimonial so the section
+  // height stays constant between slides (a changing height is jarring UI).
+  const testimonialCarouselRef = useRef(null);
+  useEffect(() => {
+    const root = testimonialCarouselRef.current;
+    if (!root) return undefined;
+
+    const measure = () => {
+      const items = root.querySelectorAll(".carousel-item");
+      if (!items.length) return;
+      // Reset the locked height so each slide reports its natural content height
+      root.style.setProperty("--testimonial-min-h", "0px");
+      let max = 0;
+      items.forEach((item) => {
+        const prevDisplay = item.style.display;
+        item.style.display = "block";
+        max = Math.max(max, item.offsetHeight);
+        item.style.display = prevDisplay;
+      });
+      if (max > 0) root.style.setProperty("--testimonial-min-h", `${max}px`);
+    };
+
+    measure();
+    // Re-measure once fonts/images settle and whenever the viewport reflows text
+    const settleTimer = setTimeout(measure, 300);
+    window.addEventListener("resize", measure);
+
+    return () => {
+      clearTimeout(settleTimer);
+      window.removeEventListener("resize", measure);
+    };
+  }, [allSanityInternTestimonials]);
 
   // setup auto-scrolling carousel for logos
   const [logoSliderRef] = useKeenSlider(
@@ -788,36 +817,38 @@ const InternshipsPage = ({ data }) => {
           </Title>
         </Row>
       </Container>
-      <Carousel indicators={true} className={`${styles.carouselHeight} my-3`}>
-        {allSanityInternTestimonials.map((node, index) => (
-          <Carousel.Item key={index}>
-            <Row className="d-flex justify-content-center">
-              <Col md={6}>
-                <p className="text-justify text-center">{node.testimonial}</p>
-              </Col>
-            </Row>
-            <Row>
-              <Col
-                md={6}
-                className="d-flex align-items-center justify-content-center justify-content-md-end"
-              >
-                <GatsbyImage
-                  image={node.picture.asset.gatsbyImageData}
-                  className="rounded-circle"
-                  alt={node.name}
-                />
-              </Col>
-              <Col className="pt-3 d-flex flex-column align-items-center align-items-md-start">
-                <Subtitle style={{ color: "#C12029" }}>{node.name}</Subtitle>
-                <p className="mb-0" style={{ fontStyle: "italic" }}>
-                  {node.cohort}
-                </p>
-                <p style={{ fontStyle: "italic" }}>{node.team}</p>
-              </Col>
-            </Row>
-          </Carousel.Item>
-        ))}
-      </Carousel>
+      <div ref={testimonialCarouselRef}>
+        <Carousel indicators={true} className={`${styles.carouselHeight} my-3`}>
+          {allSanityInternTestimonials.map((node, index) => (
+            <Carousel.Item key={index}>
+              <Row className="d-flex justify-content-center">
+                <Col md={6}>
+                  <p className="text-justify text-center">{node.testimonial}</p>
+                </Col>
+              </Row>
+              <Row>
+                <Col
+                  md={6}
+                  className="d-flex align-items-center justify-content-center justify-content-md-end"
+                >
+                  <GatsbyImage
+                    image={node.picture.asset.gatsbyImageData}
+                    className="rounded-circle"
+                    alt={node.name}
+                  />
+                </Col>
+                <Col className="pt-3 d-flex flex-column align-items-center align-items-md-start">
+                  <Subtitle style={{ color: "#C12029" }}>{node.name}</Subtitle>
+                  <p className="mb-0" style={{ fontStyle: "italic" }}>
+                    {node.cohort}
+                  </p>
+                  <p style={{ fontStyle: "italic" }}>{node.team}</p>
+                </Col>
+              </Row>
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      </div>
 
       {/* Alumni logos slider */}
       {alumniLogoSlides.length > 0 && (
