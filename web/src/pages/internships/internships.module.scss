@@ -1,6 +1,14 @@
 @use "sass:math";
 @import "../../styles/variables.scss";
 
+// Decorative, absolutely-positioned images (Team Alpha badge, billi mascot)
+// intentionally bleed past their containers. Clip the horizontal bleed so it
+// doesn't create a page-level horizontal scrollbar. `clip` (not `hidden`)
+// avoids creating a scroll container, so vertical scrolling/sticky still work.
+.page-wrap {
+  overflow-x: clip;
+}
+
 .header-section {
   background-image: url("../../images/team-alpha-header.jpg");
   background-repeat: no-repeat;
