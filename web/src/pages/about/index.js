@@ -209,7 +209,7 @@ export const query_accomplishments = graphql`
         name
         picture {
           asset {
-            gatsbyImageData(width: 200, fit: FILL)
+            gatsbyImageData(width: 200, height: 200, fit: CROP)
           }
         }
       }

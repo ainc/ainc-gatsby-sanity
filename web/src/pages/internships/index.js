@@ -79,7 +79,12 @@ export const query = graphql`
         role
         picture {
           asset {
-            gatsbyImageData(width: 250, layout: CONSTRAINED, aspectRatio: 1)
+            gatsbyImageData(
+              width: 250
+              height: 250
+              fit: CROP
+              layout: CONSTRAINED
+            )
           }
         }
       }
