@@ -47,7 +47,11 @@ const AboutPage = ({ data }) => {
                     business. We strive to make Lexington a better place to live
                     and work.
                   </p>
-                  <a href="/assets/culture-book.pdf">
+                  <a
+                    href="/assets/culture-book.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <BrandButton className={`text-nowrap`}>
                       View Our Culture Book
                     </BrandButton>
@@ -176,6 +180,48 @@ const AboutPage = ({ data }) => {
                   </Col>
                 ))}
               </Row>
+            </Col>
+          </Row>
+
+          {/* Culture Books */}
+          <Row
+            className={`justify-content-center text-center ${styles.cultureBlock}`}
+          >
+            <Col xs={12}>
+              <a
+                href="/assets/culture-book.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <BrandButton className={`text-nowrap`}>
+                  View Our Culture Book
+                </BrandButton>
+              </a>
+            </Col>
+            <Col xs={12} className="mt-4">
+              <p className={`mb-2 ${styles.oldBooksLabel}`}>
+                Previous editions:
+              </p>
+              <ul className={styles.oldBooks}>
+                <li>
+                  <a
+                    href="/assets/culture-book-2.2.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Culture Book v2
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/assets/culture-book-3.1.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Culture Book v3
+                  </a>
+                </li>
+              </ul>
             </Col>
           </Row>
         </Container>

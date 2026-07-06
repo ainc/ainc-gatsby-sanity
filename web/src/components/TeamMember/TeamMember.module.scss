@@ -1,77 +1,53 @@
-.img-link {
-  overflow: hidden;
-}
+// Card-flip hover effect: the front face shows the photo, the back face shows
+// the name. Hovering (or keyboard-focusing) the card rotates it 180deg.
 
-.figure {
-  position: relative;
-}
-
-.figcaption {
-  border-radius: 50%;
-  padding: 0 1rem 0 1rem;
+.team-member {
   width: 100%;
+  perspective: 800px;
+  outline: none;
 }
 
-.name-hover {
-  display: table;
-  width: 150;
-  height: 150%;
-  padding-bottom: 40px;
+.flip-inner {
+  position: relative;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.team-member:hover .flip-inner,
+.team-member:focus-visible .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 35px rgb(0 0 0 / 12%);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 0 0.5rem;
 }
 
-.lgx-vertical {
+.name {
   color: #c12029;
   font-size: 14px;
-  line-height: 2.4rem;
+  line-height: 1.4;
+  margin: 0;
 }
 
-figure figcaption {
-  /* position: absolute;
-  bottom: 50px;
-  background-color: rgba(255,255,255,0.7);
-  box-shadow: 0 20px 35px rgb(0,0,0 /12%);
-  transition-duration: .5s;
-  opacity: 0.5; */
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  bottom: 50px;
-  padding: 0 2rem 2rem 2rem;
-  background: rgba(255, 255, 255, 0.7);
-  -webkit-box-shadow: 0 20px 35px rgb(0 0 0 / 12%);
-  -moz-box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12);
-  box-shadow: 0 20px 35px rgb(0 0 0 / 12%);
-  -moz-transition-duration: 0.5s;
-  -webkit-transition-duration: 0.5s;
-  -o-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  opacity: 0;
-}
-
-.team-member figcaption:hover {
-  justify-content: center;
-  text-align: center;
-  height: 100%;
-  width: 100%;
-  bottom: 0;
-  opacity: 0.85;
-}
-
-/* 
-@media (max-width: 752px) {
-  .img-prop {
-    width: 200px;
-    height: 200px;
+@media (prefers-reduced-motion: reduce) {
+  .flip-inner {
+    transition: none;
   }
 }
-
-@media (max-width: 600px) {
-  .img-prop {
-    width: 250px;
-    height: 250px;
-  }
-} */

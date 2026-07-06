@@ -165,6 +165,40 @@
   padding: 4.2rem 0;
 }
 
+.cultureBlock {
+  margin-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.oldBooksLabel {
+  font-weight: 600;
+}
+
+.oldBooks {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.oldBooks li {
+  display: inline-block;
+  padding: 0 12px;
+}
+
+.oldBooks li + li {
+  border-left: 1px solid #c9c9c9;
+}
+
+.oldBooks a {
+  color: #a21b22;
+  text-decoration: none;
+}
+
+.oldBooks a:hover {
+  color: #ed3742;
+  text-decoration: underline;
+}
+
 .img-responsive {
   float: right !important;
   width: 250px;
