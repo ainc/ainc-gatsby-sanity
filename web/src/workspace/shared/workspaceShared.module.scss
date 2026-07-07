@@ -675,14 +675,6 @@
 }
 
 /* —— CTAs —— */
-.ctaNote {
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 0.85rem;
-  color: $brand-color2;
-  font-style: italic;
-}
-
 .ctaRow {
   display: flex;
   flex-wrap: wrap;
@@ -782,17 +774,6 @@
 
 .contactCtaRow {
   justify-content: flex-start;
-}
-
-.contactPlaceholder {
-  max-width: 560px;
-  margin: 2rem 0 0;
-  padding: 2.5rem 2rem;
-  border: 1px solid rgba($white-color, 0.25);
-  border-radius: 2px;
-  color: $white-color;
-  font-size: 1rem;
-  line-height: 1.6;
 }
 
 /* —— Video strip —— */

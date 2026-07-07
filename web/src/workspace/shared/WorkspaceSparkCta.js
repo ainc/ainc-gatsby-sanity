@@ -55,15 +55,7 @@ const WorkspaceSparkCta = ({ cta, variant = "primary", className = "" }) => {
     </BrandButton>
   );
 
-  const wrap = (node) => (
-    <span className={styles.inlineCtaWrap}>
-      {node}
-      {/* Only show the placeholder note while a real embed/link isn't wired yet */}
-      {!embedUrl && cta.note && (
-        <span className={styles.ctaNote}>{cta.note}</span>
-      )}
-    </span>
-  );
+  const wrap = (node) => <span className={styles.inlineCtaWrap}>{node}</span>;
 
   // Preferred: open the Zoho embed in a popup modal (with iframe pre-warming)
   if (embedUrl) {

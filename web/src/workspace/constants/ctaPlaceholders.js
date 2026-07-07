@@ -8,8 +8,7 @@
  *   • Zoho Checkout/Subscriptions → the hosted checkout/subscribe URL
  *
  * When a value is set, the matching CTA button opens that URL in a popup modal.
- * While a value is "" the button falls back to its placeholder `href` and shows
- * the placeholder note.
+ * While a value is "" the button falls back to its `href`.
  * ───────────────────────────────────────────────────────────────────────────
  */
 /**
@@ -46,28 +45,24 @@ export const WORKSPACE_CTAS = {
   bookTour: {
     label: "Book a Tour",
     href: "#zoho-book-tour",
-    note: "Zoho booking — placeholder",
     embedUrl: ZOHO_EMBEDS.bookTour,
     modalTitle: "Book a Tour",
   },
   scheduleConferenceRoom: {
     label: "Schedule a Conference Room",
     href: "#zoho-schedule-conference-room",
-    note: "Zoho paid scheduling — placeholder",
     embedUrl: ZOHO_EMBEDS.scheduleConferenceRoom,
     modalTitle: "Schedule a Conference Room",
   },
   buyDayPass: {
     label: "Buy a Day Pass",
     href: "#zoho-day-pass",
-    note: "Zoho checkout — placeholder",
     embedUrl: ZOHO_EMBEDS.buyDayPass,
     modalTitle: "Buy a Day Pass",
   },
   buyVirtualMembership: {
     label: "Buy Virtual Membership",
     href: "#zoho-virtual-membership",
-    note: "Zoho checkout — placeholder",
     embedUrl: ZOHO_EMBEDS.buyVirtualMembership,
     modalTitle: "Buy Virtual Membership",
   },
@@ -79,21 +74,18 @@ export const WORKSPACE_CTAS = {
   joinOfficeWaitlist: {
     label: "Join the Waitlist",
     href: "#zoho-private-office-waitlist",
-    note: "Zoho waitlist — placeholder",
     embedUrl: ZOHO_EMBEDS.joinOfficeWaitlist,
     modalTitle: "Join the Private Office Waitlist",
   },
   bookEventSpace: {
     label: "Book Event Space",
     href: "#zoho-book-events",
-    note: "Zoho events inquiry — placeholder",
     embedUrl: ZOHO_EMBEDS.bookEventSpace,
     modalTitle: "Book Event Space",
   },
   contactUs: {
     label: "Contact Us",
     href: "#workspace-contact",
-    note: "Zoho contact form — placeholder",
     embedUrl: ZOHO_EMBEDS.contactUs,
     modalTitle: "Contact Us",
   },

@@ -18,13 +18,6 @@ const WorkspaceSparkContact = ({ contactCta = WORKSPACE_CTAS.contactUs }) => {
           <WorkspaceSparkCta cta={WORKSPACE_CTAS.bookTour} variant="primary" />
           {contactCta && <WorkspaceSparkCta cta={contactCta} variant="ghost" />}
         </div>
-        {/* Dev placeholder only shows until a real embed/link is wired up */}
-        {contactCta && !contactCta.embedUrl && (
-          <div className={styles.contactPlaceholder}>
-            Zoho contact form embed will replace this block. Placeholder:{" "}
-            {contactCta.note}
-          </div>
-        )}
       </div>
     </WorkspaceSparkSection>
   );
