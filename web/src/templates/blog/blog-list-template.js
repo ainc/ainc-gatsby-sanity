@@ -188,7 +188,7 @@ export const query = graphql`
           previewText
           thumbnail {
             asset {
-              url
+              gatsbyImageData(width: 360, height: 270, layout: CONSTRAINED, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
             }
           }
           reference {
