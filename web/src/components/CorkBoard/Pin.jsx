@@ -2,14 +2,37 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { PIN_SIZE } from "./randomPlacement";
 
-const Pin = ({
+// Row index of each pin type in the "Pin Database" sheet
+const PIN_IMAGE_INDEX = {
+  "Be Good": 0,
+  "Be Excellent": 1,
+  "Be a Friend": 2,
+  "Be You": 3,
+  Billi: 4,
+  Oreo: 5,
+  Balloon: 6,
+  "5 Across": 7,
+  "Success Bell": 8,
+  "Startup Rocket": 9,
+  "Triangle Pin": 10,
+  "Work Anniversary": 11,
+  "Core Value Training": 12,
+  "Winter Retreat 2023": 13,
+  "Winter Retreat 2024": 14,
+  "Winter Retreat 2025": 15,
+};
+
+const DEFAULT_PIN_IMAGE = "/images/default-pin.png";
+
+// Memoized so page-level hover state changes don't re-render every pin
+const Pin = React.memo(function Pin({
   pin,
   setHoveredStory,
   pinType,
   imgLinks,
   scale,
   pinScale = 1,
-}) => {
+}) {
   const [dragging, setDragging] = useState(false);
 
   const handleDragStart = (e) => {
@@ -25,57 +48,10 @@ const Pin = ({
     );
   };
 
-  let imgSrc = "/images/default-pin.png";
-  switch (pinType) {
-    case "Be Good":
-      imgSrc = imgLinks[0].source;
-      break;
-    case "Be Excellent":
-      imgSrc = imgLinks[1].source;
-      break;
-    case "Be a Friend":
-      imgSrc = imgLinks[2].source;
-      break;
-    case "Be You":
-      imgSrc = imgLinks[3].source;
-      break;
-    case "Billi":
-      imgSrc = imgLinks[4].source;
-      break;
-    case "Oreo":
-      imgSrc = imgLinks[5].source;
-      break;
-    case "Balloon":
-      imgSrc = imgLinks[6].source;
-      break;
-    case "5 Across":
-      imgSrc = imgLinks[7].source;
-      break;
-    case "Success Bell":
-      imgSrc = imgLinks[8].source;
-      break;
-    case "Startup Rocket":
-      imgSrc = imgLinks[9].source;
-      break;
-    case "Triangle Pin":
-      imgSrc = imgLinks[10].source;
-      break;
-    case "Work Anniversary":
-      imgSrc = imgLinks[11].source;
-      break;
-    case "Core Value Training":
-      imgSrc = imgLinks[12].source;
-      break;
-    case "Winter Retreat 2023":
-      imgSrc = imgLinks[13].source;
-      break;
-    case "Winter Retreat 2024":
-      imgSrc = imgLinks[14].source;
-      break;
-    case "Winter Retreat 2025":
-      imgSrc = imgLinks[15].source;
-      break;
-  }
+  // Optional chaining keeps a missing row (or a failed pinImages fetch) from
+  // crashing the page — the pin just falls back to the default image.
+  const imgSrc =
+    imgLinks[PIN_IMAGE_INDEX[pinType]]?.source || DEFAULT_PIN_IMAGE;
 
   return (
     <motion.div
@@ -83,8 +59,8 @@ const Pin = ({
         position: "absolute",
         left: pin.x * scale,
         top: pin.y * scale,
-        width: PIN_SIZE * pinScale,
-        height: PIN_SIZE * pinScale,
+        width: PIN_SIZE * scale * pinScale,
+        height: PIN_SIZE * scale * pinScale,
         cursor: dragging ? "grabbing" : "grab",
         zIndex: dragging ? 1000 : 1,
       }}
@@ -99,11 +75,13 @@ const Pin = ({
       <img
         src={imgSrc}
         alt={pin.pinName}
-        style={{ width: 85 * scale * pinScale, height: "auto" }}
-        onError={(e) => (e.target.src = "/images/default-pin.png")}
+        loading="lazy"
+        decoding="async"
+        style={{ width: "100%", height: "auto" }}
+        onError={(e) => (e.target.src = DEFAULT_PIN_IMAGE)}
       />
     </motion.div>
   );
-};
+});
 
 export default Pin;
