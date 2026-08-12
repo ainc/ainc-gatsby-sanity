@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Container, Row, Col, Spinner } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { useStaticQuery, graphql } from "gatsby";
@@ -33,13 +33,8 @@ const PinBoardPage = () => {
 
   // Optimal window size is 1440px
   // Idea is to scale entire boards based on window size
-  const [windowSize, setWindowSize] = useState({
-    width: typeof window !== "undefined" ? window.innerWidth : 1440,
-    scale: 1,
-  });
-
   const [scale, setScale] = useState(1);
-  const [pinScale, setPinScale] = useState(0.8);
+  const [pinScale] = useState(0.8);
 
   useEffect(() => {
     if (typeof window === "undefined") return; // No effect during server side rendering
@@ -59,46 +54,59 @@ const PinBoardPage = () => {
         newScale = Number(x.toFixed(2));
       }
 
-      setWindowSize({
-        width,
-        scale: newScale,
-      });
       setScale(newScale);
     };
     updateScale();
 
+    // Debounce so we don't re-render every board on every resize tick
+    let resizeTimer;
     const handleResize = () => {
-      updateScale();
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(updateScale, 150);
     };
 
     window.addEventListener("resize", handleResize);
 
     return () => {
+      clearTimeout(resizeTimer);
       window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  // Build array of team members, including startDate
-  const teamMembers = (allSanityTeamMember.nodes || []).map((n) => ({
-    name: n.name,
-    pinName: n.recipientName || "",
-    startDate: n.startDate,
-    pictureUrl: n.picture?.asset?.url || "",
-  }));
+  // Build array of team members, including startDate. Memoized so memoized
+  // CorkBoards don't see a new array identity on every page render.
+  const teamMembers = useMemo(
+    () =>
+      (allSanityTeamMember.nodes || []).map((n) => ({
+        name: n.name,
+        pinName: n.recipientName || "",
+        startDate: n.startDate,
+        pictureUrl: n.picture?.asset?.url || "",
+      })),
+    [allSanityTeamMember],
+  );
 
   // Create a Set of valid team member names
-  const memberNames = new Set(teamMembers.map((m) => m.pinName));
+  const memberNames = useMemo(
+    () => new Set(teamMembers.map((m) => m.pinName)),
+    [teamMembers],
+  );
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const resp = await fetch("/api/sheet");
-        if (!resp.ok) throw new Error("Network response failed");
-        const { pins } = await resp.json();
+        // Fetch pins and pin images in parallel — each hits the Google Sheets
+        // API, so running them serially doubles the loading time.
+        const [resp, links] = await Promise.all([
+          fetch("/api/sheet"),
+          fetch("/api/pinImages"),
+        ]);
+        if (!resp.ok || !links.ok) throw new Error("Network response failed");
 
-        const links = await fetch("/api/pinImages");
-        if (!links.ok) throw new Error("Network response failed");
-        const { imgLinks } = await links.json();
+        const [{ pins }, { imgLinks }] = await Promise.all([
+          resp.json(),
+          links.json(),
+        ]);
         setLinks(imgLinks);
 
         const grouped = pins.reduce((acc, p) => {
@@ -127,23 +135,26 @@ const PinBoardPage = () => {
     fetchData();
   }, []);
 
-// Only keep boards whose recipient matches a team member and isn't Nathan
-  const filteredBoards = boards.filter((board) => {
-  const recipient = board.recipient?.trim();
+  // Only keep boards whose recipient matches a team member and isn't Nathan,
+  // then split in half for the two columns.
+  const { halfOneBoards, halfTwoBoards } = useMemo(() => {
+    const filtered = boards.filter((board) => {
+      const recipient = board.recipient?.trim();
 
-  // Skip null, undefined, or Nathan Wilson
-  if (!recipient || recipient === "Nathan Wilson") {
-    return false;
-  }
+      // Skip null, undefined, or Nathan Wilson
+      if (!recipient || recipient === "Nathan Wilson") {
+        return false;
+      }
 
-  const exists = memberNames.has(recipient);
-  return exists;
-});
+      return memberNames.has(recipient);
+    });
 
-  // Split array in half for purposes of two columns
-  const half = filteredBoards.length / 2;
-  const halfTwoBoards = filteredBoards.splice(0, half);
-  const halfOneBoards = filteredBoards.splice(0, filteredBoards.length);
+    const half = Math.floor(filtered.length / 2);
+    return {
+      halfTwoBoards: filtered.slice(0, half),
+      halfOneBoards: filtered.slice(half),
+    };
+  }, [boards, memberNames]);
 
   return (
     <Layout>

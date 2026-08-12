@@ -30,7 +30,9 @@ const clash = (spots, x, y) =>
       y + PIN_SIZE > s.y,
   );
 
-const CorkBoard = ({
+// Memoized: hover state lives on the page, so without memo every pin hover
+// re-renders every board (and every framer-motion pin) on the page.
+const CorkBoard = React.memo(function CorkBoard({
   initialPins = [],
   onHoverStory,
   teamMembers = [],
@@ -39,7 +41,7 @@ const CorkBoard = ({
   valid,
   group,
   pinScale = DEFAULT_PIN_SCALE,
-}) => {
+}) {
   const [pins, setPins] = useState([]);
   const [groupBounds, setGroupBounds] = useState({});
 
@@ -59,11 +61,8 @@ const CorkBoard = ({
 
   useEffect(() => {
     const groups = initialPins.map((p) => p.group?.trim());
-    setGroupBounds(calculateGroupBounds(groups));
-  }, [initialPins]);
-
-  useEffect(() => {
-    if (!Object.keys(groupBounds).length) return;
+    const bounds = calculateGroupBounds(groups);
+    setGroupBounds(bounds);
 
     const taken = [];
     const placed = [];
@@ -80,7 +79,7 @@ const CorkBoard = ({
         return;
       }
 
-      const lane = groupBounds[p.group?.trim()];
+      const lane = bounds[p.group?.trim()];
       let ok = false;
       let x = lane.xMin;
       let y = lane.yMin;
@@ -128,7 +127,7 @@ const CorkBoard = ({
     });
 
     setPins(placed);
-  }, [initialPins, groupBounds]);
+  }, [initialPins]);
 
   const handleDrop = async (e) => {
     e.preventDefault();
@@ -137,8 +136,10 @@ const CorkBoard = ({
     const { uniqueId, offsetX, offsetY } = JSON.parse(data);
     const rect = e.currentTarget.getBoundingClientRect();
 
-    let x = e.clientX - rect.left - offsetX;
-    let y = e.clientY - rect.top - offsetY;
+    // Drop events report CSS pixels of the scaled board; pin.x/pin.y are stored
+    // in unscaled board coordinates (rendered as `left: pin.x * scale`).
+    let x = (e.clientX - rect.left - offsetX) / scale;
+    let y = (e.clientY - rect.top - offsetY) / scale;
     x = Math.max(EDGE, Math.min(x, BOARD_WIDTH - PIN_SIZE - EDGE));
     y = Math.max(EDGE, Math.min(y, BOARD_HEIGHT - PIN_SIZE - EDGE));
 
@@ -198,6 +199,8 @@ const CorkBoard = ({
         <img
           src={avatar}
           alt={`${boardName} avatar`}
+          loading="lazy"
+          decoding="async"
           style={{
             width: 90 * scale,
             height: 90 * scale,
@@ -261,6 +264,6 @@ const CorkBoard = ({
       </div>
     </div>
   );
-};
+});
 
 export default CorkBoard;
