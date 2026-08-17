@@ -22,6 +22,8 @@
   flex: 1 1 100%;
   box-sizing: border-box;
   padding: 15px;
+  // Stretch children so every card in a row is the same height
+  display: flex;
 
   @media (min-width: 768px) {
     flex: 1 1 50%;

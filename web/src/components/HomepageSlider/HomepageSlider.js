@@ -66,6 +66,20 @@ const HomepageSlider = (props) => {
                 zIndex: 0,
               }}
             />
+            {/* Dark scrim so the white title/CTA stay readable on bright photos */}
+            {i === 0 && (
+              <div
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  zIndex: 1,
+                  background:
+                    "linear-gradient(to right, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.35) 55%, rgba(0, 0, 0, 0.12) 100%)",
+                  pointerEvents: "none",
+                }}
+              />
+            )}
             <Wrapper>
               <Container className="mb-3 d-flex align-content-center flex-wrap h-100">
                 <Row>
@@ -83,6 +97,7 @@ const HomepageSlider = (props) => {
                     initial={{ opacity: 0, scale: 0.5 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 1.0, duration: 0.6 }}
+                    style={{ zIndex: 2 }}
                   >
                     <Col>
                       <BrandLink href={slide.cta.url} className="mt-3">
