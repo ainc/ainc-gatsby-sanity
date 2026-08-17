@@ -32,8 +32,10 @@ export const ZOHO_EMBEDS = {
   // Zoho Form — Coworking Membership Sign-Up
   coworkingMembership:
     "https://forms.zohopublic.com/virtualoffice9155/form/CoworkingMembershipSignUp/formperma/58SJy65I7DrTCAWWA11ASEosZPqyNPz9T4g9yoBRNt4",
-  // TODO: Zoho Form — Private Office Waitlist
-  joinOfficeWaitlist: "",
+  // Zoho Form — Contact Us (used as the private-office waitlist until a
+  // dedicated waitlist form exists)
+  joinOfficeWaitlist:
+    "https://forms.zohopublic.com/virtualoffice9155/form/ContactUs/formperma/IeqkRsD8Ln0iv4eefk7Oy91FbZ-TlWCtSJO3Yc6n0aA",
   // TODO: Zoho Form — Book Event Space
   bookEventSpace: "",
   // Existing live Contact Us form (used on /contact). Uncomment to embed here too.
