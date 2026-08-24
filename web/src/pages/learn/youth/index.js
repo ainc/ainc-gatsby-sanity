@@ -291,70 +291,31 @@ const YouthPage = () => {
             </Col>
           </Row>
         </Container>
-        {/* <section id='join'>
-                    <Container fluid='md' className={` ${styles.clubMembership}`}>
-                        <Title className='text-center text-uppercase text-white pt-5'>coding club membership</Title>
-                        <p className='mb-5 text-white text-center'>The coding club is currently taking a break. If you have an interested student, please fill out this form and we will let you know if anything changes.</p>
-                        <div className='d-flex justify-content-center align-items-center'>
-                            <iframe frameborder="0" className={styles.waitlistIframe} style={{height:'500px', border:'none', backgroundColor: 'transparent'}} src="https://forms.zohopublic.com/virtualoffice9155/form/YouthWaitlist/formperma/JYcInu3QDQ0CdIzfwqoouSab5htBYC95LprfIvNMozM?gclid=undefined"></iframe>
-                        </div> */}
-        {/* Saving for later if coding club comes back */}
-        {/*
-                        <p className='mb-5 text-white text-center'><strong>Note:</strong> The Coding Club runs from September - May, taking a break in the summer.
-                            You can still sign up to reserve a spot if you are applying during the summer.</p>
-                        <Row>
-                            <Col sm={6} md={3}>
-                                <Card className={`mb-3 ${styles.membershipCards}`}>
-                                    <Card.Body>
-                                        <Card.Title className='mb-5 text-uppercase secondary text-center'>1 month plan</Card.Title>
-                                        <StaticImage placeholder="blurred" transformOptions={{ fit: 'contain' }} className={`mb-2 d-flex w-75 justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-1-month.png' alt='one-month-icon'></StaticImage>
-                                        <h1 className='mb-4 mt-3 text-center fw-bold fs-3 '>$120</h1>
-                                        <h2 className='text-center fs-6 fw-bold fst-italic'>Billed Monthly</h2>
-                                        <a href='https://subscriptions.zoho.com/subscribe/03ecd1f5f1714d3cb3ee018041d15410a7726ba08b65d6ccad482bf477cf719e/coding-club-membership'> <BrandButton className={`mb-0 mt-3 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton></a>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                            <Col sm={6} md={3}>
-                                <Card className={`mb-3  ${styles.membershipCards}`}>
-                                    <Card.Body>
-                                        <Card.Title className='mb-5 text-uppercase secondary text-center'>3 month plan</Card.Title>
-                                        <StaticImage placeholder="blurred" transformOptions={{ fit: 'contain' }} className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-3-month.png' alt='three-month-icon'></StaticImage>
-                                        <h1 className='mb-4 mt-3 text-center fw-bold fs-3'>$329</h1>
-                                        <h2 className='fs-6 text-center fw-bold fst-italic'>Billed Quarterly</h2>
-                                        <a href='https://subscriptions.zoho.com/subscribe/03ecd1f5f1714d3cb3ee018041d15410a7726ba08b65d6ccad482bf477cf719e/3-month'><BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton></a>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                            <Col sm={6} md={3}>
-                                <Card className={`mb-3  ${styles.membershipCards}`}>
-                                    <Card.Body>
-                                        <Card.Title className='mb-5 text-uppercase secondary text-center'>6 month plan</Card.Title>
-                                        <StaticImage placeholder="blurred" transformOptions={{ fit: 'contain' }} className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-6-month.png' alt='six-month-icon'></StaticImage>
-                                        <h1 className='fs-3 mb-4 text-center fw-bold '>$600</h1>
-                                        <h2 className='fs-6 text-center fw-bold fst-italic'>Billed Bi-Yearly</h2>
-                                        <a href='https://subscriptions.zoho.com/subscribe/03ecd1f5f1714d3cb3ee018041d15410a7726ba08b65d6ccad482bf477cf719e/6-month'><BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton></a>
-                                        <hr></hr>
-                                        <p className='text-center'>This plan gives you 1 free month</p>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                            <Col sm={6} md={3}>
-                                <Card className={`mb-3  ${styles.membershipCards}`}>
-                                    <Card.Body>
-                                        <Card.Title className='mb-5 text-uppercase secondary text-center'>12 month plan</Card.Title>
-                                        <StaticImage placeholder="blurred" transformOptions={{ fit: 'contain' }} className={`mb-2 d-flex justify-content-center ${styles.membershipIcons}`} src='../../../images/learn/youth-12-month.png' alt='twelve-month-icon'></StaticImage>
-                                        <h1 className='fs-3 mb-4 text-center fw-bold '>$1080</h1>
-                                        <h2 className='fs-6 text-center fw-bold fst-italic'>Billed every 12 months</h2>
-                                        <a href='https://subscriptions.zoho.com/subscribe/03ecd1f5f1714d3cb3ee018041d15410a7726ba08b65d6ccad482bf477cf719e/12-month'><BrandButton className={`mb-0 d-flex justify-content-center ${styles.buttonText} mb-3 text-uppercase `}>join the club</BrandButton></a>
-                                        <hr></hr>
-                                        <p className='text-center'>This plan gives you 3 free months</p>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        </Row>
-                    */}
-        {/* </Container>
-                </section> */}
+        <section id="join">
+          <Container fluid="md" className={` ${styles.clubMembership}`}>
+            <Title className="text-center text-uppercase text-white pt-5">
+              coding club membership
+            </Title>
+            <p className="mb-5 text-white text-center">
+              The coding club is currently taking a break. If you have an
+              interested student, please fill out this form and we will let you
+              know if anything changes.
+            </p>
+            <div className="d-flex justify-content-center align-items-center">
+              <iframe
+                frameBorder="0"
+                title="Youth coding club waitlist"
+                className={styles.waitlistIframe}
+                style={{
+                  height: "500px",
+                  border: "none",
+                  backgroundColor: "transparent",
+                }}
+                src="https://forms.zohopublic.com/virtualoffice9155/form/YouthWaitlist/formperma/JYcInu3QDQ0CdIzfwqoouSab5htBYC95LprfIvNMozM?gclid=undefined"
+              ></iframe>
+            </div>
+          </Container>
+        </section>
         <Container className={styles.questions}>
           <Title className="text-white text-center mt-5 pt-5 pb-4">
             Still have questions?

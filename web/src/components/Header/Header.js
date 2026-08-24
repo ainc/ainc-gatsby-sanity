@@ -265,13 +265,18 @@ const Header = () => {
               </Nav.Link>
               <div className="hover-options">
                 <a
-                  href="https://calendly.com/awesometour/30min?"
+                  href="https://awesomeu-awesomeinc.zohobookings.com/portal-embed#/4078485000002477056"
                   target="_blank"
                   className="pt-0"
                 >
                   Schedule a Tour
                 </a>
-                <a href="/workspace#become-a-member">Office Space</a>
+                <a href="/coworking/">Coworking</a>
+                <a href="/private-office/">Office Space</a>
+                <a href="/conference-rooms/">Conference Rooms</a>
+                <a href="/book-events/">Book Events</a>
+                <a href="/virtual-office/">Virtual Office</a>
+                <a href="/parking/">Parking</a>
                 <a href="/events">Events</a>
               </div>
             </Col>
@@ -316,12 +321,17 @@ const Header = () => {
                           className={`d-flex flex-column py-2 border-0`}
                         >
                           <a
-                            href="https://calendly.com/awesometour/30min?"
+                            href="https://awesomeu-awesomeinc.zohobookings.com/portal-embed#/4078485000002477056"
                             target="_blank"
                           >
                             Schedule a Tour
                           </a>
-                          <a href="/workspace#become-a-member">Office Space</a>
+                          <a href="/coworking/">Coworking</a>
+                          <a href="/private-office/">Office Space</a>
+                          <a href="/conference-rooms/">Conference Rooms</a>
+                          <a href="/book-events/">Book Events</a>
+                          <a href="/virtual-office/">Virtual Office</a>
+                          <a href="/parking/">Parking</a>
                           <a href="/events">Events</a>
                         </Col>
                       </Row>

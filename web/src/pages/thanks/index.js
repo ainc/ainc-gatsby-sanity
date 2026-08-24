@@ -8,7 +8,6 @@ import { Container, Col, Row } from "react-bootstrap";
 import LearnToCodeIcon from "../../images/Learn_To_Code.png";
 import RentWorkspaceIcon from "../../images/Rent_Workspace.png";
 import AccelerateStartupIcon from "../../images/accelerate-your-startup.png";
-import SoftwareDevelopmentIcon from "../../images/software-development.png";
 
 const ThanksPage = () => (
   <Layout>
@@ -62,8 +61,6 @@ const ThanksPage = () => (
           </Col>
         </Row>
       </Row>
-      {/* <h1>NOT FOUND</h1> */}
-      {/* <p>You just hit a route that doesn&#39;t exist... the sadness.</p> */}
     </Container>
   </Layout>
 );
