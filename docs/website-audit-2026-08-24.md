@@ -8,7 +8,7 @@ Verified by hitting the live site and matching the failing behavior to source. C
 
 Existing GitHub issue to coordinate with:
 
-- [#573 Blog hover link broken](https://github.com/ainc/ainc-org-gatsby/issues/573) — already assigned. Do not duplicate.
+- [#573 Blog hover link broken](https://github.com/ainc/ainc-gatsby-sanity/issues/573) — already assigned. Do not duplicate.
 
 ---
 
@@ -564,7 +564,7 @@ Two hops. Prefer a single hop: HTTP and `www` both go directly to `https://aweso
 
 | Issue | Notes |
 |---|---|
-| [#573 Blog hover link broken](https://github.com/ainc/ainc-org-gatsby/issues/573) | Blog card image/hover area is not a link; only title, book icon, and "Read More" navigate. Assigned. Do not file a second issue. |
+| [#573 Blog hover link broken](https://github.com/ainc/ainc-gatsby-sanity/issues/573) | Blog card image/hover area is not a link; only title, book icon, and "Read More" navigate. Assigned. Do not file a second issue. |
 
 ---
 
