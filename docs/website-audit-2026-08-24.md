@@ -516,7 +516,7 @@ Same page: `FAQCard` concatenates objects into `linkParagraph` (`linkParagraph +
 
 **Repro:** Load `/salesforce/`. A modal says "We're not taking applications at this time" and points to `/events`. Behind it, "Start your application" still goes to `/salesforce/apply/` (which is also broken — AUDIT-01). Upcoming dates are **WINTER 2023 / SPRING 2023**.
 
-Confirm with staff whether the program is paused, then make the modal, CTA, apply route, and dates agree.
+Confirm with staff whether the program is paused, then make the modal, CTA, apply route, and dates agree. The modal itself cannot be dismissed (AUDIT-41).
 
 ---
 
@@ -566,6 +566,38 @@ These pages are incomplete widgets (and several inject `noindex` SEO that can le
 
 - Slider: `const slides = query.sanityImageSlider.slides || {}` then `slides.map(...)`. An empty object has no `.map` — homepage crashes if the Sanity slider is missing.
 - India footer: Coding Club is `href=""`; Core Values is `/#core-values` (main-site anchor, not an India page).
+
+---
+
+### AUDIT-41 — "Not taking applications" modal cannot be closed (Bootcamp + Salesforce)
+
+| | |
+|---|---|
+| **Size** | S |
+| **URLs** | https://awesomeinc.org/bootcamp/ , https://awesomeinc.org/salesforce/ |
+| **File** | `web/src/components/ModalPopup/ModalPopup.js` |
+
+**Repro (confirmed in browser):** Open `/bootcamp/` or `/salesforce/`. A modal says applications are closed. Press Escape, click the backdrop, look for an X.
+
+**Expected:** User can dismiss the notice and still read the page (or the page should not offer Apply at all).  
+**Actual:** `show="true"` is hardcoded. There is no `onHide`, no close button (`CloseButton` is imported and unused). The only clickable escape is the "here" link to `/events`. Meanwhile both pages still show Apply CTAs behind the overlay.
+
+---
+
+### AUDIT-42 — Homepage tour button / desk images do not resolve
+
+| | |
+|---|---|
+| **Size** | S |
+| **URL** | https://awesomeinc.org/ (Workspace section) |
+| **File** | `web/src/pages/index.js` |
+
+**Repro:** Open DevTools on the homepage. Browser audit saw "No data found for image" for `schedule-a-tour-button-red.png` and a missing background image.
+
+**Expected:** Tour button and desk artwork render.  
+**Actual:** `StaticImage` points at `../images/icons/schedule-a-tour-button-red.png` and `../images/desk_background.png`. The file already imports `workspace-desk-bg-red.png` as `desk_background` but does not use that import. Those two `src` paths do not match files in the repo.
+
+Do **not** file a separate ticket for Gatsby `page-data.json` 404s on unknown URLs — that is normal client routing, not a product bug.
 
 ---
 
@@ -650,7 +682,7 @@ Two hops. Prefer a single hop: HTTP and `www` both go directly to `https://aweso
 
 1. **Forms (high impact):** AUDIT-01, AUDIT-05, AUDIT-15, AUDIT-16, AUDIT-17, AUDIT-35  
 2. **SEO (do together):** AUDIT-02, AUDIT-03, AUDIT-04, AUDIT-06, AUDIT-18, AUDIT-38  
-3. **Broken links / stale content:** AUDIT-07, AUDIT-08, AUDIT-09, AUDIT-10, AUDIT-11, AUDIT-25, AUDIT-26, AUDIT-36, AUDIT-37  
+3. **Broken links / stale content:** AUDIT-07, AUDIT-08, AUDIT-09, AUDIT-10, AUDIT-11, AUDIT-25, AUDIT-26, AUDIT-36, AUDIT-37, AUDIT-41, AUDIT-42  
 4. **Workspace / Fellowship CTAs:** AUDIT-12, AUDIT-13, AUDIT-14, AUDIT-27  
 5. **Hardening:** AUDIT-20, AUDIT-21, AUDIT-22, AUDIT-23, AUDIT-24, AUDIT-39, AUDIT-40  
 
