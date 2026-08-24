@@ -491,6 +491,84 @@ Same page: `FAQCard` concatenates objects into `linkParagraph` (`linkParagraph +
 
 ---
 
+### AUDIT-35 — Youth program guide and Partnerships inquiry forms do nothing
+
+| | |
+|---|---|
+| **Size** | M |
+| **URLs** | https://awesomeinc.org/learn/youth/ , https://awesomeinc.org/learn/youth/code/ , https://awesomeinc.org/india/ , https://awesomeinc.org/partnerships/ |
+| **Files** | `web/src/components/Forms/YouthProgramGuide.js/YouthProgramForm.js`, `web/src/components/Forms/YouthProgramGuide.js/partnershipsForm.js` |
+
+**Repro:** Fill the "Download our program guide" or Partnerships inquiry card and click Download / Submit.
+
+**Expected:** Data is POSTed (Zoho or similar) and the user gets a guide or confirmation.  
+**Actual:** `<Form>` has no `action`, no `method`, no `onSubmit`. `BrandButton` is not `type="submit"`. Fields have `required` but the button never submits. Also typo `constrolId` (not `controlId`) so labels are not wired.
+
+---
+
+### AUDIT-36 — Salesforce page says applications are closed, then invites people to apply, with 2023 dates
+
+| | |
+|---|---|
+| **Size** | S |
+| **URL** | https://awesomeinc.org/salesforce/ |
+| **File** | `web/src/pages/salesforce/index.js` |
+
+**Repro:** Load `/salesforce/`. A modal says "We're not taking applications at this time" and points to `/events`. Behind it, "Start your application" still goes to `/salesforce/apply/` (which is also broken — AUDIT-01). Upcoming dates are **WINTER 2023 / SPRING 2023**.
+
+Confirm with staff whether the program is paused, then make the modal, CTA, apply route, and dates agree.
+
+---
+
+### AUDIT-37 — Youth "Join the club" still points at Fall 2024 Eventbrite
+
+| | |
+|---|---|
+| **Size** | S |
+| **URL** | https://awesomeinc.org/learn/youth/ |
+| **File** | `web/src/pages/learn/youth/index.js` |
+
+`https://www.eventbrite.com/e/coding-club-fall-2024-code-your-own-video-game-tickets-944545831007` is a 2024 event. Coding Club join section on this page is otherwise commented out (`#join`). There is also a stray `.` character rendered next to the "fun" image (`line` ~122).
+
+---
+
+### AUDIT-38 — Gatsby published internal components as live URLs
+
+| | |
+|---|---|
+| **Size** | M |
+| **URLs (examples, all 200)** | https://awesomeinc.org/bootcamp/components/countdowntimer/countdowntimer/ , https://awesomeinc.org/events/5across/horizontalbuttons/ , https://awesomeinc.org/weekofcode/components/projectcard/ , https://awesomeinc.org/fellowship/components/applynowmodal/ |
+| **Cause** | Component files live under `web/src/pages/`. Gatsby creates a route for every `.js` file there. |
+
+These pages are incomplete widgets (and several inject `noindex` SEO that can leak onto real pages — AUDIT-02/03). Interns should move components out of `pages/` so they stop being public routes. `web/robots.txt` already tries to Disallow several of these paths, but robots.txt itself 404s (AUDIT-04).
+
+---
+
+### AUDIT-39 — Bootcamp page violates Rules of Hooks and can throw on GraphQL errors
+
+| | |
+|---|---|
+| **Size** | M |
+| **URL** | https://awesomeinc.org/bootcamp/ |
+| **File** | `web/src/pages/bootcamp/index.js` |
+
+`useState` for FAQ/video widgets is declared **after** `if (errors) return <GraphQLErrorList />`. `GraphQLErrorList` is also used without an import. If the query ever errors, this is a `ReferenceError` / hooks crash, not a friendly error page.
+
+---
+
+### AUDIT-40 — Homepage slider and India footer can crash or link nowhere
+
+| | |
+|---|---|
+| **Size** | S |
+| **URLs** | https://awesomeinc.org/ , https://awesomeinc.org/india/ |
+| **Files** | `web/src/components/HomepageSlider/HomepageSlider.js`, `web/src/components/IndiaFooter/IndiaFooter.js` |
+
+- Slider: `const slides = query.sanityImageSlider.slides || {}` then `slides.map(...)`. An empty object has no `.map` — homepage crashes if the Sanity slider is missing.
+- India footer: Coding Club is `href=""`; Core Values is `/#core-values` (main-site anchor, not an India page).
+
+---
+
 ## Low
 
 ### AUDIT-29 — Hall of Fame href has a leading space
@@ -570,11 +648,11 @@ Two hops. Prefer a single hop: HTTP and `www` both go directly to `https://aweso
 
 ## Suggested intern batches
 
-1. **Forms (high impact):** AUDIT-01, AUDIT-05, AUDIT-15, AUDIT-16, AUDIT-17  
-2. **SEO (do together):** AUDIT-02, AUDIT-03, AUDIT-04, AUDIT-06, AUDIT-18  
-3. **Broken links:** AUDIT-07, AUDIT-08, AUDIT-09, AUDIT-10, AUDIT-11, AUDIT-25, AUDIT-26  
+1. **Forms (high impact):** AUDIT-01, AUDIT-05, AUDIT-15, AUDIT-16, AUDIT-17, AUDIT-35  
+2. **SEO (do together):** AUDIT-02, AUDIT-03, AUDIT-04, AUDIT-06, AUDIT-18, AUDIT-38  
+3. **Broken links / stale content:** AUDIT-07, AUDIT-08, AUDIT-09, AUDIT-10, AUDIT-11, AUDIT-25, AUDIT-26, AUDIT-36, AUDIT-37  
 4. **Workspace / Fellowship CTAs:** AUDIT-12, AUDIT-13, AUDIT-14, AUDIT-27  
-5. **Hardening:** AUDIT-20, AUDIT-21, AUDIT-22, AUDIT-23, AUDIT-24  
+5. **Hardening:** AUDIT-20, AUDIT-21, AUDIT-22, AUDIT-23, AUDIT-24, AUDIT-39, AUDIT-40  
 
 ---
 
