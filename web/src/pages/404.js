@@ -4,6 +4,10 @@ import Layout from "../components/Layout/Layout";
 import Title from "../components/UI/Title/Title";
 import BackgroundCard from "../components/BackgroundCard/BackgroundCard";
 import { Container, Col, Row } from "react-bootstrap";
+import LearnToCodeIcon from "../images/Learn_To_Code.png";
+import RentWorkspaceIcon from "../images/Rent_Workspace.png";
+import AccelerateStartupIcon from "../images/accelerate-your-startup.png";
+import SoftwareDevelopmentIcon from "../images/software-development.png";
 
 const NotFoundPage = () => (
   <Layout>
@@ -21,8 +25,8 @@ const NotFoundPage = () => (
               title="Learn to Code"
               text="Everybody can and should learn to code, start today."
               backgroundImage="/images/student-learn-to-code-shirt.jpg"
-              imgSrc="https://d33wubrfki0l68.cloudfront.net/592e71aaecbd967bf40d6346937d2a5a78f502f7/bb4b9/images/icons/learn-to-code.png"
-              link="/learn"
+              imgSrc={LearnToCodeIcon}
+              link="/learn/"
             />
           </Col>
           <Col xs={6} sm={6} md={6} lg={3} xl={3} className="mt-3 ">
@@ -31,8 +35,8 @@ const NotFoundPage = () => (
               title="Rent Workspace"
               text="Rent a desk or space for events, meetings, and more."
               backgroundImage="/images/awesome-inc-space-banner.jpg"
-              imgSrc="https://d33wubrfki0l68.cloudfront.net/13acb6f3560e894a9e0eecc194c96f778fba858f/f6fb2/images/icons/rent-workspace.png"
-              link="/workspace"
+              imgSrc={RentWorkspaceIcon}
+              link="/workspace/"
             />
           </Col>
           <Col xs={6} sm={6} md={6} lg={3} xl={3} className="mt-3 ">
@@ -40,9 +44,9 @@ const NotFoundPage = () => (
               alt="brackets"
               title="Accelerate your startup"
               text="We will help grow your business with a mentor-driven, accelerator program."
-              backgroundImage="https://www.awesomeinc.org/images/startup-panel-min.jpg"
-              imgSrc="https://d33wubrfki0l68.cloudfront.net/40f039dccd7775d86dcc2076d6b01abe6802fdac/f6c13/images/icons/accelerate-your-startup.png"
-              link="/learn"
+              backgroundImage="/images/startup-panel-min.jpg"
+              imgSrc={AccelerateStartupIcon}
+              link="/fellowship/"
             />
           </Col>
           <Col xs={6} sm={6} md={6} lg={3} xl={3} className="mt-3 ">
@@ -50,9 +54,9 @@ const NotFoundPage = () => (
               alt="brackets"
               title="Software Development"
               text="Let us create custom software for your business."
-              backgroundImage="https://www.awesomeinc.org/images/software-panel.jpg"
-              imgSrc="https://d33wubrfki0l68.cloudfront.net/fb2b3c6c872a02cdce20d96103c70a10b3f75172/3398b/images/icons/software-development.png"
-              link="/learn"
+              backgroundImage="/images/software-panel.jpg"
+              imgSrc={SoftwareDevelopmentIcon}
+              link="https://apaxsoftware.com/"
             />
           </Col>
         </Row>
