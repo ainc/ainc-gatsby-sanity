@@ -25,64 +25,72 @@ export default function BlogPreview({ blog }) {
       <Container className="blog-card border border-2 rounded-1">
         <Row className="p-3">
           <Col xs={12} className="p-0 d-flex">
-            <Container
-              className="blog-image d-flex flex-column"
-              style={{
-                backgroundImage: bgImage,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                backgroundPosition: "center center",
-                height: "270px",
-                width: "100%",
-                position: "relative",
-              }}
+            <a
+              href={`/blog/${edge.node.slug.current}`}
+              aria-label={`Read ${edge.node.title}`}
+              style={{ display: "block", width: "100%" }}
             >
-              <Row className="bg h-100 w-100">
-                <Col className="book h-100 d-flex justify-content-center align-items-center">
-                  <a
-                    href={`/blog/${edge.node.slug.current}`}
-                    aria-label="Read the article"
-                    className="bg-white p-3 rounded-circle"
-                  >
-                    <FaBook size={40} className="text--brand" />
-                  </a>
-                </Col>
-              </Row>
-
-              <Row style={{ height: "90px" }} className="blog-details mt-auto">
-                <Col
-                  xs={4}
-                  style={{ height: "", width: "fit-content" }}
-                  className="justify-content-center align-items-center"
+              {" "}
+              {/* BLOG IMAGE FIX wrap start */}
+              <Container
+                className="blog-image d-flex flex-column"
+                style={{
+                  backgroundImage: bgImage,
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center center",
+                  height: "270px",
+                  width: "100%",
+                  position: "relative",
+                }}
+              >
+                <Row className="bg h-100 w-100">
+                  <Col className="book h-100 d-flex justify-content-center align-items-center">
+                    <span className="bg-white p-3 rounded-circle">
+                      <FaBook size={40} className="text--brand" />
+                    </span>
+                  </Col>
+                </Row>
+                <Row
+                  style={{ height: "90px" }}
+                  className="blog-details mt-auto"
                 >
-                  <GatsbyImage
-                    objectFit="contain"
-                    style={{ height: "70px", width: "70px", zIndex: "2" }}
-                    image={
-                      edge.node.reference?.picture?.asset?.gatsbyImageData || ""
-                    }
-                    alt={edge.node.reference?.name || ""}
-                    className="rounded-circle border border-3 border-white my-0 ms-0"
-                  />
-                </Col>
-                <Col
-                  xs={7}
-                  className=" d-flex justify-content-start align-content-center flex-column mt-3 px-0"
-                >
-                  <Title
-                    className="author"
-                    style={{ fontWeight: "800", zIndex: "2" }}
+                  <Col
+                    xs={4}
+                    style={{ height: "", width: "fit-content" }}
+                    className="justify-content-center align-items-center"
                   >
-                    {edge.node.reference?.name}, {edge.node.reference?.title}
-                  </Title>
-                  <p style={{ zIndex: "2" }} className="date text-white">
-                    {" "}
-                    {edge.node.date}
-                  </p>
-                </Col>
-              </Row>
-              <div className="overlay"></div>
-            </Container>
+                    <GatsbyImage
+                      objectFit="contain"
+                      style={{ height: "70px", width: "70px", zIndex: "2" }}
+                      image={
+                        edge.node.reference?.picture?.asset?.gatsbyImageData ||
+                        ""
+                      }
+                      alt={edge.node.reference?.name || ""}
+                      className="rounded-circle border border-3 border-white my-0 ms-0"
+                    />
+                  </Col>
+                  <Col
+                    xs={7}
+                    className=" d-flex justify-content-start align-content-center flex-column mt-3 px-0"
+                  >
+                    <Title
+                      className="author"
+                      style={{ fontWeight: "800", zIndex: "2" }}
+                    >
+                      {edge.node.reference?.name}, {edge.node.reference?.title}
+                    </Title>
+                    <p style={{ zIndex: "2" }} className="date text-white">
+                      {" "}
+                      {edge.node.date}
+                    </p>
+                  </Col>
+                </Row>
+                <div className="overlay"></div>
+              </Container>
+            </a>{" "}
+            {/* Blog image wrap url fix end */}
           </Col>
           <Col xs={12} className="">
             <Container className="p-0 d-flex flex-column justify-content-between h-100">
