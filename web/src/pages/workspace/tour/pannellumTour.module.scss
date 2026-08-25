@@ -1,0 +1,100 @@
+@import "../../../styles/variables.scss";
+
+.intro {
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem) 1.5rem;
+  background: $white-color;
+}
+
+.introInner {
+  max-width: $container-lg;
+  margin: 0 auto;
+}
+
+.wrap {
+  padding: 0 clamp(1.5rem, 5vw, 4rem) clamp(2.5rem, 5vw, 4rem);
+  background: $white-color;
+}
+
+.inner {
+  max-width: $container-lg;
+  margin: 0 auto;
+}
+
+.sceneNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.sceneBtn {
+  font-family: $heading-font;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.6rem 1rem;
+  border: 1px solid $brand-grey;
+  background: $white-color;
+  color: $brand-color2;
+  cursor: pointer;
+  transition:
+    background $button-transition-duration ease,
+    color $button-transition-duration ease,
+    border-color $button-transition-duration ease;
+
+  &:hover:not(:disabled),
+  &:focus-visible {
+    border-color: $brand-color;
+    color: $brand-color;
+  }
+
+  &:disabled {
+    cursor: wait;
+    opacity: 0.55;
+  }
+}
+
+.sceneBtnActive {
+  background: $brand-color;
+  border-color: $brand-color;
+  color: $white-color;
+
+  &:hover:not(:disabled),
+  &:focus-visible {
+    background: $button-hover-bg-color;
+    border-color: $button-hover-bg-color;
+    color: $white-color;
+  }
+}
+
+.viewer {
+  width: 100%;
+  height: min(70vh, 720px);
+  min-height: 360px;
+  background: $brand-color2;
+}
+
+.status {
+  margin: 0;
+  padding: 1rem 0;
+  font-size: 1rem;
+  color: $brand-color2;
+}
+
+.error {
+  margin: 0 0 1rem;
+  padding: 1rem 1.25rem;
+  background: $brand-grey-lightest;
+  border-left: 4px solid $brand-color;
+  color: $brand-color2;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.debugNote {
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: $brand-grey-dark;
+}
