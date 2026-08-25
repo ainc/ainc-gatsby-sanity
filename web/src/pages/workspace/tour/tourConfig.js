@@ -1,18 +1,24 @@
 /**
- * Pannellum tour config for /workspace/tour.
+ * Tour data for the Pannellum API viewer (/workspace/tour).
+ *
+ * A "scene" is one 360 photo. A "hotspot" is a clickable pin on that photo
+ * that jumps to another scene (type: "scene") or shows a label/link
+ * (type: "info").
  *
  * Hotspot placement:
  * 1. Leave HOTSPOT_DEBUG true.
- * 2. Open the page, click a doorway in the panorama.
- * 3. Copy Pitch/Yaw from the browser console into a hotSpots entry.
+ * 2. Open /workspace/tour, click a doorway in the panorama.
+ * 3. Copy Pitch/Yaw from the browser console into that scene's hotSpots.
  * 4. Set HOTSPOT_DEBUG to false before launch.
  *
- * Imgur must serve CORS headers for WebGL. If a scene fails to load, the
- * direct image URL is the first thing to check.
+ * Imgur must send CORS headers for WebGL. If a scene fails to load, check
+ * that panorama is a direct image URL (i.imgur.com/....jpeg), not an album page.
  */
 
+// When true, clicks log Pitch/Yaw to the console and show the helper note under the viewer.
 export const HOTSPOT_DEBUG = true;
 
+// Button order above the viewer. Keys must match tourConfig.scenes.
 export const SCENE_ORDER = [
   "frontCoworking",
   "hallway",
@@ -21,15 +27,18 @@ export const SCENE_ORDER = [
 ];
 
 export const tourConfig = {
+  // Shared options for every scene. Per-scene fields below override these.
   default: {
     firstScene: "frontCoworking",
     author: "Awesome Inc",
     sceneFadeDuration: 1000,
     autoLoad: true,
     hotSpotDebug: HOTSPOT_DEBUG,
+    // Required so Imgur images can be used as WebGL textures.
     crossOrigin: "anonymous",
   },
   scenes: {
+    // Open coworking with the Awesome Inc wall (FH7R6sA).
     frontCoworking: {
       title: "348 Front Coworking Area",
       type: "equirectangular",
@@ -37,14 +46,15 @@ export const tourConfig = {
       hfov: 110,
       hotSpots: [
         {
-          pitch: -7.250420023152078,
-          yaw: 122.68451875334769,
+          pitch: -6.842897933178463,
+          yaw: 46.40762148027774,
           type: "scene",
           text: "Hallway",
           sceneId: "hallway",
         },
       ],
     },
+    // Corridor between 348 and the main coworking space (YNUwC1a).
     hallway: {
       title: "Hallway",
       type: "equirectangular",
@@ -59,14 +69,15 @@ export const tourConfig = {
           sceneId: "coworkingSpace",
         },
         {
-          pitch: -23.4919841188661,
-          yaw: -151.11565503365028,
+          pitch: -16.9165080327276,
+          yaw: 179.24230659009413,
           type: "scene",
           text: "348 Front Coworking Area",
           sceneId: "frontCoworking",
         },
       ],
     },
+    // Interior coworking / fellowship wall (cNlrjJK).
     coworkingSpace: {
       title: "Coworking Space",
       type: "equirectangular",
@@ -81,14 +92,15 @@ export const tourConfig = {
           sceneId: "hallway",
         },
         {
-          pitch: -12.125852108146244,
-          yaw: 22.398968137713496,
+          pitch: -0.7620566849169405,
+          yaw: 13.012591770067736,
           type: "scene",
           text: "Kitchen",
           sceneId: "kitchen",
         },
       ],
     },
+    // Kitchen (mSlw7Vc). One doorway, back to the hallway.
     kitchen: {
       title: "Kitchen",
       type: "equirectangular",
@@ -107,6 +119,7 @@ export const tourConfig = {
   },
 };
 
+// Labels for the scene buttons, derived from SCENE_ORDER so titles stay in one place.
 export const sceneList = SCENE_ORDER.map((id) => ({
   id,
   title: tourConfig.scenes[id].title,

@@ -1,3 +1,11 @@
+/**
+ * /workspace/tour page.
+ *
+ * This is the Gatsby route file (src/pages/workspace/tour/index.js).
+ * Layout and chrome come from WorkspacePageShell; the 360 viewer is
+ * PannellumTour, which loads Pannellum from the CDN (API version, not
+ * the self-hosted viewer).
+ */
 import React from "react";
 import WorkspacePageShell from "../../../workspace/shared/WorkspacePageShell";
 import WorkspaceSparkCta from "../../../workspace/shared/WorkspaceSparkCta";
@@ -8,6 +16,7 @@ import * as styles from "./pannellumTour.module.scss";
 
 const WorkspaceTourPage = () => (
   <WorkspacePageShell pageTitle="Virtual Tour">
+    {/* Page header: title, how-to copy, and in-person tour booking */}
     <section className={styles.intro}>
       <div className={styles.introInner}>
         <span className={workspaceStyles.eyebrowAccent}>Workspace</span>
@@ -24,6 +33,8 @@ const WorkspaceTourPage = () => (
         </div>
       </div>
     </section>
+
+    {/* Pannellum API viewer, scene buttons, and hotspot debug note */}
     <PannellumTour />
   </WorkspacePageShell>
 );

@@ -1,11 +1,24 @@
+/**
+ * Pannellum API viewer for /workspace/tour.
+ *
+ * Loads pannellum.js / pannellum.css from jsDelivr (not self-hosted), then
+ * mounts a tour with the config in tourConfig.js. Scene buttons call
+ * viewer.loadScene(); doorway clicks use hotSpots in that same config.
+ */
 import React, { useEffect, useRef, useState } from "react";
 import { HOTSPOT_DEBUG, sceneList, tourConfig } from "./tourConfig";
 import * as styles from "./pannellumTour.module.scss";
 
+// CDN URLs for the API build — swap the version here if Pannellum releases an update.
 const PANNELLUM_VERSION = "2.5.6";
 const PANNELLUM_CSS = `https://cdn.jsdelivr.net/npm/pannellum@${PANNELLUM_VERSION}/build/pannellum.css`;
 const PANNELLUM_JS = `https://cdn.jsdelivr.net/npm/pannellum@${PANNELLUM_VERSION}/build/pannellum.js`;
 
+/**
+ * Inject the CDN stylesheet and script once, then resolve with window.pannellum.
+ * Gatsby SSR has no window, so this must only run in useEffect on the client.
+ * Reuses existing tags if React remounts (Fast Refresh / navigating away and back).
+ */
 const loadPannellum = () =>
   new Promise((resolve, reject) => {
     if (typeof window === "undefined") {
@@ -60,6 +73,8 @@ const PannellumTour = () => {
   const [ready, setReady] = useState(false);
   const [error, setError] = useState("");
 
+  // Create the viewer after mount; destroy it on unmount so client-side
+  // navigation does not leave a WebGL context behind.
   useEffect(() => {
     let cancelled = false;
 
@@ -96,6 +111,7 @@ const PannellumTour = () => {
     };
   }, []);
 
+  // Jump to a scene without using a hotspot (the button row above the viewer).
   const loadScene = (id) => {
     if (!viewerRef.current || id === sceneId) return;
     viewerRef.current.loadScene(id);
@@ -105,6 +121,8 @@ const PannellumTour = () => {
     <div className={styles.wrap}>
       <div className={styles.inner}>
         {error && <p className={styles.error}>{error}</p>}
+
+        {/* Scene switcher — usable even before doorway hotspots are placed */}
         <div
           className={styles.sceneNav}
           role="tablist"
@@ -129,12 +147,16 @@ const PannellumTour = () => {
             );
           })}
         </div>
+
+        {/* Empty mount node; Pannellum injects the canvas and controls here */}
         <div
           ref={containerRef}
           className={styles.viewer}
           role="application"
           aria-label="Awesome Inc virtual tour"
         />
+
+        {/* Shown only while placing hotspots; hide by setting HOTSPOT_DEBUG false */}
         {HOTSPOT_DEBUG && (
           <p className={styles.debugNote}>
             Hotspot debug is on. Click a doorway in the panorama, then copy the
