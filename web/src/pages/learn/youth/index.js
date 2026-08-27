@@ -112,14 +112,13 @@ const YouthPage = () => {
                 Your kids will love learning to code while building video games,
                 mobile apps, and websites!
               </p>
-              <a href="https://www.eventbrite.com/e/coding-club-fall-2024-code-your-own-video-game-tickets-944545831007">
+{/*               <a href="https://www.eventbrite.com/e/coding-club-fall-2024-code-your-own-video-game-tickets-944545831007">
                 <BrandButton className="mb-3 text-uppercase">
                   join the club
                 </BrandButton>
-              </a>
+              </a> */}
             </Col>
             <Col md={4} lg={4} xl={3}>
-              .
               <StaticImage
                 placeholder="blurred"
                 src="../../../images/learn/coding-fun.png"
@@ -179,11 +178,11 @@ const YouthPage = () => {
                 move through the specially designed pathways our team has
                 created.
               </p>
-              <a href="https://www.eventbrite.com/e/coding-club-fall-2024-code-your-own-video-game-tickets-944545831007">
+{/*               <a href="https://www.eventbrite.com/e/coding-club-fall-2024-code-your-own-video-game-tickets-944545831007">
                 <BrandButton className="mb-3 text-uppercase">
                   join the club
                 </BrandButton>
-              </a>
+              </a> */}
             </Col>
             <Col md={4} lg={4} xl={3}>
               <StaticImage
@@ -214,11 +213,11 @@ const YouthPage = () => {
                 May, taking a break during the summer. You can still sign up to
                 reserve a spot if you are applying during the summer.
               </p>
-              <a href="https://www.eventbrite.com/e/coding-club-fall-2024-code-your-own-video-game-tickets-944545831007">
+{/*               <a href="https://www.eventbrite.com/e/coding-club-fall-2024-code-your-own-video-game-tickets-944545831007">
                 <BrandButton className="mb-3 text-uppercase">
                   join the club
                 </BrandButton>
-              </a>
+              </a> */}
             </Col>
             <Col md={4} lg={4} xl={4}>
               <StaticImage

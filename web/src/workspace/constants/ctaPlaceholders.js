@@ -43,6 +43,17 @@ export const ZOHO_EMBEDS = {
   contactUs: "",
 };
 
+/** Old hub hash left over from the pre-restructure workspace page. */
+export const rewriteLegacyWorkspaceTourUrl = (url) => {
+  if (!url || typeof url !== "string") return url;
+  const normalized = url.replace(/www\./i, "").toLowerCase();
+  const isLegacyTour =
+    normalized.includes("/workspace/#tour") ||
+    normalized.endsWith("/workspace#tour") ||
+    /\/workspace\/?#tour(\b|$)/.test(normalized);
+  return isLegacyTour ? ZOHO_EMBEDS.bookTour : url;
+};
+
 export const WORKSPACE_CTAS = {
   bookTour: {
     label: "Book a Tour",
