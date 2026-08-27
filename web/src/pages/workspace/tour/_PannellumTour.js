@@ -1,12 +1,15 @@
 /**
  * Pannellum API viewer for /workspace/tour.
  *
+ * Underscore prefix: Gatsby ignores `_*.js` under src/pages, so this file
+ * is not turned into a route.
+ *
  * Loads pannellum.js / pannellum.css from jsDelivr (not self-hosted), then
- * mounts a tour with the config in tourConfig.js. Scene buttons call
+ * mounts a tour with the config in _tourConfig.js. Scene buttons call
  * viewer.loadScene(); doorway clicks use hotSpots in that same config.
  */
 import React, { useEffect, useRef, useState } from "react";
-import { HOTSPOT_DEBUG, sceneList, tourConfig } from "./tourConfig";
+import { HOTSPOT_DEBUG, sceneList, tourConfig } from "./_tourConfig";
 import * as styles from "./pannellumTour.module.scss";
 
 // CDN URLs for the API build — swap the version here if Pannellum releases an update.
@@ -161,7 +164,7 @@ const PannellumTour = () => {
           <p className={styles.debugNote}>
             Hotspot debug is on. Click a doorway in the panorama, then copy the
             Pitch and Yaw values from the browser console into{" "}
-            <code>web/src/pages/workspace/tour/tourConfig.js</code>.
+            <code>web/src/pages/workspace/tour/_tourConfig.js</code>.
           </p>
         )}
       </div>

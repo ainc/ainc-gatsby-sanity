@@ -1,6 +1,9 @@
 /**
  * Tour data for the Pannellum API viewer (/workspace/tour).
  *
+ * Underscore prefix: Gatsby ignores `_*.js` under src/pages, so this file
+ * is not turned into a route. Keep helper modules named `_...` here.
+ *
  * A "scene" is one 360 photo. A "hotspot" is a clickable pin on that photo
  * that jumps to another scene (type: "scene") or shows a label/link
  * (type: "info").
