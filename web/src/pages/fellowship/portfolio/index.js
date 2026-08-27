@@ -24,7 +24,7 @@ const PortfolioPage = ({ data }) => {
         </Container>
         <Container>
           <Row className="d-inline h6 mx-1">
-            <a href="#" className="link--red text--grey px-0">
+            <a href="/" className="link--red text--grey px-0">
               HOME
             </a>
             <h6 className="d-inline px-2">/</h6>
@@ -74,13 +74,26 @@ const PortfolioPage = ({ data }) => {
         </Container>
 
         <Container>
-          <Row>
-            <BrandButton className="col-md-auto px-4 mb-2">
-              Apply Now
-            </BrandButton>
+        <Row className="d-flex justify-content-start">
+            <Col
+              md={4}
+              className="my-1 d-flex align-items-center justify-content-start"
+            >
+              <ApplyNowModal
+                title="Apply Now"
+                link="https://forms.zohopublic.com/virtualoffice9155/form/AwesomeFellowshipApplication/formperma/r12Y7iQP0rWYHU33MvoA15j6wO4YlTVP02EuWMwJol8"
+              />
+            </Col>
           </Row>
-          <Row>
-            <BrandButton className="col-md-auto px-4 mb-5">Perks</BrandButton>
+          <Row className="d-flex justify-content-start">
+            <Col
+              md={4}
+              className="my-1 d-flex align-items-center justify-content-start"
+            >
+              <a href="/fellowship/perks">
+                <BrandButton className="col-md-auto px-4 mb-5">Perks</BrandButton>
+              </a>
+            </Col>
           </Row>
         </Container>
       </Row>
