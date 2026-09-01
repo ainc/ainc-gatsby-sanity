@@ -273,6 +273,12 @@ const Header = () => {
                 </a>
                 <a href="/workspace#become-a-member">Office Space</a>
                 <a href="/events">Events</a>
+                <a href="/coworking">Coworking</a>
+                <a href="/private-office">Private Office</a>
+                <a href="/conference-rooms">Conference Rooms</a>
+                <a href="/book-events">Book Events</a>
+                <a href="/virtual-office">Virtual Office</a>
+                <a href="/parking">Parking</a>
               </div>
             </Col>
 
@@ -323,6 +329,12 @@ const Header = () => {
                           </a>
                           <a href="/workspace#become-a-member">Office Space</a>
                           <a href="/events">Events</a>
+                          <a href="/coworking">Coworking</a>
+                          <a href="/private-office">Private Office</a>
+                          <a href="/conference-rooms">Conference Rooms</a>
+                          <a href="/book-events">Book Events</a>
+                          <a href="/virtual-office">Virtual Office</a>
+                          <a href="/parking">Parking</a>
                         </Col>
                       </Row>
                     </Nav>
