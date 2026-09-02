@@ -17,6 +17,12 @@
   background: $white-color;
 }
 
+/* Hub embed: parent section already provides padding and background. */
+.wrapEmbedded {
+  padding: 0;
+  background: transparent;
+}
+
 .inner {
   max-width: $container-lg;
   margin: 0 auto;

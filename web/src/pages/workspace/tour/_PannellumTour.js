@@ -69,7 +69,9 @@ const loadPannellum = () =>
     document.body.appendChild(script);
   });
 
-const PannellumTour = () => {
+// embedded: used on /workspace so the viewer fills the "See the Space" strip
+// without a second layer of section padding.
+const PannellumTour = ({ embedded = false }) => {
   const containerRef = useRef(null);
   const viewerRef = useRef(null);
   const [sceneId, setSceneId] = useState(tourConfig.default.firstScene);
@@ -121,7 +123,7 @@ const PannellumTour = () => {
   };
 
   return (
-    <div className={styles.wrap}>
+    <div className={embedded ? styles.wrapEmbedded : styles.wrap}>
       <div className={styles.inner}>
         {error && <p className={styles.error}>{error}</p>}
 
