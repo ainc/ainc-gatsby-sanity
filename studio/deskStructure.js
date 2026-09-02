@@ -498,6 +498,15 @@ export default (S) =>
                 .icon(FaBullhorn)
                 .child(S.documentTypeList("press").title("Press")),
 
+              // Timeline
+              S.listItem()
+                .id("timelinePage")
+                .title("Timeline (/timeline)")
+                .icon(FaClock)
+                .child(
+                  S.documentTypeList("timelineEvent").title("Timeline Events"),
+                ),
+
               // WHAT WE DO (/what-we-do)
               S.listItem()
                 .id("ap_whatWeDoPage")
@@ -1180,6 +1189,7 @@ export default (S) =>
                     "bootcampImageTestimonials",
                     "alumniTestimonials",
                     "fellowshipTestimonials",
+                    "timelineEvent",
                   ].includes(listItem.getId()),
               ),
             ]),
