@@ -196,9 +196,17 @@ async function createTutorialsPages(graphql, actions) {
   });
 }
 
+// Optional Sanity fields are omitted from GraphQL until a published document
+// actually has a value. Declaring them here lets /timeline query `description`
+// and `priority` even when some events leave them blank. Changing this file
+// requires restarting `yarn dev` in web/.
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   createTypes(`
+    type SanityTimelineEvent implements Node {
+      description: String
+      priority: Float
+    }
     type SanityIntroAlumniCarousel implements Node {
       _id: String!
       name: String

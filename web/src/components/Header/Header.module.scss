@@ -1,6 +1,17 @@
+.navbar-brand {
+  flex-shrink: 0;
+  max-width: calc(100% - 4rem);
+
+  :global(.gatsby-image-wrapper) {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
 @media (min-width: 992px) {
   .navbar-brand {
     width: 100%;
+    max-width: none;
   }
 }
 .nav-button {
