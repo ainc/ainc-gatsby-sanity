@@ -1352,7 +1352,7 @@ const BootcampPage = (props) => {
                 someone who wants to explore coding before committing to
                 Bootcamp, or who wants to get a head start on Bootcamp content,
                 the{" "}
-                <a href="intro-to-web-development" className="link--brand">
+                <a href="/intro-to-web-development/" className="link--brand">
                   Intro to Web Development
                 </a>{" "}
                 is a great opportunity.

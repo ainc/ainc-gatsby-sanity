@@ -37,8 +37,6 @@ import { useLocation } from "@reach/router";
 // Images
 import core_values from "../images/core-values.png";
 import workspace_hero from "../images/ainc-workspace-hero.jpeg";
-import desk_background from "../images/workspace-desk-bg-red.png";
-import workspace_background from "../images/workspace-border.png";
 
 import DevicesIcon from "../assets/svg/devices.svg";
 import StackIcon from "../assets/svg/stack.svg";
@@ -411,34 +409,21 @@ const Startups = React.lazy(() =>
         </Subtitle>
         <a
           className="workspace-button"
-          href="https://calendly.com/awesometour/30min?"
+          href="https://awesomeu-awesomeinc.zohobookings.com/portal-embed#/4078485000002477056"
           target="_blank"
+          rel="noopener noreferrer"
         >
-        <StaticImage
-          src="../images/icons/schedule-a-tour-button-red.png" 
-          alt="tour button"
-          width={100}
-          height={100}
-          id="tour-button"
-        />
+          <StaticImage
+            src="../images/schedule-a-tour-button-white.png"
+            alt="Schedule a tour"
+            width={100}
+            height={100}
+            id="tour-button"
+          />
         </a>
         <Container>
-          <div
-            style={{ position: "relative", padding: "5rem, 0" }}
-          >
-              <StaticImage
-                src="../images/desk_background.png"
-                alt="Desk Background"
-              style={{
-                position: "absolute",
-                inset: 0,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "35%",
-                backgroundPosition: "50% 50%",
-                    }}
-                placeholder="blurred"
-              />
-            <Row>
+          <div className="workspace-desk">
+            <Row className="align-items-start">
               <Col xs={12} sm={6}>
                 <div className="d-flex justify-content-center">
                   <motion.div
@@ -449,7 +434,7 @@ const Startups = React.lazy(() =>
                     whileTap={{ scale: 0.9 }}
                     viewport={{ once: true, amount: 0.2 }}
                   >
-                    <a href="../workspace">
+                    <a href="/workspace/">
                       <Card
                         className="card--equal-width bg-secondary p-4 mb-3"
                         onMouseEnter={() => setIsWorkspaceButton1Hovered(true)}
@@ -472,18 +457,18 @@ const Startups = React.lazy(() =>
                 </div>
               </Col>
               <Col xs={12} sm={6}>
-                <div className="d-flex justify-content-center mt-5 pt-5">
+                <div className="d-flex justify-content-center">
                   <motion.div
-                    initial={{ opacity: 0.5, y: 50 }}
+                    initial={{ opacity: 0.5, y: -50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0, duration: 0.4 }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     viewport={{ once: true, amount: 0.2 }}
                   >
-                    <a href="../workspace">
+                    <a href="/workspace/">
                       <Card
-                        className="card--equal-width bg-secondary p-4"
+                        className="card--equal-width bg-secondary p-4 mb-3"
                         onMouseEnter={() => setIsWorkspaceButton2Hovered(true)}
                         onMouseLeave={() => setIsWorkspaceButton2Hovered(false)}
                         style={{
