@@ -1,6 +1,14 @@
 @use "sass:math";
 @import "../../styles/variables.scss";
 
+// Decorative, absolutely-positioned images (Team Alpha badge, billi mascot)
+// intentionally bleed past their containers. Clip the horizontal bleed so it
+// doesn't create a page-level horizontal scrollbar. `clip` (not `hidden`)
+// avoids creating a scroll container, so vertical scrolling/sticky still work.
+.page-wrap {
+  overflow-x: clip;
+}
+
 .header-section {
   background-image: url("../../images/team-alpha-header.jpg");
   background-repeat: no-repeat;
@@ -72,6 +80,72 @@
   align-items: center;
 }
 
+.imageWrapper::after {
+  content: "";
+  position: absolute;
+  bottom: -12%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 255, 255, 0.55) 35%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+  pointer-events: none;
+
+  /* gradual scaling for tablets & small desktops */
+  @media (max-width: 1200px) {
+    bottom: -10%;
+    height: 90%;
+  }
+  @media (max-width: 992px) {
+    bottom: -8%;
+    height: 80%;
+  }
+
+  /* mobile: shrink overlay to bottom strip */
+  @media (max-width: 767px) {
+    bottom: 0;
+    height: 25%;
+    background-size: auto 100%;
+  }
+}
+
+/* button that covers the image+overlay on larger screens */
+.overlayBtn {
+  position: relative;
+  padding: 0;
+  border: none;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  /* no flex; child wrapper will size itself 100% */
+}
+
+.overlayBtn:hover,
+.overlayBtn:focus {
+  background: transparent;
+  box-shadow: none;
+  outline: none;
+}
+
+/* text placed inside wrapper and beneath overlay */
+.overlayText {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgb(96, 91, 91);
+  font-weight: bold;
+  z-index: 10; /* below overlay pseudo-element (z-index 1) */
+  pointer-events: none; /* text itself not clickable */
+}
+
 .billiImage {
   width: 200px;
   position: absolute;
@@ -97,25 +171,10 @@
   }
 }
 
-.team-button {
-  padding-left: 10px !important;
-  padding-right: 10px !important;
-  position: absolute !important;
-  bottom: -20%;
-  left: 50%;
-  transform: translateX(-50%);
-  min-width: 200px;
-  padding: 0.8rem 2.4rem !important;
-}
-
 .team-images {
-  height: 100%;
-  @media (max-width: 768px) {
-    width: 40vw;
-  }
-  @media (max-width: 1024px) {
-    width: 21vw;
-  }
+  width: calc(100% + 12%);
+  height: calc(100% + 12%);
+  object-fit: cover;
 }
 
 .custom-col-1 {
@@ -141,16 +200,46 @@
 }
 
 .carousel-height {
-  @media (min-width: 250px) {
-    height: 100vh;
+  // Lock every slide to the tallest testimonial (measured at runtime into the
+  // --testimonial-min-h variable) so the section height never changes between
+  // slides. Shorter testimonials are vertically centered. Bottom padding keeps
+  // the indicator dots clear of the content.
+  padding-bottom: 3rem;
+
+  :global(.carousel-item) {
+    min-height: var(--testimonial-min-h, auto);
+    padding-top: 0.5rem;
   }
-  @media (min-width: 768px) {
-    height: 90vh;
+
+  // Center on the active slide AND the incoming/outgoing transition slides so
+  // the content doesn't shift vertically as a testimonial slides in.
+  :global(.carousel-item.active),
+  :global(.carousel-item-next),
+  :global(.carousel-item-prev) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
-  @media (min-width: 1024px) {
-    height: 72vh;
-  }
-  @media (min-width: 1440px) {
-    height: 50vh;
+}
+
+.alumniLogosSection {
+  padding: 3rem 0;
+  background-color: #f8f8f8;
+}
+
+.keen-slider {
+  overflow: hidden;
+}
+
+.keen-slider__slide {
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+
+  @media (max-width: 768px) {
+    min-width: 80px;
+    padding: 0.6rem;
   }
 }

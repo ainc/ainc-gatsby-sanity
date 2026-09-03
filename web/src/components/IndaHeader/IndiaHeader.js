@@ -15,7 +15,7 @@ const IndiaHeader = () => {
         <Navbar.Brand href="/india" className="w-100 text-uppercase">
           <StaticImage
             placeholder="blurred"
-            src="../../images/logo.png"
+            src="../../images/ainc-logo-horizontal-white-text.png"
             width={logo_width}
             height={logo_height}
             className="d-inline-block align-top"

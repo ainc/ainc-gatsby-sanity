@@ -13,32 +13,23 @@ import ProgramLinkTree from "./ProgramLinkTree";
 
 const ProgramPage = ({ data }) => {
   const allProgram = data.sanityProgram || {};
-  const allSanityFiveAcrossSponsors =
-    data.allSanityFiveAcrossSponsors.nodes || {};
-  const titleSponsorName =
-    data.allSanityFiveAcrossSponsors.nodes[0].titleSp.title || {};
-  const titleSponsorLink =
-    data.allSanityFiveAcrossSponsors.nodes[0].titleSp.link || {};
-  const titleSponsorImage =
-    data.allSanityFiveAcrossSponsors.nodes[0].titleSp.image.asset
-      .gatsbyImageData || {};
+  const sponsorsNode = data.allSanityFiveAcrossSponsors.nodes[0];
+  const titleSp = sponsorsNode?.titleSp;
+  const presentingSp = sponsorsNode?.presentingSp;
+
+  const titleSponsorName = titleSp?.title ?? "";
+  const titleSponsorLink = titleSp?.link ?? "";
+  const titleSponsorImage = titleSp?.image?.asset?.gatsbyImageData;
   const titleSponsorSecondaryImage =
-    data.allSanityFiveAcrossSponsors.nodes[0].titleSp.secondaryImage?.asset
-      .gatsbyImageData || {};
+    titleSp?.secondaryImage?.asset?.gatsbyImageData;
 
-  const presentingSponsorName =
-    data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.title || {};
-  const presentingSponsorLink =
-    data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.link || {};
-  const presentingSponsorImage =
-    data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.image.asset
-      .gatsbyImageData || {};
+  const presentingSponsorName = presentingSp?.title ?? "";
+  const presentingSponsorLink = presentingSp?.link ?? "";
+  const presentingSponsorImage = presentingSp?.image?.asset?.gatsbyImageData;
   const presentingSponsorSecondaryImage =
-    data.allSanityFiveAcrossSponsors.nodes[0].presentingSp.secondaryImage?.asset
-      .gatsbyImageData || {};
+    presentingSp?.secondaryImage?.asset?.gatsbyImageData;
 
-  const suppourtingSponsors =
-    data.allSanityFiveAcrossSponsors.nodes[0].suppourtingSponsors || {};
+  const suppourtingSponsors = sponsorsNode?.suppourtingSponsors ?? [];
 
   const teams = data.sanityProgram.teams || {};
   const judges = data.sanityProgram.judges || {};
@@ -67,24 +58,28 @@ const ProgramPage = ({ data }) => {
           <Row>
             <Subtitle className="text-center"> {allProgram.date} </Subtitle>
           </Row>
-          <Row>
-            <Col xs={{ offset: 3, span: 6 }}>
-              <GatsbyImage
-                image={titleSponsorSecondaryImage}
-                alt={titleSponsorName}
-                className="mt-3"
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={{ offset: 4, span: 4 }} className="mb-3">
-              <GatsbyImage
-                image={presentingSponsorSecondaryImage}
-                alt={presentingSponsorName}
-                className="mt-3"
-              />
-            </Col>
-          </Row>
+          {titleSponsorSecondaryImage ? (
+            <Row>
+              <Col xs={{ offset: 3, span: 6 }}>
+                <GatsbyImage
+                  image={titleSponsorSecondaryImage}
+                  alt={titleSponsorName}
+                  className="mt-3"
+                />
+              </Col>
+            </Row>
+          ) : null}
+          {presentingSponsorSecondaryImage ? (
+            <Row>
+              <Col xs={{ offset: 4, span: 4 }} className="mb-3">
+                <GatsbyImage
+                  image={presentingSponsorSecondaryImage}
+                  alt={presentingSponsorName}
+                  className="mt-3"
+                />
+              </Col>
+            </Row>
+          ) : null}
         </Col>
       </Container>
       <ProgramLinkTree nextEventLink={nextEventLink} />
@@ -165,38 +160,80 @@ const ProgramPage = ({ data }) => {
               xs={7}
               className="my-1 d-flex align-items-center justify-content-center"
             >
-              <a href={titleSponsorLink}>
-                <GatsbyImage image={titleSponsorImage} alt={titleSponsorName} />
-              </a>
+              {titleSponsorImage ? (
+                titleSponsorLink ? (
+                  <a
+                    href={titleSponsorLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <GatsbyImage
+                      image={titleSponsorImage}
+                      alt={titleSponsorName}
+                    />
+                  </a>
+                ) : (
+                  <GatsbyImage
+                    image={titleSponsorImage}
+                    alt={titleSponsorName}
+                  />
+                )
+              ) : null}
             </Col>
             <Col
               xs={5}
               className="mt-4 d-flex align-items-center justify-content-center"
             >
-              <a href={presentingSponsorLink}>
-                <GatsbyImage
-                  image={presentingSponsorImage}
-                  alt={presentingSponsorName}
-                />
-              </a>
+              {presentingSponsorImage ? (
+                presentingSponsorLink ? (
+                  <a
+                    href={presentingSponsorLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <GatsbyImage
+                      image={presentingSponsorImage}
+                      alt={presentingSponsorName}
+                    />
+                  </a>
+                ) : (
+                  <GatsbyImage
+                    image={presentingSponsorImage}
+                    alt={presentingSponsorName}
+                  />
+                )
+              ) : null}
             </Col>
           </Row>
           <Row className={styles.supportSponsors}>
             <Row>
-              {suppourtingSponsors.map((sponsor) => (
-                <Col
-                  xs={6}
-                  lg={10}
-                  className="my-3 d-flex align-items-center justify-content-center"
-                >
-                  <a href={sponsor.link}>
-                    <GatsbyImage
-                      image={sponsor.image.asset.gatsbyImageData}
-                      alt={sponsor.alt}
-                    />
-                  </a>
-                </Col>
-              ))}
+              {suppourtingSponsors.map((sponsor, index) => {
+                const supportImg = sponsor.image?.asset?.gatsbyImageData;
+                if (!supportImg) return null;
+                return (
+                  <Col
+                    key={sponsor.link ?? `support-sponsor-${index}`}
+                    xs={6}
+                    lg={10}
+                    className="my-3 d-flex align-items-center justify-content-center"
+                  >
+                    {sponsor.link ? (
+                      <a
+                        href={sponsor.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <GatsbyImage
+                          image={supportImg}
+                          alt={sponsor.alt ?? ""}
+                        />
+                      </a>
+                    ) : (
+                      <GatsbyImage image={supportImg} alt={sponsor.alt ?? ""} />
+                    )}
+                  </Col>
+                );
+              })}
             </Row>
           </Row>
         </Container>

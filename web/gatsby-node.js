@@ -207,6 +207,14 @@ exports.createSchemaCustomization = ({ actions }) => {
       description: String
       priority: Float
     }
+    type SanityIntroAlumniCarousel implements Node {
+      _id: String!
+      name: String
+      jobTitle: String
+      cohort: String
+      order: Int
+      image: SanityImage
+    }
   `);
 };
 
@@ -264,7 +272,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   });
   createRedirect({
     fromPath: `/vote`,
-    toPath: `https://www.menti.com/al1qz8js1e1j`,
+    toPath: `https://5across-vote.kyle-a09.workers.dev/`,
     isPermanent: true,
     force: true,
     redirectInBrowser: true,
@@ -280,14 +288,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   });
   createRedirect({
     fromPath: `/5across/vote`,
-    toPath: `https://www.menti.com/al1qz8js1e1j`,
+    toPath: `https://5across-vote.kyle-a09.workers.dev/`,
     isPermanent: true,
     force: true,
     redirectInBrowser: true,
   });
   createRedirect({
     fromPath: `https://5across.org/vote`,
-    toPath: `https://www.menti.com/al1qz8js1e1j`,
+    toPath: `https://5across-vote.kyle-a09.workers.dev/`,
     isPermanent: true,
     force: true,
     redirectInBrowser: true,

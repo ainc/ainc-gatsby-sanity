@@ -1,32 +1,111 @@
 @import "../../styles/main.scss";
 
-.header-border {
+.card {
+  width: 260px;
+  height: 470px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #dadada;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  padding: 2rem 1.2rem 1.5rem;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.active-card {
+  border-color: $color-red-dark;
+}
+
+.dense-card {
+  width: 220px;
+  height: 420px;
+  padding: 1.3rem 1rem 1.2rem;
+}
+
+.company-title {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  min-height: 4.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.founders-block {
+  min-height: 3.8rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.founders-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.founders-label {
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #080808;
+  margin-bottom: 0.2rem;
+}
+
+.founders-text {
+  font-size: 1rem;
+  color: #1f1f1f;
+  margin-bottom: 0;
+  text-align: center;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.image-wrap {
   width: 100%;
-  // margin-bottom: 30px;
-  border: $color-red-dark solid 1px;
-  // font-weight: 300;
+  max-width: 210px;
+  height: 130px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border-radius: 2px;
+}
 
-  .video-button {
-    margin-bottom: -30px;
+.image-wrap :global(.gatsby-image-wrapper) {
+  width: 100%;
+  height: 100%;
+}
+
+.image-wrap :global(img) {
+  object-fit: cover;
+}
+
+.watch-button {
+  margin-top: auto;
+  background: #ed3742;
+  border: 2px solid #ed3742;
+  color: #fff;
+
+  &:hover,
+  &:focus,
+  &:focus-visible,
+  &:active {
+    background: darken(#ed3742, 10%);
+    border-color: darken(#ed3742, 10%);
+    color: #fff;
   }
+}
 
-  .body-text {
-    font-weight: 300;
-  }
-
-  .heading,
-  .heading-subtitle {
-    text-align: center;
-    margin-top: -20px;
-    font-weight: 300;
-    color: $color-red-dark;
-  }
-
-  .heading > span,
-  .heading-subtitle > span {
-    background-color: white;
-    box-shadow:
-      white 11px 0px 0px,
-      white -13px 0px 0px;
+@include screen-sm {
+  .card {
+    width: 240px;
+    height: 440px;
   }
 }

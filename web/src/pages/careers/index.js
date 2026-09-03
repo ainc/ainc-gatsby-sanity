@@ -45,7 +45,7 @@ const CareersPage = ({ data }) => {
                 </p>
               </li>
               <li>
-                <p>Co-working, private office, and meeting space</p>
+                <p>Coworking, private office, and meeting space</p>
               </li>
               <li>
                 <p>Custom software development (web and mobile apps)</p>

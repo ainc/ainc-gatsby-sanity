@@ -42,9 +42,20 @@
 }
 
 .attribute-button {
-  padding: 5%;
+  padding: 0.5rem 0.35rem;
   border: 1px black solid;
   white-space: nowrap;
+  font-size: clamp(0.6rem, 1.9vw, 0.8rem);
+  line-height: 1.2;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include screen-xs {
+    font-size: clamp(0.55rem, 3vw, 0.7rem);
+    padding: 0.4rem 0.25rem;
+  }
 
   // Prevent Double borders
   &:hover {

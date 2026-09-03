@@ -5,8 +5,10 @@ import { motion } from "framer-motion";
 import * as styles from "./Amenities.module.css";
 
 const Amenities = (props) => {
+  const wrapClass = props.align === "left" ? styles.amenityRow : styles.center;
+
   return (
-    <div className={styles.center}>
+    <div className={wrapClass}>
       <div className={styles.inlineBlock}>
         <motion.div
           initial={{ opacity: 0, x: -50 }}

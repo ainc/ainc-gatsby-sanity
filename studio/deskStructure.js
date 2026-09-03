@@ -513,6 +513,15 @@ export default (S) =>
                 .title("What We Do (/what-we-do)")
                 .icon(FaTools)
                 .child(S.documentTypeList("whatWeDo").title("What We Do Page")),
+              S.listItem()
+                .id("partnershipSponsors")
+                .title("Partnership Sponsors (/partnerships)")
+                .icon(FaHandshake)
+                .child(
+                  S.documentTypeList("partnershipSponsors").title(
+                    "Partnership Sponsors",
+                  ),
+                ),
             ]),
         ),
 
@@ -1190,6 +1199,7 @@ export default (S) =>
                     "alumniTestimonials",
                     "fellowshipTestimonials",
                     "timelineEvent",
+                    "partnershipSponsors",
                   ].includes(listItem.getId()),
               ),
             ]),

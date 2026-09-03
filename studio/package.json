@@ -9,6 +9,8 @@
     "build": "sanity build",
     "start": "sanity start",
     "clone": "sanity dataset export production production && sanity dataset import production/production.tar.gz development --replace",
+    "export-db": "SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN sanity dataset export production ./production.tar.gz",
+    "import-db": "SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN sanity dataset import ./production.tar.gz dev --replace",
     "format": "prettier-eslint --write \"**/*.js\" \"!node_modules/**\"",
     "graphql-deploy": "sanity graphql deploy --playground",
     "lint": "eslint .",

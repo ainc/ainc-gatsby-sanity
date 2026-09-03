@@ -16,3 +16,15 @@
 
 # Environment Files
 .env*
+
+# Cursor - ignore local state, keep shared config
+.cursor/*
+!.cursor/rules/
+!.cursor/brand/
+!.cursor/skills/
+!.cursor/hooks.json
+
+# Within Cursor brand, ignore local assets (PDFs, photos) — README + tokens.md are tracked
+.cursor/brand/*
+!.cursor/brand/README.md
+!.cursor/brand/tokens.md

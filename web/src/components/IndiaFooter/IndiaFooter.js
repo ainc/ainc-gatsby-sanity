@@ -25,7 +25,7 @@ const IndiaFooter = () => {
               <a href="/india" className={styles.aincLogoGap}>
                 <StaticImage
                   placeholder="blurred"
-                  src="../../images/ainc-logo-text-triangle-layer-red.png"
+                  src="../../images/ainc-logo-horizontal-white-text.png"
                   alt="Awesome Inc Logo"
                   role="img"
                 />

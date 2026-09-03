@@ -62,7 +62,7 @@ const Footer = () => {
                 <a className={styles.aincLogoGap} href="/">
                   <StaticImage
                     placeholder="blurred"
-                    src="../../images/ainc-banner-15-Full-Color.png"
+                    src="../../images/ainc-logo-horizontal-white-text.png"
                     alt="Awesome Inc logo"
                   />
                   {/*<StaticImage placeholder="blurred" src='../../images/ainc-logo-text-triangle-layer-red.png' alt="Awesome Inc logo" />*/}

@@ -78,7 +78,7 @@ const Header = () => {
           <a href="/">
             <StaticImage
               placeholder="blurred"
-              src="../../images/ainc-15-Full-Color-Horizontal.png"
+              src="../../images/ainc-logo-horizontal-white-text.png"
               width={200}
               className="img-responsive d-inline-block align-top"
               alt="Awesome Inc Logo"
@@ -415,6 +415,7 @@ const Header = () => {
                 <Link to="/careers">Careers</Link>
                 <Link to="/internships">Internships</Link>
                 <Link to="/events">Events</Link>
+                <Link to="/partnerships">Partnerships</Link>
               </div>
             </Col>
 
@@ -463,6 +464,7 @@ const Header = () => {
                           <Link to="/careers">Careers</Link>
                           <Link to="/internships">Internships</Link>
                           <Link to="/events">Events</Link>
+                          <Link to="/partnerships">Partnerships</Link>
                         </Col>
                       </Row>
                     </Nav>

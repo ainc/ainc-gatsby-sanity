@@ -24,17 +24,23 @@
 }
 
 .card-title {
-  font-size: 1rem;
-  line-height: 0.9rem;
+  font-size: 1.1rem;
+  line-height: 1.2;
   letter-spacing: 1px;
+  /* Reserve two lines so headlines align across cards regardless of wrapping */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.65rem;
   @include screen-xs {
-    font-size: 0.7rem;
+    font-size: 0.85rem;
+    min-height: 2.05rem;
   }
 }
 
 .card-text {
-  font-size: 0.8rem;
-  line-height: 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.3;
 }
 
 @media (max-width: 760px) {

@@ -1,14 +1,17 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { Container, Row } from "react-bootstrap";
+import { useLocation } from "@reach/router";
 import * as styles from "./events.module.scss";
 import Event from "../../components/Event/Event";
 import Layout from "../../components/Layout/Layout";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import Title from "../../components/UI/Title/Title";
+import { getEventbriteCode } from "../../lib/eventbriteDiscount";
 
 const EventsPage = ({ data }) => {
   const events = data.allSanityEvents.edges || [];
+  const promoCode = getEventbriteCode(useLocation().search);
 
   return (
     <Layout>
@@ -21,6 +24,12 @@ const EventsPage = ({ data }) => {
           <Subtitle className="fs-5">
             Join us and be a part of the startup community!
           </Subtitle>
+          {promoCode && (
+            <p className="mt-3 mb-0">
+              Promo code <strong>{promoCode}</strong> will be applied at
+              checkout.
+            </p>
+          )}
         </Row>
       </Container>
 

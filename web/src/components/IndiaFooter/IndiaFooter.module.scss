@@ -1,11 +1,11 @@
 @import "../../styles/variables.scss";
 
 a {
-  color: $brand-grey;
+  color: $white-color;
   text-decoration: none;
   transition: 0.3s;
   &:hover {
-    color: $white-color;
+    color: $brand-color;
   }
 }
 
@@ -14,7 +14,7 @@ a {
   padding-top: 10rem;
   padding-bottom: 5rem;
   background-color: $brand-color2;
-  color: $brand-grey;
+  color: $white-color;
 }
 
 .ainc-logo-gap {
@@ -87,9 +87,9 @@ a {
   }
 
   a {
-    color: $brand-grey-dark;
+    color: $white-color;
     &:hover {
-      color: $white-color;
+      color: $brand-color;
     }
   }
 }
