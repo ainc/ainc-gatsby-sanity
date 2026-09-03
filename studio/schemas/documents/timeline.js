@@ -1,21 +1,24 @@
-import { MdTimeline } from "react-icons/md";
+// Create studio/schemas/documents/timeline.js along these lines:
 
-// One Sanity document per milestone (like Press), not one document with numbered images.
-// Studio menu: Be Awesome → Timeline (/timeline). Use the Development workspace locally.
+// title — page heading
+// intro — optional paragraph
+// milestones — array of objects, each with:
+// year (number)
+// heading (string)
+// body (text or simplePortableText)
+// image (image with hotspot, plus alt like studio/schemas/objects/figure.js)
+// optional link
+
 export default {
   name: "timelineEvent",
   type: "document",
   title: "Timeline Event",
-  icon: MdTimeline,
   fields: [
     {
       name: "date",
-      // `date` not `datetime` — milestones are a calendar day, not a clock time (Kyle / issue 553).
-      type: "date",
+      type: "date", // not datetime
       title: "Date",
-      options: {
-        dateFormat: "MMMM D, YYYY",
-      },
+      options: { dateFormat: "MMMM D, YYYY" },
       validation: (Rule) => Rule.required(),
     },
     {
@@ -33,10 +36,7 @@ export default {
       name: "image",
       type: "image",
       title: "Image",
-      options: {
-        // Editors can set the focal point so mobile and desktop crop from the same file.
-        hotspot: true,
-      },
+      options: { hotspot: true },
       fields: [
         {
           name: "alt",
@@ -54,29 +54,25 @@ export default {
         "Only needed when two events share a month. Lower shows first.",
     },
   ],
-  orderings: [
-    {
-      title: "Date, oldest first",
-      name: "dateAsc",
-      by: [
-        { field: "date", direction: "asc" },
-        { field: "priority", direction: "asc" },
-      ],
-    },
-  ],
-  // What the Studio list shows (title, date, thumbnail). Keep prepare simple so
-  // empty new documents do not throw "invalid preview config".
   preview: {
     select: {
-      title: "title",
-      date: "date",
-      media: "image",
+      title: "eventName",
+      subtitle: "date",
+      media: "picture",
     },
-    prepare({ title, date, media }) {
+    //Show date as MMMM D, YYYY in preview subtitle
+    prepare(selection) {
+      const { title, subtitle, media } = selection;
+
+      const d = new Date(subtitle);
+      let day = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(d);
+      let month = new Intl.DateTimeFormat("en", { month: "long" }).format(d);
+      let year = new Intl.DateTimeFormat("en", { year: "numeric" }).format(d);
+
       return {
-        title: title || "New timeline event",
-        subtitle: date ? String(date) : "No date yet",
-        media,
+        title: title,
+        subtitle: `${month} ${day}, ${year}`,
+        media: media,
       };
     },
   },
