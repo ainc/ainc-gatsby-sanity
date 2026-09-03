@@ -265,7 +265,7 @@ const Header = () => {
               </Nav.Link>
               <div className="hover-options">
                 <a
-                  href="https://calendly.com/awesometour/30min?"
+                  href="https://awesomeu-awesomeinc.zohobookings.com/portal-embed#/4078485000002477056"
                   target="_blank"
                   className="pt-0"
                 >
@@ -322,7 +322,7 @@ const Header = () => {
                           className={`d-flex flex-column py-2 border-0`}
                         >
                           <a
-                            href="https://calendly.com/awesometour/30min?"
+                            href="https://awesomeu-awesomeinc.zohobookings.com/portal-embed#/4078485000002477056"
                             target="_blank"
                           >
                             Schedule a Tour
