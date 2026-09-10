@@ -8,6 +8,7 @@ import { Container, Col, Row } from "react-bootstrap";
 import LearnToCodeIcon from "../../images/Learn_To_Code.png";
 import RentWorkspaceIcon from "../../images/Rent_Workspace.png";
 import AccelerateStartupIcon from "../../images/accelerate-your-startup.png";
+import SoftwareDevelopmentIcon from "../../images/software-development.png";
 
 const ThanksPage = () => (
   <Layout>

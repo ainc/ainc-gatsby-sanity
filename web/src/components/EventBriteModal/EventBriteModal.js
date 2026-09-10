@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Modal } from "react-bootstrap";
+import { useLocation } from "@reach/router";
+import {
+  getEventbriteCode,
+  withEventbriteDiscount,
+} from "../../lib/eventbriteDiscount";
 
 const EventBriteModal = (props) => {
   const [showModal, setShowModal] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const location = useLocation();
+  const checkoutLink = withEventbriteDiscount(
+    props.link,
+    getEventbriteCode(location.search),
+  );
 
   const handleClick = () => {
     setShowModal(true);
@@ -31,7 +41,7 @@ const EventBriteModal = (props) => {
     <>
       {isSmallScreen ? (
         <a
-          href={props.link}
+          href={checkoutLink}
           target="_blank"
           rel="noopener noreferrer"
           className="link--brand"
@@ -72,7 +82,7 @@ const EventBriteModal = (props) => {
         </Modal.Header>
         <Modal.Body>
           <iframe
-            src={props.link}
+            src={checkoutLink}
             title="Eventbrite Checkout"
             width="100%"
             style={{ height: "80vh", border: "none" }}

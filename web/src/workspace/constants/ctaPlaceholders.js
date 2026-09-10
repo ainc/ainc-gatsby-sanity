@@ -37,10 +37,12 @@ export const ZOHO_EMBEDS = {
   joinOfficeWaitlist:
     "https://forms.zohopublic.com/virtualoffice9155/form/ContactUs/formperma/IeqkRsD8Ln0iv4eefk7Oy91FbZ-TlWCtSJO3Yc6n0aA",
   // TODO: Zoho Form — Book Event Space
-  bookEventSpace: "",
+  bookEventSpace:
+    "https://forms.zohopublic.com/virtualoffice9155/form/BasicSignup/formperma/jheJ3kZTxSJkztL3SEy-4jweu_3XvBNxr7KoJJXJbsc",
   // Existing live Contact Us form (used on /contact). Uncomment to embed here too.
   // contactUs: "https://forms.zohopublic.com/virtualoffice9155/form/ContactUs/formperma/IeqkRsD8Ln0iv4eefk7Oy91FbZ-TlWCtSJO3Yc6n0aA",
-  contactUs: "",
+  contactUs:
+    "https://forms.zohopublic.com/virtualoffice9155/form/ContactUs/formperma/IeqkRsD8Ln0iv4eefk7Oy91FbZ-TlWCtSJO3Yc6n0aA",
 };
 
 /** Old hub hash left over from the pre-restructure workspace page. */
