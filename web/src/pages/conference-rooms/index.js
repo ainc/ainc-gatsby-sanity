@@ -22,7 +22,7 @@ const ROOMS = [
     capacitySize: "large",
     capacityLabel: "10-16 people",
     text: "Screen, whiteboard, and video-ready setup for team meetings. All glass and mirrors.",
-    bookingId: "", // TODO: Zoho resource booking ID for Lee Todd
+    bookingId: "4078485000002460134", 
   },
   {
     name: "350 Conference Room",
@@ -30,7 +30,7 @@ const ROOMS = [
     capacitySize: "large",
     capacityLabel: "10–16 people",
     text: "Screen, whiteboard, and video-ready setup for team meetings.",
-    bookingId: "", // TODO: Zoho resource booking ID for 350
+    bookingId: "4078485000002460230", 
   },
   {
     name: "344 Upstairs Conference Room",
@@ -38,7 +38,7 @@ const ROOMS = [
     capacitySize: "medium",
     capacityLabel: "6–10 people",
     text: "Upstairs conference room with screen and whiteboard — great for team meetings and client presentations.",
-    bookingId: "", // TODO: Zoho resource booking ID for 344 Upstairs
+    bookingId: "4078485000002477006", 
   },
 ];
 
