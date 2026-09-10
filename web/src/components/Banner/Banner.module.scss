@@ -5,22 +5,19 @@
 
 .banner {
   text-align: center;
-  padding: 5px; // Default padding
+  padding: 4px 8px;
   background-color: #f2dede;
   color: #842029;
   position: relative;
   z-index: 10;
+  @include font-size(13);
+
+  @include screen-tablet-max {
+    @include font-size(12);
+  }
 
   &.no-padding {
     padding: 0; // No padding when there's no upcoming event
-  }
-
-  p {
-    @include screen-tablet-max {
-      font-size: 14px;
-    }
-    margin: 0;
-    font-weight: normal;
   }
 
   a {
