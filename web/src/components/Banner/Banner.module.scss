@@ -10,10 +10,10 @@
   color: #842029;
   position: relative;
   z-index: 10;
-  @include font-size(13);
+  @include font-size(7);
 
   @include screen-tablet-max {
-    @include font-size(12);
+    @include font-size(6);
   }
 
   &.no-padding {
