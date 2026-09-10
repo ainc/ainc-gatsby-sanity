@@ -10,13 +10,12 @@
   color: #842029;
   position: relative;
   z-index: 10;
-  font-size: 1rem;
-
   &.no-padding {
     padding: 0; // No padding when there's no upcoming event
   }
 
   a {
+    font-size: 1rem;
     font-weight: normal;
     color: #842029;
     text-decoration: none;

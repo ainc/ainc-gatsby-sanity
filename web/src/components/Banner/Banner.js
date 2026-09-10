@@ -36,6 +36,7 @@ const Banner = () => {
                 ? "noopener noreferrer"
                 : undefined
             }
+            style={{ fontSize: "1rem" }}
           >
             {banner.link.title}
           </a>
