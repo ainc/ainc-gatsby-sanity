@@ -275,7 +275,7 @@ const Header = () => {
                 >
                   Schedule a Tour
                 </a>
-                <a href="/workspace#become-a-member">Office Space</a>
+                <a href="/workspace">Workspace</a>
                 <a href="/events">Events</a>
                 <a href="/coworking">Coworking</a>
                 <a href="/private-office">Private Office</a>
@@ -331,7 +331,7 @@ const Header = () => {
                           >
                             Schedule a Tour
                           </a>
-                          <a href="/workspace#become-a-member">Office Space</a>
+                          <a href="/workspace">Workspace</a>
                           <a href="/events">Events</a>
                           <a href="/coworking">Coworking</a>
                           <a href="/private-office">Private Office</a>
