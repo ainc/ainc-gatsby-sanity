@@ -210,6 +210,9 @@ exports.createSchemaCustomization = ({ actions }) => {
     type SanitySliderImage {
       active: Boolean
     }
+    type SanityBanner implements Node {
+      enabled: Boolean
+    }
   `);
 };
 

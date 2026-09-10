@@ -5,7 +5,7 @@ export default {
   type: "document",
   title: "Banner",
   __experimental_actions: [
-    // "create",
+    "create",
     "update",
     // "delete",
     "publish",
@@ -32,7 +32,7 @@ export default {
       title: "Banner link",
       type: "link",
       description:
-        "Title is the full banner sentence. URL is where the whole banner goes. Behavior is same tab vs new tab. The date does not update from Events — edit the title when it changes.",
+        "Title is the full banner sentence. URL can be https://... or a site path like /events/5across. Behavior is same tab vs new tab. The date does not update from Events — edit the title when it changes.",
     },
   ],
 };
