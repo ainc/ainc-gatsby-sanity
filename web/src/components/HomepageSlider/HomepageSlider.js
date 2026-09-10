@@ -19,6 +19,7 @@ const HomepageSlider = (props) => {
       sanityImageSlider(title: { eq: "Homepage Slider" }) {
         title
         slides {
+          active
           title
           subtitle
           cta {
@@ -39,7 +40,9 @@ const HomepageSlider = (props) => {
     }
   `);
 
-  const slides = query.sanityImageSlider.slides || {};
+  const slides = (query.sanityImageSlider?.slides || []).filter(
+    (slide) => slide.active !== false,
+  );
   return (
     <Carousel controls={false}>
       {slides.map((slide, i) => (

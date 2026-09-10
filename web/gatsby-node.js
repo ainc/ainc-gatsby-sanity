@@ -207,6 +207,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       order: Int
       image: SanityImage
     }
+    type SanitySliderImage {
+      active: Boolean
+    }
   `);
 };
 
