@@ -96,7 +96,18 @@ export default (S) =>
           S.list()
             .id("generalSettings")
             .title("General Settings")
+            // ******************Banner added here******************
             .items([
+              S.listItem()
+                .id("general_banner")
+                .title("Banner")
+                .icon(FaRegWindowMaximize)
+                .child(
+                  S.document()
+                    .id("bannerDoc")
+                    .schemaType("banner")
+                    .documentId("banner"),
+                ),
               S.listItem()
                 .id("general_footer")
                 .title("Footer")
@@ -977,6 +988,17 @@ export default (S) =>
                     .id("ap_generalSettingsGroup")
                     .title("Settings")
                     .items([
+                      // ******************Banner again******************
+                      S.listItem()
+                        .id("ap_bannerSettings")
+                        .title("Banner")
+                        .icon(FaRegWindowMaximize)
+                        .child(
+                          S.document()
+                            .id("ap_bannerDoc")
+                            .schemaType("banner")
+                            .documentId("banner"),
+                        ),
                       S.listItem()
                         .id("ap_footerSettings")
                         .title("Footer")
@@ -1164,6 +1186,7 @@ export default (S) =>
                     "fellowshipPortfolio",
                     "fellowshipSponsers",
                     "footer",
+                    "banner",
                     "fellowshipKPIs",
                     "courses",
                     "bootcampTestimonials",
