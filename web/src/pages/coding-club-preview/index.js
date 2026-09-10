@@ -119,7 +119,7 @@ const CodingClubPage = ({ data }) => {
                     Block Stacker Project
                   </td>
                   <td className="d-flex justify-content-center py-3">
-                    <a href="../learn/youth#join" className="register-button">
+                    <a href="/learn/youth/#join" className="register-button">
                       Register to continue
                     </a>
                   </td>
@@ -228,7 +228,7 @@ const CodingClubPage = ({ data }) => {
                     Mad Libs Game
                   </td>
                   <td className="d-flex justify-content-center py-3">
-                    <a href="../learn/youth#join" className="register-button">
+                    <a href="/learn/youth/#join" className="register-button">
                       Register to continue
                     </a>
                   </td>

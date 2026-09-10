@@ -74,7 +74,7 @@ const PortfolioPage = ({ data }) => {
         </Container>
 
         <Container>
-        <Row className="d-flex justify-content-start">
+          <Row className="d-flex justify-content-start">
             <Col
               md={4}
               className="my-1 d-flex align-items-center justify-content-start"
@@ -91,7 +91,9 @@ const PortfolioPage = ({ data }) => {
               className="my-1 d-flex align-items-center justify-content-start"
             >
               <a href="/fellowship/perks">
-                <BrandButton className="col-md-auto px-4 mb-5">Perks</BrandButton>
+                <BrandButton className="col-md-auto px-4 mb-5">
+                  Perks
+                </BrandButton>
               </a>
             </Col>
           </Row>

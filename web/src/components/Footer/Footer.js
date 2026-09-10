@@ -15,6 +15,10 @@ import {
 } from "react-icons/fa";
 
 import BrandButton from "../UI/BrandButton/BrandButton";
+import {
+  rewriteLegacyWorkspaceTourUrl,
+  ZOHO_EMBEDS,
+} from "../../workspace/constants/ctaPlaceholders";
 
 import * as styles from "./Footer.module.scss";
 
@@ -260,17 +264,23 @@ const Footer = () => {
             >
               <h2 className={styles.infoListTitle}>Quicklinks</h2>
               <ul className={styles.infoList}>
-                {footerData.quicklinks.map((node, i) => (
-                  <li key={i}>
-                    <a
-                      href={node.url}
-                      target={node.behavior ? "_blank" : "_self"}
-                      key={i}
-                    >
-                      {node.title}
-                    </a>
-                  </li>
-                ))}
+                {footerData.quicklinks.map((node, i) => {
+                  const href = rewriteLegacyWorkspaceTourUrl(node.url);
+                  const opensZohoTour = href === ZOHO_EMBEDS.bookTour;
+                  return (
+                    <li key={i}>
+                      <a
+                        href={href}
+                        target={
+                          node.behavior || opensZohoTour ? "_blank" : "_self"
+                        }
+                        rel={opensZohoTour ? "noopener noreferrer" : undefined}
+                      >
+                        {node.title}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </Col>
 
@@ -284,17 +294,23 @@ const Footer = () => {
             >
               <h2 className={styles.infoListTitle}>Courses</h2>
               <ul className={styles.infoList}>
-                {footerData.courses.map((node, i) => (
-                  <li key={i}>
-                    <a
-                      href={node.url}
-                      target={node.behavior ? "_blank" : "_self"}
-                      key={i}
-                    >
-                      {node.title}
-                    </a>
-                  </li>
-                ))}
+                {footerData.courses.map((node, i) => {
+                  const href = rewriteLegacyWorkspaceTourUrl(node.url);
+                  const opensZohoTour = href === ZOHO_EMBEDS.bookTour;
+                  return (
+                    <li key={i}>
+                      <a
+                        href={href}
+                        target={
+                          node.behavior || opensZohoTour ? "_blank" : "_self"
+                        }
+                        rel={opensZohoTour ? "noopener noreferrer" : undefined}
+                      >
+                        {node.title}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </Col>
 
