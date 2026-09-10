@@ -9,6 +9,7 @@ import { Container, Row, Col, Carousel } from "react-bootstrap";
 
 import BrandLink from "../UI/BrandLink/BrandLink";
 import Title from "../UI/Title/Title";
+import Subtitle from "../UI/Subtitle/Subtitle";
 import Wrapper from "../UI/Wrapper/Wrapper";
 
 const HomepageSlider = (props) => {
@@ -92,6 +93,7 @@ const HomepageSlider = (props) => {
                     transition={{ delay: 0.5, duration: 0.8 }}
                     style={{ zIndex: 2 }}
                   >
+                    <Subtitle className="mb-3 white">{slide.subtitle}</Subtitle>
                     <Title className="mb-3 white text--big">
                       {slide.title}
                     </Title>
