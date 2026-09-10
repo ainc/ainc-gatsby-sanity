@@ -212,6 +212,12 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
     type SanityBanner implements Node {
       enabled: Boolean
+      link: SanityLink
+    }
+    type SanityLink {
+      title: String
+      url: String
+      behavior: String
     }
   `);
 };
