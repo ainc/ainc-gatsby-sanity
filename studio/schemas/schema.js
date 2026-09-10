@@ -51,9 +51,18 @@ import alumniTestimonials from "./documents/alumniTestimonials";
 import fellowshipKPIs from "./documents/fellowshipKPIs";
 import fellowshipTestimonials from "./documents/fellowshipTestimonials";
 import partnershipSponsors from "./documents/partnershipSponsors";
+import heroImage from "./objects/heroImage";
+import frequentlyAskedQuestion from "./documents/frequentlyAskedQuestion";
+import features from "./objects/features";
+import pageBuilder from "./documents/pageBuilder";
+import frequentlyAskedQuestions from "./objects/frequentlyAskedQuestions";
+import page from "./documents/page";
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
   bioPortableText,
+  heroImage,
+  frequentlyAskedQuestions,
+  features,
   figure,
   projectMember,
   projectPortableText,
@@ -65,6 +74,9 @@ export default [
   imageTestimonials,
   // The following are document types which will appear
   // in the studio.
+  frequentlyAskedQuestion,
+  page,
+  pageBuilder,
   teamMember,
   siteSettings,
   blog,
