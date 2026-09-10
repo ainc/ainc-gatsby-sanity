@@ -49,6 +49,7 @@ export const query = graphql`
     }
     sanityImageSlider(title: { eq: "Intern Alumni Logos" }) {
       slides {
+        active
         image {
           asset {
             gatsbyImageData(width: 120, height: 120, layout: FIXED)
@@ -93,7 +94,9 @@ export const query = graphql`
 `;
 const InternshipsPage = ({ data }) => {
   const allSanityInternTestimonials = data.allSanityInternTestimonials.nodes;
-  const alumniLogoSlides = data?.sanityImageSlider?.slides || [];
+  const alumniLogoSlides = (data?.sanityImageSlider?.slides || []).filter(
+    (slide) => slide.active !== false,
+  );
   const allTeamAlpha = data.allSanityTeamAlpha.nodes || {};
 
   const [teamInfoDiv, setTeamInfoDiv] = useState(null);
