@@ -57,6 +57,7 @@ import features from "./objects/features";
 import pageBuilder from "./documents/pageBuilder";
 import frequentlyAskedQuestions from "./objects/frequentlyAskedQuestions";
 import page from "./documents/page";
+import button from "./documents/button";
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
   bioPortableText,
@@ -75,6 +76,7 @@ export default [
   // The following are document types which will appear
   // in the studio.
   frequentlyAskedQuestion,
+  button,
   page,
   pageBuilder,
   teamMember,

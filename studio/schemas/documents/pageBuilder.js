@@ -5,5 +5,6 @@ export default {
         {type: "heroImage"},
         {type: "features"},
         {type: "frequentlyAskedQuestions"},
+        {type: "button"},
     ],
 }
