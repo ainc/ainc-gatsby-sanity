@@ -204,8 +204,12 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   createTypes(`
     type SanityTimelineEvent implements Node {
+      _id: String
+      date: Date @dateformat
+      title: String
       description: String
       priority: Float
+      image: SanityImage
     }
     type SanityIntroAlumniCarousel implements Node {
       _id: String!

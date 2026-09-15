@@ -87,9 +87,13 @@ const TimelinePage = ({ data }) => {
         </Container>
       </section>
 
-      <section>
-        <Container className={`pb-5 ${styles.milestones}`}>
-          <Title className="text-center text-uppercase">Key Milestones</Title>
+      <section className={styles.milestonesSection}>
+        <Container fluid className={styles.milestones}>
+          <Title
+            className={`text-center text-uppercase ${styles.milestonesTitle}`}
+          >
+            Key Milestones
+          </Title>
 
           {/* Desktop: year links. href="#year-2007" matches id on the first card of that year. */}
           {years.length > 0 && (
