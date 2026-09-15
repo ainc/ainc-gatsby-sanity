@@ -1,7 +1,11 @@
-// Load variables from `.env` as soon as possible
-console.log(process.env.NODE_ENV);
+// Load variables from `.env` as soon as possible.
+// `gatsby build` always sets NODE_ENV=production, so use GATSBY_ACTIVE_ENV
+// when a Netlify test deploy should read `.env.development` instead.
+const dotenvName =
+  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "production";
+console.log(process.env.NODE_ENV, "dotenv", dotenvName);
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV || "production"}`,
+  path: require("path").join(__dirname, `.env.${dotenvName}`),
 });
 
 const clientConfig = require("./client-config");

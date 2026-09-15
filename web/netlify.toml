@@ -1,0 +1,15 @@
+# Local/linked builds from the `web` package. Overrides the Netlify UI
+# command `yarn workspace ainc-gatsby-sanity-web build` + publish `web/public`,
+# which resolve to the wrong paths when this folder is already the base.
+#
+# GATSBY_ACTIVE_ENV=development makes gatsby-config load `.env.development`
+# (gatsby build still uses NODE_ENV=production). Do not merge this as-is to
+# main / ainc-gatsby-sanity production, or that site would read the dev dataset.
+[build]
+  command = "yarn build"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "22"
+  GATSBY_ACTIVE_ENV = "development"
+  GATSBY_SANITY_DATASET = "development"

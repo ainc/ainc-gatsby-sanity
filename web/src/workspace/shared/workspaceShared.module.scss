@@ -787,11 +787,10 @@
   margin: 0 auto;
   display: grid;
   gap: 2rem;
-  align-items: center;
+}
 
-  @media (min-width: $screen-lg-min) {
-    grid-template-columns: 1fr 1.15fr;
-  }
+.videoStripCopy {
+  max-width: 40rem;
 }
 
 .videoThumb {
