@@ -3,8 +3,9 @@
 
 // ---------------------------------------------------------------------------
 // Hero — full-width band under the Header. Two stacked backgrounds: a
-// semi-transparent brand-red wash, then the photo. Swap the url() when Kyle
-// has the real team shot (put the file in web/src/images/).
+// brand-red overlay (heavier at the top so the photo shows through lower),
+// then the photo. Swap the url() when Kyle has the real team shot (put the
+// file in web/src/images/).
 // ---------------------------------------------------------------------------
 .hero {
   position: relative;
@@ -14,7 +15,13 @@
   min-height: 70vh;
   padding: 4rem 1rem;
   color: $white-color;
-  background: linear-gradient(rgba(193, 32, 41, 0.8), rgba(193, 32, 41, 0.8)),
+  background: linear-gradient(
+      to bottom,
+      rgba($brand-color, 0.96) 0%,
+      rgba($brand-color, 0.78) 38%,
+      rgba($brand-color, 0.5) 72%,
+      rgba($brand-color, 0.28) 100%
+    ),
     url("../../images/about-page-bg.jpg");
   background-size: cover;
   background-position: center;
@@ -40,10 +47,21 @@
 // ---------------------------------------------------------------------------
 .milestones-section {
   overflow-x: clip;
+  // Figma: white through most cards, then a tall salmon fade that sits
+  // behind the last ~2 cards and meets the Footer as a stronger red.
+  background: linear-gradient(
+    to bottom,
+    $white-color 0%,
+    $white-color calc(100% - 42rem),
+    rgba($brand-color, 0.12) calc(100% - 32rem),
+    rgba($brand-color, 0.34) calc(100% - 20rem),
+    rgba($brand-color, 0.52) calc(100% - 10rem),
+    rgba($brand-color, 0.6) 100%
+  );
 }
 
 .milestones {
-  padding: 4.5rem 1.25rem 5rem;
+  padding: 4.5rem 1.25rem 10rem;
 }
 
 .milestones-title {
@@ -57,7 +75,7 @@
     padding-left: 275px;
     padding-right: 275px;
     padding-top: 5rem;
-    padding-bottom: 6rem;
+    padding-bottom: 11rem;
   }
 }
 
@@ -238,7 +256,7 @@
 
   .milestones {
     overflow-x: clip;
-    padding: 3rem 1.25rem 4rem;
+    padding: 3rem 1.25rem 9rem;
   }
 
   .milestones-title {
