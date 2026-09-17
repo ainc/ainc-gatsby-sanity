@@ -95,100 +95,120 @@ const TimelinePage = ({ data }) => {
             Key Milestones
           </Title>
 
-          {/* Desktop: year links. href="#year-2007" matches id on the first card of that year. */}
-          {years.length > 0 && (
-            <nav className={styles.yearNav} aria-label="Jump to year">
-              {years.map((year) => (
-                <a
-                  key={year}
-                  href={`#year-${year}`}
-                  className={styles.yearLink}
-                >
-                  {year}
-                </a>
-              ))}
-            </nav>
-          )}
-
-          {/* Mobile only (shown in CSS under 992px): prev / year select / next. */}
-          {years.length > 0 && (
-            <nav className={styles.mobileNav} aria-label="Timeline controls">
-              <button
-                type="button"
-                className={styles.mobileArrow}
-                onClick={() => scrollToIndex(activeIndex - 1)}
-                disabled={activeIndex === 0}
-                aria-label="Previous milestone"
-              >
-                ‹
-              </button>
-              <select
-                className={styles.mobileYearSelect}
-                value={activeYear}
-                onChange={handleYearChange}
-                aria-label="Jump to year"
-              >
+          {/* Year row + cards share this column so years span the same width as the photos. */}
+          <div className={styles.timelineColumn}>
+            {/* Desktop: year links. href="#year-2007" matches id on the first card of that year. */}
+            {years.length > 0 && (
+              <nav className={styles.yearNav} aria-label="Jump to year">
                 {years.map((year) => (
-                  <option key={year} value={year}>
+                  <a
+                    key={year}
+                    href={`#year-${year}`}
+                    className={styles.yearLink}
+                  >
                     {year}
-                  </option>
+                  </a>
                 ))}
-              </select>
-              <button
-                type="button"
-                className={styles.mobileArrow}
-                onClick={() => scrollToIndex(activeIndex + 1)}
-                disabled={activeIndex === events.length - 1}
-                aria-label="Next milestone"
-              >
-                ›
-              </button>
-            </nav>
-          )}
+              </nav>
+            )}
 
-          {/*
+            {/* Mobile only (shown in CSS under 992px): prev / year select / next. */}
+            {years.length > 0 && (
+              <nav className={styles.mobileNav} aria-label="Timeline controls">
+                <button
+                  type="button"
+                  className={styles.mobileArrow}
+                  onClick={() => scrollToIndex(activeIndex - 1)}
+                  disabled={activeIndex === 0}
+                  aria-label="Previous milestone"
+                >
+                  ‹
+                </button>
+                <select
+                  className={styles.mobileYearSelect}
+                  value={activeYear}
+                  onChange={handleYearChange}
+                  aria-label="Jump to year"
+                >
+                  {years.map((year) => (
+                    <option key={year} value={year}>
+                      {year}
+                    </option>
+                  ))}
+                </select>
+                <button
+                  type="button"
+                  className={styles.mobileArrow}
+                  onClick={() => scrollToIndex(activeIndex + 1)}
+                  disabled={activeIndex === events.length - 1}
+                  aria-label="Next milestone"
+                >
+                  ›
+                </button>
+              </nav>
+            )}
+
+            {/*
             ONE list of cards for both layouts. Desktop CSS stacks them (vertical
             line + dots). Mobile CSS makes this a horizontal swipe carousel.
             Do not duplicate this list for mobile — that would download photos twice.
           */}
-          <ol
-            ref={trackRef}
-            className={styles.track}
-            onScroll={handleTrackScroll}
-          >
-            {events.map((event, index) => {
-              // Only the first event of a year gets id="year-2010" (HTML ids must be unique).
-              const isFirstOfYear =
-                events.findIndex((item) => item.year === event.year) === index;
+            <ol
+              ref={trackRef}
+              className={styles.track}
+              onScroll={handleTrackScroll}
+            >
+              {events.map((event, index) => {
+                // Only the first event of a year gets id="year-2010" (HTML ids must be unique).
+                const isFirstOfYear =
+                  events.findIndex((item) => item.year === event.year) ===
+                  index;
 
-              return (
-                <li
-                  key={event._id}
-                  id={isFirstOfYear ? `year-${event.year}` : undefined}
-                  className={styles.item}
-                >
-                  {/* Decorative spine marker; hidden on mobile. aria-hidden = not for screen readers. */}
-                  <span className={styles.dot} aria-hidden="true" />
-                  <article className={styles.card}>
-                    {event.image?.asset?.gatsbyImageData && (
-                      <GatsbyImage
-                        image={event.image.asset.gatsbyImageData}
-                        alt={event.title}
-                        className={styles.cardImage}
-                      />
-                    )}
-                    <div className={styles.cardBody}>
-                      <p className={styles.date}>{event.date}</p>
-                      <h2 className={styles.cardTitle}>{event.title}</h2>
-                      {event.description && (
-                        <p className={styles.cardText}>{event.description}</p>
+                return (
+                  <li
+                    key={event._id}
+                    id={isFirstOfYear ? `year-${event.year}` : undefined}
+                    className={styles.item}
+                  >
+                    {/* Decorative spine marker; hidden on mobile. aria-hidden = not for screen readers. */}
+                    <span className={styles.dot} aria-hidden="true" />
+                    <article className={styles.card}>
+                      {event.image?.asset?.gatsbyImageData && (
+                        <GatsbyImage
+                          image={event.image.asset.gatsbyImageData}
+                          alt={event.title}
+                          className={styles.cardImage}
+                          objectFit="cover"
+                          objectPosition="center"
+                          style={{
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            width: "100%",
+                            height: "100%",
+                            maxWidth: "none",
+                            maxHeight: "none",
+                          }}
+                          imgStyle={{
+                            objectFit: "cover",
+                            width: "100%",
+                            height: "100%",
+                          }}
+                        />
                       )}
-                    </div>
-                  </article>
-                </li>
-              );
-            })}
-          </ol>
+                      <div className={styles.cardBody}>
+                        <p className={styles.date}>{event.date}</p>
+                        <h2 className={styles.cardTitle}>{event.title}</h2>
+                        {event.description && (
+                          <p className={styles.cardText}>{event.description}</p>
+                        )}
+                      </div>
+                    </article>
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
         </Container>
       </section>
     </Layout>
@@ -209,7 +229,7 @@ export const query = graphql`
         description
         image {
           asset {
-            gatsbyImageData(width: 900, placeholder: DOMINANT_COLOR)
+            gatsbyImageData(layout: FULL_WIDTH, placeholder: DOMINANT_COLOR)
           }
         }
       }
