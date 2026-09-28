@@ -367,6 +367,25 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     redirectInBrowser: true,
   });
 
+  const emailSignature = await getEmailSignature(graphql);
+  const emailSignatureLink =
+    emailSignature?.link || EMAIL_SIGNATURE_FALLBACK_LINK;
+  // Netlify edge redirect only — do not set redirectInBrowser (that paints the site first).
+  createRedirect({
+    fromPath: "/email-signature",
+    toPath: emailSignatureLink,
+    isPermanent: false,
+    force: true,
+    statusCode: 302,
+  });
+  createRedirect({
+    fromPath: "/email-signature/",
+    toPath: emailSignatureLink,
+    isPermanent: false,
+    force: true,
+    statusCode: 302,
+  });
+
   await createPodcastPages(graphql, actions);
   await createBlogPostPages(graphql, actions);
   await createNotePages(graphql, actions);
