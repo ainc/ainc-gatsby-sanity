@@ -7,6 +7,7 @@ import {
   FaChalkboardTeacher,
   FaClock,
   FaCommentAlt,
+  FaEnvelope,
   FaGraduationCap,
   FaTrophy,
   FaHandshake,
@@ -107,6 +108,16 @@ export default (S) =>
                     .id("bannerDoc")
                     .schemaType("banner")
                     .documentId("banner"),
+                ),
+              S.listItem()
+                .id("general_emailSignature")
+                .title("Email Signature Banner")
+                .icon(FaEnvelope)
+                .child(
+                  S.document()
+                    .id("emailSignatureDoc")
+                    .schemaType("emailSignature")
+                    .documentId("emailSignature"),
                 ),
               S.listItem()
                 .id("general_footer")
@@ -1000,6 +1011,16 @@ export default (S) =>
                             .documentId("banner"),
                         ),
                       S.listItem()
+                        .id("ap_emailSignature")
+                        .title("Email Signature Banner")
+                        .icon(FaEnvelope)
+                        .child(
+                          S.document()
+                            .id("ap_emailSignatureDoc")
+                            .schemaType("emailSignature")
+                            .documentId("emailSignature"),
+                        ),
+                      S.listItem()
                         .id("ap_footerSettings")
                         .title("Footer")
                         .icon(GiBarefoot)
@@ -1187,6 +1208,7 @@ export default (S) =>
                     "fellowshipSponsers",
                     "footer",
                     "banner",
+                    "emailSignature",
                     "fellowshipKPIs",
                     "courses",
                     "bootcampTestimonials",
