@@ -10,25 +10,46 @@ const EMAIL_SIGNATURE_FALLBACK_LINK =
   "https://entrepreneurhof.com/induction-dinner/";
 
 async function getEmailSignature(graphql) {
-  const result = await graphql(`
-    {
-      sanityEmailSignature(_id: { eq: "emailSignature" }) {
-        alt
-        link
-        image {
-          asset {
-            url
+  try {
+    const result = await graphql(`
+      {
+        sanityEmailSignature(_id: { eq: "emailSignature" }) {
+          alt
+          link
+          image {
+            asset {
+              url
+            }
           }
         }
       }
-    }
-  `);
+    `);
 
-  if (result.errors || !result.data || !result.data.sanityEmailSignature) {
+    if (result.errors || !result.data || !result.data.sanityEmailSignature) {
+      return null;
+    }
+
+    return result.data.sanityEmailSignature;
+  } catch (error) {
     return null;
   }
+}
 
-  return result.data.sanityEmailSignature;
+function upsertEmailSignatureRedirect(publicDir, destUrl) {
+  const file = path.join(publicDir, "_redirects");
+  const lines = [
+    `/email-signature  ${destUrl}  302!`,
+    `/email-signature/  ${destUrl}  302!`,
+  ];
+  const existing = fs.existsSync(file) ? fs.readFileSync(file, "utf8") : "";
+  const kept = existing
+    .split(/\r?\n/)
+    .filter((line) => line && !line.startsWith("/email-signature"))
+    .join("\n");
+  fs.writeFileSync(
+    file,
+    `${lines.join("\n")}\n${kept}${kept ? "\n" : ""}`,
+  );
 }
 
 async function createBlogPostPages(graphql, actions) {
@@ -348,12 +369,23 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   });
 
   const emailSignature = await getEmailSignature(graphql);
+  const emailSignatureLink =
+    emailSignature?.link || EMAIL_SIGNATURE_FALLBACK_LINK;
   createRedirect({
     fromPath: EMAIL_SIGNATURE_REDIRECT,
-    toPath: emailSignature?.link || EMAIL_SIGNATURE_FALLBACK_LINK,
+    toPath: emailSignatureLink,
     isPermanent: false,
     force: true,
     redirectInBrowser: true,
+    statusCode: 302,
+  });
+  createRedirect({
+    fromPath: `${EMAIL_SIGNATURE_REDIRECT}/`,
+    toPath: emailSignatureLink,
+    isPermanent: false,
+    force: true,
+    redirectInBrowser: true,
+    statusCode: 302,
   });
 
   await createPodcastPages(graphql, actions);
@@ -413,6 +445,10 @@ function getCurrentDate() {
 
 exports.onPostBuild = async ({ graphql, reporter }) => {
   const emailSignature = await getEmailSignature(graphql);
+  const destUrl = emailSignature?.link || EMAIL_SIGNATURE_FALLBACK_LINK;
+  const publicDir = path.join(__dirname, "public");
+  upsertEmailSignatureRedirect(publicDir, destUrl);
+
   const imageUrl = emailSignature?.image?.asset?.url;
   if (!imageUrl) {
     reporter.info(
@@ -426,7 +462,7 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
     if (!response.ok) {
       throw new Error(`Failed to download banner (${response.status})`);
     }
-    const destDir = path.join(__dirname, "public", "images", "unlisted");
+    const destDir = path.join(publicDir, "images", "unlisted");
     fs.mkdirSync(destDir, { recursive: true });
     fs.writeFileSync(
       path.join(destDir, EMAIL_SIGNATURE_IMAGE),
