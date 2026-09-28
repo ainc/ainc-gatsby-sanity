@@ -4,7 +4,6 @@ const { createFilePath } = require("gatsby-source-filesystem");
 const { paginate } = require("gatsby-awesome-pagination");
 const { createRedirect } = require("gatsby-plugin-netlify");
 
-const EMAIL_SIGNATURE_REDIRECT = "/email-signature";
 const EMAIL_SIGNATURE_IMAGE = "email-signature-banner.png";
 const EMAIL_SIGNATURE_FALLBACK_LINK =
   "https://entrepreneurhof.com/induction-dinner/";
@@ -366,26 +365,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     isPermanent: true,
     force: true,
     redirectInBrowser: true,
-  });
-
-  const emailSignature = await getEmailSignature(graphql);
-  const emailSignatureLink =
-    emailSignature?.link || EMAIL_SIGNATURE_FALLBACK_LINK;
-  createRedirect({
-    fromPath: EMAIL_SIGNATURE_REDIRECT,
-    toPath: emailSignatureLink,
-    isPermanent: false,
-    force: true,
-    redirectInBrowser: true,
-    statusCode: 302,
-  });
-  createRedirect({
-    fromPath: `${EMAIL_SIGNATURE_REDIRECT}/`,
-    toPath: emailSignatureLink,
-    isPermanent: false,
-    force: true,
-    redirectInBrowser: true,
-    statusCode: 302,
   });
 
   await createPodcastPages(graphql, actions);
