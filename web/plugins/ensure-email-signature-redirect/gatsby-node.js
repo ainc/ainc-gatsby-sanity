@@ -17,7 +17,27 @@ function upsertRedirects(publicDir, destUrl) {
   fs.writeFileSync(file, `${lines.join("\n")}\n${kept}${kept ? "\n" : ""}`);
 }
 
-exports.onPostBuild = async ({ graphql, reporter }) => {
+function writeRedirectPage(publicDir, destUrl) {
+  const safe = String(destUrl).replace(/"/g, "");
+  const html = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting</title>
+    <meta http-equiv="refresh" content="0;url=${safe}" />
+    <script>location.replace("${safe}");</script>
+  </head>
+  <body>
+    <a href="${safe}">Continue</a>
+  </body>
+</html>
+`;
+  const dir = path.join(publicDir, "email-signature");
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, "index.html"), html);
+}
+
+exports.onPostBuild = async ({ graphql, reporter, store }) => {
   let destUrl = FALLBACK;
   try {
     const result = await graphql(`
@@ -34,6 +54,8 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
     reporter.warn(`Email signature redirect: ${error.message}`);
   }
 
-  upsertRedirects(path.join(__dirname, "..", "..", "public"), destUrl);
+  const publicDir = path.join(store.getState().program.directory, "public");
+  upsertRedirects(publicDir, destUrl);
+  writeRedirectPage(publicDir, destUrl);
   reporter.info(`Email signature redirect: /email-signature -> ${destUrl}`);
 };

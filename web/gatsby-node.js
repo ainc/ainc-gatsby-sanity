@@ -446,6 +446,22 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
   const destUrl = emailSignature?.link || EMAIL_SIGNATURE_FALLBACK_LINK;
   const publicDir = path.join(__dirname, "public");
   upsertEmailSignatureRedirect(publicDir, destUrl);
+  const redirectPage = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting</title>
+    <meta http-equiv="refresh" content="0;url=${destUrl}" />
+    <script>location.replace("${destUrl}");</script>
+  </head>
+  <body>
+    <a href="${destUrl}">Continue</a>
+  </body>
+</html>
+`;
+  const redirectDir = path.join(publicDir, "email-signature");
+  fs.mkdirSync(redirectDir, { recursive: true });
+  fs.writeFileSync(path.join(redirectDir, "index.html"), redirectPage);
 
   const imageUrl = emailSignature?.image?.asset?.url;
   if (!imageUrl) {
