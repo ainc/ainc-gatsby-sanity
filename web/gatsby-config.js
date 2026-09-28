@@ -101,10 +101,6 @@ module.exports = {
         },
       },
     },
-    // Last so it can rewrite public/_redirects after gatsby-plugin-netlify.
-    {
-      resolve: require.resolve("./plugins/ensure-email-signature-redirect"),
-    },
   ],
   siteMetadata: {
     title: "Awesome Inc",

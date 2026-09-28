@@ -34,23 +34,6 @@ async function getEmailSignature(graphql) {
   }
 }
 
-function upsertEmailSignatureRedirect(publicDir, destUrl) {
-  const file = path.join(publicDir, "_redirects");
-  const lines = [
-    `/email-signature  ${destUrl}  302!`,
-    `/email-signature/  ${destUrl}  302!`,
-  ];
-  const existing = fs.existsSync(file) ? fs.readFileSync(file, "utf8") : "";
-  const kept = existing
-    .split(/\r?\n/)
-    .filter((line) => line && !line.startsWith("/email-signature"))
-    .join("\n");
-  fs.writeFileSync(
-    file,
-    `${lines.join("\n")}\n${kept}${kept ? "\n" : ""}`,
-  );
-}
-
 async function createBlogPostPages(graphql, actions) {
   const { createPage, createRedirect } = actions;
   const result = await graphql(`
@@ -370,20 +353,19 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const emailSignature = await getEmailSignature(graphql);
   const emailSignatureLink =
     emailSignature?.link || EMAIL_SIGNATURE_FALLBACK_LINK;
-  // Netlify edge redirect only — do not set redirectInBrowser (that paints the site first).
   createRedirect({
-    fromPath: "/email-signature",
+    fromPath: `/email-signature`,
     toPath: emailSignatureLink,
-    isPermanent: false,
+    isPermanent: true,
     force: true,
-    statusCode: 302,
+    redirectInBrowser: true,
   });
   createRedirect({
-    fromPath: "/email-signature/",
+    fromPath: `/email-signature/`,
     toPath: emailSignatureLink,
-    isPermanent: false,
+    isPermanent: true,
     force: true,
-    statusCode: 302,
+    redirectInBrowser: true,
   });
 
   await createPodcastPages(graphql, actions);
@@ -443,26 +425,7 @@ function getCurrentDate() {
 
 exports.onPostBuild = async ({ graphql, reporter }) => {
   const emailSignature = await getEmailSignature(graphql);
-  const destUrl = emailSignature?.link || EMAIL_SIGNATURE_FALLBACK_LINK;
   const publicDir = path.join(__dirname, "public");
-  upsertEmailSignatureRedirect(publicDir, destUrl);
-  const redirectPage = `<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Redirecting</title>
-    <meta http-equiv="refresh" content="0;url=${destUrl}" />
-    <script>location.replace("${destUrl}");</script>
-  </head>
-  <body>
-    <a href="${destUrl}">Continue</a>
-  </body>
-</html>
-`;
-  const redirectDir = path.join(publicDir, "email-signature");
-  fs.mkdirSync(redirectDir, { recursive: true });
-  fs.writeFileSync(path.join(redirectDir, "index.html"), redirectPage);
-
   const imageUrl = emailSignature?.image?.asset?.url;
   if (!imageUrl) {
     reporter.info(
