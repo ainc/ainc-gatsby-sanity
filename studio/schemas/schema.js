@@ -58,10 +58,16 @@ import pageBuilder from "./documents/pageBuilder";
 import frequentlyAskedQuestions from "./objects/frequentlyAskedQuestions";
 import page from "./documents/page";
 import button from "./documents/button";
+import eventDetails from "./objects/eventDetails";
+import textSection from "./objects/textSection";
+import pagePortableText from "./objects/pagePortableText";
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
   bioPortableText,
   heroImage,
+  eventDetails,
+  textSection,
+  pagePortableText,
   frequentlyAskedQuestions,
   features,
   figure,
