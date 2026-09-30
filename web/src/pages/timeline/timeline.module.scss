@@ -438,22 +438,25 @@ $card-text-inset: 2.25rem;
     scroll-margin-top: 0;
   }
 
-  // Figma mobile: date + title at the top, body at the bottom.
-  // Real phones (especially iOS) inflate text vs Chrome device mode, which
-  // clipped the last lines inside overflow: hidden. Shrink type and lock
-  // text-size-adjust so copy stays inside the tile.
+  // Figma mobile: date + title stay pinned. Body copy scrolls inside the
+  // tile so long descriptions (APAX, etc.) are readable instead of clipped.
+  // text-size-adjust: 100% stops iOS from inflating type vs Chrome preview.
   .card {
     min-height: 24rem;
     aspect-ratio: 4 / 5;
+    // clip keeps the photo rounded without blocking inner overflow-y on iOS.
+    overflow: clip;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
   }
 
   .card-body {
+    position: absolute;
+    inset: 0;
     justify-content: flex-start;
     padding: 1.25rem 1.25rem 1.35rem;
     min-height: 0;
-    height: 100%;
+    height: auto;
     overflow: hidden;
   }
 
@@ -465,6 +468,7 @@ $card-text-inset: 2.25rem;
     font-style: italic;
     font-weight: 700;
     margin: 0 0 0.4rem;
+    flex-shrink: 0;
   }
 
   .card-title,
@@ -476,12 +480,34 @@ $card-text-inset: 2.25rem;
     margin: 0;
     font-size: 1.2rem;
     line-height: 1.2;
+    flex-shrink: 0;
   }
 
   .card-text {
-    margin-top: auto;
-    padding-top: 0.75rem;
+    flex: 1 1 auto;
+    min-height: 0;
+    margin-top: 0.75rem;
+    padding-top: 0;
+    padding-right: 0.4rem;
+    padding-bottom: 0.25rem;
     font-size: 0.8125rem;
     line-height: 1.35;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    // Vertical pan on the copy; swipe the photo/title to change cards.
+    touch-action: pan-y;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.55) transparent;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.55);
+      border-radius: 4px;
+    }
   }
 }

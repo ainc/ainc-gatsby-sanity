@@ -49,6 +49,11 @@ const TimelinePage = ({ data }) => {
     [events.length],
   );
 
+  // Keep a vertical drag on the card copy from also swiping the carousel.
+  const handleCardTextTouchMove = (event) => {
+    event.stopPropagation();
+  };
+
   // Keep the dropdown in sync when the user swipes the mobile carousel.
   const handleTrackScroll = () => {
     const track = trackRef.current;
@@ -200,7 +205,12 @@ const TimelinePage = ({ data }) => {
                         <p className={styles.date}>{event.date}</p>
                         <h2 className={styles.cardTitle}>{event.title}</h2>
                         {event.description && (
-                          <p className={styles.cardText}>{event.description}</p>
+                          <p
+                            className={styles.cardText}
+                            onTouchMove={handleCardTextTouchMove}
+                          >
+                            {event.description}
+                          </p>
                         )}
                       </div>
                     </article>
