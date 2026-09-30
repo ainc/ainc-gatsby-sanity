@@ -115,73 +115,36 @@ const Header = () => {
                 </a>
               </Row>
             )}
+            <div className="nav-promo">
+              <a
+                className="button"
+                href="https://www.entrepreneurhof.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Hall of Fame
+              </a>
+              <a
+                className="button"
+                href="/events/5across"
+                rel="noopener noreferrer"
+              >
+                5 Across Finals
+              </a>
+            </div>
+
             <Col className="desktop">
-              <Nav.Link href="/learn" className="text--white">
-                Learn To Code <AiFillCaretDown size={10} />
+              <Nav.Link href="/events" className="text--white">
+                Events
               </Nav.Link>
-              <div className="hover-options">
-                <a href="/learn/youth/code">Youth Courses</a>
-                <a href="/learn/adults">Adult Courses</a>
-                <a href="/weekofcode">Kids Camps</a>
-                <a href="/salesforce">Salesforce Career Accelerator</a>
-                <a href="/intro-to-web-development">Adult Intro Course</a>
-              </div>
             </Col>
 
             <Row className="d-sm-none d-flex flex-row justify-content-between gx-0 ps-2">
-              <Navbar
-                className="sticky-top sub-navbar"
-                variant="dark"
-                expand="lg"
-                expanded={
-                  active === "Learn To Code" && open === true ? true : false
-                }
-              >
+              <Navbar className="sticky-top sub-navbar" variant="dark">
                 <Container className="border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1">
                   <Navbar.Brand>
-                    <a href="/learn">Learn To Code</a>
+                    <Link to="/events">Events</Link>
                   </Navbar.Brand>
-                  <Navbar.Toggle
-                    aria-controls="basic-navbar-nav"
-                    onClick={() => handleClick("Learn To Code")}
-                    className={`${
-                      active === "Learn To Code" && open === true
-                        ? ""
-                        : "collapsed"
-                    } bg-none border-2 border-white text-white shadow-none`}
-                  >
-                    {active === "Learn To Code" && open === true ? (
-                      <ImPlus
-                        size={20}
-                        style={{ transform: "rotate(45deg)" }}
-                      />
-                    ) : (
-                      <ImPlus size={20} />
-                    )}
-                  </Navbar.Toggle>
-                  <Navbar.Collapse
-                    id="basic-navbar-nav"
-                    className="border-top-0"
-                  >
-                    <Nav>
-                      <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
-                        <Col
-                          xs={{ span: 10 }}
-                          className={`d-flex flex-column py-2 border-0`}
-                        >
-                          <a href="/learn/youth/code">Youth Courses</a>
-                          <a href="/learn/adults">Adult Courses</a>
-                          <a href="/weekofcode">Kids Camps</a>
-                          <a href="/salesforce">
-                            Salesforce Career Accelerator
-                          </a>
-                          <a href="/intro-to-web-development">
-                            Adult Intro Course
-                          </a>
-                        </Col>
-                      </Row>
-                    </Nav>
-                  </Navbar.Collapse>
                 </Container>
               </Navbar>
             </Row>
@@ -434,6 +397,12 @@ const Header = () => {
                 <Link to="/internships">Internships</Link>
                 <Link to="/events">Events</Link>
                 <Link to="/partnerships">Partnerships</Link>
+                <Link to="/learn">Learn to Code</Link>
+                <a href="/learn/youth/code">Youth Courses</a>
+                <a href="/learn/adults">Adult Courses</a>
+                <a href="/weekofcode">Kids Camps</a>
+                <a href="/salesforce">Salesforce Career Accelerator</a>
+                <a href="/intro-to-web-development">Adult Intro Course</a>
               </div>
             </Col>
 
@@ -483,6 +452,16 @@ const Header = () => {
                           <Link to="/internships">Internships</Link>
                           <Link to="/events">Events</Link>
                           <Link to="/partnerships">Partnerships</Link>
+                          <Link to="/learn">Learn to Code</Link>
+                          <a href="/learn/youth/code">Youth Courses</a>
+                          <a href="/learn/adults">Adult Courses</a>
+                          <a href="/weekofcode">Kids Camps</a>
+                          <a href="/salesforce">
+                            Salesforce Career Accelerator
+                          </a>
+                          <a href="/intro-to-web-development">
+                            Adult Intro Course
+                          </a>
                         </Col>
                       </Row>
                     </Nav>
