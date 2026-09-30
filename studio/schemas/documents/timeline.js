@@ -56,22 +56,29 @@ export default {
   ],
   preview: {
     select: {
-      title: "eventName",
+      title: "title",
       subtitle: "date",
-      media: "picture",
+      media: "image",
     },
-    //Show date as MMMM D, YYYY in preview subtitle
+    // Show date as MMMM D, YYYY in the list. T00:00:00 keeps the calendar
+    // day in local time (date-only strings otherwise become the previous day).
     prepare(selection) {
       const { title, subtitle, media } = selection;
 
-      const d = new Date(subtitle);
-      let day = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(d);
-      let month = new Intl.DateTimeFormat("en", { month: "long" }).format(d);
-      let year = new Intl.DateTimeFormat("en", { year: "numeric" }).format(d);
+      const d = subtitle ? new Date(`${subtitle}T00:00:00`) : null;
+      const day = d
+        ? new Intl.DateTimeFormat("en", { day: "2-digit" }).format(d)
+        : "";
+      const month = d
+        ? new Intl.DateTimeFormat("en", { month: "long" }).format(d)
+        : "";
+      const year = d
+        ? new Intl.DateTimeFormat("en", { year: "numeric" }).format(d)
+        : "";
 
       return {
         title: title,
-        subtitle: `${month} ${day}, ${year}`,
+        subtitle: d ? `${month} ${day}, ${year}` : "",
         media: media,
       };
     },
