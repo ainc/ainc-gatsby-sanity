@@ -438,28 +438,33 @@ $card-text-inset: 2.25rem;
     scroll-margin-top: 0;
   }
 
-  // Figma mobile: date + title stacked at the top, body copy at the bottom.
-  // Take the date out of absolute positioning so it occupies a real row in
-  // the flex column instead of sitting on top of the title.
-  .card-body {
-    justify-content: flex-start;
-    padding: 1.75rem 1.75rem 2rem;
-    min-height: 24rem;
-  }
-
+  // Figma mobile: date + title at the top, body at the bottom.
+  // Real phones (especially iOS) inflate text vs Chrome device mode, which
+  // clipped the last lines inside overflow: hidden. Shrink type and lock
+  // text-size-adjust so copy stays inside the tile.
   .card {
     min-height: 24rem;
     aspect-ratio: 4 / 5;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  .card-body {
+    justify-content: flex-start;
+    padding: 1.25rem 1.25rem 1.35rem;
+    min-height: 0;
+    height: 100%;
+    overflow: hidden;
   }
 
   .date {
     position: static;
     left: auto;
     color: $brand-red-bright;
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-style: italic;
     font-weight: 700;
-    margin: 0 0 0.6rem;
+    margin: 0 0 0.4rem;
   }
 
   .card-title,
@@ -469,10 +474,14 @@ $card-text-inset: 2.25rem;
 
   .card-title {
     margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.2;
   }
 
   .card-text {
     margin-top: auto;
-    padding-top: 1.25rem;
+    padding-top: 0.75rem;
+    font-size: 0.8125rem;
+    line-height: 1.35;
   }
 }
