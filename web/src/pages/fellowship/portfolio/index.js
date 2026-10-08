@@ -9,9 +9,59 @@ import SEO from "../../../components/seo";
 import Title from "../../../components/UI/Title/Title";
 
 import "../../../styles/main.scss";
+import * as styles from "./portfolio.module.scss";
+
+const groupByYear = (companies) => {
+  const groups = [];
+
+  companies.forEach((company) => {
+    const year = company.year ? company.year.split("-")[0] : "Unknown";
+    const currentGroup = groups[groups.length - 1];
+
+    if (currentGroup && currentGroup.year === year) {
+      currentGroup.companies.push(company);
+      return;
+    }
+
+    groups.push({ year, companies: [company] });
+  });
+
+  return groups;
+};
 
 const PortfolioPage = ({ data }) => {
   const allFellowshipPortfolio = data.allSanityFellowshipPortfolio.nodes;
+  const companiesByYear = groupByYear(allFellowshipPortfolio);
+  const [activeYear, setActiveYear] = React.useState(
+    companiesByYear[0]?.year ?? "",
+  );
+
+  React.useEffect(() => {
+    const sections = document.querySelectorAll("[data-year]");
+    if (!sections.length) return undefined;
+
+    const visibleTops = new Map();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          visibleTops.set(
+            entry.target,
+            entry.isIntersecting ? entry.boundingClientRect.top : null,
+          );
+        });
+
+        const active = [...visibleTops.entries()]
+          .filter(([, top]) => top !== null)
+          .sort((a, b) => a[1] - b[1])[0];
+
+        if (active) setActiveYear(active[0].getAttribute("data-year"));
+      },
+      { rootMargin: "-20% 0px -65% 0px", threshold: 0 },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <Layout>
@@ -55,22 +105,63 @@ const PortfolioPage = ({ data }) => {
           </Row>
         </Container>
 
-        <Container>
-          <Row className={`px-2 pb-5`}>
-            {allFellowshipPortfolio.map((node) => (
-              <Col sm="4" className="mb-4">
-                {" "}
-                {/*TODO: Fix responsiveness*/}
-                <FellowshipCompanyCard
-                  name={node.companyName}
-                  date={node.year}
-                  url={node.companyURL}
-                  image={node._rawFellowshipImage.asset.url}
-                  description={node.description}
-                />
-              </Col>
+        <Container className={styles.portfolio}>
+          <nav className={styles.index} aria-label="Portfolio years">
+            {companiesByYear.map((group) => (
+              <a
+                key={group.year}
+                href={`#year-${group.year}`}
+                className={
+                  activeYear === group.year
+                    ? styles.indexLinkActive
+                    : styles.indexLink
+                }
+                onClick={(event) => {
+                  event.preventDefault();
+                  document
+                    .getElementById(`year-${group.year}`)
+                    ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  window.history.replaceState(null, "", `#year-${group.year}`);
+                  setActiveYear(group.year);
+                }}
+              >
+                {group.year}
+              </a>
             ))}
-          </Row>
+          </nav>
+          <div className={styles.chapters}>
+            {companiesByYear.map((group, index) => (
+              <section
+                key={group.year}
+                id={`year-${group.year}`}
+                className={styles.year}
+                data-year={group.year}
+              >
+                <header className={styles.yearHeader}>
+                  <div>
+                    {index === 0 ? (
+                      <p className={styles.kicker}>Latest class</p>
+                    ) : null}
+                    <h2 className={styles.yearNumber}>{group.year}</h2>
+                  </div>
+                  <p className={styles.count}>
+                    {group.companies.length}{" "}
+                    {group.companies.length === 1 ? "company" : "companies"}
+                  </p>
+                </header>
+                <div className={styles.grid}>
+                  {group.companies.map((node) => (
+                    <FellowshipCompanyCard
+                      key={node.id}
+                      name={node.companyName}
+                      url={node.companyURL}
+                      image={node._rawFellowshipImage?.asset?.url}
+                    />
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
         </Container>
 
         <Container>
@@ -107,10 +198,10 @@ export const query = graphql`
   query {
     allSanityFellowshipPortfolio(sort: { year: DESC }) {
       nodes {
+        id
         year
         companyName
         companyURL
-        description
         _rawFellowshipImage(resolveReferences: { maxDepth: 10 })
       }
     }
