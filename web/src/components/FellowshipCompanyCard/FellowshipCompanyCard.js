@@ -2,20 +2,30 @@ import React from "react";
 import * as styles from "./FellowshipCompanyCard.module.scss";
 
 const FellowshipCompanyCard = ({ name, url, image }) => {
+  const className = styles.company;
+  const initial = name ? name.trim().charAt(0).toUpperCase() : "?";
   const content = (
     <>
-      {image ? <img className={styles.logo} src={image} alt="" /> : null}
+      <span className={styles.logoPlate}>
+        {image ? (
+          <img className={styles.logo} src={image} alt="" />
+        ) : (
+          <span className={styles.monogram} aria-hidden="true">
+            {initial}
+          </span>
+        )}
+      </span>
       <span className={styles.name}>{name}</span>
     </>
   );
 
   if (!url) {
-    return <div className={styles.company}>{content}</div>;
+    return <div className={className}>{content}</div>;
   }
 
   return (
     <a
-      className={styles.company}
+      className={className}
       href={url}
       target="_blank"
       rel="noopener noreferrer"

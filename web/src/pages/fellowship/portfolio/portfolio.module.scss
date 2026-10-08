@@ -1,0 +1,152 @@
+@import "../../../styles/variables.scss";
+
+.portfolio {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+  margin-bottom: 3rem;
+}
+
+.index {
+  position: sticky;
+  top: 6.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  max-height: calc(100vh - 8rem);
+  overflow: auto;
+  padding: 0.25rem 0 0.25rem 0.85rem;
+  border-left: 2px solid $brand-grey-light;
+}
+
+.indexLink,
+.indexLinkActive {
+  color: $brand-grey-dark;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  padding: 0.28rem 0;
+
+  &:hover,
+  &:focus-visible {
+    color: $brand-color;
+    text-decoration: none;
+  }
+}
+
+.indexLinkActive {
+  color: $brand-color;
+  box-shadow: inset 3px 0 0 $brand-color;
+  margin-left: -0.85rem;
+  padding-left: 0.85rem;
+}
+
+.chapters {
+  display: flex;
+  flex-direction: column;
+  gap: 3.25rem;
+}
+
+.year {
+  scroll-margin-top: 6.5rem;
+}
+
+.yearHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.15rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid $brand-grey-light;
+}
+
+.kicker {
+  margin: 0 0 0.35rem;
+  color: $brand-color;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.yearNumber {
+  margin: 0;
+  color: $brand-color2;
+  font-size: clamp(2.6rem, 4vw, 4.25rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+}
+
+.count {
+  margin: 0 0 0.35rem;
+  color: $brand-grey-dark;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .portfolio {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .year {
+    scroll-margin-top: 11rem;
+    padding-top: 0.35rem;
+  }
+
+  .index {
+    position: sticky;
+    top: 4.75rem;
+    z-index: 4;
+    flex-direction: row;
+    align-items: center;
+    max-height: none;
+    overflow-x: auto;
+    border-left: 0;
+    border-bottom: 2px solid $brand-grey-light;
+    background: rgba(255, 255, 255, 0.94);
+    padding: 0.35rem 0;
+    gap: 0.15rem 1rem;
+  }
+
+  .indexLink,
+  .indexLinkActive {
+    flex: 0 0 auto;
+    padding: 0.45rem 0.1rem;
+  }
+
+  .indexLinkActive {
+    box-shadow: inset 0 -2px 0 $brand-color;
+    margin-left: 0;
+    padding-left: 0.1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .yearNumber {
+    font-size: 2.4rem;
+  }
+}

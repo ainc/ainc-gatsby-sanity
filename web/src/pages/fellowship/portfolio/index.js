@@ -9,6 +9,7 @@ import SEO from "../../../components/seo";
 import Title from "../../../components/UI/Title/Title";
 
 import "../../../styles/main.scss";
+import * as styles from "./portfolio.module.scss";
 
 const groupByYear = (companies) => {
   const groups = [];
@@ -31,6 +32,36 @@ const groupByYear = (companies) => {
 const PortfolioPage = ({ data }) => {
   const allFellowshipPortfolio = data.allSanityFellowshipPortfolio.nodes;
   const companiesByYear = groupByYear(allFellowshipPortfolio);
+  const [activeYear, setActiveYear] = React.useState(
+    companiesByYear[0]?.year ?? "",
+  );
+
+  React.useEffect(() => {
+    const sections = document.querySelectorAll("[data-year]");
+    if (!sections.length) return undefined;
+
+    const visibleTops = new Map();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          visibleTops.set(
+            entry.target,
+            entry.isIntersecting ? entry.boundingClientRect.top : null,
+          );
+        });
+
+        const active = [...visibleTops.entries()]
+          .filter(([, top]) => top !== null)
+          .sort((a, b) => a[1] - b[1])[0];
+
+        if (active) setActiveYear(active[0].getAttribute("data-year"));
+      },
+      { rootMargin: "-20% 0px -65% 0px", threshold: 0 },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <Layout>
@@ -74,22 +105,64 @@ const PortfolioPage = ({ data }) => {
           </Row>
         </Container>
 
-        {companiesByYear.map((group) => (
-          <Container key={group.year} className="pb-4">
-            <h2 className="h3 mb-4">{group.year}</h2>
-            <Row>
-              {group.companies.map((node) => (
-                <Col key={node.id} lg={3} md={6} className="mb-4">
-                  <FellowshipCompanyCard
-                    name={node.companyName}
-                    url={node.companyURL}
-                    image={node._rawFellowshipImage?.asset?.url}
-                  />
-                </Col>
-              ))}
-            </Row>
-          </Container>
-        ))}
+        <Container className={styles.portfolio}>
+          <nav className={styles.index} aria-label="Portfolio years">
+            {companiesByYear.map((group) => (
+              <a
+                key={group.year}
+                href={`#year-${group.year}`}
+                className={
+                  activeYear === group.year
+                    ? styles.indexLinkActive
+                    : styles.indexLink
+                }
+                onClick={(event) => {
+                  event.preventDefault();
+                  document
+                    .getElementById(`year-${group.year}`)
+                    ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  window.history.replaceState(null, "", `#year-${group.year}`);
+                  setActiveYear(group.year);
+                }}
+              >
+                {group.year}
+              </a>
+            ))}
+          </nav>
+          <div className={styles.chapters}>
+            {companiesByYear.map((group, index) => (
+              <section
+                key={group.year}
+                id={`year-${group.year}`}
+                className={styles.year}
+                data-year={group.year}
+              >
+                <header className={styles.yearHeader}>
+                  <div>
+                    {index === 0 ? (
+                      <p className={styles.kicker}>Latest class</p>
+                    ) : null}
+                    <h2 className={styles.yearNumber}>{group.year}</h2>
+                  </div>
+                  <p className={styles.count}>
+                    {group.companies.length}{" "}
+                    {group.companies.length === 1 ? "company" : "companies"}
+                  </p>
+                </header>
+                <div className={styles.grid}>
+                  {group.companies.map((node) => (
+                    <FellowshipCompanyCard
+                      key={node.id}
+                      name={node.companyName}
+                      url={node.companyURL}
+                      image={node._rawFellowshipImage?.asset?.url}
+                    />
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        </Container>
 
         <Container>
           <Row className="d-flex justify-content-start">
