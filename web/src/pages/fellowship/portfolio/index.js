@@ -10,8 +10,27 @@ import Title from "../../../components/UI/Title/Title";
 
 import "../../../styles/main.scss";
 
+const groupByYear = (companies) => {
+  const groups = [];
+
+  companies.forEach((company) => {
+    const year = company.year ? company.year.split("-")[0] : "Unknown";
+    const currentGroup = groups[groups.length - 1];
+
+    if (currentGroup && currentGroup.year === year) {
+      currentGroup.companies.push(company);
+      return;
+    }
+
+    groups.push({ year, companies: [company] });
+  });
+
+  return groups;
+};
+
 const PortfolioPage = ({ data }) => {
   const allFellowshipPortfolio = data.allSanityFellowshipPortfolio.nodes;
+  const companiesByYear = groupByYear(allFellowshipPortfolio);
 
   return (
     <Layout>
@@ -55,23 +74,22 @@ const PortfolioPage = ({ data }) => {
           </Row>
         </Container>
 
-        <Container>
-          <Row className={`px-2 pb-5`}>
-            {allFellowshipPortfolio.map((node) => (
-              <Col sm="4" className="mb-4">
-                {" "}
-                {/*TODO: Fix responsiveness*/}
-                <FellowshipCompanyCard
-                  name={node.companyName}
-                  date={node.year}
-                  url={node.companyURL}
-                  image={node._rawFellowshipImage.asset.url}
-                  description={node.description}
-                />
-              </Col>
-            ))}
-          </Row>
-        </Container>
+        {companiesByYear.map((group) => (
+          <Container key={group.year} className="pb-4">
+            <h2 className="h3 mb-4">{group.year}</h2>
+            <Row>
+              {group.companies.map((node) => (
+                <Col key={node.id} lg={3} md={6} className="mb-4">
+                  <FellowshipCompanyCard
+                    name={node.companyName}
+                    url={node.companyURL}
+                    image={node._rawFellowshipImage?.asset?.url}
+                  />
+                </Col>
+              ))}
+            </Row>
+          </Container>
+        ))}
 
         <Container>
           <Row className="d-flex justify-content-start">
@@ -107,10 +125,10 @@ export const query = graphql`
   query {
     allSanityFellowshipPortfolio(sort: { year: DESC }) {
       nodes {
+        id
         year
         companyName
         companyURL
-        description
         _rawFellowshipImage(resolveReferences: { maxDepth: 10 })
       }
     }
