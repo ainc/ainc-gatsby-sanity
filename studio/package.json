@@ -42,6 +42,7 @@
     "sanity-plugin-dashboard-widget-document-list": "^0.0.13",
     "sanity-plugin-dashboard-widget-netlify": "^1.2.1",
     "sanity-plugin-markdown": "^4.1.0",
+    "sanity-plugin-media": "2.4.2",
     "sanity-plugin-tags": "^2.0.1",
     "styled-components": "^6.1.8"
   },
