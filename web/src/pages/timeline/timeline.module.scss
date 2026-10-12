@@ -129,20 +129,23 @@
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: baseline;
-  gap: 0.35rem;
+  gap: 0.75rem;
   width: 100%;
+  min-width: 0;
   margin: 0 0 2.75rem;
   // Same gutter as .track so the years sit over the cards, not the spine.
-  padding: 0 0 0 4.5rem;
+  padding: 0 0 0.35rem 4.5rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
 }
 
 .year-link {
   color: $brand-red-bright;
   text-decoration: none;
   font-weight: 600;
-  flex: 1 1 0;
+  flex: 0 0 auto;
   text-align: center;
-  min-width: 0;
+  white-space: nowrap;
 
   &:hover,
   &:focus-visible {
@@ -238,6 +241,15 @@ $card-text-inset: 2.25rem;
     background: url("../../images/timeline-card-gradient.png") center / cover
       no-repeat;
     mix-blend-mode: multiply;
+  }
+}
+
+// Image is optional. White type needs a solid charcoal field when there is no photo.
+.card-no-image {
+  background-color: $brand-color2;
+
+  &::after {
+    display: none;
   }
 }
 

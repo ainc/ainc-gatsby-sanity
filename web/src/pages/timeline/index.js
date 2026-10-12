@@ -168,6 +168,7 @@ const TimelinePage = ({ data }) => {
                 const isFirstOfYear =
                   events.findIndex((item) => item.year === event.year) ===
                   index;
+                const imageData = event.image?.asset?.gatsbyImageData;
 
                 return (
                   <li
@@ -177,11 +178,17 @@ const TimelinePage = ({ data }) => {
                   >
                     {/* Decorative spine marker; hidden on mobile. aria-hidden = not for screen readers. */}
                     <span className={styles.dot} aria-hidden="true" />
-                    <article className={styles.card}>
-                      {event.image?.asset?.gatsbyImageData && (
+                    <article
+                      className={
+                        imageData
+                          ? styles.card
+                          : `${styles.card} ${styles.cardNoImage}`
+                      }
+                    >
+                      {imageData && (
                         <GatsbyImage
-                          image={event.image.asset.gatsbyImageData}
-                          alt={event.title}
+                          image={imageData}
+                          alt={event.image.alt}
                           className={styles.cardImage}
                           objectFit="cover"
                           objectPosition="center"
@@ -238,6 +245,7 @@ export const query = graphql`
         title
         description
         image {
+          alt
           asset {
             gatsbyImageData(layout: FULL_WIDTH, placeholder: DOMINANT_COLOR)
           }

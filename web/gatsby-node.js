@@ -198,18 +198,25 @@ async function createTutorialsPages(graphql, actions) {
 
 // Optional Sanity fields are omitted from GraphQL until a published document
 // actually has a value. Declaring them here lets /timeline query `description`
-// and `priority` even when some events leave them blank. Changing this file
-// requires restarting `yarn dev` in web/.
+// and `priority` even when some events leave them blank. Image alt lives on
+// the image field, not SanityImage, so it needs its own type. Changing this
+// file requires restarting `yarn dev` in web/.
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   createTypes(`
+    type SanityTimelineEventImage {
+      alt: String
+      asset: SanityImageAsset
+      hotspot: SanityImageHotspot
+      crop: SanityImageCrop
+    }
     type SanityTimelineEvent implements Node {
       _id: String
       date: Date @dateformat
       title: String
       description: String
       priority: Float
-      image: SanityImage
+      image: SanityTimelineEventImage
     }
     type SanityIntroAlumniCarousel implements Node {
       _id: String!
