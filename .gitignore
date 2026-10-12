@@ -10,6 +10,9 @@
 # Local Netlify folder
 .netlify
 
+# Local-only email signature (do not commit)
+email_signature.html
+
 .vscode
 
 ../yarn.lock

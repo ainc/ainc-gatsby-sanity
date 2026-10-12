@@ -52,6 +52,27 @@
   }
 }
 
+.nav-promo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 0.4rem;
+  margin-right: 0.35rem;
+
+  a.button {
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+    line-height: 1.15;
+    padding: 0.4rem 0.55rem;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  @include screen-tablet-max {
+    margin: 0.75rem 0 0.25rem;
+  }
+}
+
 .navbar {
   background-color: $brand-color2;
   opacity: 0.9;

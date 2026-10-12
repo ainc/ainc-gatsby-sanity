@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Layout from "../../../components/Layout/Layout";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
@@ -17,43 +17,48 @@ const App = () => {
 
 const InterviewPage = () => {
   const [isTimerComplete, setIsTimerComplete] = useState(false);
-  const [name, setName] = useState(false);
-  const [startTime, setStartTime] = useState(false);
-  const [endTime, setEndTime] = useState(false);
-  const [invitee, setInvitee] = useState(false);
 
+  // Calendly appends invitee/time params to this URL. Read them from the query
+  // string on each render instead of useEffect + useState(false).
+  // The old effect had no dependency array (re-ran every render) and defaulted
+  // name/times to false, so new Date(false) showed a fake 1969/1970 interview
+  // when someone visited /confirmation/interview/ with no query params.
   const location = useLocation();
-
   const queryParameters = new URLSearchParams(location.search);
-  console.log(queryParameters);
-  useEffect(() => {
-    setName(queryParameters.get("invitee_full_name"));
-    setStartTime(queryParameters.get("event_start_time"));
-    setEndTime(queryParameters.get("event_end_time"));
-    setInvitee(queryParameters.get("invitee_email"));
-  });
 
-  const StarttimeStamp = new Date(startTime);
-  const EndtimeStamp = new Date(endTime);
-  // const day = timestamp.getDate()
-  const month = StarttimeStamp.toLocaleString("en-US", {
-    weekday: "long",
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
+  const name = queryParameters.get("invitee_full_name");
+  const startTime = queryParameters.get("event_start_time");
+  const endTime = queryParameters.get("event_end_time");
+  const invitee = queryParameters.get("invitee_email");
 
-  const fullStartTime = StarttimeStamp.toLocaleString("en-US", {
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true,
-  });
+  const hasSchedule = Boolean(startTime && endTime);
+  const startDate = hasSchedule ? new Date(startTime) : null;
+  const endDate = hasSchedule ? new Date(endTime) : null;
 
-  const fullEndTime = EndtimeStamp.toLocaleString("en-US", {
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true,
-  });
+  const month = hasSchedule
+    ? startDate.toLocaleString("en-US", {
+        weekday: "long",
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      })
+    : null;
+
+  const fullStartTime = hasSchedule
+    ? startDate.toLocaleString("en-US", {
+        hour: "numeric",
+        minute: "numeric",
+        hour12: true,
+      })
+    : null;
+
+  const fullEndTime = hasSchedule
+    ? endDate.toLocaleString("en-US", {
+        hour: "numeric",
+        minute: "numeric",
+        hour12: true,
+      })
+    : null;
 
   const handleTimerComplete = () => {
     setIsTimerComplete(true);
@@ -70,23 +75,25 @@ const InterviewPage = () => {
             <Col lg={{ span: 12, offset: 0 }}>
               {console.log(invitee)}
               <h4 className="ms-3 mb-5 " style={{ fontSize: "1.5 rem" }}>
-                {" "}
-                Thank you, {name}!{" "}
+                {name ? `Thank you, ${name}!` : "Thank you!"}
               </h4>
-              <p className="ms-3" style={{ fontSize: "1.5 rem" }}>
-                Your call is scheduled on{" "}
-                <strong>
-                  {month} from {fullStartTime} to {fullEndTime}.{" "}
-                </strong>
-              </p>
-              <p className="ms-3" style={{ fontSize: "1.5 rem" }}>
-                {" "}
-                Please check your inbox at{" "}
-                <a style={{ color: "#C12029" }} href={`mailto:${invitee}`}>
-                  {invitee}
-                </a>{" "}
-                and confirm that you can make the scheduled time.
-              </p>
+              {hasSchedule && (
+                <>
+                  <p className="ms-3" style={{ fontSize: "1.5 rem" }}>
+                    Your call is scheduled on{" "}
+                    <strong>
+                      {month} from {fullStartTime} to {fullEndTime}.
+                    </strong>
+                  </p>
+                  <p className="ms-3" style={{ fontSize: "1.5 rem" }}>
+                    Please check your inbox at{" "}
+                    <a style={{ color: "#C12029" }} href={`mailto:${invitee}`}>
+                      {invitee}
+                    </a>{" "}
+                    and confirm that you can make the scheduled time.
+                  </p>
+                </>
+              )}
             </Col>
           </Row>
           <Row className="justify-content-center my-3">
@@ -139,7 +146,7 @@ const InterviewPage = () => {
                   <a
                     className={styles.link}
                     style={{ fontSize: "1.5 rem" }}
-                    href="https://www.awesomeinc.org/blog/what-we-look-for-bootcamp-student"
+                    href="https://awesomeinc.org/blog/what-we-look-for-in-a-bootcamp-student/"
                   >
                     Want to know what we'll talk about on our call? Check out
                     our blog here!

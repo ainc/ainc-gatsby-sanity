@@ -12,12 +12,14 @@ const EVENT_OFFERINGS = [
     title: "Workshops & Trainings",
     price: "20–80+ guests",
     body: "Classroom, theater, or reception-style setups with A/V support for presentations and livestreams.",
+    cta: WORKSPACE_CTAS.bookEventSpace,
   },
   {
     eyebrow: "Downtown location",
     title: "Meetups & Showcases",
     price: "Custom packages",
     body: "Pitch nights, community gatherings, and partner events in the heart of Lexington.",
+    cta: WORKSPACE_CTAS.bookEventSpace,
   },
   {
     eyebrow: "Full-service planning",

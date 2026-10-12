@@ -1,7 +1,38 @@
+const fs = require("fs");
 const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
 const { paginate } = require("gatsby-awesome-pagination");
 const { createRedirect } = require("gatsby-plugin-netlify");
+
+const EMAIL_SIGNATURE_IMAGE = "email-signature-banner.png";
+const EMAIL_SIGNATURE_FALLBACK_LINK =
+  "https://entrepreneurhof.com/induction-dinner/";
+
+async function getEmailSignature(graphql) {
+  try {
+    const result = await graphql(`
+      {
+        sanityEmailSignature(_id: { eq: "emailSignature" }) {
+          alt
+          link
+          image {
+            asset {
+              url
+            }
+          }
+        }
+      }
+    `);
+
+    if (result.errors || !result.data || !result.data.sanityEmailSignature) {
+      return null;
+    }
+
+    return result.data.sanityEmailSignature;
+  } catch (error) {
+    return null;
+  }
+}
 
 async function createBlogPostPages(graphql, actions) {
   const { createPage, createRedirect } = actions;
@@ -229,6 +260,15 @@ exports.createSchemaCustomization = ({ actions }) => {
     type SanitySliderImage {
       active: Boolean
     }
+    type SanityBanner implements Node {
+      enabled: Boolean
+      link: SanityLink
+    }
+    type SanityLink {
+      title: String
+      url: String
+      behavior: String
+    }
   `);
 };
 
@@ -329,6 +369,24 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     redirectInBrowser: true,
   });
 
+  const emailSignature = await getEmailSignature(graphql);
+  const emailSignatureLink =
+    emailSignature?.link || EMAIL_SIGNATURE_FALLBACK_LINK;
+  createRedirect({
+    fromPath: `/email-signature`,
+    toPath: emailSignatureLink,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: `/email-signature/`,
+    toPath: emailSignatureLink,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
+
   await createPodcastPages(graphql, actions);
   await createBlogPostPages(graphql, actions);
   await createNotePages(graphql, actions);
@@ -383,3 +441,31 @@ function getCurrentDate() {
   }
   return `${d.getFullYear()}-${month}-${day}`;
 }
+
+exports.onPostBuild = async ({ graphql, reporter }) => {
+  const emailSignature = await getEmailSignature(graphql);
+  const publicDir = path.join(__dirname, "public");
+  const imageUrl = emailSignature?.image?.asset?.url;
+  if (!imageUrl) {
+    reporter.info(
+      "Email signature banner: no Sanity image published; using the static fallback.",
+    );
+    return;
+  }
+
+  try {
+    const response = await fetch(imageUrl);
+    if (!response.ok) {
+      throw new Error(`Failed to download banner (${response.status})`);
+    }
+    const destDir = path.join(publicDir, "images", "unlisted");
+    fs.mkdirSync(destDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(destDir, EMAIL_SIGNATURE_IMAGE),
+      Buffer.from(await response.arrayBuffer()),
+    );
+    reporter.info("Email signature banner: wrote Sanity image to public URL.");
+  } catch (error) {
+    reporter.warn(`Email signature banner: ${error.message}`);
+  }
+};

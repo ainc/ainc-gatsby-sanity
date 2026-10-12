@@ -22,7 +22,16 @@ module.exports = {
     "gatsby-plugin-sass",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-gatsby-cloud",
-    "gatsby-plugin-netlify",
+    {
+      resolve: "gatsby-plugin-netlify",
+      options: {
+        headers: {
+          "/images/unlisted/*": [
+            "X-Robots-Tag: noindex, nofollow, noimageindex",
+          ],
+        },
+      },
+    },
     {
       resolve: "gatsby-source-google-spreadsheets",
       options: {

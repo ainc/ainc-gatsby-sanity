@@ -30,13 +30,15 @@ export default defineConfig([
       newDocumentOptions: (prev, { creationContext }) => {
         if (creationContext.type === "global") {
           return prev.filter(
-            (templateItem) => templateItem.templateId != "settings",
+            (templateItem) =>
+              templateItem.templateId != "settings" &&
+              templateItem.templateId != "banner",
           );
         }
         return prev;
       },
       actions: (prev, { schemaType }) => {
-        if (schemaType === "settings") {
+        if (schemaType === "settings" || schemaType === "banner") {
           return prev.filter(
             ({ action }) =>
               !["unpublish", "delete", "duplicate"].includes(action),
@@ -68,13 +70,15 @@ export default defineConfig([
       newDocumentOptions: (prev, { creationContext }) => {
         if (creationContext.type === "global") {
           return prev.filter(
-            (templateItem) => templateItem.templateId != "settings",
+            (templateItem) =>
+              templateItem.templateId != "settings" &&
+              templateItem.templateId != "banner",
           );
         }
         return prev;
       },
       actions: (prev, { schemaType }) => {
-        if (schemaType === "settings") {
+        if (schemaType === "settings" || schemaType === "banner") {
           return prev.filter(
             ({ action }) =>
               !["unpublish", "delete", "duplicate"].includes(action),

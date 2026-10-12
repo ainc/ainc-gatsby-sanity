@@ -52,6 +52,7 @@ import fellowshipKPIs from "./documents/fellowshipKPIs";
 import fellowshipTestimonials from "./documents/fellowshipTestimonials";
 import timelineEvent from "./documents/timeline";
 import partnershipSponsors from "./documents/partnershipSponsors";
+import banner from "./documents/banner";
 import emailSignature from "./documents/emailSignature";
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
@@ -108,5 +109,6 @@ export default [
   fellowshipTestimonials,
   timelineEvent,
   partnershipSponsors,
+  banner,
   emailSignature,
 ];
