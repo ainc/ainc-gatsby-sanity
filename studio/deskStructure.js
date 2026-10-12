@@ -1245,6 +1245,7 @@ export default (S) =>
                     "fellowshipTestimonials",
                     "timelineEvent",
                     "partnershipSponsors",
+                    "media.tag",
                   ].includes(listItem.getId()),
               ),
             ]),
