@@ -53,6 +53,7 @@ import fellowshipTestimonials from "./documents/fellowshipTestimonials";
 import partnershipSponsors from "./documents/partnershipSponsors";
 import heroImage from "./objects/heroImage";
 import frequentlyAskedQuestion from "./documents/frequentlyAskedQuestion";
+import featureItem from "./objects/featureItem";
 import features from "./objects/features";
 import pageBuilder from "./documents/pageBuilder";
 import frequentlyAskedQuestions from "./objects/frequentlyAskedQuestions";
@@ -69,6 +70,7 @@ export default [
   textSection,
   pagePortableText,
   frequentlyAskedQuestions,
+  featureItem,
   features,
   figure,
   projectMember,

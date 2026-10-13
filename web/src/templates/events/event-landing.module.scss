@@ -1,0 +1,47 @@
+.heroImage {
+  width: 100%;
+  max-height: 32rem;
+}
+
+.kicker {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.action {
+  margin-top: 0.5rem;
+  text-decoration: none;
+
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.details {
+  display: grid;
+  gap: 1rem;
+}
+
+.detailLabel {
+  margin-bottom: 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.featureImage {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.linkedImage {
+  display: inline-block;
+}
+
+.caption {
+  margin-top: 0.75rem;
+}
