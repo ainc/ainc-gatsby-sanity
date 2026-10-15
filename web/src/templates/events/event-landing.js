@@ -211,7 +211,7 @@ const ImageAndLink = ({ section }) => {
 };
 
 const Questions = ({ section }) => {
-  const faqs = (section.faqs || []).filter((faq) => faq?.question);
+  const faqs = (section._rawFaqs || []).filter((faq) => faq?.question);
   if (!section.title && faqs.length === 0) return null;
 
   return (
@@ -352,11 +352,7 @@ export const query = graphql`
           __typename
           _key
           title
-          faqs {
-            _id
-            question
-            answer
-          }
+          _rawFaqs(resolveReferences: { maxDepth: 5 })
         }
         ... on SanityButton {
           __typename
