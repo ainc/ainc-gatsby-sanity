@@ -32,5 +32,20 @@ export default {
       type: "text",
       title: "Company Description",
     },
+    {
+      name: "status",
+      type: "string",
+      title: "Status",
+      description: "Saved for a later display decision. Not shown on the portfolio page yet.",
+      options: {
+        list: [
+          { title: "Active", value: "active" },
+          { title: "Acquired", value: "acquired" },
+          { title: "Shut down", value: "shut-down" },
+        ],
+        layout: "radio",
+      },
+      initialValue: "active",
+    },
   ],
 };
