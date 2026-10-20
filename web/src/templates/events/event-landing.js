@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { PortableText } from "@portabletext/react";
 import { useLocation } from "@reach/router";
-import { Accordion, Card, Col, Container, Row } from "react-bootstrap";
+import { Accordion, Card, Carousel, Col, Container, Row } from "react-bootstrap";
 import Layout from "../../components/Layout/Layout";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
@@ -95,19 +95,52 @@ const buttonHref = (section, event) => {
 };
 
 const Hero = ({ section, event }) => {
-  const image = event?.picture?.asset?.gatsbyImageData;
   const heading = section.heading || event?.eventName;
   const subheading = section.subheading || event?.date;
+  const eventImage = event?.picture?.asset?.gatsbyImageData;
+  const slides = [
+    ...(eventImage
+      ? [
+          {
+            key: "event-picture",
+            image: eventImage,
+            alt: heading || "Event",
+          },
+        ]
+      : []),
+    ...(section.photos || [])
+      .filter((photo) => photo?.image?.asset?.gatsbyImageData)
+      .map((photo) => ({
+        key: photo._key,
+        image: photo.image.asset.gatsbyImageData,
+        alt: photo.alt || heading || "Event",
+      })),
+  ];
 
   return (
     <section className={styles.hero}>
-      {image && (
-        <GatsbyImage
-          image={image}
-          alt={heading || "Event"}
-          objectFit="cover"
-          className={styles.heroImage}
-        />
+      {slides.length > 1 ? (
+        <Carousel controls={false} className={styles.heroCarousel}>
+          {slides.map((slide) => (
+            <Carousel.Item key={slide.key}>
+              <GatsbyImage
+                image={slide.image}
+                alt={slide.alt}
+                objectFit="cover"
+                className={styles.heroImage}
+              />
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      ) : (
+        slides[0] && (
+          <GatsbyImage
+            image={slides[0].image}
+            alt={slides[0].alt}
+            objectFit="cover"
+            className={styles.heroImage}
+          />
+        )
       )}
       <div className={styles.heroScrim} aria-hidden="true" />
       <Container className={styles.heroContent}>
@@ -344,6 +377,19 @@ export const query = graphql`
           showRegistrationButton
           buttonLabel
           _rawText(resolveReferences: { maxDepth: 5 })
+          photos {
+            _key
+            alt
+            image {
+              asset {
+                gatsbyImageData(
+                  layout: FULL_WIDTH
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
+              }
+            }
+          }
         }
         ... on SanityEventDetails {
           __typename

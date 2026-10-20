@@ -52,6 +52,7 @@ import fellowshipKPIs from "./documents/fellowshipKPIs";
 import fellowshipTestimonials from "./documents/fellowshipTestimonials";
 import partnershipSponsors from "./documents/partnershipSponsors";
 import heroImage from "./objects/heroImage";
+import heroPhoto from "./objects/heroPhoto";
 import frequentlyAskedQuestion from "./documents/frequentlyAskedQuestion";
 import featureItem from "./objects/featureItem";
 import features from "./objects/features";
@@ -66,6 +67,7 @@ import pagePortableText from "./objects/pagePortableText";
 export default [
   bioPortableText,
   heroImage,
+  heroPhoto,
   eventDetails,
   textSection,
   pagePortableText,

@@ -18,12 +18,28 @@
 .heroScrim {
   position: absolute;
   inset: 0;
+  z-index: 1;
+  pointer-events: none;
   background: linear-gradient(
     to right,
     rgba(0, 0, 0, 0.55) 0%,
     rgba(0, 0, 0, 0.35) 55%,
     rgba(0, 0, 0, 0.12) 100%
   );
+}
+
+.heroCarousel {
+  position: absolute;
+  inset: 0;
+
+  :global(.carousel-inner),
+  :global(.carousel-item) {
+    height: 100%;
+  }
+
+  :global(.carousel-indicators) {
+    z-index: 2;
+  }
 }
 
 .heroContent {

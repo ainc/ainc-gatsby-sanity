@@ -10,8 +10,7 @@ export default {
       name: "heading",
       type: "string",
       title: "Heading",
-      description:
-        "Leave blank to use the event name. The large image is the picture on the linked event.",
+      description: "Leave blank to use the event name.",
     },
     {
       name: "subheading",
@@ -41,16 +40,25 @@ export default {
       initialValue: "Register",
       hidden: ({ parent }) => !parent?.showRegistrationButton,
     },
+    {
+      name: "photos",
+      title: "Photos",
+      type: "array",
+      description:
+        "These play after the linked event's picture. Leave empty to show only that picture.",
+      of: [{ type: "heroPhoto" }],
+    },
   ],
   preview: {
     select: {
       title: "heading",
+      media: "photos.0.image",
     },
-    prepare({ title }) {
+    prepare({ title, media }) {
       return {
         title: title || "Event name",
-        subtitle: "Hero · event image",
-        media: MdPhoto,
+        subtitle: "Hero",
+        media: media || MdPhoto,
       };
     },
   },
