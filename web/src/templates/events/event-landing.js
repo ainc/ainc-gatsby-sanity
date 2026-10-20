@@ -3,14 +3,15 @@ import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { PortableText } from "@portabletext/react";
 import { useLocation } from "@reach/router";
-import { Accordion, Col, Container, Row } from "react-bootstrap";
+import { Accordion, Card, Col, Container, Row } from "react-bootstrap";
 import Layout from "../../components/Layout/Layout";
 import Title from "../../components/UI/Title/Title";
+import Subtitle from "../../components/UI/Subtitle/Subtitle";
+import BrandLink from "../../components/UI/BrandLink/BrandLink";
 import {
   getEventbriteCode,
   withEventbriteDiscount,
 } from "../../lib/eventbriteDiscount";
-import "../../components/UI/BrandButton/BrandButton.scss";
 import * as styles from "./event-landing.module.scss";
 
 const portableTextComponents = {
@@ -45,7 +46,7 @@ const RichText = ({ value }) => {
   return <PortableText value={value} components={portableTextComponents} />;
 };
 
-const RegisterLink = ({ href, children }) => {
+const RegisterLink = ({ href, children, className }) => {
   const location = useLocation();
   if (!href) return null;
 
@@ -56,15 +57,21 @@ const RegisterLink = ({ href, children }) => {
   const external = /^https?:\/\//i.test(url);
 
   return (
-    <a
+    <BrandLink
       href={url}
-      className={`button ${styles.action}`}
+      className={className}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {children}
-    </a>
+    </BrandLink>
   );
 };
+
+const SectionHeading = ({ children }) => (
+  <div className={styles.sectionHeading}>
+    <Title className="text-uppercase text-center">{children}</Title>
+  </div>
+);
 
 const detailValue = (key, event) => {
   if (!event) return "";
@@ -93,7 +100,7 @@ const Hero = ({ section, event }) => {
   const subheading = section.subheading || event?.date;
 
   return (
-    <section>
+    <section className={styles.hero}>
       {image && (
         <GatsbyImage
           image={image}
@@ -102,10 +109,15 @@ const Hero = ({ section, event }) => {
           className={styles.heroImage}
         />
       )}
-      <Container className="py-5">
-        {subheading && <p className={styles.kicker}>{subheading}</p>}
-        {heading && <Title>{heading}</Title>}
-        <RichText value={section._rawText} />
+      <div className={styles.heroScrim} aria-hidden="true" />
+      <Container className={styles.heroContent}>
+        {subheading && <Subtitle className="mb-3 white">{subheading}</Subtitle>}
+        {heading && (
+          <Title className="mb-3 white text--big">{heading}</Title>
+        )}
+        <div className={styles.heroText}>
+          <RichText value={section._rawText} />
+        </div>
         {section.showRegistrationButton && (
           <RegisterLink href={event?.linkToEvent}>
             {section.buttonLabel || "Register"}
@@ -128,16 +140,18 @@ const EventDetails = ({ section, event }) => {
   if (rows.length === 0) return null;
 
   return (
-    <Container className="pb-5">
-      <div className={styles.details}>
-        {rows.map((row) => (
-          <div key={row.key}>
-            <div className={styles.detailLabel}>{row.label}</div>
-            <div>{row.value}</div>
-          </div>
-        ))}
-      </div>
-    </Container>
+    <section className={styles.detailsBand}>
+      <Container>
+        <div className={styles.details}>
+          {rows.map((row) => (
+            <div key={row.key}>
+              <div className={styles.detailLabel}>{row.label}</div>
+              <div className={styles.detailValue}>{row.value}</div>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
   );
 };
 
@@ -145,10 +159,14 @@ const TextSection = ({ section }) => {
   if (!section.title && !section._rawText) return null;
 
   return (
-    <Container className="pb-5">
-      {section.title && <Title className="mb-3">{section.title}</Title>}
-      <RichText value={section._rawText} />
-    </Container>
+    <section className={styles.section}>
+      <Container>
+        {section.title && <SectionHeading>{section.title}</SectionHeading>}
+        <div className={styles.copy}>
+          <RichText value={section._rawText} />
+        </div>
+      </Container>
+    </section>
   );
 };
 
@@ -157,27 +175,38 @@ const Features = ({ section }) => {
   if (!section.title && features.length === 0) return null;
 
   return (
-    <Container className="pb-5">
-      {section.title && <Title className="mb-4">{section.title}</Title>}
-      <Row>
-        {features.map((feature) => {
-          const image = feature.image?.asset?.gatsbyImageData;
-          return (
-            <Col md={4} className="mb-4" key={feature._key}>
-              {image && (
-                <GatsbyImage
-                  image={image}
-                  alt={feature.title || ""}
-                  className={styles.featureImage}
-                />
-              )}
-              {feature.title && <h3>{feature.title}</h3>}
-              {feature.text && <p>{feature.text}</p>}
-            </Col>
-          );
-        })}
-      </Row>
-    </Container>
+    <section className={styles.section}>
+      <Container>
+        {section.title && <SectionHeading>{section.title}</SectionHeading>}
+        <Row className="justify-content-center">
+          {features.map((feature) => {
+            const image = feature.image?.asset?.gatsbyImageData;
+            return (
+              <Col md={4} className="mb-4 d-flex" key={feature._key}>
+                <Card className={styles.featureCard}>
+                  {image && (
+                    <GatsbyImage
+                      image={image}
+                      alt={feature.title || ""}
+                      objectFit="cover"
+                      className={styles.featureImage}
+                    />
+                  )}
+                  <Card.Body>
+                    {feature.title && (
+                      <Subtitle className="text-uppercase">
+                        {feature.title}
+                      </Subtitle>
+                    )}
+                    {feature.text && <p className="mt-3">{feature.text}</p>}
+                  </Card.Body>
+                </Card>
+              </Col>
+            );
+          })}
+        </Row>
+      </Container>
+    </section>
   );
 };
 
@@ -192,21 +221,25 @@ const ImageAndLink = ({ section }) => {
   ) : null;
 
   return (
-    <Container className="pb-5">
-      {section.link && picture ? (
-        <a
-          href={section.link}
-          className={styles.linkedImage}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {picture}
-        </a>
-      ) : (
-        picture
-      )}
-      {section.title && <p className={styles.caption}>{section.title}</p>}
-    </Container>
+    <section className={styles.section}>
+      <Container className={styles.imageBlock}>
+        {section.link && picture ? (
+          <a
+            href={section.link}
+            className={styles.linkedImage}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {picture}
+          </a>
+        ) : (
+          picture
+        )}
+        {section.title && (
+          <p className={styles.caption}>{section.title}</p>
+        )}
+      </Container>
+    </section>
   );
 };
 
@@ -215,17 +248,22 @@ const Questions = ({ section }) => {
   if (!section.title && faqs.length === 0) return null;
 
   return (
-    <Container className="pb-5">
-      {section.title && <Title className="mb-4">{section.title}</Title>}
-      <Accordion>
-        {faqs.map((faq, index) => (
-          <Accordion.Item eventKey={String(index)} key={faq._id || faq.question}>
-            <Accordion.Header>{faq.question}</Accordion.Header>
-            <Accordion.Body>{faq.answer}</Accordion.Body>
-          </Accordion.Item>
-        ))}
-      </Accordion>
-    </Container>
+    <section className={styles.section}>
+      <Container>
+        {section.title && <SectionHeading>{section.title}</SectionHeading>}
+        <Accordion className={styles.questions}>
+          {faqs.map((faq, index) => (
+            <Accordion.Item
+              eventKey={String(index)}
+              key={faq._id || faq.question}
+            >
+              <Accordion.Header>{faq.question}</Accordion.Header>
+              <Accordion.Body>{faq.answer}</Accordion.Body>
+            </Accordion.Item>
+          ))}
+        </Accordion>
+      </Container>
+    </section>
   );
 };
 
@@ -234,9 +272,11 @@ const ButtonSection = ({ section, event }) => {
   if (!section.label || !href) return null;
 
   return (
-    <Container className="pb-5">
-      <RegisterLink href={href}>{section.label}</RegisterLink>
-    </Container>
+    <section className={`${styles.section} text-center`}>
+      <Container>
+        <RegisterLink href={href}>{section.label}</RegisterLink>
+      </Container>
+    </section>
   );
 };
 
