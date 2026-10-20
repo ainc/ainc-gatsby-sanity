@@ -45,7 +45,7 @@ export default {
       title: "Photos",
       type: "array",
       description:
-        "These play after the linked event's picture. Leave empty to show only that picture.",
+        "Hero image will default to the picture of the selected event. Add additional pictures here to display after that image in a carousel.",
       of: [{ type: "heroPhoto" }],
     },
   ],
