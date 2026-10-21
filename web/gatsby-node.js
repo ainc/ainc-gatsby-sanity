@@ -264,6 +264,12 @@ exports.createSchemaCustomization = ({ actions }) => {
       enabled: Boolean
       link: SanityLink
     }
+    type SanityEmailSignature implements Node {
+      _id: String
+      alt: String
+      link: String
+      image: SanityImage
+    }
     type SanityLink {
       title: String
       url: String
