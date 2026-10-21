@@ -65,7 +65,7 @@ const PortfolioPage = ({ data }) => {
                   name={node.companyName}
                   date={node.year}
                   url={node.companyURL}
-                  image={node._rawFellowshipImage.asset.url}
+                  image={node._rawFellowshipImage?.asset?.url}
                   description={node.description}
                 />
               </Col>

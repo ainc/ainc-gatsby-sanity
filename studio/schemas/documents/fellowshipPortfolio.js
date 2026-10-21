@@ -32,5 +32,26 @@ export default {
       type: "text",
       title: "Company Description",
     },
+    {
+      name: "companyStatus",
+      type: "string",
+      title: "Company status",
+      description: "Optional. Leave blank if the company is still operating.",
+      options: {
+        list: [
+          { title: "Acquired", value: "Acquired" },
+          { title: "Exit", value: "Exit" },
+          { title: "Folded", value: "Folded" },
+        ],
+        layout: "dropdown",
+      },
+    },
   ],
+  preview: {
+    select: {
+      title: "companyName",
+      subtitle: "companyStatus",
+      media: "fellowshipImage",
+    },
+  },
 };

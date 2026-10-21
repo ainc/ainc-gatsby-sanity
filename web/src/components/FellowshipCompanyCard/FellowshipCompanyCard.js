@@ -7,7 +7,7 @@ import Title from "../UI/Title/Title";
 import "../../styles/main.scss";
 
 const FellowshipCompanyCard = (props) => {
-  const year = props.date.split("-")[0]; //Change date to year
+  const year = props.date ? props.date.split("-")[0] : "";
 
   return (
     <Container className={`${styles.box}`}>
@@ -20,12 +20,16 @@ const FellowshipCompanyCard = (props) => {
 
       <div
         className={`d-block h-100`}
-        style={{
-          backgroundImage: `url(${props.image})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "contain",
-          backgroundPosition: "center center",
-        }}
+        style={
+          props.image
+            ? {
+                backgroundImage: `url(${props.image})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "contain",
+                backgroundPosition: "center center",
+              }
+            : undefined
+        }
       >
         <Container className={`${styles.overlayText} p-3`}>
           <div className="d-flex justify-content-between mb-2">
