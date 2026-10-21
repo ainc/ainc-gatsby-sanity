@@ -8,8 +8,25 @@ const EMAIL_SIGNATURE_IMAGE = "email-signature-banner.png";
 const EMAIL_SIGNATURE_FALLBACK_LINK =
   "https://entrepreneurhof.com/induction-dinner/";
 
-async function getEmailSignature(graphql) {
+async function getEmailSignature({ graphql, reporter }) {
   try {
+    // Introspection is always valid. Querying a missing field fails the
+    // production build, so skip that query and keep the static signature.
+    const typeResult = await graphql(`
+      {
+        __type(name: "SanityEmailSignature") {
+          name
+        }
+      }
+    `);
+
+    if (typeResult.errors || !typeResult.data?.__type) {
+      reporter.info(
+        "Email signature: Sanity type is unavailable, using the static fallback.",
+      );
+      return null;
+    }
+
     const result = await graphql(`
       {
         sanityEmailSignature(_id: { eq: "emailSignature" }) {
@@ -25,11 +42,17 @@ async function getEmailSignature(graphql) {
     `);
 
     if (result.errors || !result.data || !result.data.sanityEmailSignature) {
+      reporter.info(
+        "Email signature: no published Sanity document, using the static fallback.",
+      );
       return null;
     }
 
     return result.data.sanityEmailSignature;
   } catch (error) {
+    reporter.warn(
+      `Email signature: query failed, using the static fallback. ${error.message}`,
+    );
     return null;
   }
 }
@@ -264,6 +287,12 @@ exports.createSchemaCustomization = ({ actions }) => {
       enabled: Boolean
       link: SanityLink
     }
+    type SanityEmailSignature implements Node {
+      _id: String
+      alt: String
+      link: String
+      image: SanityImage
+    }
     type SanityLink {
       title: String
       url: String
@@ -369,7 +398,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     redirectInBrowser: true,
   });
 
-  const emailSignature = await getEmailSignature(graphql);
+  const emailSignature = await getEmailSignature({ graphql, reporter });
   const emailSignatureLink =
     emailSignature?.link || EMAIL_SIGNATURE_FALLBACK_LINK;
   createRedirect({
@@ -443,7 +472,7 @@ function getCurrentDate() {
 }
 
 exports.onPostBuild = async ({ graphql, reporter }) => {
-  const emailSignature = await getEmailSignature(graphql);
+  const emailSignature = await getEmailSignature({ graphql, reporter });
   const publicDir = path.join(__dirname, "public");
   const imageUrl = emailSignature?.image?.asset?.url;
   if (!imageUrl) {
