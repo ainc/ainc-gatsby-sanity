@@ -241,6 +241,9 @@ exports.createSchemaCustomization = ({ actions }) => {
     type SanitySliderImage {
       active: Boolean
     }
+    type SanityFellowshipPortfolio implements Node {
+      status: String
+    }
     type SanityBanner implements Node {
       enabled: Boolean
       link: SanityLink
@@ -449,4 +452,4 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
   } catch (error) {
     reporter.warn(`Email signature banner: ${error.message}`);
   }
-}
+};

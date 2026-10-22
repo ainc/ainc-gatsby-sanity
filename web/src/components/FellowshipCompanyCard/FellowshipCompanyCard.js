@@ -1,9 +1,15 @@
 import React from "react";
 import * as styles from "./FellowshipCompanyCard.module.scss";
 
-const FellowshipCompanyCard = ({ name, url, image }) => {
+const STATUS_LABELS = {
+  acquired: "Acquired",
+  closed: "Closed",
+};
+
+const FellowshipCompanyCard = ({ name, url, image, status }) => {
   const className = styles.company;
   const initial = name ? name.trim().charAt(0).toUpperCase() : "?";
+  const statusLabel = STATUS_LABELS[status];
   const content = (
     <>
       <span className={styles.logoPlate}>
@@ -15,7 +21,20 @@ const FellowshipCompanyCard = ({ name, url, image }) => {
           </span>
         )}
       </span>
-      <span className={styles.name}>{name}</span>
+      <span className={styles.copy}>
+        <span className={styles.name}>{name}</span>
+        {statusLabel ? (
+          <span
+            className={
+              status === "acquired"
+                ? styles.statusAcquired
+                : styles.statusClosed
+            }
+          >
+            {statusLabel}
+          </span>
+        ) : null}
+      </span>
     </>
   );
 

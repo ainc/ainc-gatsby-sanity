@@ -36,16 +36,14 @@ export default {
       name: "status",
       type: "string",
       title: "Status",
-      description: "Saved for a later display decision. Not shown on the portfolio page yet.",
+      description:
+        "Active by default. Choose Acquired or Closed only to flag this company on the portfolio. Clear the field to mark it Active again.",
       options: {
         list: [
-          { title: "Active", value: "active" },
           { title: "Acquired", value: "acquired" },
-          { title: "Shut down", value: "shut-down" },
+          { title: "Closed", value: "closed" },
         ],
-        layout: "radio",
       },
-      initialValue: "active",
     },
   ],
 };

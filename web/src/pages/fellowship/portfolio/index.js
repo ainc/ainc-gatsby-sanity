@@ -156,6 +156,7 @@ const PortfolioPage = ({ data }) => {
                       name={node.companyName}
                       url={node.companyURL}
                       image={node._rawFellowshipImage?.asset?.url}
+                      status={node.status}
                     />
                   ))}
                 </div>
@@ -202,6 +203,7 @@ export const query = graphql`
         year
         companyName
         companyURL
+        status
         _rawFellowshipImage(resolveReferences: { maxDepth: 10 })
       }
     }
