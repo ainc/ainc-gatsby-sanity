@@ -1,7 +1,61 @@
+const fs = require("fs");
 const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
 const { paginate } = require("gatsby-awesome-pagination");
 const { createRedirect } = require("gatsby-plugin-netlify");
+
+const EMAIL_SIGNATURE_IMAGE = "email-signature-banner.png";
+const EMAIL_SIGNATURE_FALLBACK_LINK =
+  "https://entrepreneurhof.com/induction-dinner/";
+
+async function getEmailSignature({ graphql, reporter }) {
+  try {
+    // Introspection is always valid. Querying a missing field fails the
+    // production build, so skip that query and keep the static signature.
+    const typeResult = await graphql(`
+      {
+        __type(name: "SanityEmailSignature") {
+          name
+        }
+      }
+    `);
+
+    if (typeResult.errors || !typeResult.data?.__type) {
+      reporter.info(
+        "Email signature: Sanity type is unavailable, using the static fallback.",
+      );
+      return null;
+    }
+
+    const result = await graphql(`
+      {
+        sanityEmailSignature(_id: { eq: "emailSignature" }) {
+          alt
+          link
+          image {
+            asset {
+              url
+            }
+          }
+        }
+      }
+    `);
+
+    if (result.errors || !result.data || !result.data.sanityEmailSignature) {
+      reporter.info(
+        "Email signature: no published Sanity document, using the static fallback.",
+      );
+      return null;
+    }
+
+    return result.data.sanityEmailSignature;
+  } catch (error) {
+    reporter.warn(
+      `Email signature: query failed, using the static fallback. ${error.message}`,
+    );
+    return null;
+  }
+}
 
 async function createBlogPostPages(graphql, actions) {
   const { createPage, createRedirect } = actions;
@@ -241,9 +295,28 @@ async function createEventLandingPages(graphql, actions, reporter) {
   });
 }
 
+// Optional Sanity fields are omitted from GraphQL until a published document
+// actually has a value. Declaring them here lets /timeline query `description`
+// and `priority` even when some events leave them blank. Image alt lives on
+// the image field, not SanityImage, so it needs its own type. Changing this
+// file requires restarting `yarn dev` in web/.
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   createTypes(`
+    type SanityTimelineEventImage {
+      alt: String
+      asset: SanityImageAsset
+      hotspot: SanityImageHotspot
+      crop: SanityImageCrop
+    }
+    type SanityTimelineEvent implements Node {
+      _id: String
+      date: Date @dateformat
+      title: String
+      description: String
+      priority: Float
+      image: SanityTimelineEventImage
+    }
     type SanityIntroAlumniCarousel implements Node {
       _id: String!
       name: String
@@ -254,6 +327,21 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
     type SanitySliderImage {
       active: Boolean
+    }
+    type SanityBanner implements Node {
+      enabled: Boolean
+      link: SanityLink
+    }
+    type SanityEmailSignature implements Node {
+      _id: String
+      alt: String
+      link: String
+      image: SanityImage
+    }
+    type SanityLink {
+      title: String
+      url: String
+      behavior: String
     }
   `);
 };
@@ -355,6 +443,24 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     redirectInBrowser: true,
   });
 
+  const emailSignature = await getEmailSignature({ graphql, reporter });
+  const emailSignatureLink =
+    emailSignature?.link || EMAIL_SIGNATURE_FALLBACK_LINK;
+  createRedirect({
+    fromPath: `/email-signature`,
+    toPath: emailSignatureLink,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: `/email-signature/`,
+    toPath: emailSignatureLink,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
+
   await createPodcastPages(graphql, actions);
   await createBlogPostPages(graphql, actions);
   await createNotePages(graphql, actions);
@@ -410,3 +516,31 @@ function getCurrentDate() {
   }
   return `${d.getFullYear()}-${month}-${day}`;
 }
+
+exports.onPostBuild = async ({ graphql, reporter }) => {
+  const emailSignature = await getEmailSignature({ graphql, reporter });
+  const publicDir = path.join(__dirname, "public");
+  const imageUrl = emailSignature?.image?.asset?.url;
+  if (!imageUrl) {
+    reporter.info(
+      "Email signature banner: no Sanity image published; using the static fallback.",
+    );
+    return;
+  }
+
+  try {
+    const response = await fetch(imageUrl);
+    if (!response.ok) {
+      throw new Error(`Failed to download banner (${response.status})`);
+    }
+    const destDir = path.join(publicDir, "images", "unlisted");
+    fs.mkdirSync(destDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(destDir, EMAIL_SIGNATURE_IMAGE),
+      Buffer.from(await response.arrayBuffer()),
+    );
+    reporter.info("Email signature banner: wrote Sanity image to public URL.");
+  } catch (error) {
+    reporter.warn(`Email signature banner: ${error.message}`);
+  }
+};

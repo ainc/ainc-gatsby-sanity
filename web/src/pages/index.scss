@@ -2,21 +2,29 @@
 @import "../styles/variables.scss";
 
 .workspace-button {
-  position: relative;
+  position: absolute;
+  z-index: 2;
+  top: 1.5rem;
+  right: 8%;
   @include screen-xs {
+    position: relative;
     display: flex;
     justify-content: center;
+    top: auto;
+    right: auto;
+    margin: 0 auto 1rem;
   }
   @include screen-md {
     display: flex;
     justify-content: center;
   }
   @media (min-width: 1024px) {
-    top: -6rem;
-    left: 89%;
+    top: 1.5rem;
+    right: 8%;
   }
 }
 .workspace-section {
+  position: relative;
   background-color: #d1d1d1;
   border-color: black;
   @media (min-width: 1024px) {
@@ -24,6 +32,22 @@
     background-repeat: no-repeat;
     background-position: center 80%;
     background-size: 85% 85%;
+  }
+}
+
+.workspace-desk {
+  position: relative;
+  padding: 4rem 0 8rem;
+  background-image: url("../images/workspace-desk-bg-red.png");
+  background-repeat: no-repeat;
+  background-position: 50% 45%;
+  background-size: 35%;
+  @include screen-xs {
+    background-image: none;
+    padding: 1.5rem 0 3rem;
+  }
+  @include screen-md {
+    background-size: 45%;
   }
 }
 

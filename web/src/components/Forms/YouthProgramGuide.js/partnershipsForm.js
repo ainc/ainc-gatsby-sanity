@@ -9,7 +9,9 @@ import * as styles from "./form.module.scss";
 
 const PartnershipForm = (props) => {
   return (
-    <Card className={`${styles.partnershipFormCard} ${styles.cardOveride}  p-0`}>
+    <Card
+      className={`${styles.partnershipFormCard} ${styles.cardOveride}  p-0`}
+    >
       <Form>
         <Container className={styles.partershipFormContainer}>
           <Row>
@@ -49,7 +51,7 @@ const PartnershipForm = (props) => {
               </Form.Group>
             </Col>
             <Col>
-                <Form.Group className="mb-4" constrolId="formInputEmail">
+              <Form.Group className="mb-4" constrolId="formInputEmail">
                 <Form.Control
                   size="lg"
                   className={styles.formText}
@@ -62,15 +64,15 @@ const PartnershipForm = (props) => {
           </Row>
           <Row>
             <Form.Group className="mb-4" constrolId="formInputAbout">
-                  <Form.Control
-                    as="textarea"
-                    size="lg"
-                    rows={6}
-                    className={`${styles.formText} l-100`}
-                    type="email"
-                    placeholder="Tell us a bit more..."
-                    required
-                  />
+              <Form.Control
+                as="textarea"
+                size="lg"
+                rows={6}
+                className={`${styles.formText} l-100`}
+                type="email"
+                placeholder="Tell us a bit more..."
+                required
+              />
             </Form.Group>
           </Row>
           <BrandButton className="mb-3 text-uppercase">Submit</BrandButton>

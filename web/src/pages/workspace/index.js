@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import WorkspacePageShell from "../../workspace/shared/WorkspacePageShell";
 import WorkspaceSparkHero from "../../workspace/shared/WorkspaceSparkHero";
 import WorkspaceSparkSection from "../../workspace/shared/WorkspaceSparkSection";
@@ -9,7 +9,10 @@ import WorkspaceVideoStrip from "../../workspace/shared/WorkspaceVideoStrip";
 import WorkspaceSparkAmenities from "../../workspace/shared/WorkspaceSparkAmenities";
 import WorkspaceSparkContact from "../../workspace/shared/WorkspaceSparkContact";
 import WorkspaceSparkCta from "../../workspace/shared/WorkspaceSparkCta";
-import { WORKSPACE_CTAS } from "../../workspace/constants/ctaPlaceholders";
+import {
+  WORKSPACE_CTAS,
+  ZOHO_EMBEDS,
+} from "../../workspace/constants/ctaPlaceholders";
 import {
   HUB_HERO,
   HUB_STORY,
@@ -17,68 +20,76 @@ import {
 } from "../../workspace/data/pageContent";
 import * as styles from "../../workspace/shared/workspaceShared.module.scss";
 
-const WorkspacePage = () => (
-  <WorkspacePageShell>
-    <WorkspaceSparkHero
-      eyebrow={HUB_HERO.eyebrow}
-      title={HUB_HERO.title}
-      lead={HUB_HERO.lead}
-      stats={HUB_HERO.stats}
-      primaryCta={WORKSPACE_CTAS.bookTour}
-      secondaryCta={WORKSPACE_CTAS.buyDayPass}
-    />
+const WorkspacePage = () => {
+  useEffect(() => {
+    if (window.location.hash === "#tour") {
+      window.location.replace(ZOHO_EMBEDS.bookTour);
+    }
+  }, []);
 
-    <WorkspaceSparkSection
-      variant="muted"
-      eyebrow="A Place to Start. A Place to Stay."
-      title="Explore Our Workspace"
-    >
-      <WorkspaceOfferingTiles />
-    </WorkspaceSparkSection>
+  return (
+    <WorkspacePageShell>
+      <WorkspaceSparkHero
+        eyebrow={HUB_HERO.eyebrow}
+        title={HUB_HERO.title}
+        lead={HUB_HERO.lead}
+        stats={HUB_HERO.stats}
+        primaryCta={WORKSPACE_CTAS.bookTour}
+        secondaryCta={WORKSPACE_CTAS.buyDayPass}
+      />
 
-    <WorkspaceStartupsSection />
+      <WorkspaceSparkSection
+        variant="muted"
+        eyebrow="A Place to Start. A Place to Stay."
+        title="Explore Our Workspace"
+      >
+        <WorkspaceOfferingTiles />
+      </WorkspaceSparkSection>
 
-    <WorkspaceSparkSection
-      variant="light"
-      eyebrow="Memberships"
-      title="Find the Right Fit"
-      lead="Compare options below or visit each offering for full details."
-    >
-      <div className={styles.membershipStack}>
-        {HUB_MEMBERSHIPS.map((item) => (
+      <WorkspaceStartupsSection />
+
+      <WorkspaceSparkSection
+        variant="light"
+        eyebrow="Memberships"
+        title="Find the Right Fit"
+        lead="Compare options below or visit each offering for full details."
+      >
+        <div className={styles.membershipStack}>
+          {HUB_MEMBERSHIPS.map((item) => (
+            <WorkspaceMembershipBand
+              key={item.title}
+              eyebrow={item.eyebrow}
+              title={item.title}
+              price={item.price}
+              body={item.body}
+              linkCta={{ label: item.ctaLabel, path: item.path }}
+            />
+          ))}
           <WorkspaceMembershipBand
-            key={item.title}
-            eyebrow={item.eyebrow}
-            title={item.title}
-            price={item.price}
-            body={item.body}
-            linkCta={{ label: item.ctaLabel, path: item.path }}
+            eyebrow="Built for Community"
+            title="Book Events"
+            price="Custom packages"
+            body="Host meetups, trainings, and community gatherings in our event-ready spaces."
+            linkCta={{ label: "Book event space", path: "/book-events" }}
           />
-        ))}
-        <WorkspaceMembershipBand
-          eyebrow="Built for Community"
-          title="Book Events"
-          price="Custom packages"
-          body="Host meetups, trainings, and community gatherings in our event-ready spaces."
-          linkCta={{ label: "Book event space", path: "/book-events" }}
-        />
-      </div>
-    </WorkspaceSparkSection>
+        </div>
+      </WorkspaceSparkSection>
 
-    <WorkspaceVideoStrip />
-    <WorkspaceSparkAmenities />
+      <WorkspaceVideoStrip />
+      <WorkspaceSparkAmenities />
 
-    <WorkspaceSparkSection
-      variant="light"
-      eyebrow={HUB_STORY.eyebrow}
-      title={HUB_STORY.title}
-      titleStyle="sub"
-    >
-      <p className={styles.prose}>{HUB_STORY.body}</p>
-    </WorkspaceSparkSection>
+      <WorkspaceSparkSection
+        variant="light"
+        eyebrow={HUB_STORY.eyebrow}
+        title={HUB_STORY.title}
+        titleStyle="sub"
+      >
+        <p className={styles.prose}>{HUB_STORY.body}</p>
+      </WorkspaceSparkSection>
 
-    <WorkspaceSparkContact contactCta={null} />
-  </WorkspacePageShell>
-);
+      <WorkspaceSparkContact contactCta={null} />
+    </WorkspacePageShell>
+  );
+};
 
 export default WorkspacePage;
