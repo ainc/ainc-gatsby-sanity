@@ -52,11 +52,31 @@ import fellowshipKPIs from "./documents/fellowshipKPIs";
 import fellowshipTestimonials from "./documents/fellowshipTestimonials";
 import timelineEvent from "./documents/timeline";
 import partnershipSponsors from "./documents/partnershipSponsors";
+import heroImage from "./objects/heroImage";
+import heroPhoto from "./objects/heroPhoto";
+import frequentlyAskedQuestion from "./documents/frequentlyAskedQuestion";
+import featureItem from "./objects/featureItem";
+import features from "./objects/features";
+import pageBuilder from "./documents/pageBuilder";
+import frequentlyAskedQuestions from "./objects/frequentlyAskedQuestions";
+import page from "./documents/page";
+import button from "./documents/button";
+import eventDetails from "./objects/eventDetails";
+import textSection from "./objects/textSection";
+import pagePortableText from "./objects/pagePortableText";
 import banner from "./documents/banner";
 import emailSignature from "./documents/emailSignature";
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
   bioPortableText,
+  heroImage,
+  heroPhoto,
+  eventDetails,
+  textSection,
+  pagePortableText,
+  frequentlyAskedQuestions,
+  featureItem,
+  features,
   figure,
   projectMember,
   projectPortableText,
@@ -68,6 +88,10 @@ export default [
   imageTestimonials,
   // The following are document types which will appear
   // in the studio.
+  frequentlyAskedQuestion,
+  button,
+  page,
+  pageBuilder,
   teamMember,
   siteSettings,
   blog,

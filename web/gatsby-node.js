@@ -250,6 +250,51 @@ async function createTutorialsPages(graphql, actions) {
   });
 }
 
+const RESERVED_EVENT_LANDING_SLUGS = new Set(["5across"]);
+
+async function createEventLandingPages(graphql, actions, reporter) {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allSanityPage {
+        nodes {
+          id
+          slug {
+            current
+          }
+        }
+      }
+    }
+  `);
+
+  if (result.errors) {
+    reporter.warn(
+      `Skipped event landing pages: ${result.errors
+        .map((error) => error.message)
+        .join(" ")}`,
+    );
+    return;
+  }
+
+  result.data.allSanityPage.nodes.forEach((node) => {
+    const slug = node.slug?.current;
+    if (!slug || RESERVED_EVENT_LANDING_SLUGS.has(slug.toLowerCase())) {
+      reporter.warn(
+        `Skipped an event landing page because its slug is missing or reserved (${slug || node.id}).`,
+      );
+      return;
+    }
+
+    createPage({
+      path: `/events/${slug}/`,
+      component: require.resolve("./src/templates/events/event-landing.js"),
+      context: {
+        id: node.id,
+      },
+    });
+  });
+}
+
 // Optional Sanity fields are omitted from GraphQL until a published document
 // actually has a value. Declaring them here lets /timeline query `description`
 // and `priority` even when some events leave them blank. Image alt lives on
@@ -420,6 +465,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   await createBlogPostPages(graphql, actions);
   await createNotePages(graphql, actions);
   await createTutorialsPages(graphql, actions);
+  await createEventLandingPages(graphql, actions, reporter);
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
