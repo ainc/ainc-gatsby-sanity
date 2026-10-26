@@ -4,6 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { PortableText } from "@portabletext/react";
 import { useLocation } from "@reach/router";
 import { Accordion, Card, Carousel, Col, Container, Row } from "react-bootstrap";
+import { motion } from "framer-motion";
 import Layout from "../../components/Layout/Layout";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
@@ -148,21 +149,37 @@ const Hero = ({ section, event }) => {
       )}
       <div className={styles.heroScrim} aria-hidden="true" />
       <Container className={styles.heroContent}>
-        {subheading && <Subtitle className="mb-3 white">{subheading}</Subtitle>}
-        {heading && (
-          <Title className="mb-3 white text--big">{heading}</Title>
-        )}
-        <div className={styles.heroText}>
-          <RichText value={section._rawText} />
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          style={{ zIndex: 2 }}
+        >
+          {subheading && (
+            <Subtitle className="mb-3 white">{subheading}</Subtitle>
+          )}
+          {heading && (
+            <Title className="mb-3 white text--big">{heading}</Title>
+          )}
+          <div className={styles.heroText}>
+            <RichText value={section._rawText} />
+          </div>
+        </motion.div>
         {section.showRegistrationButton && (
-          <RegisterLink
-            href={event?.linkToEvent}
-            name={heading}
-            date={event?.date}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1.0, duration: 0.6 }}
+            style={{ zIndex: 2 }}
           >
-            {section.buttonLabel || "Register"}
-          </RegisterLink>
+            <RegisterLink
+              href={event?.linkToEvent}
+              name={heading}
+              date={event?.date}
+            >
+              {section.buttonLabel || "Register"}
+            </RegisterLink>
+          </motion.div>
         )}
       </Container>
     </section>
