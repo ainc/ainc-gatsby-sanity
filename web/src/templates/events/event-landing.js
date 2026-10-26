@@ -7,7 +7,8 @@ import { Accordion, Card, Carousel, Col, Container, Row } from "react-bootstrap"
 import Layout from "../../components/Layout/Layout";
 import Title from "../../components/UI/Title/Title";
 import Subtitle from "../../components/UI/Subtitle/Subtitle";
-import BrandLink from "../../components/UI/BrandLink/BrandLink";
+import BrandButton from "../../components/UI/BrandButton/BrandButton";
+import EventBriteModal from "../../components/EventBriteModal/EventBriteModal";
 import {
   getEventbriteCode,
   withEventbriteDiscount,
@@ -46,7 +47,9 @@ const RichText = ({ value }) => {
   return <PortableText value={value} components={portableTextComponents} />;
 };
 
-const RegisterLink = ({ href, children, className }) => {
+const ModalFace = ({ children }) => children;
+
+const RegisterLink = ({ href, children, className, name, date }) => {
   const location = useLocation();
   if (!href) return null;
 
@@ -54,16 +57,17 @@ const RegisterLink = ({ href, children, className }) => {
   const url = eventbrite
     ? withEventbriteDiscount(href, getEventbriteCode(location.search))
     : href;
-  const external = /^https?:\/\//i.test(url);
 
   return (
-    <BrandLink
-      href={url}
-      className={className}
-      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-    >
-      {children}
-    </BrandLink>
+    <span className={styles.modalButton}>
+      <EventBriteModal link={url}>
+        <ModalFace name={name || "Register"} date={date || ""}>
+          <BrandButton type="button" className={className}>
+            {children}
+          </BrandButton>
+        </ModalFace>
+      </EventBriteModal>
+    </span>
   );
 };
 
@@ -152,7 +156,11 @@ const Hero = ({ section, event }) => {
           <RichText value={section._rawText} />
         </div>
         {section.showRegistrationButton && (
-          <RegisterLink href={event?.linkToEvent}>
+          <RegisterLink
+            href={event?.linkToEvent}
+            name={heading}
+            date={event?.date}
+          >
             {section.buttonLabel || "Register"}
           </RegisterLink>
         )}
@@ -307,7 +315,9 @@ const ButtonSection = ({ section, event }) => {
   return (
     <section className={`${styles.section} text-center`}>
       <Container>
-        <RegisterLink href={href}>{section.label}</RegisterLink>
+        <RegisterLink href={href} name={event?.eventName} date={event?.date}>
+          {section.label}
+        </RegisterLink>
       </Container>
     </section>
   );

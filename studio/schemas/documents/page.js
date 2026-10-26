@@ -1,4 +1,5 @@
 import { FaRegWindowMaximize } from "react-icons/fa";
+import FixedLeadSectionsInput from "../../components/FixedLeadSectionsInput";
 
 export default {
   name: "page",
@@ -12,8 +13,23 @@ export default {
       type: "reference",
       to: [{ type: "events" }],
       description:
-        "Choose the event this page is for. The hero image, name, date, location, host, tags, and registration link are read from that event.",
-      validation: (Rule) => Rule.required(),
+        "Choose the event this page is for. Each event can only have one landing page. The hero image, name, date, location, host, tags, and registration link are read from that event.",
+      validation: (Rule) =>
+        Rule.required().custom(async (value, context) => {
+          const eventId = value?._ref;
+          if (!eventId) return true;
+
+          const id = context.document?._id?.replace(/^drafts\./, "");
+          const existingTitle = await context
+            .getClient({ apiVersion: "2023-01-01" })
+            .fetch(
+              `*[_type == "page" && event._ref == $eventId && !(_id in [$id, $draftId])][0].title`,
+              { eventId, id, draftId: `drafts.${id}` },
+            );
+
+          if (!existingTitle) return true;
+          return `This event already has a landing page (${existingTitle}).`;
+        }),
     },
     {
       name: "title",
@@ -40,7 +56,23 @@ export default {
       title: "Page sections",
       type: "pageBuilder",
       description:
-        "These sections stack in order down the page. Drag a section to move it. Add or remove sections to change the layout.",
+        "The hero is always first and the event details bar is always second. Sections you add after those can be dragged to change their order.",
+      components: {
+        input: FixedLeadSectionsInput,
+      },
+      validation: (Rule) =>
+        Rule.custom((items) => {
+          if (!Array.isArray(items) || items.length < 2) {
+            return "The hero and event details must be the first two sections.";
+          }
+          if (
+            items[0]?._type !== "heroImage" ||
+            items[1]?._type !== "eventDetails"
+          ) {
+            return "The hero must be first and the event details must be second.";
+          }
+          return true;
+        }),
     },
   ],
   initialValue: {

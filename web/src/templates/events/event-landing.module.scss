@@ -53,6 +53,17 @@
   }
 }
 
+.modalButton {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: middle;
+
+  > button,
+  > a {
+    width: auto !important;
+  }
+}
+
 .heroText {
   max-width: 40rem;
   margin-bottom: 1.5rem;
