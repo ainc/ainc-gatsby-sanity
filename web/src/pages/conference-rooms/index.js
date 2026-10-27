@@ -19,8 +19,8 @@ const ROOMS = [
   {
     name: "Lee Todd Conference Room",
     rate: "$50 / hour",
-    capacitySize: "large",
-    capacityLabel: "10-16 people",
+    capacitySize: "medium",
+    capacityLabel: "10 people",
     text: "Screen, whiteboard, and video-ready setup for team meetings. All glass and mirrors.",
     bookingId: "4078485000002460134",
   },
@@ -35,8 +35,8 @@ const ROOMS = [
   {
     name: "344 Upstairs Conference Room",
     rate: "$50 / hour",
-    capacitySize: "medium",
-    capacityLabel: "6–10 people",
+    capacitySize: "large",
+    capacityLabel: "10–16 people",
     text: "Upstairs conference room with screen and whiteboard — great for team meetings and client presentations.",
     bookingId: "4078485000002477006",
   },
