@@ -159,6 +159,18 @@
 
 .linkedImage {
   display: inline-block;
+  transition: transform 0.35s ease;
+
+  &:hover,
+  &:focus-visible {
+    transform: scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .linkedImage {
+    transition: none;
+  }
 }
 
 .caption {
