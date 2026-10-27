@@ -11,9 +11,15 @@ import * as styles from "../../workspace/shared/workspaceShared.module.scss";
 const PLANS = [
   {
     title: "Coworking Membership",
-    price: "$199 / month",
+    price: "$200 / month",
     body: "Perfect for remote workers, freelancers, and founders looking for a professional workspace and a collaborative community to grow with.",
     cta: WORKSPACE_CTAS.bookTour,
+  },
+  {
+    title: "Day Pass",
+    price: "$20 / day",
+    body: "Drop in for a day of open seating, wifi, and the downtown workspace without a monthly membership.",
+    cta: WORKSPACE_CTAS.buyDayPass,
   },
 ];
 
