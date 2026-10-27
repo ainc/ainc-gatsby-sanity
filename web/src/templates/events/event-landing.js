@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { PortableText } from "@portabletext/react";
 import { useLocation } from "@reach/router";
@@ -268,6 +268,42 @@ const Features = ({ section }) => {
   );
 };
 
+const isExternalLink = (href) =>
+  /^(https?:)?\/\//i.test(href) || /^(mailto|tel):/i.test(href);
+
+const LinkedPicture = ({ href, children }) => {
+  if (!href) return children;
+  if (isExternalLink(href)) {
+    return (
+      <a
+        href={href}
+        className={styles.linkedImage}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {children}
+      </a>
+    );
+  }
+
+  const to =
+    href.startsWith("/") || href.startsWith("#") || href.startsWith("?")
+      ? href
+      : `/${href}`;
+  if (to.startsWith("#") || to.startsWith("?")) {
+    return (
+      <a href={to} className={styles.linkedImage}>
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link to={to} className={styles.linkedImage}>
+      {children}
+    </Link>
+  );
+};
+
 const ImageAndLink = ({ section }) => {
   const image =
     section.image?.asset?.gatsbyImageData ||
@@ -281,18 +317,9 @@ const ImageAndLink = ({ section }) => {
   return (
     <section className={styles.section}>
       <Container className={styles.imageBlock}>
-        {section.link && picture ? (
-          <a
-            href={section.link}
-            className={styles.linkedImage}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {picture}
-          </a>
-        ) : (
-          picture
-        )}
+        {picture ? (
+          <LinkedPicture href={section.link}>{picture}</LinkedPicture>
+        ) : null}
         {section.title && (
           <p className={styles.caption}>{section.title}</p>
         )}
