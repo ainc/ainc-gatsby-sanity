@@ -1,70 +1,69 @@
 /* @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic); */
 
-@use '../../styles/variables.scss' as styles;
-@import "../../styles/mixins.scss"; 
-
+@use "../../styles/variables.scss" as styles;
+@import "../../styles/mixins.scss";
 
 * {
-    font-family: styles.$heading-font;
-    box-sizing: border-box;
+  font-family: styles.$heading-font;
+  box-sizing: border-box;
 }
 
 .containter {
-    padding-left: 15px;
-    padding-right: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .heading-text {
-    font-size: 2.9rem;
-    // line-height: 5.85rem;
-    font-weight: 900;
-    color: #323333;
-    text-transform: uppercase;
-    margin: 3%;
-    text-align: center;
-    @include screen-xs {
-        font-size: 4vh;
-    }
+  font-size: 2.9rem;
+  // line-height: 5.85rem;
+  font-weight: 900;
+  color: #323333;
+  text-transform: uppercase;
+  margin: 3%;
+  text-align: center;
+  @include screen-xs {
+    font-size: 4vh;
+  }
 }
 
 .flex-container {
-    flex-wrap: wrap;
-    display: flex;
-    column-gap: 15px;
-    row-gap: 15px;
-    // margin-bottom: 3%;
+  flex-wrap: wrap;
+  display: flex;
+  column-gap: 15px;
+  row-gap: 15px;
+  // margin-bottom: 3%;
 }
 
 .flex-item {
-    flex: 49%;
+  flex: 49%;
 }
 
 .page {
-    // padding-top: 300px;
-    margin: 0 .5rem 0 .5rem;
-    font-weight: 900;
-    color: styles.$brand-color;
-    @include screen-xs {
-        font-size: 5vw;
-    }
+  // padding-top: 300px;
+  margin: 0 0.5rem 0 0.5rem;
+  font-weight: 900;
+  color: styles.$brand-color;
+  @include screen-xs {
+    font-size: 5vw;
+  }
 }
 
 .page-number-single {
-    display: none;
-    @include screen-xs {
-        display: flex;
-    }
+  display: none;
+  @include screen-xs {
+    display: flex;
+  }
 }
 
 .page-number-all {
-    @include screen-xs {
-        display: none;
-    }
+  @include screen-xs {
+    display: none;
+  }
 }
 
 .page:hover {
-    // text-shadow: 2px 2px 0 rgb(0, 0, 0);
-    // transform: scale(2.5);
-    // transition-duration: 400ms;
-    color: styles.$brand-red-bright;
+  // text-shadow: 2px 2px 0 rgb(0, 0, 0);
+  // transform: scale(2.5);
+  // transition-duration: 400ms;
+  color: styles.$brand-red-bright;
 }

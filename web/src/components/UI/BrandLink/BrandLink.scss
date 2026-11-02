@@ -1,0 +1,59 @@
+// -----------------------------------------------------------------------------
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins";
+// -----------------------------------------------------------------------------
+
+.button {
+  @include button-style;
+
+  @media only screen and (max-width: $screen-xs) {
+    font-size: 0.6rem;
+    padding: 0.3rem 1rem;
+  }
+
+  &.secondary {
+    @include button-style(
+      $bg-color: $brand-color2,
+      $text-color: $white-color,
+      $hover-bg: #5c5d5f,
+      $hover-text: $white-color
+    );
+  }
+
+  &.white--dark-text {
+    @include button-style(
+      $bg-color: $white-color,
+      $text-color: $brand-color2,
+      $hover-bg: $brand-grey,
+      $hover-text: $brand-color2
+    );
+  }
+
+  &.white--red-text {
+    @include button-style(
+      $bg-color: $white-color,
+      $text-color: $brand-red-bright,
+      $hover-bg: $brand-grey,
+      $hover-text: $brand-red-bright
+    );
+  }
+
+  &.btn--small {
+    font-size: 1rem;
+    padding: 0.4rem 1.4rem;
+  }
+
+  &.small--text {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+  }
+}
+
+.week-of-code {
+  @include button-style(
+    $bg-color: #ed3742,
+    $text-color: $white-color,
+    $hover-bg: #bf2329,
+    $hover-text: $white-color
+  );
+}

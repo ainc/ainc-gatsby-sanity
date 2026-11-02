@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic");
+@import "../../styles/variables.scss";
+@import "../../styles/mixins";
+
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+.heading-subtitle {
+  font-family: "Open Sans", sans-serif;
+  font-size: 17px;
+  margin-top: 0.5rem;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+.flex-item {
+  flex: 1 1 100%;
+  box-sizing: border-box;
+  padding: 15px;
+  // Stretch children so every card in a row is the same height
+  display: flex;
+
+  @media (min-width: 768px) {
+    flex: 1 1 50%;
+  }
+
+  @media (min-width: 992px) {
+    flex: 1 1 33.333%;
+  }
+}
+
+.custom-container {
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 15px;
+}
+
+.noEventsMessage {
+  text-align: center;
+  margin: 50px auto;
+  font-size: 1.2rem;
+  color: #323232;
+  font-weight: bold;
+}
+
+@media (max-width: 992px) {
+  .noHorizontalSpacing {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .noHorizontalSpacing {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+    margin-left: 3rem !important;
+    margin-right: 3rem !important;
+  }
+}

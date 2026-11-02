@@ -1,11 +1,11 @@
-@import '../../styles/main.scss';
+@import "../../styles/main.scss";
 
 .classList {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 20px;
 }
-  
+
 .classButton {
   background: none;
   border: none;
@@ -16,16 +16,78 @@
   margin-bottom: 20px;
   height: 35px;
 }
-  
+
 .classButton:hover,
 .classButton.active {
   color: #a21b22;
 }
 
-.apax-logo, .bigfans-logo, .blueframe-logo, .cabemtechnologies-logo, .infosys-logo, .lightwell-logo, .nymblsystems-logo, .prospecttrax-logo, .silverfern-logo, .vetdata-logo {
+.apax-logo,
+.bigfans-logo,
+.blueframe-logo,
+.cabemtechnologies-logo,
+.infosys-logo,
+.lightwell-logo,
+.nymblsystems-logo,
+.prospecttrax-logo,
+.silverfern-logo,
+.vetdata-logo {
   width: 200px;
   @include screen-tablet-max {
     width: 100%;
     margin-bottom: 10px;
+  }
+}
+
+.card {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  border: none;
+}
+
+.testimonial-div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 3rem 20px;
+}
+
+.test-info {
+  background-color: #ed3742;
+  color: white;
+  border-radius: 5px;
+  @media (min-width: 990px) {
+    margin: 0px 50px;
+    padding-left: 80px;
+    padding-right: 20px;
+  }
+}
+
+.description {
+  @media (max-width: 990px) {
+    font-size: 0.7rem;
+  }
+}
+
+.test-images {
+  width: 250px;
+  height: 250px;
+
+  @media (max-width: 2560px) {
+    position: absolute;
+    bottom: -20px;
+    left: 21%;
+  }
+  @media (max-width: 1400px) {
+    left: 20%;
+    position: absolute;
+    bottom: -20px;
+  }
+  @media (max-width: 1200px) {
+    left: 17%;
+    position: absolute;
+    bottom: -20px;
+  }
+  @media (max-width: 990px) {
+    display: none;
   }
 }

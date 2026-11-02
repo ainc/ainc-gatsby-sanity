@@ -10,25 +10,29 @@ function RoleList({ items, title }) {
     <div className={styles.root}>
       <h2 className={styles.headline}>{title}</h2>
       <ul className={styles.list}>
-        {items.map(item => (
+        {items.map((item) => (
           <li key={item._key} className={styles.listItem}>
             <div>
               <div className={styles.avatar}>
-                {item.person && item.person.image && item.person.image.asset && (
-                  <img
-                    src={imageUrlFor(buildImageObj(item.person.image))
-                      .width(100)
-                      .height(100)
-                      .fit("crop")
-                      .url()}
-                    alt=""
-                  />
-                )}
+                {item.person &&
+                  item.person.image &&
+                  item.person.image.asset && (
+                    <img
+                      src={imageUrlFor(buildImageObj(item.person.image))
+                        .width(100)
+                        .height(100)
+                        .fit("crop")
+                        .url()}
+                      alt=""
+                    />
+                  )}
               </div>
             </div>
             <div>
               <div>
-                <strong>{(item.person && item.person.name) || <em>Missing name</em>}</strong>
+                <strong>
+                  {(item.person && item.person.name) || <em>Missing name</em>}
+                </strong>
               </div>
               {item.roles && (
                 <div>

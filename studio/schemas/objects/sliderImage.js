@@ -1,32 +1,48 @@
 export default {
-  name: 'sliderImage',
-  title: 'Slider Image',
-  type: 'object',
+  name: "sliderImage",
+  title: "Slider Image",
+  type: "object",
   fields: [
     {
-      title: 'Header Title',
-      name: 'title',
-      type: 'string',
+      title: "Active",
+      name: "active",
+      type: "boolean",
+      description: "Turn off to hide this slide without deleting it.",
+      initialValue: true,
     },
     {
-      title: 'Header Subtitle',
-      name: 'subtitle',
-      type: 'string',
+      title: "Header Title",
+      name: "title",
+      type: "string",
     },
     {
-      title: 'Call to Action',
-      name: 'cta',
-      type: 'link',
+      title: "Header Subtitle",
+      name: "subtitle",
+      type: "string",
     },
     {
-      title: 'Image',
-      name: 'image',
-      type: 'image'
-    }
+      title: "Call to Action",
+      name: "cta",
+      type: "link",
+    },
+    {
+      title: "Image",
+      name: "image",
+      type: "image",
+    },
   ],
   preview: {
     select: {
-      title: 'title'
-    }
-  }
-}
+      title: "title",
+      active: "active",
+      media: "image",
+    },
+    prepare({ title, active, media }) {
+      return {
+        title: title || "Untitled slide",
+        subtitle: active === false ? "Hidden" : "Visible",
+        media,
+      };
+    },
+  },
+};

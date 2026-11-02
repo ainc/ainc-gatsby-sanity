@@ -1,3 +1,3 @@
 export default {
-  templateRepoId: 'sanity-io/sanity-template-gatsby-portfolio'
-}
+  templateRepoId: "sanity-io/sanity-template-gatsby-portfolio",
+};

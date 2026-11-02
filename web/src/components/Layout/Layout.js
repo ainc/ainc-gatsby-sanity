@@ -1,10 +1,11 @@
- import React from "react";
-import { useStaticQuery, graphql } from 'gatsby';
-import Banner from '../Banner/Banner'
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
+import React from "react";
+import Banner from "../Banner/Banner";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
+import SEO from "../seo";
 
 import "../../styles/layout.css";
+import { Container } from "react-bootstrap";
 
 
 const Layout = ({ pageTitle, children, onHideNav, onShowNav, showNav, siteTitle }) => (

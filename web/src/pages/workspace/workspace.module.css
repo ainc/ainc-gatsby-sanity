@@ -20,7 +20,6 @@ body {
   color: #323333;
 }
 
-
 section .header-workspace {
   background-position-x: 75%;
   height: 75vh;
@@ -56,8 +55,8 @@ section .header-workspace {
   color: #fff;
 }
 
-.see-the-space {
-  font-size: 32px;
+.video-title {
+  font-size: 30px;
   text-transform: uppercase;
   /* float: right; */
   font-weight: 900;
@@ -70,7 +69,6 @@ section .header-workspace {
   position: relative;
   padding-top: 20px;
   text-align: center;
-  padding-bottom: 100px;
 }
 
 .spotlight-adult .lgx-inner {
@@ -131,10 +129,8 @@ section .header-workspace {
 }
 
 .video-arrow {
-  position: absolute;
   width: 60%;
-  top: 25%;
-  left: -50%;
+  margin-left: 10vw;
 }
 
 .tour-btn {
@@ -201,7 +197,6 @@ section .header-workspace {
   box-shadow: none;
 }
 
-
 @media (max-width: 768px) {
   .video-arrow {
     width: 50%;
@@ -222,7 +217,7 @@ section .header-workspace {
 
 @media (min-width: 769px) {
   .video-arrow {
-    width: 60%;
+    width: 45%;
     top: 20%;
     left: -50%;
   }
@@ -230,7 +225,7 @@ section .header-workspace {
 
 @media (max-width: 576px) {
   .video-arrow {
-    width: 40%;
+    width: 30%;
     top: 60%;
     left: -30%;
   }

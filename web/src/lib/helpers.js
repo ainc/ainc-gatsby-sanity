@@ -6,7 +6,7 @@ export function cn(...args) {
 
 export function mapEdgesToNodes(data) {
   if (!data.edges) return [];
-  return data.edges.map(edge => edge.node);
+  return data.edges.map((edge) => edge.node);
 }
 
 export function filterOutDocsWithoutSlugs({ slug }) {
@@ -23,7 +23,7 @@ export function getBlogUrl(publishedAt, slug) {
 
 export function buildImageObj(source) {
   const imageObj = {
-    asset: { _ref: source.asset._ref || source.asset._id }
+    asset: { _ref: source.asset._ref || source.asset._id },
   };
 
   if (source.crop) imageObj.crop = source.crop;

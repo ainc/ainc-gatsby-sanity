@@ -11,10 +11,15 @@ export const styles = {
     headingFont: `'Open Sans', sans-serif`,
     subheadingFont: `'Open Sans', sans-serif`,
     baseFont: `'Open Sans', sans-serif`,
+    fancyFont: `'The-Bohemian-Regular', serif`,
   },
   sizes: {
-    title: `2.4rem`,
-    title_small: `.7rem`,
+    title: `2.0rem`,
+    title_huge: `3.2rem`,
+    title_big: `2.5rem`,
+    title_medium: `1.2rem`,
+    title_tiny: `0.5rem`,
+    title_small: `.8rem`,
     subtitle: `1.5rem`,
     subtitle_small: `1.4rem`,
     subtitle_tiny: `0.7rem`,
@@ -27,5 +32,5 @@ export const styles = {
     tablet: `768px`,
     laptop: `1024px`,
     desktop: `1200px`,
-  }
-}
+  },
+};

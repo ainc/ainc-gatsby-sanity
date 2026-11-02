@@ -1,30 +1,27 @@
 // -----------------------------------------------------------------------------
 @import "../../styles/variables";
-@import "../../styles/mixins"; 
+@import "../../styles/mixins";
 // -----------------------------------------------------------------------------
-
 
 .banner {
   text-align: center;
-  padding: 5px;
+  padding: 4px 8px;
   background-color: #f2dede;
   color: #842029;
   position: relative;
   z-index: 10;
-  p {
-    @include screen-tablet-max {
-      font-size: 14px;
-    }
-    margin: 0;
-    font-weight: normal;
+  &.no-padding {
+    padding: 0; // No padding when there's no upcoming event
   }
-  
+
   a {
+    font-size: 1rem;
     font-weight: normal;
     color: #842029;
-    text-decoration: underline;
+    text-decoration: none;
     transition: color 0.3s;
   }
+
   a:hover {
     color: #de3640;
     // animation: color-change;

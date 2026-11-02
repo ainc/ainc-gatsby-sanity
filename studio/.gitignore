@@ -1,2 +1,4 @@
 /dist
 /node_modules
+/production.tar.gz
+/yarn-error.log

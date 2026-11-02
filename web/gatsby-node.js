@@ -1,181 +1,460 @@
-const path = require("path")
-const { createFilePath } = require("gatsby-source-filesystem")
-const { paginate } = require('gatsby-awesome-pagination');
+const fs = require("fs");
+const path = require("path");
+const { createFilePath } = require("gatsby-source-filesystem");
+const { paginate } = require("gatsby-awesome-pagination");
+const { createRedirect } = require("gatsby-plugin-netlify");
 
-async function createBlogPostPages(graphql, actions) {
-  const { createPage } = actions;
-  const result = await graphql(`
-  {
-    allSanityBlog {
-      edges {
-        node {
-          date
-          slug {
-            current
-          }
-          title
-          previewText
-          body
-          thumbnail {
+const EMAIL_SIGNATURE_IMAGE = "email-signature-banner.png";
+const EMAIL_SIGNATURE_FALLBACK_LINK =
+  "https://entrepreneurhof.com/induction-dinner/";
+
+async function getEmailSignature({ graphql, reporter }) {
+  try {
+    // Introspection is always valid. Querying a missing field fails the
+    // production build, so skip that query and keep the static signature.
+    const typeResult = await graphql(`
+      {
+        __type(name: "SanityEmailSignature") {
+          name
+        }
+      }
+    `);
+
+    if (typeResult.errors || !typeResult.data?.__type) {
+      reporter.info(
+        "Email signature: Sanity type is unavailable, using the static fallback.",
+      );
+      return null;
+    }
+
+    const result = await graphql(`
+      {
+        sanityEmailSignature(_id: { eq: "emailSignature" }) {
+          alt
+          link
+          image {
             asset {
               url
             }
           }
-          reference {
-            name
-            picture {
-              asset {
-                gatsbyImageData(height: 54, width: 54, placeholder: DOMINANT_COLOR)
-              }
+        }
+      }
+    `);
+
+    if (result.errors || !result.data || !result.data.sanityEmailSignature) {
+      reporter.info(
+        "Email signature: no published Sanity document, using the static fallback.",
+      );
+      return null;
+    }
+
+    return result.data.sanityEmailSignature;
+  } catch (error) {
+    reporter.warn(
+      `Email signature: query failed, using the static fallback. ${error.message}`,
+    );
+    return null;
+  }
+}
+
+async function createBlogPostPages(graphql, actions) {
+  const { createPage, createRedirect } = actions;
+  const result = await graphql(`
+    {
+      allSanityBlog {
+        totalCount
+        edges {
+          node {
+            date(formatString: "MMMM DD, YYYY")
+            slug {
+              current
             }
             title
+            previewText
+            body
+            thumbnail {
+              asset {
+                url
+              }
+            }
+            reference {
+              name
+              picture {
+                asset {
+                  gatsbyImageData(
+                    height: 54
+                    width: 54
+                    placeholder: DOMINANT_COLOR
+                  )
+                }
+              }
+              title
+            }
           }
         }
       }
     }
-  }
   `);
 
   // console.log(JSON.stringify(result, null, 4));
 
   if (result.errors) throw result.errors;
 
-  
-
+  //Create individual blog post
   const postEdges = result.data.allSanityBlog.edges;
 
-  console.log("Post found: " + postEdges.length)
-  console.log("First Post: "+ postEdges[0].node.title)
-
   postEdges.forEach((edge) => {
-      // console.log("Edge: " + edge)
-      // console.log("types: " + typeof(edge.node.id))
-      // console.log("Edge ID: " + edge.node)
-      // console log the edge object
+    // const id = edge.node.id;
+    const path = `/blog/${edge.node.slug.current}`;
 
-
-      // const id = edge.node.id;
-      const path = `/blog/${edge.node.slug.current}`;
-
-      createPage({
-        path: path,
-        component: require.resolve("./src/templates/blog/blog-template.js"),
-        context: { 
-          post: edge.node, 
-        },
-      });
+    createPage({
+      path: path,
+      component: require.resolve("./src/templates/blog/blog-template.js"),
+      context: {
+        post: edge.node,
+      },
     });
+  });
+
+  // Create a single blog list page
+  createPage({
+    path: `/blog`,
+    component: require.resolve("./src/templates/blog/blog-list-template.js"),
+    context: {},
+  });
+
+  // Redirect legacy numeric pagination routes (/blog/2, /blog/3, ...) to /blog
+  const blogCount = result.data.allSanityBlog.totalCount;
+  const blogsPerPage = 10;
+  const numBlogs = Math.ceil(blogCount / blogsPerPage);
+  for (let i = 2; i <= numBlogs; i++) {
+    createRedirect({
+      fromPath: `/blog/${i}`,
+      toPath: `/blog`,
+      isPermanent: true,
+      force: true,
+      redirectInBrowser: true,
+    });
+    createRedirect({
+      fromPath: `/blog/${i}/`,
+      toPath: `/blog`,
+      isPermanent: true,
+      force: true,
+      redirectInBrowser: true,
+    });
+  }
 }
 
 async function createPodcastPages(graphql, actions) {
-  const { createPage } = actions
-  const result = await graphql(
-    `
-      {
-        allFeedAnchorPodcast (
-            sort: { fields: [isoDate], order: DESC }
-          ) {
-            totalCount
-            nodes {
-              title
-          }
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allFeedAnchorPodcast(sort: { isoDate: DESC }) {
+        totalCount
+        nodes {
+          title
         }
       }
-    `
-  )
+    }
+  `);
 
   if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
-    return
+    reporter.panicOnBuild(`Error while running GraphQL query.`);
+    return;
   }
 
-  const posts = result.data.allFeedAnchorPodcast.nodes
-  const postsPerPage = 10
-  const numPages = Math.ceil(posts.length / postsPerPage)
+  const posts = result.data.allFeedAnchorPodcast.nodes;
+  const postsPerPage = 10; //changed from 9 to 10
+  const numPages = Math.ceil(posts.length / postsPerPage);
 
   //pagination with import
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
       path: i === 0 ? `/podcast` : `/podcast/${i + 1}`,
-      component: path.resolve("./src/templates/podcast/podcast-list-template.js"),
+      component: path.resolve(
+        "./src/templates/podcast/podcast-list-template.js",
+      ),
       context: {
         limit: postsPerPage,
         skip: i * postsPerPage,
         numPages,
         currentPage: i + 1,
       },
-    })
-  })  
+    });
+  });
 }
 
 async function createNotePages(graphql, actions) {
   const { createPage } = actions;
   const result = await graphql(`
-  {
-    allSanityNotes {
-      edges {
-        node {
-          slug {
-            current
+    {
+      allSanityNotes {
+        edges {
+          node {
+            slug {
+              current
+            }
+            age
+            linkToiframe
+            _rawBody
           }
-          age
-          linkToiframe
-          _rawBody
         }
       }
     }
-  }
   `);
-
-  
 
   // Generate pages based on the data
   result.data.allSanityNotes.edges.forEach(({ node }) => {
     const slug = node.slug.current;
-    const note = node
+    const note = node;
     createPage({
       path: `/notes/${slug}`,
-      component: require.resolve('./src/templates/notes/notes.js'),
-      context: { 
+      component: require.resolve("./src/templates/notes/notes.js"),
+      context: {
         title: node.title,
         slug: slug,
         note: note,
-       },
+      },
     });
   });
 }
 
+async function createTutorialsPages(graphql, actions) {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allSanityTutorials {
+        edges {
+          node {
+            slug {
+              current
+            }
+            body
+            title
+          }
+        }
+      }
+    }
+  `);
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
-  await createPodcastPages(graphql, actions)
-  await createBlogPostPages(graphql, actions)
-  await createNotePages(graphql, actions)
+  // Generate pages based on the data
+  result.data.allSanityTutorials.edges.forEach(({ node }) => {
+    const slug = node.slug.current;
+    createPage({
+      path: `/tutorials/${slug}`,
+      component: require.resolve("./src/templates/tutorials/tutorials.js"),
+      context: {
+        post: node,
+      },
+    });
+  });
 }
 
+// Optional Sanity fields are omitted from GraphQL until a published document
+// actually has a value. Declaring them here lets /timeline query `description`
+// and `priority` even when some events leave them blank. Image alt lives on
+// the image field, not SanityImage, so it needs its own type. Changing this
+// file requires restarting `yarn dev` in web/.
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  createTypes(`
+    type SanityTimelineEventImage {
+      alt: String
+      asset: SanityImageAsset
+      hotspot: SanityImageHotspot
+      crop: SanityImageCrop
+    }
+    type SanityTimelineEvent implements Node {
+      _id: String
+      date: Date @dateformat
+      title: String
+      description: String
+      priority: Float
+      image: SanityTimelineEventImage
+    }
+    type SanityIntroAlumniCarousel implements Node {
+      _id: String!
+      name: String
+      jobTitle: String
+      cohort: String
+      order: Int
+      image: SanityImage
+    }
+    type SanitySliderImage {
+      active: Boolean
+    }
+    type SanityBanner implements Node {
+      enabled: Boolean
+      link: SanityLink
+    }
+    type SanityEmailSignature implements Node {
+      _id: String
+      alt: String
+      link: String
+      image: SanityImage
+    }
+    type SanityLink {
+      title: String
+      url: String
+      behavior: String
+    }
+  `);
+};
+
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  const { createRedirect } = actions;
+  //internal
+  createRedirect({
+    fromPath: `/5across`,
+    toPath: `/events/5across/`,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: `/5across/program`,
+    toPath: `/program`,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: `/5aprogram`,
+    toPath: `/program`,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: `/code`,
+    toPath: `/learn/youth/code/`,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: `/youth`,
+    toPath: `/learn/youth/`,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: `/woc`,
+    toPath: `/notes/woc`,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: `/applications/bootcamp`,
+    toPath: `/bootcamp/apply/`,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: `/vote`,
+    toPath: `https://5across-vote.kyle-a09.workers.dev/`,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
+
+  //external
+  createRedirect({
+    fromPath: `https://awesomeincu.com/`,
+    toPath: `/weekofcode`,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: `/5across/vote`,
+    toPath: `https://5across-vote.kyle-a09.workers.dev/`,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: `https://5across.org/vote`,
+    toPath: `https://5across-vote.kyle-a09.workers.dev/`,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: `https://awesomeincu.com/*`,
+    toPath: `/weekofcode`,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: `https://awesomeincu.com`,
+    toPath: `/weekofcode`,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
+
+  const emailSignature = await getEmailSignature({ graphql, reporter });
+  const emailSignatureLink =
+    emailSignature?.link || EMAIL_SIGNATURE_FALLBACK_LINK;
+  createRedirect({
+    fromPath: `/email-signature`,
+    toPath: emailSignatureLink,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: `/email-signature/`,
+    toPath: emailSignatureLink,
+    isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
+
+  await createPodcastPages(graphql, actions);
+  await createBlogPostPages(graphql, actions);
+  await createNotePages(graphql, actions);
+  await createTutorialsPages(graphql, actions);
+};
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    const value = createFilePath({ node, getNode });
     createNodeField({
       name: `slug`,
       node,
       value,
-    })
+    });
   }
-}
+};
 
 exports.onCreatePage = ({ page, actions }) => {
-  const { createPage, deletePage } = actions
-  deletePage(page)
+  const { createPage, deletePage } = actions;
+  deletePage(page);
   createPage({
     ...page,
     context: {
       ...page.context,
       currentDate: getCurrentDate(),
     },
-  })
-}
-
+  });
+};
+exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
+  const config = getConfig();
+  const miniCssExtractPlugin = config.plugins.find(
+    (plugin) => plugin.constructor.name === "MiniCssExtractPlugin",
+  );
+  if (miniCssExtractPlugin) {
+    miniCssExtractPlugin.options.ignoreOrder = true;
+  }
+  actions.replaceWebpackConfig(config);
+};
 /**
  * Returns the current date in YYYY-MM-DD format
  */
@@ -191,3 +470,31 @@ function getCurrentDate() {
   }
   return `${d.getFullYear()}-${month}-${day}`;
 }
+
+exports.onPostBuild = async ({ graphql, reporter }) => {
+  const emailSignature = await getEmailSignature({ graphql, reporter });
+  const publicDir = path.join(__dirname, "public");
+  const imageUrl = emailSignature?.image?.asset?.url;
+  if (!imageUrl) {
+    reporter.info(
+      "Email signature banner: no Sanity image published; using the static fallback.",
+    );
+    return;
+  }
+
+  try {
+    const response = await fetch(imageUrl);
+    if (!response.ok) {
+      throw new Error(`Failed to download banner (${response.status})`);
+    }
+    const destDir = path.join(publicDir, "images", "unlisted");
+    fs.mkdirSync(destDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(destDir, EMAIL_SIGNATURE_IMAGE),
+      Buffer.from(await response.arrayBuffer()),
+    );
+    reporter.info("Email signature banner: wrote Sanity image to public URL.");
+  } catch (error) {
+    reporter.warn(`Email signature banner: ${error.message}`);
+  }
+};

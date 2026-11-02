@@ -1,21 +1,26 @@
-import React from "react";
-import { graphql, Link, useStaticQuery } from 'gatsby'
-// JSX
-import HeroSlider, { Slide, Nav, Overlay } from "hero-slider";
-import Wrapper from "../UI/Wrapper/Wrapper";
+import React, { useRef } from "react";
+import { graphql, Link, useStaticQuery } from "gatsby";
+import { motion } from "framer-motion";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+
+import "keen-slider/keen-slider.min.css";
+import { useKeenSlider } from "keen-slider/react";
+import { Container, Row, Col, Carousel } from "react-bootstrap";
+
+import BrandLink from "../UI/BrandLink/BrandLink";
 import Title from "../UI/Title/Title";
 import Subtitle from "../UI/Subtitle/Subtitle";
-import BrandButton from "../UI/BrandButton/BrandButton";
-// import { ButtonContainer } from "./BasicSlider.module.scss"
-import { Container } from "react-bootstrap"
+import Wrapper from "../UI/Wrapper/Wrapper";
 
 const HomepageSlider = (props) => {
+  const { scrollToSection, sectionIds } = props;
 
   const query = useStaticQuery(graphql`
     query imageSlider {
-      sanityImageSlider(title: {eq: "Homepage Slider"}) {
+      sanityImageSlider(title: { eq: "Homepage Slider" }) {
         title
         slides {
+          active
           title
           subtitle
           cta {
@@ -24,7 +29,11 @@ const HomepageSlider = (props) => {
           }
           image {
             asset {
-              url
+              gatsbyImageData(
+                layout: FULL_WIDTH
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
         }
@@ -32,67 +41,82 @@ const HomepageSlider = (props) => {
     }
   `);
 
-  const slides = (query.sanityImageSlider.slides || {});
+  const slides = (query.sanityImageSlider?.slides || []).filter(
+    (slide) => slide.active !== false,
+  );
   return (
-    <HeroSlider
-      // slidingAnimation="left_to_right"
-      // orientation="horizontal"
-      // initialSlide={1}
-      // onBeforeChange={(previousSlide, nextSlide) =>
-      //   console.log("onBeforeChange", previousSlide, nextSlide)
-      // }
-      // onChange={nextSlide => console.log("onChange", nextSlide)}
-      // onAfterChange={nextSlide => console.log("onAfterChange", nextSlide)}
-      // style={{
-      //   backgroundColor: "rgba(0, 0, 0, 0.33)"
-      // }}
-      // settings={{
-      //   slidingDuration: 250, 
-      //   slidingDelay: 100,
-      //   shouldAutoplay: true,
-      //   shouldDisplayButtons: true,
-      //   autoplayDuration: 5000,
-      //   height: "100vh"
-      // }}
-      controller={{
-        initialSlide: 1,
-        slidingDuration: 500,
-        slidingDelay: 100,
-        onSliding: (nextSlide) =>
-          console.debug("onSliding(nextSlide): ", nextSlide),
-        onBeforeSliding: (previousSlide, nextSlide) =>
-          console.debug(
-            "onBeforeSliding(previousSlide, nextSlide): ",
-            previousSlide,
-            nextSlide
-          ),
-        onAfterSliding: (nextSlide) =>
-          console.debug("onAfterSliding(nextSlide): ", nextSlide)
-      }}
-      autoplay
-      height={"100vh"}
-    >
-      {slides.map((slide,i) => (
-        <Overlay key={i}>
-          <Slide
-            background={{
-              backgroundImageSrc: slide.image.asset.url,
-              backgroundAttachment: "fixed"
+    <Carousel controls={false}>
+      {slides.map((slide, i) => (
+        <Carousel.Item key={i}>
+          <div
+            style={{
+              position: "relative",
+              height: "75vh",
+              width: "100%",
+              overflow: "hidden",
             }}
-            >
+          >
+            <GatsbyImage
+              image={getImage(slide.image.asset)}
+              alt={slide.image.alt || slide.title || "Slide background"}
+              style={{
+                height: "100%",
+                width: "100%",
+                position: "absolute",
+                top: 0,
+                left: 0,
+                objectFit: "cover",
+                objectPosition: "center center",
+                zIndex: 0,
+              }}
+            />
+            {/* Dark scrim so the white title/CTA stay readable on bright photos */}
+            {i === 0 && (
+              <div
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  zIndex: 1,
+                  background:
+                    "linear-gradient(to right, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.35) 55%, rgba(0, 0, 0, 0.12) 100%)",
+                  pointerEvents: "none",
+                }}
+              />
+            )}
             <Wrapper>
-              <Container className="mb-3">
-                <Subtitle className="text-white">{slide.subtitle}</Subtitle>
-                <Title className="mb-3 text-white">{slide.title}</Title>
-                <BrandButton href="{slide.cta.url}" className="mt-3">{slide.cta.title}</BrandButton>
+              <Container className="mb-3 d-flex align-content-center flex-wrap h-100">
+                <Row>
+                  <motion.div
+                    initial={{ opacity: 0, y: -50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.8 }}
+                    style={{ zIndex: 2 }}
+                  >
+                    <Subtitle className="mb-3 white">{slide.subtitle}</Subtitle>
+                    <Title className="mb-3 white text--big">
+                      {slide.title}
+                    </Title>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 1.0, duration: 0.6 }}
+                    style={{ zIndex: 2 }}
+                  >
+                    <Col>
+                      <BrandLink href={slide.cta.url} className="mt-3">
+                        Learn More
+                      </BrandLink>
+                    </Col>
+                  </motion.div>
+                </Row>
               </Container>
             </Wrapper>
-          </Slide>
-        </Overlay>
+          </div>
+        </Carousel.Item>
       ))}
-      <Nav />
-    </HeroSlider>
-    
+    </Carousel>
   );
 };
 

@@ -1,5 +1,5 @@
-@import '../../styles/variables.scss';
-@import '../../styles/mixins.scss';
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
 
 .desktop {
   display: block;
@@ -25,7 +25,7 @@
     color: black;
     background-color: white;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
-    width: 180px;
+    width: 200px;
     padding: 1%;
     > a {
       @include font-size(8);
@@ -52,37 +52,69 @@
   }
 }
 
+.nav-promo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 0.4rem;
+  margin-right: 0.35rem;
+
+  a.button {
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+    line-height: 1.15;
+    padding: 0.4rem 0.55rem;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  @include screen-tablet-max {
+    margin: 0.75rem 0 0.25rem;
+  }
+}
+
 .navbar {
   background-color: $brand-color2;
   opacity: 0.9;
-  z-index: 9999;
-  
+  z-index: 999;
+  @media (max-width: 768px) {
+    --bs-navbar-padding-y: 0rem;
+  }
   .sub-navbar {
     padding-top: 2%;
     padding-bottom: 0%;
   }
 }
 
-.navbar > .container {
+.navbar-contents {
+  opacity: 0;
+  transition: opacity 0.6s ease-in;
+}
+
+/* When animate class is added, show and animate contents */
+.navbar.animate .navbar-contents {
+  opacity: 1;
   -webkit-animation-name: fadeInRight;
   animation-name: fadeInRight;
-  -webkit-transform-origin: center;
-  transform-origin: center;
   animation-duration: 600ms;
   animation-timing-function: ease-in;
+}
+
+.navbar > .container {
+  -webkit-transform-origin: center;
+  transform-origin: center;
 
   line-height: 1rem;
 
-  >.navbar-collapse > .navbar-nav > .row {
-
+  > .navbar-collapse > .navbar-nav > .row {
     .dropdown {
       display: flex;
-        flex-direction: column;
-        margin-left: auto;
-        width: 50px;
-        >button {
-          border: none;
-        }
+      flex-direction: column;
+      margin-left: auto;
+      width: 50px;
+      > button {
+        border: none;
+      }
     }
 
     a {
@@ -93,17 +125,17 @@
         color: $brand-color;
       }
     }
-  
+
     > div {
-      div a{          
+      div a {
         @include font-size(7);
         &:hover {
           padding: 0px 20px;
           color: $brand-color;
-        }  
+        }
       }
-      
-      &:hover > .nav-link{
+
+      &:hover > .nav-link {
         color: $brand-color;
       }
       @include screen-tablet-max {
@@ -127,7 +159,7 @@
           @include font-size(7);
           &:hover {
             color: $brand-color;
-          }  
+          }
         }
       }
     }
@@ -149,7 +181,7 @@
     border-radius: 2px;
     height: 40px;
     width: 50px;
-    
+
     &:active {
       background-color: $brand-color;
       border: 1px solid $brand-color;
@@ -163,21 +195,7 @@
   }
 }
 
-
 /*Animation*/
-@-webkit-keyframes fadeInRight {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
-  }
-
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
-}
 
 @keyframes fadeInRight {
   from {
@@ -200,5 +218,12 @@
   to {
     opacity: 1;
   }
- }
- 
+}
+.dropdown-menu {
+  min-width: auto !important;
+  font-size: 12px;
+}
+
+#lang-nav-dropdown {
+  width: fit-content;
+}

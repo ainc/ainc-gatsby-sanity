@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .image-outline {
   display: inline-block;
@@ -11,7 +11,7 @@
     width: 100%;
     height: 100%;
     border: 1px solid $brand-color;
-    content: '';
+    content: "";
   }
 
   &:after {
@@ -21,6 +21,6 @@
     width: 100%;
     height: 100%;
     border: 1px solid $brand-color;
-    content: '';
+    content: "";
   }
 }

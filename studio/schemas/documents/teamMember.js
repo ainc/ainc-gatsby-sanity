@@ -1,42 +1,90 @@
 import { MdPerson } from "react-icons/md";
 
 export default {
-  name: 'teamMember',
-  type: 'document',
-  title: 'Team Members',
+  name: "teamMember",
+  type: "document",
+  title: "Team Members",
   icon: MdPerson,
   fields: [
     {
-      name: 'name',
-      type: 'string',
-      title: 'Full Name'
-      
+      name: "name",
+      type: "string",
+      title: "Full Name",
     },
     {
-      name: 'picture',
-      type: 'image',
-      title: 'Picture'
+      name: "picture",
+      type: "image",
+      title: "Picture",
     },
     {
-      name: 'slug',
-      type: 'slug',
-      title: 'Slug',
-      description: 'Some frontend will require a slug to be set to be able to show the person',
+      name: "slug",
+      type: "slug",
+      title: "Slug",
+      description:
+        "Some frontend will require a slug to be set to be able to show the person",
       options: {
-        source: 'name',
-        maxLength: 96
-      }
+        source: "name",
+        maxLength: 96,
+      },
     },
     {
-      name: 'teamInfo',
-      title: 'Team Member Info',
-      type: 'internalTeamMember'
-    }
+      name: "teamInfo",
+      title: "Team Member Info",
+      type: "internalTeamMember",
+    },
+    {
+      name: "startDate",
+      type: "date",
+      title: "Start Date",
+    },
+    {
+      name: "priority",
+      type: "string",
+      title: "Member Priority",
+      validation: (Rule) => Rule.required(),
+      options: {
+        layout: "radio",
+        list: [
+          { title: "Highest", value: "-1" },
+          { title: "High", value: "0" },
+          { title: "Middle", value: "1" },
+          { title: "Intern", value: "3" },
+        ],
+      },
+    },
+    {
+      name: "onlyShownOnAchievementsPage",
+      type: "boolean",
+      title: "Only shown on the achievements page",
+      description:
+        "If this is checked, the member will only be shown on the achievements page; they will be excluded from the about page.",
+      initialValue: false,
+    },
+    {
+      name: "hideFromPages",
+      type: "array",
+      title: "Hide From Pages",
+      description: "Select the pages this team member should be hidden from.",
+      of: [{ type: "string" }],
+      options: {
+        list: [
+          { title: "About Page", value: "about" },
+          { title: "Achievements Page", value: "achievements" },
+        ],
+        layout: "tags", // shows nice tag-style selection
+      },
+    },
+    {
+      name: "recipientName",
+      type: "string",
+      title: "Pin Tracker Recipient Name",
+      description: "This is the name under recipient in the pin log google sheet.",
+    },
   ],
   preview: {
     select: {
-      title: 'name',
-      media: 'image'
-    }
-  }
-}
+      title: "name",
+      media: "image",
+    },
+  },
+};

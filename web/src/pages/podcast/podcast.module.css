@@ -1,32 +1,32 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic);
 
 * {
-    font-family: "Open Sans", sans-serif;
-    box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
 }
 
 .containter {
-    padding-left: 15px;
-    padding-right: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .heading-text {
-    font-size: 2.9rem;
-    line-height: 5.85rem;
-    font-weight: 900;
-    color: #323333;
-    text-transform: uppercase;
-    margin: 4%;
-    text-align: center;
+  font-size: 2.9rem;
+  line-height: 5.85rem;
+  font-weight: 900;
+  color: #323333;
+  text-transform: uppercase;
+  margin: 4%;
+  text-align: center;
 }
 
 .flex-container {
-    flex-wrap: wrap;
-    display: flex;
-    column-gap: 15px;
-    row-gap: 15px;
+  flex-wrap: wrap;
+  display: flex;
+  column-gap: 15px;
+  row-gap: 15px;
 }
 
 .flex-item {
-    flex: 49%;
+  flex: 49%;
 }

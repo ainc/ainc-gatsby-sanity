@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="#c12029">
+  <path fill-rule="evenodd" d="M32 4a22 22 0 1 0 0 44 22 22 0 0 0 0-44zm0 5.5A16.5 16.5 0 1 1 32 42.5 16.5 16.5 0 0 1 32 9.5z" />
+  <rect x="30" y="14" width="4" height="13" rx="2" />
+  <rect x="30" y="24" width="12" height="4" rx="2" transform="rotate(40 32 26)" />
+  <text x="32" y="62" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle">24/7</text>
+</svg>

@@ -1,14 +1,15 @@
 // -----------------------------------------------------------------------------
 @import "variables";
-@import "mixins"; 
+@import "mixins";
 // -----------------------------------------------------------------------------
 
 .text-normal {
   text-transform: none !important;
 }
 
-.text--grey, .text--gray {
-  color: $brand-grey-dark;
+.text--grey,
+.text--gray {
+  color: $brand-color2;
 }
 
 .text--white {
@@ -19,7 +20,8 @@
   color: black;
 }
 
-.text--red {
+.text--red,
+.text--brand {
   color: $brand-color;
 }
 
@@ -52,18 +54,18 @@
 }
 
 .text--micro {
-  @include font-size(6);
+  @include font-size(10);
   @include screen-max {
-    @include font-size(8);
+    @include font-size(12);
   }
 }
 
 .text--huge {
-  @include font-size(40)
+  @include font-size(40);
 }
 
 .text--extra-huge {
-  @include font-size(55)
+  @include font-size(55);
 }
 
 .text--aside {

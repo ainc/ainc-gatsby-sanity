@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 @import "variables";
-@import "mixins"; 
+@import "mixins";
 // -----------------------------------------------------------------------------
 
 .text-normal {
@@ -9,24 +9,24 @@
 
 .tablet-hide-bg {
   @include screen-md {
-    background-image: none
+    background-image: none;
   }
 }
 
 .mobile-hide-bg {
   @include screen-xs {
-    background-image: none
+    background-image: none;
   }
 
   @include screen-sm {
-    background-image: none
+    background-image: none;
   }
 }
 
 .double-border--brand {
   position: relative;
   border-right: 2px $brand-color solid;
-    border-left: 2px $brand-color solid;
+  border-left: 2px $brand-color solid;
   &:before {
     content: "";
     position: absolute;
@@ -42,32 +42,40 @@
 .parallax {
   background-attachment: fixed;
 }
-
+$image-path: "/images/awesome-inc-space-banner.jpg";
 $bg-filter-blur: blur(2px) grayscale(0.8);
 .bg-filter-mute {
-  background-image: url('/static/ainc-workspace-hero-dee943c5bfd8067ac48fc51ad5d8a893.jpeg');
+  background-image: url($image-path);
   background-size: cover;
+  background-attachment: scroll; // for safari
   overflow: auto;
   position: relative;
   z-index: 2; //-2 was making links unclickable, 2 gives the same effect and makes links work
   &:before {
     content: "";
     position: absolute;
-    width : 100%;
+    width: 100%;
     height: 100%;
     background: inherit;
     z-index: -1;
     background: rgba(150, 150, 150, 0.45);
-    
-    filter        : $bg-filter-blur;
-    -moz-filter   : $bg-filter-blur;
+
+    filter: $bg-filter-blur;
+    -moz-filter: $bg-filter-blur;
     -webkit-filter: $bg-filter-blur;
-    -o-filter     : $bg-filter-blur;
+    -o-filter: $bg-filter-blur;
   }
 }
 
 .bg--dark-grey {
   background-color: $brand-color2;
+}
+
+.bg--brand-color {
+  background-color: $brand-color;
+}
+.bg--brand-light {
+  background-color: $brand-red-bright;
 }
 
 .border-right--white {

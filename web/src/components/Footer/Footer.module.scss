@@ -1,26 +1,25 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 a {
-  color: $brand-grey;
+  color: $white-color;
   text-decoration: none;
   transition: 0.3s;
   &:hover {
-    color: $white-color;
+    color: $brand-color;
   }
 }
 
 .footer-background {
-  
   // width: 100vw;
   padding-top: 3rem;
   padding-bottom: 2rem;
   background-color: $brand-color2;
-  color: $brand-grey;
+  color: $white-color;
 }
 
 .ainc-logo-gap {
   margin-bottom: 3.9rem;
-  width:55%;
+  width: 70%;
 }
 
 .first-col-row {
@@ -39,12 +38,12 @@ a {
   padding-left: 0;
   list-style: none;
   font-size: 0.9rem;
-  
+
   .main-line {
     margin-bottom: 1.5rem;
     font-size: 1rem;
   }
-  
+
   .red-icon {
     margin-right: 10px;
     color: $brand-color;
@@ -62,7 +61,7 @@ a {
 
 .copyright-inline-list {
   padding-left: 0;
-  
+
   li {
     display: inline;
     padding: 0 8px;
@@ -88,9 +87,9 @@ a {
   }
 
   a {
-    color: $brand-grey-dark;
+    color: $white-color;
     &:hover {
-      color: $white-color;
+      color: $brand-color;
     }
   }
 }

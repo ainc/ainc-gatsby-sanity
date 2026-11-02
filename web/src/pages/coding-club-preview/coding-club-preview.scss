@@ -1,81 +1,82 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@import "../../styles/variables";
+@import "../../styles/mixins";
 
 .Header p {
-    @include screen-tablet-max {
-        font-size: 15px;
-        line-height: 20px;
-    }
+  @include screen-tablet-max {
+    font-size: 15px;
+    line-height: 20px;
+  }
 }
 
 .first-table p {
-    @include screen-tablet-max {
-        font-size: 15px;
-    }
+  @include screen-tablet-max {
+    font-size: 15px;
+  }
 }
 .second-table p {
-    @include screen-tablet-max {
-        font-size: 15px;
-    }
+  @include screen-tablet-max {
+    font-size: 15px;
+  }
 }
 
 .table {
-    width: 80%;
+  width: 80%;
 }
 
 .table thead {
-    background-color: #ED3742;
-    @include screen-tablet-max {
-        font-size: 15px;
-        line-height: 20px;
-    }
+  background-color: #ed3742;
+  @include screen-tablet-max {
+    font-size: 15px;
+    line-height: 20px;
+  }
 }
 
 .table-title {
-    @include screen-tablet-max {
-        font-size: 13px;
-        line-height: 15px;
-       
-    }
+  @include screen-tablet-max {
+    font-size: 13px;
+    line-height: 15px;
+  }
 }
 
-.lesson, .challenge {
-    background-color: white;
-    color: #ED3742;
-    font-weight: bold;
-    border: 1px solid #ED3742;
-    padding: 7px 20px;
-    border-radius: 5px;
-    text-transform: uppercase;
-    @include screen-tablet-max {
-        font-size: 15px;
-        padding: 1px 15px;
-        margin-left: 30px;
-        margin-right: 30px;
-    }
+.lesson,
+.challenge {
+  background-color: white;
+  color: #ed3742;
+  font-weight: bold;
+  border: 1px solid #ed3742;
+  padding: 7px 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  @include screen-tablet-max {
+    font-size: 15px;
+    padding: 1px 15px;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
 }
 
-.lesson:hover, .challenge:hover {
-    border: 1px solid black;
-    color: black;
+.lesson:hover,
+.challenge:hover {
+  border: 1px solid black;
+  color: black;
 }
 
 .register-button {
-    background-color: #ED3742;
-    color: white;
-    font-weight: bold;
-    border: 1px solid #ED3742;
-    padding: 7px 20px;
-    border-radius: 5px;
-    text-transform: uppercase;
-    text-align: center;
-    @include screen-tablet-max {
-        font-size: 15px;
-        padding: 3px 10px;
-        line-height: 20px;
-    }
+  background-color: #ed3742;
+  color: white;
+  font-weight: bold;
+  border: 1px solid #ed3742;
+  padding: 7px 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  text-align: center;
+  @include screen-tablet-max {
+    font-size: 15px;
+    padding: 3px 10px;
+    line-height: 20px;
+  }
 }
 
 .register-button:hover {
-    color: black;
+  color: black;
 }

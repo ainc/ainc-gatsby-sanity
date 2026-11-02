@@ -1,25 +1,60 @@
+import { FaLink } from "react-icons/fa6";
 
- export default {
-  title: 'Link',
-  name: 'link',
-  type: 'object',
+export default {
+  name: "link",
+  type: "object",
+  title: "Link",
+  icon: FaLink,
   fields: [
     {
-      title: 'Link',
-      name: 'url',
-      type: 'url'
+      name: "title",
+      type: "string",
+      title: "Title",
+      description: "The text that will be displayed for the link.",
+      validation: (Rule) => Rule.required().error("Title is required."),
     },
     {
-      title: 'Title',
-      name: 'title',
-      type: 'string',
-      description: 'This is the text for the link'
+      name: "url",
+      type: "url",
+      title: "URL",
+      description:
+        "Absolute (https://awesomeinc.org/events/5across) or site-relative (/events/5across).",
+      validation: (Rule) =>
+        Rule.uri({
+          allowRelative: true,
+          scheme: ["http", "https"],
+        })
+          .required()
+          .error("A valid URL is required."),
     },
     {
-      title: 'Does this link open in a new window?',
-      name: 'behavior',
-      type: 'boolean',
-      initialValue: false
-    }
-  ]
-}
+      name: "behavior",
+      type: "string",
+      title: "Behavior",
+      description:
+        "Specifies how the link should behave (e.g., open in new tab).",
+      options: {
+        list: [
+          { title: "Same Tab", value: "same_tab" },
+          { title: "New Tab", value: "new_tab" },
+        ],
+        layout: "radio",
+      },
+      validation: (Rule) =>
+        Rule.required().error("Behavior selection is required."),
+    },
+  ],
+  preview: {
+    select: {
+      title: "title",
+      url: "url",
+    },
+    prepare(selection) {
+      const { title, url } = selection;
+      return {
+        title: title,
+        subtitle: url,
+      };
+    },
+  },
+};
