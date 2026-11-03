@@ -72,7 +72,7 @@ export const HUB_MEMBERSHIPS = [
   {
     eyebrow: "Collaborate in shared space",
     title: "Coworking",
-    price: "From $75 / month · Day pass $35",
+    price: "$200 / month · Day pass $20 / day",
     body: "Hot desks, open seating, and member events. Add conference time as you need it.",
     path: "/coworking",
     ctaLabel: "Explore coworking",
@@ -80,7 +80,7 @@ export const HUB_MEMBERSHIPS = [
   {
     eyebrow: "Tailored for focus",
     title: "Private Offices",
-    price: "Starting at $720 / month",
+    price: "Starting at $600 / month",
     body: "Lockable offices with 24/7 access. Join the waitlist for upcoming availability.",
     path: "/private-office",
     ctaLabel: "View offices",
@@ -88,7 +88,7 @@ export const HUB_MEMBERSHIPS = [
   {
     eyebrow: "Convenient and affordable",
     title: "Meetings & Events",
-    price: "Rooms from $25 / hour",
+    price: "$50 / hour",
     body: "Conference rooms, thinking space, and event venues bookable by the hour or day.",
     path: "/conference-rooms",
     ctaLabel: "See rooms",

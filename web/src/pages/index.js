@@ -56,7 +56,13 @@ export const query = graphql`
       date
       picture {
         asset {
-          gatsbyImageData(width: 550, aspectRatio: 1.1, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], breakpoints: [400, 768, 1200, 1920])
+          gatsbyImageData(
+            width: 550
+            aspectRatio: 1.1
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+            breakpoints: [400, 768, 1200, 1920]
+          )
         }
       }
       location
@@ -74,7 +80,13 @@ export const query = graphql`
         date
         picture {
           asset {
-            gatsbyImageData(width: 550, aspectRatio: 1.0, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], breakpoints: [400, 768, 1200, 1920])
+            gatsbyImageData(
+              width: 550
+              aspectRatio: 1.0
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+              breakpoints: [400, 768, 1200, 1920]
+            )
           }
         }
         location
@@ -93,7 +105,13 @@ export const query = graphql`
         designedFor
         picture {
           asset {
-            gatsbyImageData(height: 200, width: 250, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], breakpoints: [400, 768, 1200, 1920])
+            gatsbyImageData(
+              height: 200
+              width: 250
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+              breakpoints: [400, 768, 1200, 1920]
+            )
             url
           }
         }
@@ -155,23 +173,23 @@ const IndexPage = ({ data }) => {
   };
 
   const NewsletterSection = React.lazy(() =>
-  import("../components/Layout/Newsletter/Newsletter")
-);
-const PodcastSection = React.lazy(() =>
-  import("../components/Layout/Podcast/Podcast")
-);
+    import("../components/Layout/Newsletter/Newsletter"),
+  );
+  const PodcastSection = React.lazy(() =>
+    import("../components/Layout/Podcast/Podcast"),
+  );
 
-const Accomplishments = React.lazy(() => 
-  import ("../components/Accomplishments/Accomplishments")
-);
+  const Accomplishments = React.lazy(() =>
+    import("../components/Accomplishments/Accomplishments"),
+  );
 
-const CoreValue = React.lazy(() =>
-  import ("../components/CustomCode/CoreValue/CoreValue") 
-);
+  const CoreValue = React.lazy(() =>
+    import("../components/CustomCode/CoreValue/CoreValue"),
+  );
 
-const Startups = React.lazy(() =>
-  import ("../components/Layout/Startups/Startups")
-);
+  const Startups = React.lazy(() =>
+    import("../components/Layout/Startups/Startups"),
+  );
 
   const [isWorkspaceButton1Hovered, setIsWorkspaceButton1Hovered] =
     useState(false);
@@ -275,7 +293,7 @@ const Startups = React.lazy(() =>
       </section>
       {/*ACCOMPLISHMENTS */}
       <Suspense fallback={null}>
-      <Accomplishments />
+        <Accomplishments />
       </Suspense>
 
       {/* CORE VALUES */}
@@ -295,7 +313,7 @@ const Startups = React.lazy(() =>
               </Row>
               <Row className="mb-5">
                 <Suspense fallback={null}>
-                <CoreValue />
+                  <CoreValue />
                 </Suspense>
               </Row>
             </Container>
@@ -395,7 +413,7 @@ const Startups = React.lazy(() =>
       {/* STARTUPS */}
       <section ref={section3Ref} id="startup">
         <Suspense fallback={null}>
-        <Startups />
+          <Startups />
         </Suspense>
       </section>
 
@@ -601,12 +619,12 @@ const Startups = React.lazy(() =>
           </Row>
         </Container>
       </section>
-      
+
       <Suspense fallback={<div>Loading…</div>}>
-      {/* NEWSLETTER */}
-      <NewsletterSection />
-      {/* PODCAST */}
-      <PodcastSection />
+        {/* NEWSLETTER */}
+        <NewsletterSection />
+        {/* PODCAST */}
+        <PodcastSection />
       </Suspense>
     </Layout>
   );

@@ -46,4 +46,11 @@ export default {
       },
     },
   ],
+  preview: {
+    select: {
+      title: "companyName",
+      subtitle: "status",
+      media: "fellowshipImage",
+    },
+  },
 };

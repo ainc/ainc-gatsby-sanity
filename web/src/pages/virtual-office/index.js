@@ -10,7 +10,7 @@ import * as styles from "../../workspace/shared/workspaceShared.module.scss";
 const PLANS = [
   {
     title: "Virtual Office / Mailing",
-    price: "$50 / month",
+    price: "$75 / month",
     body: "A professional downtown Lexington mailing address and member perks — without a dedicated desk. Great for remote teams and founders who need a local presence. Membership also includes access to our conference rooms.",
     cta: WORKSPACE_CTAS.buyVirtualMembership,
   },

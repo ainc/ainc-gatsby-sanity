@@ -50,6 +50,7 @@ import bootcampImageTestimonials from "./documents/bootcampImageTestimonials";
 import alumniTestimonials from "./documents/alumniTestimonials";
 import fellowshipKPIs from "./documents/fellowshipKPIs";
 import fellowshipTestimonials from "./documents/fellowshipTestimonials";
+import timelineEvent from "./documents/timeline";
 import partnershipSponsors from "./documents/partnershipSponsors";
 import banner from "./documents/banner";
 import emailSignature from "./documents/emailSignature";
@@ -106,6 +107,7 @@ export default [
   alumniTestimonials,
   fellowshipKPIs,
   fellowshipTestimonials,
+  timelineEvent,
   partnershipSponsors,
   banner,
   emailSignature,

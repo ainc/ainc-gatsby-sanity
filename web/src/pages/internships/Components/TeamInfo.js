@@ -7,8 +7,8 @@ import ModalCustom from "../../../components/Modal/ModalCustom";
 import getEmbedUrl from "../../../utils/getEmbedUrl.js";
 import "./teaminfo.scss";
 const TeamInfoModal = (props) => {
-const teamsWithLinks = ["design", "marketing", "web development", "video"];
-const showLink = teamsWithLinks.includes(props.team);
+  const teamsWithLinks = ["design", "marketing", "web development", "video"];
+  const showLink = teamsWithLinks.includes(props.team);
 
   const [show, setShow] = useState(false);
 
@@ -56,40 +56,46 @@ const showLink = teamsWithLinks.includes(props.team);
             </Col>
           </Row>
           {showLink && (
-  <Row>
-    {/* Small screens */}
-    <div className="d-md-none">
-      <a className="link--brand link" href={props.link} target="_blank">
-        Click here to learn more and see if the {props.team} team is for you!
-      </a>
-    </div>
+            <Row>
+              {/* Small screens */}
+              <div className="d-md-none">
+                <a
+                  className="link--brand link"
+                  href={props.link}
+                  target="_blank"
+                >
+                  Click here to learn more and see if the {props.team} team is
+                  for you!
+                </a>
+              </div>
 
-    {/* Large screens */}
-    <div className="d-none d-md-flex text-center justify-content-center">
-      <a className="link--brand link" onClick={handleShow}>
-        Click here to learn more and see if the {props.team} team is for you!
-      </a>
+              {/* Large screens */}
+              <div className="d-none d-md-flex text-center justify-content-center">
+                <a className="link--brand link" onClick={handleShow}>
+                  Click here to learn more and see if the {props.team} team is
+                  for you!
+                </a>
 
-      <ModalCustom
-        lgShow={show}
-        hide={handleClose}
-        bgDark={false}
-        centered
-        content={
-          <iframe
-            width="100%"
-            height="500"
-            src={getEmbedUrl(props.link)}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          />
-        }
-      />
-    </div>
-  </Row>
-)}
+                <ModalCustom
+                  lgShow={show}
+                  hide={handleClose}
+                  bgDark={false}
+                  centered
+                  content={
+                    <iframe
+                      width="100%"
+                      height="500"
+                      src={getEmbedUrl(props.link)}
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    />
+                  }
+                />
+              </div>
+            </Row>
+          )}
           <Row>
             <a
               href="https://careers.awesomeinc.org/jobs/Careers/649925000000610353/Team-Alpha---Internship?source=CareerSite"
