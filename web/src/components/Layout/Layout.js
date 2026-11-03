@@ -7,19 +7,25 @@ import SEO from "../seo";
 import "../../styles/layout.css";
 import { Container } from "react-bootstrap";
 
-
-const Layout = ({ pageTitle, children, onHideNav, onShowNav, showNav, siteTitle }) => (
-  <div>
-    <title>{pageTitle} | This will be dynamic later</title>
-    <Banner/>
-    <Header />
-    <main>
-    <div>
-      {children}
-    </div>
-    </main>
-    <Footer />
-  </div>
-);
+const Layout = ({
+  pageTitle,
+  children,
+  onHideNav,
+  onShowNav,
+  showNav,
+  siteTitle,
+  jsImports,
+  noIndex = false,
+}) => {
+  return (
+    <Container fluid className="d-flex flex-column min-vh-100 p-0">
+      <SEO title={pageTitle} jsImports={jsImports} />
+      <Banner />
+      <Header />
+      <main className="flex-grow-1">{children}</main>
+      <Footer />
+    </Container>
+  );
+};
 
 export default Layout;

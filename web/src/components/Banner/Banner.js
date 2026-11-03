@@ -21,30 +21,29 @@ const Banner = () => {
   const showBanner =
     banner?.enabled && banner?.link?.title && banner?.link?.url;
 
-export const upcoming_5a = graphql`
-query MyQuery {
-  allSanityEvents(filter: {eventName: {glob: "5 Across -*"}}, sort: {_rev: ASC}) {
-    nodes {
-       eventName
-             date(formatString: "MMMM D, YYYY")
-             host
-             location
-             linkToEvent
-             picture {
-             asset {
-                 gatsbyImageData
-                 }
-             }
-             reference {
-             eventTypeName
+  return (
+    useLocation().pathname !== "/bootcamp/" && (
+      <div
+        role="banner"
+        className={`${styles.banner} ${!showBanner ? styles.noPadding : ""}`}
+      >
+        {showBanner && (
+          <a
+            href={banner.link.url}
+            target={banner.link.behavior === "new_tab" ? "_blank" : "_self"}
+            rel={
+              banner.link.behavior === "new_tab"
+                ? "noopener noreferrer"
+                : undefined
             }
-    }
-  }
-}`;
+            style={{ fontSize: "1rem" }}
+          >
+            {banner.link.title}
+          </a>
+        )}
+      </div>
+    )
+  );
+};
 
-export default Banner
-
-
-
-
-
+export default Banner;
