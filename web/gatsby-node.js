@@ -7,6 +7,7 @@ const { createRedirect } = require("gatsby-plugin-netlify");
 const EMAIL_SIGNATURE_IMAGE = "email-signature-banner.png";
 const EMAIL_SIGNATURE_FALLBACK_LINK =
   "https://entrepreneurhof.com/induction-dinner/";
+const ZOOM_ROOM_URL = "https://us05web.zoom.us/j/3524348051?omn=87372291433";
 
 async function getEmailSignature({ graphql, reporter }) {
   try {
@@ -357,6 +358,21 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     fromPath: `/vote`,
     toPath: `https://5across-vote.kyle-a09.workers.dev/`,
     isPermanent: true,
+    force: true,
+    redirectInBrowser: true,
+  });
+  // Temporary shortcut only. Not a page, so it is not a permanent SEO redirect.
+  createRedirect({
+    fromPath: `/zoom`,
+    toPath: ZOOM_ROOM_URL,
+    isPermanent: false,
+    force: true,
+    redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: `/zoom/`,
+    toPath: ZOOM_ROOM_URL,
+    isPermanent: false,
     force: true,
     redirectInBrowser: true,
   });
