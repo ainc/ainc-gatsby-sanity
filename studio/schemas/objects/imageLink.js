@@ -14,6 +14,7 @@ export default {
       title: "Secondary Image",
       description:
         "Optional logo specifically designed for optimal visibility on dark backgrounds.",
+      hidden: ({ document }) => document?._type === "page",
     },
     {
       name: "alt",
@@ -31,7 +32,12 @@ export default {
       type: "url",
       title: "Link",
       description:
-        "Do you want this image to link somewhere? Leave blank if not.",
+        "A full URL, or a path on this site such as /fellowship. Leave blank if the image should not link anywhere.",
+      validation: (Rule) =>
+        Rule.uri({
+          allowRelative: true,
+          scheme: ["http", "https", "mailto", "tel"],
+        }),
       options: {
         isHighlighted: true,
       },

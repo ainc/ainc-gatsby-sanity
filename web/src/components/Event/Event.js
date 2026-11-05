@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import * as styles from "./events.module.scss";
 import EventBriteModal from "../EventBriteModal/EventBriteModal";
@@ -14,14 +15,18 @@ const Event = (props) => {
   };
 
   const eventIsEventBrite = isEventBriteEvent(props.link);
+  const isSitePage =
+    typeof props.link === "string" && props.link.startsWith("/");
 
   const eventContent = (
     <div className={styles.box}>
       <div className={styles.eventImage}>
-        <GatsbyImage
-          image={props.image}
-          alt={props.alt || (props.name ?? "Untitled Event")}
-        />
+        {props.image && (
+          <GatsbyImage
+            image={props.image}
+            alt={props.alt || (props.name ?? "Untitled Event")}
+          />
+        )}
       </div>
       <div className={`${styles.textDiv} mx-3`}>
         <h2 className={styles.dateText}>{props.date}</h2>
@@ -31,6 +36,14 @@ const Event = (props) => {
       </div>
     </div>
   );
+
+  if (isSitePage) {
+    return (
+      <Link className={styles.contentWrapper} to={props.link}>
+        {eventContent}
+      </Link>
+    );
+  }
 
   return eventIsEventBrite ? (
     <EventBriteModal link={props.link}>
