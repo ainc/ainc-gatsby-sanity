@@ -3,7 +3,7 @@
 This file is auto-generated from "sanity dev".
 Modifications to this file are automatically discarded.
 -->
-<head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"/><meta name="robots" content="noindex"/><meta name="referrer" content="same-origin"/><link rel="icon" href="/static/favicon.ico" sizes="any"/><link rel="icon" href="/static/favicon.svg" type="image/svg+xml"/><link rel="apple-touch-icon" href="/static/apple-touch-icon.png"/><link rel="manifest" href="/static/manifest.webmanifest"/><title>Sanity Studio</title><script>
+<head><meta charSet="utf-8"/><meta content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport"/><meta content="noindex" name="robots"/><meta content="same-origin" name="referrer"/><link href="/static/favicon.ico" rel="icon" sizes="any"/><link href="/static/favicon.svg" rel="icon" type="image/svg+xml"/><link href="/static/apple-touch-icon.png" rel="apple-touch-icon"/><link href="/static/manifest.webmanifest" rel="manifest"/><title>Sanity Studio</title><script>
 ;(function () {
   var _caughtErrors = []
 
@@ -31,7 +31,7 @@ Modifications to this file are automatically discarded.
     return {publish, subscribe, subscribers}
   })()
 
-  // NOTE: Store the error channel instance in the global scope so that the Studio application can
+  // NOTE: Store the error channel instance in the global scope so that the application can
   // access it and subscribe to errors.
   window.__sanityErrorChannel = {
     subscribe: errorChannel.subscribe,
@@ -47,7 +47,9 @@ Modifications to this file are automatically discarded.
       // - If there are no subscribers, then we log the error to the console and render the error overlay.
       if (errorChannel.subscribers.length) {
         errorChannel.publish({error, params})
-      } else {
+      } else if (error) {
+        // Browsers fire some error events without an error object (a ResizeObserver loop,
+        // a cross-origin "Script error."), and there is nothing useful to show for them.
         console.error(error)
 
         _renderErrorOverlay(error, params)
@@ -66,6 +68,7 @@ Modifications to this file are automatically discarded.
     'line-height: 21px',
     'margin: 0 auto',
     'max-width: 960px',
+    'max-height: 90dvh',
     'overflow: auto',
     'padding: 20px',
     'width: 100%',
@@ -255,7 +258,12 @@ Modifications to this file are automatically discarded.
     src: url("https://studio-static.sanity.io/Inter-BlackItalic.woff2") format("woff2");
   }
   html {
-    background-color: #f1f3f6;
+    @media (prefers-color-scheme: dark) {
+      background-color: #13141b;
+    }
+    @media (prefers-color-scheme: light) {
+      background-color: #ffffff;
+    }
   }
   html,
   body,
@@ -266,7 +274,8 @@ Modifications to this file are automatically discarded.
     margin: 0;
     -webkit-font-smoothing: antialiased;
   }
-</style></head><body><div id="sanity"></div><script type="module" src="/.sanity\runtime\app.js"></script><noscript><div class="sanity-app-no-js__root"><div class="sanity-app-no-js__content"><style type="text/css">
+</style><script src="https://core.sanity-cdn.com/bridge.js" async type="module" data-sanity-core></script>
+</head><body><div id="sanity"></div><script src="/.sanity/runtime/app.js" type="module"></script><noscript><div class="sanity-app-no-js__root"><div class="sanity-app-no-js__content"><style type="text/css">
 .sanity-app-no-js__root {
   position: absolute;
   top: 0;
