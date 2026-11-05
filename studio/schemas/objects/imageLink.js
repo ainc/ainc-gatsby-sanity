@@ -22,9 +22,6 @@ export default {
       validation: (Rule) =>
         Rule.error("You have to fill out the alternative text.").required(),
       description: "Important for SEO and accessiblity.",
-      options: {
-        isHighlighted: true,
-      },
     },
     {
       name: "link",
@@ -32,9 +29,6 @@ export default {
       title: "Link",
       description:
         "Do you want this image to link somewhere? Leave blank if not.",
-      options: {
-        isHighlighted: true,
-      },
     },
     {
       name: "title",

@@ -5,8 +5,9 @@ import { visionTool } from "@sanity/vision";
 import schemas from "./schemas/schema";
 import { markdownSchema } from "sanity-plugin-markdown";
 import { media } from "sanity-plugin-media";
-import { tags } from "sanity-plugin-tags";
-import { RobotIcon, RocketIcon } from "@sanity/icons";
+import { tags } from "sanity-plugin-tags-v4";
+import { RocketIcon } from "@sanity/icons/Rocket";
+import { RobotIcon } from "@sanity/icons/Robot";
 
 export default defineConfig([
   {
