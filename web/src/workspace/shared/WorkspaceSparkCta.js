@@ -13,7 +13,12 @@ const VARIANT_BUTTON_CLASS = {
   ghostDark: "secondary",
 };
 
-const WorkspaceSparkCta = ({ cta, variant = "primary", className = "" }) => {
+const WorkspaceSparkCta = ({
+  cta,
+  variant = "primary",
+  className = "",
+  asNavLink = false,
+}) => {
   // `warm` mounts the iframe (invisibly) so it can start loading before the
   // user opens the modal; `open` controls visibility.
   const [warm, setWarm] = useState(false);
@@ -57,66 +62,92 @@ const WorkspaceSparkCta = ({ cta, variant = "primary", className = "" }) => {
 
   const wrap = (node) => <span className={styles.inlineCtaWrap}>{node}</span>;
 
+  const startWarming = () => setWarm(true);
+  const openModal = () => {
+    setWarm(true);
+    setOpen(true);
+  };
+
+  const modal =
+    embedUrl &&
+    (warm || open) &&
+    typeof document !== "undefined" &&
+    createPortal(
+      <div
+        className={`${styles.zohoModalRoot} ${
+          open ? styles.zohoModalOpen : ""
+        }`.trim()}
+        aria-hidden={!open}
+      >
+        <div
+          className={styles.zohoModalBackdrop}
+          onClick={() => setOpen(false)}
+        />
+        <div
+          className={styles.zohoModalDialog}
+          role="dialog"
+          aria-modal="true"
+          aria-label={title}
+        >
+          <div className={styles.zohoModalHeader}>
+            <span className={styles.zohoModalTitle}>{title}</span>
+            <button
+              type="button"
+              className={styles.zohoModalClose}
+              onClick={() => setOpen(false)}
+              aria-label="Close"
+            >
+              &times;
+            </button>
+          </div>
+          <iframe
+            src={embedUrl}
+            title={title}
+            className={styles.zohoEmbedFrame}
+            frameBorder="0"
+            allow="payment"
+          />
+        </div>
+      </div>,
+      document.body,
+    );
+
   // Preferred: open the Zoho embed in a popup modal (with iframe pre-warming)
   if (embedUrl) {
-    const startWarming = () => setWarm(true);
+    if (asNavLink) {
+      return (
+        <>
+          <a
+            href={embedUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={className}
+            onClick={(e) => {
+              if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+              e.preventDefault();
+              openModal();
+            }}
+            onMouseEnter={startWarming}
+            onFocus={startWarming}
+            onTouchStart={startWarming}
+          >
+            {label}
+          </a>
+          {modal}
+        </>
+      );
+    }
 
     return (
       <>
         {wrap(
-          button(
-            () => {
-              setWarm(true);
-              setOpen(true);
-            },
-            {
-              onMouseEnter: startWarming,
-              onFocus: startWarming,
-              onTouchStart: startWarming,
-            },
-          ),
+          button(openModal, {
+            onMouseEnter: startWarming,
+            onFocus: startWarming,
+            onTouchStart: startWarming,
+          }),
         )}
-        {(warm || open) &&
-          typeof document !== "undefined" &&
-          createPortal(
-            <div
-              className={`${styles.zohoModalRoot} ${
-                open ? styles.zohoModalOpen : ""
-              }`.trim()}
-              aria-hidden={!open}
-            >
-              <div
-                className={styles.zohoModalBackdrop}
-                onClick={() => setOpen(false)}
-              />
-              <div
-                className={styles.zohoModalDialog}
-                role="dialog"
-                aria-modal="true"
-                aria-label={title}
-              >
-                <div className={styles.zohoModalHeader}>
-                  <span className={styles.zohoModalTitle}>{title}</span>
-                  <button
-                    type="button"
-                    className={styles.zohoModalClose}
-                    onClick={() => setOpen(false)}
-                    aria-label="Close"
-                  >
-                    &times;
-                  </button>
-                </div>
-                <iframe
-                  src={embedUrl}
-                  title={title}
-                  className={styles.zohoEmbedFrame}
-                  frameBorder="0"
-                  allow="payment"
-                />
-              </div>
-            </div>,
-            document.body,
-          )}
+        {modal}
       </>
     );
   }

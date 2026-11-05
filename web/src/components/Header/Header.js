@@ -7,12 +7,19 @@ import { AiFillCaretDown } from "react-icons/ai";
 import { ImPlus } from "react-icons/im";
 
 import BrandButton from "../UI/BrandButton/BrandButton";
+import WorkspaceSparkCta from "../../workspace/shared/WorkspaceSparkCta";
+import { WORKSPACE_CTAS } from "../../workspace/constants/ctaPlaceholders";
 
 import { Navbar, Nav, Container, Row, Col, Dropdown } from "react-bootstrap";
 
 import "../../styles/main.scss";
 import { navbarBrand, navButton, show } from "./Header.module.scss";
 import "./header.scss";
+
+const scheduleTourCta = {
+  ...WORKSPACE_CTAS.bookTour,
+  label: "Schedule a Tour",
+};
 
 const Header = () => {
   const [active, setActive] = React.useState(() => {
@@ -108,67 +115,36 @@ const Header = () => {
                 </a>
               </Row>
             )}
+            <div className="nav-promo">
+              <a
+                className="button"
+                href="https://www.entrepreneurhof.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Hall of Fame
+              </a>
+              <a
+                className="button"
+                href="/events/5across"
+                rel="noopener noreferrer"
+              >
+                5 Across Finals
+              </a>
+            </div>
+
             <Col className="desktop">
-              <Nav.Link href="/learn" className="text--white">
-                Learn To Code <AiFillCaretDown size={10} />
+              <Nav.Link href="/events" className="text--white">
+                Events
               </Nav.Link>
-              <div className="hover-options">
-                <a href="/intro-to-web-development">Adult Intro Course</a>
-                <a href="/weekofcode">Kids Camps</a>
-              </div>
             </Col>
 
             <Row className="d-sm-none d-flex flex-row justify-content-between gx-0 ps-2">
-              <Navbar
-                className="sticky-top sub-navbar"
-                variant="dark"
-                expand="lg"
-                expanded={
-                  active === "Learn To Code" && open === true ? true : false
-                }
-              >
+              <Navbar className="sticky-top sub-navbar" variant="dark">
                 <Container className="border border-top-0 border-start-0 border-end-0 border-bottom-2 pb-1">
                   <Navbar.Brand>
-                    <a href="/learn">Learn To Code</a>
+                    <Link to="/events">Events</Link>
                   </Navbar.Brand>
-                  <Navbar.Toggle
-                    aria-controls="basic-navbar-nav"
-                    onClick={() => handleClick("Learn To Code")}
-                    className={`${
-                      active === "Learn To Code" && open === true
-                        ? ""
-                        : "collapsed"
-                    } bg-none border-2 border-white text-white shadow-none`}
-                  >
-                    {active === "Learn To Code" && open === true ? (
-                      <ImPlus
-                        size={20}
-                        style={{ transform: "rotate(45deg)" }}
-                      />
-                    ) : (
-                      <ImPlus size={20} />
-                    )}
-                  </Navbar.Toggle>
-                  <Navbar.Collapse
-                    id="basic-navbar-nav"
-                    className="border-top-0"
-                  >
-                    <Nav>
-                      <Row className="d-flex flex-column flex-lg-row flex-nowrap align-items-center justify-content-around">
-                        <Col
-                          xs={{ span: 10 }}
-                          className={`d-flex flex-column py-2 border-0`}
-                        >
-                          <a href="/learn/youth/code">Youth Courses</a>
-                          <a href="/learn/adults">Adult Courses</a>
-                          <a href="/weekofcode">Kids Camps</a>
-                          <a href="/salesforce">
-                            Salesforce Career Accelerator
-                          </a>
-                        </Col>
-                      </Row>
-                    </Nav>
-                  </Navbar.Collapse>
                 </Container>
               </Navbar>
             </Row>
@@ -264,15 +240,19 @@ const Header = () => {
                 Workspace <AiFillCaretDown size={10} />
               </Nav.Link>
               <div className="hover-options">
-                <a
-                  href="https://calendly.com/awesometour/30min?"
-                  target="_blank"
+                <WorkspaceSparkCta
+                  cta={scheduleTourCta}
+                  asNavLink
                   className="pt-0"
-                >
-                  Schedule a Tour
-                </a>
-                <a href="/workspace#become-a-member">Office Space</a>
+                />
+                <a href="/workspace">Workspace</a>
                 <a href="/events">Events</a>
+                <a href="/coworking">Coworking</a>
+                <a href="/private-office">Private Office</a>
+                <a href="/conference-rooms">Conference Rooms</a>
+                <a href="/book-events">Book Events</a>
+                <a href="/virtual-office">Virtual Office</a>
+                <a href="/parking">Parking</a>
               </div>
             </Col>
 
@@ -315,14 +295,15 @@ const Header = () => {
                           xs={{ span: 10 }}
                           className={`d-flex flex-column py-2 border-0`}
                         >
-                          <a
-                            href="https://calendly.com/awesometour/30min?"
-                            target="_blank"
-                          >
-                            Schedule a Tour
-                          </a>
-                          <a href="/workspace#become-a-member">Office Space</a>
+                          <WorkspaceSparkCta cta={scheduleTourCta} asNavLink />
+                          <a href="/workspace">Workspace</a>
                           <a href="/events">Events</a>
+                          <a href="/coworking">Coworking</a>
+                          <a href="/private-office">Private Office</a>
+                          <a href="/conference-rooms">Conference Rooms</a>
+                          <a href="/book-events">Book Events</a>
+                          <a href="/virtual-office">Virtual Office</a>
+                          <a href="/parking">Parking</a>
                         </Col>
                       </Row>
                     </Nav>
@@ -416,6 +397,12 @@ const Header = () => {
                 <Link to="/internships">Internships</Link>
                 <Link to="/events">Events</Link>
                 <Link to="/partnerships">Partnerships</Link>
+                <Link to="/learn">Learn to Code</Link>
+                <a href="/learn/youth/code">Youth Courses</a>
+                <a href="/learn/adults">Adult Courses</a>
+                <a href="/weekofcode">Kids Camps</a>
+                <a href="/salesforce">Salesforce Career Accelerator</a>
+                <a href="/intro-to-web-development">Adult Intro Course</a>
               </div>
             </Col>
 
@@ -465,6 +452,16 @@ const Header = () => {
                           <Link to="/internships">Internships</Link>
                           <Link to="/events">Events</Link>
                           <Link to="/partnerships">Partnerships</Link>
+                          <Link to="/learn">Learn to Code</Link>
+                          <a href="/learn/youth/code">Youth Courses</a>
+                          <a href="/learn/adults">Adult Courses</a>
+                          <a href="/weekofcode">Kids Camps</a>
+                          <a href="/salesforce">
+                            Salesforce Career Accelerator
+                          </a>
+                          <a href="/intro-to-web-development">
+                            Adult Intro Course
+                          </a>
                         </Col>
                       </Row>
                     </Nav>

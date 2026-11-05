@@ -60,5 +60,6 @@ Disallow: /thanks/
 Disallow: /unsubscribe/
 Disallow: /workspace/Components/
 Disallow: /weekofcode/Components/
+Disallow: /images/unlisted/
 
 Sitemap: https://awesomeinc.org/sitemap.xml

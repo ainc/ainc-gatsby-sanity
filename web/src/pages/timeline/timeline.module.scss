@@ -1,0 +1,525 @@
+// Brand colors ($brand-color, $brand-grey-dark, …) and screen mixins.
+@import "../../styles/main.scss";
+
+// ---------------------------------------------------------------------------
+// Hero — team photo with Sarah's grainy red texture as the overlay (darker
+// at the top). The texture file lives in web/src/images/, not in Sanity —
+// Sanity images are for the milestone cards.
+// ---------------------------------------------------------------------------
+// Hero — team photo with Sarah's grainy red texture. The file is black at
+// the top and red at the bottom, so it is flipped (scaleY -1) to match
+// Figma: a red wash, not a black vignette.
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: 4rem 1rem;
+  color: $white-color;
+  overflow: hidden;
+  background: url("../../images/about-page-bg.jpg") center / cover no-repeat;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: url("../../images/timeline-red-grain.jpg") center bottom / cover
+      no-repeat;
+    transform: scaleY(-1);
+    // 0.48 read too pale; 0.78 hid the photo. Midpoint keeps grain + red.
+    opacity: 0.6;
+  }
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.hero-inner .hero-title {
+  margin-bottom: 1.25rem;
+  font-size: 3rem;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+}
+
+.hero-copy {
+  max-width: 46rem;
+  margin: 0 auto;
+  color: $white-color;
+  font-size: 1.35rem;
+  line-height: 1.55;
+}
+
+// ---------------------------------------------------------------------------
+// Key Milestones block. Fluid width so we can set Sarah's ~275px window
+// gutters. overflow-x: clip keeps the spine from creating a page scrollbar.
+// ---------------------------------------------------------------------------
+.milestones-section {
+  position: relative;
+  overflow-x: clip;
+  background-color: $white-color;
+
+  // Grain texture sits behind the last cards and fades in toward the Footer.
+  // background-position: bottom crops to the redder half of the file.
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 42rem;
+    z-index: 0;
+    pointer-events: none;
+    background: url("../../images/timeline-red-grain.jpg") center bottom / cover
+      no-repeat;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 42%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 42%);
+  }
+}
+
+.milestones {
+  position: relative;
+  z-index: 1;
+  padding: 4.5rem 1.25rem 10rem;
+}
+
+.milestones-title {
+  margin-bottom: 2.5rem;
+}
+
+// Year row + cards: ~75% of the section so the photos dominate the layout
+// but still have side margin. Years space-between across this same column.
+.timeline-column {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@include screen-laptop-min {
+  .timeline-column {
+    width: 75%;
+  }
+
+  .milestones {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 5rem;
+    padding-bottom: 11rem;
+  }
+}
+
+@include screen-lg {
+  .milestones {
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 4rem;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Desktop year row (hidden below 992px). Color: $brand-red-bright (#ED3742).
+// ---------------------------------------------------------------------------
+.year-nav {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  width: 100%;
+  min-width: 0;
+  margin: 0 0 2.75rem;
+  // Same gutter as .track so the years sit over the cards, not the spine.
+  padding: 0 0 0.35rem 4.5rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+.year-link {
+  color: $brand-red-bright;
+  text-decoration: none;
+  font-weight: 600;
+  flex: 0 0 auto;
+  text-align: center;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus-visible {
+    color: darken($brand-red-bright, 10%);
+    text-decoration: underline;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Desktop spine. padding-left = gutter so cards sit to the right of the line.
+// ::before is ONE line through every card (do not put a border on each .item).
+// left / width / background = position, thickness, color of the line.
+// ---------------------------------------------------------------------------
+.track {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 4.5rem;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 1.5rem;
+    bottom: 0;
+    left: 0.75rem;
+    width: 2px;
+    background: $brand-grey-dark;
+  }
+}
+
+.item {
+  position: relative;
+  margin-bottom: 3rem;
+  max-width: 100%;
+  // Keeps the card out from under the sticky Header when a year link is clicked.
+  scroll-margin-top: $navbar-height + 16px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  // Date + spine dot turn Awesome Inc Bright Red together on hover.
+  &:hover,
+  &:focus-within {
+    .dot {
+      background: $brand-red-bright;
+    }
+
+    .date {
+      color: $brand-red-bright;
+    }
+  }
+}
+
+// Circle on the line. width/height = size (keep equal). left = must sit on the
+// line — if you move ::before, change left too. top = how high on the card.
+.dot {
+  position: absolute;
+  left: -4.7rem;
+  top: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: $brand-grey-dark;
+  transition: background-color 0.2s ease;
+}
+
+// ---------------------------------------------------------------------------
+// Photo card. Figma: chunky rounded rectangle, left-column type, Sarah's
+// dark card-gradient overlay (not a CSS fade). Date is white until hover.
+// ---------------------------------------------------------------------------
+$card-text-inset: 2.25rem;
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 28rem;
+  color: $white-color;
+
+  // Overlay clipped to the photo box (overflow + radius on .card).
+  // cover + inherit radius so the PNG's own corners cannot hang past the image.
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    border-radius: inherit;
+    background: url("../../images/timeline-card-gradient.png") center / cover
+      no-repeat;
+    mix-blend-mode: multiply;
+  }
+}
+
+// Image is optional. White type needs a solid charcoal field when there is no photo.
+.card-no-image {
+  background-color: $brand-color2;
+
+  &::after {
+    display: none;
+  }
+}
+
+.card-image {
+  // Fill the card so the overlay cannot be larger than the photo.
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  z-index: 0;
+
+  :global(img),
+  :global([data-main-image]),
+  :global([data-placeholder-image]) {
+    object-fit: cover !important;
+    object-position: center;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+  }
+}
+
+.card-body {
+  position: relative;
+  z-index: 2;
+  min-height: 28rem;
+  height: 100%;
+  padding: $card-text-inset $card-text-inset 2.5rem;
+  display: flex;
+  flex-direction: column;
+  // Figma stacks date, title, and body in the top-left, not at the bottom.
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  background: none;
+}
+
+.date {
+  position: static;
+  top: auto;
+  left: auto;
+  right: auto;
+  margin: 0 0 1.15rem;
+  padding: 0;
+  width: auto;
+  max-width: none;
+  text-align: left;
+  color: $white-color;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: color 0.2s ease;
+}
+
+.card-title,
+.card-text {
+  display: block;
+  width: auto;
+  max-width: 48%;
+  margin-left: 0;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+  align-self: flex-start;
+  text-align: left;
+}
+
+.card-title {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.card-text {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+// Hidden on desktop; shown inside screen-tablet-max below.
+.mobile-nav {
+  display: none;
+}
+
+// ---------------------------------------------------------------------------
+// Phone / tablet (under 992px = $screen-md). Same HTML, different CSS:
+// hide the year row + spine, show arrows/dropdown, cards swipe sideways.
+// ---------------------------------------------------------------------------
+@include screen-tablet-max {
+  .hero {
+    min-height: 40vh;
+    padding: 3rem 1rem;
+    // Prefer the top of the photo so the wall logo is less likely to crop out.
+    background-position: center top;
+  }
+
+  .hero-inner .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-copy {
+    font-size: 1.05rem;
+  }
+
+  .year-nav {
+    display: none;
+  }
+
+  .milestones {
+    overflow-x: clip;
+    padding: 3rem 1.25rem 9rem;
+  }
+
+  .milestones-title {
+    margin-bottom: 1.75rem;
+  }
+
+  .mobile-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin: 1.5rem 0 2rem;
+  }
+
+  .mobile-arrow,
+  .mobile-year-select {
+    appearance: none;
+    border: none;
+    background: $brand-color;
+    color: $white-color;
+    font-weight: 700;
+  }
+
+  .mobile-arrow {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.8rem;
+    line-height: 1;
+    border-radius: 0.2rem;
+
+    &:disabled {
+      opacity: 0.4;
+    }
+  }
+
+  .mobile-year-select {
+    min-width: 7.5rem;
+    height: 2.5rem;
+    padding: 0 1.75rem 0 0.9rem;
+    border-radius: 0.2rem;
+    text-align: center;
+    // CSS triangles for the dropdown caret (not an extra image file).
+    background-image: linear-gradient(45deg, transparent 50%, $white-color 50%),
+      linear-gradient(135deg, $white-color 50%, transparent 50%);
+    background-position:
+      calc(100% - 14px) 46%,
+      calc(100% - 9px) 46%;
+    background-size: 6px 6px;
+    background-repeat: no-repeat;
+  }
+
+  // Only .track should swipe; the section already clips leftover overflow.
+  .track {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    padding: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .dot {
+    display: none;
+  }
+
+  // One card per viewport. swipe + arrows move to the next snap point.
+  .item {
+    flex: 0 0 100%;
+    margin-bottom: 0;
+    scroll-snap-align: start;
+    scroll-margin-top: 0;
+  }
+
+  // Figma mobile: date + title stay pinned. Body copy scrolls inside the
+  // tile so long descriptions (APAX, etc.) are readable instead of clipped.
+  // text-size-adjust: 100% stops iOS from inflating type vs Chrome preview.
+  .card {
+    min-height: 24rem;
+    aspect-ratio: 4 / 5;
+    // clip keeps the photo rounded without blocking inner overflow-y on iOS.
+    overflow: clip;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  .card-body {
+    position: absolute;
+    inset: 0;
+    justify-content: flex-start;
+    padding: 1.25rem 1.25rem 1.35rem;
+    min-height: 0;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .date {
+    position: static;
+    left: auto;
+    color: $brand-red-bright;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 700;
+    margin: 0 0 0.4rem;
+    flex-shrink: 0;
+  }
+
+  .card-title,
+  .card-text {
+    max-width: 100%;
+  }
+
+  .card-title {
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    flex-shrink: 0;
+  }
+
+  .card-text {
+    flex: 1 1 auto;
+    min-height: 0;
+    margin-top: 0.75rem;
+    padding-top: 0;
+    padding-right: 0.4rem;
+    padding-bottom: 0.25rem;
+    font-size: 0.8125rem;
+    line-height: 1.35;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    // Vertical pan on the copy; swipe the photo/title to change cards.
+    touch-action: pan-y;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.55) transparent;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.55);
+      border-radius: 4px;
+    }
+  }
+}

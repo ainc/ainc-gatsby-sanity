@@ -4,6 +4,7 @@ import deskStructure from "./deskStructure";
 import { visionTool } from "@sanity/vision";
 import schemas from "./schemas/schema";
 import { markdownSchema } from "sanity-plugin-markdown";
+import { media } from "sanity-plugin-media";
 import { tags } from "sanity-plugin-tags";
 import { RobotIcon, RocketIcon } from "@sanity/icons";
 
@@ -16,11 +17,12 @@ export default defineConfig([
     dataset: "production",
     icon: RocketIcon,
     plugins: [
-      markdownSchema(),
-      tags(),
       structureTool({
         structure: deskStructure,
       }),
+      media(),
+      markdownSchema(),
+      tags(),
       visionTool(),
     ],
     schema: {
@@ -30,13 +32,15 @@ export default defineConfig([
       newDocumentOptions: (prev, { creationContext }) => {
         if (creationContext.type === "global") {
           return prev.filter(
-            (templateItem) => templateItem.templateId != "settings",
+            (templateItem) =>
+              templateItem.templateId != "settings" &&
+              templateItem.templateId != "banner",
           );
         }
         return prev;
       },
       actions: (prev, { schemaType }) => {
-        if (schemaType === "settings") {
+        if (schemaType === "settings" || schemaType === "banner") {
           return prev.filter(
             ({ action }) =>
               !["unpublish", "delete", "duplicate"].includes(action),
@@ -54,11 +58,12 @@ export default defineConfig([
     dataset: "development",
     icon: RobotIcon,
     plugins: [
-      markdownSchema(),
-      tags(),
       structureTool({
         structure: deskStructure,
       }),
+      media(),
+      markdownSchema(),
+      tags(),
       visionTool(),
     ],
     schema: {
@@ -68,13 +73,15 @@ export default defineConfig([
       newDocumentOptions: (prev, { creationContext }) => {
         if (creationContext.type === "global") {
           return prev.filter(
-            (templateItem) => templateItem.templateId != "settings",
+            (templateItem) =>
+              templateItem.templateId != "settings" &&
+              templateItem.templateId != "banner",
           );
         }
         return prev;
       },
       actions: (prev, { schemaType }) => {
-        if (schemaType === "settings") {
+        if (schemaType === "settings" || schemaType === "banner") {
           return prev.filter(
             ({ action }) =>
               !["unpublish", "delete", "duplicate"].includes(action),

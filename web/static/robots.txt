@@ -1,0 +1,3 @@
+# Hosted assets that should not be crawled or indexed.
+User-agent: *
+Disallow: /images/unlisted/

@@ -17,10 +17,11 @@ export default {
       name: "url",
       type: "url",
       title: "URL",
-      description: "The URL to which the link will navigate.",
+      description:
+        "Absolute (https://awesomeinc.org/events/5across) or site-relative (/events/5across).",
       validation: (Rule) =>
         Rule.uri({
-          allowRelative: false,
+          allowRelative: true,
           scheme: ["http", "https"],
         })
           .required()

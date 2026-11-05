@@ -4,3 +4,4 @@ dist
 build
 public
 coverage
+studio/.sanity

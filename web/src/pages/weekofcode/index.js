@@ -266,7 +266,7 @@ const Page = ({ data }) => {
                 1-19. See{" "}
                 <a
                   className="link--brand"
-                  href="http://www.awesomeinc.org/parking/"
+                  href="https://awesomeinc.org/parking/"
                 >
                   parking map
                 </a>{" "}
@@ -300,7 +300,7 @@ const Page = ({ data }) => {
                 Yes, we have scholarships available thanks to our sponsor,
                 Verizon. You can{" "}
                 <a
-                  href="https://goo.gl/forms/sZpc22S1jdeoZ7Fk2"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdBhgRCir2i1Vx8fznceeQtPMaWpD2XDbof8EyLf7HrYv-TQg/viewform"
                   className="link--brand"
                 >
                   apply here.

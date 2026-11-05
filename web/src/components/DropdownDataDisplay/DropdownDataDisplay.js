@@ -16,6 +16,40 @@ const formatWinnerDate = (date, options) =>
     ...options,
   });
 
+const centerInHorizontalScroller = (element) => {
+  if (!element) {
+    return;
+  }
+
+  let scroller = element.parentElement;
+
+  while (scroller) {
+    const { overflowX } = window.getComputedStyle(scroller);
+    const canScrollHorizontally =
+      (overflowX === "auto" || overflowX === "scroll") &&
+      scroller.scrollWidth > scroller.clientWidth + 1;
+
+    if (canScrollHorizontally) {
+      break;
+    }
+
+    scroller = scroller.parentElement;
+  }
+
+  if (!scroller) {
+    return;
+  }
+
+  const scrollerBox = scroller.getBoundingClientRect();
+  const elementBox = element.getBoundingClientRect();
+  const delta =
+    elementBox.left -
+    scrollerBox.left -
+    (scrollerBox.width - elementBox.width) / 2;
+
+  scroller.scrollBy({ left: delta, behavior: "smooth" });
+};
+
 const DropdownDataDisplay = (props) => {
   const data = props.data || [];
   const [search, setSearch] = React.useState("");
@@ -181,23 +215,8 @@ const DropdownDataDisplay = (props) => {
   }, [filteredWinners]);
 
   React.useEffect(() => {
-    const activeMonth = monthRefs.current[activeIndex];
-    if (activeMonth) {
-      activeMonth.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "center",
-      });
-    }
-
-    const activeDot = dotRefs.current[activeIndex];
-    if (activeDot) {
-      activeDot.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "center",
-      });
-    }
+    centerInHorizontalScroller(monthRefs.current[activeIndex]);
+    centerInHorizontalScroller(dotRefs.current[activeIndex]);
   }, [activeIndex]);
 
   const activeYear = React.useMemo(() => {
@@ -212,14 +231,7 @@ const DropdownDataDisplay = (props) => {
 
   const scrollToCard = (index) => {
     setActiveIndex(index);
-    const currentCard = cardRefs.current[index];
-    if (currentCard) {
-      currentCard.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "center",
-      });
-    }
+    centerInHorizontalScroller(cardRefs.current[index]);
   };
 
   const jumpToLatest = () => {
@@ -339,7 +351,11 @@ const DropdownDataDisplay = (props) => {
                       <button
                         type="button"
                         key={`${winner.companyTitle}-${winner.WinningDate}-mobile`}
-                        className={`${styles.mobileWinnerChip} ${winnerIndex === selectedYearWinnerIndex ? styles.activeMobileWinnerChip : ""}`}
+                        className={`${styles.mobileWinnerChip} ${
+                          winnerIndex === selectedYearWinnerIndex
+                            ? styles.activeMobileWinnerChip
+                            : ""
+                        }`}
                         onClick={() => setSelectedYearWinnerIndex(winnerIndex)}
                       >
                         {formatWinnerDate(winner.WinningDate, {
@@ -372,7 +388,9 @@ const DropdownDataDisplay = (props) => {
               <button
                 type="button"
                 key={`${winner.companyTitle}-${winner.WinningDate}`}
-                className={`${styles.monthButton} ${index === activeIndex ? styles.activeMonth : ""}`}
+                className={`${styles.monthButton} ${
+                  index === activeIndex ? styles.activeMonth : ""
+                }`}
                 onClick={() => scrollToCard(index)}
                 ref={(element) => {
                   monthRefs.current[index] = element;
@@ -397,7 +415,9 @@ const DropdownDataDisplay = (props) => {
               <button
                 type="button"
                 key={`${winner.companyTitle}-dot-${winner.WinningDate}`}
-                className={`${styles.timelineDot} ${index === activeIndex ? styles.activeDot : ""}`}
+                className={`${styles.timelineDot} ${
+                  index === activeIndex ? styles.activeDot : ""
+                }`}
                 onClick={() => scrollToCard(index)}
                 aria-label={`Go to ${winner.companyTitle}`}
                 ref={(element) => {
@@ -451,14 +471,18 @@ const DropdownDataDisplay = (props) => {
           />
           <button
             type="button"
-            className={`${styles.controlButton} ${activeControl === "latest" ? styles.activeControlButton : ""}`}
+            className={`${styles.controlButton} ${
+              activeControl === "latest" ? styles.activeControlButton : ""
+            }`}
             onClick={jumpToLatest}
           >
             Jump to Latest
           </button>
           <button
             type="button"
-            className={`${styles.controlButton} ${activeControl === "density" ? styles.activeControlButton : ""}`}
+            className={`${styles.controlButton} ${
+              activeControl === "density" ? styles.activeControlButton : ""
+            }`}
             onClick={toggleDensity}
           >
             {isDense ? "Normal density" : "Change density"}
