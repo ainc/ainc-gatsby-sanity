@@ -196,6 +196,7 @@ async function createTutorialsPages(graphql, actions) {
   });
 }
 
+// Keep in sync with RESERVED_EVENT_PATHS in studio/schemas/documents/page.js.
 const RESERVED_EVENT_LANDING_SLUGS = new Set(["5across"]);
 
 async function createEventLandingPages(graphql, actions, reporter) {

@@ -1,6 +1,34 @@
 import { FaRegWindowMaximize } from "react-icons/fa";
 import FixedLeadSectionsInput from "../../components/FixedLeadSectionsInput";
 
+// Keep in sync with RESERVED_EVENT_LANDING_SLUGS in web/gatsby-node.js
+// and the static routes in web/src/pages/events/.
+const RESERVED_EVENT_PATHS = new Set(["5across"]);
+
+async function eventLandingSlugError(slug, context) {
+  const normalized = slug?.trim().toLowerCase();
+  if (!normalized) return true;
+
+  if (RESERVED_EVENT_PATHS.has(normalized)) {
+    return `This URL is already used (/events/${normalized}/).`;
+  }
+
+  const id = context.document?._id?.replace(/^drafts\./, "");
+  if (!id) return true;
+
+  const existing = await context
+    .getClient({ apiVersion: "2023-01-01" })
+    .fetch(
+      `*[_type == "page" && lower(slug.current) == $slug && !(_id in [$id, $draftId])][0]{title}`,
+      { slug: normalized, id, draftId: `drafts.${id}` },
+    );
+
+  if (!existing) return true;
+  return existing.title
+    ? `This URL is already used by another event landing page (${existing.title}).`
+    : "This URL is already used by another event landing page.";
+}
+
 export default {
   name: "page",
   title: "Event Landing Page",
@@ -44,12 +72,18 @@ export default {
       title: "Slug",
       type: "slug",
       description:
-        "Used in the page URL. Short and descriptive, for example weekly-startup-social.",
+        "Used in the page URL, for example /events/weekly-startup-social/. Must not match another URL under /events/. You can change the slug later to one that no other page is using.",
       options: {
         source: "title",
         maxLength: 96,
+        // The custom validation below names the conflicting /events/ URL.
+        // Returning true replaces Sanity's default exact-match check.
+        isUnique: () => true,
       },
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.required().custom((value, context) =>
+          eventLandingSlugError(value?.current, context),
+        ),
     },
     {
       name: "content",
