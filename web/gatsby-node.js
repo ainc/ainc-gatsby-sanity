@@ -20,7 +20,7 @@ async function fetchPublishedEmailSignature(reporter) {
     throw new Error(`Sanity query failed (${response.status})`);
   }
   const body = await response.json();
-  if (!body.result?.imageUrl) return null;
+  if (!body.result?.link && !body.result?.imageUrl) return null;
   reporter.info("Email signature: loaded the published document from Sanity.");
   return {
     alt: body.result.alt,
@@ -30,6 +30,15 @@ async function fetchPublishedEmailSignature(reporter) {
 }
 
 async function getEmailSignature({ graphql, reporter }) {
+  try {
+    // The source plugin skips this document when it is missing from the
+    // deployed GraphQL schema, and a stale GraphQL node can keep the old link.
+    const published = await fetchPublishedEmailSignature(reporter);
+    if (published) return published;
+  } catch (error) {
+    reporter.warn(`Email signature: Sanity API query failed. ${error.message}`);
+  }
+
   try {
     // Introspection is always valid. Querying a missing field fails the
     // production build, so skip that query when the type is absent.
@@ -65,15 +74,6 @@ async function getEmailSignature({ graphql, reporter }) {
     }
   } catch (error) {
     reporter.warn(`Email signature: GraphQL query failed. ${error.message}`);
-  }
-
-  try {
-    // gatsby-source-sanity skips this document when it is missing from the
-    // deployed GraphQL schema. The published document is still on the dataset.
-    const published = await fetchPublishedEmailSignature(reporter);
-    if (published) return published;
-  } catch (error) {
-    reporter.warn(`Email signature: Sanity API query failed. ${error.message}`);
   }
 
   reporter.info(
@@ -444,6 +444,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const emailSignature = await getEmailSignature({ graphql, reporter });
   const emailSignatureLink =
     emailSignature?.link || EMAIL_SIGNATURE_FALLBACK_LINK;
+  reporter.info(`Email signature: redirecting to ${emailSignatureLink}`);
   createRedirect({
     fromPath: `/email-signature`,
     toPath: emailSignatureLink,
