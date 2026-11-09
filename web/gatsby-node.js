@@ -9,10 +9,30 @@ const EMAIL_SIGNATURE_FALLBACK_LINK =
   "https://entrepreneurhof.com/induction-dinner/";
 const ZOOM_ROOM_URL = "https://us05web.zoom.us/j/3524348051?omn=87372291433";
 
+async function fetchPublishedEmailSignature(reporter) {
+  const projectId = process.env.GATSBY_SANITY_PROJECT_ID || "y716vocf";
+  const dataset = process.env.GATSBY_SANITY_DATASET || "production";
+  const query =
+    '*[_id=="emailSignature"][0]{alt,link,"imageUrl":image.asset->url}';
+  const endpoint = `https://${projectId}.api.sanity.io/v2021-06-07/data/query/${dataset}?query=${encodeURIComponent(query)}`;
+  const response = await fetch(endpoint);
+  if (!response.ok) {
+    throw new Error(`Sanity query failed (${response.status})`);
+  }
+  const body = await response.json();
+  if (!body.result?.imageUrl) return null;
+  reporter.info("Email signature: loaded the published document from Sanity.");
+  return {
+    alt: body.result.alt,
+    link: body.result.link,
+    image: { asset: { url: body.result.imageUrl } },
+  };
+}
+
 async function getEmailSignature({ graphql, reporter }) {
   try {
     // Introspection is always valid. Querying a missing field fails the
-    // production build, so skip that query and keep the static signature.
+    // production build, so skip that query when the type is absent.
     const typeResult = await graphql(`
       {
         __type(name: "SanityEmailSignature") {
@@ -21,41 +41,45 @@ async function getEmailSignature({ graphql, reporter }) {
       }
     `);
 
-    if (typeResult.errors || !typeResult.data?.__type) {
-      reporter.info(
-        "Email signature: Sanity type is unavailable, using the static fallback.",
-      );
-      return null;
-    }
-
-    const result = await graphql(`
-      {
-        sanityEmailSignature(_id: { eq: "emailSignature" }) {
-          alt
-          link
-          image {
-            asset {
-              url
+    if (!typeResult.errors && typeResult.data?.__type) {
+      const result = await graphql(`
+        {
+          sanityEmailSignature(_id: { eq: "emailSignature" }) {
+            alt
+            link
+            image {
+              asset {
+                url
+              }
             }
           }
         }
+      `);
+
+      if (
+        !result.errors &&
+        result.data?.sanityEmailSignature?.image?.asset?.url
+      ) {
+        return result.data.sanityEmailSignature;
       }
-    `);
-
-    if (result.errors || !result.data || !result.data.sanityEmailSignature) {
-      reporter.info(
-        "Email signature: no published Sanity document, using the static fallback.",
-      );
-      return null;
     }
-
-    return result.data.sanityEmailSignature;
   } catch (error) {
-    reporter.warn(
-      `Email signature: query failed, using the static fallback. ${error.message}`,
-    );
-    return null;
+    reporter.warn(`Email signature: GraphQL query failed. ${error.message}`);
   }
+
+  try {
+    // gatsby-source-sanity skips this document when it is missing from the
+    // deployed GraphQL schema. The published document is still on the dataset.
+    const published = await fetchPublishedEmailSignature(reporter);
+    if (published) return published;
+  } catch (error) {
+    reporter.warn(`Email signature: Sanity API query failed. ${error.message}`);
+  }
+
+  reporter.info(
+    "Email signature: no published Sanity document, using the static fallback.",
+  );
+  return null;
 }
 
 async function createBlogPostPages(graphql, actions) {
