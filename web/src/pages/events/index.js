@@ -9,9 +9,31 @@ import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import Title from "../../components/UI/Title/Title";
 import { getEventbriteCode } from "../../lib/eventbriteDiscount";
 
+const RESERVED_EVENT_LANDING_SLUGS = new Set(["5across"]);
+
+const landingPath = (page) => {
+  const slug = page.slug?.current;
+  if (
+    !page.event?.id ||
+    !slug ||
+    RESERVED_EVENT_LANDING_SLUGS.has(slug.toLowerCase())
+  ) {
+    return null;
+  }
+  return `/events/${slug}/`;
+};
+
 const EventsPage = ({ data }) => {
   const events = data.allSanityEvents.edges || [];
-  const promoCode = getEventbriteCode(useLocation().search);
+  const location = useLocation();
+  const promoCode = getEventbriteCode(location.search);
+  const landingPages = new Map();
+  (data.allSanityPage?.nodes || []).forEach((page) => {
+    const path = landingPath(page);
+    if (path && !landingPages.has(page.event.id)) {
+      landingPages.set(page.event.id, path);
+    }
+  });
 
   return (
     <Layout>
@@ -45,11 +67,15 @@ const EventsPage = ({ data }) => {
                 key={edge.node.eventName ?? edge.node.id}
               >
                 <Event
-                  image={edge.node.picture.asset.gatsbyImageData}
+                  image={edge.node.picture?.asset?.gatsbyImageData}
                   date={edge.node.date}
                   host={edge.node.host}
                   location={edge.node.location}
-                  link={edge.node.linkToEvent}
+                  link={
+                    landingPages.has(edge.node.id)
+                      ? `${landingPages.get(edge.node.id)}${location.search}`
+                      : edge.node.linkToEvent
+                  }
                   name={edge.node.eventName ?? "Untitled Event"}
                 />
               </div>
@@ -73,6 +99,7 @@ export const query_events = graphql`
     ) {
       edges {
         node {
+          id
           eventName
           date(formatString: "MMMM D, YYYY")
           linkToEvent
@@ -83,6 +110,16 @@ export const query_events = graphql`
               gatsbyImageData(aspectRatio: 1.05)
             }
           }
+        }
+      }
+    }
+    allSanityPage {
+      nodes {
+        slug {
+          current
+        }
+        event {
+          id
         }
       }
     }

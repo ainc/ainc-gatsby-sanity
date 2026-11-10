@@ -296,6 +296,26 @@ export default (S) =>
                         .icon(FaWrench)
                         .schemaType("eventTypes")
                         .child(S.documentTypeList("eventTypes")),
+                      S.listItem()
+                        .id("eventLandingPages")
+                        .title("Landing Pages")
+                        .icon(FaRegWindowMaximize)
+                        .schemaType("page")
+                        .child(
+                          S.documentTypeList("page").title(
+                            "Event Landing Pages",
+                          ),
+                        ),
+                      S.listItem()
+                        .id("eventLandingQuestions")
+                        .title("Landing Page Questions")
+                        .icon(FaInfoCircle)
+                        .schemaType("frequentlyAskedQuestion")
+                        .child(
+                          S.documentTypeList("frequentlyAskedQuestion").title(
+                            "Landing Page Questions",
+                          ),
+                        ),
                     ]),
                 ),
 
@@ -479,6 +499,26 @@ export default (S) =>
                         .icon(FaWrench)
                         .schemaType("eventTypes")
                         .child(S.documentTypeList("eventTypes")),
+                      S.listItem()
+                        .id("beAwesomeEventLandingPages")
+                        .title("Landing Pages")
+                        .icon(FaRegWindowMaximize)
+                        .schemaType("page")
+                        .child(
+                          S.documentTypeList("page").title(
+                            "Event Landing Pages",
+                          ),
+                        ),
+                      S.listItem()
+                        .id("beAwesomeEventLandingQuestions")
+                        .title("Landing Page Questions")
+                        .icon(FaInfoCircle)
+                        .schemaType("frequentlyAskedQuestion")
+                        .child(
+                          S.documentTypeList("frequentlyAskedQuestion").title(
+                            "Landing Page Questions",
+                          ),
+                        ),
                     ]),
                 ),
 
@@ -927,6 +967,26 @@ export default (S) =>
                         .icon(FaWrench)
                         .schemaType("eventTypes")
                         .child(S.documentTypeList("eventTypes")),
+                      S.listItem()
+                        .id("ap_eventLandingPages")
+                        .title("Landing Pages")
+                        .icon(FaRegWindowMaximize)
+                        .schemaType("page")
+                        .child(
+                          S.documentTypeList("page").title(
+                            "Event Landing Pages",
+                          ),
+                        ),
+                      S.listItem()
+                        .id("ap_eventLandingQuestions")
+                        .title("Landing Page Questions")
+                        .icon(FaInfoCircle)
+                        .schemaType("frequentlyAskedQuestion")
+                        .child(
+                          S.documentTypeList("frequentlyAskedQuestion").title(
+                            "Landing Page Questions",
+                          ),
+                        ),
                     ]),
                 ),
 
@@ -1210,6 +1270,8 @@ export default (S) =>
                     "accomplishments",
                     "eventTypes",
                     "events",
+                    "page",
+                    "frequentlyAskedQuestion",
                     "program",
                     "fiveAcrossWinners",
                     "fiveAcrossSponsors",

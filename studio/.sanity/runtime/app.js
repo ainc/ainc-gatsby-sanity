@@ -3,6 +3,7 @@
 // Modifications to this file is automatically discarded
 import studioConfig from "../../sanity.config.js"
 import {renderStudio} from "sanity"
+import studioConfig from "../../sanity.config.js"
 
 renderStudio(
   document.getElementById("sanity"),

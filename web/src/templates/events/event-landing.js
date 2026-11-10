@@ -1,0 +1,509 @@
+import React from "react";
+import { graphql, Link } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { PortableText } from "@portabletext/react";
+import { useLocation } from "@reach/router";
+import { Accordion, Card, Carousel, Col, Container, Row } from "react-bootstrap";
+import { motion } from "framer-motion";
+import Layout from "../../components/Layout/Layout";
+import Title from "../../components/UI/Title/Title";
+import Subtitle from "../../components/UI/Subtitle/Subtitle";
+import BrandButton from "../../components/UI/BrandButton/BrandButton";
+import EventBriteModal from "../../components/EventBriteModal/EventBriteModal";
+import {
+  getEventbriteCode,
+  withEventbriteDiscount,
+} from "../../lib/eventbriteDiscount";
+import * as styles from "./event-landing.module.scss";
+
+const portableTextComponents = {
+  marks: {
+    link: ({ children, value }) => {
+      const href = value?.href || "";
+      if (!href) return children;
+      const external = /^https?:\/\//i.test(href);
+      return (
+        <a
+          href={href}
+          {...(external
+            ? { target: "_blank", rel: "noopener noreferrer" }
+            : {})}
+        >
+          {children}
+        </a>
+      );
+    },
+  },
+};
+
+const detailCopy = {
+  date: "Date",
+  location: "Location",
+  host: "Host",
+  tags: "Tags",
+};
+
+const RichText = ({ value }) => {
+  if (!Array.isArray(value) || value.length === 0) return null;
+  return <PortableText value={value} components={portableTextComponents} />;
+};
+
+const ModalFace = ({ children }) => children;
+
+const RegisterLink = ({ href, children, className, name, date }) => {
+  const location = useLocation();
+  if (!href) return null;
+
+  const eventbrite = href.toLowerCase().includes("eventbrite.com");
+  const url = eventbrite
+    ? withEventbriteDiscount(href, getEventbriteCode(location.search))
+    : href;
+
+  return (
+    <span className={styles.modalButton}>
+      <EventBriteModal link={url}>
+        <ModalFace name={name || "Register"} date={date || ""}>
+          <BrandButton type="button" className={className}>
+            {children}
+          </BrandButton>
+        </ModalFace>
+      </EventBriteModal>
+    </span>
+  );
+};
+
+const SectionHeading = ({ children }) => (
+  <div className={styles.sectionHeading}>
+    <Title className="text-uppercase text-center">{children}</Title>
+  </div>
+);
+
+const detailValue = (key, event) => {
+  if (!event) return "";
+  if (key === "date") {
+    return [event.date, event.startTime].filter(Boolean).join(" · ");
+  }
+  if (key === "location") return event.location || "";
+  if (key === "host") return event.host || "";
+  if (key === "tags") {
+    return (event.tags || [])
+      .map((tag) => tag?.label || tag?.value)
+      .filter(Boolean)
+      .join(", ");
+  }
+  return "";
+};
+
+const buttonHref = (section, event) => {
+  if (section.linkSource === "custom") return section.url || "";
+  return event?.linkToEvent || "";
+};
+
+const Hero = ({ section, event }) => {
+  const heading = section.heading || event?.eventName;
+  const subheading = section.subheading || event?.date;
+  const eventImage = event?.picture?.asset?.gatsbyImageData;
+  const slides = [
+    ...(eventImage
+      ? [
+          {
+            key: "event-picture",
+            image: eventImage,
+            alt: heading || "Event",
+          },
+        ]
+      : []),
+    ...(section.photos || [])
+      .filter((photo) => photo?.image?.asset?.gatsbyImageData)
+      .map((photo) => ({
+        key: photo._key,
+        image: photo.image.asset.gatsbyImageData,
+        alt: photo.alt || heading || "Event",
+      })),
+  ];
+
+  return (
+    <section className={styles.hero}>
+      {slides.length > 1 ? (
+        <Carousel controls={false} className={styles.heroCarousel}>
+          {slides.map((slide) => (
+            <Carousel.Item key={slide.key}>
+              <GatsbyImage
+                image={slide.image}
+                alt={slide.alt}
+                objectFit="cover"
+                className={styles.heroImage}
+              />
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      ) : (
+        slides[0] && (
+          <GatsbyImage
+            image={slides[0].image}
+            alt={slides[0].alt}
+            objectFit="cover"
+            className={styles.heroImage}
+          />
+        )
+      )}
+      <div className={styles.heroScrim} aria-hidden="true" />
+      <Container className={styles.heroContent}>
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          style={{ zIndex: 2 }}
+        >
+          {subheading && (
+            <Subtitle className="mb-3 white">{subheading}</Subtitle>
+          )}
+          {heading && (
+            <Title className="mb-3 white text--big">{heading}</Title>
+          )}
+          <div className={styles.heroText}>
+            <RichText value={section._rawText} />
+          </div>
+        </motion.div>
+        {section.showRegistrationButton && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1.0, duration: 0.6 }}
+            style={{ zIndex: 2 }}
+          >
+            <RegisterLink
+              href={event?.linkToEvent}
+              name={heading}
+              date={event?.date}
+            >
+              {section.buttonLabel || "Register"}
+            </RegisterLink>
+          </motion.div>
+        )}
+      </Container>
+    </section>
+  );
+};
+
+const EventDetails = ({ section, event }) => {
+  const rows = (section.details || [])
+    .map((key) => ({
+      key,
+      label: detailCopy[key] || key,
+      value: detailValue(key, event),
+    }))
+    .filter((row) => row.value);
+
+  if (rows.length === 0) return null;
+
+  return (
+    <section className={styles.detailsBand}>
+      <Container>
+        <div className={styles.details}>
+          {rows.map((row) => (
+            <div key={row.key}>
+              <div className={styles.detailLabel}>{row.label}</div>
+              <div className={styles.detailValue}>{row.value}</div>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+};
+
+const TextSection = ({ section }) => {
+  if (!section.title && !section._rawText) return null;
+
+  return (
+    <section className={styles.section}>
+      <Container>
+        {section.title && <SectionHeading>{section.title}</SectionHeading>}
+        <div className={styles.copy}>
+          <RichText value={section._rawText} />
+        </div>
+      </Container>
+    </section>
+  );
+};
+
+const Features = ({ section }) => {
+  const features = section.features || [];
+  if (!section.title && features.length === 0) return null;
+
+  return (
+    <section className={styles.section}>
+      <Container>
+        {section.title && <SectionHeading>{section.title}</SectionHeading>}
+        <Row className="justify-content-center">
+          {features.map((feature) => {
+            const image = feature.image?.asset?.gatsbyImageData;
+            return (
+              <Col md={4} className="mb-4 d-flex" key={feature._key}>
+                <Card className={styles.featureCard}>
+                  {image && (
+                    <GatsbyImage
+                      image={image}
+                      alt={feature.title || ""}
+                      objectFit="cover"
+                      className={styles.featureImage}
+                    />
+                  )}
+                  <Card.Body>
+                    {feature.title && (
+                      <Subtitle className="text-uppercase">
+                        {feature.title}
+                      </Subtitle>
+                    )}
+                    {feature.text && <p className="mt-3">{feature.text}</p>}
+                  </Card.Body>
+                </Card>
+              </Col>
+            );
+          })}
+        </Row>
+      </Container>
+    </section>
+  );
+};
+
+const isExternalLink = (href) =>
+  /^(https?:)?\/\//i.test(href) || /^(mailto|tel):/i.test(href);
+
+const LinkedPicture = ({ href, children }) => {
+  if (!href) return children;
+  if (isExternalLink(href)) {
+    return (
+      <a
+        href={href}
+        className={styles.linkedImage}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {children}
+      </a>
+    );
+  }
+
+  const to =
+    href.startsWith("/") || href.startsWith("#") || href.startsWith("?")
+      ? href
+      : `/${href}`;
+  if (to.startsWith("#") || to.startsWith("?")) {
+    return (
+      <a href={to} className={styles.linkedImage}>
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link to={to} className={styles.linkedImage}>
+      {children}
+    </Link>
+  );
+};
+
+const ImageAndLink = ({ section }) => {
+  const image =
+    section.image?.asset?.gatsbyImageData ||
+    section.secondaryImage?.asset?.gatsbyImageData;
+  if (!image && !section.title) return null;
+
+  const picture = image ? (
+    <GatsbyImage image={image} alt={section.alt || section.title || ""} />
+  ) : null;
+
+  return (
+    <section className={styles.section}>
+      <Container className={styles.imageBlock}>
+        {picture ? (
+          <LinkedPicture href={section.link}>{picture}</LinkedPicture>
+        ) : null}
+        {section.title && (
+          <p className={styles.caption}>{section.title}</p>
+        )}
+      </Container>
+    </section>
+  );
+};
+
+const Questions = ({ section }) => {
+  const faqs = (section._rawFaqs || []).filter((faq) => faq?.question);
+  if (!section.title && faqs.length === 0) return null;
+
+  return (
+    <section className={styles.section}>
+      <Container>
+        {section.title && <SectionHeading>{section.title}</SectionHeading>}
+        <Accordion className={styles.questions}>
+          {faqs.map((faq, index) => (
+            <Accordion.Item
+              eventKey={String(index)}
+              key={faq._id || faq.question}
+            >
+              <Accordion.Header>{faq.question}</Accordion.Header>
+              <Accordion.Body>{faq.answer}</Accordion.Body>
+            </Accordion.Item>
+          ))}
+        </Accordion>
+      </Container>
+    </section>
+  );
+};
+
+const ButtonSection = ({ section, event }) => {
+  const href = buttonHref(section, event);
+  if (!section.label || !href) return null;
+
+  return (
+    <section className={`${styles.section} text-center`}>
+      <Container>
+        <RegisterLink href={href} name={event?.eventName} date={event?.date}>
+          {section.label}
+        </RegisterLink>
+      </Container>
+    </section>
+  );
+};
+
+const sectionsByType = {
+  SanityHeroImage: Hero,
+  SanityEventDetails: EventDetails,
+  SanityTextSection: TextSection,
+  SanityFeatures: Features,
+  SanityImageLink: ImageAndLink,
+  SanityFrequentlyAskedQuestions: Questions,
+  SanityButton: ButtonSection,
+};
+
+const Section = ({ section, event }) => {
+  const Component = sectionsByType[section.__typename];
+  if (!Component) return null;
+  return <Component section={section} event={event} />;
+};
+
+const EventLandingPage = ({ data }) => {
+  const page = data.sanityPage;
+  const event = page?.event;
+  const sections = page?.content || [];
+
+  return (
+    <Layout pageTitle={page?.title || event?.eventName || "Event"}>
+      {sections.map((section) => (
+        <Section
+          key={section._key || section.__typename}
+          section={section}
+          event={event}
+        />
+      ))}
+    </Layout>
+  );
+};
+
+export const query = graphql`
+  query EventLandingPage($id: String!) {
+    sanityPage(id: { eq: $id }) {
+      title
+      event {
+        eventName
+        date(formatString: "MMMM D, YYYY")
+        startTime: date(formatString: "h:mma")
+        host
+        location
+        linkToEvent
+        tags {
+          label
+          value
+        }
+        picture {
+          asset {
+            gatsbyImageData(layout: FULL_WIDTH, placeholder: DOMINANT_COLOR)
+          }
+        }
+      }
+      content {
+        ... on SanityHeroImage {
+          __typename
+          _key
+          heading
+          subheading
+          showRegistrationButton
+          buttonLabel
+          _rawText(resolveReferences: { maxDepth: 5 })
+          photos {
+            _key
+            alt
+            image {
+              asset {
+                gatsbyImageData(
+                  layout: FULL_WIDTH
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
+              }
+            }
+          }
+        }
+        ... on SanityEventDetails {
+          __typename
+          _key
+          details
+        }
+        ... on SanityTextSection {
+          __typename
+          _key
+          title
+          _rawText(resolveReferences: { maxDepth: 5 })
+        }
+        ... on SanityFeatures {
+          __typename
+          _key
+          title
+          features {
+            _key
+            title
+            text
+            image {
+              asset {
+                gatsbyImageData(width: 800, placeholder: DOMINANT_COLOR)
+              }
+            }
+          }
+        }
+        ... on SanityImageLink {
+          __typename
+          _key
+          alt
+          link
+          title
+          image {
+            asset {
+              gatsbyImageData(width: 1200, placeholder: DOMINANT_COLOR)
+            }
+          }
+          secondaryImage {
+            asset {
+              gatsbyImageData(width: 400, placeholder: DOMINANT_COLOR)
+            }
+          }
+        }
+        ... on SanityFrequentlyAskedQuestions {
+          __typename
+          _key
+          title
+          _rawFaqs(resolveReferences: { maxDepth: 5 })
+        }
+        ... on SanityButton {
+          __typename
+          _key
+          label
+          linkSource
+          url
+        }
+      }
+    }
+  }
+`;
+
+export default EventLandingPage;
