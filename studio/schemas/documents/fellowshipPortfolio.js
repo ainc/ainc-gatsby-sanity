@@ -33,24 +33,23 @@ export default {
       title: "Company Description",
     },
     {
-      name: "companyStatus",
+      name: "status",
       type: "string",
-      title: "Company status",
-      description: "Optional. Leave blank if the company is still operating.",
+      title: "Status",
+      description:
+        "Active by default. Choose Acquired or Closed only to flag this company on the portfolio. Clear the field to mark it Active again.",
       options: {
         list: [
-          { title: "Acquired", value: "Acquired" },
-          { title: "Exit", value: "Exit" },
-          { title: "Folded", value: "Folded" },
+          { title: "Acquired", value: "acquired" },
+          { title: "Closed", value: "closed" },
         ],
-        layout: "dropdown",
       },
     },
   ],
   preview: {
     select: {
       title: "companyName",
-      subtitle: "companyStatus",
+      subtitle: "status",
       media: "fellowshipImage",
     },
   },

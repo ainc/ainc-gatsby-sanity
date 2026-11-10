@@ -1,5 +1,4 @@
 import { FaLink } from "react-icons/fa6";
-import link from "../objects/link";
 
 export default {
   name: "links",
@@ -11,7 +10,7 @@ export default {
       name: "links",
       title: "Links",
       type: "array",
-      of: [link],
+      of: [{ type: "link" }],
       description: "Add and reorder links as needed.",
     },
   ],

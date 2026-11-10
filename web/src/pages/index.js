@@ -172,23 +172,23 @@ const IndexPage = ({ data }) => {
     }
   };
 
-  const NewsletterSection = React.lazy(
-    () => import("../components/Layout/Newsletter/Newsletter"),
+  const NewsletterSection = React.lazy(() =>
+    import("../components/Layout/Newsletter/Newsletter"),
   );
-  const PodcastSection = React.lazy(
-    () => import("../components/Layout/Podcast/Podcast"),
-  );
-
-  const Accomplishments = React.lazy(
-    () => import("../components/Accomplishments/Accomplishments"),
+  const PodcastSection = React.lazy(() =>
+    import("../components/Layout/Podcast/Podcast"),
   );
 
-  const CoreValue = React.lazy(
-    () => import("../components/CustomCode/CoreValue/CoreValue"),
+  const Accomplishments = React.lazy(() =>
+    import("../components/Accomplishments/Accomplishments"),
   );
 
-  const Startups = React.lazy(
-    () => import("../components/Layout/Startups/Startups"),
+  const CoreValue = React.lazy(() =>
+    import("../components/CustomCode/CoreValue/CoreValue"),
+  );
+
+  const Startups = React.lazy(() =>
+    import("../components/Layout/Startups/Startups"),
   );
 
   const [isWorkspaceButton1Hovered, setIsWorkspaceButton1Hovered] =

@@ -1,68 +1,56 @@
 import React from "react";
 import * as styles from "./FellowshipCompanyCard.module.scss";
-import { Container } from "react-bootstrap";
 
-import Title from "../UI/Title/Title";
+const STATUS_LABELS = {
+  acquired: "Acquired",
+  closed: "Closed",
+};
 
-import "../../styles/main.scss";
+const FellowshipCompanyCard = ({ name, url, image, status }) => {
+  const className = styles.company;
+  const initial = name ? name.trim().charAt(0).toUpperCase() : "?";
+  const statusLabel = STATUS_LABELS[status];
+  const content = (
+    <>
+      <span className={styles.logoPlate}>
+        {image ? (
+          <img className={styles.logo} src={image} alt="" />
+        ) : (
+          <span className={styles.monogram} aria-hidden="true">
+            {initial}
+          </span>
+        )}
+      </span>
+      <span className={styles.copy}>
+        <span className={styles.name}>{name}</span>
+        {statusLabel ? (
+          <span
+            className={
+              status === "acquired"
+                ? styles.statusAcquired
+                : styles.statusClosed
+            }
+          >
+            {statusLabel}
+          </span>
+        ) : null}
+      </span>
+    </>
+  );
 
-const FellowshipCompanyCard = (props) => {
-  const year = props.date ? props.date.split("-")[0] : "";
+  if (!url) {
+    return <div className={className}>{content}</div>;
+  }
 
   return (
-    <Container className={`${styles.box}`}>
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-        />
-      </head>
-
-      <div
-        className={`d-block h-100`}
-        style={
-          props.image
-            ? {
-                backgroundImage: `url(${props.image})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "contain",
-                backgroundPosition: "center center",
-              }
-            : undefined
-        }
-      >
-        <Container className={`${styles.overlayText} p-3`}>
-          <div className="d-flex justify-content-between mb-2">
-            <a href={props.url} target="_blank">
-              <Title
-                className={`link--red fs-6`}
-                style={{ letterSpacing: "0rem" }}
-              >
-                {props.name}
-              </Title>
-            </a>
-            <Title
-              className={`text--red fs-6 fst-italic`}
-              style={{ letterSpacing: "0rem" }}
-            >
-              {year}
-            </Title>
-          </div>
-
-          <div className="text-start">
-            <h6 className="fst-italic fw-light">{props.description}</h6>
-          </div>
-
-          <div className="text-end px-3 ">
-            <a href={props.url} target="_blank">
-              <i
-                className={`link--bright-red text--red bi bi-arrow-right-square-fill fs-3`}
-              ></i>
-            </a>
-          </div>
-        </Container>
-      </div>
-    </Container>
+    <a
+      className={className}
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {content}
+    </a>
   );
 };
 

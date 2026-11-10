@@ -410,9 +410,7 @@ $card-text-inset: 2.25rem;
     // CSS triangles for the dropdown caret (not an extra image file).
     background-image: linear-gradient(45deg, transparent 50%, $white-color 50%),
       linear-gradient(135deg, $white-color 50%, transparent 50%);
-    background-position:
-      calc(100% - 14px) 46%,
-      calc(100% - 9px) 46%;
+    background-position: calc(100% - 14px) 46%, calc(100% - 9px) 46%;
     background-size: 6px 6px;
     background-repeat: no-repeat;
   }
