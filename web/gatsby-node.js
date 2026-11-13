@@ -6,8 +6,7 @@ const { paginate } = require("gatsby-awesome-pagination");
 const { createRedirect } = require("gatsby-plugin-netlify");
 
 const EMAIL_SIGNATURE_IMAGE = "email-signature-banner.png";
-const EMAIL_SIGNATURE_FALLBACK_LINK =
-  "https://entrepreneurhof.com/induction-dinner/";
+const EMAIL_SIGNATURE_LINK = "https://awesomeinc.org/events/5across/";
 const ZOOM_ROOM_URL = "https://us05web.zoom.us/j/3524348051?omn=87372291433";
 
 async function fetchPublishedEmailSignature(reporter) {
@@ -506,9 +505,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     redirectInBrowser: true,
   });
 
-  const emailSignature = await getEmailSignature({ graphql, reporter });
-  const emailSignatureLink =
-    emailSignature?.link || EMAIL_SIGNATURE_FALLBACK_LINK;
+  const emailSignatureLink = EMAIL_SIGNATURE_LINK;
   reporter.info(`Email signature: redirecting to ${emailSignatureLink}`);
   createRedirect({
     fromPath: `/email-signature`,
@@ -584,9 +581,7 @@ function getCurrentDate() {
 exports.onPostBuild = async ({ graphql, reporter }) => {
   const emailSignature = await getEmailSignature({ graphql, reporter });
   const publicDir = path.join(__dirname, "public");
-  const emailSignatureLink =
-    emailSignature?.link || EMAIL_SIGNATURE_FALLBACK_LINK;
-  replaceEmailSignatureRedirect(publicDir, emailSignatureLink);
+  replaceEmailSignatureRedirect(publicDir, EMAIL_SIGNATURE_LINK);
   const imageUrl = emailSignature?.image?.asset?.url;
   if (!imageUrl) {
     reporter.info(
