@@ -1,0 +1,19 @@
+[[edge_functions]]
+  function = "email-signature"
+  path = "/email-signature"
+
+[[edge_functions]]
+  function = "email-signature"
+  path = "/email-signature/"
+
+[[redirects]]
+  from = "/email-signature"
+  to = "https://awesomeinc.org/events/5across/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/email-signature/"
+  to = "https://awesomeinc.org/events/5across/"
+  status = 302
+  force = true

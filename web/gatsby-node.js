@@ -31,20 +31,27 @@ async function fetchPublishedEmailSignature(reporter) {
   };
 }
 
-function replaceEmailSignatureRedirect(publicDir, link) {
+function replaceEmailSignatureRedirect(publicDir, link, reporter) {
   const filePath = path.join(publicDir, "_redirects");
-  if (!link || !fs.existsSync(filePath)) return;
-  const lines = fs.readFileSync(filePath, "utf8").split(/\r?\n/);
-  let replaced = false;
-  const next = lines.map((line) => {
-    const match = line.match(/^\/email-signature(\/)?\s/);
-    if (!match) return line;
-    replaced = true;
-    const fromPath = match[1] ? "/email-signature/" : "/email-signature";
-    return `${fromPath}  ${link}  302!`;
-  });
-  if (!replaced) return;
-  fs.writeFileSync(filePath, next.join("\n"));
+  const existing = fs.existsSync(filePath)
+    ? fs.readFileSync(filePath, "utf8").split(/\r?\n/)
+    : [];
+  const kept = existing.filter(
+    (line) =>
+      line &&
+      !line.includes("entrepreneurhof.com") &&
+      !/^\/email-signature(\/)?\s/.test(line) &&
+      !/^https?:\/\/(?:www\.)?awesomeinc\.org\/email-signature\/?\s/.test(line),
+  );
+  const rules = [
+    `/email-signature  ${link}  302!`,
+    `/email-signature/  ${link}  302!`,
+  ];
+  fs.mkdirSync(publicDir, { recursive: true });
+  fs.writeFileSync(filePath, [...rules, ...kept].join("\n") + "\n");
+  reporter.info(
+    `Email signature: wrote redirect rules to ${filePath}, removed ${existing.length - kept.length} old rules.`,
+  );
 }
 
 async function getEmailSignature({ graphql, reporter }) {
@@ -580,8 +587,9 @@ function getCurrentDate() {
 
 exports.onPostBuild = async ({ graphql, reporter }) => {
   const emailSignature = await getEmailSignature({ graphql, reporter });
-  const publicDir = path.join(__dirname, "public");
-  replaceEmailSignatureRedirect(publicDir, EMAIL_SIGNATURE_LINK);
+  // Gatsby compiles this file, so __dirname is not the web directory.
+  const publicDir = path.join(process.cwd(), "public");
+  replaceEmailSignatureRedirect(publicDir, EMAIL_SIGNATURE_LINK, reporter);
   const imageUrl = emailSignature?.image?.asset?.url;
   if (!imageUrl) {
     reporter.info(
