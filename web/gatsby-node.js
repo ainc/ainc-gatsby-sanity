@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { createClient } = require("@sanity/client");
 const { createFilePath } = require("gatsby-source-filesystem");
 const { paginate } = require("gatsby-awesome-pagination");
 const { createRedirect } = require("gatsby-plugin-netlify");
@@ -12,21 +13,39 @@ const ZOOM_ROOM_URL = "https://us05web.zoom.us/j/3524348051?omn=87372291433";
 async function fetchPublishedEmailSignature(reporter) {
   const projectId = process.env.GATSBY_SANITY_PROJECT_ID || "y716vocf";
   const dataset = process.env.GATSBY_SANITY_DATASET || "production";
-  const query =
-    '*[_id=="emailSignature"][0]{alt,link,"imageUrl":image.asset->url}';
-  const endpoint = `https://${projectId}.api.sanity.io/v2021-06-07/data/query/${dataset}?query=${encodeURIComponent(query)}`;
-  const response = await fetch(endpoint);
-  if (!response.ok) {
-    throw new Error(`Sanity query failed (${response.status})`);
-  }
-  const body = await response.json();
-  if (!body.result?.link && !body.result?.imageUrl) return null;
-  reporter.info("Email signature: loaded the published document from Sanity.");
+  const client = createClient({
+    projectId,
+    dataset,
+    apiVersion: "2021-06-07",
+    useCdn: false,
+    token: process.env.SANITY_READ_TOKEN,
+  });
+  const doc = await client.fetch(
+    '*[_id=="emailSignature"][0]{alt,link,"imageUrl":image.asset->url}',
+  );
+  if (!doc?.link && !doc?.imageUrl) return null;
+  reporter.info(`Email signature: published link is ${doc.link || "(none)"}.`);
   return {
-    alt: body.result.alt,
-    link: body.result.link,
-    image: { asset: { url: body.result.imageUrl } },
+    alt: doc.alt,
+    link: doc.link,
+    image: doc.imageUrl ? { asset: { url: doc.imageUrl } } : null,
   };
+}
+
+function replaceEmailSignatureRedirect(publicDir, link) {
+  const filePath = path.join(publicDir, "_redirects");
+  if (!link || !fs.existsSync(filePath)) return;
+  const lines = fs.readFileSync(filePath, "utf8").split(/\r?\n/);
+  let replaced = false;
+  const next = lines.map((line) => {
+    const match = line.match(/^\/email-signature(\/)?\s/);
+    if (!match) return line;
+    replaced = true;
+    const fromPath = match[1] ? "/email-signature/" : "/email-signature";
+    return `${fromPath}  ${link}  302!`;
+  });
+  if (!replaced) return;
+  fs.writeFileSync(filePath, next.join("\n"));
 }
 
 async function getEmailSignature({ graphql, reporter }) {
@@ -494,14 +513,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   createRedirect({
     fromPath: `/email-signature`,
     toPath: emailSignatureLink,
-    isPermanent: true,
+    isPermanent: false,
     force: true,
     redirectInBrowser: true,
   });
   createRedirect({
     fromPath: `/email-signature/`,
     toPath: emailSignatureLink,
-    isPermanent: true,
+    isPermanent: false,
     force: true,
     redirectInBrowser: true,
   });
@@ -565,6 +584,9 @@ function getCurrentDate() {
 exports.onPostBuild = async ({ graphql, reporter }) => {
   const emailSignature = await getEmailSignature({ graphql, reporter });
   const publicDir = path.join(__dirname, "public");
+  const emailSignatureLink =
+    emailSignature?.link || EMAIL_SIGNATURE_FALLBACK_LINK;
+  replaceEmailSignatureRedirect(publicDir, emailSignatureLink);
   const imageUrl = emailSignature?.image?.asset?.url;
   if (!imageUrl) {
     reporter.info(
