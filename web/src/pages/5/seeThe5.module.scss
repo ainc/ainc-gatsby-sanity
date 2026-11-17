@@ -1,0 +1,273 @@
+@import "../../styles/variables.scss";
+
+.page {
+  background: #141414;
+  color: #f4f1ea;
+  font-family: $base-font;
+  min-height: 100svh;
+}
+
+.hero {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100svh;
+  padding: 2.5rem 1.5rem 2rem;
+  position: relative;
+  text-align: center;
+}
+
+.mark {
+  color: $brand-color;
+  font-size: clamp(8.5rem, 42vw, 16rem);
+  font-weight: 700;
+  letter-spacing: -0.08em;
+  line-height: 0.8;
+  margin: 0;
+}
+
+.kicker {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.42em;
+  margin: 1.5rem 0 0;
+  text-transform: uppercase;
+}
+
+.whisper {
+  color: rgba(244, 241, 234, 0.72);
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin: 1rem auto 0;
+  max-width: 16rem;
+}
+
+.scroll {
+  color: rgba(244, 241, 234, 0.55);
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  margin-top: 3.5rem;
+  text-transform: uppercase;
+}
+
+.track {
+  position: relative;
+}
+
+.stage {
+  display: grid;
+  height: 100svh;
+  overflow: hidden;
+  place-items: center;
+  position: sticky;
+  top: 0;
+}
+
+.progress {
+  background: $brand-color;
+  bottom: 0;
+  height: 4px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  transform-origin: left center;
+  z-index: 5;
+}
+
+.arrow {
+  bottom: 1.75rem;
+  left: 50%;
+  pointer-events: none;
+  position: fixed;
+  transform: translateX(-50%);
+  z-index: 4;
+}
+
+.float {
+  animation: float 1.5s ease-in-out infinite;
+  display: block;
+}
+
+.chevron {
+  border-bottom: 2px solid rgba(244, 241, 234, 0.85);
+  border-right: 2px solid rgba(244, 241, 234, 0.85);
+  display: block;
+  height: 14px;
+  transform: rotate(45deg);
+  width: 14px;
+}
+
+.srOnly {
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  clip: rect(0, 0, 0, 0);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+.stageMark {
+  color: $brand-color;
+  font-size: clamp(10rem, 62vw, 22rem);
+  font-weight: 700;
+  letter-spacing: -0.08em;
+  line-height: 0.8;
+  margin: 0;
+  pointer-events: none;
+  position: absolute;
+  user-select: none;
+  z-index: 0;
+}
+
+.clueLayer {
+  align-items: flex-end;
+  display: flex;
+  font-size: clamp(2.1rem, 9vw, 3.6rem);
+  font-weight: 600;
+  inset: 0;
+  justify-content: center;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin: 0;
+  padding: 0 1.5rem 16vh;
+  position: absolute;
+  text-align: center;
+  z-index: 1;
+}
+
+.clues {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+  padding: 5rem 1.5rem 4rem;
+}
+
+.clue {
+  border-top: 1px solid rgba(244, 241, 234, 0.16);
+  padding-top: 1.25rem;
+}
+
+.clueText {
+  font-size: clamp(1.8rem, 8vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.reveal {
+  padding: 1rem 1.5rem 4.5rem;
+}
+
+.revealCard {
+  background: #1d1d1d;
+  border-radius: 1.25rem;
+  padding: 2rem 1.4rem 1.6rem;
+}
+
+.eyebrow {
+  color: $brand-color;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  margin: 0 0 0.8rem;
+  text-transform: uppercase;
+}
+
+.revealTitle {
+  font-size: clamp(2rem, 9vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.revealCopy {
+  color: rgba(244, 241, 234, 0.78);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  margin: 1rem 0 0;
+}
+
+.cta {
+  align-items: center;
+  background: $brand-color;
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 0.95rem;
+  font-weight: 700;
+  justify-content: center;
+  margin-top: 1.6rem;
+  min-height: 3.25rem;
+  padding: 0.85rem 1.4rem;
+  text-decoration: none;
+  width: 100%;
+}
+
+.cta:hover,
+.cta:focus {
+  background: $button-hover-bg-color;
+  color: #fff;
+}
+
+.home {
+  color: rgba(244, 241, 234, 0.55);
+  display: inline-block;
+  font-size: 0.85rem;
+  margin-top: 1.25rem;
+  text-decoration: none;
+}
+
+.home:hover,
+.home:focus {
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    justify-content: center;
+    padding-bottom: 4rem;
+  }
+
+  .whisper {
+    font-size: 1.2rem;
+    max-width: 22rem;
+  }
+
+  .clues {
+    margin: 0 auto;
+    max-width: 40rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .reveal {
+    margin: 0 auto;
+    max-width: 40rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .cta {
+    width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
