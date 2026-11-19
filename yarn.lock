@@ -7816,6 +7816,11 @@ caniuse-lite@^1.0.30001819:
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001822.tgz#8fb8d945f5c89b1701f4360745144e3fe2ee7a7a"
   integrity sha512-Y3fvWQWzc69dlCyr07tuNrEhotv+db5FpMSPD3slZnkPKwRNOKwFBz2dP966XUmWMXLTOt+YShkFoQoom3U7hg==
 
+canvas-confetti@1.9.4:
+  version "1.9.4"
+  resolved "https://registry.yarnpkg.com/canvas-confetti/-/canvas-confetti-1.9.4.tgz#4412a5daa96afd0b4d70ecd66b65ce8db3022b2b"
+  integrity sha512-yxQbJkAVrFXWNbTUjPqjF7G+g6pDotOUHGbkZq2NELZUMDpiJ85rIEazVb8GTaAptNW2miJAXbs1BtioA251Pw==
+
 capital-case@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npmjs.org/capital-case/-/capital-case-1.0.4.tgz"
@@ -15080,7 +15085,7 @@ msgpackr-extract@^3.0.2:
     "@msgpackr-extract/msgpackr-extract-linux-x64" "3.0.7"
     "@msgpackr-extract/msgpackr-extract-win32-x64" "3.0.7"
 
-msgpackr@1.11.2, msgpackr@^1.5.4:
+msgpackr@^1.5.4:
   version "1.11.2"
   resolved "https://registry.yarnpkg.com/msgpackr/-/msgpackr-1.11.2.tgz#4463b7f7d68f2e24865c395664973562ad24473d"
   integrity sha512-F9UngXRlPyWCDEASDpTf6c9uNhGPTqnTeLVt7bN+bU1eajoR/8V9ys2BRaV5C/e5ihE6sJ9uPIKaYt6bFuO32g==
